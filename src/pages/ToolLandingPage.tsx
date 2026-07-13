@@ -4,6 +4,7 @@ import { getPSeoConfigBySlug, type PSeoKeywordConfig } from '../data/pseoKeyword
 import { SeoHead } from '../components/seo/SeoHead';
 import { Hero } from '../components/Hero';
 import { LandingSections } from '../components/landing/LandingSections';
+import { LandingStats } from '../components/landing/LandingStats';
 import { ToolGrid } from '../components/ToolGrid';
 import { useTranslation } from '../context/LanguageContext';
 import { type Language } from '../i18n/translations';
@@ -167,6 +168,9 @@ export const ToolLandingPage: React.FC = () => {
           </React.Suspense>
         )}
       </div>
+      
+      {/* STATISTICS */}
+      <LandingStats />
 
       {/* LANDING SECTIONS (Only show if a specific tool is selected, or if we want to show it on homepage too) */}
       {tool && (
