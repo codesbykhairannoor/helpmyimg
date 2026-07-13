@@ -15,6 +15,7 @@ import { AboutPage } from './pages/info/AboutPage';
 import { PrivacyPage } from './pages/info/PrivacyPage';
 import { TermsPage } from './pages/info/TermsPage';
 import { FaqPage } from './pages/info/FaqPage';
+import ScrollToTop from './components/ScrollToTop';
 import { shouldAutoRedirectToLang } from './services/geoDetector';
 import { SUPPORTED_LANGUAGES } from './i18n/translations';
 
@@ -29,29 +30,23 @@ const RootRedirector: React.FC = () => {
   if (targetPath) {
     return <Navigate to={targetPath} replace />;
   }
-  return <ToolLandingPage />;
+  return <Navigate to="/en" replace />;
 };
 
 import { SeoFooterMatrix } from './components/seo/SeoFooterMatrix';
 
-// Fallback loader while translations load
-const Loader = () => (
-  <div className="min-h-screen bg-dark-900 flex items-center justify-center">
-    <div className="w-12 h-12 border-4 border-neon-cyan/20 border-t-neon-cyan rounded-full animate-spin"></div>
-  </div>
-);
 
 function App() {
   return (
     <HelmetProvider>
-      <Suspense fallback={<Loader />}>
+      <Suspense fallback={<div className="min-h-screen bg-dark-900 flex items-center justify-center"><div className="w-16 h-16 border-4 border-neon-cyan/20 border-t-neon-cyan rounded-full animate-spin"></div></div>}>
         <ThemeProvider>
-          <LanguageProvider>
-            <BrowserRouter>
+        <LanguageProvider>
+          <BrowserRouter>
+            <ScrollToTop />
+            <div className="min-h-screen bg-dark-900 text-slate-100 font-body flex flex-col transition-colors duration-300 selection:bg-neon-cyan/30 selection:text-neon-cyan">
               <JsonLd />
-              
-              <div className="min-h-screen bg-dark-900 text-slate-100 font-body flex flex-col transition-colors duration-300">
-                <Navbar />
+              <Navbar />
               
               <main className="flex-1 w-full flex flex-col gap-8 md:gap-16 pb-16">
                 <div className="relative">

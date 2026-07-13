@@ -5,7 +5,7 @@ import React, { useState, useRef, useEffect, Suspense } from 'react';
 import { useParams } from 'react-router-dom';
 import { useTranslation } from '../../context/LanguageContext';
 import { aiService } from '../../services/aiService';
-import { Upload, Scissors, Loader2, Sparkles, Image as ImageIcon } from 'lucide-react';
+import { Upload, Download, Scissors, Loader2, Sparkles, Image as ImageIcon } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 const RemoveBgControl = React.lazy(() => import('./tools/RemoveBgControl').then(m => ({ default: m.RemoveBgControl })));
@@ -480,10 +480,10 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({ initialTab = 'remo
   }, [activeTab, currentItem?.processedUrl]);
 
   return (
-    <section id="workspace" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    <section id="workspace" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 md:py-8">
 
       {/* Grid Workspace: Viewport Kiri & Panel Kontrol Kanan */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 lg:gap-8 items-start">
           {/* Viewport & Dropzone (8 Kolom di Desktop) */}
           <div className="lg:col-span-7 xl:col-span-8 space-y-4">
             {/* Viewport Canvas */}
@@ -499,7 +499,7 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({ initialTab = 'remo
                   if (e.dataTransfer.files) handleFiles(e.dataTransfer.files);
                 }}
                 onClick={() => fileInputRef.current?.click()}
-                className={`w-full aspect-video md:aspect-[4/3] rounded-3xl border-2 border-dashed transition-all duration-300 flex flex-col items-center justify-center p-8 text-center cursor-pointer relative overflow-hidden group ${
+                className={`w-full aspect-video md:aspect-[4/3] rounded-3xl border-2 border-dashed transition-all duration-300 flex flex-col items-center justify-center p-4 md:p-8 text-center cursor-pointer relative overflow-hidden group ${
                   isDragging
                     ? 'border-neon-cyan bg-neon-cyan/10 shadow-glow-cyan scale-[0.99]'
                     : 'border-dark-500/80 bg-dark-800/40 hover:border-neon-cyan/60 hover:bg-dark-800/70'
@@ -589,7 +589,7 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({ initialTab = 'remo
                             initial={{ opacity: 0, scale: 0.95 }}
                             animate={{ opacity: 1, scale: 1 }}
                             transition={{ duration: 0.2 }}
-                            src={currentItem.processedUrl || currentItem.originalUrl}
+                            src={activeTab === 'blurface' ? currentItem.originalUrl : (currentItem.processedUrl || currentItem.originalUrl)}
                             alt="Image"
                             style={activeTab === 'resize' && resizeWidth > 0 && resizeHeight > 0 ? {
                                aspectRatio: `${resizeWidth} / ${resizeHeight}`,
@@ -1079,12 +1079,18 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({ initialTab = 'remo
                     <h3 className="text-xl font-heading font-bold text-white mb-1">Design Editor</h3>
                     <p className="text-xs text-slate-400 font-medium">Full-featured image studio.</p>
                   </div>
-                  <div className="p-6 text-center flex flex-col gap-4 items-center justify-center">
-                    <p className="text-slate-300 text-sm">
-                      Use the advanced editor tools in the main preview area to draw, add text, apply filters, and more.
-                    </p>
-                    <div className="text-xs font-mono text-slate-500 bg-dark-800 p-3 rounded-lg border border-dark-600">
-                      Supports layers, image merging, filters, and custom watermarks.
+                  <div className="p-6 flex flex-col gap-6">
+                    <div className="bg-dark-800 p-5 rounded-2xl border border-dark-600/50 flex flex-col gap-4 text-center">
+                      <p className="text-sm text-slate-300">
+                        Design your image using the advanced tools in the preview area.
+                      </p>
+                      <div className="w-full py-3 bg-neon-indigo/10 border border-neon-indigo/30 rounded-xl text-sm font-bold text-neon-indigo flex items-center justify-center gap-2">
+                        <Download className="w-4 h-4" />
+                        Click "Save" inside the Editor
+                      </div>
+                    </div>
+                    <div className="text-xs font-mono text-slate-500 bg-dark-800 p-4 rounded-xl border border-dark-600 text-center">
+                      Supports layers, image merging, drawing, text, filters, and custom watermarks.
                     </div>
                   </div>
                 </div>

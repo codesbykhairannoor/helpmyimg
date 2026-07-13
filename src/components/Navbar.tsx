@@ -89,32 +89,32 @@ export const Navbar: React.FC = () => {
               </span>
               
               {/* Mega Menu Dropdown */}
-              <div className="absolute left-1/2 -translate-x-1/2 top-full mt-2 w-[850px] bg-white dark:bg-dark-800/95 backdrop-blur-xl border border-slate-200 dark:border-dark-500/80 rounded-3xl shadow-[0_30px_60px_-15px_rgba(0,0,0,0.2)] dark:shadow-2xl opacity-0 invisible group-hover/more:opacity-100 group-hover/more:visible transition-all duration-300 p-7 z-50">
-                <div className="grid grid-cols-3 gap-x-8 gap-y-6">
+              <div className="absolute left-1/2 -translate-x-1/2 top-full mt-2 w-[850px] bg-white dark:bg-dark-800/95 backdrop-blur-xl border border-slate-200 dark:border-dark-500/80 rounded-3xl shadow-[0_30px_60px_-15px_rgba(0,0,0,0.2)] dark:shadow-2xl opacity-0 invisible group-hover/more:opacity-100 group-hover/more:visible transition-all duration-300 p-5 z-50">
+                <div className="grid grid-cols-3 gap-x-6 gap-y-4">
                   {categories.filter(c => c.id !== 'all').map(cat => {
                     const catTools = tools.filter(t => t.category === cat.id);
                     if (catTools.length === 0) return null;
                     
                     return (
-                      <div key={cat.id} className="break-inside-avoid space-y-4">
-                        <div className="text-[11px] font-mono font-bold text-slate-500 dark:text-slate-400 uppercase tracking-widest border-b border-slate-100 dark:border-dark-600/50 pb-2">
+                      <div key={cat.id} className="break-inside-avoid space-y-2">
+                        <div className="text-[10px] font-mono font-bold text-slate-500 dark:text-slate-400 uppercase tracking-widest border-b border-slate-100 dark:border-dark-600/50 pb-1.5">
                           {t(cat.labelKey)}
                         </div>
-                        <div className="space-y-2">
+                        <div className="space-y-1">
                           {catTools.map(tool => (
                             <Link 
                               key={tool.id} 
                               to={`/${lang}/${getLocalizedSlug(tool.id, lang)}`} 
-                              className="flex items-start gap-3.5 p-3 -mx-3 rounded-2xl hover:bg-slate-50 dark:hover:bg-dark-700/50 transition-colors group/item"
+                              className="flex items-start gap-3 p-2 -mx-2 rounded-2xl hover:bg-slate-50 dark:hover:bg-dark-700/50 transition-colors group/item"
                             >
-                              <div className="w-10 h-10 rounded-xl bg-slate-100 dark:bg-dark-700 flex items-center justify-center shrink-0 group-hover/item:bg-neon-cyan/10 dark:group-hover/item:bg-neon-cyan/20 group-hover/item:text-neon-cyan transition-colors text-slate-500 dark:text-slate-400 shadow-sm dark:shadow-none">
-                                <tool.icon className="w-5 h-5" />
+                              <div className="w-8 h-8 rounded-xl bg-slate-100 dark:bg-dark-700 flex items-center justify-center shrink-0 group-hover/item:bg-neon-cyan/10 dark:group-hover/item:bg-neon-cyan/20 group-hover/item:text-neon-cyan transition-colors text-slate-500 dark:text-slate-400 shadow-sm dark:shadow-none">
+                                <tool.icon className="w-4 h-4" />
                               </div>
                               <div className="pt-0.5">
-                                <div className="text-sm font-semibold text-slate-800 dark:text-slate-200 group-hover/item:text-neon-cyan transition-colors">
+                                <div className="text-xs font-semibold text-slate-800 dark:text-slate-200 group-hover/item:text-neon-cyan transition-colors">
                                   {t(tool.titleKey)}
                                 </div>
-                                <div className="text-xs text-slate-500 dark:text-slate-400 mt-1 leading-snug line-clamp-2">
+                                <div className="text-[10px] text-slate-500 dark:text-slate-400 mt-0.5 leading-snug line-clamp-2">
                                   {t(tool.descKey)}
                                 </div>
                               </div>

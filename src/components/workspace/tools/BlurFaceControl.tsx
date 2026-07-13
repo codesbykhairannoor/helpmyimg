@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { ScanFace, UserPlus, Download, RefreshCw, Sparkles, PlusSquare, Trash2 } from 'lucide-react';
+import { ScanFace, UserPlus, Download, RefreshCw, Sparkles, Trash2 } from 'lucide-react';
 import { FaceDetector, FilesetResolver } from '@mediapipe/tasks-vision';
 
 export interface BlurBox {
@@ -79,19 +79,7 @@ export const BlurFaceControl: React.FC<BlurFaceControlProps> = ({
     setDetecting(false);
   };
 
-  const handleAddManualBox = () => {
-    if (!imageElement) return;
-    setBoxes(prev => [
-      ...prev,
-      {
-        id: `manual_${Date.now()}`,
-        x: imageElement.naturalWidth / 2 - 100,
-        y: imageElement.naturalHeight / 2 - 100,
-        width: 200,
-        height: 200
-      }
-    ]);
-  };
+
 
   // Automatically run detection when mode switches to 'auto' if no boxes exist
   useEffect(() => {
@@ -168,14 +156,16 @@ export const BlurFaceControl: React.FC<BlurFaceControlProps> = ({
             </div>
           ) : (
             <div className="text-center">
-              <p className="text-sm text-slate-300 mb-4">Draw or add areas to blur.</p>
-              <button 
-                onClick={handleAddManualBox}
-                className="w-full py-3 bg-dark-700 hover:bg-dark-600 border border-dark-500 rounded-xl text-sm font-bold text-white transition-all flex items-center justify-center gap-2"
-              >
-                <PlusSquare className="w-4 h-4 text-neon-pink" />
-                Add Blur Area
-              </button>
+              <p className="text-sm text-slate-300 mb-4">Click and drag on the image to draw custom blur areas.</p>
+              {boxes.length > 0 && (
+                <button 
+                  onClick={() => setBoxes([])}
+                  className="w-full py-3 bg-dark-700 hover:bg-dark-600 border border-dark-500 rounded-xl text-sm font-bold text-white transition-all flex items-center justify-center gap-2"
+                >
+                  <Trash2 className="w-4 h-4 text-red-400" />
+                  Clear All Areas
+                </button>
+              )}
             </div>
           )}
           
