@@ -6,7 +6,7 @@ import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { useTranslation } from '../context/LanguageContext';
 import { useTheme } from '../context/ThemeContext';
 import { SUPPORTED_LANGUAGES, type Language } from '../i18n/translations';
-import { Sparkles, Globe, ChevronDown, Sun, Moon, Menu, X } from 'lucide-react';
+import { Globe, ChevronDown, Sun, Moon, Menu, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { getToolFromSlug, getLocalizedSlug } from '../utils/urlMapper';
 import { tools, categories } from '../config/tools';
