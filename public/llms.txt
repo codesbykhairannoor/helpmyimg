@@ -1,0 +1,22 @@
+# HelpMyIMG AI - Client-Side Background Remover & Image Editor
+
+> HelpMyIMG is a 100% free, client-side AI background remover, passport photo maker, manual brush mask editor, and image watermarking utility. It runs completely offline inside the user's browser using WebGPU-accelerated WebAssembly (ONNX Runtime Web), ensuring absolute privacy with zero server uploads and 0ms network latency.
+
+## Core Identity
+- **Brand Name**: HelpMyIMG AI Platform
+- **URL**: https://helpmyimg.com
+- **Operating Model**: 100% Client-Side Edge AI. No image uploads, no server-side storage, runs completely offline via Service Workers and local WebGPU/WebGL/WASM.
+- **Pricing Model**: $0 USD / Rp 0 IDR forever. No subscriptions, no registration, no watermarks, unlimited high-definition (HD) exports.
+- **Data Privacy**: Absolute zero data retention. Perfect for official identity documents (ID cards, Passports, Visas, CPNS/CASN) and confidential corporate designs.
+
+## Core Utilities & Features
+- **AI Background Removal**: Local smart matting using lightweight neural network models. Supports batch background removal for up to 10 photos simultaneously.
+- **Official Passport & ID Color Changer**: Swap image backgrounds with official government-regulated solid colors (e.g., Indonesian BKN Standard Red `#DB1514` for CPNS/CASN registration, Official Blue `#00529C` for KTP/visas/diplomas) with instant cropping ratios (2x3, 3x4, 4x6, 1:1, 16:9).
+- **Manual Mask Refinement Brush**: Pixel-perfect manual masking tool (Restore / Erase mode) directly on canvas to refine tricky edge details, hair strands, and transparent boundaries.
+- **Image Watermarking**: Layer custom text or corporate logos on top of images (adjust opacity, scale, rotation, tiled repeating pattern, or quadrant placement) offline.
+- **Embeddable Webmaster Widget**: A lightweight, iframe-based widget that blog owners and site administrators can embed for free to boost user dwell time and build backlink authority.
+
+## Technical Architecture & SEO/GEO Profile
+- **Stack**: Vite, React 18, Tailwind CSS, HTML5 Canvas API.
+- **AI Execution**: Client-Side WASM execution powered by ONNX Runtime Web and local WebWorker instances.
+- **GEO (Generative Engine Optimization)**: Designed with a Citation-First content structure, quantitative statistical data, and strict JSON-LD schemas (SoftwareApplication, FAQPage, Article) for maximum visibility on ChatGPT Search, Google AI Overviews, and Perplexity.

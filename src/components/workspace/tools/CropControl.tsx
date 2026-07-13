@@ -1,0 +1,157 @@
+// src/components/workspace/tools/CropControl.tsx
+import React from 'react';
+import { useTranslation } from '../../../context/LanguageContext';
+import { Crop, Download, RefreshCw } from 'lucide-react';
+import confetti from 'canvas-confetti';
+
+interface CropControlProps {
+  originalWidth: number;
+  originalHeight: number;
+  cropX: number;
+  setCropX: (v: number) => void;
+  cropY: number;
+  setCropY: (v: number) => void;
+  cropWidth: number;
+  setCropWidth: (v: number) => void;
+  cropHeight: number;
+  setCropHeight: (v: number) => void;
+  onDownload: () => void;
+  onReset: () => void;
+  isProcessing: boolean;
+}
+
+export const CropControl: React.FC<CropControlProps> = ({
+  originalWidth,
+  originalHeight,
+  cropX,
+  setCropX,
+  cropY,
+  setCropY,
+  cropWidth,
+  setCropWidth,
+  cropHeight,
+  setCropHeight,
+  onDownload,
+  onReset,
+  isProcessing,
+}) => {
+  const { t } = useTranslation();
+
+  const handleDownload = () => {
+    confetti({ particleCount: 100, spread: 70, origin: { y: 0.7 } });
+    onDownload();
+  };
+
+  // Presets
+  const presets = [
+    { label: '1:1', w: Math.min(originalWidth, originalHeight), h: Math.min(originalWidth, originalHeight) },
+    { label: '4:3', w: originalWidth, h: Math.round(originalWidth * 3 / 4) },
+    { label: '16:9', w: originalWidth, h: Math.round(originalWidth * 9 / 16) },
+    { label: '3:2', w: originalWidth, h: Math.round(originalWidth * 2 / 3) },
+  ];
+
+  return (
+    <div className="space-y-6 overflow-y-visible">
+      <div className="space-y-4">
+        <div className="flex items-center gap-2 text-sm font-semibold text-white">
+          <Crop className="w-4 h-4 text-neon-violet" />
+          <span>{t('crop.title')}</span>
+        </div>
+
+        {/* Crop Presets */}
+        <div className="space-y-2">
+          <label className="text-xs text-slate-400 font-medium">{t('crop.presets')}</label>
+          <div className="flex flex-wrap gap-2">
+            {presets.map(p => (
+              <button
+                key={p.label}
+                onClick={() => {
+                  setCropX(0);
+                  setCropY(0);
+                  setCropWidth(Math.min(p.w, originalWidth));
+                  setCropHeight(Math.min(p.h, originalHeight));
+                }}
+                className="px-3 py-1.5 rounded-lg bg-dark-800 border border-dark-600 hover:border-neon-violet text-xs font-semibold text-slate-300 transition-colors"
+              >
+                {p.label}
+              </button>
+            ))}
+          </div>
+        </div>
+
+        {/* X & Y Position */}
+        <div className="grid grid-cols-2 gap-3">
+          <div className="space-y-1">
+            <label className="text-xs text-slate-400 font-medium">X ({t('crop.offset')})</label>
+            <input
+              type="number"
+              value={cropX || 0}
+              min={0}
+              max={originalWidth - 1}
+              onChange={(e) => setCropX(Math.max(0, Math.min(parseInt(e.target.value) || 0, originalWidth - 1)))}
+              className="w-full bg-dark-800 border border-dark-600 rounded-lg px-3 py-2 text-white outline-none focus:border-neon-violet text-sm"
+            />
+          </div>
+          <div className="space-y-1">
+            <label className="text-xs text-slate-400 font-medium">Y ({t('crop.offset')})</label>
+            <input
+              type="number"
+              value={cropY || 0}
+              min={0}
+              max={originalHeight - 1}
+              onChange={(e) => setCropY(Math.max(0, Math.min(parseInt(e.target.value) || 0, originalHeight - 1)))}
+              className="w-full bg-dark-800 border border-dark-600 rounded-lg px-3 py-2 text-white outline-none focus:border-neon-violet text-sm"
+            />
+          </div>
+        </div>
+
+        {/* Width & Height */}
+        <div className="grid grid-cols-2 gap-3">
+          <div className="space-y-1">
+            <label className="text-xs text-slate-400 font-medium">{t('crop.width')} (px)</label>
+            <input
+              type="number"
+              value={cropWidth || ''}
+              min={1}
+              max={originalWidth - cropX}
+              onChange={(e) => setCropWidth(Math.max(1, Math.min(parseInt(e.target.value) || 1, originalWidth - cropX)))}
+              className="w-full bg-dark-800 border border-dark-600 rounded-lg px-3 py-2 text-white outline-none focus:border-neon-violet text-sm"
+            />
+          </div>
+          <div className="space-y-1">
+            <label className="text-xs text-slate-400 font-medium">{t('crop.height')} (px)</label>
+            <input
+              type="number"
+              value={cropHeight || ''}
+              min={1}
+              max={originalHeight - cropY}
+              onChange={(e) => setCropHeight(Math.max(1, Math.min(parseInt(e.target.value) || 1, originalHeight - cropY)))}
+              className="w-full bg-dark-800 border border-dark-600 rounded-lg px-3 py-2 text-white outline-none focus:border-neon-violet text-sm"
+            />
+          </div>
+        </div>
+      </div>
+
+
+      <div className="space-y-3 pt-2">
+        <button
+          onClick={handleDownload}
+          disabled={isProcessing || cropWidth <= 0 || cropHeight <= 0}
+          className="w-full flex items-center justify-center gap-2.5 py-3.5 px-4 rounded-xl bg-gradient-to-r from-violet-400 to-neon-violet text-dark-900 font-extrabold shadow-glow-violet transition-all duration-200 disabled:opacity-50 transform hover:-translate-y-0.5"
+        >
+          <Download className="w-5 h-5" />
+          <span>{isProcessing ? t('btn.processing') : t('btn.download')}</span>
+        </button>
+
+        <button
+          onClick={onReset}
+          disabled={isProcessing}
+          className="w-full flex items-center justify-center gap-2 py-3 px-4 rounded-xl border border-dark-600 bg-dark-800 text-slate-300 font-semibold hover:bg-dark-700 hover:text-white transition-colors disabled:opacity-50"
+        >
+          <RefreshCw className="w-4 h-4" />
+          <span>{t('btn.reset')}</span>
+        </button>
+      </div>
+    </div>
+  );
+};

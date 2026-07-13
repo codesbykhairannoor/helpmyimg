@@ -1,0 +1,287 @@
+// src/components/Navbar.tsx
+// Navigasi Atas dengan Pemilih 10 Bahasa dan Lencana Kecepatan AI (Subdirectory Router)
+
+import React, { useState } from 'react';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
+import { useTranslation } from '../context/LanguageContext';
+import { useTheme } from '../context/ThemeContext';
+import { SUPPORTED_LANGUAGES, type Language } from '../i18n/translations';
+import { Sparkles, Globe, ChevronDown, Sun, Moon, Menu, X } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { getToolFromSlug, getLocalizedSlug } from '../utils/urlMapper';
+import { tools, categories } from '../config/tools';
+
+export const Navbar: React.FC = () => {
+  const { lang, setLang, t } = useTranslation();
+  const { theme, toggleTheme } = useTheme();
+  const [langOpen, setLangOpen] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [searchQuery, setSearchQuery] = useState('');
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const currentLang = SUPPORTED_LANGUAGES.find((l) => l.code === lang) || SUPPORTED_LANGUAGES[0];
+
+  const filteredLangs = SUPPORTED_LANGUAGES.filter((l) =>
+    l.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+    l.code.toLowerCase().includes(searchQuery.toLowerCase())
+  );
+
+  const handleLangChange = (newLang: Language) => {
+    setLang(newLang);
+    setLangOpen(false);
+    
+    // Ganti subdirektori bahasa di URL saat ini (misal /id/hapus... -> /en/remove...)
+    const currentPath = location.pathname;
+    const pathParts = currentPath.split('/').filter(Boolean);
+    if (pathParts.length > 0 && SUPPORTED_LANGUAGES.some(l => l.code === pathParts[0])) {
+      const oldLang = pathParts[0];
+      pathParts[0] = newLang;
+      
+      if (pathParts[1]) {
+        // Map current localized slug back to internal tool, then map to new localized slug
+        const internalTool = getToolFromSlug(pathParts[1], oldLang);
+        pathParts[1] = getLocalizedSlug(internalTool, newLang);
+      }
+      
+      navigate('/' + pathParts.join('/'));
+    } else {
+      navigate(`/${newLang}/${getLocalizedSlug('remove', newLang)}`);
+    }
+  };
+
+  return (
+    <header className="sticky top-0 z-50 w-full border-b border-dark-500/40 bg-dark-900/80 backdrop-blur-xl">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+        {/* Kiri: Brand Logo */}
+        <div className="flex items-center justify-start flex-shrink-0">
+          <Link to={`/${lang}`} className="flex items-center gap-2.5 group">
+            <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-neon-cyan via-neon-indigo to-neon-violet p-0.5 shadow-glow-cyan transition-all duration-300 group-hover:scale-105">
+              <div className="w-full h-full bg-dark-900 rounded-[10px] flex items-center justify-center">
+                <Sparkles className="w-5 h-5 text-neon-cyan animate-pulse" />
+              </div>
+            </div>
+            <div className="flex flex-col">
+              <span className="text-xl font-heading font-extrabold tracking-tight text-white flex items-center gap-1">
+                {t('nav.brand')}
+                <span className="text-xs px-1.5 py-0.5 rounded-full bg-neon-cyan/20 text-neon-cyan border border-neon-cyan/40 font-mono">
+                  AI
+                </span>
+              </span>
+            </div>
+          </Link>
+        </div>
+
+        {/* Tengah: Navigation Links (Desktop) */}
+        <div className="hidden lg:flex items-center justify-center flex-1 relative group px-4">
+          <nav className="flex items-center gap-4 xl:gap-6 text-sm font-medium text-slate-300">
+            <Link to={`/${lang}/${getLocalizedSlug('remove', lang)}`} className="hover:text-neon-cyan transition-colors font-semibold flex items-center gap-1.5 whitespace-nowrap capitalize">
+              {t('nav.removeBg')}
+            </Link>
+            <Link to={`/${lang}/${getLocalizedSlug('compress', lang)}`} className="hover:text-neon-cyan transition-colors font-semibold flex items-center gap-1.5 whitespace-nowrap capitalize">
+              {t('nav.compress') || 'Compress'}
+            </Link>
+            <Link to={`/${lang}/${getLocalizedSlug('resize', lang)}`} className="hover:text-neon-cyan transition-colors font-semibold flex items-center gap-1.5 whitespace-nowrap capitalize">
+              {t('nav.resize') || 'Resize'}
+            </Link>
+            
+            <div className="relative group/more cursor-pointer">
+              <span className="hover:text-neon-cyan transition-colors font-semibold flex items-center gap-1 whitespace-nowrap capitalize">
+                {t('nav.tools') || 'All AI Tools'} <ChevronDown className="w-3.5 h-3.5" />
+              </span>
+              
+              {/* Mega Menu Dropdown */}
+              <div className="absolute left-1/2 -translate-x-1/2 top-full mt-2 w-[650px] bg-white dark:bg-dark-800/95 backdrop-blur-xl border border-slate-200 dark:border-dark-500/80 rounded-3xl shadow-[0_30px_60px_-15px_rgba(0,0,0,0.2)] dark:shadow-2xl opacity-0 invisible group-hover/more:opacity-100 group-hover/more:visible transition-all duration-300 p-7 z-50">
+                <div className="columns-2 gap-8 space-y-6">
+                  {categories.filter(c => c.id !== 'all').map(cat => {
+                    const catTools = tools.filter(t => t.category === cat.id);
+                    if (catTools.length === 0) return null;
+                    
+                    return (
+                      <div key={cat.id} className="break-inside-avoid space-y-4">
+                        <div className="text-[11px] font-mono font-bold text-slate-500 dark:text-slate-400 uppercase tracking-widest border-b border-slate-100 dark:border-dark-600/50 pb-2">
+                          {t(cat.labelKey)}
+                        </div>
+                        <div className="space-y-2">
+                          {catTools.map(tool => (
+                            <Link 
+                              key={tool.id} 
+                              to={`/${lang}/${getLocalizedSlug(tool.id, lang)}`} 
+                              className="flex items-start gap-3.5 p-3 -mx-3 rounded-2xl hover:bg-slate-50 dark:hover:bg-dark-700/50 transition-colors group/item"
+                            >
+                              <div className="w-10 h-10 rounded-xl bg-slate-100 dark:bg-dark-700 flex items-center justify-center shrink-0 group-hover/item:bg-neon-cyan/10 dark:group-hover/item:bg-neon-cyan/20 group-hover/item:text-neon-cyan transition-colors text-slate-500 dark:text-slate-400 shadow-sm dark:shadow-none">
+                                <tool.icon className="w-5 h-5" />
+                              </div>
+                              <div className="pt-0.5">
+                                <div className="text-sm font-semibold text-slate-800 dark:text-slate-200 group-hover/item:text-neon-cyan transition-colors">
+                                  {t(tool.titleKey)}
+                                </div>
+                                <div className="text-xs text-slate-500 dark:text-slate-400 mt-1 leading-snug line-clamp-2">
+                                  {t(tool.descKey)}
+                                </div>
+                              </div>
+                            </Link>
+                          ))}
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+            </div>
+          </nav>
+        </div>
+
+        {/* Kanan: Theme Toggle, Language Switcher, Mobile Menu */}
+        <div className="flex items-center justify-end gap-2 sm:gap-3 flex-shrink-0">
+
+          {/* Theme Toggle Button (Light Mode / Dark Mode) */}
+          <button
+            onClick={toggleTheme}
+            className="flex items-center justify-center w-9 h-9 bg-dark-800 hover:bg-dark-700 border border-dark-500/60 rounded-xl text-slate-200 transition-all duration-200 shadow-sm"
+            aria-label="Toggle Theme"
+            title={theme === 'dark' ? 'Light Mode' : 'Dark Mode'}
+          >
+            {theme === 'dark' ? (
+              <Sun className="w-4 h-4 text-amber-400 hover:rotate-45 transition-transform duration-300" />
+            ) : (
+              <Moon className="w-4 h-4 text-indigo-400 hover:-rotate-12 transition-transform duration-300" />
+            )}
+          </button>
+
+          {/* Language Switcher Dropdown (30 Bahasa with Search) */}
+          <div className="relative">
+            <button
+              onClick={() => {
+                setLangOpen(!langOpen);
+                setSearchQuery('');
+              }}
+              className="flex items-center gap-2 bg-dark-800 hover:bg-dark-700 border border-dark-500/60 px-3 py-1.5 rounded-xl text-sm font-medium text-slate-200 transition-all duration-200 shadow-sm"
+              aria-label="Pilih Bahasa"
+            >
+              <Globe className="w-4 h-4 text-neon-cyan" />
+              <span>{currentLang.flag}</span>
+              <span className="hidden sm:inline uppercase font-mono text-xs">{currentLang.code}</span>
+              <ChevronDown className={`w-3.5 h-3.5 text-slate-400 transition-transform duration-200 ${langOpen ? 'rotate-180' : ''}`} />
+            </button>
+
+            <AnimatePresence>
+              {langOpen && (
+                <>
+                  <div
+                    className="fixed inset-0 z-40"
+                    onClick={() => setLangOpen(false)}
+                  />
+                  <motion.div
+                    initial={{ opacity: 0, y: -10, scale: 0.95 }}
+                    animate={{ opacity: 1, y: 0, scale: 1 }}
+                    exit={{ opacity: 0, y: -10, scale: 0.95 }}
+                    transition={{ duration: 0.15 }}
+                    className="absolute right-0 mt-2 w-64 sm:w-72 bg-dark-800 border border-dark-500/80 rounded-2xl shadow-2xl py-2 z-50 max-h-96 flex flex-col overflow-hidden"
+                  >
+                    <div className="px-3 py-1.5 text-xs font-semibold text-slate-400 uppercase tracking-wider border-b border-dark-600/50 mb-1 flex items-center justify-between">
+                      <span>{t('nav.selectLang')}</span>
+                      <span className="text-neon-cyan font-mono">{filteredLangs.length}</span>
+                    </div>
+                    
+                    {/* Search Input */}
+                    <div className="px-3 py-1.5 border-b border-dark-600/50 bg-dark-900/50">
+                      <input
+                        type="text"
+                        placeholder={t('nav.searchLang')}
+                        value={searchQuery}
+                        onChange={(e) => setSearchQuery(e.target.value)}
+                        className="w-full bg-dark-800 text-xs text-white px-2.5 py-1.5 rounded-lg border border-dark-500 focus:outline-none focus:border-neon-cyan transition-colors"
+                        autoFocus
+                      />
+                    </div>
+
+                    <div className="overflow-y-auto flex-1 divide-y divide-dark-700/40">
+                      {filteredLangs.length === 0 ? (
+                        <div className="p-4 text-center text-xs text-slate-400">
+                          {t('nav.noLang')}
+                        </div>
+                      ) : (
+                        filteredLangs.map((l) => (
+                          <Link
+                            key={l.code}
+                            to={`/${l.code}`}
+                            onClick={(e) => {
+                              e.preventDefault();
+                              handleLangChange(l.code as Language);
+                            }}
+                            className={`w-full flex items-center justify-between px-3.5 py-2 text-sm transition-colors ${
+                              lang === l.code
+                                ? 'bg-neon-cyan/15 text-neon-cyan font-semibold'
+                                : 'text-slate-300 hover:bg-dark-700 hover:text-white'
+                            }`}
+                          >
+                            <span className="flex items-center gap-2.5">
+                              <span className="text-base">{l.flag}</span>
+                              <span>{l.name}</span>
+                              <span className="text-xs font-mono text-slate-500 uppercase">({l.code})</span>
+                            </span>
+                            {lang === l.code && (
+                              <span className="w-1.5 h-1.5 rounded-full bg-neon-cyan shadow-glow-cyan" />
+                            )}
+                          </Link>
+                        ))
+                      )}
+                    </div>
+                  </motion.div>
+                </>
+              )}
+            </AnimatePresence>
+          </div>
+
+          {/* Mobile Menu Toggle */}
+          <button
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            className="lg:hidden flex items-center justify-center w-9 h-9 bg-dark-800 hover:bg-dark-700 border border-dark-500/60 rounded-xl text-slate-200 transition-all duration-200 shadow-sm ml-1"
+            aria-label="Toggle Mobile Menu"
+          >
+            {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+          </button>
+        </div>
+      </div>
+
+      {/* Mobile Menu Overlay */}
+      <AnimatePresence>
+        {mobileMenuOpen && (
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: 'auto' }}
+            exit={{ opacity: 0, height: 0 }}
+            className="lg:hidden overflow-hidden bg-dark-900 border-b border-dark-500/40"
+          >
+            <nav className="flex flex-col px-4 pt-4 pb-6 space-y-5 h-full overflow-y-auto">
+              {categories.filter(c => c.id !== 'all').map(cat => {
+                const catTools = tools.filter(t => t.category === cat.id);
+                if (catTools.length === 0) return null;
+
+                return (
+                  <div key={cat.id} className="space-y-2">
+                    <div className="text-[10px] font-mono font-bold text-slate-400 uppercase tracking-widest pl-2">{t(cat.labelKey)}</div>
+                    <div className="grid grid-cols-2 gap-2">
+                      {catTools.map(tool => (
+                        <Link
+                          key={tool.id}
+                          to={`/${lang}/${getLocalizedSlug(tool.id, lang)}`}
+                          onClick={() => setMobileMenuOpen(false)}
+                          className="flex flex-col items-center justify-center p-3 rounded-xl bg-dark-800 border border-dark-600 hover:border-neon-cyan hover:bg-dark-700 transition-colors text-center"
+                        >
+                          <tool.icon className="w-5 h-5 text-neon-cyan mb-1.5" />
+                          <span className="text-xs font-semibold text-slate-200">{t(tool.titleKey)}</span>
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
+                );
+              })}
+            </nav>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </header>
+  );
+};

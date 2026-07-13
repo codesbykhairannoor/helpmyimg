@@ -1,0 +1,146 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-bg-900: 220 25% 97%;
+  --color-bg-800: 0 0% 100%;
+  --color-bg-700: 220 20% 93%;
+  --color-bg-600: 220 15% 85%;
+  --color-bg-500: 220 15% 75%;
+}
+
+.dark {
+  --color-bg-900: 222 47% 7%;
+  --color-bg-800: 222 47% 11%;
+  --color-bg-700: 222 47% 15%;
+  --color-bg-600: 222 47% 20%;
+  --color-bg-500: 217 33% 25%;
+}
+
+@layer base {
+  body {
+    @apply bg-dark-900 text-slate-100 font-body min-h-screen overflow-x-hidden antialiased transition-colors duration-300;
+    background-image: 
+      radial-gradient(at 10% 20%, hsla(250, 90%, 65%, 0.15) 0px, transparent 50%),
+      radial-gradient(at 90% 80%, hsla(190, 95%, 50%, 0.15) 0px, transparent 50%),
+      radial-gradient(at 50% 50%, hsla(280, 85%, 60%, 0.1) 0px, transparent 50%);
+    background-attachment: fixed;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading font-bold tracking-tight;
+  }
+}
+
+@layer utilities {
+  .glass-panel {
+    @apply bg-dark-800/70 backdrop-blur-xl border border-dark-500/40 rounded-2xl shadow-glass transition-all duration-300;
+  }
+
+  .glass-card {
+    @apply bg-dark-800/50 backdrop-blur-lg border border-dark-500/30 rounded-xl transition-all duration-300 hover:border-neon-cyan/50 hover:bg-dark-700/60;
+  }
+
+  .gradient-text {
+    @apply bg-gradient-to-r from-neon-cyan to-neon-indigo bg-clip-text text-transparent;
+  }
+
+  .gradient-text-violet {
+    @apply bg-gradient-to-r from-neon-indigo to-neon-pink bg-clip-text text-transparent;
+  }
+
+  .gradient-text-emerald {
+    @apply bg-gradient-to-r from-neon-emerald to-neon-cyan bg-clip-text text-transparent;
+  }
+
+  .checkerboard-bg {
+    background-color: transparent;
+    background-image: radial-gradient(#d2d2d7 1px, transparent 1px);
+    background-size: 12px 12px;
+  }
+
+  .dark .checkerboard-bg {
+    background-image: radial-gradient(#3a3a3c 1px, transparent 1px);
+  }
+}
+
+/* ==========================================================================
+   LIGHT MODE APPLE AESTHETIC OVERRIDES (Unlayered for Maximum Precedence)
+   ========================================================================== */
+html:not(.dark) body {
+  color: #1d1d1f !important;
+  background-color: #f5f5f7 !important;
+  background-image: 
+    radial-gradient(at 10% 20%, hsla(190, 95%, 50%, 0.08) 0px, transparent 50%),
+    radial-gradient(at 90% 80%, hsla(250, 90%, 65%, 0.08) 0px, transparent 50%),
+    radial-gradient(at 50% 50%, hsla(280, 85%, 60%, 0.05) 0px, transparent 50%) !important;
+}
+
+html:not(.dark) .text-white,
+html:not(.dark) .text-slate-100,
+html:not(.dark) .text-slate-200 {
+  color: #1d1d1f !important;
+}
+
+html:not(.dark) .text-slate-300,
+html:not(.dark) .text-slate-400 {
+  color: #515154 !important;
+}
+
+html:not(.dark) .glass-panel {
+  background-color: rgba(255, 255, 255, 0.85) !important;
+  border-color: rgba(210, 210, 215, 0.8) !important;
+  box-shadow: 0 10px 35px 0 rgba(0, 0, 0, 0.06) !important;
+}
+
+html:not(.dark) .glass-card {
+  background-color: rgba(255, 255, 255, 0.75) !important;
+  border-color: rgba(210, 210, 215, 0.6) !important;
+  box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.04) !important;
+}
+
+html:not(.dark) .glass-card:hover {
+  background-color: rgba(255, 255, 255, 0.95) !important;
+  border-color: hsl(190, 95%, 45%) !important;
+}
+
+html:not(.dark) .bg-dark-900,
+html:not(.dark) .bg-dark-900\/90,
+html:not(.dark) .bg-dark-900\/80 {
+  background-color: #f5f5f7 !important;
+}
+
+html:not(.dark) .bg-dark-800,
+html:not(.dark) .bg-dark-800\/80,
+html:not(.dark) .bg-dark-800\/60,
+html:not(.dark) .bg-dark-800\/50,
+html:not(.dark) .bg-dark-800\/70 {
+  background-color: rgba(255, 255, 255, 0.9) !important;
+  border-color: rgba(210, 210, 215, 0.8) !important;
+}
+
+html:not(.dark) .bg-dark-700,
+html:not(.dark) .bg-dark-700\/80,
+html:not(.dark) .hover\:bg-dark-700:hover {
+  background-color: #e8e8ed !important;
+  color: #1d1d1f !important;
+}
+
+html:not(.dark) .bg-dark-600,
+html:not(.dark) .bg-dark-600\/40,
+html:not(.dark) .bg-dark-600\/50 {
+  background-color: #d2d2d7 !important;
+}
+
+html:not(.dark) .border-dark-500,
+html:not(.dark) .border-dark-500\/20,
+html:not(.dark) .border-dark-500\/30,
+html:not(.dark) .border-dark-500\/40,
+html:not(.dark) .border-dark-500\/50,
+html:not(.dark) .border-dark-500\/60,
+html:not(.dark) .border-dark-600\/40 {
+  border-color: rgba(210, 210, 215, 0.8) !important;
+}
