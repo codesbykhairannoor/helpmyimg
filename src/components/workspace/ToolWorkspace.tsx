@@ -544,7 +544,7 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({ initialTab = 'remo
               <div className="space-y-4">
                 <div className="w-full aspect-video md:aspect-[4/3] rounded-3xl border border-dark-500/80 bg-dark-900/90 shadow-glass overflow-hidden relative flex items-center justify-center checkerboard-bg">
                   {currentItem?.status === 'processing' && (
-                    <div className="absolute inset-0 bg-dark-900/80 backdrop-blur-md flex flex-col items-center justify-center z-20 space-y-4 p-6 text-center">
+                    <div className="absolute inset-0 bg-dark-900 md:bg-dark-900/80 md:backdrop-blur-md flex flex-col items-center justify-center z-20 space-y-4 p-6 text-center">
                       <div className="w-16 h-16 rounded-full border-4 border-neon-cyan/30 border-t-neon-cyan animate-spin" />
                       <div className="space-y-1">
                         <h4 className="font-heading font-bold text-white text-lg">
@@ -623,7 +623,7 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({ initialTab = 'remo
                           />
                         )}
                         {currentItem?.status === 'idle' && (
-                          <div className="absolute inset-0 bg-dark-900/50 backdrop-blur-[2px] flex flex-col items-center justify-center z-10 p-6 text-center">
+                          <div className="absolute inset-0 bg-dark-900/80 md:bg-dark-900/50 md:backdrop-blur-[2px] flex flex-col items-center justify-center z-10 p-6 text-center">
                             <button
                               aria-label={`${t('work.action.cut')} - magic eraser, smart matting algorithm, precise cutout`}
                               onClick={() => processSingleItem(currentItem)}
@@ -653,7 +653,7 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({ initialTab = 'remo
                     />
                   )}
 
-                  <div className="absolute top-4 left-4 bg-dark-900/80 backdrop-blur-md border border-dark-500 px-3 py-1.5 rounded-xl text-xs font-medium text-slate-300 flex items-center gap-2 z-50">
+                  <div className="absolute top-4 left-4 bg-dark-900 md:bg-dark-900/80 md:backdrop-blur-md border border-dark-500 px-3 py-1.5 rounded-xl text-xs font-medium text-slate-300 flex items-center gap-2 z-50">
                     <ImageIcon className="w-3.5 h-3.5 text-neon-cyan" />
                     <span className="truncate max-w-[200px]">{currentItem?.name}</span>
                   </div>

@@ -51,7 +51,7 @@ export const Navbar: React.FC = () => {
   };
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-dark-500/40 bg-dark-900/80 backdrop-blur-xl">
+    <header className="sticky top-0 z-50 w-full border-b border-dark-500/40 bg-dark-900 md:bg-dark-900/80 md:backdrop-blur-xl">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
         {/* Kiri: Brand Logo */}
         <div className="flex items-center justify-start flex-shrink-0">
@@ -89,8 +89,8 @@ export const Navbar: React.FC = () => {
               </span>
               
               {/* Mega Menu Dropdown */}
-              <div className="absolute left-1/2 -translate-x-1/2 top-full mt-2 w-[650px] bg-white dark:bg-dark-800/95 backdrop-blur-xl border border-slate-200 dark:border-dark-500/80 rounded-3xl shadow-[0_30px_60px_-15px_rgba(0,0,0,0.2)] dark:shadow-2xl opacity-0 invisible group-hover/more:opacity-100 group-hover/more:visible transition-all duration-300 p-7 z-50">
-                <div className="columns-2 gap-8 space-y-6">
+              <div className="absolute left-1/2 -translate-x-1/2 top-full mt-2 w-[850px] bg-white dark:bg-dark-800/95 backdrop-blur-xl border border-slate-200 dark:border-dark-500/80 rounded-3xl shadow-[0_30px_60px_-15px_rgba(0,0,0,0.2)] dark:shadow-2xl opacity-0 invisible group-hover/more:opacity-100 group-hover/more:visible transition-all duration-300 p-7 z-50">
+                <div className="grid grid-cols-3 gap-x-8 gap-y-6">
                   {categories.filter(c => c.id !== 'all').map(cat => {
                     const catTools = tools.filter(t => t.category === cat.id);
                     if (catTools.length === 0) return null;
@@ -133,10 +133,10 @@ export const Navbar: React.FC = () => {
         {/* Kanan: Theme Toggle, Language Switcher, Mobile Menu */}
         <div className="flex items-center justify-end gap-2 sm:gap-3 flex-shrink-0">
 
-          {/* Theme Toggle Button (Light Mode / Dark Mode) */}
+          {/* Theme Toggle Button (Light Mode / Dark Mode) - Hidden on Mobile */}
           <button
             onClick={toggleTheme}
-            className="flex items-center justify-center w-9 h-9 bg-dark-800 hover:bg-dark-700 border border-dark-500/60 rounded-xl text-slate-200 transition-all duration-200 shadow-sm"
+            className="hidden sm:flex items-center justify-center w-9 h-9 bg-dark-800 hover:bg-dark-700 border border-dark-500/60 rounded-xl text-slate-200 transition-all duration-200 shadow-sm"
             aria-label="Toggle Theme"
             title={theme === 'dark' ? 'Light Mode' : 'Dark Mode'}
           >
@@ -250,33 +250,57 @@ export const Navbar: React.FC = () => {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            className="lg:hidden overflow-hidden bg-dark-900 border-b border-dark-500/40"
+            className="lg:hidden overflow-hidden bg-dark-900 border-b border-dark-500/40 shadow-2xl"
           >
-            <nav className="flex flex-col px-4 pt-4 pb-6 space-y-5 h-full overflow-y-auto">
-              {categories.filter(c => c.id !== 'all').map(cat => {
-                const catTools = tools.filter(t => t.category === cat.id);
-                if (catTools.length === 0) return null;
+            <div className="flex flex-col px-4 pt-4 pb-6 space-y-6 h-[calc(100vh-64px)] overflow-y-auto">
+              
+              {/* Theme Toggle inside Mobile Menu */}
+              <button
+                onClick={toggleTheme}
+                className="flex items-center justify-between w-full p-4 bg-dark-800 hover:bg-dark-700 border border-dark-600 rounded-2xl transition-colors"
+              >
+                <span className="text-sm font-semibold text-slate-200">
+                  {theme === 'dark' ? 'Switch to Light Mode' : 'Switch to Dark Mode'}
+                </span>
+                {theme === 'dark' ? (
+                  <Sun className="w-5 h-5 text-amber-400" />
+                ) : (
+                  <Moon className="w-5 h-5 text-indigo-400" />
+                )}
+              </button>
 
-                return (
-                  <div key={cat.id} className="space-y-2">
-                    <div className="text-[10px] font-mono font-bold text-slate-400 uppercase tracking-widest pl-2">{t(cat.labelKey)}</div>
-                    <div className="grid grid-cols-2 gap-2">
-                      {catTools.map(tool => (
-                        <Link
-                          key={tool.id}
-                          to={`/${lang}/${getLocalizedSlug(tool.id, lang)}`}
-                          onClick={() => setMobileMenuOpen(false)}
-                          className="flex flex-col items-center justify-center p-3 rounded-xl bg-dark-800 border border-dark-600 hover:border-neon-cyan hover:bg-dark-700 transition-colors text-center"
-                        >
-                          <tool.icon className="w-5 h-5 text-neon-cyan mb-1.5" />
-                          <span className="text-xs font-semibold text-slate-200">{t(tool.titleKey)}</span>
-                        </Link>
-                      ))}
+              <nav className="flex flex-col space-y-6">
+                {categories.filter(c => c.id !== 'all').map(cat => {
+                  const catTools = tools.filter(t => t.category === cat.id);
+                  if (catTools.length === 0) return null;
+
+                  return (
+                    <div key={cat.id} className="space-y-3">
+                      <div className="text-[11px] font-mono font-bold text-slate-400 uppercase tracking-widest px-2 border-b border-dark-700 pb-2">
+                        {t(cat.labelKey)}
+                      </div>
+                      <div className="flex flex-col space-y-1">
+                        {catTools.map(tool => (
+                          <Link
+                            key={tool.id}
+                            to={`/${lang}/${getLocalizedSlug(tool.id, lang)}`}
+                            onClick={() => setMobileMenuOpen(false)}
+                            className="flex items-center gap-4 p-3 rounded-xl hover:bg-dark-800/50 active:bg-dark-800 transition-colors group"
+                          >
+                            <div className="w-10 h-10 rounded-xl bg-dark-800 flex items-center justify-center border border-dark-600 group-active:border-neon-cyan/50">
+                              <tool.icon className="w-5 h-5 text-neon-cyan" />
+                            </div>
+                            <div className="flex flex-col">
+                              <span className="text-sm font-semibold text-slate-200">{t(tool.titleKey)}</span>
+                            </div>
+                          </Link>
+                        ))}
+                      </div>
                     </div>
-                  </div>
-                );
-              })}
-            </nav>
+                  );
+                })}
+              </nav>
+            </div>
           </motion.div>
         )}
       </AnimatePresence>
