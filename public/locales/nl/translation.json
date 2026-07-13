@@ -945,5 +945,9 @@
   "compress.download": "Gecomprimeerde afbeelding downloaden",
   "compress.sizeOriginal": "Origineel formaat",
   "compress.sizeCompressed": "Gecomprimeerde grootte",
-  "compress.saved": "Opgeslagen"
+  "compress.saved": "Opgeslagen",
+  "nav.blurface": "Blur Face",
+  "grid.blurfaceDesc": "Automatically detect and blur faces or apply custom censorship boxes.",
+  "nav.design": "Design Editor",
+  "grid.designDesc": "Full-featured image studio: filters, draw, stickers, frames, and shapes."
 }

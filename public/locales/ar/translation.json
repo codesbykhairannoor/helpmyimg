@@ -959,5 +959,9 @@
   "compress.download": "تحميل الصورة المضغوطة",
   "compress.sizeOriginal": "الحجم الأصلي",
   "compress.sizeCompressed": "حجم مضغوط",
-  "compress.saved": "تم الحفظ"
+  "compress.saved": "تم الحفظ",
+  "nav.blurface": "طمس الوجه",
+  "grid.blurfaceDesc": "اكتشاف الوجوه وطمسها تلقائيًا أو تطبيق مربعات رقابة مخصصة.",
+  "nav.design": "محرر التصميم",
+  "grid.designDesc": "استوديو صور كامل المواصفات: المرشحات والرسم والملصقات والإطارات والأشكال."
 }

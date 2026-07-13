@@ -21,13 +21,18 @@ const ColorPickerControl = React.lazy(() => import('./tools/ColorPickerControl')
 import { InteractiveCropOverlay } from './tools/InteractiveCropOverlay';
 import { ImageCompareSlider } from './tools/ImageCompareSlider';
 
+import { BlurFaceControl } from './tools/BlurFaceControl';
+import type { BlurBox } from './tools/BlurFaceControl';
+import { BlurBoxOverlay } from './tools/BlurBoxOverlay';
+import { DesignEditorControl } from './tools/DesignEditorControl';
+
 import { processImage, cropImage, rotateImage, smartCropImage } from '../../utils/imageOperations';
 import { buildColorInfo, extractDominantColors, type ColorInfo } from '../../utils/colorUtils';
 export type { ColorInfo };
 import type { WatermarkPosition } from './tools/WatermarkControl';
 export type { WatermarkPosition };
 
-export type TabType = 'remove' | 'color' | 'brush' | 'watermark' | 'compress' | 'convert' | 'resize' | 'crop' | 'rotate' | 'picker';
+export type TabType = 'remove' | 'color' | 'brush' | 'watermark' | 'compress' | 'convert' | 'resize' | 'crop' | 'rotate' | 'picker' | 'blurface' | 'design';
 
 export interface BatchItem {
   id: string;
@@ -112,6 +117,9 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({ initialTab = 'remo
   const [pickedColor, setPickedColor] = useState<ColorInfo | null>(null);
   const [colorHistory, setColorHistory] = useState<ColorInfo[]>([]);
   const [dominantColors, setDominantColors] = useState<string[]>([]);
+  // --- Blur Face State ---
+  const [blurBoxes, setBlurBoxes] = useState<BlurBox[]>([]);
+  const [blurMode, setBlurMode] = useState<'auto'|'manual'>('auto');
 
   const fileInputRef = useRef<HTMLInputElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -161,7 +169,7 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({ initialTab = 'remo
       const merged = [...prev, ...newItems];
       
       // Bypass AI instantly for some tools, otherwise let the Queue handle it
-      if (['watermark', 'compress', 'convert', 'resize', 'crop', 'rotate', 'picker'].includes(activeTab)) {
+      if (['watermark', 'compress', 'convert', 'resize', 'crop', 'rotate', 'picker', 'blurface', 'design'].includes(activeTab)) {
         return merged.map(i => 
           newItems.some(n => n.id === i.id) 
             ? { ...i, status: 'done', transparentUrl: i.originalUrl, processedUrl: i.originalUrl, progress: 100, progressStep: 'Instan' }
@@ -576,7 +584,7 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({ initialTab = 'remo
                           />
                         ) : (
                           <motion.img
-                            key={currentItem.id}
+                            key={`${currentItem.id}_${activeTab}`}
                             ref={setImageElement as React.Ref<HTMLImageElement>}
                             initial={{ opacity: 0, scale: 0.95 }}
                             animate={{ opacity: 1, scale: 1 }}
@@ -607,6 +615,13 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({ initialTab = 'remo
                             }}
                           />
                         )}
+                        {activeTab === 'blurface' && (
+                          <BlurBoxOverlay
+                            imageElement={imageElement}
+                            boxes={blurBoxes}
+                            setBoxes={setBlurBoxes}
+                          />
+                        )}
                         {currentItem?.status === 'idle' && (
                           <div className="absolute inset-0 bg-dark-900/50 backdrop-blur-[2px] flex flex-col items-center justify-center z-10 p-6 text-center">
                             <button
@@ -626,7 +641,19 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({ initialTab = 'remo
                     )
                   )}
 
-                  <div className="absolute top-4 left-4 bg-dark-900/80 backdrop-blur-md border border-dark-500 px-3 py-1.5 rounded-xl text-xs font-medium text-slate-300 flex items-center gap-2">
+                  {activeTab === 'design' && currentItem?.originalUrl && (
+                    <DesignEditorControl
+                      imageUrl={currentItem.processedUrl || currentItem.originalUrl}
+                      onDownload={(dataUrl) => {
+                        const a = document.createElement('a');
+                        a.href = dataUrl;
+                        a.download = `HelpMyIMG_Design_${Date.now()}.png`;
+                        a.click();
+                      }}
+                    />
+                  )}
+
+                  <div className="absolute top-4 left-4 bg-dark-900/80 backdrop-blur-md border border-dark-500 px-3 py-1.5 rounded-xl text-xs font-medium text-slate-300 flex items-center gap-2 z-50">
                     <ImageIcon className="w-3.5 h-3.5 text-neon-cyan" />
                     <span className="truncate max-w-[200px]">{currentItem?.name}</span>
                   </div>
@@ -999,6 +1026,68 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({ initialTab = 'remo
                   onReset={() => setBatchItems([])}
                   isProcessing={false}
                 />
+              )}
+
+              {activeTab === 'blurface' && (
+                <BlurFaceControl
+                  imageElement={imageElement}
+                  boxes={blurBoxes}
+                  setBoxes={setBlurBoxes}
+                  mode={blurMode}
+                  setMode={setBlurMode}
+                  onDownload={async () => {
+                    if (imageElement && currentItem?.file) {
+                      try {
+                        const canvas = document.createElement('canvas');
+                        canvas.width = imageElement.naturalWidth;
+                        canvas.height = imageElement.naturalHeight;
+                        const ctx = canvas.getContext('2d');
+                        if (!ctx) return;
+                        
+                        ctx.drawImage(imageElement, 0, 0);
+                        
+                        // Apply blur to each box area
+                        blurBoxes.forEach(box => {
+                           ctx.save();
+                           ctx.filter = 'blur(15px)';
+                           ctx.drawImage(imageElement, box.x, box.y, box.width, box.height, box.x, box.y, box.width, box.height);
+                           ctx.restore();
+                        });
+
+                        const url = canvas.toDataURL(currentItem.file.type || 'image/jpeg', 0.95);
+                        const a = document.createElement('a');
+                        a.href = url;
+                        const ext = (currentItem.file.type || 'image/jpeg').split('/')[1];
+                        a.download = `HelpMyIMG_Blur_${Date.now()}.${ext}`;
+                        a.click();
+                      } catch (err) {
+                        console.error('Blur failed', err);
+                      }
+                    }
+                  }}
+                  onReset={() => {
+                    setBlurBoxes([]);
+                    setBlurMode('auto');
+                  }}
+                  isProcessing={false}
+                />
+              )}
+
+              {activeTab === 'design' && (
+                <div className="flex flex-col h-full bg-dark-900 overflow-y-auto custom-scrollbar">
+                  <div className="p-5 border-b border-dark-600">
+                    <h3 className="text-xl font-heading font-bold text-white mb-1">Design Editor</h3>
+                    <p className="text-xs text-slate-400 font-medium">Full-featured image studio.</p>
+                  </div>
+                  <div className="p-6 text-center flex flex-col gap-4 items-center justify-center">
+                    <p className="text-slate-300 text-sm">
+                      Use the advanced editor tools in the main preview area to draw, add text, apply filters, and more.
+                    </p>
+                    <div className="text-xs font-mono text-slate-500 bg-dark-800 p-3 rounded-lg border border-dark-600">
+                      Supports layers, image merging, filters, and custom watermarks.
+                    </div>
+                  </div>
+                </div>
               )}
             </Suspense>
           </div>

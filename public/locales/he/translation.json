@@ -945,5 +945,9 @@
   "compress.download": "הורד תמונה דחוסה",
   "compress.sizeOriginal": "גודל מקורי",
   "compress.sizeCompressed": "גודל דחוס",
-  "compress.saved": "נשמר"
+  "compress.saved": "נשמר",
+  "nav.blurface": "טשטוש פנים",
+  "grid.blurfaceDesc": "זיהוי וטשטוש פנים אוטומטית או החל תיבות צנזורה מותאמות אישית.",
+  "nav.design": "עורך עיצוב",
+  "grid.designDesc": "סטודיו לתמונות מלא: פילטרים, ציור, מדבקות, מסגרות וצורות."
 }

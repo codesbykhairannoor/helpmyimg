@@ -8,7 +8,9 @@ import {
    Stamp,
    Crop,
   RotateCw,
-  Pipette
+  Pipette,
+  ScanFace,
+  Wand2
 } from 'lucide-react';
 
 export type ToolCategory = 'optimize' | 'modify' | 'convert' | 'security' | 'edit';
@@ -59,11 +61,26 @@ export const tools: ToolItem[] = [
     icon: Stamp,
     titleKey: 'nav.watermark',
     descKey: 'grid.watermarkDesc',
+  },
+  {
+    id: 'blurface',
+    category: 'security',
+    icon: ScanFace,
+    titleKey: 'nav.blurface',
+    descKey: 'grid.blurfaceDesc',
+    isNew: true,
+  },
+  {
+    id: 'design',
+    category: 'edit',
+    icon: Wand2,
+    titleKey: 'nav.design',
+    descKey: 'grid.designDesc',
     isNew: true,
   },
   {
     id: 'crop',
-    category: 'edit',
+    category: 'modify',
     icon: Crop,
     titleKey: 'nav.crop',
     descKey: 'grid.cropDesc',

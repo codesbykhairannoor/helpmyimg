@@ -945,5 +945,9 @@
   "compress.download": "下载压缩图像",
   "compress.sizeOriginal": "原始尺寸",
   "compress.sizeCompressed": "压缩尺寸",
-  "compress.saved": "已保存"
+  "compress.saved": "已保存",
+  "nav.blurface": "Blur Face",
+  "grid.blurfaceDesc": "Automatically detect and blur faces or apply custom censorship boxes.",
+  "nav.design": "Design Editor",
+  "grid.designDesc": "Full-featured image studio: filters, draw, stickers, frames, and shapes."
 }

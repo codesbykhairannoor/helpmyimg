@@ -945,5 +945,9 @@
   "compress.download": "圧縮画像をダウンロード",
   "compress.sizeOriginal": "元のサイズ",
   "compress.sizeCompressed": "圧縮サイズ",
-  "compress.saved": "保存されました"
+  "compress.saved": "保存されました",
+  "nav.blurface": "Blur Face",
+  "grid.blurfaceDesc": "Automatically detect and blur faces or apply custom censorship boxes.",
+  "nav.design": "Design Editor",
+  "grid.designDesc": "Full-featured image studio: filters, draw, stickers, frames, and shapes."
 }

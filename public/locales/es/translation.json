@@ -945,5 +945,9 @@
   "compress.download": "Descargar imagen comprimida",
   "compress.sizeOriginal": "Tamaño original",
   "compress.sizeCompressed": "Tamaño comprimido",
-  "compress.saved": "Guardado"
+  "compress.saved": "Guardado",
+  "nav.blurface": "cara difuminada",
+  "grid.blurfaceDesc": "Detecta y difumina rostros automáticamente o aplica cuadros de censura personalizados.",
+  "nav.design": "Editor de diseño",
+  "grid.designDesc": "Estudio de imágenes con todas las funciones: filtros, dibujos, pegatinas, marcos y formas."
 }

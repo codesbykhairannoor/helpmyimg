@@ -945,5 +945,9 @@
   "compress.download": "Stáhnout komprimovaný obrázek",
   "compress.sizeOriginal": "Původní velikost",
   "compress.sizeCompressed": "Stlačená velikost",
-  "compress.saved": "Uloženo"
+  "compress.saved": "Uloženo",
+  "nav.blurface": "Rozostření obličeje",
+  "grid.blurfaceDesc": "Automaticky detekujte a rozmažte obličeje nebo použijte vlastní cenzurní pole.",
+  "nav.design": "Editor designu",
+  "grid.designDesc": "Plně vybavené obrazové studio: filtry, kreslení, nálepky, rámečky a tvary."
 }

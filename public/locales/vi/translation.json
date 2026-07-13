@@ -945,5 +945,9 @@
   "compress.download": "Tải xuống hình ảnh nén",
   "compress.sizeOriginal": "Kích thước ban đầu",
   "compress.sizeCompressed": "Kích thước nén",
-  "compress.saved": "Đã lưu"
+  "compress.saved": "Đã lưu",
+  "nav.blurface": "Blur Face",
+  "grid.blurfaceDesc": "Automatically detect and blur faces or apply custom censorship boxes.",
+  "nav.design": "Design Editor",
+  "grid.designDesc": "Full-featured image studio: filters, draw, stickers, frames, and shapes."
 }

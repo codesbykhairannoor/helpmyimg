@@ -945,5 +945,9 @@
   "compress.download": "Tömörített kép letöltése",
   "compress.sizeOriginal": "Eredeti Méret",
   "compress.sizeCompressed": "Tömörített méret",
-  "compress.saved": "Mentve"
+  "compress.saved": "Mentve",
+  "nav.blurface": "Arc elmosása",
+  "grid.blurfaceDesc": "Automatikusan észlelheti és elhomályosíthatja az arcokat, vagy alkalmazhat egyéni cenzúradobozokat.",
+  "nav.design": "Tervező szerkesztő",
+  "grid.designDesc": "Teljes funkcionalitású képstúdió: szűrők, rajzolás, matricák, keretek és formák."
 }

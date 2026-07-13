@@ -945,5 +945,9 @@
   "compress.download": "I-download ang Compressed Image",
   "compress.sizeOriginal": "Orihinal na Sukat",
   "compress.sizeCompressed": "Naka-compress na Sukat",
-  "compress.saved": "Nai-save"
+  "compress.saved": "Nai-save",
+  "nav.blurface": "Blur Face",
+  "grid.blurfaceDesc": "Automatically detect and blur faces or apply custom censorship boxes.",
+  "nav.design": "Design Editor",
+  "grid.designDesc": "Full-featured image studio: filters, draw, stickers, frames, and shapes."
 }

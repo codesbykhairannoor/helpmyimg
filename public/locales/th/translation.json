@@ -945,5 +945,9 @@
   "compress.download": "ดาวน์โหลดภาพบีบอัด",
   "compress.sizeOriginal": "ขนาดดั้งเดิม",
   "compress.sizeCompressed": "ขนาดที่บีบอัด",
-  "compress.saved": "บันทึกแล้ว"
+  "compress.saved": "บันทึกแล้ว",
+  "nav.blurface": "Blur Face",
+  "grid.blurfaceDesc": "Automatically detect and blur faces or apply custom censorship boxes.",
+  "nav.design": "Design Editor",
+  "grid.designDesc": "Full-featured image studio: filters, draw, stickers, frames, and shapes."
 }

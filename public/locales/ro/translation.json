@@ -945,5 +945,9 @@
   "compress.download": "Descărcați imaginea comprimată",
   "compress.sizeOriginal": "Dimensiune originală",
   "compress.sizeCompressed": "Dimensiune comprimată",
-  "compress.saved": "Salvat"
+  "compress.saved": "Salvat",
+  "nav.blurface": "Blur Face",
+  "grid.blurfaceDesc": "Automatically detect and blur faces or apply custom censorship boxes.",
+  "nav.design": "Design Editor",
+  "grid.designDesc": "Full-featured image studio: filters, draw, stickers, frames, and shapes."
 }

@@ -945,5 +945,9 @@
   "compress.download": "Download komprimeret billede",
   "compress.sizeOriginal": "Original størrelse",
   "compress.sizeCompressed": "Komprimeret størrelse",
-  "compress.saved": "Gemt"
+  "compress.saved": "Gemt",
+  "nav.blurface": "Slør ansigt",
+  "grid.blurfaceDesc": "Registrer og slør ansigter automatisk, eller anvend tilpassede censurbokse.",
+  "nav.design": "Design redaktør",
+  "grid.designDesc": "Fuldstændig billedstudie: filtre, tegning, klistermærker, rammer og former."
 }

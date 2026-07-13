@@ -945,5 +945,9 @@
   "compress.download": "Komprimiertes Bild herunterladen",
   "compress.sizeOriginal": "Originalgröße",
   "compress.sizeCompressed": "Komprimierte Größe",
-  "compress.saved": "Gespeichert"
+  "compress.saved": "Gespeichert",
+  "nav.blurface": "Gesicht verwischen",
+  "grid.blurfaceDesc": "Erkennen und verwischen Sie Gesichter automatisch oder wenden Sie benutzerdefinierte Zensurfelder an.",
+  "nav.design": "Design-Editor",
+  "grid.designDesc": "Voll ausgestattetes Bildstudio: Filter, Zeichnen, Aufkleber, Rahmen und Formen."
 }

@@ -945,5 +945,9 @@
   "compress.download": "Lataa pakattu kuva",
   "compress.sizeOriginal": "Alkuperäinen koko",
   "compress.sizeCompressed": "Pakattu koko",
-  "compress.saved": "Tallennettu"
+  "compress.saved": "Tallennettu",
+  "nav.blurface": "Sumenna kasvot",
+  "grid.blurfaceDesc": "Tunnista ja sumenna kasvot automaattisesti tai käytä mukautettuja sensuurilaatikoita.",
+  "nav.design": "Suunnittelutoimittaja",
+  "grid.designDesc": "Täysin varusteltu kuvastudio: suodattimet, piirustus, tarrat, kehykset ja muodot."
 }

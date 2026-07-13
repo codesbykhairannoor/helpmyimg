@@ -945,5 +945,9 @@
   "compress.download": "संपीड़ित छवि डाउनलोड करें",
   "compress.sizeOriginal": "मूल आकार",
   "compress.sizeCompressed": "संपीड़ित आकार",
-  "compress.saved": "सहेजा गया"
+  "compress.saved": "सहेजा गया",
+  "nav.blurface": "धुंधला चेहरा",
+  "grid.blurfaceDesc": "स्वचालित रूप से चेहरों का पता लगाएं और उन्हें धुंधला करें या कस्टम सेंसरशिप बॉक्स लागू करें।",
+  "nav.design": "डिज़ाइन संपादक",
+  "grid.designDesc": "पूर्ण-विशेषताओं वाला छवि स्टूडियो: फ़िल्टर, ड्रा, स्टिकर, फ़्रेम और आकार।"
 }

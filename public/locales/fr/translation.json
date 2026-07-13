@@ -945,5 +945,9 @@
   "compress.download": "Télécharger l'image compressée",
   "compress.sizeOriginal": "Taille originale",
   "compress.sizeCompressed": "Taille compressée",
-  "compress.saved": "Enregistré"
+  "compress.saved": "Enregistré",
+  "nav.blurface": "Visage flou",
+  "grid.blurfaceDesc": "Détectez et floutez automatiquement les visages ou appliquez des zones de censure personnalisées.",
+  "nav.design": "Éditeur de conception",
+  "grid.designDesc": "Studio d'images complet : filtres, dessins, autocollants, cadres et formes."
 }

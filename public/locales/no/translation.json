@@ -945,5 +945,9 @@
   "compress.download": "Last ned komprimert bilde",
   "compress.sizeOriginal": "Original størrelse",
   "compress.sizeCompressed": "Komprimert størrelse",
-  "compress.saved": "Lagret"
+  "compress.saved": "Lagret",
+  "nav.blurface": "Blur Face",
+  "grid.blurfaceDesc": "Automatically detect and blur faces or apply custom censorship boxes.",
+  "nav.design": "Design Editor",
+  "grid.designDesc": "Full-featured image studio: filters, draw, stickers, frames, and shapes."
 }
