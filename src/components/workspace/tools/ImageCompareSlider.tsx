@@ -100,7 +100,7 @@ export const ImageCompareSlider: React.FC<ImageCompareSliderProps> = ({ beforeIm
         src={afterImage}
         alt="After"
         className="col-start-1 row-start-1 w-full h-full object-cover block pointer-events-none"
-        style={{ clipPath: `inset(0 ${100 - sliderPosition}% 0 0)` }}
+        style={{ clipPath: `inset(0 0 0 ${sliderPosition}%)` }}
       />
 
       {/* Slider Handle */}

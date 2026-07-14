@@ -57,7 +57,7 @@
   }
 
   .checkerboard-bg {
-    background-color: transparent;
+    background-color: #1a1a1a;
     background-image: radial-gradient(#d2d2d7 1px, transparent 1px);
     background-size: 12px 12px;
   }
