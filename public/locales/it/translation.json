@@ -1078,5 +1078,10 @@
   "design.desc": "Studio di immagini completo.",
   "design.info1": "Progetta la tua immagine utilizzando gli strumenti avanzati nell'area di anteprima.",
   "design.saveBtn": "Salva disegno",
-  "design.info2": "Supporta livelli, fusione di immagini, disegno, testo, filtri e filigrane personalizzate."
+  "design.info2": "Supporta livelli, fusione di immagini, disegno, testo, filtri e filigrane personalizzate.",
+  "nav.selectLang": "Seleziona lingua / regione (30)",
+  "nav.searchLang": "🔍 Cerca lingua (es. Corea, ES, RU)...",
+  "nav.noLang": "Nessuna lingua trovata",
+  "landing.default.title.home": "Tutti gli strumenti IA per modificare immagini in blocco",
+  "landing.default.desc.home": "Il tuo editor di foto IA locale è gratis per sempre! 100% privato, funziona direttamente nel tuo browser."
 }

@@ -1078,5 +1078,10 @@
   "design.desc": "Täysin varusteltu kuvastudio.",
   "design.info1": "Suunnittele kuvasi käyttämällä esikatselualueen lisätyökaluja.",
   "design.saveBtn": "Tallenna malli",
-  "design.info2": "Tukee tasoja, kuvien yhdistämistä, piirtämistä, tekstiä, suodattimia ja mukautettuja vesileimoja."
+  "design.info2": "Tukee tasoja, kuvien yhdistämistä, piirtämistä, tekstiä, suodattimia ja mukautettuja vesileimoja.",
+  "nav.selectLang": "Select Language / Locale (30)",
+  "nav.searchLang": "🔍 Search locale (e.g., Korea, ES, RU)...",
+  "nav.noLang": "No locale found",
+  "landing.default.title.home": "Every AI tool you need to edit images in bulk",
+  "landing.default.desc.home": "Your local AI photo editor is here and forever free! 100% private, runs directly in your browser."
 }

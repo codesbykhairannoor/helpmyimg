@@ -1078,5 +1078,10 @@
   "design.desc": "Tam özellikli görüntü stüdyosu.",
   "design.info1": "Önizleme alanındaki gelişmiş araçları kullanarak görüntünüzü tasarlayın.",
   "design.saveBtn": "Tasarımı Kaydet",
-  "design.info2": "Katmanları, görüntü birleştirmeyi, çizimi, metni, filtreleri ve özel filigranları destekler."
+  "design.info2": "Katmanları, görüntü birleştirmeyi, çizimi, metni, filtreleri ve özel filigranları destekler.",
+  "nav.selectLang": "Dil / Bölge Seçin (30)",
+  "nav.searchLang": "🔍 Dil ara (örn., Kore, ES, RU)...",
+  "nav.noLang": "Dil bulunamadı",
+  "landing.default.title.home": "Toplu fotoğraf düzenlemek için ihtiyacınız olan tüm yapay zeka araçları",
+  "landing.default.desc.home": "Yerel yapay zeka fotoğraf editörünüz sonsuza kadar ücretsiz! %100 gizli, doğrudan tarayıcınızda çalışır."
 }

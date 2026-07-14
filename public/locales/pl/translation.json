@@ -1083,5 +1083,10 @@
   "design.desc": "W pełni funkcjonalne studio obrazu.",
   "design.info1": "Zaprojektuj swój obraz, korzystając z zaawansowanych narzędzi w obszarze podglądu.",
   "design.saveBtn": "Zapisz projekt",
-  "design.info2": "Obsługuje warstwy, łączenie obrazów, rysowanie, tekst, filtry i niestandardowe znaki wodne."
+  "design.info2": "Obsługuje warstwy, łączenie obrazów, rysowanie, tekst, filtry i niestandardowe znaki wodne.",
+  "nav.selectLang": "Wybierz język / region (30)",
+  "nav.searchLang": "🔍 Szukaj języka (np. Korea, ES, RU)...",
+  "nav.noLang": "Nie znaleziono języka",
+  "landing.default.title.home": "Wszystkie narzędzia AI do masowej edycji zdjęć",
+  "landing.default.desc.home": "Twój lokalny edytor zdjęć AI jest darmowy na zawsze! 100% prywatności, działa bezpośrednio w Twojej przeglądarce."
 }

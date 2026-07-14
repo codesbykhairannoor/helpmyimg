@@ -1078,5 +1078,10 @@
   "design.desc": "功能齐全的图像工作室。",
   "design.info1": "使用预览区域中的高级工具设计图像。",
   "design.saveBtn": "保存设计",
-  "design.info2": "支持图层、图像合并、绘图、文本、滤镜和自定义水印。"
+  "design.info2": "支持图层、图像合并、绘图、文本、滤镜和自定义水印。",
+  "nav.selectLang": "选择语言 / 地区 (30)",
+  "nav.searchLang": "🔍 搜索语言 (例如: 韩国, ES, RU)...",
+  "nav.noLang": "未找到语言",
+  "landing.default.title.home": "批量处理所需的所有 AI 图像工具",
+  "landing.default.desc.home": "您的本地 AI 照片编辑器永久免费！100% 隐私安全，直接在浏览器中运行。"
 }

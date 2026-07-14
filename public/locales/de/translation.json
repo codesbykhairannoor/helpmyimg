@@ -1078,5 +1078,10 @@
   "design.desc": "Voll ausgestattetes Bildstudio.",
   "design.info1": "Gestalten Sie Ihr Bild mit den erweiterten Werkzeugen im Vorschaubereich.",
   "design.saveBtn": "Design speichern",
-  "design.info2": "Unterstützt Ebenen, Bildzusammenführung, Zeichnen, Text, Filter und benutzerdefinierte Wasserzeichen."
+  "design.info2": "Unterstützt Ebenen, Bildzusammenführung, Zeichnen, Text, Filter und benutzerdefinierte Wasserzeichen.",
+  "nav.selectLang": "Sprache / Region auswählen (30)",
+  "nav.searchLang": "🔍 Sprache suchen (z.B. Korea, ES, RU)...",
+  "nav.noLang": "Keine Sprache gefunden",
+  "landing.default.title.home": "Alle KI-Tools für die Massen-Bildbearbeitung",
+  "landing.default.desc.home": "Ihr lokaler KI-Fotoeditor ist für immer kostenlos! 100% privat, läuft direkt in Ihrem Browser."
 }

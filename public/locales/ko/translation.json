@@ -1078,5 +1078,10 @@
   "design.desc": "모든 기능을 갖춘 이미지 스튜디오.",
   "design.info1": "미리보기 영역의 고급 도구를 사용하여 이미지를 디자인하세요.",
   "design.saveBtn": "디자인 저장",
-  "design.info2": "레이어, 이미지 병합, 그리기, 텍스트, 필터 및 사용자 정의 워터마크를 지원합니다."
+  "design.info2": "레이어, 이미지 병합, 그리기, 텍스트, 필터 및 사용자 정의 워터마크를 지원합니다.",
+  "nav.selectLang": "언어 / 지역 선택 (30)",
+  "nav.searchLang": "🔍 언어 검색 (예: 한국, ES, RU)...",
+  "nav.noLang": "언어를 찾을 수 없습니다",
+  "landing.default.title.home": "대량 이미지 편집을 위한 모든 AI 도구",
+  "landing.default.desc.home": "로컬 AI 사진 편집기를 영구 무료로 사용하세요! 100% 개인정보 보호, 브라우저에서 직접 실행됩니다."
 }

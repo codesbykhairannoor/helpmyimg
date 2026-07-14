@@ -1093,5 +1093,10 @@
   },
   "convert": {
     "processAll": "Convert All ({{count}})"
-  }
+  },
+  "nav.selectLang": "Select Language / Locale (30)",
+  "nav.searchLang": "🔍 Search locale (e.g., Korea, ES, RU)...",
+  "nav.noLang": "No locale found",
+  "landing.default.title.home": "Every AI tool you need to edit images in bulk",
+  "landing.default.desc.home": "Your local AI photo editor is here and forever free! 100% private, runs directly in your browser."
 }

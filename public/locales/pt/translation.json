@@ -1078,5 +1078,10 @@
   "design.desc": "Estúdio de imagem completo.",
   "design.info1": "Projete sua imagem usando as ferramentas avançadas na área de visualização.",
   "design.saveBtn": "Salvar projeto",
-  "design.info2": "Suporta camadas, mesclagem de imagens, desenhos, texto, filtros e marcas d’água personalizadas."
+  "design.info2": "Suporta camadas, mesclagem de imagens, desenhos, texto, filtros e marcas d’água personalizadas.",
+  "nav.selectLang": "Selecionar idioma / localidade (30)",
+  "nav.searchLang": "🔍 Buscar idioma (ex., Coreia, ES, RU)...",
+  "nav.noLang": "Nenhum idioma encontrado",
+  "landing.default.title.home": "Todas as ferramentas de IA para editar imagens em massa",
+  "landing.default.desc.home": "Seu editor de fotos IA local é gratuito para sempre! 100% privado, roda diretamente no seu navegador."
 }

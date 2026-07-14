@@ -1078,5 +1078,10 @@
   "design.desc": "Fullverdig bildestudio.",
   "design.info1": "Design bildet ditt ved å bruke de avanserte verktøyene i forhåndsvisningsområdet.",
   "design.saveBtn": "Lagre design",
-  "design.info2": "Støtter lag, bildesammenslåing, tegning, tekst, filtre og egendefinerte vannmerker."
+  "design.info2": "Støtter lag, bildesammenslåing, tegning, tekst, filtre og egendefinerte vannmerker.",
+  "nav.selectLang": "Select Language / Locale (30)",
+  "nav.searchLang": "🔍 Search locale (e.g., Korea, ES, RU)...",
+  "nav.noLang": "No locale found",
+  "landing.default.title.home": "Every AI tool you need to edit images in bulk",
+  "landing.default.desc.home": "Your local AI photo editor is here and forever free! 100% private, runs directly in your browser."
 }

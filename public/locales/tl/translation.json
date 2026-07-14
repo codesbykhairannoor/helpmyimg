@@ -1078,5 +1078,10 @@
   "design.desc": "Full-feature na image studio.",
   "design.info1": "Idisenyo ang iyong larawan gamit ang mga advanced na tool sa preview area.",
   "design.saveBtn": "I-save ang Disenyo",
-  "design.info2": "Sinusuportahan ang mga layer, pagsasama ng larawan, pagguhit, teksto, mga filter, at mga custom na watermark."
+  "design.info2": "Sinusuportahan ang mga layer, pagsasama ng larawan, pagguhit, teksto, mga filter, at mga custom na watermark.",
+  "nav.selectLang": "Pumili ng Wika / Locale (30)",
+  "nav.searchLang": "🔍 Maghanap ng wika (hal., Korea, ES, RU)...",
+  "nav.noLang": "Walang nahanap na wika",
+  "landing.default.title.home": "Lahat ng AI tool para sa maramihang pag-edit ng larawan",
+  "landing.default.desc.home": "Ang iyong lokal na AI photo editor ay libre magpakailanman! 100% pribado, gumagana nang direkta sa iyong browser."
 }

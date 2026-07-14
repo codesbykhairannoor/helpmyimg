@@ -32,7 +32,7 @@ export const ToolLandingPage: React.FC = () => {
   const config: PSeoKeywordConfig | undefined = keywordSlug ? getPSeoConfigBySlug(keywordSlug) : undefined;
 
   const defaultTitle = !tool 
-    ? "Every AI tool you need to edit images in bulk"
+    ? t('landing.default.title.home', { defaultValue: "Every AI tool you need to edit images in bulk" })
     : internalTool === 'color' 
     ? t('landing.default.title.color') 
     : internalTool === 'watermark'
@@ -56,7 +56,7 @@ export const ToolLandingPage: React.FC = () => {
     : t('landing.default.title.remove');
 
   const defaultH1 = !tool
-    ? "Every AI tool you need to edit images in bulk"
+    ? t('landing.default.title.home', { defaultValue: "Every AI tool you need to edit images in bulk" })
     : internalTool === 'color' 
     ? t('landing.default.title.color') 
     : internalTool === 'watermark'
@@ -80,7 +80,7 @@ export const ToolLandingPage: React.FC = () => {
     : t('landing.default.title.remove');
 
   const defaultDesc = !tool
-    ? "Your local AI photo editor is here and forever free! 100% private, runs directly in your browser."
+    ? t('landing.default.desc.home', { defaultValue: "Your local AI photo editor is here and forever free! 100% private, runs directly in your browser." })
     : internalTool === 'color' 
     ? t('landing.default.desc.color') 
     : internalTool === 'watermark'

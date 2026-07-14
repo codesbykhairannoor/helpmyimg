@@ -178,7 +178,7 @@ export const Navbar: React.FC = () => {
                     className="absolute right-0 mt-2 w-64 sm:w-72 bg-dark-800 border border-dark-500/80 rounded-2xl shadow-2xl py-2 z-50 max-h-96 flex flex-col overflow-hidden"
                   >
                     <div className="px-3 py-1.5 text-xs font-semibold text-slate-400 uppercase tracking-wider border-b border-dark-600/50 mb-1 flex items-center justify-between">
-                      <span>{t('nav.selectLang')}</span>
+                      <span>{t('nav.selectLang', { defaultValue: 'Select Language / Locale' })}</span>
                       <span className="text-neon-cyan font-mono">{filteredLangs.length}</span>
                     </div>
                     
@@ -186,7 +186,7 @@ export const Navbar: React.FC = () => {
                     <div className="px-3 py-1.5 border-b border-dark-600/50 bg-dark-900/50">
                       <input
                         type="text"
-                        placeholder={t('nav.searchLang')}
+                        placeholder={t('nav.searchLang', { defaultValue: '🔍 Search locale (e.g., Korea, ES, RU)...' })}
                         value={searchQuery}
                         onChange={(e) => setSearchQuery(e.target.value)}
                         className="w-full bg-dark-800 text-xs text-white px-2.5 py-1.5 rounded-lg border border-dark-500 focus:outline-none focus:border-neon-cyan transition-colors"
@@ -197,7 +197,7 @@ export const Navbar: React.FC = () => {
                     <div className="overflow-y-auto flex-1 divide-y divide-dark-700/40">
                       {filteredLangs.length === 0 ? (
                         <div className="p-4 text-center text-xs text-slate-400">
-                          {t('nav.noLang')}
+                          {t('nav.noLang', { defaultValue: 'No locale found' })}
                         </div>
                       ) : (
                         filteredLangs.map((l) => (

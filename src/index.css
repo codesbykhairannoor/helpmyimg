@@ -21,6 +21,12 @@
 }
 
 @layer base {
+  @media (min-width: 1024px) {
+    html {
+      font-size: 81.25%; /* 13px base size -> scales all rem dimensions to match 80% sleek visual zoom! */
+    }
+  }
+
   body {
     @apply bg-dark-900 text-slate-100 font-body min-h-screen overflow-x-clip antialiased transition-colors duration-300;
     background-image: 

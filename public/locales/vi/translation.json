@@ -1078,5 +1078,10 @@
   "design.desc": "Studio hình ảnh đầy đủ tính năng.",
   "design.info1": "Thiết kế hình ảnh của bạn bằng các công cụ nâng cao trong khu vực xem trước.",
   "design.saveBtn": "Lưu thiết kế",
-  "design.info2": "Hỗ trợ các lớp, hợp nhất hình ảnh, vẽ, văn bản, bộ lọc và hình mờ tùy chỉnh."
+  "design.info2": "Hỗ trợ các lớp, hợp nhất hình ảnh, vẽ, văn bản, bộ lọc và hình mờ tùy chỉnh.",
+  "nav.selectLang": "Chọn ngôn ngữ / khu vực (30)",
+  "nav.searchLang": "🔍 Tìm kiếm ngôn ngữ (ví dụ: Hàn Quốc, ES, RU)...",
+  "nav.noLang": "Không tìm thấy ngôn ngữ",
+  "landing.default.title.home": "Tất cả công cụ AI cần thiết để chỉnh sửa ảnh hàng loạt",
+  "landing.default.desc.home": "Trình chỉnh sửa ảnh AI cục bộ của bạn hoàn toàn miễn phí mãi mãi! 100% riêng tư, chạy trực tiếp trong trình duyệt."
 }

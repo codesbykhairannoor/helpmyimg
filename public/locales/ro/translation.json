@@ -1078,5 +1078,10 @@
   "design.desc": "Studio de imagine cu funcții complete.",
   "design.info1": "Proiectați-vă imaginea folosind instrumentele avansate din zona de previzualizare.",
   "design.saveBtn": "Salvați design",
-  "design.info2": "Acceptă straturi, îmbinare de imagini, desen, text, filtre și filigrane personalizate."
+  "design.info2": "Acceptă straturi, îmbinare de imagini, desen, text, filtre și filigrane personalizate.",
+  "nav.selectLang": "Select Language / Locale (30)",
+  "nav.searchLang": "🔍 Search locale (e.g., Korea, ES, RU)...",
+  "nav.noLang": "No locale found",
+  "landing.default.title.home": "Every AI tool you need to edit images in bulk",
+  "landing.default.desc.home": "Your local AI photo editor is here and forever free! 100% private, runs directly in your browser."
 }

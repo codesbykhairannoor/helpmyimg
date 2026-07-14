@@ -1078,5 +1078,10 @@
   "design.desc": "Volledig uitgeruste beeldstudio.",
   "design.info1": "Ontwerp uw afbeelding met behulp van de geavanceerde gereedschappen in het voorbeeldgebied.",
   "design.saveBtn": "Ontwerp opslaan",
-  "design.info2": "Ondersteunt lagen, samenvoegen van afbeeldingen, tekenen, tekst, filters en aangepaste watermerken."
+  "design.info2": "Ondersteunt lagen, samenvoegen van afbeeldingen, tekenen, tekst, filters en aangepaste watermerken.",
+  "nav.selectLang": "Selecteer taal / regio (30)",
+  "nav.searchLang": "🔍 Zoek taal (bijv. Korea, ES, RU)...",
+  "nav.noLang": "Geen taal gevonden",
+  "landing.default.title.home": "Alle AI-tools die u nodig heeft voor bulk-afbeeldingbewerking",
+  "landing.default.desc.home": "Uw lokale AI-foto-editor is altijd gratis! 100% privé, draait rechtstreeks in uw browser."
 }

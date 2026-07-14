@@ -1078,5 +1078,10 @@
   "design.desc": "Στούντιο εικόνας με πλήρεις δυνατότητες.",
   "design.info1": "Σχεδιάστε την εικόνα σας χρησιμοποιώντας τα προηγμένα εργαλεία στην περιοχή προεπισκόπησης.",
   "design.saveBtn": "Αποθήκευση σχεδίου",
-  "design.info2": "Υποστηρίζει επίπεδα, συγχώνευση εικόνων, σχέδιο, κείμενο, φίλτρα και προσαρμοσμένα υδατογραφήματα."
+  "design.info2": "Υποστηρίζει επίπεδα, συγχώνευση εικόνων, σχέδιο, κείμενο, φίλτρα και προσαρμοσμένα υδατογραφήματα.",
+  "nav.selectLang": "Select Language / Locale (30)",
+  "nav.searchLang": "🔍 Search locale (e.g., Korea, ES, RU)...",
+  "nav.noLang": "No locale found",
+  "landing.default.title.home": "Every AI tool you need to edit images in bulk",
+  "landing.default.desc.home": "Your local AI photo editor is here and forever free! 100% private, runs directly in your browser."
 }

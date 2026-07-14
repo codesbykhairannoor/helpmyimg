@@ -1078,5 +1078,10 @@
   "design.desc": "Studio imej berciri penuh.",
   "design.info1": "Reka bentuk imej anda menggunakan alat lanjutan dalam kawasan pratonton.",
   "design.saveBtn": "Simpan Reka Bentuk",
-  "design.info2": "Menyokong lapisan, penggabungan imej, lukisan, teks, penapis dan tera air tersuai."
+  "design.info2": "Menyokong lapisan, penggabungan imej, lukisan, teks, penapis dan tera air tersuai.",
+  "nav.selectLang": "Pilih Bahasa / Lokasi (30)",
+  "nav.searchLang": "🔍 Cari bahasa (cth., Korea, ES, RU)...",
+  "nav.noLang": "Bahasa tidak dijumpai",
+  "landing.default.title.home": "Semua alat AI yang anda perlukan untuk mengedit gambar secara pukal",
+  "landing.default.desc.home": "Penyunting foto AI tempatan anda percuma selamanya! 100% peribadi, berjalan terus di dalam pelayar anda."
 }

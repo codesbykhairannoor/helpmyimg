@@ -1156,5 +1156,7 @@
   "design.desc": "Studio gambar berfitur lengkap.",
   "design.info1": "Rancang gambar Anda menggunakan alat canggih di area pratinjau.",
   "design.saveBtn": "Simpan Desain",
-  "design.info2": "Mendukung lapisan, penggabungan gambar, gambar, teks, filter, dan tanda air khusus."
+  "design.info2": "Mendukung lapisan, penggabungan gambar, gambar, teks, filter, dan tanda air khusus.",
+  "landing.default.title.home": "Semua Alat AI untuk Edit Gambar Massal",
+  "landing.default.desc.home": "Editor foto AI lokal 100% gratis selamanya! Privasi penuh, dijalankan langsung di browser Anda tanpa server cloud."
 }
