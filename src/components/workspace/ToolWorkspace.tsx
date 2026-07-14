@@ -1396,6 +1396,8 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({ initialTab = 'remo
             </>
             )}
           </div>
+        </div>
+      </div>
     </section>
   );
 };
