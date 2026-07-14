@@ -9,6 +9,7 @@ interface ColorBgControlProps {
   selectedColor: string;
   setSelectedColor: (color: string) => void;
   onReset: () => void;
+  onUploadOther?: () => void;
   isProcessing: boolean;
 }
 
@@ -16,6 +17,7 @@ export const ColorBgControl: React.FC<ColorBgControlProps> = ({
   selectedColor,
   setSelectedColor,
   onReset,
+  onUploadOther,
   isProcessing,
 }) => {
   const { t } = useTranslation();
@@ -86,7 +88,7 @@ export const ColorBgControl: React.FC<ColorBgControlProps> = ({
       {/* Action Buttons */}
       <div className="space-y-3 pt-2">
         <button
-          onClick={onReset}
+          onClick={onUploadOther || onReset}
           disabled={isProcessing}
           className="w-full flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-dark-800 hover:bg-dark-700 text-slate-300 font-medium text-sm transition-colors border border-dark-600 disabled:opacity-50"
         >

@@ -12,6 +12,7 @@ interface BrushControlProps {
   setBrushSize: (size: number) => void;
   onResetBrush: () => void;
   onReset: () => void;
+  onUploadOther?: () => void;
   isProcessing: boolean;
 }
 
@@ -22,6 +23,7 @@ export const BrushControl: React.FC<BrushControlProps> = ({
   setBrushSize,
   onResetBrush,
   onReset,
+  onUploadOther,
   isProcessing,
 }) => {
   const { t } = useTranslation();
@@ -102,7 +104,7 @@ export const BrushControl: React.FC<BrushControlProps> = ({
       {/* Action Buttons */}
       <div className="space-y-3 pt-2">
         <button
-          onClick={onReset}
+          onClick={onUploadOther || onReset}
           disabled={isProcessing}
           className="w-full flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-dark-800 hover:bg-dark-700 text-slate-300 font-medium text-sm transition-colors border border-dark-600 disabled:opacity-50"
         >

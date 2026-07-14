@@ -10,6 +10,7 @@ interface RemoveBgControlProps {
   currentFileName?: string;
   batchUrls?: { name: string; url: string }[];
   onReset: () => void;
+  onUploadOther?: () => void;
   isProcessing: boolean;
   status?: 'idle' | 'queued' | 'processing' | 'done' | 'error';
   onProcessNow?: () => void;
@@ -22,6 +23,7 @@ interface RemoveBgControlProps {
 
 export const RemoveBgControl: React.FC<RemoveBgControlProps> = ({
   onReset,
+  onUploadOther,
   isProcessing,
   status = 'idle',
   onProcessNow,
@@ -75,8 +77,6 @@ export const RemoveBgControl: React.FC<RemoveBgControlProps> = ({
               <span className="text-[9px] text-slate-500 font-medium text-center">{t('remove.modeLogoDesc')}</span>
             </button>
           </div>
-
-
         </div>
       )}
 
@@ -106,31 +106,21 @@ export const RemoveBgControl: React.FC<RemoveBgControlProps> = ({
 
       {/* Tampilan Saat Sukses Diproses */}
       {status === 'done' && hasProcessedAi && (
-        <>
-          <div className="space-y-3">
-            {/* Tombol Proses Ulang */}
-            {onProcessNow && (
-              <div className="pt-2 border-t border-dark-600">
-                <button
-                  onClick={onProcessNow}
-                  disabled={isProcessing}
-                  className="w-full flex items-center justify-center gap-2 py-3 rounded-xl bg-dark-800 hover:bg-dark-700 text-slate-300 hover:text-neon-cyan transition-colors text-sm font-semibold border border-dark-600"
-                >
-                  <RefreshCw className={`w-4 h-4 ${isProcessing ? 'animate-spin' : ''}`} />
-                  <span>{isProcessing ? t('work.processing') : t('remove.processAgain')}</span>
-                </button>
-              </div>
-            )}
-
-            <button
-              onClick={onReset}
-              className="w-full flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-dark-800 hover:bg-dark-700 text-slate-300 font-medium text-sm transition-colors border border-dark-600 cursor-pointer"
-            >
-              <RefreshCw className="w-4 h-4" />
-              <span>{t('editor.reset')}</span>
-            </button>
-          </div>
-        </>
+        <div className="space-y-3">
+          {/* Tombol Proses Ulang */}
+          {onProcessNow && (
+            <div className="pt-2 border-t border-dark-600">
+              <button
+                onClick={onProcessNow}
+                disabled={isProcessing}
+                className="w-full flex items-center justify-center gap-2 py-3 rounded-xl bg-dark-800 hover:bg-dark-700 text-slate-300 hover:text-neon-cyan transition-colors text-sm font-semibold border border-dark-600"
+              >
+                <RefreshCw className={`w-4 h-4 ${isProcessing ? 'animate-spin' : ''}`} />
+                <span>{isProcessing ? t('work.processing') : t('remove.processAgain')}</span>
+              </button>
+            </div>
+          )}
+        </div>
       )}
 
       {status === 'error' && (
@@ -151,6 +141,18 @@ export const RemoveBgControl: React.FC<RemoveBgControlProps> = ({
           )}
         </div>
       )}
+
+      {/* Tombol Unggah Foto Lain / Upload Other Photos (Selalu Aktif & Muncul di Semua Kondisi) */}
+      <div className="pt-3 border-t border-dark-700/80 mt-2">
+        <button
+          onClick={onUploadOther || onReset}
+          disabled={isProcessing}
+          className="w-full flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-dark-800 hover:bg-dark-700 text-slate-300 hover:text-white font-medium text-sm transition-colors border border-dark-600 cursor-pointer disabled:opacity-50"
+        >
+          <RefreshCw className="w-4 h-4 text-neon-cyan" />
+          <span>{t('editor.reset')}</span>
+        </button>
+      </div>
     </div>
   );
 };

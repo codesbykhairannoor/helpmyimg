@@ -577,6 +577,14 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({ initialTab = 'remo
     }
   }, [activeTab, currentItem?.processedUrl]);
 
+  const handleUploadOther = useCallback(() => {
+    setBatchItems([]);
+    setSelectedIndex(0);
+    setTimeout(() => {
+      fileInputRef.current?.click();
+    }, 50);
+  }, []);
+
   return (
     <section id="workspace" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 md:py-8">
 
@@ -853,7 +861,7 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({ initialTab = 'remo
                     imageType={imageType}
                     setImageType={setImageType}
                     hasProcessedAi={currentItem?.transparentUrl !== currentItem?.originalUrl}
-
+                    onUploadOther={handleUploadOther}
                   />
                 )}
 
@@ -872,6 +880,7 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({ initialTab = 'remo
                         } : item));
                       }
                     }}
+                    onUploadOther={handleUploadOther}
                     isProcessing={currentItem?.status === 'processing'}
                   />
                 )}
@@ -901,6 +910,7 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({ initialTab = 'remo
                         );
                       }
                     }}
+                    onUploadOther={handleUploadOther}
                     isProcessing={currentItem?.status === 'processing'}
                   />
                 )}
@@ -962,6 +972,7 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({ initialTab = 'remo
                         } : item));
                       }
                     }}
+                    onUploadOther={handleUploadOther}
                     isProcessing={currentItem?.status === 'processing'}
                   />
                 )}

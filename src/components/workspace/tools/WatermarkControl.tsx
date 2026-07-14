@@ -24,6 +24,7 @@ interface WatermarkControlProps {
   setWatermarkRotation: (val: number) => void;
   onProcessBatch?: () => void;
   onReset: () => void;
+  onUploadOther?: () => void;
   isProcessing: boolean;
   batchCount?: number;
 }
@@ -47,6 +48,7 @@ export const WatermarkControl: React.FC<WatermarkControlProps> = ({
   setWatermarkRotation,
   onProcessBatch,
   onReset,
+  onUploadOther,
   isProcessing,
   batchCount = 1,
 }) => {
@@ -250,7 +252,7 @@ export const WatermarkControl: React.FC<WatermarkControlProps> = ({
           )}
 
         <button
-          onClick={onReset}
+          onClick={onUploadOther || onReset}
           className="w-full flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-dark-800 hover:bg-dark-700 text-slate-300 font-medium text-sm transition-colors border border-dark-600"
         >
           <RefreshCw className="w-4 h-4" />

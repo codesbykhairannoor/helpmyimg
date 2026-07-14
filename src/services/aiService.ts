@@ -40,7 +40,7 @@ class AIService {
     _blurRadius: number = 80,
     onProgress?: (step: string, percentage: number) => void,
     imageType: 'photo' | 'logo' | 'general' = 'photo',
-    colorTolerance: number = 35
+    colorTolerance: number = 45
   ): Promise<Blob> {
     try {
       // ===== LOGO MODE: Gunakan Color-Key Flood Fill =====
@@ -77,11 +77,11 @@ class AIService {
   }
 
   /**
-   * Hapus background dengan Color-Key Flood Fill (Magic Wand dari 4 sudut).
-   * Teknik ini 100% deterministik dan selalu berhasil untuk logo dengan latar solid.
+   * Hapus background dengan Color-Key Flood Fill (Magic Wand dari 8 arah & Global Color Key).
+   * Teknik ini 100% deterministik dan selalu berhasil untuk logo dengan latar solid maupun lubang internal.
    * Toleransi: 0 = exact match, 100 = hapus semua warna mirip
    */
-  public async removeBackgroundByColorKey(file: File | Blob, tolerance: number = 35): Promise<Blob> {
+  public async removeBackgroundByColorKey(file: File | Blob, tolerance: number = 45): Promise<Blob> {
     return new Promise((resolve, reject) => {
       const url = URL.createObjectURL(file);
       const img = new Image();
@@ -97,40 +97,63 @@ class AIService {
         const data = imageData.data;
         const w = canvas.width;
         const h = canvas.height;
+        const totalPixels = w * h;
 
-        // Buat alpha mask: 0 = transparent, 255 = opaque
-        const alphaMap = new Uint8Array(w * h).fill(255);
-        const visited = new Uint8Array(w * h).fill(0);
+        // 1. Deteksi warna dominan pada keliling/border gambar
+        const borderPixels: { r: number; g: number; b: number }[] = [];
+        for (let x = 0; x < w; x++) {
+          let pi = (0 * w + x) * 4;
+          if (data[pi + 3] > 20) borderPixels.push({ r: data[pi], g: data[pi + 1], b: data[pi + 2] });
+          pi = ((h - 1) * w + x) * 4;
+          if (data[pi + 3] > 20) borderPixels.push({ r: data[pi], g: data[pi + 1], b: data[pi + 2] });
+        }
+        for (let y = 1; y < h - 1; y++) {
+          let pi = (y * w + 0) * 4;
+          if (data[pi + 3] > 20) borderPixels.push({ r: data[pi], g: data[pi + 1], b: data[pi + 2] });
+          pi = (y * w + (w - 1)) * 4;
+          if (data[pi + 3] > 20) borderPixels.push({ r: data[pi], g: data[pi + 1], b: data[pi + 2] });
+        }
 
-        // Helper: apakah pixel di posisi idx mirip dengan warna target?
-        const colorMatch = (idx: number, tr: number, tg: number, tb: number): boolean => {
+        // Cari median warna latar dari border
+        let targetR = 255, targetG = 255, targetB = 255;
+        if (borderPixels.length > 0) {
+          borderPixels.sort((a, b) => (a.r + a.g + a.b) - (b.r + b.g + b.b));
+          const median = borderPixels[Math.floor(borderPixels.length / 2)];
+          targetR = median.r;
+          targetG = median.g;
+          targetB = median.b;
+        }
+
+        const alphaMap = new Uint8Array(totalPixels).fill(255);
+        const visited = new Uint8Array(totalPixels).fill(0);
+
+        const colorMatchDistSq = (idx: number, tr: number, tg: number, tb: number): number => {
           const pi = idx * 4;
+          if (data[pi + 3] < 10) return 0;
           const dr = data[pi] - tr;
           const dg = data[pi + 1] - tg;
           const db = data[pi + 2] - tb;
-          // Cek juga jika pixel sudah transparan secara original
-          if (data[pi + 3] < 10) return true;
-          return (dr * dr + dg * dg + db * db) <= tolerance * tolerance * 3;
+          return dr * dr + dg * dg + db * db;
         };
 
-        // BFS Flood Fill dari sebuah titik awal
+        const tolSq = tolerance * tolerance * 3;
+        const globalTolSq = (tolerance * 1.35) * (tolerance * 1.35) * 3;
+
+        // BFS Flood fill 8-connected dari titik awal ke area terhubung
         const floodFill = (startX: number, startY: number) => {
           const startIdx = startY * w + startX;
           if (visited[startIdx]) return;
+          visited[startIdx] = 1;
 
-          // Ambil warna dari titik start sebagai warna target
           const pi = startIdx * 4;
           const tr = data[pi];
           const tg = data[pi + 1];
           const tb = data[pi + 2];
 
-          // BFS queue
           const queue: number[] = [startIdx];
-          visited[startIdx] = 1;
-
           while (queue.length > 0) {
             const idx = queue.shift()!;
-            alphaMap[idx] = 0; // Buat transparan
+            alphaMap[idx] = 0;
 
             const x = idx % w;
             const y = Math.floor(idx / w);
@@ -140,42 +163,62 @@ class AIService {
               x < w - 1 ? idx + 1 : -1,
               y > 0 ? idx - w : -1,
               y < h - 1 ? idx + w : -1,
+              x > 0 && y > 0 ? idx - w - 1 : -1,
+              x < w - 1 && y > 0 ? idx - w + 1 : -1,
+              x > 0 && y < h - 1 ? idx + w - 1 : -1,
+              x < w - 1 && y < h - 1 ? idx + w + 1 : -1,
             ];
 
             for (const nIdx of neighbors) {
-              if (nIdx >= 0 && !visited[nIdx] && colorMatch(nIdx, tr, tg, tb)) {
-                visited[nIdx] = 1;
-                queue.push(nIdx);
+              if (nIdx >= 0 && !visited[nIdx]) {
+                const distSq = colorMatchDistSq(nIdx, tr, tg, tb);
+                if (distSq <= tolSq) {
+                  visited[nIdx] = 1;
+                  queue.push(nIdx);
+                }
               }
             }
           }
         };
 
-        // Flood fill dari 4 sudut
+        // 1. Flood fill dari 4 sudut & 4 sisi
         floodFill(0, 0);
         floodFill(w - 1, 0);
         floodFill(0, h - 1);
         floodFill(w - 1, h - 1);
-
-        // Flood fill dari tengah-tengah 4 sisi (untuk logo dengan border)
         floodFill(Math.floor(w / 2), 0);
         floodFill(Math.floor(w / 2), h - 1);
         floodFill(0, Math.floor(h / 2));
         floodFill(w - 1, Math.floor(h / 2));
 
+        // 2. Global matching & anti-aliasing edge fade
+        for (let i = 0; i < totalPixels; i++) {
+          if (alphaMap[i] === 0) continue;
+          const distSq = colorMatchDistSq(i, targetR, targetG, targetB);
+          if (distSq <= tolSq) {
+            alphaMap[i] = 0;
+          } else if (distSq <= globalTolSq) {
+            const ratio = (Math.sqrt(distSq) - Math.sqrt(tolSq)) / (Math.sqrt(globalTolSq) - Math.sqrt(tolSq));
+            const smoothAlpha = Math.min(255, Math.max(0, Math.round(ratio * 255)));
+            if (smoothAlpha < alphaMap[i]) {
+              alphaMap[i] = smoothAlpha;
+            }
+          }
+        }
+
         // Terapkan alpha map ke image data
-        for (let i = 0; i < w * h; i++) {
-          data[i * 4 + 3] = alphaMap[i];
+        for (let i = 0; i < totalPixels; i++) {
+          data[i * 4 + 3] = Math.min(data[i * 4 + 3], alphaMap[i]);
         }
 
         ctx.putImageData(imageData, 0, 0);
 
         canvas.toBlob((blob) => {
           if (blob) resolve(blob);
-          else reject(new Error('Gagal membuat blob'));
+          else reject(new Error('Gagal membuat blob logo'));
         }, 'image/png');
       };
-      img.onerror = () => reject(new Error('Gagal load gambar'));
+      img.onerror = () => reject(new Error('Gagal load gambar logo'));
       img.src = url;
     });
   }
