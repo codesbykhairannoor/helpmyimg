@@ -22,7 +22,7 @@
 
 @layer base {
   body {
-    @apply bg-dark-900 text-slate-100 font-body min-h-screen overflow-clip antialiased transition-colors duration-300;
+    @apply bg-dark-900 text-slate-100 font-body min-h-screen overflow-x-clip antialiased transition-colors duration-300;
     background-image: 
       radial-gradient(at 10% 20%, hsla(250, 90%, 65%, 0.15) 0px, transparent 50%),
       radial-gradient(at 90% 80%, hsla(190, 95%, 50%, 0.15) 0px, transparent 50%),
