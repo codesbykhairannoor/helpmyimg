@@ -247,14 +247,25 @@ export async function applyWatermark(file: Blob | File, config: WatermarkConfig)
     if (config.position === 'tiled') {
       const stepX = textWidth * 1.5;
       const stepY = textHeight * 3;
+      
+      ctx.save();
       ctx.translate(canvas.width / 2, canvas.height / 2);
       ctx.rotate((config.rotation * Math.PI) / 180);
-      ctx.translate(-canvas.width / 2, -canvas.height / 2);
-      for (let y = -canvas.height; y < canvas.height * 2; y += stepY) {
-        for (let x = -canvas.width; x < canvas.width * 2; x += stepX) {
+      
+      const diag = Math.sqrt(canvas.width * canvas.width + canvas.height * canvas.height);
+      const limit = diag / 2;
+      
+      const startX = -Math.ceil(limit / stepX) * stepX;
+      const endX = Math.ceil(limit / stepX) * stepX;
+      const startY = -Math.ceil(limit / stepY) * stepY;
+      const endY = Math.ceil(limit / stepY) * stepY;
+
+      for (let y = startY; y <= endY; y += stepY) {
+        for (let x = startX; x <= endX; x += stepX) {
           ctx.fillText(config.text, x, y);
         }
       }
+      ctx.restore();
     } else {
       let x = canvas.width / 2;
       let y = canvas.height / 2;
@@ -281,7 +292,7 @@ export async function applyWatermark(file: Blob | File, config: WatermarkConfig)
   } else if (config.type === 'image' && config.image) {
     const wmImg = config.image;
     // Scale watermark relative to the image
-    const maxWmWidth = (baseDimension / 4) * config.scale;
+    const maxWmWidth = (baseDimension / 8) * config.scale;
     const scaleRatio = maxWmWidth / wmImg.width;
     const wmW = wmImg.width * scaleRatio;
     const wmH = wmImg.height * scaleRatio;
@@ -289,14 +300,25 @@ export async function applyWatermark(file: Blob | File, config: WatermarkConfig)
     if (config.position === 'tiled') {
       const stepX = wmW * 1.5;
       const stepY = wmH * 1.5;
+      
+      ctx.save();
       ctx.translate(canvas.width / 2, canvas.height / 2);
       ctx.rotate((config.rotation * Math.PI) / 180);
-      ctx.translate(-canvas.width / 2, -canvas.height / 2);
-      for (let y = -canvas.height; y < canvas.height * 2; y += stepY) {
-        for (let x = -canvas.width; x < canvas.width * 2; x += stepX) {
+      
+      const diag = Math.sqrt(canvas.width * canvas.width + canvas.height * canvas.height);
+      const limit = diag / 2;
+      
+      const startX = -Math.ceil(limit / stepX) * stepX;
+      const endX = Math.ceil(limit / stepX) * stepX;
+      const startY = -Math.ceil(limit / stepY) * stepY;
+      const endY = Math.ceil(limit / stepY) * stepY;
+
+      for (let y = startY; y <= endY; y += stepY) {
+        for (let x = startX; x <= endX; x += stepX) {
           ctx.drawImage(wmImg, x - wmW/2, y - wmH/2, wmW, wmH);
         }
       }
+      ctx.restore();
     } else {
       let x = canvas.width / 2;
       let y = canvas.height / 2;
