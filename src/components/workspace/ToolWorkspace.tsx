@@ -602,34 +602,34 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({ initialTab = 'remo
                   if (e.dataTransfer.files) handleFiles(e.dataTransfer.files);
                 }}
                 onClick={() => fileInputRef.current?.click()}
-                className={`w-full min-h-[350px] md:min-h-0 md:aspect-[4/3] rounded-3xl border-2 border-dashed transition-all duration-300 flex flex-col items-center justify-center p-6 md:p-8 text-center cursor-pointer relative overflow-hidden group ${
+                className={`w-full min-h-[240px] md:min-h-0 md:aspect-[4/3] rounded-3xl border-2 border-dashed transition-all duration-300 flex flex-col items-center justify-center p-4 md:p-8 text-center cursor-pointer relative overflow-hidden group ${
                   isDragging
                     ? 'border-neon-cyan bg-neon-cyan/10 shadow-glow-cyan scale-[0.99]'
                     : 'border-dark-500/80 bg-dark-800/40 hover:border-neon-cyan/60 hover:bg-dark-800/70'
                 }`}
               >
-                  <div className="w-20 h-20 rounded-2xl bg-gradient-to-tr from-neon-cyan/20 to-neon-indigo/20 border border-neon-cyan/40 flex items-center justify-center mb-6 shadow-lg group-hover:scale-110 transition-transform duration-300">
-                  <Upload className="w-10 h-10 text-neon-cyan animate-bounce" />
+                <div className="w-14 h-14 md:w-20 md:h-20 rounded-2xl bg-gradient-to-tr from-neon-cyan/20 to-neon-indigo/20 border border-neon-cyan/40 flex items-center justify-center mb-3 md:mb-6 shadow-lg group-hover:scale-110 transition-transform duration-300">
+                  <Upload className="w-7 h-7 md:w-10 md:h-10 text-neon-cyan animate-bounce" />
                 </div>
 
-                <h3 className="text-xl md:text-2xl font-heading font-extrabold text-white mb-2">
+                <h3 className="text-lg md:text-2xl font-heading font-extrabold text-white mb-1.5 md:mb-2 px-2">
                   {currentItem?.status === 'error' ? (
                     <>
-                      <h3 className="font-bold text-red-600 mb-2">⚠️ {t('work.failedAi')}</h3>
-                      <p className="text-sm text-gray-600 mb-4">{batchItems[selectedIndex].errorMessage || t('work.errorHint')}</p>
+                      <span className="font-bold text-red-600 block mb-1">⚠️ {t('work.failedAi')}</span>
+                      <span className="text-xs md:text-sm text-gray-600 block">{batchItems[selectedIndex].errorMessage || t('work.errorHint')}</span>
                     </>
                   ) : t('dropzone.title')}
                 </h3>
-                <p className="text-sm text-slate-400 max-w-md mb-6">
+                <p className="text-[11px] md:text-sm text-slate-400 max-w-sm mx-auto mb-4 md:mb-6 px-2">
                   {t('dropzone.subtitle')}
                 </p>
 
-                <div className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-neon-cyan to-neon-indigo text-dark-900 font-extrabold shadow-glow-cyan transform group-hover:-translate-y-0.5 transition-all">
+                <div className="inline-flex items-center gap-1.5 md:gap-2 px-5 py-2.5 md:px-6 md:py-3 rounded-xl bg-gradient-to-r from-neon-cyan to-neon-indigo text-dark-900 font-extrabold shadow-glow-cyan transform group-hover:-translate-y-0.5 transition-all text-sm md:text-base mb-3 md:mb-0">
                   <Sparkles className="w-4 h-4 fill-dark-900" />
                   <span>{t('dropzone.btn')}</span>
                 </div>
 
-                <div className="absolute bottom-4 left-0 right-0 text-center text-xs text-slate-400 font-medium">
+                <div className="md:absolute md:bottom-4 left-0 right-0 text-center text-[10px] md:text-xs text-slate-400/80 font-medium px-4">
                   {t('dropzone.privacy')}
                 </div>
               </div>
