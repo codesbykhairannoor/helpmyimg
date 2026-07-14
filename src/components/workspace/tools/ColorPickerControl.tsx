@@ -8,8 +8,9 @@ import { type ColorInfo } from '../../../utils/colorUtils';
 
 export interface ColorPickerControlProps {
   pickedColor: ColorInfo | null;
-  colorHistory: ColorInfo[];
+  colorHistory?: ColorInfo[];
   dominantColors: string[];
+  onSelectColor?: (colorHex: string) => void;
   onUploadOther?: () => void;
   onReset: () => void;
   isProcessing: boolean;
@@ -18,8 +19,8 @@ export interface ColorPickerControlProps {
 
 export const ColorPickerControl: React.FC<ColorPickerControlProps> = ({
   pickedColor,
-  colorHistory,
   dominantColors,
+  onSelectColor,
   onUploadOther,
   onReset,
   isProcessing,
@@ -118,19 +119,22 @@ export const ColorPickerControl: React.FC<ColorPickerControlProps> = ({
         </div>
       )}
 
-      {/* Dominant Palette */}
+      {/* Dominant Palette (No Horizontal Scroll - Clean Grid) */}
       {dominantColors.length > 0 && (
         <div className="space-y-2">
           <div className="flex items-center gap-2 text-xs font-bold text-slate-400 uppercase tracking-wider">
-            <Palette className="w-3.5 h-3.5" />
+            <Palette className="w-3.5 h-3.5 text-neon-cyan" />
             <span>{t('picker.palette')}</span>
           </div>
-          <div className="flex gap-2 overflow-x-auto pb-2 custom-scrollbar">
+          <div className="grid grid-cols-5 sm:grid-cols-7 gap-2.5 pt-1">
             {dominantColors.map((c, i) => (
               <button
                 key={i}
-                onClick={() => copyToClipboard(c.toUpperCase(), `pal-${i}`)}
-                className="group relative w-10 h-10 shrink-0 rounded-xl border border-dark-500 hover:scale-110 transition-transform shadow-md"
+                onClick={() => {
+                  copyToClipboard(c.toUpperCase(), `pal-${i}`);
+                  if (onSelectColor) onSelectColor(c);
+                }}
+                className="group relative w-full aspect-square rounded-xl border border-dark-500 hover:scale-105 transition-all shadow-md"
                 style={{ backgroundColor: c }}
                 title={c.toUpperCase()}
               >
@@ -145,51 +149,18 @@ export const ColorPickerControl: React.FC<ColorPickerControlProps> = ({
         </div>
       )}
 
-      {/* Color History */}
-      {colorHistory.length > 0 && (
-        <div className="space-y-2">
-          <div className="text-[10px] font-bold text-slate-400 uppercase tracking-wider flex justify-between items-center">
-            <span>{t('picker.history')} ({colorHistory.length})</span>
-          </div>
-          <div className="flex gap-1.5 overflow-x-auto pb-2 custom-scrollbar">
-            {colorHistory.map((c, i) => (
-              <button
-                key={i}
-                onClick={() => copyToClipboard(c.hex.toUpperCase(), `hist-${i}`)}
-                className="group relative w-7 h-7 shrink-0 rounded-full border border-dark-500 hover:scale-110 transition-transform shadow-sm"
-                style={{ backgroundColor: c.hex }}
-                title={c.hex.toUpperCase()}
-              >
-                {copiedField === `hist-${i}` && (
-                  <div className="absolute inset-0 bg-black/60 rounded-full flex items-center justify-center">
-                    <Check className="w-3 h-3 text-white" />
-                  </div>
-                )}
-              </button>
-            ))}
-          </div>
+      {/* Upload Other when batchCount === 1 (No Reset button when batchCount > 1) */}
+      {batchCount === 1 && (
+        <div className="pt-3">
+          <button
+            onClick={onUploadOther || onReset}
+            disabled={isProcessing}
+            className="w-full flex items-center justify-center gap-2 py-3 px-4 rounded-xl border border-dark-600 bg-dark-800 text-slate-300 font-semibold hover:bg-dark-700 hover:text-white transition-colors disabled:opacity-50"
+          >
+            <RefreshCw className="w-4 h-4 text-neon-cyan" />
+            <span>{t('editor.reset')}</span>
+          </button>
         </div>
-      )}
-
-      {/* Reset / Upload Other */}
-      {batchCount === 1 ? (
-        <button
-          onClick={onUploadOther || onReset}
-          disabled={isProcessing}
-          className="w-full flex items-center justify-center gap-2 py-3 px-4 rounded-xl border border-dark-600 bg-dark-800 text-slate-300 font-semibold hover:bg-dark-700 hover:text-white transition-colors disabled:opacity-50"
-        >
-          <RefreshCw className="w-4 h-4 text-neon-cyan" />
-          <span>{t('editor.reset')}</span>
-        </button>
-      ) : (
-        <button
-          onClick={onReset}
-          disabled={isProcessing}
-          className="w-full flex items-center justify-center gap-2 py-3 px-4 rounded-xl border border-dark-600 bg-dark-800 text-slate-300 font-semibold hover:bg-dark-700 hover:text-white transition-colors disabled:opacity-50"
-        >
-          <RefreshCw className="w-4 h-4" />
-          <span>{t('btn.reset')}</span>
-        </button>
       )}
     </div>
   );

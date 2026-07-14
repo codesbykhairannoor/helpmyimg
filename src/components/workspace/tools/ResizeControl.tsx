@@ -158,6 +158,15 @@ export const ResizeControl: React.FC<ResizeControlProps> = ({
           <span>{isProcessing ? t('btn.processing') : t('work.action.apply', { defaultValue: 'Apply' })}</span>
         </button>
 
+        <button
+          onClick={onReset}
+          disabled={isProcessing}
+          className="w-full flex items-center justify-center gap-2 py-3 px-4 rounded-xl border border-dark-600 bg-dark-800 text-slate-300 font-semibold hover:bg-dark-700 hover:text-white transition-colors disabled:opacity-50"
+        >
+          <RefreshCw className="w-4 h-4 text-emerald-400" />
+          <span>{t('btn.reset', { defaultValue: 'Atur Ulang' })}</span>
+        </button>
+
         {batchCount === 1 && (
           <button
             onClick={onUploadOther || onReset}

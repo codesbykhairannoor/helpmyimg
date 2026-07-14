@@ -17,7 +17,7 @@ export const Hero: React.FC<HeroProps> = ({ title, description }) => {
   const fallbackDesc = t('landing.default.desc.home', { defaultValue: "Your local AI photo editor is here and forever free! 100% private, runs directly in your browser." });
 
   return (
-    <section className="relative pt-6 pb-4 md:pt-10 md:pb-6 overflow-hidden">
+    <section className="relative pt-12 pb-6 sm:pt-16 md:pt-20 md:pb-8 overflow-hidden">
       {/* Background Glows */}
       <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[550px] h-[350px] bg-gradient-to-tr from-neon-cyan/20 via-neon-indigo/20 to-neon-violet/20 blur-[130px] rounded-full pointer-events-none -z-10" />
 

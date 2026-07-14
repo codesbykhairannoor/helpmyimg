@@ -48,6 +48,14 @@ export function buildColorInfo(r: number, g: number, b: number): ColorInfo {
   return { hex, r, g, b, h, s, l, c, m, y, k };
 }
 
+export function hexToColorInfo(hex: string): ColorInfo {
+  const cleanHex = hex.replace('#', '');
+  const r = parseInt(cleanHex.substring(0, 2), 16) || 0;
+  const g = parseInt(cleanHex.substring(2, 4), 16) || 0;
+  const b = parseInt(cleanHex.substring(4, 6), 16) || 0;
+  return buildColorInfo(r, g, b);
+}
+
 // Extract dominant colors from canvas using simple color quantization
 export function extractDominantColors(canvas: HTMLCanvasElement, count = 6): string[] {
   const ctx = canvas.getContext('2d');

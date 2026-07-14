@@ -83,24 +83,23 @@ export const BlurFaceControl: React.FC<BlurFaceControlProps> = ({
         </div>
       </div>
 
-      <div className="p-4 border-t border-dark-600 bg-dark-900/90 backdrop-blur-md sticky bottom-0 z-10 space-y-2">
-        <div className="flex gap-2">
-          <button
-            onClick={onReset}
-            className="p-3 rounded-xl bg-dark-800 text-slate-300 hover:text-white hover:bg-dark-700 transition-colors border border-dark-600"
-            title="Reset"
-          >
-            <RefreshCw className="w-4 h-4" />
-          </button>
-          
-          <button
-            onClick={onApply}
-            disabled={isProcessing}
-            className="flex-1 py-3 bg-gradient-to-r from-neon-cyan to-neon-indigo text-dark-900 font-extrabold rounded-xl hover:shadow-glow-cyan transition-all flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed text-sm uppercase tracking-wider"
-          >
-            <span>{isProcessing ? t('btn.processing') : t('work.action.apply', { defaultValue: 'Apply' })}</span>
-          </button>
-        </div>
+      <div className="p-4 border-t border-dark-600 bg-dark-900/90 backdrop-blur-md sticky bottom-0 z-10 space-y-2.5">
+        <button
+          onClick={onApply}
+          disabled={isProcessing}
+          className="w-full py-3.5 bg-gradient-to-r from-neon-cyan to-neon-indigo text-dark-900 font-extrabold rounded-xl hover:shadow-glow-cyan transition-all flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed text-sm uppercase tracking-wider"
+        >
+          <span>{isProcessing ? t('btn.processing') : t('work.action.apply', { defaultValue: 'Apply' })}</span>
+        </button>
+
+        <button
+          onClick={onReset}
+          disabled={isProcessing}
+          className="w-full py-3 px-4 rounded-xl border border-dark-600 bg-dark-800 text-slate-300 font-semibold hover:bg-dark-700 hover:text-white transition-colors disabled:opacity-50 flex items-center justify-center gap-2"
+        >
+          <RefreshCw className="w-4 h-4 text-neon-pink" />
+          <span>{t('btn.reset', { defaultValue: 'Atur Ulang / Kembalikan' })}</span>
+        </button>
 
         {batchCount === 1 && (
           <button

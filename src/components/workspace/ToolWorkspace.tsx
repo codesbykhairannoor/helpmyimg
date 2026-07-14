@@ -28,7 +28,7 @@ import { BlurBoxOverlay } from './tools/BlurBoxOverlay';
 import { DesignEditorControl } from './tools/DesignEditorControl';
 
 import { processImage, cropImage, rotateImage, smartCropImage, applyWatermark } from '../../utils/imageOperations';
-import { buildColorInfo, extractDominantColors, type ColorInfo } from '../../utils/colorUtils';
+import { buildColorInfo, hexToColorInfo, extractDominantColors, type ColorInfo } from '../../utils/colorUtils';
 export type { ColorInfo };
 import type { WatermarkPosition } from './tools/WatermarkControl';
 export type { WatermarkPosition };
@@ -52,6 +52,9 @@ export interface BatchItem {
   errorMessage?: string;
   rotateBaseUrl?: string;
   rotateBaseFile?: Blob;
+  initialFile?: Blob;
+  initialOriginalUrl?: string;
+  initialDimensions?: { width: number; height: number };
 }
 
 interface ToolWorkspaceProps {
@@ -166,7 +169,6 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({ initialTab = 'remo
 
   // Picker State
   const [pickedColor, setPickedColor] = useState<ColorInfo | null>(null);
-  const [colorHistory, setColorHistory] = useState<ColorInfo[]>([]);
   const [dominantColors, setDominantColors] = useState<string[]>([]);
   // --- Blur Face State ---
   const [blurBoxes, setBlurBoxes] = useState<BlurBox[]>([]);
@@ -184,6 +186,12 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({ initialTab = 'remo
       const img = new Image();
       img.onload = () => {
         setOriginalDimensions({ width: img.width, height: img.height });
+        if (!currentItem.initialDimensions) {
+          setBatchItems(prev => prev.map(item => item.id === currentItem.id ? {
+            ...item,
+            initialDimensions: { width: img.width, height: img.height }
+          } : item));
+        }
         // Set initial values if not set
         if (resizeWidth === 0 && resizeHeight === 0) {
           setResizeWidth(img.width);
@@ -196,7 +204,7 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({ initialTab = 'remo
       };
       img.src = currentItem.originalUrl;
     }
-  }, [currentItem?.originalUrl]);
+  }, [currentItem?.originalUrl, currentItem?.id]);
 
   // Clear preview of current item ONLY when quality changes
   useEffect(() => {
@@ -219,18 +227,23 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({ initialTab = 'remo
     const fileArray = Array.from(files).slice(0, 10); // Batasi 10 foto batch
     if (fileArray.length === 0) return;
 
-    const newItems: BatchItem[] = fileArray.map((f) => ({
-      id: `img_${Date.now()}_${Math.random().toString(36).substring(2, 7)}`,
-      name: f.name,
-      file: f,
-      originalUrl: URL.createObjectURL(f),
-      transparentUrl: null,
-      processedUrl: null,
-      modelType: 'rmbg',
-      status: 'idle', // Status awal 'idle'. Harus di-klik manual untuk masuk ke 'queued' atau diproses.
-      progress: 0,
-      progressStep: t('work.waiting'),
-    }));
+    const newItems: BatchItem[] = fileArray.map((f) => {
+      const url = URL.createObjectURL(f);
+      return {
+        id: `img_${Date.now()}_${Math.random().toString(36).substring(2, 7)}`,
+        name: f.name,
+        file: f,
+        originalUrl: url,
+        transparentUrl: null,
+        processedUrl: null,
+        initialFile: f,
+        initialOriginalUrl: url,
+        modelType: 'rmbg',
+        status: 'idle', // Status awal 'idle'. Harus di-klik manual untuk masuk ke 'queued' atau diproses.
+        progress: 0,
+        progressStep: t('work.waiting'),
+      };
+    });
 
     setBatchItems((prev) => {
       const merged = [...prev, ...newItems];
@@ -489,11 +502,6 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({ initialTab = 'remo
       if (a > 0) {
         const info = buildColorInfo(r, g, b);
         setPickedColor(info);
-        setColorHistory(prev => {
-          // Avoid duplicate adjacent colors in history
-          if (prev.length > 0 && prev[0].hex === info.hex) return prev;
-          return [info, ...prev.slice(0, 19)];
-        });
       }
     }
   };
@@ -1173,9 +1181,27 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({ initialTab = 'remo
                       }
                     }}
                     onReset={() => {
-                      setResizeWidth(originalDimensions.width);
-                      setResizeHeight(originalDimensions.height);
+                      if (currentItem && currentItem.initialDimensions) {
+                        setOriginalDimensions(currentItem.initialDimensions);
+                        setResizeWidth(currentItem.initialDimensions.width);
+                        setResizeHeight(currentItem.initialDimensions.height);
+                      } else {
+                        setResizeWidth(originalDimensions.width);
+                        setResizeHeight(originalDimensions.height);
+                      }
                       setResizeMaintainRatio(false);
+                      if (currentItem) {
+                        const targetFile = currentItem.initialFile || currentItem.file;
+                        const targetUrl = currentItem.initialOriginalUrl || currentItem.originalUrl;
+                        setBatchItems(prev => prev.map(item => item.id === currentItem.id ? {
+                          ...item,
+                          file: targetFile,
+                          originalUrl: targetUrl,
+                          transparentUrl: item.transparentUrl ? targetUrl : null,
+                          processedUrl: targetUrl,
+                          status: 'done'
+                        } : item));
+                      }
                     }}
                     onUploadOther={handleUploadOther}
                     batchCount={batchItems.length}
@@ -1303,8 +1329,8 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({ initialTab = 'remo
                 {activeTab === 'picker' && (
                   <ColorPickerControl
                     pickedColor={pickedColor}
-                    colorHistory={colorHistory}
                     dominantColors={dominantColors}
+                    onSelectColor={(hex) => setPickedColor(hexToColorInfo(hex))}
                     onReset={() => {}}
                     onUploadOther={handleUploadOther}
                     batchCount={batchItems.length}
@@ -1360,9 +1386,14 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({ initialTab = 'remo
                     onReset={() => {
                       setBlurBoxes([]);
                       if (currentItem) {
+                        const targetFile = currentItem.initialFile || currentItem.file;
+                        const targetUrl = currentItem.initialOriginalUrl || currentItem.originalUrl;
                         setBatchItems(prev => prev.map(item => item.id === currentItem.id ? {
                           ...item,
-                          processedUrl: item.transparentUrl || item.originalUrl,
+                          file: targetFile,
+                          originalUrl: targetUrl,
+                          transparentUrl: item.transparentUrl ? targetUrl : null,
+                          processedUrl: targetUrl,
                           status: 'done'
                         } : item));
                       }
@@ -1409,7 +1440,7 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({ initialTab = 'remo
               </Suspense>
               
               {/* Sidebar Batch Download UI & Rename */}
-              {batchItems.length > 0 && (
+              {batchItems.length > 0 && activeTab !== 'picker' && (
                 <div className="mt-6 pt-6 border-t border-dark-600/60 shrink-0 flex flex-col gap-4">
                   <div className="flex items-center justify-between">
                     <div className="text-[10px] font-bold text-slate-500 uppercase tracking-wider">{t('editor.download', { defaultValue: 'Export & Download' })}</div>
