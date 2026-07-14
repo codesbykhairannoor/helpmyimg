@@ -46,7 +46,7 @@ export interface BatchItem {
   compressUrl?: string;
   compressSourceSize?: number;
   modelType: 'rmbg' | 'isnet';
-  status: 'idle' | 'processing' | 'done' | 'error';
+  status: 'idle' | 'queued' | 'processing' | 'done' | 'error';
   progress: number;
   progressStep: string;
   errorMessage?: string;
@@ -840,9 +840,9 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({ initialTab = 'remo
                         idx === selectedIndex ? { ...item, name: e.target.value } : item
                       ));
                     }}
-                    placeholder={t('work.fileName', 'File Name')}
+                    placeholder={t('work.fileName', { defaultValue: 'File Name' })}
                     className="bg-transparent border-none text-xs text-white font-medium focus:outline-none w-full"
-                    title={t('work.fileNameDesc', 'This name will be used when downloading this file')}
+                    title={t('work.fileNameDesc', { defaultValue: 'This name will be used when downloading this file' })}
                   />
                 </div>
               )}
@@ -864,9 +864,9 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({ initialTab = 'remo
                     onReset={() => setBatchItems([])}
                     isProcessing={currentItem?.status === 'processing' || currentItem?.status === 'queued' || batchItems.some(i => i.status === 'processing' || i.status === 'queued')}
                     status={currentItem?.status || 'idle'}
-                    onProcessNow={() => currentItem && setBatchItems(prev => prev.map(i => i.id === currentItem.id ? { ...i, status: 'queued', progressStep: t('work.queued', 'Queued') } : i))}
+                    onProcessNow={() => currentItem && setBatchItems(prev => prev.map(i => i.id === currentItem.id ? { ...i, status: 'queued', progressStep: t('work.queued', { defaultValue: 'Queued' }) } : i))}
                     onProcessBatch={() => {
-                      setBatchItems(prev => prev.map(i => i.status === 'idle' ? { ...i, status: 'queued', progressStep: t('work.queued', 'Queued') } : i));
+                      setBatchItems(prev => prev.map(i => i.status === 'idle' ? { ...i, status: 'queued', progressStep: t('work.queued', { defaultValue: 'Queued' }) } : i));
                     }}
                     batchCount={batchItems.length}
                     imageType={imageType}
@@ -986,8 +986,7 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({ initialTab = 'remo
                   <CompressControl
                     quality={compressQuality}
                     setQuality={setCompressQuality}
-                    originalSize={currentItem?.compressSourceSize || currentItem?.file?.size}
-                    compressedSize={currentItem?.compressBlob?.size}
+                    hasCompressed={!!currentItem?.compressBlob}
                     onProcess={async () => {
                       if (currentItem) {
                         try {
@@ -1284,7 +1283,6 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({ initialTab = 'remo
                     }}
                     onReset={() => {
                       setBlurBoxes([]);
-                      setBlurMode('auto');
                       setBatchItems([]);
                     }}
                     isProcessing={false}
@@ -1332,7 +1330,7 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({ initialTab = 'remo
                   {/* Batch Rename UI */}
                   {batchItems.length > 1 ? (
                     <div className="flex flex-col gap-2.5">
-                      <div className="text-[10px] font-bold text-slate-500 uppercase tracking-wider">{t('work.batchRename', 'Rename Files')}</div>
+                      <div className="text-[10px] font-bold text-slate-500 uppercase tracking-wider">{t('work.batchRename', { defaultValue: 'Rename Files' })}</div>
                       <div className="flex flex-col gap-2">
                         {batchItems.map((item, idx) => {
                           const nameParts = item.name.split('.');
@@ -1362,7 +1360,7 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({ initialTab = 'remo
                                   }
                                 }}
                                 className="opacity-0 group-hover:opacity-100 text-slate-500 hover:text-red-400 transition-colors shrink-0 p-1"
-                                title={t('btn.delete', 'Delete')}
+                                title={t('btn.delete', { defaultValue: 'Delete' })}
                               >
                                 <Trash2 className="w-4 h-4" />
                               </button>
@@ -1373,7 +1371,7 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({ initialTab = 'remo
                     </div>
                   ) : (
                     <div className="flex flex-col gap-2.5">
-                      <div className="text-[10px] font-bold text-slate-500 uppercase tracking-wider">{t('work.renameFile', 'Rename File')}</div>
+                      <div className="text-[10px] font-bold text-slate-500 uppercase tracking-wider">{t('work.renameFile', { defaultValue: 'Rename File' })}</div>
                       <div className="flex items-center gap-2 bg-dark-800/50 p-2 rounded-lg border border-dark-600/50 focus-within:border-neon-cyan/50 transition-colors">
                         <input
                           type="text"
@@ -1394,13 +1392,13 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({ initialTab = 'remo
                   {/* ZIP Download */}
                   {batchItems.length > 1 && (
                     <div>
-                      <div className="text-[10px] font-bold text-slate-500 uppercase tracking-wider mb-2">{t('work.batchDownload', 'Batch Download (ZIP)')}</div>
+                      <div className="text-[10px] font-bold text-slate-500 uppercase tracking-wider mb-2">{t('work.batchDownload', { defaultValue: 'Batch Download (ZIP)' })}</div>
                       <div className="space-y-2.5">
                         <input
                           type="text"
                           value={customZipName}
                           onChange={(e) => setCustomZipName(e.target.value)}
-                          placeholder={t('work.zipNamePlaceholder', 'Custom ZIP Name (Optional)')}
+                          placeholder={t('work.zipNamePlaceholder', { defaultValue: 'Custom ZIP Name (Optional)' })}
                           className="w-full bg-dark-800/80 border border-dark-600 focus:border-neon-cyan text-white px-3 py-2.5 rounded-xl text-xs outline-none transition-all"
                         />
                         <button
@@ -1409,7 +1407,7 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({ initialTab = 'remo
                           className="w-full px-4 py-3.5 bg-gradient-to-r from-neon-indigo to-neon-cyan text-white font-extrabold rounded-xl text-xs flex items-center justify-center gap-2 hover:shadow-glow-cyan transition-all disabled:opacity-50 disabled:cursor-not-allowed transform hover:-translate-y-0.5"
                         >
                           {isZipping ? <Loader2 className="w-4 h-4 animate-spin" /> : <Archive className="w-4 h-4" />}
-                          <span>{t('work.downloadZip', 'Download All (ZIP)')}</span>
+                          <span>{t('work.downloadZip', { defaultValue: 'Download All (ZIP)' })}</span>
                         </button>
                       </div>
                     </div>

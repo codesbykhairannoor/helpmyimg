@@ -7,8 +7,7 @@ import confetti from 'canvas-confetti';
 interface CompressControlProps {
   quality: number;
   setQuality: (q: number) => void;
-  originalSize?: number;
-  compressedSize?: number;
+  hasCompressed?: boolean;
   onProcess: () => void;
   onProcessBatch?: () => void;
   onDownload: () => void;
@@ -20,8 +19,7 @@ interface CompressControlProps {
 export const CompressControl: React.FC<CompressControlProps> = ({
   quality,
   setQuality,
-  originalSize,
-  compressedSize,
+  hasCompressed,
   onProcess,
   onProcessBatch,
   onDownload,
@@ -44,17 +42,6 @@ export const CompressControl: React.FC<CompressControlProps> = ({
     onDownload();
   };
 
-  const formatSize = (bytes?: number) => {
-    if (!bytes) return '0 B';
-    const k = 1024;
-    const sizes = ['B', 'KB', 'MB', 'GB'];
-    const i = Math.floor(Math.log(bytes) / Math.log(k));
-    return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
-  };
-
-  const savedPercent = originalSize && compressedSize 
-    ? Math.max(0, Math.round(((originalSize - compressedSize) / originalSize) * 100))
-    : 0;
 
   return (
     <div className="space-y-6 overflow-y-visible">
@@ -76,14 +63,14 @@ export const CompressControl: React.FC<CompressControlProps> = ({
           className="w-full h-2 bg-dark-700 rounded-lg appearance-none cursor-pointer accent-neon-cyan"
         />
         <div className="flex justify-between items-center text-[10px] uppercase font-bold tracking-wider pt-1">
-          <span className={`${quality <= 0.3 ? 'text-neon-cyan' : 'text-slate-500'}`}>{t('compress.maxCompress', 'Max Compress')}</span>
-          <span className={`${quality > 0.3 && quality <= 0.7 ? 'text-neon-cyan' : 'text-slate-500'}`}>{t('compress.balanced', 'Balanced')}</span>
-          <span className={`${quality > 0.7 ? 'text-neon-cyan' : 'text-slate-500'}`}>{t('compress.highQuality', 'High Quality')}</span>
+          <span className={`${quality <= 0.3 ? 'text-neon-cyan' : 'text-slate-500'}`}>{t('compress.maxCompress', { defaultValue: 'Max Compress' })}</span>
+          <span className={`${quality > 0.3 && quality <= 0.7 ? 'text-neon-cyan' : 'text-slate-500'}`}>{t('compress.balanced', { defaultValue: 'Balanced' })}</span>
+          <span className={`${quality > 0.7 ? 'text-neon-cyan' : 'text-slate-500'}`}>{t('compress.highQuality', { defaultValue: 'High Quality' })}</span>
         </div>
       </div>
 
       <div className="space-y-3 pt-2">
-        {!compressedSize ? (
+        {!hasCompressed ? (
           <div className="flex gap-2">
             <button
               onClick={handleProcess}

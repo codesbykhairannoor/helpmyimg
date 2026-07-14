@@ -12,7 +12,7 @@ interface RemoveBgControlProps {
   batchUrls: { name: string; url: string }[];
   onReset: () => void;
   isProcessing: boolean;
-  status?: 'idle' | 'processing' | 'done' | 'error';
+  status?: 'idle' | 'queued' | 'processing' | 'done' | 'error';
   onProcessNow?: () => void;
   onProcessBatch?: () => void;
   batchCount?: number;

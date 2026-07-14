@@ -1,8 +1,6 @@
 // src/components/Hero.tsx
 // Bagian Hero Banner dengan Animasi Framer Motion dan Statistik Pembuktian Kuantitatif (GEO)
 
-import React from 'react';
-import { useTranslation } from '../context/LanguageContext';
 import { motion } from 'framer-motion';
 
 interface HeroProps {
@@ -11,7 +9,6 @@ interface HeroProps {
 }
 
 export const Hero: React.FC<HeroProps> = ({ title, description }) => {
-  const { t } = useTranslation();
 
   return (
     <section className="relative pt-8 pb-6 md:pt-12 md:pb-8 overflow-hidden">
