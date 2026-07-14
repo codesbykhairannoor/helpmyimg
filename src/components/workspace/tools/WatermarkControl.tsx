@@ -50,7 +50,7 @@ export const WatermarkControl: React.FC<WatermarkControlProps> = ({
   onReset,
   onUploadOther,
   isProcessing,
-  batchCount = 1,
+  batchCount = 0,
 }) => {
   const { t } = useTranslation();
   const fileInputRef = useRef<HTMLInputElement>(null);
@@ -251,13 +251,15 @@ export const WatermarkControl: React.FC<WatermarkControlProps> = ({
             </button>
           )}
 
-        <button
-          onClick={onUploadOther || onReset}
-          className="w-full flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-dark-800 hover:bg-dark-700 text-slate-300 font-medium text-sm transition-colors border border-dark-600"
-        >
-          <RefreshCw className="w-4 h-4" />
-          <span>{t('editor.reset')}</span>
-        </button>
+        {batchCount === 1 && (
+          <button
+            onClick={onUploadOther || onReset}
+            className="w-full flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-dark-800 hover:bg-dark-700 text-slate-300 font-medium text-sm transition-colors border border-dark-600"
+          >
+            <RefreshCw className="w-4 h-4" />
+            <span>{t('editor.reset')}</span>
+          </button>
+        )}
       </div>
     </div>
   );

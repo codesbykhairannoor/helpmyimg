@@ -882,6 +882,7 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({ initialTab = 'remo
                     }}
                     onUploadOther={handleUploadOther}
                     isProcessing={currentItem?.status === 'processing'}
+                    batchCount={batchItems.length}
                   />
                 )}
 
@@ -912,6 +913,7 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({ initialTab = 'remo
                     }}
                     onUploadOther={handleUploadOther}
                     isProcessing={currentItem?.status === 'processing'}
+                    batchCount={batchItems.length}
                   />
                 )}
 

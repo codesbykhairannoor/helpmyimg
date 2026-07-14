@@ -28,7 +28,7 @@ export const RemoveBgControl: React.FC<RemoveBgControlProps> = ({
   status = 'idle',
   onProcessNow,
   onProcessBatch,
-  batchCount = 1,
+  batchCount = 0,
   imageType = 'photo',
   setImageType,
   hasProcessedAi = true, // Default true to maintain behavior if not passed
@@ -142,17 +142,19 @@ export const RemoveBgControl: React.FC<RemoveBgControlProps> = ({
         </div>
       )}
 
-      {/* Tombol Unggah Foto Lain / Upload Other Photos (Selalu Aktif & Muncul di Semua Kondisi) */}
-      <div className="pt-3 border-t border-dark-700/80 mt-2">
-        <button
-          onClick={onUploadOther || onReset}
-          disabled={isProcessing}
-          className="w-full flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-dark-800 hover:bg-dark-700 text-slate-300 hover:text-white font-medium text-sm transition-colors border border-dark-600 cursor-pointer disabled:opacity-50"
-        >
-          <RefreshCw className="w-4 h-4 text-neon-cyan" />
-          <span>{t('editor.reset')}</span>
-        </button>
-      </div>
+      {/* Tombol Unggah Foto Lain / Upload Other Photos (Muncul HANYA saat tepat 1 foto terupload) */}
+      {batchCount === 1 && (
+        <div className="pt-3 border-t border-dark-700/80 mt-2">
+          <button
+            onClick={onUploadOther || onReset}
+            disabled={isProcessing}
+            className="w-full flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-dark-800 hover:bg-dark-700 text-slate-300 hover:text-white font-medium text-sm transition-colors border border-dark-600 cursor-pointer disabled:opacity-50"
+          >
+            <RefreshCw className="w-4 h-4 text-neon-cyan" />
+            <span>{t('editor.reset')}</span>
+          </button>
+        </div>
+      )}
     </div>
   );
 };

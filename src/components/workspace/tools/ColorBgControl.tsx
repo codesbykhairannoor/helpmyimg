@@ -11,6 +11,7 @@ interface ColorBgControlProps {
   onReset: () => void;
   onUploadOther?: () => void;
   isProcessing: boolean;
+  batchCount?: number;
 }
 
 export const ColorBgControl: React.FC<ColorBgControlProps> = ({
@@ -19,6 +20,7 @@ export const ColorBgControl: React.FC<ColorBgControlProps> = ({
   onReset,
   onUploadOther,
   isProcessing,
+  batchCount = 0,
 }) => {
   const { t } = useTranslation();
 
@@ -30,55 +32,53 @@ export const ColorBgControl: React.FC<ColorBgControlProps> = ({
   ];
 
   return (
-    <div className="space-y-6 overflow-y-visible">
-      {/* Warna Resmi Indonesia */}
-      <div className="space-y-2.5">
-        <div className="flex items-center gap-2 text-sm font-semibold text-white">
-          <Palette className="w-4 h-4 text-neon-pink" />
-          <span>{t('color.official')}</span>
-        </div>
-        <div className="grid grid-cols-2 gap-2">
-          {officialColors.map((c) => (
+    <div className="space-y-6">
+      {/* Warna Resmi Pas Foto CPNS & KTP */}
+      <div className="space-y-3">
+        <label className="text-xs font-bold text-slate-300 flex items-center gap-2">
+          <Palette className="w-4 h-4 text-neon-cyan" />
+          <span>{t('color.officialTitle')}</span>
+        </label>
+        <div className="grid grid-cols-2 gap-2.5">
+          {officialColors.map((col) => (
             <button
-              key={c.hex}
-              onClick={() => {
-                setSelectedColor(c.hex);
-              }}
-              className={`p-2.5 rounded-xl border flex items-center gap-2.5 transition-all duration-200 text-left ${
-                selectedColor === c.hex
-                  ? 'border-neon-cyan bg-dark-700/80 shadow-glow-cyan'
-                  : 'border-dark-600 bg-dark-800/60 hover:bg-dark-700'
+              key={col.hex}
+              onClick={() => setSelectedColor(col.hex)}
+              disabled={isProcessing}
+              className={`flex items-center gap-2.5 p-2.5 rounded-xl border text-left transition-all ${
+                selectedColor === col.hex
+                  ? 'border-neon-cyan bg-neon-cyan/10 text-white font-bold shadow-sm'
+                  : 'border-dark-600 bg-dark-800/80 hover:bg-dark-700 text-slate-300'
               }`}
             >
-              <div
-                className="w-6 h-6 rounded-lg border border-white/20 flex items-center justify-center shrink-0 shadow-sm"
-                style={{ backgroundColor: c.hex }}
+              <span
+                className="w-5 h-5 rounded-full border border-white/20 shrink-0 flex items-center justify-center shadow-inner"
+                style={{ backgroundColor: col.hex }}
               >
-                {selectedColor === c.hex && (
-                  <Check className={`w-3.5 h-3.5 ${c.hex === '#FFFFFF' ? 'text-black' : 'text-white'}`} />
+                {selectedColor === col.hex && (
+                  <Check className={`w-3 h-3 ${col.hex === '#FFFFFF' ? 'text-dark-900' : 'text-white'}`} />
                 )}
-              </div>
-              <div className="overflow-hidden">
-                <div className="text-xs font-semibold text-slate-200 truncate">{c.label}</div>
-                <div className="text-[10px] font-mono text-slate-400">{c.hex}</div>
-              </div>
+              </span>
+              <span className="text-xs truncate">{col.label}</span>
             </button>
           ))}
         </div>
+      </div>
 
-        {/* Custom Color Picker */}
-        <div className="flex items-center gap-3 pt-1">
-          <label className="text-xs font-medium text-slate-400">{t('color.custom')}</label>
-          <div className="flex items-center gap-2 bg-dark-800 border border-dark-600 px-2.5 py-1 rounded-xl flex-1">
-            <input
-              type="color"
-              value={selectedColor}
-              onChange={(e) => {
-                setSelectedColor(e.target.value);
-              }}
-              className="w-7 h-7 rounded-lg cursor-pointer bg-transparent border-0"
-            />
-            <span className="font-mono text-xs uppercase text-slate-300 font-bold">
+      {/* Custom Color Picker */}
+      <div className="space-y-3 pt-2 border-t border-dark-700/60">
+        <label className="text-xs font-bold text-slate-300">{t('color.customTitle')}</label>
+        <div className="flex items-center gap-3 bg-dark-800 p-2.5 rounded-xl border border-dark-600">
+          <input
+            type="color"
+            value={selectedColor}
+            onChange={(e) => setSelectedColor(e.target.value)}
+            disabled={isProcessing}
+            className="w-10 h-10 rounded-lg bg-transparent cursor-pointer border-0 p-0"
+          />
+          <div className="flex flex-col">
+            <span className="text-[10px] text-slate-400 uppercase tracking-wider font-semibold">HEX Code</span>
+            <span className="text-sm font-mono font-bold text-white uppercase tracking-wide">
               {selectedColor}
             </span>
           </div>
@@ -86,16 +86,18 @@ export const ColorBgControl: React.FC<ColorBgControlProps> = ({
       </div>
 
       {/* Action Buttons */}
-      <div className="space-y-3 pt-2">
-        <button
-          onClick={onUploadOther || onReset}
-          disabled={isProcessing}
-          className="w-full flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-dark-800 hover:bg-dark-700 text-slate-300 font-medium text-sm transition-colors border border-dark-600 disabled:opacity-50"
-        >
-          <RefreshCw className="w-4 h-4" />
-          <span>{t('editor.reset')}</span>
-        </button>
-      </div>
+      {batchCount === 1 && (
+        <div className="space-y-3 pt-2">
+          <button
+            onClick={onUploadOther || onReset}
+            disabled={isProcessing}
+            className="w-full flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-dark-800 hover:bg-dark-700 text-slate-300 font-medium text-sm transition-colors border border-dark-600 disabled:opacity-50"
+          >
+            <RefreshCw className="w-4 h-4" />
+            <span>{t('editor.reset')}</span>
+          </button>
+        </div>
+      )}
     </div>
   );
 };
