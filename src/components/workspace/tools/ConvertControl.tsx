@@ -8,22 +8,30 @@ interface ConvertControlProps {
   format: 'image/png' | 'image/jpeg' | 'image/webp' | 'image/gif' | 'image/bmp' | 'image/x-icon' | 'image/avif';
   setFormat: (f: 'image/png' | 'image/jpeg' | 'image/webp' | 'image/gif' | 'image/bmp' | 'image/x-icon' | 'image/avif') => void;
   onDownload: () => void;
+  onProcessBatch?: () => void;
   onReset: () => void;
   isProcessing: boolean;
+  batchCount?: number;
 }
 
 export const ConvertControl: React.FC<ConvertControlProps> = ({
   format,
   setFormat,
   onDownload,
+  onProcessBatch,
   onReset,
   isProcessing,
+  batchCount = 1,
 }) => {
   const { t } = useTranslation();
 
   const handleDownload = () => {
     confetti({ particleCount: 100, spread: 70, origin: { y: 0.7 } });
     onDownload();
+  };
+
+  const handleProcessBatch = () => {
+    if (onProcessBatch) onProcessBatch();
   };
 
   const formats = [
@@ -63,14 +71,27 @@ export const ConvertControl: React.FC<ConvertControlProps> = ({
       </div>
 
       <div className="space-y-3 pt-2">
-        <button
-          onClick={handleDownload}
-          disabled={isProcessing}
-          className="w-full flex items-center justify-center gap-2.5 py-3.5 px-4 rounded-xl bg-gradient-to-r from-neon-violet to-neon-pink text-white font-extrabold shadow-glow-violet transition-all duration-200 disabled:opacity-50 transform hover:-translate-y-0.5"
-        >
-          <Download className="w-5 h-5" />
-          <span>{isProcessing ? t('btn.processing') : t('btn.download')}</span>
-        </button>
+        <div className="flex gap-2">
+          <button
+            onClick={handleDownload}
+            disabled={isProcessing}
+            className="flex-1 flex flex-col items-center justify-center gap-1 py-3 px-2 rounded-xl bg-gradient-to-r from-neon-violet to-neon-pink text-white font-extrabold shadow-glow-violet transition-all duration-200 disabled:opacity-50 transform hover:-translate-y-0.5"
+          >
+            <Download className="w-5 h-5" />
+            <span className="text-xs">{isProcessing ? t('btn.processing') : (t('btn.download') || 'Download 1')}</span>
+          </button>
+          
+          {onProcessBatch && batchCount > 1 && (
+            <button
+              onClick={handleProcessBatch}
+              disabled={isProcessing}
+              className="flex-1 flex flex-col items-center justify-center gap-1 py-3 px-2 rounded-xl bg-neon-violet/20 hover:bg-neon-violet/30 text-neon-violet font-extrabold shadow-sm transition-all duration-200 disabled:opacity-50 border border-neon-violet/50"
+            >
+              <RefreshCw className={`w-4 h-4 ${isProcessing ? 'animate-spin' : ''}`} />
+              <span className="text-xs">{t('convert.processAll', { count: String(batchCount) }) === 'convert.processAll' ? `Convert All (${batchCount})` : t('convert.processAll', { count: String(batchCount) })}</span>
+            </button>
+          )}
+        </div>
 
         <button
           onClick={onReset}

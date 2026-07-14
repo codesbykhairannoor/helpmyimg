@@ -4,11 +4,22 @@ import { motion } from 'framer-motion';
 interface ImageCompareSliderProps {
   beforeImage: string;
   afterImage: string;
+  originalSize?: number;
+  compressedSize?: number;
 }
 
-export const ImageCompareSlider: React.FC<ImageCompareSliderProps> = ({ beforeImage, afterImage }) => {
+const formatSize = (bytes: number) => {
+  if (bytes === 0) return '0 B';
+  const k = 1024;
+  const sizes = ['B', 'KB', 'MB'];
+  const i = Math.floor(Math.log(bytes) / Math.log(k));
+  return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
+};
+
+export const ImageCompareSlider: React.FC<ImageCompareSliderProps> = ({ beforeImage, afterImage, originalSize, compressedSize }) => {
   const [sliderPosition, setSliderPosition] = useState(50);
   const [isDragging, setIsDragging] = useState(false);
+  const [aspectRatio, setAspectRatio] = useState<string | null>(null);
   const containerRef = useRef<HTMLDivElement>(null);
 
   const handleMove = (clientX: number) => {
@@ -51,28 +62,9 @@ export const ImageCompareSlider: React.FC<ImageCompareSliderProps> = ({ beforeIm
     }
   }, [isDragging]);
 
-  // We use a ResizeObserver to measure the exact rendered size of the layout image
-  const [imageSize, setImageSize] = useState({ width: 0, height: 0 });
-  const imageRef = useRef<HTMLImageElement>(null);
-
-  useEffect(() => {
-    if (!imageRef.current) return;
-    const observer = new ResizeObserver((entries) => {
-      for (let entry of entries) {
-        setImageSize({
-          width: entry.contentRect.width,
-          height: entry.contentRect.height
-        });
-      }
-    });
-    observer.observe(imageRef.current);
-    return () => observer.disconnect();
-  }, []);
-
   return (
-    <div 
-      className="relative flex items-center justify-center max-w-full max-h-full"
-      style={{ width: '100%', height: '100%' }}
+    <motion.div 
+      className="grid cursor-ew-resize rounded-lg overflow-hidden shadow-2xl max-h-full max-w-full"
       ref={containerRef}
       onMouseDown={(e) => {
         setIsDragging(true);
@@ -82,70 +74,69 @@ export const ImageCompareSlider: React.FC<ImageCompareSliderProps> = ({ beforeIm
         setIsDragging(true);
         handleMove(e.touches[0].clientX);
       }}
+      initial={{ opacity: 0, scale: 0.95 }}
+      animate={{ opacity: 1, scale: 1 }}
+      transition={{ duration: 0.2 }}
+      style={{ 
+        display: 'grid',
+        aspectRatio: aspectRatio || 'auto',
+      }}
     >
-      <motion.div 
-        className="relative select-none cursor-ew-resize rounded-lg overflow-hidden shadow-2xl"
-        style={{
-          width: imageSize.width > 0 ? imageSize.width : 'auto',
-          height: imageSize.height > 0 ? imageSize.height : 'auto',
-          maxWidth: '100%',
-          maxHeight: '100%'
+      {/* Before Image (Base layout) */}
+      <img
+        src={beforeImage}
+        alt="Before"
+        onLoad={(e) => {
+          const { naturalWidth, naturalHeight } = e.currentTarget;
+          if (naturalWidth && naturalHeight) {
+            setAspectRatio(`${naturalWidth} / ${naturalHeight}`);
+          }
         }}
-        initial={{ opacity: 0, scale: 0.95 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 0.2 }}
+        className="col-start-1 row-start-1 w-full h-full object-cover block pointer-events-none"
+      />
+
+      {/* After Image (Clipped) */}
+      <img
+        src={afterImage}
+        alt="After"
+        className="col-start-1 row-start-1 w-full h-full object-cover block pointer-events-none"
+        style={{ clipPath: `inset(0 ${100 - sliderPosition}% 0 0)` }}
+      />
+
+      {/* Slider Handle */}
+      <div 
+        className="col-start-1 row-start-1 z-10 w-1 h-full bg-white shadow-[0_0_10px_rgba(0,0,0,0.5)] pointer-events-none relative"
+        style={{ left: `${sliderPosition}%`, transform: 'translateX(-50%)' }}
       >
-        {/* Layout Image - strictly used to let the browser compute the aspect ratio natively */}
-        <img
-          ref={imageRef}
-          src={beforeImage}
-          alt="Layout"
-          className="max-w-full max-h-full object-contain pointer-events-none opacity-0"
-          style={{ visibility: imageSize.width > 0 ? 'hidden' : 'visible' }}
-        />
-
-        {/* Visible Before Image */}
-        <div 
-          className="absolute inset-0 bg-no-repeat bg-center bg-contain pointer-events-none"
-          style={{ backgroundImage: `url(${beforeImage})` }}
-        />
-
-        {/* Visible After Image */}
-        <div 
-          className="absolute inset-0 bg-no-repeat bg-center bg-contain pointer-events-none"
-          style={{ 
-            backgroundImage: `url(${afterImage})`,
-            clipPath: `inset(0 0 0 ${sliderPosition}%)` 
-          }}
-        />
-
-        {/* Slider Line and Handle */}
-        <div 
-          className="absolute top-0 bottom-0 w-0.5 bg-white pointer-events-none shadow-[0_0_5px_rgba(0,0,0,0.5)] z-10"
-          style={{ left: `${sliderPosition}%` }}
-        >
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-8 h-8 bg-white rounded-full shadow-lg flex items-center justify-center pointer-events-auto cursor-ew-resize">
-            <div className="flex gap-1">
-              <div className="w-0.5 h-3 bg-slate-300 rounded-full" />
-              <div className="w-0.5 h-3 bg-slate-300 rounded-full" />
-            </div>
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-8 h-8 bg-white rounded-full shadow-lg flex items-center justify-center pointer-events-none">
+          <div className="flex gap-1">
+            <div className="w-0.5 h-3 bg-slate-400 rounded-full" />
+            <div className="w-0.5 h-3 bg-slate-400 rounded-full" />
           </div>
         </div>
-
-        {/* Labels overlayed directly on the images */}
-        <div className="absolute bottom-4 left-0 right-0 pointer-events-none">
-          {sliderPosition > 15 && (
-            <div className="absolute left-4 bottom-0 bg-dark-900/80 backdrop-blur-sm px-3 py-1.5 text-xs text-white font-bold rounded-lg shadow-sm border border-dark-600/50 transition-opacity">
-              Original
-            </div>
-          )}
-          {sliderPosition < 85 && (
-            <div className="absolute right-4 bottom-0 bg-dark-900/80 backdrop-blur-sm px-3 py-1.5 text-xs text-neon-cyan font-bold rounded-lg shadow-sm border border-neon-cyan/20 transition-opacity">
-              Compressed
-            </div>
+      </div>
+      
+      {/* Labels */}
+      <div className="col-start-1 row-start-1 z-10 pointer-events-none flex justify-between items-end p-4 h-full">
+        <div 
+          className="bg-dark-900/80 backdrop-blur-sm px-3 py-1.5 rounded-lg shadow-sm border border-dark-600/50 transition-opacity flex flex-col items-start"
+          style={{ opacity: sliderPosition > 15 ? 1 : 0 }}
+        >
+          <span className="text-xs text-white font-bold">Original</span>
+          {originalSize && (
+            <span className="text-[10px] text-slate-300 font-mono mt-0.5">{formatSize(originalSize)}</span>
           )}
         </div>
-      </motion.div>
-    </div>
+        <div 
+          className="bg-dark-900/80 backdrop-blur-sm px-3 py-1.5 rounded-lg shadow-sm border border-neon-cyan/20 transition-opacity flex flex-col items-end"
+          style={{ opacity: sliderPosition < 85 ? 1 : 0 }}
+        >
+          <span className="text-xs text-neon-cyan font-bold">Compressed</span>
+          {compressedSize && (
+            <span className="text-[10px] text-neon-cyan/80 font-mono mt-0.5">{formatSize(compressedSize)}</span>
+          )}
+        </div>
+      </div>
+    </motion.div>
   );
 };

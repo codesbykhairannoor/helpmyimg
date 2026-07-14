@@ -19,17 +19,6 @@ export const Hero: React.FC<HeroProps> = ({ title, description }) => {
       <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] bg-gradient-to-tr from-neon-cyan/20 via-neon-indigo/20 to-neon-violet/20 blur-[130px] rounded-full pointer-events-none -z-10" />
 
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        {/* Animated Badge */}
-        <motion.div
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-dark-800/80 border border-neon-cyan/40 shadow-glow-cyan text-sm font-medium text-slate-200 mb-8"
-        >
-          <span className="flex h-2 w-2 rounded-full bg-neon-cyan animate-ping" />
-          <span>{t('hero.badge')}</span>
-        </motion.div>
-
         {/* Title */}
         <motion.h1
           initial={{ opacity: 0, y: 20 }}

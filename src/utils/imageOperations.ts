@@ -197,3 +197,135 @@ export async function smartCropImage(file: Blob | File, targetWidth: number, tar
     }, mimeType, 0.95);
   });
 }
+
+export type WatermarkPosition = 'center' | 'bottom-right' | 'bottom-left' | 'top-right' | 'top-left' | 'tiled';
+
+export interface WatermarkConfig {
+  type: 'text' | 'image';
+  text?: string;
+  image?: HTMLImageElement | null;
+  color: string;
+  opacity: number;
+  position: WatermarkPosition;
+  scale: number;
+  rotation: number;
+}
+
+export async function applyWatermark(file: Blob | File, config: WatermarkConfig): Promise<Blob> {
+  const img = await loadImage(file);
+  const canvas = document.createElement('canvas');
+  canvas.width = img.width;
+  canvas.height = img.height;
+  const ctx = canvas.getContext('2d');
+  if (!ctx) throw new Error('Canvas 2D context not available');
+
+  // Draw original image
+  ctx.drawImage(img, 0, 0);
+
+  // Apply watermark
+  ctx.globalAlpha = config.opacity;
+
+  const baseDimension = Math.sqrt(img.width * img.height);
+
+  if (config.type === 'text' && config.text) {
+    const fontSize = Math.max(16, (baseDimension / 25) * config.scale);
+    ctx.font = `bold ${fontSize}px "Inter", sans-serif`;
+    ctx.fillStyle = config.color;
+    ctx.textBaseline = 'middle';
+    ctx.textAlign = 'center';
+    
+    // Draw text with shadow for better visibility
+    ctx.shadowColor = 'rgba(0,0,0,0.5)';
+    ctx.shadowBlur = Math.max(2, fontSize / 10);
+    ctx.shadowOffsetX = Math.max(1, fontSize / 20);
+    ctx.shadowOffsetY = Math.max(1, fontSize / 20);
+
+    const metrics = ctx.measureText(config.text);
+    const textWidth = metrics.width;
+    const textHeight = fontSize;
+
+    if (config.position === 'tiled') {
+      const stepX = textWidth * 1.5;
+      const stepY = textHeight * 3;
+      ctx.translate(canvas.width / 2, canvas.height / 2);
+      ctx.rotate((config.rotation * Math.PI) / 180);
+      ctx.translate(-canvas.width / 2, -canvas.height / 2);
+      for (let y = -canvas.height; y < canvas.height * 2; y += stepY) {
+        for (let x = -canvas.width; x < canvas.width * 2; x += stepX) {
+          ctx.fillText(config.text, x, y);
+        }
+      }
+    } else {
+      let x = canvas.width / 2;
+      let y = canvas.height / 2;
+      const padding = Math.max(10, baseDimension * 0.03);
+
+      if (config.position === 'bottom-right') {
+        x = canvas.width - textWidth / 2 - padding;
+        y = canvas.height - textHeight / 2 - padding;
+      } else if (config.position === 'bottom-left') {
+        x = textWidth / 2 + padding;
+        y = canvas.height - textHeight / 2 - padding;
+      } else if (config.position === 'top-right') {
+        x = canvas.width - textWidth / 2 - padding;
+        y = textHeight / 2 + padding;
+      } else if (config.position === 'top-left') {
+        x = textWidth / 2 + padding;
+        y = textHeight / 2 + padding;
+      }
+
+      ctx.translate(x, y);
+      ctx.rotate((config.rotation * Math.PI) / 180);
+      ctx.fillText(config.text, 0, 0);
+    }
+  } else if (config.type === 'image' && config.image) {
+    const wmImg = config.image;
+    // Scale watermark relative to the image
+    const maxWmWidth = (baseDimension / 4) * config.scale;
+    const scaleRatio = maxWmWidth / wmImg.width;
+    const wmW = wmImg.width * scaleRatio;
+    const wmH = wmImg.height * scaleRatio;
+
+    if (config.position === 'tiled') {
+      const stepX = wmW * 1.5;
+      const stepY = wmH * 1.5;
+      ctx.translate(canvas.width / 2, canvas.height / 2);
+      ctx.rotate((config.rotation * Math.PI) / 180);
+      ctx.translate(-canvas.width / 2, -canvas.height / 2);
+      for (let y = -canvas.height; y < canvas.height * 2; y += stepY) {
+        for (let x = -canvas.width; x < canvas.width * 2; x += stepX) {
+          ctx.drawImage(wmImg, x - wmW/2, y - wmH/2, wmW, wmH);
+        }
+      }
+    } else {
+      let x = canvas.width / 2;
+      let y = canvas.height / 2;
+      const padding = Math.max(20, canvas.width * 0.05);
+
+      if (config.position === 'bottom-right') {
+        x = canvas.width - wmW / 2 - padding;
+        y = canvas.height - wmH / 2 - padding;
+      } else if (config.position === 'bottom-left') {
+        x = wmW / 2 + padding;
+        y = canvas.height - wmH / 2 - padding;
+      } else if (config.position === 'top-right') {
+        x = canvas.width - wmW / 2 - padding;
+        y = wmH / 2 + padding;
+      } else if (config.position === 'top-left') {
+        x = wmW / 2 + padding;
+        y = wmH / 2 + padding;
+      }
+
+      ctx.translate(x, y);
+      ctx.rotate((config.rotation * Math.PI) / 180);
+      ctx.drawImage(wmImg, -wmW/2, -wmH/2, wmW, wmH);
+    }
+  }
+
+  return new Promise((resolve, reject) => {
+    canvas.toBlob((blob) => {
+      if (blob) resolve(blob);
+      else reject(new Error('Gagal menerapkan watermark'));
+    }, file.type || 'image/png', 0.95);
+  });
+}

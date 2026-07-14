@@ -49,6 +49,10 @@ export const ToolLandingPage: React.FC = () => {
     ? t('landing.default.title.rotate')
     : internalTool === 'picker'
     ? t('landing.default.title.picker')
+    : internalTool === 'blurface'
+    ? t('landing.default.title.blurface')
+    : internalTool === 'design'
+    ? t('landing.default.title.design')
     : t('landing.default.title.remove');
 
   const defaultH1 = !tool
@@ -69,6 +73,10 @@ export const ToolLandingPage: React.FC = () => {
     ? t('landing.default.title.rotate')
     : internalTool === 'picker'
     ? t('landing.default.title.picker')
+    : internalTool === 'blurface'
+    ? t('landing.default.title.blurface')
+    : internalTool === 'design'
+    ? t('landing.default.title.design')
     : t('landing.default.title.remove');
 
   const defaultDesc = !tool
@@ -91,6 +99,10 @@ export const ToolLandingPage: React.FC = () => {
     ? t('landing.default.desc.picker')
     : internalTool === 'brush'
     ? t('landing.default.desc.blur')
+    : internalTool === 'blurface'
+    ? t('landing.default.desc.blurface')
+    : internalTool === 'design'
+    ? t('landing.default.desc.design')
     : t('landing.default.desc.remove');
 
   let dynamicTitle = defaultTitle;

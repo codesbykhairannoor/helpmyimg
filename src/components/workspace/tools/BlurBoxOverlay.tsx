@@ -6,20 +6,29 @@ interface BlurBoxOverlayProps {
   imageElement: HTMLImageElement | null;
   boxes: BlurBox[];
   setBoxes: React.Dispatch<React.SetStateAction<BlurBox[]>>;
+  blurIntensity: number;
 }
 
 export const BlurBoxOverlay: React.FC<BlurBoxOverlayProps> = ({
   imageElement,
   boxes,
   setBoxes,
+  blurIntensity
 }) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const [scale, setScale] = useState({ x: 1, y: 1 });
   const [offset, setOffset] = useState({ x: 0, y: 0 });
 
-  // Drawing state
-  const [isDrawing, setIsDrawing] = useState(false);
-  const [startPoint, setStartPoint] = useState({ x: 0, y: 0 });
+  // Interaction state
+  const [activeAction, setActiveAction] = useState<{
+    id?: string;
+    type: 'draw' | 'drag' | 'resize';
+    handle?: 'tl' | 'tr' | 'bl' | 'br';
+    startX: number;
+    startY: number;
+    initialBox?: BlurBox;
+  } | null>(null);
+
   const [currentBox, setCurrentBox] = useState<{ x: number, y: number, w: number, h: number } | null>(null);
 
   useEffect(() => {
@@ -28,13 +37,11 @@ export const BlurBoxOverlay: React.FC<BlurBoxOverlayProps> = ({
         const containerRect = containerRef.current.getBoundingClientRect();
         const imgRect = imageElement.getBoundingClientRect();
         
-        // Calculate the scale and offset of the rendered image vs natural size
         const scaleX = imgRect.width / imageElement.naturalWidth;
         const scaleY = imgRect.height / imageElement.naturalHeight;
         
         setScale({ x: scaleX, y: scaleY });
         
-        // Offset is relative to the container
         setOffset({
           x: imgRect.left - containerRect.left,
           y: imgRect.top - containerRect.top
@@ -53,74 +60,153 @@ export const BlurBoxOverlay: React.FC<BlurBoxOverlayProps> = ({
     };
   }, [imageElement]);
 
-  const handlePointerDown = (e: React.PointerEvent<HTMLDivElement>) => {
-    if (!containerRef.current) return;
+  const getClientCoords = (e: React.PointerEvent | PointerEvent) => {
+    if (!containerRef.current) return { x: 0, y: 0 };
     const rect = containerRef.current.getBoundingClientRect();
-    const clientX = e.clientX - rect.left;
-    const clientY = e.clientY - rect.top;
-    
-    // Check if clicked outside image area
-    if (
-      clientX < offset.x || 
-      clientY < offset.y || 
-      clientX > offset.x + (imageElement?.naturalWidth || 0) * scale.x ||
-      clientY > offset.y + (imageElement?.naturalHeight || 0) * scale.y
-    ) {
-      return;
-    }
+    return {
+      x: e.clientX - rect.left,
+      y: e.clientY - rect.top
+    };
+  };
 
-    setIsDrawing(true);
-    setStartPoint({ x: clientX, y: clientY });
-    setCurrentBox({ x: clientX, y: clientY, w: 0, h: 0 });
-    (e.target as HTMLElement).setPointerCapture(e.pointerId);
+  const handlePointerDownContainer = (e: React.PointerEvent<HTMLDivElement>) => {
+    if (activeAction) return;
+    
+    // Check if clicked exactly on container (not on a box)
+    if (e.target !== containerRef.current) return;
+
+    const { x, y } = getClientCoords(e);
+    
+    // Ensure click is within image bounds
+    if (
+      x < offset.x || y < offset.y || 
+      x > offset.x + (imageElement?.naturalWidth || 0) * scale.x ||
+      y > offset.y + (imageElement?.naturalHeight || 0) * scale.y
+    ) return;
+
+    setActiveAction({
+      type: 'draw',
+      startX: x,
+      startY: y
+    });
+    setCurrentBox({ x, y, w: 0, h: 0 });
+    try { (e.target as HTMLElement).setPointerCapture(e.pointerId); } catch(err) {}
+  };
+
+  const handlePointerDownBox = (e: React.PointerEvent<HTMLDivElement>, box: BlurBox, isHandle: boolean = false, handleType?: 'tl' | 'tr' | 'bl' | 'br') => {
+    e.stopPropagation();
+    const { x, y } = getClientCoords(e);
+    setActiveAction({
+      id: box.id,
+      type: isHandle ? 'resize' : 'drag',
+      handle: handleType,
+      startX: x,
+      startY: y,
+      initialBox: { ...box }
+    });
+    try { (e.target as HTMLElement).setPointerCapture(e.pointerId); } catch(err) {}
   };
 
   const handlePointerMove = (e: React.PointerEvent<HTMLDivElement>) => {
-    if (!isDrawing || !containerRef.current) return;
-    const rect = containerRef.current.getBoundingClientRect();
-    const currentX = e.clientX - rect.left;
-    const currentY = e.clientY - rect.top;
+    if (!activeAction || !containerRef.current) return;
+    const { x, y } = getClientCoords(e);
+    const dx = x - activeAction.startX;
+    const dy = y - activeAction.startY;
 
-    setCurrentBox({
-      x: Math.min(startPoint.x, currentX),
-      y: Math.min(startPoint.y, currentY),
-      w: Math.abs(currentX - startPoint.x),
-      h: Math.abs(currentY - startPoint.y),
-    });
+    if (activeAction.type === 'draw') {
+      setCurrentBox({
+        x: Math.min(activeAction.startX, x),
+        y: Math.min(activeAction.startY, y),
+        w: Math.abs(x - activeAction.startX),
+        h: Math.abs(y - activeAction.startY),
+      });
+    } else if (activeAction.type === 'drag' && activeAction.initialBox && activeAction.id) {
+      const naturalDx = dx / scale.x;
+      const naturalDy = dy / scale.y;
+      
+      setBoxes(prev => prev.map(b => {
+        if (b.id !== activeAction.id) return b;
+        
+        let newX = activeAction.initialBox!.x + naturalDx;
+        let newY = activeAction.initialBox!.y + naturalDy;
+        
+        newX = Math.max(0, Math.min(newX, (imageElement?.naturalWidth || 0) - b.width));
+        newY = Math.max(0, Math.min(newY, (imageElement?.naturalHeight || 0) - b.height));
+        
+        return { ...b, x: newX, y: newY };
+      }));
+    } else if (activeAction.type === 'resize' && activeAction.initialBox && activeAction.id && activeAction.handle) {
+      const naturalDx = dx / scale.x;
+      const naturalDy = dy / scale.y;
+      
+      setBoxes(prev => prev.map(b => {
+        if (b.id !== activeAction.id) return b;
+        const init = activeAction.initialBox!;
+        let newX = init.x;
+        let newY = init.y;
+        
+        let rightEdge = init.x + init.width;
+        let bottomEdge = init.y + init.height;
+
+        if (activeAction.handle!.includes('l')) {
+          newX = Math.max(0, Math.min(init.x + naturalDx, rightEdge - 10));
+        }
+        if (activeAction.handle!.includes('r')) {
+          rightEdge = Math.min((imageElement?.naturalWidth || 0), init.x + init.width + naturalDx);
+        }
+        if (activeAction.handle!.includes('t')) {
+          newY = Math.max(0, Math.min(init.y + naturalDy, bottomEdge - 10));
+        }
+        if (activeAction.handle!.includes('b')) {
+          bottomEdge = Math.min((imageElement?.naturalHeight || 0), init.y + init.height + naturalDy);
+        }
+        
+        return { ...b, x: newX, y: newY, width: rightEdge - newX, height: bottomEdge - newY };
+      }));
+    }
   };
 
   const handlePointerUp = (e: React.PointerEvent<HTMLDivElement>) => {
-    if (!isDrawing) return;
-    setIsDrawing(false);
-    (e.target as HTMLElement).releasePointerCapture(e.pointerId);
+    if (!activeAction) return;
+    
+    if (activeAction.type === 'draw' && currentBox) {
+      if (currentBox.w > 10 && currentBox.h > 10) {
+        const naturalX = (currentBox.x - offset.x) / scale.x;
+        const naturalY = (currentBox.y - offset.y) / scale.y;
+        const naturalW = currentBox.w / scale.x;
+        const naturalH = currentBox.h / scale.y;
 
-    if (currentBox && currentBox.w > 10 && currentBox.h > 10) {
-      // Convert back to natural image coordinates
-      const naturalX = (currentBox.x - offset.x) / scale.x;
-      const naturalY = (currentBox.y - offset.y) / scale.y;
-      const naturalW = currentBox.w / scale.x;
-      const naturalH = currentBox.h / scale.y;
-
-      setBoxes(prev => [...prev, {
-        id: `box_${Date.now()}`,
-        x: Math.max(0, naturalX),
-        y: Math.max(0, naturalY),
-        width: naturalW,
-        height: naturalH
-      }]);
+        setBoxes(prev => [...prev, {
+          id: `box_${Date.now()}`,
+          x: Math.max(0, naturalX),
+          y: Math.max(0, naturalY),
+          width: naturalW,
+          height: naturalH
+        }]);
+      }
+      setCurrentBox(null);
     }
-    setCurrentBox(null);
+    
+    setActiveAction(null);
+    try { (e.target as HTMLElement).releasePointerCapture(e.pointerId); } catch(err) {}
   };
 
   const handleRemove = (id: string) => {
     setBoxes(prev => prev.filter(b => b.id !== id));
   };
 
+  const handles = [
+    { type: 'tl', cursor: 'nwse-resize', pos: '-top-2 -left-2' },
+    { type: 'tr', cursor: 'nesw-resize', pos: '-top-2 -right-2' },
+    { type: 'bl', cursor: 'nesw-resize', pos: '-bottom-2 -left-2' },
+    { type: 'br', cursor: 'nwse-resize', pos: '-bottom-2 -right-2' },
+  ] as const;
+
   return (
     <div 
       ref={containerRef} 
       className="absolute inset-0 z-20 cursor-crosshair touch-none"
-      onPointerDown={handlePointerDown}
+      onPointerDown={handlePointerDownContainer}
       onPointerMove={handlePointerMove}
       onPointerUp={handlePointerUp}
       onPointerCancel={handlePointerUp}
@@ -135,33 +221,44 @@ export const BlurBoxOverlay: React.FC<BlurBoxOverlayProps> = ({
         return (
           <div
             key={box.id}
-            className="absolute border-2 border-neon-cyan bg-neon-cyan/20 backdrop-blur-md pointer-events-auto rounded-lg shadow-lg group transition-all"
+            className="absolute border-2 border-white bg-transparent pointer-events-auto shadow-sm group cursor-move"
             style={{
               left: `${left}px`,
               top: `${top}px`,
               width: `${Math.max(20, width)}px`,
               height: `${Math.max(20, height)}px`,
+              backdropFilter: `blur(${blurIntensity}px)`,
+              WebkitBackdropFilter: `blur(${blurIntensity}px)`
             }}
+            onPointerDown={(e) => handlePointerDownBox(e, box)}
           >
+            {/* Corner Handles */}
+            {handles.map(h => (
+              <div 
+                key={h.type}
+                className={`absolute ${h.pos} w-4 h-4 bg-white border border-slate-400 rounded-full shadow-sm`}
+                style={{ cursor: h.cursor }}
+                onPointerDown={(e) => handlePointerDownBox(e, box, true, h.type)}
+              />
+            ))}
+
             <button
               onClick={(e) => {
                 e.stopPropagation();
                 handleRemove(box.id);
               }}
-              className="absolute -top-3 -right-3 w-6 h-6 bg-red-500 rounded-full text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity shadow-md hover:bg-red-600 z-30"
-              title="Remove Blur"
+              onPointerDown={(e) => e.stopPropagation()}
+              className="absolute -top-4 left-1/2 -translate-x-1/2 w-6 h-6 bg-red-500 text-white rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity shadow-md hover:bg-red-600 z-10"
+              title="Remove Blur Box"
             >
-              <X className="w-4 h-4" />
+              <X className="w-3.5 h-3.5" />
             </button>
-            <div className="absolute inset-0 flex items-center justify-center text-white/50 text-xs font-bold opacity-0 group-hover:opacity-100 pointer-events-none">
-              BLUR AREA
-            </div>
           </div>
         );
       })}
 
       {/* Current Drawing Box */}
-      {currentBox && (
+      {currentBox && activeAction?.type === 'draw' && (
         <div
           className="absolute border-2 border-dashed border-neon-cyan bg-neon-cyan/10 pointer-events-none"
           style={{

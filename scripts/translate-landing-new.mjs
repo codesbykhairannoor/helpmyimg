@@ -124,7 +124,17 @@ const englishTexts = {
   "landing.design.proof.q2": "The watermarking tool is a lifesaver for protecting my artwork.",
   "landing.design.proof.t2.role": "Artist",
   "landing.design.proof.q3": "I love how fast it is. No waiting for uploads, just instant editing.",
-  "landing.design.proof.t3.role": "Social Media Manager"
+  "landing.design.proof.t3.role": "Social Media Manager",
+
+  // MISSING NAVBAR AND LANDING TITLES
+  "nav.blurface": "Blur Face",
+  "grid.blurfaceDesc": "Automatically detect and blur faces or apply custom censorship boxes.",
+  "nav.design": "Design Editor",
+  "grid.designDesc": "Full-featured image studio: filters, draw, stickers, frames, and shapes.",
+  "landing.default.title.blurface": "Free AI Face Blur",
+  "landing.default.title.design": "Free AI Photo Editor",
+  "landing.default.desc.blurface": "Blur faces and sensitive information in 0ms instantly and for free without downloading heavy AI models. 100% private.",
+  "landing.default.desc.design": "Edit photos, add text, draw, and apply filters in 0ms instantly and for free. 100% private."
 };
 
 async function main() {

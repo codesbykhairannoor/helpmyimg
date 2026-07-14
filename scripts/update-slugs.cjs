@@ -1,25 +1,4 @@
-// src/utils/urlMapper.ts
-
-// Defines internal tool types
-export type InternalTool = 'remove' | 'color' | 'watermark' | 'brush' | 'compress' | 'convert' | 'resize' | 'crop' | 'rotate' | 'picker' | 'blurface' | 'design';
-
-// Fallback mapped slugs for English
-export const FALLBACK_SLUGS: Record<InternalTool, string> = {
-  remove: 'remove-background',
-  color: 'change-background',
-  watermark: 'watermark-image',
-  brush: 'magic-brush',
-  compress: 'compress-image',
-  convert: 'convert-image',
-  resize: 'resize-image',
-  crop: 'crop-image',
-  rotate: 'rotate-image',
-  picker: 'image-color-picker',
-  blurface: 'blur-face',
-  design: 'advanced-editor'
-};
-
-// // Tool Slugs mapping for 30 Languages
+// Tool Slugs mapping for 30 Languages
 // Structure: SLUG_MAP[lang][tool] = localized-slug
 export const SLUG_MAP: Record<string, Record<string, string>> = {
   ar: { remove: 'izalat-khalfia', color: 'taghyir-khalfia', watermark: 'alama-maiya', compress: 'daght-sura', convert: 'tahwil-sura', resize: 'taghyir-hajm', crop: 'qass-sura', rotate: 'tadwir-sura', picker: 'istikhraja-alwan', blurface: 'tamwih-al-wajh', design: 'muharrir-tasamim' },
@@ -54,51 +33,3 @@ export const SLUG_MAP: Record<string, Record<string, string>> = {
   vi: { remove: 'xoa-nen', color: 'doi-nen', watermark: 'dong-dau-anh', compress: 'nen-anh', convert: 'chuyen-doi-anh', resize: 'doi-kich-thuoc', crop: 'cat-anh', rotate: 'xoay-anh', picker: 'chon-mau', blurface: 'lam-mo-khuon-mat', design: 'trinh-chinh-sua' },
   zh: { remove: 'quchu-beijing', color: 'genghuan-beijing', watermark: 'shuiyin', compress: 'yasuo-tupian', convert: 'zhuanhuan-tupian', resize: 'tiaozheng-daxiao', crop: 'caijian-tupian', rotate: 'xuanzhuan-tupian', picker: 'yanse-xuanze', blurface: 'mohu-renlian', design: 'gaoji-bianjiqi' }
 };
-
-// Flatten to reverse lookup (slug -> {lang, tool})
-const REVERSE_LOOKUP: Record<string, { lang: string; tool: InternalTool }> = {};
-
-Object.entries(SLUG_MAP).forEach(([lang, tools]) => {
-  Object.entries(tools).forEach(([tool, slug]) => {
-    REVERSE_LOOKUP[slug] = { lang, tool: tool as InternalTool };
-  });
-});
-
-/**
- * Get internal tool name from a localized slug.
- */
-export function getToolFromSlug(slug: string, _oldLang?: string): InternalTool {
-  if (slug === 'magic-brush') return 'brush';
-  
-  if (REVERSE_LOOKUP[slug]) {
-    return REVERSE_LOOKUP[slug].tool;
-  }
-  
-  // Fallback to check EN standard slugs
-  if (slug === 'remove-background') return 'remove';
-  if (slug === 'change-background') return 'color';
-  if (slug === 'watermark-image') return 'watermark';
-  if (slug === 'compress-image') return 'compress';
-  if (slug === 'convert-image') return 'convert';
-  if (slug === 'resize-image') return 'resize';
-  if (slug === 'crop-image') return 'crop';
-  if (slug === 'rotate-image') return 'rotate';
-  if (slug === 'image-color-picker') return 'picker';
-  if (slug === 'blur-face') return 'blurface';
-  if (slug === 'advanced-editor') return 'design';
-  
-  return 'remove'; // Default fallback
-}
-
-/**
- * Get localized slug for a given tool and language.
- */
-export function getLocalizedSlug(tool: InternalTool, lang: string): string {
-  if (tool === 'brush') return 'magic-brush'; // currently unlocalized
-  
-  if (SLUG_MAP[lang] && SLUG_MAP[lang][tool]) {
-    return SLUG_MAP[lang][tool];
-  }
-  
-  return FALLBACK_SLUGS[tool] || FALLBACK_SLUGS['remove'];
-}

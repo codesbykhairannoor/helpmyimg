@@ -10,9 +10,11 @@ interface CompressControlProps {
   originalSize?: number;
   compressedSize?: number;
   onProcess: () => void;
+  onProcessBatch?: () => void;
   onDownload: () => void;
   onReset: () => void;
   isProcessing: boolean;
+  batchCount?: number;
 }
 
 export const CompressControl: React.FC<CompressControlProps> = ({
@@ -21,14 +23,20 @@ export const CompressControl: React.FC<CompressControlProps> = ({
   originalSize,
   compressedSize,
   onProcess,
+  onProcessBatch,
   onDownload,
   onReset,
   isProcessing,
+  batchCount = 1,
 }) => {
   const { t } = useTranslation();
 
   const handleProcess = () => {
     onProcess();
+  };
+
+  const handleProcessBatch = () => {
+    if (onProcessBatch) onProcessBatch();
   };
 
   const handleDownload = () => {
@@ -68,42 +76,34 @@ export const CompressControl: React.FC<CompressControlProps> = ({
           className="w-full h-2 bg-dark-700 rounded-lg appearance-none cursor-pointer accent-neon-cyan"
         />
         <div className="flex justify-between items-center text-[10px] uppercase font-bold tracking-wider pt-1">
-          <span className={`${quality <= 0.3 ? 'text-neon-cyan' : 'text-slate-500'}`}>Max Compress</span>
-          <span className={`${quality > 0.3 && quality <= 0.7 ? 'text-neon-cyan' : 'text-slate-500'}`}>Balanced</span>
-          <span className={`${quality > 0.7 ? 'text-neon-cyan' : 'text-slate-500'}`}>High Quality</span>
+          <span className={`${quality <= 0.3 ? 'text-neon-cyan' : 'text-slate-500'}`}>{t('compress.maxCompress', 'Max Compress')}</span>
+          <span className={`${quality > 0.3 && quality <= 0.7 ? 'text-neon-cyan' : 'text-slate-500'}`}>{t('compress.balanced', 'Balanced')}</span>
+          <span className={`${quality > 0.7 ? 'text-neon-cyan' : 'text-slate-500'}`}>{t('compress.highQuality', 'High Quality')}</span>
         </div>
-        <p className="text-xs text-slate-400 mt-2 bg-dark-800/50 p-2.5 rounded-lg border border-dark-600/30">
-          💡 {t('compress.hint')}
-        </p>
       </div>
-
-      {compressedSize ? (
-        <div className="bg-dark-800/40 rounded-xl p-3.5 border border-dark-600/50 mt-4 mb-2 animate-in fade-in slide-in-from-bottom-2">
-          <div className="text-[10px] font-bold text-slate-500 uppercase tracking-wider mb-2">Result Preview</div>
-          <div className="flex justify-between items-center text-xs text-slate-400 mb-1.5">
-            <span>Original Size:</span>
-            <span className="font-mono text-slate-300">{formatSize(originalSize)}</span>
-          </div>
-          <div className="flex justify-between items-center text-xs text-slate-400 mb-2">
-            <span>Compressed:</span>
-            <span className="font-mono text-neon-cyan font-bold">{formatSize(compressedSize)}</span>
-          </div>
-          <div className="flex items-center justify-end gap-1.5 text-[10px] font-bold text-emerald-400">
-            <span>Saved {savedPercent}%!</span>
-          </div>
-        </div>
-      ) : null}
 
       <div className="space-y-3 pt-2">
         {!compressedSize ? (
-          <button
-            onClick={handleProcess}
-            disabled={isProcessing}
-            className="w-full flex items-center justify-center gap-2.5 py-3.5 px-4 rounded-xl bg-dark-700 hover:bg-dark-600 text-white font-extrabold shadow-sm transition-all duration-200 disabled:opacity-50 border border-dark-500"
-          >
-            <RefreshCw className={`w-5 h-5 ${isProcessing ? 'animate-spin' : ''}`} />
-            <span>{isProcessing ? t('btn.processing') : (t('compress.process') || 'Process Image')}</span>
-          </button>
+          <div className="flex gap-2">
+            <button
+              onClick={handleProcess}
+              disabled={isProcessing}
+              className="flex-1 flex flex-col items-center justify-center gap-1 py-3 px-2 rounded-xl bg-dark-700 hover:bg-dark-600 text-white font-extrabold shadow-sm transition-all duration-200 disabled:opacity-50 border border-dark-500"
+            >
+              <RefreshCw className={`w-4 h-4 ${isProcessing ? 'animate-spin' : ''}`} />
+              <span className="text-xs">{isProcessing ? t('btn.processing') : (t('compress.process') || 'Process 1')}</span>
+            </button>
+            {onProcessBatch && batchCount > 1 && (
+              <button
+                onClick={handleProcessBatch}
+                disabled={isProcessing}
+                className="flex-1 flex flex-col items-center justify-center gap-1 py-3 px-2 rounded-xl bg-neon-cyan/10 hover:bg-neon-cyan/20 text-neon-cyan font-extrabold shadow-sm transition-all duration-200 disabled:opacity-50 border border-neon-cyan/50"
+              >
+                <RefreshCw className={`w-4 h-4 ${isProcessing ? 'animate-spin' : ''}`} />
+                <span className="text-xs">{t('compress.processAll', { count: String(batchCount) }) === 'compress.processAll' ? `Process All (${batchCount})` : t('compress.processAll', { count: String(batchCount) })}</span>
+              </button>
+            )}
+          </div>
         ) : (
           <button
             onClick={handleDownload}

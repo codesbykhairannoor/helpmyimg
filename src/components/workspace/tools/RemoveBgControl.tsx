@@ -8,6 +8,7 @@ import confetti from 'canvas-confetti';
 
 interface RemoveBgControlProps {
   currentTransparentUrl: string | null;
+  currentFileName?: string;
   batchUrls: { name: string; url: string }[];
   onReset: () => void;
   isProcessing: boolean;
@@ -21,6 +22,7 @@ interface RemoveBgControlProps {
 
 export const RemoveBgControl: React.FC<RemoveBgControlProps> = ({
   currentTransparentUrl,
+  currentFileName,
   batchUrls,
   onReset,
   isProcessing,
@@ -39,7 +41,9 @@ export const RemoveBgControl: React.FC<RemoveBgControlProps> = ({
     
     const a = document.createElement('a');
     a.href = currentTransparentUrl;
-    a.download = `HelpMyIMG_Transparent_${Date.now()}.png`;
+    let baseName = currentFileName || `HelpMyIMG_${Date.now()}`;
+    if (baseName.includes('.')) baseName = baseName.substring(0, baseName.lastIndexOf('.'));
+    a.download = `${baseName}.png`;
     document.body.appendChild(a);
     a.click();
     document.body.removeChild(a);

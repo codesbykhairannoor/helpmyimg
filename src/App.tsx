@@ -48,7 +48,7 @@ function App() {
               <JsonLd />
               <Navbar />
               
-              <main className="flex-1 w-full flex flex-col gap-8 md:gap-16 pb-16">
+              <main className="flex-1 w-full flex flex-col gap-8 md:gap-16 pb-16 min-h-screen">
                 <div className="relative">
                   {/* Dekorasi Cahaya Latar Belakang */}
                   <div className="absolute top-1/2 left-0 w-72 h-72 bg-neon-cyan/10 blur-[120px] rounded-full pointer-events-none -z-10" />

@@ -81,7 +81,7 @@ self.onmessage = async (e: MessageEvent) => {
         self.postMessage({ type: 'PROGRESS', id, payload: { status, progress } });
       });
 
-      self.postMessage({ type: 'PROGRESS', id, payload: { status: 'Memproses gambar dengan AI...', progress: 100 } });
+      self.postMessage({ type: 'PROGRESS', id, payload: { status: 'ai_processing', progress: 100 } });
       
       const image = await RawImage.fromURL(imageUrl);
       
