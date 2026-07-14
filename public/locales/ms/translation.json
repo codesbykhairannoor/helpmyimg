@@ -383,7 +383,7 @@
   "landing.convert.faq2.q": "Mengapa latar belakang lutsinar saya bertukar putih?",
   "landing.convert.faq2.a": "Format JPG tidak menyokong ketelusan. Kami menambah latar belakang putih pepejal supaya imej anda kelihatan bersih.",
   "work.badge.convert": "PENUKAR",
-  "convert.format": "Format",
+  "convert.format": "Format Imej",
   "nav.resize": "Ubah Saiz",
   "landing.default.title.resize": "Ubah Saiz Imej Dalam Talian Secara Percuma - Tukar Saiz",
   "landing.default.desc.resize": "Laraskan lebar dan ketinggian imej anda dalam piksel. Kunci nisbah aspek untuk mengelakkan regangan imej.",
@@ -1084,5 +1084,7 @@
   "nav.noLang": "Bahasa tidak dijumpai",
   "landing.default.title.home": "Semua alat AI yang anda perlukan untuk mengedit gambar secara pukal",
   "landing.default.desc.home": "Penyunting foto AI tempatan anda percuma selamanya! 100% peribadi, berjalan terus di dalam pelayar anda.",
-  "work.startAi": "Buang Latar Belakang Sekarang"
+  "work.startAi": "Buang Latar Belakang Sekarang",
+  "convert.action": "Tukar Imej Sekarang",
+  "convert.processAll": "Tukar Semua ({{count}})"
 }

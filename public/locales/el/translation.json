@@ -377,7 +377,7 @@
   "landing.convert.faq2.q": "Γιατί το διάφανο φόντο μου έγινε λευκό;",
   "landing.convert.faq2.a": "Η μορφή JPG δεν υποστηρίζει διαφάνεια. Προσθέτουμε ένα συμπαγές λευκό φόντο, ώστε οι εικόνες σας να φαίνονται καθαρές.",
   "work.badge.convert": "ΜΕΤΑΤΡΟΠΟΣ",
-  "convert.format": "Μορφοποίηση",
+  "convert.format": "Μορφή Εικόνας",
   "nav.resize": "Αλλαγή μεγέθους",
   "landing.default.title.resize": "Αλλαγή μεγέθους εικόνας Διαστάσεις Online δωρεάν - Αλλαγή μεγέθους",
   "landing.default.desc.resize": "Προσαρμόστε το πλάτος και το ύψος των εικόνων σας σε pixel. Κλειδώστε τις αναλογίες διαστάσεων για να αποτρέψετε το τέντωμα της εικόνας.",
@@ -1084,5 +1084,7 @@
   "nav.noLang": "No locale found",
   "landing.default.title.home": "Every AI tool you need to edit images in bulk",
   "landing.default.desc.home": "Your local AI photo editor is here and forever free! 100% private, runs directly in your browser.",
-  "work.startAi": "Αφαίρεση Φόντου Τώρα"
+  "work.startAi": "Αφαίρεση Φόντου Τώρα",
+  "convert.action": "Μετατροπή Εικόνας Τώρα",
+  "convert.processAll": "Μετατροπή Όλων ({{count}})"
 }

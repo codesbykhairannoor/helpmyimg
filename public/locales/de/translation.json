@@ -379,7 +379,7 @@
   "landing.convert.faq2.q": "Warum wurde mein transparenter Hintergrund weiß?",
   "landing.convert.faq2.a": "Das JPG-Format unterstützt keine Transparenz. Wir fügen einen einfarbigen weißen Hintergrund hinzu, damit Ihre Bilder sauber aussehen.",
   "work.badge.convert": "KONVERTER",
-  "convert.format": "Formatieren",
+  "convert.format": "Bildformat",
   "nav.resize": "Größe ändern",
   "landing.default.title.resize": "Bildgröße online kostenlos ändern – Größe ändern",
   "landing.default.desc.resize": "Passen Sie die Breite und Höhe Ihrer Bilder in Pixel an. Sperren Sie die Seitenverhältnisse, um eine Dehnung des Bildes zu verhindern.",
@@ -1084,5 +1084,7 @@
   "nav.noLang": "Keine Sprache gefunden",
   "landing.default.title.home": "Alle KI-Tools für die Massen-Bildbearbeitung",
   "landing.default.desc.home": "Ihr lokaler KI-Fotoeditor ist für immer kostenlos! 100% privat, läuft direkt in Ihrem Browser.",
-  "work.startAi": "Hintergrund Jetzt Entfernen"
+  "work.startAi": "Hintergrund Jetzt Entfernen",
+  "convert.action": "Bild Jetzt Konvertieren",
+  "convert.processAll": "Alle Konvertieren ({{count}})"
 }

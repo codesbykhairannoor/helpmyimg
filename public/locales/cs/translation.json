@@ -374,7 +374,7 @@
   "landing.convert.faq2.q": "Proč mé průhledné pozadí zbělelo?",
   "landing.convert.faq2.a": "Formát JPG nepodporuje průhlednost. Přidáme pevné bílé pozadí, aby vaše obrázky vypadaly čistě.",
   "work.badge.convert": "KONVERTOR",
-  "convert.format": "Formát",
+  "convert.format": "Formát Obrázku",
   "nav.resize": "Změnit velikost",
   "landing.default.title.resize": "Změna velikosti rozměrů obrázku online zdarma – změna velikosti",
   "landing.default.desc.resize": "Upravte šířku a výšku obrázků v pixelech. Uzamkněte poměry stran, abyste zabránili roztažení obrazu.",
@@ -1084,5 +1084,7 @@
   "nav.noLang": "No locale found",
   "landing.default.title.home": "Every AI tool you need to edit images in bulk",
   "landing.default.desc.home": "Your local AI photo editor is here and forever free! 100% private, runs directly in your browser.",
-  "work.startAi": "Odstranit Pozadí Nyní"
+  "work.startAi": "Odstranit Pozadí Nyní",
+  "convert.action": "Převést Obrázek Nyní",
+  "convert.processAll": "Převést Vše ({{count}})"
 }

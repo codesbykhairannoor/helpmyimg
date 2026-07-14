@@ -383,7 +383,7 @@
   "landing.convert.faq2.q": "Waarom werd mijn transparante achtergrond wit?",
   "landing.convert.faq2.a": "JPG-formaat ondersteunt geen transparantie. We voegen een effen witte achtergrond toe, zodat uw afbeeldingen er helder uitzien.",
   "work.badge.convert": "OMVORMER",
-  "convert.format": "Formaat",
+  "convert.format": "Afbeeldingsformaat",
   "nav.resize": "Formaat wijzigen",
   "landing.default.title.resize": "Formaat van afbeelding gratis online wijzigen - Grootte wijzigen",
   "landing.default.desc.resize": "Pas de breedte en hoogte van uw afbeeldingen aan in pixels. Vergrendel de beeldverhoudingen om uitrekken van het beeld te voorkomen.",
@@ -1084,5 +1084,7 @@
   "nav.noLang": "Geen taal gevonden",
   "landing.default.title.home": "Alle AI-tools die u nodig heeft voor bulk-afbeeldingbewerking",
   "landing.default.desc.home": "Uw lokale AI-foto-editor is altijd gratis! 100% privé, draait rechtstreeks in uw browser.",
-  "work.startAi": "Achtergrond Nu Verwijderen"
+  "work.startAi": "Achtergrond Nu Verwijderen",
+  "convert.action": "Afbeelding Nu Converteren",
+  "convert.processAll": "Alles Converteren ({{count}})"
 }

@@ -377,7 +377,7 @@
   "landing.convert.faq2.q": "Hvorfor ble den gjennomsiktige bakgrunnen min hvit?",
   "landing.convert.faq2.a": "JPG-format støtter ikke gjennomsiktighet. Vi legger til en solid hvit bakgrunn slik at bildene dine ser rene ut.",
   "work.badge.convert": "KONVERTER",
-  "convert.format": "Format",
+  "convert.format": "Bildeformat",
   "nav.resize": "Endre størrelse",
   "landing.default.title.resize": "Endre størrelse på bildedimensjoner online gratis - Endre størrelse",
   "landing.default.desc.resize": "Juster bredden og høyden på bildene dine i piksler. Lås sideforhold for å forhindre at bildet strekker seg.",
@@ -1084,5 +1084,7 @@
   "nav.noLang": "No locale found",
   "landing.default.title.home": "Every AI tool you need to edit images in bulk",
   "landing.default.desc.home": "Your local AI photo editor is here and forever free! 100% private, runs directly in your browser.",
-  "work.startAi": "Fjern Bakgrunn Nå"
+  "work.startAi": "Fjern Bakgrunn Nå",
+  "convert.action": "Konverter Bilde Nå",
+  "convert.processAll": "Konverter Alle ({{count}})"
 }

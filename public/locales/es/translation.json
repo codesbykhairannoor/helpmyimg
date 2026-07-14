@@ -384,7 +384,7 @@
   "landing.convert.faq2.q": "¿Por qué el fondo de mi imagen es blanco tras convertir a JPG?",
   "landing.convert.faq2.a": "El formato JPG no permite la transparencia. Añadimos un fondo blanco para que sus objetos luzcan profesionales.",
   "work.badge.convert": "CONVERTIDOR",
-  "convert.format": "Formato",
+  "convert.format": "Formato De Imagen",
   "nav.resize": "Redimensionar Imagen",
   "landing.default.title.resize": "Redimensionar Imagen Gratis Online - Cambiar Dimensiones",
   "landing.default.desc.resize": "Ajuste el ancho (width) y el alto (height) de sus imágenes en píxeles. Mantenga la relación de aspecto para no distorsionar.",
@@ -1084,5 +1084,7 @@
   "nav.noLang": "No se encontró el idioma",
   "landing.default.title.home": "Todas las herramientas IA para editar imágenes en masa",
   "landing.default.desc.home": "¡Tu editor de fotos IA local es gratis para siempre! 100% privado, funciona directamente en tu navegador.",
-  "work.startAi": "Eliminar Fondo Ahora"
+  "work.startAi": "Eliminar Fondo Ahora",
+  "convert.action": "Convertir Imagen Ahora",
+  "convert.processAll": "Convertir Todo ({{count}})"
 }

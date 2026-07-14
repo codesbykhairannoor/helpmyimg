@@ -85,7 +85,7 @@ export const RemoveBgControl: React.FC<RemoveBgControlProps> = ({
           <button
             onClick={onProcessNow}
             disabled={isProcessing || batchCount === 0}
-            className="w-full flex items-center justify-center gap-2.5 py-3.5 px-4 rounded-xl bg-gradient-to-r from-neon-cyan via-neon-emerald to-neon-indigo hover:opacity-95 text-dark-900 font-extrabold shadow-glow-cyan transition-all duration-200 transform hover:-translate-y-0.5 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none disabled:shadow-none text-sm uppercase tracking-wide"
+            className="w-full flex items-center justify-center gap-2.5 py-3.5 px-4 rounded-xl bg-gradient-to-r from-neon-cyan via-neon-emerald to-neon-indigo hover:opacity-95 text-dark-900 font-extrabold shadow-glow-cyan transition-all duration-200 transform hover:-translate-y-0.5 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none disabled:shadow-none text-sm tracking-wide"
           >
             <Sparkles className="w-4 h-4 text-dark-900 shrink-0" />
             <span>{t('work.startAi', { defaultValue: 'Remove Background Now' })}</span>
@@ -94,8 +94,8 @@ export const RemoveBgControl: React.FC<RemoveBgControlProps> = ({
           {batchCount > 1 && onProcessBatch && (
             <button
               onClick={onProcessBatch}
-              disabled={isProcessing}
-              className="w-full flex items-center justify-center gap-2 py-3.5 px-4 rounded-xl bg-dark-700 hover:bg-dark-600 border border-neon-cyan/50 text-white font-extrabold text-sm uppercase tracking-wide transition-all cursor-pointer"
+              disabled={isProcessing || batchCount === 0}
+              className="w-full flex items-center justify-center gap-2 py-3.5 px-4 rounded-xl bg-dark-700 hover:bg-dark-600 border border-neon-cyan/50 text-white font-extrabold text-sm tracking-wide transition-all cursor-pointer"
             >
               <Sparkles className="w-4 h-4 text-neon-cyan shrink-0" />
               <span>{t('work.action.batch')} ({batchCount} {t('work.action.photos')})</span>

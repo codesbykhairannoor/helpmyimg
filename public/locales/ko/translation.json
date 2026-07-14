@@ -383,7 +383,7 @@
   "landing.convert.faq2.q": "투명한 배경이 흰색으로 변한 이유는 무엇입니까?",
   "landing.convert.faq2.a": "JPG 형식은 투명도를 지원하지 않습니다. 이미지가 깔끔하게 보이도록 흰색 배경을 추가합니다.",
   "work.badge.convert": "변환기",
-  "convert.format": "형식",
+  "convert.format": "이미지 형식",
   "nav.resize": "이미지 크기 조절",
   "landing.default.title.resize": "무료로 온라인으로 이미지 크기 조정 - 크기 변경",
   "landing.default.desc.resize": "이미지의 너비와 높이를 픽셀 단위로 조정합니다. 이미지가 늘어나는 것을 방지하려면 종횡비를 잠그세요.",
@@ -1084,5 +1084,7 @@
   "nav.noLang": "언어를 찾을 수 없습니다",
   "landing.default.title.home": "대량 이미지 편집을 위한 모든 AI 도구",
   "landing.default.desc.home": "로컬 AI 사진 편집기를 영구 무료로 사용하세요! 100% 개인정보 보호, 브라우저에서 직접 실행됩니다.",
-  "work.startAi": "지금 배경 제거"
+  "work.startAi": "지금 배경 제거",
+  "convert.action": "지금 이미지 변환",
+  "convert.processAll": "모두 변환 ({{count}})"
 }

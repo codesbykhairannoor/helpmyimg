@@ -617,7 +617,7 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({ initialTab = 'remo
                   if (e.dataTransfer.files) handleFiles(e.dataTransfer.files);
                 }}
                 onClick={() => fileInputRef.current?.click()}
-                className={`w-full min-h-[240px] md:min-h-0 md:aspect-[4/3] rounded-3xl border-2 border-dashed transition-all duration-300 flex flex-col items-center justify-center p-4 md:p-8 text-center cursor-pointer relative overflow-hidden group ${
+                className={`w-full min-h-[320px] sm:min-h-[380px] md:min-h-0 md:aspect-[4/3] rounded-3xl border-2 border-dashed transition-all duration-300 flex flex-col items-center justify-center p-6 sm:p-10 text-center cursor-pointer relative overflow-hidden group ${
                   isDragging
                     ? 'border-neon-cyan bg-neon-cyan/10 shadow-glow-cyan scale-[0.99]'
                     : 'border-dark-500/80 bg-dark-800/40 hover:border-neon-cyan/60 hover:bg-dark-800/70'
@@ -635,12 +635,12 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({ initialTab = 'remo
                     </>
                   ) : t('dropzone.title')}
                 </h3>
-                <p className="text-[11px] md:text-sm text-slate-400 max-w-sm mx-auto mb-4 md:mb-6 px-2">
+                <p className="text-xs md:text-sm text-slate-400 max-w-sm mx-auto mb-5 md:mb-6 px-2 leading-relaxed">
                   {t('dropzone.subtitle')}
                 </p>
 
-                <div className="inline-flex items-center gap-1.5 md:gap-2 px-5 py-2.5 md:px-6 md:py-3 rounded-xl bg-gradient-to-r from-neon-cyan to-neon-indigo text-dark-900 font-extrabold shadow-glow-cyan transform group-hover:-translate-y-0.5 transition-all text-sm md:text-base mb-3 md:mb-0">
-                  <Sparkles className="w-4 h-4 fill-dark-900" />
+                <div className="w-[92%] max-w-sm sm:w-auto sm:inline-flex items-center justify-center gap-2 px-6 py-4 md:px-8 md:py-3.5 rounded-2xl bg-gradient-to-r from-neon-cyan via-neon-emerald to-neon-indigo text-dark-900 font-extrabold shadow-glow-cyan transform group-hover:-translate-y-0.5 transition-all text-sm sm:text-base tracking-wide mb-6 md:mb-0">
+                  <Sparkles className="w-4 h-4 fill-dark-900 shrink-0" />
                   <span>{t('dropzone.btn')}</span>
                 </div>
 
@@ -1424,7 +1424,7 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({ initialTab = 'remo
                               if (saveTxtBtn) saveTxtBtn.click();
                             }
                           }}
-                          className="w-full py-3 bg-gradient-to-r from-neon-indigo to-neon-cyan text-white rounded-lg text-xs font-bold flex items-center justify-center gap-2 hover:shadow-glow-cyan transition-all uppercase tracking-wider"
+                          className="w-full py-3 bg-gradient-to-r from-neon-indigo to-neon-cyan text-white rounded-lg text-xs font-bold flex items-center justify-center gap-2 hover:shadow-glow-cyan transition-all tracking-wide"
                         >
                           <Download className="w-4 h-4" />
                           {t('design.saveBtn')}

@@ -384,7 +384,7 @@
   "landing.convert.faq2.q": "Tại sao nền trong suốt của tôi chuyển sang màu trắng?",
   "landing.convert.faq2.a": "Định dạng JPG không hỗ trợ độ trong suốt. Chúng tôi thêm nền trắng đồng nhất để hình ảnh của bạn trông rõ ràng.",
   "work.badge.convert": "CHUYỂN ĐỔI",
-  "convert.format": "định dạng",
+  "convert.format": "Định Dạng Hình Ảnh",
   "nav.resize": "Đổi kích thước",
   "landing.default.title.resize": "Thay đổi kích thước kích thước hình ảnh trực tuyến miễn phí - Thay đổi kích thước",
   "landing.default.desc.resize": "Điều chỉnh chiều rộng và chiều cao của hình ảnh bằng pixel. Khóa tỷ lệ khung hình để ngăn hình ảnh bị giãn.",
@@ -1084,5 +1084,7 @@
   "nav.noLang": "Không tìm thấy ngôn ngữ",
   "landing.default.title.home": "Tất cả công cụ AI cần thiết để chỉnh sửa ảnh hàng loạt",
   "landing.default.desc.home": "Trình chỉnh sửa ảnh AI cục bộ của bạn hoàn toàn miễn phí mãi mãi! 100% riêng tư, chạy trực tiếp trong trình duyệt.",
-  "work.startAi": "Xóa Nền Ngay"
+  "work.startAi": "Xóa Nền Ngay",
+  "convert.action": "Chuyển Đổi Hình Ảnh Ngay",
+  "convert.processAll": "Chuyển Đổi Tất Cả ({{count}})"
 }

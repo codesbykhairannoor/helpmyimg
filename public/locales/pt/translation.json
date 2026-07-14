@@ -384,7 +384,7 @@
   "landing.convert.faq2.q": "Por que meu fundo transparente ficou branco?",
   "landing.convert.faq2.a": "O formato JPG não suporta transparência. Adicionamos um fundo branco sólido para que suas imagens pareçam limpas.",
   "work.badge.convert": "CONVERSOR",
-  "convert.format": "Formato",
+  "convert.format": "Formato De Imagem",
   "nav.resize": "Redimensionar",
   "landing.default.title.resize": "Redimensione as dimensões da imagem online gratuitamente - Altere o tamanho",
   "landing.default.desc.resize": "Ajuste a largura e a altura de suas imagens em pixels. Bloqueie as proporções para evitar o estiramento da imagem.",
@@ -1084,5 +1084,7 @@
   "nav.noLang": "Nenhum idioma encontrado",
   "landing.default.title.home": "Todas as ferramentas de IA para editar imagens em massa",
   "landing.default.desc.home": "Seu editor de fotos IA local é gratuito para sempre! 100% privado, roda diretamente no seu navegador.",
-  "work.startAi": "Remover Fundo Agora"
+  "work.startAi": "Remover Fundo Agora",
+  "convert.action": "Converter Imagem Agora",
+  "convert.processAll": "Converter Tudo ({{count}})"
 }

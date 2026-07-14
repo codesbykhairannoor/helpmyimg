@@ -384,7 +384,7 @@
   "landing.convert.faq2.q": "Why did my transparent background turn white?",
   "landing.convert.faq2.a": "JPG format does not support transparency. We add a solid white background so your images look clean.",
   "work.badge.convert": "CONVERTER",
-  "convert.format": "Format",
+  "convert.format": "Image Format",
   "nav.resize": "Resize Image",
   "landing.default.title.resize": "Resize Image Dimensions Online for Free - Change Size",
   "landing.default.desc.resize": "Adjust the width and height of your images in pixels. Lock aspect ratios to prevent image stretching.",
@@ -1099,5 +1099,7 @@
   "nav.noLang": "No locale found",
   "landing.default.title.home": "Every AI tool you need to edit images in bulk",
   "landing.default.desc.home": "Your local AI photo editor is here and forever free! 100% private, runs directly in your browser.",
-  "work.startAi": "Remove Background Now"
+  "work.startAi": "Remove Background Now",
+  "convert.action": "Convert Now",
+  "convert.processAll": "Convert All ({{count}})"
 }

@@ -378,7 +378,7 @@
   "landing.convert.faq2.q": "Miért lett fehér az átlátszó hátterem?",
   "landing.convert.faq2.a": "A JPG formátum nem támogatja az átlátszóságot. Egy tömör fehér hátteret adunk hozzá, hogy a képek tiszták legyenek.",
   "work.badge.convert": "ÁTALAKÍTÓ",
-  "convert.format": "Formátum",
+  "convert.format": "Képformátum",
   "nav.resize": "Átméretezés",
   "landing.default.title.resize": "Képméretek átméretezése online ingyen - Méret módosítása",
   "landing.default.desc.resize": "Állítsa be a képek szélességét és magasságát képpontokban. Rögzítse a képarányokat, hogy megakadályozza a kép nyúlását.",
@@ -1084,5 +1084,7 @@
   "nav.noLang": "No locale found",
   "landing.default.title.home": "Every AI tool you need to edit images in bulk",
   "landing.default.desc.home": "Your local AI photo editor is here and forever free! 100% private, runs directly in your browser.",
-  "work.startAi": "Háttér Eltávolítása Most"
+  "work.startAi": "Háttér Eltávolítása Most",
+  "convert.action": "Kép Konvertálása Most",
+  "convert.processAll": "Összes Konvertálása ({{count}})"
 }

@@ -378,7 +378,7 @@
   "landing.convert.faq2.q": "Miksi läpinäkyvä taustani muuttui valkoiseksi?",
   "landing.convert.faq2.a": "JPG-muoto ei tue läpinäkyvyyttä. Lisäämme tasaisen valkoisen taustan, jotta kuvasi näyttävät puhtailta.",
   "work.badge.convert": "MUUNTIN",
-  "convert.format": "Muoto",
+  "convert.format": "Kuvaformaatti",
   "nav.resize": "Muuta kokoa",
   "landing.default.title.resize": "Muuta kuvan mittoja verkossa ilmaiseksi - muuta kokoa",
   "landing.default.desc.resize": "Säädä kuvien leveyttä ja korkeutta pikseleinä. Lukitse kuvasuhteet kuvan venymisen estämiseksi.",
@@ -1084,5 +1084,7 @@
   "nav.noLang": "No locale found",
   "landing.default.title.home": "Every AI tool you need to edit images in bulk",
   "landing.default.desc.home": "Your local AI photo editor is here and forever free! 100% private, runs directly in your browser.",
-  "work.startAi": "Poista Tausta Nyt"
+  "work.startAi": "Poista Tausta Nyt",
+  "convert.action": "Muunna Kuva Nyt",
+  "convert.processAll": "Muunna Kaikki ({{count}})"
 }

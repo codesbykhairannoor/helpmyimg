@@ -379,7 +379,7 @@
   "landing.convert.faq2.q": "Varför blev min genomskinliga bakgrund vit?",
   "landing.convert.faq2.a": "JPG-format stöder inte transparens. Vi lägger till en solid vit bakgrund så att dina bilder ser rena ut.",
   "work.badge.convert": "KONVERTERARE",
-  "convert.format": "Format",
+  "convert.format": "Bildformat",
   "nav.resize": "Ändra storlek",
   "landing.default.title.resize": "Ändra storlek på bilddimensioner online gratis - Ändra storlek",
   "landing.default.desc.resize": "Justera bredden och höjden på dina bilder i pixlar. Lås bildförhållanden för att förhindra bildsträckning.",
@@ -1084,5 +1084,7 @@
   "nav.noLang": "No locale found",
   "landing.default.title.home": "Every AI tool you need to edit images in bulk",
   "landing.default.desc.home": "Your local AI photo editor is here and forever free! 100% private, runs directly in your browser.",
-  "work.startAi": "Ta Bort Bakgrund Nu"
+  "work.startAi": "Ta Bort Bakgrund Nu",
+  "convert.action": "Konvertera Bild Nu",
+  "convert.processAll": "Konvertera Alla ({{count}})"
 }

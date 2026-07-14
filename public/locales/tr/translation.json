@@ -384,7 +384,7 @@
   "landing.convert.faq2.q": "Şeffaf arka planım neden beyaza döndü?",
   "landing.convert.faq2.a": "JPG formatı şeffaflığı desteklemez. Resimlerinizin temiz görünmesi için düz beyaz bir arka plan ekliyoruz.",
   "work.badge.convert": "DÖNÜŞTÜRÜCÜ",
-  "convert.format": "Biçim",
+  "convert.format": "Görüntü Formatı",
   "nav.resize": "Boyutlandır",
   "landing.default.title.resize": "Resim Boyutlarını Çevrimiçi Olarak Ücretsiz Olarak Yeniden Boyutlandırın - Boyutu Değiştir",
   "landing.default.desc.resize": "Resimlerinizin genişliğini ve yüksekliğini piksel cinsinden ayarlayın. Görüntünün uzamasını önlemek için en boy oranlarını kilitleyin.",
@@ -1084,5 +1084,7 @@
   "nav.noLang": "Dil bulunamadı",
   "landing.default.title.home": "Toplu fotoğraf düzenlemek için ihtiyacınız olan tüm yapay zeka araçları",
   "landing.default.desc.home": "Yerel yapay zeka fotoğraf editörünüz sonsuza kadar ücretsiz! %100 gizli, doğrudan tarayıcınızda çalışır.",
-  "work.startAi": "Arka Planı Kaldır"
+  "work.startAi": "Arka Planı Kaldır",
+  "convert.action": "Resmi Şimdi Dönüştür",
+  "convert.processAll": "Hepsini Dönüştür ({{count}})"
 }

@@ -380,7 +380,7 @@
   "landing.convert.faq2.q": "למה הרקע השקוף שלי הפך ללבן?",
   "landing.convert.faq2.a": "פורמט JPG אינו תומך בשקיפות. אנו מוסיפים רקע לבן מוצק כדי שהתמונות שלך ייראו נקיות.",
   "work.badge.convert": "ממיר",
-  "convert.format": "פורמט",
+  "convert.format": "פורמט תמונה",
   "nav.resize": "שנה מידות",
   "landing.default.title.resize": "שנה גודל ממדי תמונה באינטרנט בחינם - שנה גודל",
   "landing.default.desc.resize": "התאם את הרוחב והגובה של התמונות שלך בפיקסלים. נעל יחסי רוחב-גובה כדי למנוע מתיחת תמונה.",
@@ -1084,5 +1084,7 @@
   "nav.noLang": "No locale found",
   "landing.default.title.home": "Every AI tool you need to edit images in bulk",
   "landing.default.desc.home": "Your local AI photo editor is here and forever free! 100% private, runs directly in your browser.",
-  "work.startAi": "הסר רקע עכשיו"
+  "work.startAi": "הסר רקע עכשיו",
+  "convert.action": "המר תמונה כעת",
+  "convert.processAll": "המר הכל ({{count}})"
 }

@@ -389,7 +389,7 @@
   "landing.convert.faq2.q": "Dlaczego moje przezroczyste tło zmieniło kolor na biały?",
   "landing.convert.faq2.a": "Format JPG nie obsługuje przezroczystości. Dodajemy jednolite białe tło, aby Twoje obrazy wyglądały czysto.",
   "work.badge.convert": "KONWERTER",
-  "convert.format": "Sformatuj",
+  "convert.format": "Format Obrazu",
   "nav.resize": "Zmień rozmiar",
   "landing.default.title.resize": "Zmień rozmiar obrazu online za darmo — zmień rozmiar",
   "landing.default.desc.resize": "Dostosuj szerokość i wysokość obrazów w pikselach. Zablokuj proporcje, aby zapobiec rozciąganiu obrazu.",
@@ -1089,5 +1089,7 @@
   "nav.noLang": "Nie znaleziono języka",
   "landing.default.title.home": "Wszystkie narzędzia AI do masowej edycji zdjęć",
   "landing.default.desc.home": "Twój lokalny edytor zdjęć AI jest darmowy na zawsze! 100% prywatności, działa bezpośrednio w Twojej przeglądarce.",
-  "work.startAi": "Usuń Tło Teraz"
+  "work.startAi": "Usuń Tło Teraz",
+  "convert.action": "Konwertuj Obraz Teraz",
+  "convert.processAll": "Konwertuj Wszystko ({{count}})"
 }

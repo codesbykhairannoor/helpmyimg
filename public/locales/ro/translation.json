@@ -378,7 +378,7 @@
   "landing.convert.faq2.q": "De ce fundalul meu transparent a devenit alb?",
   "landing.convert.faq2.a": "Formatul JPG nu acceptă transparența. Adăugăm un fundal alb solid, astfel încât imaginile dvs. să pară curate.",
   "work.badge.convert": "CONVERTOR",
-  "convert.format": "Format",
+  "convert.format": "Format Imagine",
   "nav.resize": "Redimensionare",
   "landing.default.title.resize": "Redimensionați dimensiunile imaginii online gratuit - Schimbați dimensiunea",
   "landing.default.desc.resize": "Reglați lățimea și înălțimea imaginilor în pixeli. Blocați raporturile de aspect pentru a preveni întinderea imaginii.",
@@ -1084,5 +1084,7 @@
   "nav.noLang": "No locale found",
   "landing.default.title.home": "Every AI tool you need to edit images in bulk",
   "landing.default.desc.home": "Your local AI photo editor is here and forever free! 100% private, runs directly in your browser.",
-  "work.startAi": "Elimină Fundalul Acum"
+  "work.startAi": "Elimină Fundalul Acum",
+  "convert.action": "Convertește Imaginea Acum",
+  "convert.processAll": "Convertește Tot ({{count}})"
 }

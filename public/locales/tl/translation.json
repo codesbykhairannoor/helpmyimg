@@ -364,7 +364,7 @@
   "landing.convert.faq2.q": "Bakit naging puti ang aking transparent na background?",
   "landing.convert.faq2.a": "Hindi sinusuportahan ng JPG format ang transparency. Nagdagdag kami ng solidong puting background para magmukhang malinis ang iyong mga larawan.",
   "work.badge.convert": "KONVERTER",
-  "convert.format": "Format",
+  "convert.format": "Format Ng Larawan",
   "nav.resize": "I-resize ang Larawan",
   "landing.default.title.resize": "Baguhin ang Sukat ng Mga Dimensyon ng Larawan Online nang Libre - Baguhin ang Sukat",
   "landing.default.desc.resize": "Ayusin ang lapad at taas ng iyong mga larawan sa mga pixel. I-lock ang mga aspect ratio upang maiwasan ang pag-stretch ng larawan.",
@@ -1084,5 +1084,7 @@
   "nav.noLang": "Walang nahanap na wika",
   "landing.default.title.home": "Lahat ng AI tool para sa maramihang pag-edit ng larawan",
   "landing.default.desc.home": "Ang iyong lokal na AI photo editor ay libre magpakailanman! 100% pribado, gumagana nang direkta sa iyong browser.",
-  "work.startAi": "Alisin ang Background Ngayon"
+  "work.startAi": "Alisin ang Background Ngayon",
+  "convert.action": "I-convert Ang Larawan Ngayon",
+  "convert.processAll": "I-convert Lahat ({{count}})"
 }

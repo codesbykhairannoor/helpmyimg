@@ -463,7 +463,7 @@
   "landing.convert.faq2.q": "Kenapa latar belakang berubah putih saat konversi ke JPG?",
   "landing.convert.faq2.a": "Format JPG tidak mendukung transparansi. HelpMyIMG secara otomatis menambahkan latar putih murni agar gambar Anda terlihat rapi.",
   "work.badge.convert": "KONVERTER",
-  "convert.format": "Format",
+  "convert.format": "Format Gambar",
   "nav.resize": "Ubah Ukuran",
   "landing.default.title.resize": "Resize & Ubah Dimensi Ukuran Gambar Online Gratis",
   "landing.default.desc.resize": "Ubah lebar (width) dan tinggi (height) gambar Anda dalam piksel secara presisi. Kunci aspek rasio untuk menghindari gambar melar.",
@@ -1158,5 +1158,7 @@
   "design.saveBtn": "Simpan Desain",
   "design.info2": "Mendukung lapisan, penggabungan gambar, gambar, teks, filter, dan tanda air khusus.",
   "landing.default.title.home": "Semua Alat AI untuk Edit Gambar Massal",
-  "landing.default.desc.home": "Editor foto AI lokal 100% gratis selamanya! Privasi penuh, dijalankan langsung di browser Anda tanpa server cloud."
+  "landing.default.desc.home": "Editor foto AI lokal 100% gratis selamanya! Privasi penuh, dijalankan langsung di browser Anda tanpa server cloud.",
+  "convert.action": "Konversi Gambar Sekarang",
+  "convert.processAll": "Konversi Semua ({{count}})"
 }

@@ -384,7 +384,7 @@
   "landing.convert.faq2.q": "Pourquoi mon fond transparent est-il devenu blanc ?",
   "landing.convert.faq2.a": "Le format JPG ne prend pas en charge la transparence. Nous ajoutons un fond blanc uni pour que vos images soient nettes.",
   "work.badge.convert": "CONVERTISSEUR",
-  "convert.format": "Formater",
+  "convert.format": "Format D'image",
   "nav.resize": "Redimensionner",
   "landing.default.title.resize": "Redimensionner les dimensions de l'image en ligne gratuitement - Changer la taille",
   "landing.default.desc.resize": "Ajustez la largeur et la hauteur de vos images en pixels. Verrouillez les proportions pour empêcher l’étirement de l’image.",
@@ -1084,5 +1084,7 @@
   "nav.noLang": "Aucune langue trouvée",
   "landing.default.title.home": "Tous les outils IA pour éditer des images en lot",
   "landing.default.desc.home": "Votre éditeur de photos IA local est gratuit à vie ! 100 % privé, s'exécute directement dans votre navigateur.",
-  "work.startAi": "Supprimer l'Arrière-plan"
+  "work.startAi": "Supprimer l'Arrière-plan",
+  "convert.action": "Convertir L'image Maintenant",
+  "convert.processAll": "Tout Convertir ({{count}})"
 }

@@ -383,7 +383,7 @@
   "landing.convert.faq2.q": "透明な背景が白くなったのはなぜですか?",
   "landing.convert.faq2.a": "JPG 形式は透明度をサポートしていません。画像がきれいに見えるように、白一色の背景を追加します。",
   "work.badge.convert": "コンバーター",
-  "convert.format": "フォーマット",
+  "convert.format": "画像フォーマット",
   "nav.resize": "サイズ変更",
   "landing.default.title.resize": "オンラインで画像のサイズを無料で変更 - サイズを変更",
   "landing.default.desc.resize": "画像の幅と高さをピクセル単位で調整します。画像の伸縮を防ぐためにアスペクト比をロックします。",
@@ -1084,5 +1084,7 @@
   "nav.noLang": "言語が見つかりません",
   "landing.default.title.home": "画像の一括編集に必要なすべてのAIツール",
   "landing.default.desc.home": "ローカルAIフォトエディターは永久に無料です！100％プライベートで、ブラウザ上で直接実行されます。",
-  "work.startAi": "今すぐ背景を削除"
+  "work.startAi": "今すぐ背景を削除",
+  "convert.action": "今すぐ画像を変換",
+  "convert.processAll": "すべて変換 ({{count}})"
 }

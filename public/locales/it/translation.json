@@ -383,7 +383,7 @@
   "landing.convert.faq2.q": "Perché il mio sfondo trasparente è diventato bianco?",
   "landing.convert.faq2.a": "Il formato JPG non supporta la trasparenza. Aggiungiamo uno sfondo bianco uniforme in modo che le tue immagini appaiano pulite.",
   "work.badge.convert": "CONVERTITORE",
-  "convert.format": "Formato",
+  "convert.format": "Formato Immagine",
   "nav.resize": "Ridimensiona",
   "landing.default.title.resize": "Ridimensiona le dimensioni delle immagini online gratuitamente: modifica le dimensioni",
   "landing.default.desc.resize": "Regola la larghezza e l'altezza delle tue immagini in pixel. Blocca le proporzioni per evitare l'allungamento dell'immagine.",
@@ -1084,5 +1084,7 @@
   "nav.noLang": "Nessuna lingua trovata",
   "landing.default.title.home": "Tutti gli strumenti IA per modificare immagini in blocco",
   "landing.default.desc.home": "Il tuo editor di foto IA locale è gratis per sempre! 100% privato, funziona direttamente nel tuo browser.",
-  "work.startAi": "Rimuovi Sfondo Ora"
+  "work.startAi": "Rimuovi Sfondo Ora",
+  "convert.action": "Converti Immagine Ora",
+  "convert.processAll": "Converti Tutto ({{count}})"
 }

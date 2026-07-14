@@ -379,7 +379,7 @@
   "landing.convert.faq2.q": "Hvorfor blev min gennemsigtige baggrund hvid?",
   "landing.convert.faq2.a": "JPG-format understøtter ikke gennemsigtighed. Vi tilføjer en solid hvid baggrund, så dine billeder ser rene ud.",
   "work.badge.convert": "KONVERTER",
-  "convert.format": "Format",
+  "convert.format": "Billedformat",
   "nav.resize": "Skift størrelse",
   "landing.default.title.resize": "Ændre størrelse på billeddimensioner online gratis - Skift størrelse",
   "landing.default.desc.resize": "Juster bredden og højden af dine billeder i pixels. Lås billedformater for at forhindre billedstrækning.",
@@ -1084,5 +1084,7 @@
   "nav.noLang": "No locale found",
   "landing.default.title.home": "Every AI tool you need to edit images in bulk",
   "landing.default.desc.home": "Your local AI photo editor is here and forever free! 100% private, runs directly in your browser.",
-  "work.startAi": "Fjern Baggrund Nu"
+  "work.startAi": "Fjern Baggrund Nu",
+  "convert.action": "Konverter Billede Nu",
+  "convert.processAll": "Konverter Alle ({{count}})"
 }

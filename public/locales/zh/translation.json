@@ -384,7 +384,7 @@
   "landing.convert.faq2.q": "为什么我的透明背景变成了白色？",
   "landing.convert.faq2.a": "JPG 格式不支持透明度。我们添加纯白色背景，让您的图像看起来干净。",
   "work.badge.convert": "转换器",
-  "convert.format": "格式",
+  "convert.format": "图片格式",
   "nav.resize": "修改尺寸",
   "landing.default.title.resize": "免费在线调整图像尺寸 - 更改尺寸",
   "landing.default.desc.resize": "调整图像的宽度和高度（以像素为单位）。锁定纵横比以防止图像拉伸。",
@@ -1084,5 +1084,7 @@
   "nav.noLang": "未找到语言",
   "landing.default.title.home": "批量处理所需的所有 AI 图像工具",
   "landing.default.desc.home": "您的本地 AI 照片编辑器永久免费！100% 隐私安全，直接在浏览器中运行。",
-  "work.startAi": "立即去除背景"
+  "work.startAi": "立即去除背景",
+  "convert.action": "立即转换图片",
+  "convert.processAll": "全部转换 ({{count}})"
 }
