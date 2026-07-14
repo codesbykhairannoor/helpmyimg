@@ -454,8 +454,6 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({ initialTab = 'remo
       if (a > 0) {
         const info = buildColorInfo(r, g, b);
         setPickedColor(info);
-        setSelectedColor(info.hex);
-        setActiveTab('brush');
         setColorHistory(prev => {
           // Avoid duplicate adjacent colors in history
           if (prev.length > 0 && prev[0].hex === info.hex) return prev;
@@ -637,7 +635,7 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({ initialTab = 'remo
                       onMouseUp={handleCanvasMouseUp}
                       onMouseLeave={handleCanvasMouseUp}
                       className={`max-h-full max-w-full object-contain shadow-2xl rounded-lg ${
-                        activeTab === 'picker' ? 'cursor-crosshair' : 'cursor-crosshair'
+                        activeTab === 'picker' ? 'cursor-picker' : 'cursor-brush'
                       }`}
                     />
                   ) : (
@@ -1392,7 +1390,6 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({ initialTab = 'remo
                     )}
                   </div>
                 </div>
-              </>
               )}
             </div>
           </div>
