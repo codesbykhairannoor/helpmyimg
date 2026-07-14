@@ -58,51 +58,51 @@ export const ColorPickerControl: React.FC<ColorPickerControlProps> = ({
       {pickedColor ? (
         <div className="space-y-4">
           {/* Big Color Swatch */}
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-3 md:gap-4">
             <div
-              className="w-20 h-20 rounded-2xl border-2 border-dark-500 shadow-lg shrink-0"
+              className="w-16 h-16 md:w-20 md:h-20 rounded-2xl border-2 border-dark-500 shadow-lg shrink-0"
               style={{ backgroundColor: pickedColor.hex }}
             />
-            <div className="flex-1 space-y-1">
-              <div className="text-2xl font-mono font-extrabold text-white">{pickedColor.hex.toUpperCase()}</div>
-              <div className="text-xs text-slate-400">{t('picker.clickedColor')}</div>
+            <div className="flex-1 space-y-0.5 md:space-y-1">
+              <div className="text-xl md:text-2xl font-mono font-extrabold text-white">{pickedColor.hex.toUpperCase()}</div>
+              <div className="text-[10px] md:text-xs text-slate-400">{t('picker.clickedColor')}</div>
             </div>
           </div>
 
-          {/* Color Values Grid */}
-          <div className="space-y-2">
+          {/* Color Values Grid (Genius UX: 2 columns on all devices) */}
+          <div className="grid grid-cols-2 gap-2">
             {/* HEX */}
-            <div className="flex items-center justify-between bg-dark-800 rounded-lg px-3 py-2 border border-dark-600">
-              <span className="text-xs font-bold text-slate-400">HEX</span>
-              <div className="flex items-center gap-2">
-                <span className="text-sm font-mono text-white">{pickedColor.hex.toUpperCase()}</span>
+            <div className="flex flex-col justify-center bg-dark-800 rounded-lg p-2 border border-dark-600 relative group">
+              <span className="text-[9px] font-bold text-slate-500 mb-0.5">HEX</span>
+              <span className="text-xs md:text-sm font-mono text-white truncate pr-6">{pickedColor.hex.toUpperCase()}</span>
+              <div className="absolute right-2 top-1/2 -translate-y-1/2">
                 <CopyBtn value={pickedColor.hex.toUpperCase()} field="hex" />
               </div>
             </div>
 
             {/* RGB */}
-            <div className="flex items-center justify-between bg-dark-800 rounded-lg px-3 py-2 border border-dark-600">
-              <span className="text-xs font-bold text-slate-400">RGB</span>
-              <div className="flex items-center gap-2">
-                <span className="text-sm font-mono text-white">rgb({pickedColor.r}, {pickedColor.g}, {pickedColor.b})</span>
+            <div className="flex flex-col justify-center bg-dark-800 rounded-lg p-2 border border-dark-600 relative group">
+              <span className="text-[9px] font-bold text-slate-500 mb-0.5">RGB</span>
+              <span className="text-[10px] md:text-xs font-mono text-white truncate pr-6">{pickedColor.r}, {pickedColor.g}, {pickedColor.b}</span>
+              <div className="absolute right-2 top-1/2 -translate-y-1/2">
                 <CopyBtn value={`rgb(${pickedColor.r}, ${pickedColor.g}, ${pickedColor.b})`} field="rgb" />
               </div>
             </div>
 
             {/* HSL */}
-            <div className="flex items-center justify-between bg-dark-800 rounded-lg px-3 py-2 border border-dark-600">
-              <span className="text-xs font-bold text-slate-400">HSL</span>
-              <div className="flex items-center gap-2">
-                <span className="text-sm font-mono text-white">hsl({pickedColor.h}, {pickedColor.s}%, {pickedColor.l}%)</span>
+            <div className="flex flex-col justify-center bg-dark-800 rounded-lg p-2 border border-dark-600 relative group">
+              <span className="text-[9px] font-bold text-slate-500 mb-0.5">HSL</span>
+              <span className="text-[10px] md:text-xs font-mono text-white truncate pr-6">{pickedColor.h}, {pickedColor.s}%, {pickedColor.l}%</span>
+              <div className="absolute right-2 top-1/2 -translate-y-1/2">
                 <CopyBtn value={`hsl(${pickedColor.h}, ${pickedColor.s}%, ${pickedColor.l}%)`} field="hsl" />
               </div>
             </div>
 
             {/* CMYK */}
-            <div className="flex items-center justify-between bg-dark-800 rounded-lg px-3 py-2 border border-dark-600">
-              <span className="text-xs font-bold text-slate-400">CMYK</span>
-              <div className="flex items-center gap-2">
-                <span className="text-sm font-mono text-white">cmyk({pickedColor.c}, {pickedColor.m}, {pickedColor.y}, {pickedColor.k})</span>
+            <div className="flex flex-col justify-center bg-dark-800 rounded-lg p-2 border border-dark-600 relative group">
+              <span className="text-[9px] font-bold text-slate-500 mb-0.5">CMYK</span>
+              <span className="text-[10px] md:text-xs font-mono text-white truncate pr-6">{pickedColor.c}, {pickedColor.m}, {pickedColor.y}, {pickedColor.k}</span>
+              <div className="absolute right-2 top-1/2 -translate-y-1/2">
                 <CopyBtn value={`cmyk(${pickedColor.c}, ${pickedColor.m}, ${pickedColor.y}, ${pickedColor.k})`} field="cmyk" />
               </div>
             </div>
@@ -121,12 +121,12 @@ export const ColorPickerControl: React.FC<ColorPickerControlProps> = ({
             <Palette className="w-3.5 h-3.5" />
             <span>{t('picker.palette')}</span>
           </div>
-          <div className="flex gap-2 flex-wrap">
+          <div className="flex gap-2 overflow-x-auto pb-2 custom-scrollbar">
             {dominantColors.map((c, i) => (
               <button
                 key={i}
                 onClick={() => copyToClipboard(c.toUpperCase(), `pal-${i}`)}
-                className="group relative w-10 h-10 rounded-xl border border-dark-500 hover:scale-110 transition-transform shadow-md"
+                className="group relative w-10 h-10 shrink-0 rounded-xl border border-dark-500 hover:scale-110 transition-transform shadow-md"
                 style={{ backgroundColor: c }}
                 title={c.toUpperCase()}
               >
@@ -144,18 +144,24 @@ export const ColorPickerControl: React.FC<ColorPickerControlProps> = ({
       {/* Color History */}
       {colorHistory.length > 0 && (
         <div className="space-y-2">
-          <div className="text-xs font-bold text-slate-400 uppercase tracking-wider">
-            {t('picker.history')} ({colorHistory.length})
+          <div className="text-[10px] font-bold text-slate-400 uppercase tracking-wider flex justify-between items-center">
+            <span>{t('picker.history')} ({colorHistory.length})</span>
           </div>
-          <div className="flex gap-1.5 flex-wrap max-h-24 overflow-y-auto">
+          <div className="flex gap-1.5 overflow-x-auto pb-2 custom-scrollbar">
             {colorHistory.map((c, i) => (
               <button
                 key={i}
                 onClick={() => copyToClipboard(c.hex.toUpperCase(), `hist-${i}`)}
-                className="w-7 h-7 rounded-lg border border-dark-600 hover:scale-110 transition-transform"
+                className="group relative w-7 h-7 shrink-0 rounded-full border border-dark-500 hover:scale-110 transition-transform shadow-sm"
                 style={{ backgroundColor: c.hex }}
                 title={c.hex.toUpperCase()}
-              />
+              >
+                {copiedField === `hist-${i}` && (
+                  <div className="absolute inset-0 bg-black/60 rounded-full flex items-center justify-center">
+                    <Check className="w-3 h-3 text-white" />
+                  </div>
+                )}
+              </button>
             ))}
           </div>
         </div>

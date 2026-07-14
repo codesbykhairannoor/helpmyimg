@@ -606,7 +606,9 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({ initialTab = 'remo
             ) : (
               /* Viewport Gambar Terpilih */
               <div className="space-y-4 sticky top-[72px] z-30 lg:static">
-                <div className="w-full aspect-video md:aspect-[4/3] rounded-3xl border border-dark-500/80 bg-dark-900/90 shadow-glass overflow-hidden relative flex items-center justify-center checkerboard-bg">
+                <div className={`w-full rounded-3xl border border-dark-500/80 bg-dark-900/90 shadow-glass overflow-hidden relative flex items-center justify-center checkerboard-bg ${
+                  activeTab === 'design' ? 'h-[75vh] md:h-auto md:aspect-[4/3]' : 'aspect-video md:aspect-[4/3]'
+                }`}>
                   {currentItem?.status === 'processing' && (
                     <div className="absolute inset-0 bg-dark-900 md:bg-dark-900/80 md:backdrop-blur-md flex flex-col items-center justify-center z-20 space-y-4 p-6 text-center">
                       <div className="w-16 h-16 rounded-full border-4 border-neon-cyan/30 border-t-neon-cyan animate-spin" />
