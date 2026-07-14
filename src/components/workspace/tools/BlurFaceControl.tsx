@@ -17,8 +17,10 @@ interface BlurFaceControlProps {
   blurIntensity: number;
   setBlurIntensity: (val: number) => void;
   onApply: () => void;
+  onUploadOther?: () => void;
   onReset: () => void;
   isProcessing: boolean;
+  batchCount?: number;
 }
 
 export const BlurFaceControl: React.FC<BlurFaceControlProps> = ({
@@ -27,8 +29,10 @@ export const BlurFaceControl: React.FC<BlurFaceControlProps> = ({
   blurIntensity,
   setBlurIntensity,
   onApply,
+  onUploadOther,
   onReset,
   isProcessing,
+  batchCount = 1,
 }) => {
   const { t } = useTranslation();
 
@@ -79,22 +83,35 @@ export const BlurFaceControl: React.FC<BlurFaceControlProps> = ({
         </div>
       </div>
 
-      <div className="p-4 border-t border-dark-600 bg-dark-900/90 backdrop-blur-md sticky bottom-0 z-10 flex gap-2">
-        <button
-          onClick={onReset}
-          className="p-3 rounded-xl bg-dark-800 text-slate-300 hover:text-white hover:bg-dark-700 transition-colors border border-dark-600"
-          title="Reset"
-        >
-          <RefreshCw className="w-4 h-4" />
-        </button>
-        
-        <button
-          onClick={onApply}
-          disabled={isProcessing}
-          className="flex-1 py-3 bg-gradient-to-r from-neon-cyan to-neon-indigo text-dark-900 font-extrabold rounded-xl hover:shadow-glow-cyan transition-all flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed text-sm uppercase tracking-wider"
-        >
-          <span>{isProcessing ? t('btn.processing') : t('work.action.apply', { defaultValue: 'Apply' })}</span>
-        </button>
+      <div className="p-4 border-t border-dark-600 bg-dark-900/90 backdrop-blur-md sticky bottom-0 z-10 space-y-2">
+        <div className="flex gap-2">
+          <button
+            onClick={onReset}
+            className="p-3 rounded-xl bg-dark-800 text-slate-300 hover:text-white hover:bg-dark-700 transition-colors border border-dark-600"
+            title="Reset"
+          >
+            <RefreshCw className="w-4 h-4" />
+          </button>
+          
+          <button
+            onClick={onApply}
+            disabled={isProcessing}
+            className="flex-1 py-3 bg-gradient-to-r from-neon-cyan to-neon-indigo text-dark-900 font-extrabold rounded-xl hover:shadow-glow-cyan transition-all flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed text-sm uppercase tracking-wider"
+          >
+            <span>{isProcessing ? t('btn.processing') : t('work.action.apply', { defaultValue: 'Apply' })}</span>
+          </button>
+        </div>
+
+        {batchCount === 1 && (
+          <button
+            onClick={onUploadOther || onReset}
+            disabled={isProcessing}
+            className="w-full flex items-center justify-center gap-2 py-3 px-4 rounded-xl border border-dark-600 bg-dark-800 text-slate-300 font-semibold hover:bg-dark-700 hover:text-white transition-colors disabled:opacity-50"
+          >
+            <RefreshCw className="w-4 h-4 text-neon-cyan" />
+            <span>{t('editor.reset')}</span>
+          </button>
+        )}
       </div>
     </div>
   );

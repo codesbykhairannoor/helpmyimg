@@ -10,16 +10,20 @@ export interface ColorPickerControlProps {
   pickedColor: ColorInfo | null;
   colorHistory: ColorInfo[];
   dominantColors: string[];
+  onUploadOther?: () => void;
   onReset: () => void;
   isProcessing: boolean;
+  batchCount?: number;
 }
 
 export const ColorPickerControl: React.FC<ColorPickerControlProps> = ({
   pickedColor,
   colorHistory,
   dominantColors,
+  onUploadOther,
   onReset,
   isProcessing,
+  batchCount = 1,
 }) => {
   const { t } = useTranslation();
   const [copiedField, setCopiedField] = useState<string | null>(null);
@@ -167,15 +171,26 @@ export const ColorPickerControl: React.FC<ColorPickerControlProps> = ({
         </div>
       )}
 
-      {/* Reset */}
-      <button
-        onClick={onReset}
-        disabled={isProcessing}
-        className="w-full flex items-center justify-center gap-2 py-3 px-4 rounded-xl border border-dark-600 bg-dark-800 text-slate-300 font-semibold hover:bg-dark-700 hover:text-white transition-colors disabled:opacity-50"
-      >
-        <RefreshCw className="w-4 h-4" />
-        <span>{t('btn.reset')}</span>
-      </button>
+      {/* Reset / Upload Other */}
+      {batchCount === 1 ? (
+        <button
+          onClick={onUploadOther || onReset}
+          disabled={isProcessing}
+          className="w-full flex items-center justify-center gap-2 py-3 px-4 rounded-xl border border-dark-600 bg-dark-800 text-slate-300 font-semibold hover:bg-dark-700 hover:text-white transition-colors disabled:opacity-50"
+        >
+          <RefreshCw className="w-4 h-4 text-neon-cyan" />
+          <span>{t('editor.reset')}</span>
+        </button>
+      ) : (
+        <button
+          onClick={onReset}
+          disabled={isProcessing}
+          className="w-full flex items-center justify-center gap-2 py-3 px-4 rounded-xl border border-dark-600 bg-dark-800 text-slate-300 font-semibold hover:bg-dark-700 hover:text-white transition-colors disabled:opacity-50"
+        >
+          <RefreshCw className="w-4 h-4" />
+          <span>{t('btn.reset')}</span>
+        </button>
+      )}
     </div>
   );
 };

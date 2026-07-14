@@ -1,14 +1,16 @@
 // src/components/workspace/tools/ConvertControl.tsx
 import React from 'react';
 import { useTranslation } from '../../../context/LanguageContext';
-import { Image as ImageIcon, Download, RefreshCw} from 'lucide-react';
+import { Image as ImageIcon, RefreshCw } from 'lucide-react';
 import confetti from 'canvas-confetti';
 
 interface ConvertControlProps {
   format: 'image/png' | 'image/jpeg' | 'image/webp' | 'image/gif' | 'image/bmp' | 'image/x-icon' | 'image/avif';
   setFormat: (f: 'image/png' | 'image/jpeg' | 'image/webp' | 'image/gif' | 'image/bmp' | 'image/x-icon' | 'image/avif') => void;
-  onDownload: () => void;
+  onConvert?: () => void;
+  onDownload?: () => void;
   onProcessBatch?: () => void;
+  onUploadOther?: () => void;
   onReset: () => void;
   isProcessing: boolean;
   batchCount?: number;
@@ -17,17 +19,20 @@ interface ConvertControlProps {
 export const ConvertControl: React.FC<ConvertControlProps> = ({
   format,
   setFormat,
+  onConvert,
   onDownload,
   onProcessBatch,
+  onUploadOther,
   onReset,
   isProcessing,
   batchCount = 1,
 }) => {
   const { t } = useTranslation();
 
-  const handleDownload = () => {
+  const handleConvert = () => {
     confetti({ particleCount: 100, spread: 70, origin: { y: 0.7 } });
-    onDownload();
+    if (onConvert) onConvert();
+    else if (onDownload) onDownload();
   };
 
   const handleProcessBatch = () => {
@@ -66,19 +71,17 @@ export const ConvertControl: React.FC<ConvertControlProps> = ({
             </button>
           ))}
         </div>
-        
-
       </div>
 
       <div className="space-y-3 pt-2">
         <div className="flex gap-2">
           <button
-            onClick={handleDownload}
+            onClick={handleConvert}
             disabled={isProcessing}
             className="flex-1 flex flex-col items-center justify-center gap-1 py-3 px-2 rounded-xl bg-gradient-to-r from-neon-violet to-neon-pink text-white font-extrabold shadow-glow-violet transition-all duration-200 disabled:opacity-50 transform hover:-translate-y-0.5"
           >
-            <Download className="w-5 h-5" />
-            <span className="text-xs">{isProcessing ? t('btn.processing') : (t('btn.download') || 'Download 1')}</span>
+            <RefreshCw className={`w-4 h-4 ${isProcessing ? 'animate-spin' : ''}`} />
+            <span className="text-xs">{isProcessing ? t('btn.processing') : t('convert.action', { defaultValue: '⚡ Konversi Gambar' })}</span>
           </button>
           
           {onProcessBatch && batchCount > 1 && (
@@ -93,14 +96,16 @@ export const ConvertControl: React.FC<ConvertControlProps> = ({
           )}
         </div>
 
-        <button
-          onClick={onReset}
-          disabled={isProcessing}
-          className="w-full flex items-center justify-center gap-2 py-3 px-4 rounded-xl border border-dark-600 bg-dark-800 text-slate-300 font-semibold hover:bg-dark-700 hover:text-white transition-colors disabled:opacity-50"
-        >
-          <RefreshCw className="w-4 h-4" />
-          <span>{t('btn.reset')}</span>
-        </button>
+        {batchCount === 1 && (
+          <button
+            onClick={onUploadOther || onReset}
+            disabled={isProcessing}
+            className="w-full flex items-center justify-center gap-2 py-3 px-4 rounded-xl border border-dark-600 bg-dark-800 text-slate-300 font-semibold hover:bg-dark-700 hover:text-white transition-colors disabled:opacity-50"
+          >
+            <RefreshCw className="w-4 h-4 text-neon-cyan" />
+            <span>{t('editor.reset')}</span>
+          </button>
+        )}
       </div>
     </div>
   );

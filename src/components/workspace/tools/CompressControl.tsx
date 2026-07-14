@@ -10,6 +10,7 @@ interface CompressControlProps {
   onProcess: () => void;
   onProcessBatch?: () => void;
   onDownload?: () => void;
+  onUploadOther?: () => void;
   onReset: () => void;
   isProcessing: boolean;
   batchCount?: number;
@@ -20,6 +21,7 @@ export const CompressControl: React.FC<CompressControlProps> = ({
   setQuality,
   onProcess,
   onProcessBatch,
+  onUploadOther,
   onReset,
   isProcessing,
   batchCount = 1,
@@ -82,14 +84,16 @@ export const CompressControl: React.FC<CompressControlProps> = ({
             </button>
           )}
         </div>
-        <button
-          onClick={onReset}
-          disabled={isProcessing}
-          className="w-full flex items-center justify-center gap-2 py-3 px-4 rounded-xl border border-dark-600 bg-dark-800 text-slate-300 font-semibold hover:bg-dark-700 hover:text-white transition-colors disabled:opacity-50"
-        >
-          <RefreshCw className="w-4 h-4" />
-          <span>{t('btn.reset')}</span>
-        </button>
+        {batchCount === 1 && (
+          <button
+            onClick={onUploadOther || onReset}
+            disabled={isProcessing}
+            className="w-full flex items-center justify-center gap-2 py-3 px-4 rounded-xl border border-dark-600 bg-dark-800 text-slate-300 font-semibold hover:bg-dark-700 hover:text-white transition-colors disabled:opacity-50"
+          >
+            <RefreshCw className="w-4 h-4 text-neon-cyan" />
+            <span>{t('editor.reset')}</span>
+          </button>
+        )}
       </div>
     </div>
   );

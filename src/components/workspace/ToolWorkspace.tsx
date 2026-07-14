@@ -1061,6 +1061,7 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({ initialTab = 'remo
                         } : item));
                       }
                     }}
+                    onUploadOther={handleUploadOther}
                     isProcessing={currentItem?.status === 'processing'}
                   />
                 )}
@@ -1069,24 +1070,24 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({ initialTab = 'remo
                   <ConvertControl
                     format={convertFormat}
                     setFormat={setConvertFormat}
-                    onDownload={async () => {
+                    onConvert={async () => {
                       if (currentItem?.file) {
                         try {
                           const blob = await processImage(currentItem.file, { mimeType: convertFormat, quality: 0.95 });
                           const url = URL.createObjectURL(blob);
-                          const a = document.createElement('a');
-                          a.href = url;
                           const extMap: Record<string, string> = { 'image/x-icon': 'ico', 'image/jpeg': 'jpg', 'image/png': 'png', 'image/gif': 'gif', 'image/bmp': 'bmp', 'image/avif': 'avif' };
                           const ext = extMap[convertFormat] || convertFormat.split('/')[1];
                           let baseName = currentItem.name || `HelpMyIMG_${Date.now()}`;
                           if (baseName.includes('.')) baseName = baseName.substring(0, baseName.lastIndexOf('.'));
-                          a.download = `${baseName}.${ext}`;
-                          a.click();
+                          const newName = `${baseName}.${ext}`;
+                          const newFile = new File([blob], newName, { type: blob.type || convertFormat });
+                          setBatchItems(prev => prev.map(item => item.id === currentItem.id ? { ...item, file: newFile, name: newName, processedUrl: url, status: 'done' } : item));
                         } catch (err) {
                           console.error('Convert failed', err);
                         }
                       }
                     }}
+                    onUploadOther={handleUploadOther}
                     batchCount={batchItems.length}
                     onProcessBatch={async () => {
                       setBatchItems(prev => prev.map(item => ({ ...item, status: 'processing' })));
@@ -1102,7 +1103,8 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({ initialTab = 'remo
                           let baseName = item.name;
                           if (baseName.includes('.')) baseName = baseName.substring(0, baseName.lastIndexOf('.'));
                           const newName = `${baseName}.${ext}`;
-                          newItems[i] = { ...item, name: newName, processedUrl: url, status: 'done' };
+                          const newFile = new File([blob], newName, { type: blob.type || convertFormat });
+                          newItems[i] = { ...item, file: newFile, name: newName, processedUrl: url, status: 'done' };
                         } catch (err) {
                           newItems[i] = { ...item, status: 'error', errorMessage: 'Convert failed' };
                         }
@@ -1175,6 +1177,8 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({ initialTab = 'remo
                       setResizeHeight(originalDimensions.height);
                       setResizeMaintainRatio(false);
                     }}
+                    onUploadOther={handleUploadOther}
+                    batchCount={batchItems.length}
                     isProcessing={currentItem?.status === 'processing'}
                   />
                 )}
@@ -1231,6 +1235,8 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({ initialTab = 'remo
                       setCropWidth(originalDimensions.width);
                       setCropHeight(originalDimensions.height);
                     }}
+                    onUploadOther={handleUploadOther}
+                    batchCount={batchItems.length}
                     isProcessing={currentItem?.status === 'processing'}
                   />
                 )}
@@ -1288,6 +1294,8 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({ initialTab = 'remo
                         } : item));
                       }
                     }}
+                    onUploadOther={handleUploadOther}
+                    batchCount={batchItems.length}
                     isProcessing={currentItem?.status === 'processing'}
                   />
                 )}
@@ -1298,6 +1306,8 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({ initialTab = 'remo
                     colorHistory={colorHistory}
                     dominantColors={dominantColors}
                     onReset={() => {}}
+                    onUploadOther={handleUploadOther}
+                    batchCount={batchItems.length}
                     isProcessing={false}
                   />
                 )}
@@ -1357,6 +1367,8 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({ initialTab = 'remo
                         } : item));
                       }
                     }}
+                    onUploadOther={handleUploadOther}
+                    batchCount={batchItems.length}
                     isProcessing={false}
                   />
                 )}
@@ -1460,9 +1472,14 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({ initialTab = 'remo
                                 const ext = nameParts.length > 1 ? `.${nameParts.pop()}` : '';
                                 setBatchItems(prev => prev.map((img, i) => i === 0 ? { ...img, name: `${newBase}${ext}` } : img));
                               }}
-                              className="flex-1 bg-transparent text-xs text-white outline-none px-1"
+                              className="flex-1 bg-transparent text-xs text-white outline-none px-1 w-full min-w-0"
                               placeholder="File name"
                             />
+                            {batchItems[0].name.includes('.') && (
+                              <span className="text-xs font-mono text-neon-cyan font-bold pr-2 shrink-0">
+                                .{batchItems[0].name.split('.').pop()}
+                              </span>
+                            )}
                           </div>
                         </div>
                       )}
