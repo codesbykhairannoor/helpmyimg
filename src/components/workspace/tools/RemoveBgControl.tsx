@@ -114,7 +114,6 @@ export const RemoveBgControl: React.FC<RemoveBgControlProps> = ({
             disabled={isProcessing}
             className="w-full flex items-center justify-center gap-2.5 py-4 px-4 rounded-xl bg-gradient-to-r from-neon-cyan via-neon-emerald to-neon-indigo hover:opacity-95 text-dark-900 font-extrabold shadow-glow-cyan transition-all duration-200 transform hover:-translate-y-0.5 cursor-pointer"
           >
-            <Play className="w-5 h-5 fill-dark-900" />
             <span>{t('work.action.cut')}</span>
           </button>
 
@@ -191,15 +190,17 @@ export const RemoveBgControl: React.FC<RemoveBgControlProps> = ({
       )}
 
       {status === 'error' && (
-        <div className="flex flex-col items-center justify-center py-6 gap-3">
-          <div className="text-red-500 font-bold">⚠️ {t('work.failedAi')}</div>
-          <span className="text-xs font-medium text-slate-400 text-center">
-            {t('work.errorHint')}
+        <div className="flex flex-col items-center justify-center py-6 gap-3 bg-red-900/20 border border-red-500/30 rounded-xl p-4 text-center mt-2">
+          <div className="text-red-400 font-bold flex items-center gap-2">
+            <span className="text-xl">⚠️</span> {t('work.failedAi')}
+          </div>
+          <span className="text-[11px] font-medium text-red-200/80">
+            {t('work.errorHint')} (Tip: Try using a smaller resolution image, your device might be running out of memory.)
           </span>
           {onProcessNow && (
             <button
               onClick={onProcessNow}
-              className="mt-2 px-4 py-2 bg-dark-700 hover:bg-dark-600 rounded-lg text-white text-xs font-bold"
+              className="mt-2 px-5 py-2.5 bg-red-500/20 hover:bg-red-500/30 border border-red-500/50 transition-colors rounded-lg text-red-300 text-xs font-bold w-full"
             >
               {t('work.action.retry')}
             </button>

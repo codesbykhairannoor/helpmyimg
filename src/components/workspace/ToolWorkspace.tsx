@@ -5,7 +5,7 @@ import React, { useState, useRef, useEffect, Suspense } from 'react';
 import { useParams } from 'react-router-dom';
 import { useTranslation } from '../../context/LanguageContext';
 import { aiService } from '../../services/aiService';
-import { Upload, Download, Loader2, Sparkles, Archive, Trash2 } from 'lucide-react';
+import { Upload, Download, Loader2, Sparkles, Archive, Trash2, Image as ImageIcon, Settings2, ChevronDown } from 'lucide-react';
 import JSZip from 'jszip';
 import { motion } from 'framer-motion';
 
@@ -95,6 +95,7 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({ initialTab = 'remo
 
   const [customZipName, setCustomZipName] = useState('');
   const [isZipping, setIsZipping] = useState(false);
+  const [showExportOptions, setShowExportOptions] = useState(false);
 
   // --- Handlers ---
   
@@ -205,42 +206,7 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({ initialTab = 'remo
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [compressQuality]);
 
-  // Live preview for Watermark
-  useEffect(() => {
-    if (activeTab !== 'watermark' || batchItems.length === 0) return;
-    let isActive = true;
-    const timer = setTimeout(async () => {
-      try {
-        const newUrls = await Promise.all(batchItems.map(async (item) => {
-          const blob = await applyWatermark(item.file, {
-            type: watermarkType,
-            text: watermarkText,
-            image: watermarkImage,
-            color: watermarkColor,
-            opacity: watermarkOpacity,
-            position: watermarkPosition,
-            scale: watermarkScale,
-            rotation: watermarkRotation
-          });
-          return { id: item.id, url: URL.createObjectURL(blob) };
-        }));
-        
-        if (isActive) {
-          setBatchItems(prev => prev.map(item => {
-            const match = newUrls.find(u => u.id === item.id);
-            return match ? { ...item, processedUrl: match.url } : item;
-          }));
-        }
-      } catch (err) {
-        console.error('Watermark preview failed', err);
-      }
-    }, 500);
-    return () => {
-      isActive = false;
-      clearTimeout(timer);
-    };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [activeTab, batchItems.length, watermarkType, watermarkText, watermarkImage, watermarkColor, watermarkOpacity, watermarkPosition, watermarkScale, watermarkRotation]);
+  // Duplicate Watermark Live Preview removed because applyCurrentEffect handles it in real-time.
 
   // Proses Batch Upload
   const handleFiles = async (files: FileList | File[]) => {
@@ -399,8 +365,9 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({ initialTab = 'remo
     }
 
     if (resultCanvas) {
+      const currentSeq = ++effectSequenceRef.current;
       resultCanvas.toBlob((blob) => {
-        if (blob) {
+        if (blob && currentSeq === effectSequenceRef.current) {
           const url = URL.createObjectURL(blob);
           setBatchItems((prev) =>
             prev.map((i, idx) => (idx === selectedIndex ? { ...i, processedUrl: url } : i))
@@ -423,6 +390,7 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({ initialTab = 'remo
   }, [imageType, selectedIndex, batchItems]);
 
   const debounceTimerRef = useRef<NodeJS.Timeout | null>(null);
+  const effectSequenceRef = useRef(0);
 
   useEffect(() => {
     if (debounceTimerRef.current) clearTimeout(debounceTimerRef.current);
@@ -486,6 +454,8 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({ initialTab = 'remo
       if (a > 0) {
         const info = buildColorInfo(r, g, b);
         setPickedColor(info);
+        setSelectedColor(info.hex);
+        setActiveTab('brush');
         setColorHistory(prev => {
           // Avoid duplicate adjacent colors in history
           if (prev.length > 0 && prev[0].hex === info.hex) return prev;
@@ -793,7 +763,19 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({ initialTab = 'remo
 
           {/* Sidebar Kontrol Alat (4 Kolom di Desktop) */}
           <div className="lg:col-span-5 xl:col-span-4 glass-panel p-6 flex flex-col space-y-6 max-h-[85vh]">
-            <div className="flex flex-col gap-4 border-b border-dark-600/60 pb-4 shrink-0">
+            {batchItems.length === 0 ? (
+              <div className="flex flex-col items-center justify-center h-full text-center space-y-4 opacity-60">
+                <div className="w-16 h-16 rounded-full bg-dark-800 flex items-center justify-center border border-dark-600">
+                  <ImageIcon className="w-8 h-8 text-slate-500" />
+                </div>
+                <div>
+                  <h4 className="text-white font-bold text-lg mb-1">{t('work.action.uploadFirst', { defaultValue: 'Upload Required' })}</h4>
+                  <p className="text-sm text-slate-400 max-w-[200px]">{t('work.action.uploadDesc', { defaultValue: 'Please upload an image to start using the tools.' })}</p>
+                </div>
+              </div>
+            ) : (
+              <>
+                <div className="flex flex-col gap-4 border-b border-dark-600/60 pb-4 shrink-0">
               <div className="flex items-center justify-between">
                 <h3 className="font-heading font-extrabold text-white text-lg flex items-center gap-2">
                   <Sparkles className="w-5 h-5 text-neon-cyan" />
@@ -1292,93 +1274,123 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({ initialTab = 'remo
               
               {/* Sidebar Batch Download UI & Rename */}
               {batchItems.length > 0 && (
-                <div className="mt-6 pt-6 border-t border-dark-600/60 shrink-0 flex flex-col gap-5">
-                  {/* Batch Rename UI */}
-                  {batchItems.length > 1 ? (
-                    <div className="flex flex-col gap-2.5">
-                      <div className="text-[10px] font-bold text-slate-500 uppercase tracking-wider">{t('work.batchRename', { defaultValue: 'Rename Files' })}</div>
-                      <div className="flex flex-col gap-2">
-                        {batchItems.map((item, idx) => {
-                          const nameParts = item.name.split('.');
-                          const ext = nameParts.length > 1 ? `.${nameParts.pop()}` : '';
-                          const base = nameParts.length > 0 ? nameParts.join('.') : item.name;
-                          return (
-                            <div key={item.id} className="flex items-center gap-2 bg-dark-800/50 p-1.5 rounded-lg border border-dark-600/50 focus-within:border-neon-cyan/50 transition-colors group">
-                              <div className="w-8 h-8 rounded shrink-0 overflow-hidden bg-dark-900 border border-dark-600 flex items-center justify-center">
-                                <img src={item.originalUrl} className="max-w-full max-h-full object-cover" />
-                              </div>
-                              <input
-                                type="text"
-                                value={base}
-                                onChange={(e) => {
-                                  const newBase = e.target.value;
-                                  setBatchItems(prev => prev.map((img, i) => i === idx ? { ...img, name: `${newBase}${ext}` } : img));
-                                }}
-                                className="flex-1 bg-transparent text-xs text-white outline-none w-full min-w-0"
-                                placeholder="Name"
-                              />
-                              <span className="text-[10px] text-slate-500 font-mono pr-1 shrink-0">{ext}</span>
-                              <button
-                                onClick={() => {
-                                  setBatchItems(prev => prev.filter((_, i) => i !== idx));
-                                  if (selectedIndex >= idx && selectedIndex > 0) {
-                                    setSelectedIndex(selectedIndex - 1);
-                                  }
-                                }}
-                                className="opacity-0 group-hover:opacity-100 text-slate-500 hover:text-red-400 transition-colors shrink-0 p-1"
-                                title={t('btn.delete', { defaultValue: 'Delete' })}
-                              >
-                                <Trash2 className="w-4 h-4" />
-                              </button>
-                            </div>
-                          );
-                        })}
-                      </div>
-                    </div>
-                  ) : (
-                    <div className="flex flex-col gap-2.5">
-                      <div className="text-[10px] font-bold text-slate-500 uppercase tracking-wider">{t('work.renameFile', { defaultValue: 'Rename File' })}</div>
-                      <div className="flex items-center gap-2 bg-dark-800/50 p-2 rounded-lg border border-dark-600/50 focus-within:border-neon-cyan/50 transition-colors">
-                        <input
-                          type="text"
-                          value={batchItems[0].name.split('.').slice(0, -1).join('.') || batchItems[0].name}
-                          onChange={(e) => {
-                            const newBase = e.target.value;
-                            const nameParts = batchItems[0].name.split('.');
-                            const ext = nameParts.length > 1 ? `.${nameParts.pop()}` : '';
-                            setBatchItems(prev => prev.map((img, i) => i === 0 ? { ...img, name: `${newBase}${ext}` } : img));
-                          }}
-                          className="flex-1 bg-transparent text-xs text-white outline-none px-1"
-                          placeholder="File name"
-                        />
-                      </div>
-                    </div>
+                <div className="mt-6 pt-6 border-t border-dark-600/60 shrink-0 flex flex-col gap-4">
+                  <div className="flex items-center justify-between">
+                    <div className="text-[10px] font-bold text-slate-500 uppercase tracking-wider">{t('editor.download', { defaultValue: 'Export & Download' })}</div>
+                    <button 
+                      onClick={() => setShowExportOptions(!showExportOptions)}
+                      className="text-xs flex items-center gap-1 text-neon-cyan hover:text-neon-cyan/80 font-medium transition-colors"
+                    >
+                      <Settings2 className="w-3.5 h-3.5" />
+                      {t('work.settings', { defaultValue: 'Export Settings' })}
+                      <ChevronDown className={`w-3.5 h-3.5 transition-transform ${showExportOptions ? 'rotate-180' : ''}`} />
+                    </button>
+                  </div>
+
+                  {showExportOptions && (
+                    <motion.div 
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: 'auto', opacity: 1 }}
+                      className="flex flex-col gap-5 overflow-hidden"
+                    >
+                      {/* Batch Rename UI */}
+                      {batchItems.length > 1 ? (
+                        <div className="flex flex-col gap-2.5">
+                          <div className="text-[10px] font-bold text-slate-500 uppercase tracking-wider">{t('work.batchRename', { defaultValue: 'Rename Files' })}</div>
+                          <div className="flex flex-col gap-2 max-h-[200px] overflow-y-auto custom-scrollbar pr-1">
+                            {batchItems.map((item, idx) => {
+                              const nameParts = item.name.split('.');
+                              const ext = nameParts.length > 1 ? `.${nameParts.pop()}` : '';
+                              const base = nameParts.length > 0 ? nameParts.join('.') : item.name;
+                              return (
+                                <div key={item.id} className="flex items-center gap-2 bg-dark-800/50 p-1.5 rounded-lg border border-dark-600/50 focus-within:border-neon-cyan/50 transition-colors group">
+                                  <div className="w-8 h-8 rounded shrink-0 overflow-hidden bg-dark-900 border border-dark-600 flex items-center justify-center">
+                                    <img src={item.originalUrl} className="max-w-full max-h-full object-cover" />
+                                  </div>
+                                  <input
+                                    type="text"
+                                    value={base}
+                                    onChange={(e) => {
+                                      const newBase = e.target.value;
+                                      setBatchItems(prev => prev.map((img, i) => i === idx ? { ...img, name: `${newBase}${ext}` } : img));
+                                    }}
+                                    className="flex-1 bg-transparent text-xs text-white outline-none w-full min-w-0"
+                                    placeholder="Name"
+                                  />
+                                  <span className="text-[10px] text-slate-500 font-mono pr-1 shrink-0">{ext}</span>
+                                </div>
+                              );
+                            })}
+                          </div>
+                        </div>
+                      ) : (
+                        <div className="flex flex-col gap-2.5">
+                          <div className="text-[10px] font-bold text-slate-500 uppercase tracking-wider">{t('work.renameFile', { defaultValue: 'Rename File' })}</div>
+                          <div className="flex items-center gap-2 bg-dark-800/50 p-2 rounded-lg border border-dark-600/50 focus-within:border-neon-cyan/50 transition-colors">
+                            <input
+                              type="text"
+                              value={batchItems[0].name.split('.').slice(0, -1).join('.') || batchItems[0].name}
+                              onChange={(e) => {
+                                const newBase = e.target.value;
+                                const nameParts = batchItems[0].name.split('.');
+                                const ext = nameParts.length > 1 ? `.${nameParts.pop()}` : '';
+                                setBatchItems(prev => prev.map((img, i) => i === 0 ? { ...img, name: `${newBase}${ext}` } : img));
+                              }}
+                              className="flex-1 bg-transparent text-xs text-white outline-none px-1"
+                              placeholder="File name"
+                            />
+                          </div>
+                        </div>
+                      )}
+
+                      {/* ZIP Download Custom Name */}
+                      {batchItems.length > 1 && (
+                        <div>
+                          <div className="text-[10px] font-bold text-slate-500 uppercase tracking-wider mb-2">{t('work.zipName', { defaultValue: 'ZIP Filename' })}</div>
+                          <input
+                            type="text"
+                            value={customZipName}
+                            onChange={(e) => setCustomZipName(e.target.value)}
+                            placeholder={t('work.zipNamePlaceholder', { defaultValue: 'Custom ZIP Name (Optional)' })}
+                            className="w-full bg-dark-800/50 border border-dark-600/50 focus:border-neon-cyan text-white px-3 py-2.5 rounded-lg text-xs outline-none transition-all"
+                          />
+                        </div>
+                      )}
+                    </motion.div>
                   )}
 
-                  {/* ZIP Download */}
-                  {batchItems.length > 1 && (
-                    <div>
-                      <div className="text-[10px] font-bold text-slate-500 uppercase tracking-wider mb-2">{t('work.batchDownload', { defaultValue: 'Batch Download (ZIP)' })}</div>
-                      <div className="space-y-2.5">
-                        <input
-                          type="text"
-                          value={customZipName}
-                          onChange={(e) => setCustomZipName(e.target.value)}
-                          placeholder={t('work.zipNamePlaceholder', { defaultValue: 'Custom ZIP Name (Optional)' })}
-                          className="w-full bg-dark-800/80 border border-dark-600 focus:border-neon-cyan text-white px-3 py-2.5 rounded-xl text-xs outline-none transition-all"
-                        />
-                        <button
-                          onClick={handleZipDownload}
-                          disabled={isZipping}
-                          className="w-full px-4 py-3.5 bg-gradient-to-r from-neon-indigo to-neon-cyan text-white font-extrabold rounded-xl text-xs flex items-center justify-center gap-2 hover:shadow-glow-cyan transition-all disabled:opacity-50 disabled:cursor-not-allowed transform hover:-translate-y-0.5"
-                        >
-                          {isZipping ? <Loader2 className="w-4 h-4 animate-spin" /> : <Archive className="w-4 h-4" />}
-                          <span>{t('work.downloadZip', { defaultValue: 'Download All (ZIP)' })}</span>
-                        </button>
-                      </div>
-                    </div>
-                  )}
+                  {/* Main Download Buttons */}
+                  <div className="flex gap-2">
+                    {batchItems.length > 1 ? (
+                      <button
+                        onClick={handleZipDownload}
+                        disabled={isZipping || batchItems.some(i => i.status !== 'done')}
+                        className="flex-1 px-4 py-3.5 bg-gradient-to-r from-neon-indigo to-neon-cyan text-white font-extrabold rounded-xl text-sm flex items-center justify-center gap-2 hover:shadow-glow-cyan transition-all disabled:opacity-50 disabled:cursor-not-allowed transform hover:-translate-y-0.5"
+                      >
+                        {isZipping ? <Loader2 className="w-5 h-5 animate-spin" /> : <Archive className="w-5 h-5" />}
+                        <span>{t('work.downloadZip', { defaultValue: 'Download All (ZIP)' })}</span>
+                      </button>
+                    ) : (
+                      <button
+                        onClick={() => {
+                          const item = batchItems[0];
+                          if (item && item.processedUrl) {
+                            const a = document.createElement('a');
+                            a.href = item.processedUrl;
+                            a.download = item.name;
+                            a.click();
+                          }
+                        }}
+                        disabled={batchItems[0]?.status !== 'done'}
+                        className="flex-1 px-4 py-3.5 bg-gradient-to-r from-neon-cyan to-neon-indigo text-dark-900 font-extrabold rounded-xl text-sm flex items-center justify-center gap-2 hover:shadow-glow-cyan transition-all disabled:opacity-50 disabled:cursor-not-allowed transform hover:-translate-y-0.5"
+                      >
+                        <Download className="w-5 h-5" />
+                        <span>{t('editor.download', { defaultValue: 'Download Image' })}</span>
+                      </button>
+                    )}
+                  </div>
                 </div>
+              </>
               )}
             </div>
           </div>
