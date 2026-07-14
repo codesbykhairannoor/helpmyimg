@@ -111,8 +111,8 @@ export const RemoveBgControl: React.FC<RemoveBgControlProps> = ({
         <div className="space-y-3">
           <button
             onClick={onProcessNow}
-            disabled={isProcessing}
-            className="w-full flex items-center justify-center gap-2.5 py-4 px-4 rounded-xl bg-gradient-to-r from-neon-cyan via-neon-emerald to-neon-indigo hover:opacity-95 text-dark-900 font-extrabold shadow-glow-cyan transition-all duration-200 transform hover:-translate-y-0.5 cursor-pointer"
+            disabled={isProcessing || batchCount === 0}
+            className="w-full flex items-center justify-center gap-2.5 py-4 px-4 rounded-xl bg-gradient-to-r from-neon-cyan via-neon-emerald to-neon-indigo hover:opacity-95 text-dark-900 font-extrabold shadow-glow-cyan transition-all duration-200 transform hover:-translate-y-0.5 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none disabled:shadow-none"
           >
             <span>{t('work.action.cut')}</span>
           </button>

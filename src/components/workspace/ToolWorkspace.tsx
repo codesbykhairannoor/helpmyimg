@@ -763,18 +763,7 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({ initialTab = 'remo
 
           {/* Sidebar Kontrol Alat (4 Kolom di Desktop) */}
           <div className="lg:col-span-5 xl:col-span-4 glass-panel p-6 flex flex-col space-y-6 max-h-[85vh]">
-            {batchItems.length === 0 ? (
-              <div className="flex flex-col items-center justify-center h-full text-center space-y-4 opacity-60">
-                <div className="w-16 h-16 rounded-full bg-dark-800 flex items-center justify-center border border-dark-600">
-                  <ImageIcon className="w-8 h-8 text-slate-500" />
-                </div>
-                <div>
-                  <h4 className="text-white font-bold text-lg mb-1">{t('work.action.uploadFirst', { defaultValue: 'Upload Required' })}</h4>
-                  <p className="text-sm text-slate-400 max-w-[200px]">{t('work.action.uploadDesc', { defaultValue: 'Please upload an image to start using the tools.' })}</p>
-                </div>
-              </div>
-            ) : (
-              <>
+
                 <div className="flex flex-col gap-4 border-b border-dark-600/60 pb-4 shrink-0">
               <div className="flex items-center justify-between">
                 <h3 className="font-heading font-extrabold text-white text-lg flex items-center gap-2">
@@ -1392,8 +1381,7 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({ initialTab = 'remo
                 </div>
               )}
               </div>
-            </>
-            )}
+
           </div>
         </div>
     </section>

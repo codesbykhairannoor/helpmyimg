@@ -74,8 +74,8 @@ export const CompressControl: React.FC<CompressControlProps> = ({
           <div className="flex gap-2">
             <button
               onClick={handleProcess}
-              disabled={isProcessing}
-              className="flex-1 flex flex-col items-center justify-center gap-1 py-3 px-2 rounded-xl bg-dark-700 hover:bg-dark-600 text-white font-extrabold shadow-sm transition-all duration-200 disabled:opacity-50 border border-dark-500"
+              disabled={isProcessing || batchCount === 0}
+              className="flex-1 flex flex-col items-center justify-center gap-1 py-3 px-2 rounded-xl bg-dark-700 hover:bg-dark-600 text-white font-extrabold shadow-sm transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed border border-dark-500"
             >
               <RefreshCw className={`w-4 h-4 ${isProcessing ? 'animate-spin' : ''}`} />
               <span className="text-xs">{isProcessing ? t('btn.processing') : (t('compress.process') || 'Process 1')}</span>
