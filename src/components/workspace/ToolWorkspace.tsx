@@ -816,14 +816,7 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({ initialTab = 'remo
                   <ColorBgControl
                     selectedColor={selectedColor}
                     setSelectedColor={setSelectedColor}
-                    onDownload={() => {
-                      if (currentItem?.processedUrl) {
-                        const a = document.createElement('a');
-                        a.href = currentItem.processedUrl;
-                        a.download = `HelpMyIMG_PasFoto_${Date.now()}.png`;
-                        a.click();
-                      }
-                    }}
+
                     onReset={() => setBatchItems([])}
                     isProcessing={currentItem?.status === 'processing'}
                   />
@@ -844,14 +837,7 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({ initialTab = 'remo
                         );
                       }
                     }}
-                    onDownload={() => {
-                      if (currentItem?.processedUrl) {
-                        const a = document.createElement('a');
-                        a.href = currentItem.processedUrl;
-                        a.download = `HelpMyIMG_Brush_${Date.now()}.png`;
-                        a.click();
-                      }
-                    }}
+
                     onReset={() => setBatchItems([])}
                     isProcessing={currentItem?.status === 'processing'}
                   />
@@ -875,16 +861,7 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({ initialTab = 'remo
                     setWatermarkScale={setWatermarkScale}
                     watermarkRotation={watermarkRotation}
                     setWatermarkRotation={setWatermarkRotation}
-                    onDownload={async () => {
-                      if (currentItem?.processedUrl) {
-                        const a = document.createElement('a');
-                        a.href = currentItem.processedUrl;
-                        let baseName = currentItem.name || `HelpMyIMG_${Date.now()}`;
-                        if (baseName.includes('.')) baseName = baseName.substring(0, baseName.lastIndexOf('.'));
-                        a.download = `${baseName}.png`;
-                        a.click();
-                      }
-                    }}
+
                     batchCount={batchItems.length}
                     onProcessBatch={async () => {
                       setBatchItems(prev => prev.map(item => ({ ...item, status: 'processing' })));

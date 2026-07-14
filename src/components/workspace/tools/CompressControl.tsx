@@ -1,7 +1,7 @@
 // src/components/workspace/tools/CompressControl.tsx
 import React from 'react';
 import { useTranslation } from '../../../context/LanguageContext';
-import { FileArchive, Download, RefreshCw } from 'lucide-react';
+import { FileArchive, RefreshCw } from 'lucide-react';
 import confetti from 'canvas-confetti';
 
 interface CompressControlProps {
@@ -10,7 +10,6 @@ interface CompressControlProps {
   hasCompressed?: boolean;
   onProcess: () => void;
   onProcessBatch?: () => void;
-  onDownload: () => void;
   onReset: () => void;
   isProcessing: boolean;
   batchCount?: number;
@@ -22,7 +21,6 @@ export const CompressControl: React.FC<CompressControlProps> = ({
   hasCompressed,
   onProcess,
   onProcessBatch,
-  onDownload,
   onReset,
   isProcessing,
   batchCount = 1,
@@ -35,11 +33,6 @@ export const CompressControl: React.FC<CompressControlProps> = ({
 
   const handleProcessBatch = () => {
     if (onProcessBatch) onProcessBatch();
-  };
-
-  const handleDownload = () => {
-    confetti({ particleCount: 100, spread: 70, origin: { y: 0.7 } });
-    onDownload();
   };
 
 
@@ -92,16 +85,16 @@ export const CompressControl: React.FC<CompressControlProps> = ({
             )}
           </div>
         ) : (
-          <button
-            onClick={handleDownload}
-            disabled={isProcessing}
-            className="w-full flex items-center justify-center gap-2.5 py-3.5 px-4 rounded-xl bg-gradient-to-r from-neon-cyan to-neon-indigo text-dark-900 font-extrabold shadow-glow-cyan transition-all duration-200 disabled:opacity-50 transform hover:-translate-y-0.5"
-          >
-            <Download className="w-5 h-5" />
-            <span>{t('compress.download') || 'Download Compressed Image'}</span>
-          </button>
+          <div className="p-4 rounded-xl bg-dark-900/60 border border-dark-600/50 mb-3">
+            <div className="flex items-center gap-2 text-neon-emerald font-semibold mb-2">
+              <span className="text-xl">✅</span>
+              <span>{t('remove.successTitle', { defaultValue: 'Processed Successfully' })}</span>
+            </div>
+            <p className="text-xs text-slate-300">
+              {t('remove.successDesc', { defaultValue: 'Ready for export at the bottom of the sidebar.' })}
+            </p>
+          </div>
         )}
-
         <button
           onClick={onReset}
           disabled={isProcessing}

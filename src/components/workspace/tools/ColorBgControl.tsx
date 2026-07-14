@@ -3,13 +3,11 @@
 
 import React from 'react';
 import { useTranslation } from '../../../context/LanguageContext';
-import { Palette, Download, RefreshCw, Check } from 'lucide-react';
-import confetti from 'canvas-confetti';
+import { Palette, RefreshCw, Check } from 'lucide-react';
 
 interface ColorBgControlProps {
   selectedColor: string;
   setSelectedColor: (color: string) => void;
-  onDownload: () => void;
   onReset: () => void;
   isProcessing: boolean;
 }
@@ -17,7 +15,6 @@ interface ColorBgControlProps {
 export const ColorBgControl: React.FC<ColorBgControlProps> = ({
   selectedColor,
   setSelectedColor,
-  onDownload,
   onReset,
   isProcessing,
 }) => {
@@ -29,11 +26,6 @@ export const ColorBgControl: React.FC<ColorBgControlProps> = ({
     { label: t('color.off.white'), hex: '#FFFFFF' },
     { label: t('color.off.black'), hex: '#111827' },
   ];
-
-  const handleDownload = () => {
-    confetti({ particleCount: 100, spread: 70, origin: { y: 0.7 } });
-    onDownload();
-  };
 
   return (
     <div className="space-y-6 overflow-y-visible">
@@ -93,15 +85,6 @@ export const ColorBgControl: React.FC<ColorBgControlProps> = ({
 
       {/* Action Buttons */}
       <div className="space-y-3 pt-2">
-        <button
-          onClick={handleDownload}
-          disabled={isProcessing}
-          className="w-full flex items-center justify-center gap-2.5 py-3.5 px-4 rounded-xl bg-gradient-to-r from-neon-cyan to-neon-indigo text-dark-900 font-extrabold shadow-glow-cyan transition-all duration-200 disabled:opacity-50 transform hover:-translate-y-0.5"
-        >
-          <Download className="w-5 h-5" />
-          <span>{t('editor.download')}</span>
-        </button>
-
         <button
           onClick={onReset}
           className="w-full flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-dark-800 hover:bg-dark-700 text-slate-300 font-medium text-sm transition-colors border border-dark-600"

@@ -3,8 +3,7 @@
 
 import React from 'react';
 import { useTranslation } from '../../../context/LanguageContext';
-import { Brush, Eraser, RotateCcw, Download, RefreshCw } from 'lucide-react';
-import confetti from 'canvas-confetti';
+import { Brush, Eraser, RotateCcw, RefreshCw } from 'lucide-react';
 
 interface BrushControlProps {
   brushMode: 'restore' | 'erase';
@@ -12,7 +11,6 @@ interface BrushControlProps {
   brushSize: number;
   setBrushSize: (size: number) => void;
   onResetBrush: () => void;
-  onDownload: () => void;
   onReset: () => void;
   isProcessing: boolean;
 }
@@ -23,16 +21,11 @@ export const BrushControl: React.FC<BrushControlProps> = ({
   brushSize,
   setBrushSize,
   onResetBrush,
-  onDownload,
   onReset,
   isProcessing,
 }) => {
   const { t } = useTranslation();
 
-  const handleDownload = () => {
-    confetti({ particleCount: 80, spread: 60, origin: { y: 0.8 } });
-    onDownload();
-  };
 
   return (
     <div className="space-y-6">
@@ -107,15 +100,6 @@ export const BrushControl: React.FC<BrushControlProps> = ({
 
       {/* Action Buttons */}
       <div className="space-y-3 pt-2">
-        <button
-          onClick={handleDownload}
-          disabled={isProcessing}
-          className="w-full flex items-center justify-center gap-2.5 py-3.5 px-4 rounded-xl bg-gradient-to-r from-neon-cyan to-neon-indigo text-dark-900 font-extrabold shadow-glow-cyan transition-all duration-200 disabled:opacity-50 transform hover:-translate-y-0.5"
-        >
-          <Download className="w-5 h-5" />
-          <span>{t('editor.download')}</span>
-        </button>
-
         <button
           onClick={onReset}
           className="w-full flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-dark-800 hover:bg-dark-700 text-slate-300 font-medium text-sm transition-colors border border-dark-600"

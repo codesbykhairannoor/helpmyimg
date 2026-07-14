@@ -3,8 +3,7 @@
 
 import React from 'react';
 import { useTranslation } from '../../../context/LanguageContext';
-import { Download, Package, RefreshCw, CheckCircle2, Sparkles, Image as ImageIcon, PaintBucket } from 'lucide-react';
-import confetti from 'canvas-confetti';
+import { RefreshCw, CheckCircle2, Sparkles, Image as ImageIcon, PaintBucket } from 'lucide-react';
 
 interface RemoveBgControlProps {
   currentTransparentUrl: string | null;
@@ -34,36 +33,6 @@ export const RemoveBgControl: React.FC<RemoveBgControlProps> = ({
   setImageType,
 }) => {
   const { t } = useTranslation();
-
-  const handleDownloadSingle = () => {
-    if (!currentTransparentUrl) return;
-    confetti({ particleCount: 80, spread: 60, origin: { y: 0.8 } });
-    
-    const a = document.createElement('a');
-    a.href = currentTransparentUrl;
-    let baseName = currentFileName || `HelpMyIMG_${Date.now()}`;
-    if (baseName.includes('.')) baseName = baseName.substring(0, baseName.lastIndexOf('.'));
-    a.download = `${baseName}.png`;
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
-  };
-
-  const handleDownloadBatch = () => {
-    if (batchUrls.length === 0) return;
-    confetti({ particleCount: 150, spread: 90, origin: { y: 0.7 } });
-
-    batchUrls.forEach((item, index) => {
-      setTimeout(() => {
-        const a = document.createElement('a');
-        a.href = item.url;
-        a.download = `HelpMyIMG_Batch_${index + 1}_${item.name.replace(/\.[^/.]+$/, '')}.png`;
-        document.body.appendChild(a);
-        a.click();
-        document.body.removeChild(a);
-      }, index * 350);
-    });
-  };
 
   return (
     <div className="space-y-6">
@@ -144,26 +113,6 @@ export const RemoveBgControl: React.FC<RemoveBgControlProps> = ({
           </div>
 
           <div className="space-y-3">
-            <button
-              onClick={handleDownloadSingle}
-              disabled={!currentTransparentUrl || isProcessing}
-              className="w-full flex items-center justify-center gap-2.5 py-3.5 px-4 rounded-xl bg-gradient-to-r from-neon-cyan to-neon-indigo hover:from-neon-cyan/90 hover:to-neon-indigo/90 text-dark-900 font-extrabold shadow-glow-cyan transition-all duration-200 disabled:opacity-50 transform hover:-translate-y-0.5 cursor-pointer"
-            >
-              <Download className="w-5 h-5" />
-              <span>{t('editor.download')}</span>
-            </button>
-
-            {batchUrls.length > 1 && (
-              <button
-                onClick={handleDownloadBatch}
-                disabled={isProcessing}
-                className="w-full flex items-center justify-center gap-2.5 py-3.5 px-4 rounded-xl bg-dark-700 hover:bg-dark-600 border border-neon-indigo/50 text-white font-bold transition-all duration-200 disabled:opacity-50 transform hover:-translate-y-0.5 cursor-pointer"
-              >
-                <Package className="w-5 h-5 text-neon-indigo" />
-                <span>{t('editor.downloadBatch')} ({batchUrls.length} {t('remove.photoCount')})</span>
-              </button>
-            )}
-
             {/* Tombol Proses Ulang */}
             {onProcessNow && (
               <div className="pt-2 border-t border-dark-600">

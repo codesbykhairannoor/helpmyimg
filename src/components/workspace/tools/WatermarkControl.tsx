@@ -1,8 +1,7 @@
 // src/components/workspace/tools/WatermarkControl.tsx
 import React, { useRef } from 'react';
 import { useTranslation } from '../../../context/LanguageContext';
-import { Type, Download, RefreshCw, Layers, Image as ImageIcon, Upload } from 'lucide-react';
-import confetti from 'canvas-confetti';
+import { Type, RefreshCw, Layers, Image as ImageIcon, Upload } from 'lucide-react';
 
 export type WatermarkPosition = 'center' | 'bottom-right' | 'bottom-left' | 'top-right' | 'top-left' | 'tiled';
 
@@ -23,7 +22,6 @@ interface WatermarkControlProps {
   setWatermarkScale: (val: number) => void;
   watermarkRotation: number;
   setWatermarkRotation: (val: number) => void;
-  onDownload: () => void;
   onProcessBatch?: () => void;
   onReset: () => void;
   isProcessing: boolean;
@@ -47,7 +45,6 @@ export const WatermarkControl: React.FC<WatermarkControlProps> = ({
   setWatermarkScale,
   watermarkRotation,
   setWatermarkRotation,
-  onDownload,
   onProcessBatch,
   onReset,
   isProcessing,
@@ -55,11 +52,6 @@ export const WatermarkControl: React.FC<WatermarkControlProps> = ({
 }) => {
   const { t } = useTranslation();
   const fileInputRef = useRef<HTMLInputElement>(null);
-
-  const handleDownload = () => {
-    confetti({ particleCount: 100, spread: 70, origin: { y: 0.7 } });
-    onDownload();
-  };
 
   const handleImageUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
@@ -245,16 +237,7 @@ export const WatermarkControl: React.FC<WatermarkControlProps> = ({
       </div>
 
       <div className="space-y-3 pt-4 border-t border-dark-600/50">
-        <div className="flex gap-2">
-          <button
-            onClick={handleDownload}
-            disabled={isProcessing || (watermarkType === 'text' ? !watermarkText.trim() : !watermarkImage)}
-            className="flex-1 flex flex-col items-center justify-center gap-1 py-3 px-2 rounded-xl bg-gradient-to-r from-neon-cyan to-neon-indigo text-dark-900 font-extrabold shadow-glow-cyan transition-all duration-200 disabled:opacity-50 transform hover:-translate-y-0.5"
-          >
-            <Download className="w-5 h-5" />
-            <span className="text-xs">{t('editor.download') || 'Download HD'}</span>
-          </button>
-          
+
           {onProcessBatch && batchCount > 1 && (
             <button
               onClick={() => onProcessBatch()}
@@ -265,7 +248,6 @@ export const WatermarkControl: React.FC<WatermarkControlProps> = ({
               <span className="text-xs">{t('watermark.processAll', { count: String(batchCount) }) === 'watermark.processAll' ? `Watermark All (${batchCount})` : t('watermark.processAll', { count: String(batchCount) })}</span>
             </button>
           )}
-        </div>
 
         <button
           onClick={onReset}
