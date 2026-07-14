@@ -3,7 +3,7 @@
 
 import React from 'react';
 import { useTranslation } from '../../../context/LanguageContext';
-import { Download, Package, RefreshCw, CheckCircle2, Play, Sparkles, Image as ImageIcon, PaintBucket } from 'lucide-react';
+import { Download, Package, RefreshCw, CheckCircle2, Sparkles, Image as ImageIcon, PaintBucket } from 'lucide-react';
 import confetti from 'canvas-confetti';
 
 interface RemoveBgControlProps {
