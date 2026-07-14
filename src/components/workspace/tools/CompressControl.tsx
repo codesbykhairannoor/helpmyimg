@@ -2,7 +2,6 @@
 import React from 'react';
 import { useTranslation } from '../../../context/LanguageContext';
 import { FileArchive, RefreshCw } from 'lucide-react';
-import confetti from 'canvas-confetti';
 
 interface CompressControlProps {
   quality: number;
@@ -10,6 +9,7 @@ interface CompressControlProps {
   hasCompressed?: boolean;
   onProcess: () => void;
   onProcessBatch?: () => void;
+  onDownload?: () => void;
   onReset: () => void;
   isProcessing: boolean;
   batchCount?: number;
@@ -18,7 +18,6 @@ interface CompressControlProps {
 export const CompressControl: React.FC<CompressControlProps> = ({
   quality,
   setQuality,
-  hasCompressed,
   onProcess,
   onProcessBatch,
   onReset,
@@ -63,38 +62,26 @@ export const CompressControl: React.FC<CompressControlProps> = ({
       </div>
 
       <div className="space-y-3 pt-2">
-        {!hasCompressed ? (
-          <div className="flex gap-2">
+        <div className="flex gap-2">
+          <button
+            onClick={handleProcess}
+            disabled={isProcessing || batchCount === 0}
+            className="flex-1 flex flex-col items-center justify-center gap-1 py-3 px-2 rounded-xl bg-dark-700 hover:bg-dark-600 text-white font-extrabold shadow-sm transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed border border-dark-500"
+          >
+            <RefreshCw className={`w-4 h-4 ${isProcessing ? 'animate-spin' : ''}`} />
+            <span className="text-xs">{isProcessing ? t('btn.processing') : (t('compress.process') || 'Process 1')}</span>
+          </button>
+          {onProcessBatch && batchCount > 1 && (
             <button
-              onClick={handleProcess}
-              disabled={isProcessing || batchCount === 0}
-              className="flex-1 flex flex-col items-center justify-center gap-1 py-3 px-2 rounded-xl bg-dark-700 hover:bg-dark-600 text-white font-extrabold shadow-sm transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed border border-dark-500"
+              onClick={handleProcessBatch}
+              disabled={isProcessing}
+              className="flex-1 flex flex-col items-center justify-center gap-1 py-3 px-2 rounded-xl bg-neon-cyan/10 hover:bg-neon-cyan/20 text-neon-cyan font-extrabold shadow-sm transition-all duration-200 disabled:opacity-50 border border-neon-cyan/50"
             >
               <RefreshCw className={`w-4 h-4 ${isProcessing ? 'animate-spin' : ''}`} />
-              <span className="text-xs">{isProcessing ? t('btn.processing') : (t('compress.process') || 'Process 1')}</span>
+              <span className="text-xs">{t('compress.processAll', { count: String(batchCount) }) === 'compress.processAll' ? `Process All (${batchCount})` : t('compress.processAll', { count: String(batchCount) })}</span>
             </button>
-            {onProcessBatch && batchCount > 1 && (
-              <button
-                onClick={handleProcessBatch}
-                disabled={isProcessing}
-                className="flex-1 flex flex-col items-center justify-center gap-1 py-3 px-2 rounded-xl bg-neon-cyan/10 hover:bg-neon-cyan/20 text-neon-cyan font-extrabold shadow-sm transition-all duration-200 disabled:opacity-50 border border-neon-cyan/50"
-              >
-                <RefreshCw className={`w-4 h-4 ${isProcessing ? 'animate-spin' : ''}`} />
-                <span className="text-xs">{t('compress.processAll', { count: String(batchCount) }) === 'compress.processAll' ? `Process All (${batchCount})` : t('compress.processAll', { count: String(batchCount) })}</span>
-              </button>
-            )}
-          </div>
-        ) : (
-          <div className="p-4 rounded-xl bg-dark-900/60 border border-dark-600/50 mb-3">
-            <div className="flex items-center gap-2 text-neon-emerald font-semibold mb-2">
-              <span className="text-xl">✅</span>
-              <span>{t('remove.successTitle', { defaultValue: 'Processed Successfully' })}</span>
-            </div>
-            <p className="text-xs text-slate-300">
-              {t('remove.successDesc', { defaultValue: 'Ready for export at the bottom of the sidebar.' })}
-            </p>
-          </div>
-        )}
+          )}
+        </div>
         <button
           onClick={onReset}
           disabled={isProcessing}

@@ -1,5 +1,5 @@
 import React from 'react';
-import { ScanFace, Download, RefreshCw, Trash2, Droplets } from 'lucide-react';
+import { ScanFace, RefreshCw, Trash2, Droplets } from 'lucide-react';
 import { useTranslation } from '../../../context/LanguageContext';
 
 export interface BlurBox {
@@ -16,7 +16,7 @@ interface BlurFaceControlProps {
   setBoxes: React.Dispatch<React.SetStateAction<BlurBox[]>>;
   blurIntensity: number;
   setBlurIntensity: (val: number) => void;
-  onDownload: () => void;
+  onApply: () => void;
   onReset: () => void;
   isProcessing: boolean;
 }
@@ -26,9 +26,9 @@ export const BlurFaceControl: React.FC<BlurFaceControlProps> = ({
   setBoxes,
   blurIntensity,
   setBlurIntensity,
-  onDownload,
+  onApply,
   onReset,
-  isProcessing
+  isProcessing,
 }) => {
   const { t } = useTranslation();
 
@@ -89,12 +89,11 @@ export const BlurFaceControl: React.FC<BlurFaceControlProps> = ({
         </button>
         
         <button
-          onClick={onDownload}
+          onClick={onApply}
           disabled={isProcessing}
           className="flex-1 py-3 bg-gradient-to-r from-neon-cyan to-neon-indigo text-dark-900 font-extrabold rounded-xl hover:shadow-glow-cyan transition-all flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed text-sm uppercase tracking-wider"
         >
-          <Download className="w-4 h-4" />
-          Blur Face
+          <span>{isProcessing ? t('btn.processing') : t('work.action.apply', { defaultValue: 'Apply' })}</span>
         </button>
       </div>
     </div>

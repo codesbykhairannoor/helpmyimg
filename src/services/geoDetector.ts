@@ -1,7 +1,6 @@
 // src/services/geoDetector.ts
 // Layanan Deteksi Geografis & Bahasa Otomatis dengan Anti-Bot Trap ("The Secret / Chameleon Hat")
 // Mencegah Googlebot dan AI Crawlers terkena redirect loop atau cloaking penalty
-import { getLocalizedSlug } from '../utils/urlMapper';
 
 const BOT_USER_AGENTS_REGEX = /googlebot|bingbot|yandexbot|duckduckbot|slurp|baiduspider|ia_archiver|gptbot|chatgpt-user|perplexitybot|claudebot|applebot|facebookexternalhit|twitterbot|linkedinbot|embedly|quora|pinterest|slackbot|vkShare|w3c_validator|validator|cf\.client\.bot/i;
 
@@ -101,10 +100,10 @@ export function shouldAutoRedirectToLang(currentPathname: string, supportedCodes
     return null;
   }
 
-  // 2. Jika pengguna manusia mengunjungi Root ("/" atau ""), arahkan ke subdirektori bahasa mereka beserta slug tool defaultnya
+  // 2. Jika pengguna manusia mengunjungi Root ("/" atau ""), arahkan ke beranda subdirektori bahasa mereka (/id, /en, dll)
   if (currentPathname === '/' || currentPathname === '') {
     const prefLang = getPreferredLanguage(supportedCodes, 'en');
-    return `/${prefLang}/${getLocalizedSlug('remove', prefLang)}`;
+    return `/${prefLang}`;
   }
 
   // 3. Jika pengguna manusia sudah berada di subdirektori (/id, /es, /ru, dll.), jangan di-redirect!

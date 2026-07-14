@@ -3,12 +3,12 @@
 
 import React from 'react';
 import { useTranslation } from '../../../context/LanguageContext';
-import { RefreshCw, CheckCircle2, Sparkles, Image as ImageIcon, PaintBucket } from 'lucide-react';
+import { RefreshCw, Sparkles, Image as ImageIcon, PaintBucket } from 'lucide-react';
 
 interface RemoveBgControlProps {
-  currentTransparentUrl: string | null;
+  currentTransparentUrl?: string | null;
   currentFileName?: string;
-  batchUrls: { name: string; url: string }[];
+  batchUrls?: { name: string; url: string }[];
   onReset: () => void;
   isProcessing: boolean;
   status?: 'idle' | 'queued' | 'processing' | 'done' | 'error';
@@ -17,12 +17,10 @@ interface RemoveBgControlProps {
   batchCount?: number;
   imageType?: 'photo' | 'logo' | 'general';
   setImageType?: (val: 'photo' | 'logo' | 'general') => void;
+  hasProcessedAi?: boolean;
 }
 
 export const RemoveBgControl: React.FC<RemoveBgControlProps> = ({
-  currentTransparentUrl,
-  currentFileName,
-  batchUrls,
   onReset,
   isProcessing,
   status = 'idle',
@@ -31,8 +29,15 @@ export const RemoveBgControl: React.FC<RemoveBgControlProps> = ({
   batchCount = 1,
   imageType = 'photo',
   setImageType,
+  hasProcessedAi = true, // Default true to maintain behavior if not passed
 }) => {
   const { t } = useTranslation();
+
+  const shouldShowActionButtons =
+    status === 'idle' ||
+    status === 'done' ||
+    status === 'error' ||
+    (!hasProcessedAi && status !== 'processing' && status !== 'queued');
 
   return (
     <div className="space-y-6">
@@ -75,8 +80,8 @@ export const RemoveBgControl: React.FC<RemoveBgControlProps> = ({
         </div>
       )}
 
-      {/* Tombol Action saat Status Idle (Belum Diproses) */}
-      {status === 'idle' && (
+      {/* Tombol Action saat Status Idle (Belum Diproses) atau Dibypass */}
+      {shouldShowActionButtons && (
         <div className="space-y-3">
           <button
             onClick={onProcessNow}
@@ -100,18 +105,8 @@ export const RemoveBgControl: React.FC<RemoveBgControlProps> = ({
       )}
 
       {/* Tampilan Saat Sukses Diproses */}
-      {status === 'done' && (
+      {status === 'done' && hasProcessedAi && (
         <>
-          <div className="p-4 rounded-xl bg-dark-900/60 border border-dark-600/50">
-            <div className="flex items-center gap-2 text-neon-emerald font-semibold mb-2">
-              <CheckCircle2 className="w-5 h-5" />
-              <span>{t('remove.successTitle')}</span>
-            </div>
-            <p className="text-xs text-slate-300">
-              {t('remove.successDesc')}
-            </p>
-          </div>
-
           <div className="space-y-3">
             {/* Tombol Proses Ulang */}
             {onProcessNow && (

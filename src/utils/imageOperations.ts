@@ -86,6 +86,8 @@ export async function processImage(file: Blob | File, config: ImageOpConfig): Pr
   return new Promise((resolve, reject) => {
     canvas.toBlob(
       (blob) => {
+        canvas.width = 0;
+        canvas.height = 0;
         if (blob) resolve(blob);
         else reject(new Error('Gagal membuat blob gambar'));
       },
@@ -119,7 +121,12 @@ export async function cropImage(
 
   return new Promise((resolve, reject) => {
     canvas.toBlob(
-      (blob) => { if (blob) resolve(blob); else reject(new Error('Gagal membuat blob gambar')); },
+      (blob) => {
+        canvas.width = 0;
+        canvas.height = 0;
+        if (blob) resolve(blob);
+        else reject(new Error('Gagal membuat blob gambar'));
+      },
       mimeType, quality
     );
   });
@@ -162,7 +169,12 @@ export async function rotateImage(
 
   return new Promise((resolve, reject) => {
     canvas.toBlob(
-      (blob) => { if (blob) resolve(blob); else reject(new Error('Gagal membuat blob gambar')); },
+      (blob) => {
+        canvas.width = 0;
+        canvas.height = 0;
+        if (blob) resolve(blob);
+        else reject(new Error('Gagal membuat blob gambar'));
+      },
       mimeType, quality
     );
   });
@@ -192,6 +204,8 @@ export async function smartCropImage(file: Blob | File, targetWidth: number, tar
 
   return new Promise((resolve, reject) => {
     canvas.toBlob((blob) => {
+      canvas.width = 0;
+      canvas.height = 0;
       if (blob) resolve(blob);
       else reject(new Error('Gagal mengekspor smart cropped gambar'));
     }, mimeType, 0.95);
@@ -346,6 +360,8 @@ export async function applyWatermark(file: Blob | File, config: WatermarkConfig)
 
   return new Promise((resolve, reject) => {
     canvas.toBlob((blob) => {
+      canvas.width = 0;
+      canvas.height = 0;
       if (blob) resolve(blob);
       else reject(new Error('Gagal menerapkan watermark'));
     }, file.type || 'image/png', 0.95);

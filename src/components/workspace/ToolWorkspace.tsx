@@ -1,11 +1,11 @@
 // src/components/workspace/ToolWorkspace.tsx
 // Ruang Kerja Utama: Drag-and-Drop Batch Upload, Canvas Viewport, Navigasi Tab Utilitas & Engine Selector
 
-import React, { useState, useRef, useEffect, Suspense } from 'react';
+import React, { useState, useRef, useEffect, useCallback, Suspense } from 'react';
 import { useParams } from 'react-router-dom';
 import { useTranslation } from '../../context/LanguageContext';
 import { aiService } from '../../services/aiService';
-import { Upload, Download, Loader2, Sparkles, Archive, Trash2, Image as ImageIcon, Settings2, ChevronDown } from 'lucide-react';
+import { Upload, Download, Loader2, Sparkles, Archive, Trash2, Settings2, ChevronDown } from 'lucide-react';
 import JSZip from 'jszip';
 import { motion } from 'framer-motion';
 
@@ -50,6 +50,8 @@ export interface BatchItem {
   progress: number;
   progressStep: string;
   errorMessage?: string;
+  rotateBaseUrl?: string;
+  rotateBaseFile?: Blob;
 }
 
 interface ToolWorkspaceProps {
@@ -75,8 +77,12 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({ initialTab = 'remo
   const [batchItems, setBatchItems] = useState<BatchItem[]>([]);
   const [selectedIndex, setSelectedIndex] = useState<number>(0);
   const [isDragging, setIsDragging] = useState(false);
-  const [isProcessingQueue, setIsProcessingQueue] = useState(false);
+  const [_isProcessingQueue, setIsProcessingQueue] = useState(false);
   const [imageType, setImageType] = useState<'photo' | 'logo' | 'general'>('photo');
+  const imageTypeRef = useRef<'photo' | 'logo' | 'general'>('photo');
+
+  // Keep ref in sync with state
+  useEffect(() => { imageTypeRef.current = imageType; }, [imageType]);
 
   // Parameter Alat
   const initialColor = keywordSlug && keywordSlug.toLowerCase().includes('biru') ? '#00529C' : '#DB1514';
@@ -244,34 +250,21 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({ initialTab = 'remo
   };
 
   // --- AI Queue System ---
-  useEffect(() => {
-    const processQueue = async () => {
-      if (isProcessingQueue) return;
+  const isProcessingRef = useRef(false);
 
-      const nextItem = batchItems.find((i) => i.status === 'queued' && !['watermark', 'compress', 'convert', 'resize', 'crop', 'rotate', 'picker', 'blurface', 'design'].includes(activeTab));
-      if (nextItem) {
-        setIsProcessingQueue(true);
-        await processSingleItem(nextItem);
-        setIsProcessingQueue(false);
-      }
-    };
-    
-    processQueue();
-  }, [batchItems, isProcessingQueue, activeTab]);
-
-  const processSingleItem = async (item: BatchItem) => {
+  const processSingleItem = useCallback(async (item: BatchItem) => {
     setBatchItems((prev) =>
       prev.map((i) => (i.id === item.id ? { ...i, status: 'processing', progressStep: t('work.startAi') } : i))
     );
 
     try {
-      console.log('--- START PROCESSING:', item.id);
+      console.log('--- START PROCESSING:', item.id, 'imageType:', imageTypeRef.current);
       const resultBlob = await aiService.removeBackgroundAsync(item.file, 'rmbg', 80, (step, pct) => {
         console.log(`--- PROGRESS: ${step} (${pct}%)`);
         setBatchItems((prev) =>
           prev.map((i) => (i.id === item.id ? { ...i, progress: pct, progressStep: step } : i))
         );
-      }, imageType);
+      }, imageTypeRef.current);
 
       console.log('--- DONE PROCESSING. BLOB SIZE:', resultBlob.size);
       const transUrl = URL.createObjectURL(resultBlob);
@@ -288,17 +281,36 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({ initialTab = 'remo
         prev.map((i) => (i.id === item.id ? { ...i, status: 'error', errorMessage: err.message || err.toString() } : i))
       );
     }
-  };
+  }, [t]);
+
+  useEffect(() => {
+    const processQueue = async () => {
+      if (isProcessingRef.current) return;
+
+      const nextItem = batchItems.find(
+        (i) =>
+          i.status === 'queued' &&
+          !['watermark', 'compress', 'convert', 'resize', 'crop', 'rotate', 'picker', 'blurface', 'design'].includes(activeTab)
+      );
+
+      if (nextItem) {
+        isProcessingRef.current = true;
+        setIsProcessingQueue(true);
+        await processSingleItem(nextItem);
+        isProcessingRef.current = false;
+        setIsProcessingQueue(false);
+      }
+    };
+    
+    processQueue();
+  }, [batchItems, activeTab, processSingleItem]);
 
   // Menerapkan perubahan efek pada gambar terpilih
   const applyCurrentEffect = async () => {
     if (!currentItem || !currentItem.transparentUrl) return;
 
     // Jika tab tidak menggunakan AI tapi item ini belum pernah diproses AI (karena di-bypass)
-    if (!['watermark', 'compress', 'convert', 'resize', 'crop', 'rotate', 'picker', 'blurface', 'design'].includes(activeTab) && currentItem.transparentUrl === currentItem.originalUrl && currentItem.status !== 'processing') {
-      processSingleItem(currentItem);
-      return;
-    }
+    // We intentionally removed auto-processing here so the user can manually trigger it.
 
     const origImg = new Image();
     const transImg = new Image();
@@ -312,9 +324,12 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({ initialTab = 'remo
     };
 
     try {
+      const transSrc = (activeTab === 'rotate' && currentItem.rotateBaseUrl)
+        ? currentItem.rotateBaseUrl
+        : (currentItem.transparentUrl || currentItem.originalUrl);
       await Promise.all([
         loadImg(origImg, currentItem.originalUrl),
-        loadImg(transImg, currentItem.transparentUrl),
+        loadImg(transImg, transSrc),
       ]);
     } catch (err) {
       console.error(err);
@@ -346,10 +361,6 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({ initialTab = 'remo
         watermarkRotation
       );
     } else if (activeTab === 'crop') {
-      // Do not auto-crop the preview! Just show the full image so the InteractiveCropOverlay works correctly.
-      setBatchItems((prev) =>
-        prev.map((i, idx) => (idx === selectedIndex ? { ...i, processedUrl: i.transparentUrl || i.originalUrl } : i))
-      );
       return;
     } else if (activeTab === 'rotate') {
       resultCanvas = document.createElement('canvas');
@@ -370,7 +381,31 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({ initialTab = 'remo
         if (blob && currentSeq === effectSequenceRef.current) {
           const url = URL.createObjectURL(blob);
           setBatchItems((prev) =>
-            prev.map((i, idx) => (idx === selectedIndex ? { ...i, processedUrl: url } : i))
+            prev.map((i, idx) => {
+              if (idx === selectedIndex) {
+                if (activeTab === 'rotate') {
+                  const baseRotateUrl = i.rotateBaseUrl || i.transparentUrl || i.originalUrl;
+                  const baseRotateFile = i.rotateBaseFile || i.file;
+                  const newFile = new File([blob], i.name, { type: blob.type || 'image/png' });
+                  return {
+                    ...i,
+                    rotateBaseUrl: baseRotateUrl,
+                    rotateBaseFile: baseRotateFile,
+                    file: newFile,
+                    originalUrl: url,
+                    transparentUrl: i.transparentUrl ? url : null,
+                    processedUrl: url,
+                    status: 'done'
+                  };
+                }
+                return {
+                  ...i,
+                  processedUrl: url,
+                  status: 'done'
+                };
+              }
+              return i;
+            })
           );
         }
       }, 'image/png');
@@ -798,7 +833,16 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({ initialTab = 'remo
                     batchUrls={batchItems
                       .filter((i) => i.status === 'done' && i.transparentUrl)
                       .map((i) => ({ name: i.name, url: i.transparentUrl! }))}
-                    onReset={() => setBatchItems([])}
+                    onReset={() => {
+                      if (currentItem?.originalUrl) {
+                        setBatchItems(prev => prev.map(item => item.id === currentItem.id ? {
+                          ...item,
+                          transparentUrl: null,
+                          processedUrl: item.originalUrl,
+                          status: 'done'
+                        } : item));
+                      }
+                    }}
                     isProcessing={currentItem?.status === 'processing' || currentItem?.status === 'queued' || batchItems.some(i => i.status === 'processing' || i.status === 'queued')}
                     status={currentItem?.status || 'idle'}
                     onProcessNow={() => currentItem && setBatchItems(prev => prev.map(i => i.id === currentItem.id ? { ...i, status: 'queued', progressStep: t('work.queued', { defaultValue: 'Queued' }) } : i))}
@@ -808,6 +852,7 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({ initialTab = 'remo
                     batchCount={batchItems.length}
                     imageType={imageType}
                     setImageType={setImageType}
+                    hasProcessedAi={currentItem?.transparentUrl !== currentItem?.originalUrl}
 
                   />
                 )}
@@ -817,7 +862,16 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({ initialTab = 'remo
                     selectedColor={selectedColor}
                     setSelectedColor={setSelectedColor}
 
-                    onReset={() => setBatchItems([])}
+                    onReset={() => {
+                      setSelectedColor('#ffffff');
+                      if (currentItem) {
+                        setBatchItems(prev => prev.map(item => item.id === currentItem.id ? {
+                          ...item,
+                          processedUrl: item.transparentUrl || item.originalUrl,
+                          status: 'done'
+                        } : item));
+                      }
+                    }}
                     isProcessing={currentItem?.status === 'processing'}
                   />
                 )}
@@ -838,7 +892,15 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({ initialTab = 'remo
                       }
                     }}
 
-                    onReset={() => setBatchItems([])}
+                    onReset={() => {
+                      if (currentItem) {
+                        setBatchItems((prev) =>
+                          prev.map((i, idx) =>
+                            idx === selectedIndex ? { ...i, processedUrl: i.transparentUrl || i.originalUrl } : i
+                          )
+                        );
+                      }
+                    }}
                     isProcessing={currentItem?.status === 'processing'}
                   />
                 )}
@@ -865,6 +927,7 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({ initialTab = 'remo
                     batchCount={batchItems.length}
                     onProcessBatch={async () => {
                       setBatchItems(prev => prev.map(item => ({ ...item, status: 'processing' })));
+                      await new Promise(r => setTimeout(r, 50));
                       const newItems = [...batchItems];
                       for (let i = 0; i < newItems.length; i++) {
                         const item = newItems[i];
@@ -885,12 +948,19 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({ initialTab = 'remo
                           newItems[i] = { ...item, status: 'error', errorMessage: 'Watermark failed' };
                         }
                         setBatchItems([...newItems]);
+                        await new Promise(r => setTimeout(r, 60));
                       }
                     }}
                     onReset={() => {
                       setWatermarkText('');
                       setWatermarkImage(null);
-                      setBatchItems([]);
+                      if (currentItem) {
+                        setBatchItems(prev => prev.map(item => item.id === currentItem.id ? {
+                          ...item,
+                          processedUrl: item.transparentUrl || item.originalUrl,
+                          status: 'done'
+                        } : item));
+                      }
                     }}
                     isProcessing={currentItem?.status === 'processing'}
                   />
@@ -905,7 +975,7 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({ initialTab = 'remo
                       if (currentItem) {
                         try {
                           let sourceBlob = currentItem.file;
-                          if (currentItem.processedUrl) {
+                          if (currentItem.processedUrl && currentItem.processedUrl !== currentItem.originalUrl) {
                             const res = await fetch(currentItem.processedUrl);
                             sourceBlob = await res.blob();
                           } else if (!sourceBlob && currentItem.originalUrl) {
@@ -927,13 +997,14 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({ initialTab = 'remo
                     batchCount={batchItems.length}
                     onProcessBatch={async () => {
                       setBatchItems(prev => prev.map(item => ({ ...item, status: 'processing' })));
+                      await new Promise(r => setTimeout(r, 50));
                       
                       const newItems = [...batchItems];
                       for (let i = 0; i < newItems.length; i++) {
                         const item = newItems[i];
                         try {
                           let sourceBlob = item.file;
-                          if (item.transparentUrl) {
+                          if (item.transparentUrl && item.transparentUrl !== item.originalUrl) {
                             const res = await fetch(item.transparentUrl);
                             sourceBlob = await res.blob();
                           } else if (!sourceBlob && item.originalUrl) {
@@ -951,6 +1022,7 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({ initialTab = 'remo
                           newItems[i] = { ...item, status: 'error', errorMessage: 'Compress failed' };
                         }
                         setBatchItems([...newItems]);
+                        await new Promise(r => setTimeout(r, 60));
                       }
                     }}
                     onDownload={() => {
@@ -966,7 +1038,15 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({ initialTab = 'remo
                     }}
                     onReset={() => {
                       setCompressQuality(0.8);
-                      setBatchItems([]);
+                      if (currentItem) {
+                        setBatchItems(prev => prev.map(item => item.id === currentItem.id ? {
+                          ...item,
+                          compressBlob: undefined,
+                          compressUrl: undefined,
+                          processedUrl: item.transparentUrl || item.originalUrl,
+                          status: 'done'
+                        } : item));
+                      }
                     }}
                     isProcessing={currentItem?.status === 'processing'}
                   />
@@ -997,6 +1077,7 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({ initialTab = 'remo
                     batchCount={batchItems.length}
                     onProcessBatch={async () => {
                       setBatchItems(prev => prev.map(item => ({ ...item, status: 'processing' })));
+                      await new Promise(r => setTimeout(r, 50));
                       const newItems = [...batchItems];
                       for (let i = 0; i < newItems.length; i++) {
                         const item = newItems[i];
@@ -1013,11 +1094,11 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({ initialTab = 'remo
                           newItems[i] = { ...item, status: 'error', errorMessage: 'Convert failed' };
                         }
                         setBatchItems([...newItems]);
+                        await new Promise(r => setTimeout(r, 60));
                       }
                     }}
                     onReset={() => {
                       setConvertFormat('image/jpeg');
-                      setBatchItems([]);
                     }}
                     isProcessing={currentItem?.status === 'processing'}
                   />
@@ -1027,22 +1108,30 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({ initialTab = 'remo
                   <ResizeControl
                     originalWidth={originalDimensions.width}
                     originalHeight={originalDimensions.height}
-                    width={resizeWidth}
-                    setWidth={setResizeWidth}
-                    height={resizeHeight}
-                    setHeight={setResizeHeight}
-                    maintainAspectRatio={resizeMaintainRatio}
-                    setMaintainAspectRatio={setResizeMaintainRatio}
+                    resizeWidth={resizeWidth}
+                    setResizeWidth={setResizeWidth}
+                    resizeHeight={resizeHeight}
+                    setResizeHeight={setResizeHeight}
+                    maintainRatio={resizeMaintainRatio}
+                    setMaintainRatio={setResizeMaintainRatio}
                     resizeMode={resizeMode}
                     setResizeMode={setResizeMode}
-                    onDownload={async () => {
+                    onApply={async () => {
                       if (currentItem?.file) {
                         try {
+                          let sourceBlob = currentItem.file;
+                          if (currentItem.transparentUrl && currentItem.transparentUrl !== currentItem.originalUrl) {
+                            const res = await fetch(currentItem.transparentUrl);
+                            sourceBlob = await res.blob();
+                          } else if (currentItem.processedUrl && currentItem.processedUrl !== currentItem.originalUrl) {
+                            const res = await fetch(currentItem.processedUrl);
+                            sourceBlob = await res.blob();
+                          }
                           let blob: Blob;
                           if (resizeMode === 'smart') {
-                            blob = await smartCropImage(currentItem.file, resizeWidth, resizeHeight, currentItem.file.type || 'image/jpeg');
+                            blob = await smartCropImage(sourceBlob, resizeWidth, resizeHeight, currentItem.file.type || 'image/jpeg');
                           } else {
-                            blob = await processImage(currentItem.file, { 
+                            blob = await processImage(sourceBlob, { 
                               mimeType: currentItem.file.type || 'image/jpeg', 
                               quality: 0.95,
                               width: resizeWidth,
@@ -1051,13 +1140,18 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({ initialTab = 'remo
                             });
                           }
                           const url = URL.createObjectURL(blob);
-                          const a = document.createElement('a');
-                          a.href = url;
-                          const ext = (currentItem.file.type || 'image/jpeg').split('/')[1];
-                          let baseName = currentItem.name || `HelpMyIMG_${Date.now()}`;
-                          if (baseName.includes('.')) baseName = baseName.substring(0, baseName.lastIndexOf('.'));
-                          a.download = `${baseName}.${ext}`;
-                          a.click();
+                          const newFile = new File([blob], currentItem.name, { type: blob.type || 'image/png' });
+                          setBatchItems(prev => prev.map(item => item.id === currentItem.id ? { 
+                            ...item, 
+                            file: newFile,
+                            originalUrl: url,
+                            transparentUrl: item.transparentUrl ? url : null,
+                            processedUrl: url, 
+                            status: 'done' 
+                          } : item));
+                          setOriginalDimensions({ width: Math.round(resizeWidth), height: Math.round(resizeHeight) });
+                          setCropWidth(Math.round(resizeWidth));
+                          setCropHeight(Math.round(resizeHeight));
                         } catch (err) {
                           console.error('Resize failed', err);
                         }
@@ -1067,7 +1161,6 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({ initialTab = 'remo
                       setResizeWidth(originalDimensions.width);
                       setResizeHeight(originalDimensions.height);
                       setResizeMaintainRatio(false);
-                      setBatchItems([]);
                     }}
                     isProcessing={currentItem?.status === 'processing'}
                   />
@@ -1085,17 +1178,35 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({ initialTab = 'remo
                     setCropWidth={setCropWidth}
                     cropHeight={cropHeight}
                     setCropHeight={setCropHeight}
-                    onDownload={async () => {
+                    onApply={async () => {
                       if (currentItem?.file) {
                         try {
-                          const blob = await cropImage(currentItem.file, cropX, cropY, cropWidth, cropHeight);
+                          let sourceBlob = currentItem.file;
+                          if (currentItem.transparentUrl && currentItem.transparentUrl !== currentItem.originalUrl) {
+                            const res = await fetch(currentItem.transparentUrl);
+                            sourceBlob = await res.blob();
+                          } else if (currentItem.processedUrl && currentItem.processedUrl !== currentItem.originalUrl) {
+                            const res = await fetch(currentItem.processedUrl);
+                            sourceBlob = await res.blob();
+                          }
+                          const blob = await cropImage(sourceBlob, cropX, cropY, cropWidth, cropHeight);
                           const url = URL.createObjectURL(blob);
-                          const a = document.createElement('a');
-                          a.href = url;
-                          let baseName = currentItem.name || `HelpMyIMG_${Date.now()}`;
-                          if (baseName.includes('.')) baseName = baseName.substring(0, baseName.lastIndexOf('.'));
-                          a.download = `${baseName}.png`;
-                          a.click();
+                          const newFile = new File([blob], currentItem.name, { type: blob.type || 'image/png' });
+                          setBatchItems(prev => prev.map(item => item.id === currentItem.id ? { 
+                            ...item, 
+                            file: newFile,
+                            originalUrl: url,
+                            transparentUrl: item.transparentUrl ? url : null,
+                            processedUrl: url, 
+                            status: 'done' 
+                          } : item));
+                          setOriginalDimensions({ width: Math.round(cropWidth), height: Math.round(cropHeight) });
+                          setCropX(0);
+                          setCropY(0);
+                          setCropWidth(Math.round(cropWidth));
+                          setCropHeight(Math.round(cropHeight));
+                          setResizeWidth(Math.round(cropWidth));
+                          setResizeHeight(Math.round(cropHeight));
                         } catch (err) {
                           console.error('Crop failed', err);
                         }
@@ -1106,7 +1217,6 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({ initialTab = 'remo
                       setCropY(0);
                       setCropWidth(originalDimensions.width);
                       setCropHeight(originalDimensions.height);
-                      setBatchItems([]);
                     }}
                     isProcessing={currentItem?.status === 'processing'}
                   />
@@ -1120,17 +1230,31 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({ initialTab = 'remo
                     setFlipH={setFlipH}
                     flipV={flipV}
                     setFlipV={setFlipV}
-                    onDownload={async () => {
+                    onApply={async () => {
                       if (currentItem?.file) {
                         try {
-                          const blob = await rotateImage(currentItem.file, rotationDeg, flipH, flipV);
+                          let sourceBlob = currentItem.file;
+                          if (currentItem.transparentUrl && currentItem.transparentUrl !== currentItem.originalUrl) {
+                            const res = await fetch(currentItem.transparentUrl);
+                            sourceBlob = await res.blob();
+                          } else if (currentItem.processedUrl && currentItem.processedUrl !== currentItem.originalUrl) {
+                            const res = await fetch(currentItem.processedUrl);
+                            sourceBlob = await res.blob();
+                          }
+                          const blob = await rotateImage(sourceBlob, rotationDeg, flipH, flipV);
                           const url = URL.createObjectURL(blob);
-                          const a = document.createElement('a');
-                          a.href = url;
-                          let baseName = currentItem.name || `HelpMyIMG_${Date.now()}`;
-                          if (baseName.includes('.')) baseName = baseName.substring(0, baseName.lastIndexOf('.'));
-                          a.download = `${baseName}.png`;
-                          a.click();
+                          const newFile = new File([blob], currentItem.name, { type: blob.type || 'image/png' });
+                          setBatchItems(prev => prev.map(item => item.id === currentItem.id ? { 
+                            ...item, 
+                            file: newFile,
+                            originalUrl: url,
+                            transparentUrl: item.transparentUrl ? url : null,
+                            processedUrl: url, 
+                            status: 'done' 
+                          } : item));
+                          setRotationDeg(0);
+                          setFlipH(false);
+                          setFlipV(false);
                         } catch (err) {
                           console.error('Rotate failed', err);
                         }
@@ -1140,7 +1264,16 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({ initialTab = 'remo
                       setRotationDeg(0);
                       setFlipH(false);
                       setFlipV(false);
-                      setBatchItems([]);
+                      if (currentItem?.rotateBaseUrl) {
+                        setBatchItems(prev => prev.map(item => item.id === currentItem.id ? {
+                          ...item,
+                          file: item.rotateBaseFile || item.file,
+                          originalUrl: item.rotateBaseUrl || item.originalUrl,
+                          transparentUrl: item.transparentUrl ? (item.rotateBaseUrl || item.transparentUrl) : null,
+                          processedUrl: item.rotateBaseUrl || item.processedUrl,
+                          status: 'done'
+                        } : item));
+                      }
                     }}
                     isProcessing={currentItem?.status === 'processing'}
                   />
@@ -1151,7 +1284,7 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({ initialTab = 'remo
                     pickedColor={pickedColor}
                     colorHistory={colorHistory}
                     dominantColors={dominantColors}
-                    onReset={() => setBatchItems([])}
+                    onReset={() => {}}
                     isProcessing={false}
                   />
                 )}
@@ -1163,7 +1296,7 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({ initialTab = 'remo
                     setBoxes={setBlurBoxes}
                     blurIntensity={blurIntensity}
                     setBlurIntensity={setBlurIntensity}
-                    onDownload={async () => {
+                    onApply={async () => {
                       if (imageElement && currentItem?.file) {
                         try {
                           const canvas = document.createElement('canvas');
@@ -1182,14 +1315,20 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({ initialTab = 'remo
                              ctx.restore();
                           });
 
-                          const url = canvas.toDataURL(currentItem.file.type || 'image/jpeg', 0.95);
-                          const a = document.createElement('a');
-                          a.href = url;
-                          const ext = (currentItem.file.type || 'image/jpeg').split('/')[1];
-                          let baseName = currentItem.name || `HelpMyIMG_${Date.now()}`;
-                          if (baseName.includes('.')) baseName = baseName.substring(0, baseName.lastIndexOf('.'));
-                          a.download = `${baseName}.${ext}`;
-                          a.click();
+                          canvas.toBlob((blob) => {
+                            if (!blob) return;
+                            const url = URL.createObjectURL(blob);
+                            const newFile = new File([blob], currentItem.name, { type: blob.type || 'image/jpeg' });
+                            setBatchItems(prev => prev.map(item => item.id === currentItem.id ? { 
+                              ...item, 
+                              file: newFile,
+                              originalUrl: url,
+                              transparentUrl: item.transparentUrl ? url : null,
+                              processedUrl: url, 
+                              status: 'done' 
+                            } : item));
+                            setBlurBoxes([]);
+                          }, currentItem.file.type || 'image/jpeg', 0.95);
                         } catch (err) {
                           console.error('Blur failed', err);
                         }
@@ -1197,7 +1336,13 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({ initialTab = 'remo
                     }}
                     onReset={() => {
                       setBlurBoxes([]);
-                      setBatchItems([]);
+                      if (currentItem) {
+                        setBatchItems(prev => prev.map(item => item.id === currentItem.id ? {
+                          ...item,
+                          processedUrl: item.transparentUrl || item.originalUrl,
+                          status: 'done'
+                        } : item));
+                      }
                     }}
                     isProcessing={false}
                   />

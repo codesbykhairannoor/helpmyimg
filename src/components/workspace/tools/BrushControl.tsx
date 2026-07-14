@@ -92,7 +92,8 @@ export const BrushControl: React.FC<BrushControlProps> = ({
       {/* Tombol Reset Kuas */}
       <button
         onClick={onResetBrush}
-        className="w-full py-2.5 px-4 rounded-xl bg-dark-800 hover:bg-dark-700 border border-dark-500 text-slate-300 text-xs font-medium flex items-center justify-center gap-2 transition-colors"
+        disabled={isProcessing}
+        className="w-full py-2.5 px-4 rounded-xl bg-dark-800 hover:bg-dark-700 border border-dark-500 text-slate-300 text-xs font-medium flex items-center justify-center gap-2 transition-colors disabled:opacity-50"
       >
         <RotateCcw className="w-3.5 h-3.5" />
         <span>{t('brush.resetMask')}</span>
@@ -102,7 +103,8 @@ export const BrushControl: React.FC<BrushControlProps> = ({
       <div className="space-y-3 pt-2">
         <button
           onClick={onReset}
-          className="w-full flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-dark-800 hover:bg-dark-700 text-slate-300 font-medium text-sm transition-colors border border-dark-600"
+          disabled={isProcessing}
+          className="w-full flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-dark-800 hover:bg-dark-700 text-slate-300 font-medium text-sm transition-colors border border-dark-600 disabled:opacity-50"
         >
           <RefreshCw className="w-4 h-4" />
           <span>{t('editor.reset')}</span>

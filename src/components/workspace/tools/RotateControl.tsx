@@ -1,8 +1,7 @@
 // src/components/workspace/tools/RotateControl.tsx
 import React from 'react';
 import { useTranslation } from '../../../context/LanguageContext';
-import { RotateCw, RotateCcw, FlipHorizontal, FlipVertical, Download, RefreshCw } from 'lucide-react';
-import confetti from 'canvas-confetti';
+import { RotateCw, RotateCcw, FlipHorizontal, FlipVertical, RefreshCw } from 'lucide-react';
 
 interface RotateControlProps {
   rotation: number;
@@ -11,7 +10,7 @@ interface RotateControlProps {
   setFlipH: (f: boolean) => void;
   flipV: boolean;
   setFlipV: (f: boolean) => void;
-  onDownload: () => void;
+  onApply?: () => void;
   onReset: () => void;
   isProcessing: boolean;
 }
@@ -23,16 +22,10 @@ export const RotateControl: React.FC<RotateControlProps> = ({
   setFlipH,
   flipV,
   setFlipV,
-  onDownload,
   onReset,
   isProcessing,
 }) => {
   const { t } = useTranslation();
-
-  const handleDownload = () => {
-    confetti({ particleCount: 100, spread: 70, origin: { y: 0.7 } });
-    onDownload();
-  };
 
   return (
     <div className="space-y-6 overflow-y-visible">
@@ -136,15 +129,6 @@ export const RotateControl: React.FC<RotateControlProps> = ({
       </div>
 
       <div className="space-y-3 pt-2">
-        <button
-          onClick={handleDownload}
-          disabled={isProcessing}
-          className="w-full flex items-center justify-center gap-2.5 py-3.5 px-4 rounded-xl bg-gradient-to-r from-orange-400 to-amber-500 text-dark-900 font-extrabold shadow-lg transition-all duration-200 disabled:opacity-50 transform hover:-translate-y-0.5"
-        >
-          <Download className="w-5 h-5" />
-          <span>{isProcessing ? t('btn.processing') : t('btn.download')}</span>
-        </button>
-
         <button
           onClick={onReset}
           disabled={isProcessing}

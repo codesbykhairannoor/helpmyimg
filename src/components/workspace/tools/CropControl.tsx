@@ -1,8 +1,7 @@
 // src/components/workspace/tools/CropControl.tsx
 import React from 'react';
 import { useTranslation } from '../../../context/LanguageContext';
-import { Crop, Download, RefreshCw } from 'lucide-react';
-import confetti from 'canvas-confetti';
+import { Crop, RefreshCw } from 'lucide-react';
 
 interface CropControlProps {
   originalWidth: number;
@@ -15,7 +14,7 @@ interface CropControlProps {
   setCropWidth: (v: number) => void;
   cropHeight: number;
   setCropHeight: (v: number) => void;
-  onDownload: () => void;
+  onApply: () => void;
   onReset: () => void;
   isProcessing: boolean;
 }
@@ -31,16 +30,11 @@ export const CropControl: React.FC<CropControlProps> = ({
   setCropWidth,
   cropHeight,
   setCropHeight,
-  onDownload,
+  onApply,
   onReset,
   isProcessing,
 }) => {
   const { t } = useTranslation();
-
-  const handleDownload = () => {
-    confetti({ particleCount: 100, spread: 70, origin: { y: 0.7 } });
-    onDownload();
-  };
 
   // Presets
   const presets = [
@@ -135,12 +129,11 @@ export const CropControl: React.FC<CropControlProps> = ({
 
       <div className="space-y-3 pt-2">
         <button
-          onClick={handleDownload}
+          onClick={onApply}
           disabled={isProcessing || cropWidth <= 0 || cropHeight <= 0}
           className="w-full flex items-center justify-center gap-2.5 py-3.5 px-4 rounded-xl bg-gradient-to-r from-violet-400 to-neon-violet text-dark-900 font-extrabold shadow-glow-violet transition-all duration-200 disabled:opacity-50 transform hover:-translate-y-0.5"
         >
-          <Download className="w-5 h-5" />
-          <span>{isProcessing ? t('btn.processing') : t('btn.download')}</span>
+          <span>{isProcessing ? t('btn.processing') : t('work.action.apply', { defaultValue: 'Apply' })}</span>
         </button>
 
         <button

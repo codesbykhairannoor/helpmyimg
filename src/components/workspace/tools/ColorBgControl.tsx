@@ -87,7 +87,8 @@ export const ColorBgControl: React.FC<ColorBgControlProps> = ({
       <div className="space-y-3 pt-2">
         <button
           onClick={onReset}
-          className="w-full flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-dark-800 hover:bg-dark-700 text-slate-300 font-medium text-sm transition-colors border border-dark-600"
+          disabled={isProcessing}
+          className="w-full flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-dark-800 hover:bg-dark-700 text-slate-300 font-medium text-sm transition-colors border border-dark-600 disabled:opacity-50"
         >
           <RefreshCw className="w-4 h-4" />
           <span>{t('editor.reset')}</span>

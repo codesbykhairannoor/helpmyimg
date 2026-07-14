@@ -1,65 +1,58 @@
 // src/components/workspace/tools/ResizeControl.tsx
 import React from 'react';
 import { useTranslation } from '../../../context/LanguageContext';
-import { Download, RefreshCw, Link as LinkIcon, Unlink } from 'lucide-react';
-import confetti from 'canvas-confetti';
+import { RefreshCw, Link as LinkIcon, Unlink } from 'lucide-react';
 
 interface ResizeControlProps {
   originalWidth: number;
   originalHeight: number;
-  width: number;
-  setWidth: (w: number) => void;
-  height: number;
-  setHeight: (h: number) => void;
-  maintainAspectRatio: boolean;
-  setMaintainAspectRatio: (m: boolean) => void;
-  onDownload: () => void;
+  resizeWidth: number;
+  setResizeWidth: (w: number) => void;
+  resizeHeight: number;
+  setResizeHeight: (h: number) => void;
+  maintainRatio: boolean;
+  setMaintainRatio: (r: boolean) => void;
+  resizeMode: 'standard' | 'smart';
+  setResizeMode: (m: 'standard' | 'smart') => void;
+  onApply: () => void;
   onReset: () => void;
   isProcessing: boolean;
-  resizeMode: 'standard' | 'smart';
-  setResizeMode: (mode: 'standard' | 'smart') => void;
 }
 
 export const ResizeControl: React.FC<ResizeControlProps> = ({
   originalWidth,
   originalHeight,
-  width,
-  setWidth,
-  height,
-  setHeight,
-  maintainAspectRatio,
-  setMaintainAspectRatio,
-  onDownload,
-  onReset,
-  isProcessing,
+  resizeWidth,
+  setResizeWidth,
+  resizeHeight,
+  setResizeHeight,
+  maintainRatio,
+  setMaintainRatio,
   resizeMode,
   setResizeMode,
+  onApply,
+  onReset,
+  isProcessing,
 }) => {
   const { t } = useTranslation();
   const aspectRatio = originalWidth && originalHeight ? originalWidth / originalHeight : 1;
+  const [unit, setUnit] = React.useState('px');
 
   // Sync width/height based on aspect ratio when changed
   const handleWidthChange = (val: string) => {
     const w = parseInt(val, 10) || 0;
-    setWidth(w);
-    if (maintainAspectRatio && w > 0) {
-      setHeight(Math.round(w / aspectRatio));
+    setResizeWidth(w);
+    if (maintainRatio && w > 0) {
+      setResizeHeight(Math.round(w / aspectRatio));
     }
   };
 
   const handleHeightChange = (val: string) => {
     const h = parseInt(val, 10) || 0;
-    setHeight(h);
-    if (maintainAspectRatio && h > 0) {
-      setWidth(Math.round(h * aspectRatio));
+    setResizeHeight(h);
+    if (maintainRatio && h > 0) {
+      setResizeWidth(Math.round(h * aspectRatio));
     }
-  };
-
-  const [unit, setUnit] = React.useState('px');
-
-  const handleDownload = () => {
-    confetti({ particleCount: 100, spread: 70, origin: { y: 0.7 } });
-    onDownload();
   };
 
   return (
@@ -84,16 +77,16 @@ export const ResizeControl: React.FC<ResizeControlProps> = ({
         <div className="space-y-4 animate-in fade-in zoom-in duration-200">
             {/* Quick Presets */}
             <div className="flex flex-wrap gap-2 mb-2">
-              <button onClick={() => { setWidth(1080); setHeight(1080); setMaintainAspectRatio(false); }} className="px-2.5 py-1 rounded-lg bg-dark-800 border border-dark-600 hover:border-neon-green text-xs font-semibold text-slate-300 transition-colors">
+              <button onClick={() => { setResizeWidth(1080); setResizeHeight(1080); setMaintainRatio(false); }} className="px-2.5 py-1 rounded-lg bg-dark-800 border border-dark-600 hover:border-neon-green text-xs font-semibold text-slate-300 transition-colors">
                 1:1
               </button>
-              <button onClick={() => { setWidth(1920); setHeight(1080); setMaintainAspectRatio(false); }} className="px-2.5 py-1 rounded-lg bg-dark-800 border border-dark-600 hover:border-neon-green text-xs font-semibold text-slate-300 transition-colors">
+              <button onClick={() => { setResizeWidth(1920); setResizeHeight(1080); setMaintainRatio(false); }} className="px-2.5 py-1 rounded-lg bg-dark-800 border border-dark-600 hover:border-neon-green text-xs font-semibold text-slate-300 transition-colors">
                 16:9
               </button>
-              <button onClick={() => { setWidth(1440); setHeight(1080); setMaintainAspectRatio(false); }} className="px-2.5 py-1 rounded-lg bg-dark-800 border border-dark-600 hover:border-neon-green text-xs font-semibold text-slate-300 transition-colors">
+              <button onClick={() => { setResizeWidth(1440); setResizeHeight(1080); setMaintainRatio(false); }} className="px-2.5 py-1 rounded-lg bg-dark-800 border border-dark-600 hover:border-neon-green text-xs font-semibold text-slate-300 transition-colors">
                 4:3
               </button>
-              <button onClick={() => { setWidth(1080); setHeight(1920); setMaintainAspectRatio(false); }} className="px-2.5 py-1 rounded-lg bg-dark-800 border border-dark-600 hover:border-neon-green text-xs font-semibold text-slate-300 transition-colors">
+              <button onClick={() => { setResizeWidth(1080); setResizeHeight(1920); setMaintainRatio(false); }} className="px-2.5 py-1 rounded-lg bg-dark-800 border border-dark-600 hover:border-neon-green text-xs font-semibold text-slate-300 transition-colors">
                 9:16
               </button>
             </div>
@@ -117,7 +110,7 @@ export const ResizeControl: React.FC<ResizeControlProps> = ({
                 </div>
                 <input
                   type="number"
-                  value={width || ''}
+                  value={resizeWidth || ''}
                   onChange={(e) => handleWidthChange(e.target.value)}
                   className="w-full bg-dark-800 border border-dark-600 rounded-lg px-3 py-2 text-white outline-none focus:border-neon-green"
                   placeholder={originalWidth.toString()}
@@ -125,13 +118,13 @@ export const ResizeControl: React.FC<ResizeControlProps> = ({
               </div>
               
               <button
-                onClick={() => setMaintainAspectRatio(!maintainAspectRatio)}
+                onClick={() => setMaintainRatio(!maintainRatio)}
                 className={`p-2 rounded-lg mt-5 transition-colors ${
-                  maintainAspectRatio ? 'bg-neon-green/20 text-neon-green' : 'bg-dark-700 text-slate-400'
+                  maintainRatio ? 'bg-neon-green/20 text-neon-green' : 'bg-dark-700 text-slate-400'
                 }`}
-                title={maintainAspectRatio ? t('resize.lock') : t('resize.unlock')}
+                title={maintainRatio ? t('resize.lock') : t('resize.unlock')}
               >
-                {maintainAspectRatio ? <LinkIcon className="w-4 h-4" /> : <Unlink className="w-4 h-4" />}
+                {maintainRatio ? <LinkIcon className="w-4 h-4" /> : <Unlink className="w-4 h-4" />}
               </button>
 
               <div className="flex-1 space-y-1">
@@ -142,7 +135,7 @@ export const ResizeControl: React.FC<ResizeControlProps> = ({
                 </div>
                 <input
                   type="number"
-                  value={height || ''}
+                  value={resizeHeight || ''}
                   onChange={(e) => handleHeightChange(e.target.value)}
                   className="w-full bg-dark-800 border border-dark-600 rounded-lg px-3 py-2 text-white outline-none focus:border-neon-green"
                   placeholder={originalHeight.toString()}
@@ -154,12 +147,11 @@ export const ResizeControl: React.FC<ResizeControlProps> = ({
 
       <div className="space-y-3 pt-2">
         <button
-          onClick={handleDownload}
-          disabled={isProcessing || width <= 0 || height <= 0}
+          onClick={onApply}
+          disabled={isProcessing || resizeWidth <= 0 || resizeHeight <= 0}
           className="w-full flex items-center justify-center gap-2.5 py-3.5 px-4 rounded-xl bg-gradient-to-r from-emerald-400 to-emerald-500 text-white font-extrabold shadow-lg transition-all duration-200 disabled:opacity-50 transform hover:-translate-y-0.5"
         >
-          <Download className="w-5 h-5" />
-          <span>{isProcessing ? t('btn.processing') : t('btn.download')}</span>
+          <span>{isProcessing ? t('btn.processing') : t('work.action.apply', { defaultValue: 'Apply' })}</span>
         </button>
 
         <button

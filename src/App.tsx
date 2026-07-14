@@ -74,7 +74,7 @@ function App() {
                     <Route path="/:lang/:tool/:keywordSlug" element={<ToolLandingPage />} />
 
                     {/* Fallback untuk SEO */}
-                    <Route path="*" element={<Navigate to="/id/remove-background" replace />} />
+                    <Route path="*" element={<Navigate to="/id" replace />} />
                   </Routes>
                 </div>
               </main>
