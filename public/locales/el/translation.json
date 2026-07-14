@@ -27,14 +27,14 @@
   "dropzone.btn": "⚡ Επιλογή Φωτογραφιών",
   "dropzone.privacy": "🔒 100% Ιδιωτικό: Η επεξεργασία γίνεται τοπικά στον browser σας",
   "editor.settings": "⚙️ Ρυθμίσεις",
-  "editor.download": "⬇️ Λήψη HD (Δωρεάν)",
+  "editor.download": "Λήψη HD (Δωρεάν)",
   "editor.downloadBatch": "📦 Λήψη Όλων (ZIP)",
-  "editor.reset": "🔄 Ανέβασμα Άλλων",
+  "editor.reset": "Ανέβασμα Άλλων",
   "work.badge.remove": "Αφαίρεση φόντου",
   "work.badge.blur": "Θάμπωμα φόντου",
   "work.badge.color": "Χρώμα διαβατηρίου",
   "work.badge.brush": "Μαγικό πινέλο",
-  "work.action.cut": "▶️ Αφαιρέστε το φόντο τώρα",
+  "work.action.cut": "Αφαιρέστε το φόντο τώρα",
   "color.off.red": "Τυπικό κόκκινο",
   "color.off.white": "Τυπικό λευκό",
   "color.off.black": "Standard Μαύρο",
@@ -1083,5 +1083,6 @@
   "nav.searchLang": "🔍 Search locale (e.g., Korea, ES, RU)...",
   "nav.noLang": "No locale found",
   "landing.default.title.home": "Every AI tool you need to edit images in bulk",
-  "landing.default.desc.home": "Your local AI photo editor is here and forever free! 100% private, runs directly in your browser."
+  "landing.default.desc.home": "Your local AI photo editor is here and forever free! 100% private, runs directly in your browser.",
+  "work.startAi": "Αφαίρεση Φόντου Τώρα"
 }

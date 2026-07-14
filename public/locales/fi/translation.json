@@ -27,14 +27,14 @@
   "dropzone.btn": "⚡ Valitse Kuvat Nyt",
   "dropzone.privacy": "🔒 100% Yksityinen: AI-käsittely suoritetaan paikallisesti selaimessa",
   "editor.settings": "⚙️ Työkalun Asetukset",
-  "editor.download": "⬇️ Lataa HD (Ilmainen)",
+  "editor.download": "Lataa HD (Ilmainen)",
   "editor.downloadBatch": "📦 Lataa Kaikki (ZIP)",
-  "editor.reset": "🔄 Lataa Uusia Kuvia",
+  "editor.reset": "Lataa Uusia Kuvia",
   "work.badge.remove": "Poista tausta",
   "work.badge.blur": "Sumea tausta",
   "work.badge.color": "Passin väri",
   "work.badge.brush": "Maaginen sivellin",
-  "work.action.cut": "▶️ Poista tausta nyt",
+  "work.action.cut": "Poista tausta nyt",
   "color.off.red": "Normaali punainen",
   "color.off.blue": "Standard sininen",
   "color.off.white": "Vakio valkoinen",
@@ -1083,5 +1083,6 @@
   "nav.searchLang": "🔍 Search locale (e.g., Korea, ES, RU)...",
   "nav.noLang": "No locale found",
   "landing.default.title.home": "Every AI tool you need to edit images in bulk",
-  "landing.default.desc.home": "Your local AI photo editor is here and forever free! 100% private, runs directly in your browser."
+  "landing.default.desc.home": "Your local AI photo editor is here and forever free! 100% private, runs directly in your browser.",
+  "work.startAi": "Poista Tausta Nyt"
 }

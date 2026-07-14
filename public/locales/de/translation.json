@@ -27,14 +27,14 @@
   "dropzone.btn": "⚡ Jetzt Fotos auswählen",
   "dropzone.privacy": "🔒 100% Privat: KI-Verarbeitung läuft lokal im Browser",
   "editor.settings": "⚙️ Werkzeugeinstellungen",
-  "editor.download": "⬇️ HD-Bild herunterladen (Kostenlos)",
+  "editor.download": "HD-Bild herunterladen (Kostenlos)",
   "editor.downloadBatch": "📦 Alle herunterladen (ZIP)",
-  "editor.reset": "🔄 Neue Fotos hochladen",
+  "editor.reset": "Neue Fotos hochladen",
   "work.badge.remove": "Hintergrund entfernen",
   "work.badge.blur": "Hintergrund verwischen",
   "work.badge.color": "Passfarbe",
   "work.badge.brush": "Zauberpinsel",
-  "work.action.cut": "▶️ Hintergrund jetzt entfernen",
+  "work.action.cut": "Hintergrund jetzt entfernen",
   "color.off.red": "Standardrot",
   "color.off.blue": "Standardblau",
   "color.off.white": "Standardweiß",
@@ -1083,5 +1083,6 @@
   "nav.searchLang": "🔍 Sprache suchen (z.B. Korea, ES, RU)...",
   "nav.noLang": "Keine Sprache gefunden",
   "landing.default.title.home": "Alle KI-Tools für die Massen-Bildbearbeitung",
-  "landing.default.desc.home": "Ihr lokaler KI-Fotoeditor ist für immer kostenlos! 100% privat, läuft direkt in Ihrem Browser."
+  "landing.default.desc.home": "Ihr lokaler KI-Fotoeditor ist für immer kostenlos! 100% privat, läuft direkt in Ihrem Browser.",
+  "work.startAi": "Hintergrund Jetzt Entfernen"
 }

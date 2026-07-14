@@ -27,14 +27,14 @@
   "dropzone.btn": "⚡ Vybrat Fotky",
   "dropzone.privacy": "🔒 100% Soukromé: AI zpracování probíhá lokálně v prohlížeči",
   "editor.settings": "⚙️ Nastavení Nástroje",
-  "editor.download": "⬇️ Stáhnout HD (Zdarma)",
+  "editor.download": "Stáhnout HD (Zdarma)",
   "editor.downloadBatch": "📦 Stáhnout Vše (ZIP)",
-  "editor.reset": "🔄 Nahrát Jiné Fotky",
+  "editor.reset": "Nahrát Jiné Fotky",
   "work.badge.remove": "Odebrat pozadí",
   "work.badge.blur": "Rozostření pozadí",
   "work.badge.color": "Barva pasu",
   "work.badge.brush": "Kouzelný štětec",
-  "work.action.cut": "▶️ Odstraňte pozadí hned teď",
+  "work.action.cut": "Odstraňte pozadí hned teď",
   "color.off.red": "Standardní červená",
   "color.off.blue": "Standardní modrá",
   "color.off.white": "Standardní bílá",
@@ -1083,5 +1083,6 @@
   "nav.searchLang": "🔍 Search locale (e.g., Korea, ES, RU)...",
   "nav.noLang": "No locale found",
   "landing.default.title.home": "Every AI tool you need to edit images in bulk",
-  "landing.default.desc.home": "Your local AI photo editor is here and forever free! 100% private, runs directly in your browser."
+  "landing.default.desc.home": "Your local AI photo editor is here and forever free! 100% private, runs directly in your browser.",
+  "work.startAi": "Odstranit Pozadí Nyní"
 }

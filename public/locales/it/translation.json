@@ -27,14 +27,14 @@
   "dropzone.btn": "⚡ Seleziona Foto",
   "dropzone.privacy": "🔒 100% Privato: L\\'elaborazione IA viene eseguita localmente nel browser",
   "editor.settings": "⚙️ Impostazioni Strumento",
-  "editor.download": "⬇️ Scarica HD (Gratis)",
+  "editor.download": "Scarica HD (Gratis)",
   "editor.downloadBatch": "📦 Scarica Tutto (Lotto ZIP)",
-  "editor.reset": "🔄 Carica Altre Foto",
+  "editor.reset": "Carica Altre Foto",
   "work.badge.remove": "Rimuovi sfondo",
   "work.badge.blur": "Sfocatura dello sfondo",
   "work.badge.color": "Colore passaporto",
   "work.badge.brush": "Pennello magico",
-  "work.action.cut": "▶️ Rimuovi lo sfondo adesso",
+  "work.action.cut": "Rimuovi lo sfondo adesso",
   "color.off.red": "Rosso standard",
   "color.off.blue": "Blu standard",
   "color.off.white": "Bianco standard",
@@ -1083,5 +1083,6 @@
   "nav.searchLang": "🔍 Cerca lingua (es. Corea, ES, RU)...",
   "nav.noLang": "Nessuna lingua trovata",
   "landing.default.title.home": "Tutti gli strumenti IA per modificare immagini in blocco",
-  "landing.default.desc.home": "Il tuo editor di foto IA locale è gratis per sempre! 100% privato, funziona direttamente nel tuo browser."
+  "landing.default.desc.home": "Il tuo editor di foto IA locale è gratis per sempre! 100% privato, funziona direttamente nel tuo browser.",
+  "work.startAi": "Rimuovi Sfondo Ora"
 }

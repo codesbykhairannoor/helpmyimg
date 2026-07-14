@@ -1,5 +1,5 @@
 // src/components/workspace/tools/ResizeControl.tsx
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { useTranslation } from '../../../context/LanguageContext';
 import { RefreshCw, Link as LinkIcon, Unlink } from 'lucide-react';
 
@@ -41,6 +41,21 @@ export const ResizeControl: React.FC<ResizeControlProps> = ({
   const { t } = useTranslation();
   const aspectRatio = originalWidth && originalHeight ? originalWidth / originalHeight : 1;
   const [unit, setUnit] = React.useState('px');
+
+  // Auto-apply (auto save) when dimensions or mode change after debounce
+  const isFirstRender = useRef(true);
+  useEffect(() => {
+    if (isFirstRender.current) {
+      isFirstRender.current = false;
+      return;
+    }
+    const timer = setTimeout(() => {
+      if (resizeWidth > 0 && resizeHeight > 0 && !isProcessing && (resizeWidth !== originalWidth || resizeHeight !== originalHeight)) {
+        onApply();
+      }
+    }, 500);
+    return () => clearTimeout(timer);
+  }, [resizeWidth, resizeHeight, resizeMode]);
 
   // Sync width/height based on aspect ratio when changed
   const handleWidthChange = (val: string) => {
@@ -151,29 +166,21 @@ export const ResizeControl: React.FC<ResizeControlProps> = ({
 
       <div className="space-y-3 pt-2">
         <button
-          onClick={onApply}
-          disabled={isProcessing || resizeWidth <= 0 || resizeHeight <= 0}
-          className="w-full flex items-center justify-center gap-2.5 py-3.5 px-4 rounded-xl bg-gradient-to-r from-emerald-400 to-emerald-500 text-white font-extrabold shadow-lg transition-all duration-200 disabled:opacity-50 transform hover:-translate-y-0.5"
-        >
-          <span>{isProcessing ? t('btn.processing') : t('work.action.apply', { defaultValue: 'Apply' })}</span>
-        </button>
-
-        <button
           onClick={onReset}
           disabled={isProcessing}
-          className="w-full flex items-center justify-center gap-2 py-3 px-4 rounded-xl border border-dark-600 bg-dark-800 text-slate-300 font-semibold hover:bg-dark-700 hover:text-white transition-colors disabled:opacity-50"
+          className="w-full flex items-center justify-center gap-2 py-3 px-4 rounded-xl border border-dark-600 bg-dark-800 text-slate-300 font-semibold hover:bg-dark-700 hover:text-white transition-colors disabled:opacity-50 text-sm"
         >
-          <RefreshCw className="w-4 h-4 text-emerald-400" />
-          <span>{t('btn.reset', { defaultValue: 'Atur Ulang' })}</span>
+          <RefreshCw className="w-4 h-4 text-emerald-400 shrink-0" />
+          <span>{t('btn.reset', { defaultValue: 'Atur Ulang / Kembalikan' })}</span>
         </button>
 
         {batchCount === 1 && (
           <button
             onClick={onUploadOther || onReset}
             disabled={isProcessing}
-            className="w-full flex items-center justify-center gap-2 py-3 px-4 rounded-xl border border-dark-600 bg-dark-800 text-slate-300 font-semibold hover:bg-dark-700 hover:text-white transition-colors disabled:opacity-50"
+            className="w-full flex items-center justify-center gap-2 py-3 px-4 rounded-xl border border-dark-600 bg-dark-800 text-slate-300 font-semibold hover:bg-dark-700 hover:text-white transition-colors disabled:opacity-50 text-sm"
           >
-            <RefreshCw className="w-4 h-4 text-neon-cyan" />
+            <RefreshCw className="w-4 h-4 text-neon-cyan shrink-0" />
             <span>{t('editor.reset')}</span>
           </button>
         )}

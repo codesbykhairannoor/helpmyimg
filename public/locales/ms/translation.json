@@ -26,14 +26,14 @@
   "dropzone.btn": "⚡ Pilih Gambar Sekarang",
   "dropzone.privacy": "🔒 100% Privasi: Pemprosesan AI dijalankan secara lokal dalam pelayar anda",
   "editor.settings": "⚙️ Tetapan Alatan",
-  "editor.download": "⬇️ Muat Turun HD (Percuma)",
+  "editor.download": "Muat Turun HD (Percuma)",
   "editor.downloadBatch": "📦 Muat Turun Semua (ZIP)",
-  "editor.reset": "🔄 Muat Naik Gambar Lain",
+  "editor.reset": "Muat Naik Gambar Lain",
   "work.badge.remove": "Alih Keluar Latar Belakang",
   "work.badge.blur": "Latar Belakang Kabur",
   "work.badge.color": "Warna Pasport",
   "work.badge.brush": "Berus Ajaib",
-  "work.action.cut": "▶️ Alih Keluar Latar Belakang Sekarang",
+  "work.action.cut": "Alih Keluar Latar Belakang Sekarang",
   "color.off.red": "Merah Standard",
   "color.off.blue": "Biru Standard",
   "color.off.white": "Putih Standard",
@@ -1083,5 +1083,6 @@
   "nav.searchLang": "🔍 Cari bahasa (cth., Korea, ES, RU)...",
   "nav.noLang": "Bahasa tidak dijumpai",
   "landing.default.title.home": "Semua alat AI yang anda perlukan untuk mengedit gambar secara pukal",
-  "landing.default.desc.home": "Penyunting foto AI tempatan anda percuma selamanya! 100% peribadi, berjalan terus di dalam pelayar anda."
+  "landing.default.desc.home": "Penyunting foto AI tempatan anda percuma selamanya! 100% peribadi, berjalan terus di dalam pelayar anda.",
+  "work.startAi": "Buang Latar Belakang Sekarang"
 }

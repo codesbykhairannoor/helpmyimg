@@ -27,9 +27,9 @@
   "dropzone.btn": "⚡ Chọn Ảnh Ngay",
   "dropzone.privacy": "🔒 100% Bảo Mật: Xử lý AI chạy cục bộ trong trình duyệt của bạn",
   "editor.settings": "⚙️ Cài Đặt Công Cụ",
-  "editor.download": "⬇️ Tải Ảnh HD (Miễn phí)",
+  "editor.download": "Tải Ảnh HD (Miễn phí)",
   "editor.downloadBatch": "📦 Tải Tất Cả (Tệp ZIP)",
-  "editor.reset": "🔄 Tải Ảnh Khác Lên",
+  "editor.reset": "Tải Ảnh Khác Lên",
   "work.badge.remove": "Xóa nền",
   "work.badge.blur": "Nền mờ",
   "work.badge.color": "Màu hộ chiếu",
@@ -1083,5 +1083,6 @@
   "nav.searchLang": "🔍 Tìm kiếm ngôn ngữ (ví dụ: Hàn Quốc, ES, RU)...",
   "nav.noLang": "Không tìm thấy ngôn ngữ",
   "landing.default.title.home": "Tất cả công cụ AI cần thiết để chỉnh sửa ảnh hàng loạt",
-  "landing.default.desc.home": "Trình chỉnh sửa ảnh AI cục bộ của bạn hoàn toàn miễn phí mãi mãi! 100% riêng tư, chạy trực tiếp trong trình duyệt."
+  "landing.default.desc.home": "Trình chỉnh sửa ảnh AI cục bộ của bạn hoàn toàn miễn phí mãi mãi! 100% riêng tư, chạy trực tiếp trong trình duyệt.",
+  "work.startAi": "Xóa Nền Ngay"
 }

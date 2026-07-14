@@ -27,14 +27,14 @@
   "dropzone.btn": "⚡ 立即选择照片",
   "dropzone.privacy": "🔒 100% 隐私安全：AI 模型在您的浏览器本地极速处理",
   "editor.settings": "⚙️ 编辑器设置",
-  "editor.download": "⬇️ 下载高清大图（免费）",
+  "editor.download": "下载高清大图（免费）",
   "editor.downloadBatch": "📦 一键打包下载 (ZIP)",
-  "editor.reset": "🔄 重新上传照片",
+  "editor.reset": "重新上传照片",
   "work.badge.remove": "删除背景",
   "work.badge.blur": "模糊背景",
   "work.badge.color": "护照颜色",
   "work.badge.brush": "魔术刷",
-  "work.action.cut": "▶️ 立即删除背景",
+  "work.action.cut": "立即删除背景",
   "color.off.red": "标准红",
   "color.off.blue": "标准蓝",
   "color.off.white": "标准白",
@@ -1083,5 +1083,6 @@
   "nav.searchLang": "🔍 搜索语言 (例如: 韩国, ES, RU)...",
   "nav.noLang": "未找到语言",
   "landing.default.title.home": "批量处理所需的所有 AI 图像工具",
-  "landing.default.desc.home": "您的本地 AI 照片编辑器永久免费！100% 隐私安全，直接在浏览器中运行。"
+  "landing.default.desc.home": "您的本地 AI 照片编辑器永久免费！100% 隐私安全，直接在浏览器中运行。",
+  "work.startAi": "立即去除背景"
 }

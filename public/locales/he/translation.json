@@ -26,14 +26,14 @@
   "dropzone.btn": "⚡ בחר תמונות עכשיו",
   "dropzone.privacy": "🔒 100% פרטי: עיבוד ה-AI מתבצע באופן מקומי בדפדפן שלך",
   "editor.settings": "⚙️ הגדרות כלי",
-  "editor.download": "⬇️ הורדת תמונת HD (חינם)",
+  "editor.download": "הורדת תמונת HD (חינם)",
   "editor.downloadBatch": "📦 הורד הכל (קובץ ZIP)",
-  "editor.reset": "🔄 העלה תמונות אחרות",
+  "editor.reset": "העלה תמונות אחרות",
   "work.badge.remove": "הסר רקע",
   "work.badge.blur": "טשטוש רקע",
   "work.badge.color": "צבע דרכון",
   "work.badge.brush": "מברשת קסם",
-  "work.action.cut": "▶️ הסר רקע עכשיו",
+  "work.action.cut": "הסר רקע עכשיו",
   "color.off.red": "אדום סטנדרטי",
   "color.off.blue": "כחול סטנדרטי",
   "color.off.white": "לבן סטנדרטי",
@@ -1083,5 +1083,6 @@
   "nav.searchLang": "🔍 Search locale (e.g., Korea, ES, RU)...",
   "nav.noLang": "No locale found",
   "landing.default.title.home": "Every AI tool you need to edit images in bulk",
-  "landing.default.desc.home": "Your local AI photo editor is here and forever free! 100% private, runs directly in your browser."
+  "landing.default.desc.home": "Your local AI photo editor is here and forever free! 100% private, runs directly in your browser.",
+  "work.startAi": "הסר רקע עכשיו"
 }

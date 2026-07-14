@@ -26,14 +26,14 @@
   "dropzone.btn": "⚡ เลือกรุปภาพตอนนี้",
   "dropzone.privacy": "🔒 ปลอดภัย 100%: ประมวลผล AI ในเบราว์เซอร์ของคุณเท่านั้น",
   "editor.settings": "⚙️ ตั้งค่าเครื่องมือ",
-  "editor.download": "⬇️ ดาวน์โหลด HD (ฟรี)",
+  "editor.download": "ดาวน์โหลด HD (ฟรี)",
   "editor.downloadBatch": "📦 ดาวน์โหลดทั้งหมด (ZIP)",
-  "editor.reset": "🔄 อัปโหลดรูปภาพใหม่",
+  "editor.reset": "อัปโหลดรูปภาพใหม่",
   "work.badge.remove": "ลบพื้นหลัง",
   "work.badge.blur": "พื้นหลังเบลอ",
   "work.badge.color": "สีหนังสือเดินทาง",
   "work.badge.brush": "แปรงเมจิก",
-  "work.action.cut": "▶️ ลบพื้นหลังทันที",
+  "work.action.cut": "ลบพื้นหลังทันที",
   "color.off.red": "มาตรฐานสีแดง",
   "color.off.blue": "มาตรฐานสีฟ้า",
   "color.off.white": "สีขาวมาตรฐาน",
@@ -1083,5 +1083,6 @@
   "nav.searchLang": "🔍 ค้นหาภาษา (เช่น เกาหลี, ES, RU)...",
   "nav.noLang": "ไม่พบภาษา",
   "landing.default.title.home": "เครื่องมือ AI ทั้งหมดที่คุณต้องการสำหรับการแก้ไขรูปภาพเป็นชุด",
-  "landing.default.desc.home": "โปรแกรมแก้ไขรูปภาพ AI ในเครื่องของคุณใช้ฟรีตลอดไป! เป็นส่วนตัว 100% ทำงานโดยตรงบนเบราว์เซอร์ของคุณ"
+  "landing.default.desc.home": "โปรแกรมแก้ไขรูปภาพ AI ในเครื่องของคุณใช้ฟรีตลอดไป! เป็นส่วนตัว 100% ทำงานโดยตรงบนเบราว์เซอร์ของคุณ",
+  "work.startAi": "ลบพื้นหลังทันที"
 }

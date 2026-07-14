@@ -26,14 +26,14 @@
   "dropzone.btn": "⚡ Velg Bilder Nå",
   "dropzone.privacy": "🔒 100% Privat: AI-behandling kjøres lokalt i nettleseren din",
   "editor.settings": "⚙️ Verktøyinnstillinger",
-  "editor.download": "⬇️ Last ned HD (Gratis)",
+  "editor.download": "Last ned HD (Gratis)",
   "editor.downloadBatch": "📦 Last ned Alle (ZIP)",
-  "editor.reset": "🔄 Last opp Nye Bilder",
+  "editor.reset": "Last opp Nye Bilder",
   "work.badge.remove": "Fjern bakgrunn",
   "work.badge.blur": "Uskarp bakgrunn",
   "work.badge.color": "Passfarge",
   "work.badge.brush": "Magisk børste",
-  "work.action.cut": "▶️ Fjern bakgrunn nå",
+  "work.action.cut": "Fjern bakgrunn nå",
   "color.off.red": "Standard rød",
   "color.off.blue": "Standard blå",
   "color.off.white": "Standard hvit",
@@ -1083,5 +1083,6 @@
   "nav.searchLang": "🔍 Search locale (e.g., Korea, ES, RU)...",
   "nav.noLang": "No locale found",
   "landing.default.title.home": "Every AI tool you need to edit images in bulk",
-  "landing.default.desc.home": "Your local AI photo editor is here and forever free! 100% private, runs directly in your browser."
+  "landing.default.desc.home": "Your local AI photo editor is here and forever free! 100% private, runs directly in your browser.",
+  "work.startAi": "Fjern Bakgrunn Nå"
 }

@@ -430,12 +430,8 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({ initialTab = 'remo
   useEffect(() => {
     if (previousImageType.current !== imageType) {
       previousImageType.current = imageType;
-      const currentItem = batchItems[selectedIndex];
-      if (currentItem && currentItem.status === 'done') {
-        processSingleItem(currentItem);
-      }
     }
-  }, [imageType, selectedIndex, batchItems]);
+  }, [imageType]);
 
   const debounceTimerRef = useRef<NodeJS.Timeout | null>(null);
   const effectSequenceRef = useRef(0);
@@ -1443,7 +1439,7 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({ initialTab = 'remo
               {batchItems.length > 0 && activeTab !== 'picker' && (
                 <div className="mt-6 pt-6 border-t border-dark-600/60 shrink-0 flex flex-col gap-4">
                   <div className="flex items-center justify-between">
-                    <div className="text-[10px] font-bold text-slate-500 uppercase tracking-wider">{t('editor.download', { defaultValue: 'Export & Download' })}</div>
+                    <div className="text-[10px] font-bold text-slate-500 uppercase tracking-wider">{t('work.exportSettingsTitle', { defaultValue: 'Export & Download Options' })}</div>
                     <button 
                       onClick={() => setShowExportOptions(!showExportOptions)}
                       className="text-xs flex items-center gap-1 text-neon-cyan hover:text-neon-cyan/80 font-medium transition-colors"

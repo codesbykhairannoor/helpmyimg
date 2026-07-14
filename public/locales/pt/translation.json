@@ -27,14 +27,14 @@
   "dropzone.btn": "⚡ Selecionar Fotos Agora",
   "dropzone.privacy": "🔒 100% Privado: O processamento IA roda localmente no seu navegador",
   "editor.settings": "⚙️ Configurações da Ferramenta",
-  "editor.download": "⬇️ Baixar Imagem HD (Grátis)",
+  "editor.download": "Baixar Imagem HD (Grátis)",
   "editor.downloadBatch": "📦 Baixar Tudo (Lote ZIP)",
-  "editor.reset": "🔄 Enviar Outras Fotos",
+  "editor.reset": "Enviar Outras Fotos",
   "work.badge.remove": "Remover fundo",
   "work.badge.blur": "Desfocar fundo",
   "work.badge.color": "Cor do passaporte",
   "work.badge.brush": "Pincel Mágico",
-  "work.action.cut": "▶️ Remova o fundo agora",
+  "work.action.cut": "Remova o fundo agora",
   "color.off.red": "Vermelho padrão",
   "color.off.blue": "Azul padrão",
   "color.off.white": "Branco Padrão",
@@ -1083,5 +1083,6 @@
   "nav.searchLang": "🔍 Buscar idioma (ex., Coreia, ES, RU)...",
   "nav.noLang": "Nenhum idioma encontrado",
   "landing.default.title.home": "Todas as ferramentas de IA para editar imagens em massa",
-  "landing.default.desc.home": "Seu editor de fotos IA local é gratuito para sempre! 100% privado, roda diretamente no seu navegador."
+  "landing.default.desc.home": "Seu editor de fotos IA local é gratuito para sempre! 100% privado, roda diretamente no seu navegador.",
+  "work.startAi": "Remover Fundo Agora"
 }

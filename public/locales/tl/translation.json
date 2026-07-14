@@ -25,13 +25,13 @@
   "dropzone.btn": "⚡ Pumili ng Larawan",
   "dropzone.privacy": "🔒 100% Pribado: Ang pagproseso ng AI ay sa browser mo lamang",
   "editor.settings": "⚙️ Mga Setting",
-  "editor.download": "⬇️ I-download ang HD (Libre)",
+  "editor.download": "I-download ang HD (Libre)",
   "editor.downloadBatch": "📦 I-download Lahat (ZIP)",
-  "editor.reset": "🔄 Mag-upload ng Iba",
+  "editor.reset": "Mag-upload ng Iba",
   "work.badge.remove": "Alisin ang Background",
   "work.badge.blur": "I-blur ang Background",
   "work.badge.color": "Kulay ng Pasaporte",
-  "work.action.cut": "▶️ Alisin ang Background Ngayon",
+  "work.action.cut": "Alisin ang Background Ngayon",
   "color.off.red": "Karaniwang Pula",
   "color.off.blue": "Karaniwang Asul",
   "color.off.white": "Karaniwang Puti",
@@ -1083,5 +1083,6 @@
   "nav.searchLang": "🔍 Maghanap ng wika (hal., Korea, ES, RU)...",
   "nav.noLang": "Walang nahanap na wika",
   "landing.default.title.home": "Lahat ng AI tool para sa maramihang pag-edit ng larawan",
-  "landing.default.desc.home": "Ang iyong lokal na AI photo editor ay libre magpakailanman! 100% pribado, gumagana nang direkta sa iyong browser."
+  "landing.default.desc.home": "Ang iyong lokal na AI photo editor ay libre magpakailanman! 100% pribado, gumagana nang direkta sa iyong browser.",
+  "work.startAi": "Alisin ang Background Ngayon"
 }

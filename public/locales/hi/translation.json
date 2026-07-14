@@ -27,14 +27,14 @@
   "dropzone.btn": "⚡ अभी तस्वीरें चुनें",
   "dropzone.privacy": "🔒 100% निजी: AI प्रसंस्करण आपके ब्राउज़र में स्थानीय रूप से चलता है",
   "editor.settings": "⚙️ टूल सेटिंग्स",
-  "editor.download": "⬇️ HD इमेज डाउनलोड करें (मुफ़्त)",
+  "editor.download": "HD इमेज डाउनलोड करें (मुफ़्त)",
   "editor.downloadBatch": "📦 सभी डाउनलोड करें (ZIP)",
-  "editor.reset": "🔄 नई तस्वीरें अपलोड करें",
+  "editor.reset": "नई तस्वीरें अपलोड करें",
   "work.badge.remove": "पृष्ठभूमि हटाएँ",
   "work.badge.blur": "धुंधला पृष्ठभूमि",
   "work.badge.color": "पासपोर्ट का रंग",
   "work.badge.brush": "जादुई ब्रश",
-  "work.action.cut": "▶️ अभी बैकग्राउंड हटाएं",
+  "work.action.cut": "अभी बैकग्राउंड हटाएं",
   "color.off.red": "मानक लाल",
   "color.off.blue": "मानक नीला",
   "color.off.white": "मानक सफेद",
@@ -1083,5 +1083,6 @@
   "nav.searchLang": "🔍 भाषा खोजें (जैसे, कोरिया, ES, RU)...",
   "nav.noLang": "कोई भाषा नहीं मिली",
   "landing.default.title.home": "बल्क में इमेज एडिट करने के लिए सभी AI टूल्स",
-  "landing.default.desc.home": "आपका लोकल AI फोटो एडिटर हमेशा के लिए मुफ्त है! 100% प्राइवेट, सीधे आपके ब्राउज़र में चलता है।"
+  "landing.default.desc.home": "आपका लोकल AI फोटो एडिटर हमेशा के लिए मुफ्त है! 100% प्राइवेट, सीधे आपके ब्राउज़र में चलता है।",
+  "work.startAi": "अभी बैकग्राउंड हटाएं"
 }

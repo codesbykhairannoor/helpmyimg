@@ -26,14 +26,14 @@
   "dropzone.btn": "⚡ 今すぐ写真を選択",
   "dropzone.privacy": "🔒 100%安全：AI処理はご自身のブラウザ内(ローカル)でのみ実行されます",
   "editor.settings": "⚙️ ツール設定",
-  "editor.download": "⬇️ 高画質でダウンロード (無料)",
+  "editor.download": "高画質でダウンロード (無料)",
   "editor.downloadBatch": "📦 すべてダウンロード (ZIP)",
-  "editor.reset": "🔄 別の写真をアップロード",
+  "editor.reset": "別の写真をアップロード",
   "work.badge.remove": "背景を削除する",
   "work.badge.blur": "背景をぼかす",
   "work.badge.color": "パスポートの色",
   "work.badge.brush": "魔法のブラシ",
-  "work.action.cut": "▶️ 今すぐ背景を削除",
+  "work.action.cut": "今すぐ背景を削除",
   "color.off.red": "スタンダードレッド",
   "color.off.blue": "スタンダードブルー",
   "color.off.white": "スタンダードホワイト",
@@ -1083,5 +1083,6 @@
   "nav.searchLang": "🔍 言語を検索 (例: 韓国, ES, RU)...",
   "nav.noLang": "言語が見つかりません",
   "landing.default.title.home": "画像の一括編集に必要なすべてのAIツール",
-  "landing.default.desc.home": "ローカルAIフォトエディターは永久に無料です！100％プライベートで、ブラウザ上で直接実行されます。"
+  "landing.default.desc.home": "ローカルAIフォトエディターは永久に無料です！100％プライベートで、ブラウザ上で直接実行されます。",
+  "work.startAi": "今すぐ背景を削除"
 }

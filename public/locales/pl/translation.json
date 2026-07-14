@@ -27,14 +27,14 @@
   "dropzone.btn": "⚡ Wybierz Zdjęcia",
   "dropzone.privacy": "🔒 100% Prywatne: Przetwarzanie AI działa lokalnie w przeglądarce",
   "editor.settings": "⚙️ Ustawienia Narzędzia",
-  "editor.download": "⬇️ Pobierz HD (Za darmo)",
+  "editor.download": "Pobierz HD (Za darmo)",
   "editor.downloadBatch": "📦 Pobierz Wszystko (ZIP)",
-  "editor.reset": "🔄 Prześlij Inne Zdjęcia",
+  "editor.reset": "Prześlij Inne Zdjęcia",
   "work.badge.remove": "Usuń tło",
   "work.badge.blur": "Rozmycie Tła",
   "work.badge.color": "Kolor paszportu",
   "work.badge.brush": "Magiczny pędzel",
-  "work.action.cut": "▶️ Usuń teraz tło",
+  "work.action.cut": "Usuń teraz tło",
   "color.off.red": "Standardowy czerwony",
   "color.off.blue": "Standardowy niebieski",
   "color.off.white": "Standardowy biały",
@@ -1088,5 +1088,6 @@
   "nav.searchLang": "🔍 Szukaj języka (np. Korea, ES, RU)...",
   "nav.noLang": "Nie znaleziono języka",
   "landing.default.title.home": "Wszystkie narzędzia AI do masowej edycji zdjęć",
-  "landing.default.desc.home": "Twój lokalny edytor zdjęć AI jest darmowy na zawsze! 100% prywatności, działa bezpośrednio w Twojej przeglądarce."
+  "landing.default.desc.home": "Twój lokalny edytor zdjęć AI jest darmowy na zawsze! 100% prywatności, działa bezpośrednio w Twojej przeglądarce.",
+  "work.startAi": "Usuń Tło Teraz"
 }

@@ -27,14 +27,14 @@
   "dropzone.btn": "⚡ Sélectionner les photos",
   "dropzone.privacy": "🔒 100% Privé : Le traitement IA s’exécute localement dans votre navigateur",
   "editor.settings": "⚙️ Paramètres",
-  "editor.download": "⬇️ Télécharger en HD (Gratuit)",
+  "editor.download": "Télécharger en HD (Gratuit)",
   "editor.downloadBatch": "📦 Tout Télécharger (ZIP)",
-  "editor.reset": "🔄 Charger d’autres photos",
+  "editor.reset": "Charger d’autres photos",
   "work.badge.remove": "Supprimer l'arrière-plan",
   "work.badge.blur": "Arrière-plan flou",
   "work.badge.color": "Couleur du passeport",
   "work.badge.brush": "Pinceau Magique",
-  "work.action.cut": "▶️ Supprimer l'arrière-plan maintenant",
+  "work.action.cut": "Supprimer l'arrière-plan maintenant",
   "color.off.red": "Rouge standard",
   "color.off.blue": "Bleu standard",
   "color.off.white": "Blanc standard",
@@ -1083,5 +1083,6 @@
   "nav.searchLang": "🔍 Rechercher une langue (ex., Corée, ES, RU)...",
   "nav.noLang": "Aucune langue trouvée",
   "landing.default.title.home": "Tous les outils IA pour éditer des images en lot",
-  "landing.default.desc.home": "Votre éditeur de photos IA local est gratuit à vie ! 100 % privé, s'exécute directement dans votre navigateur."
+  "landing.default.desc.home": "Votre éditeur de photos IA local est gratuit à vie ! 100 % privé, s'exécute directement dans votre navigateur.",
+  "work.startAi": "Supprimer l'Arrière-plan"
 }

@@ -27,14 +27,14 @@
   "dropzone.btn": "⚡ Selecteer Foto’s",
   "dropzone.privacy": "🔒 100% Privé: AI-verwerking draait lokaal in uw browser",
   "editor.settings": "⚙️ Tool Instellingen",
-  "editor.download": "⬇️ Download HD (Gratis)",
+  "editor.download": "Download HD (Gratis)",
   "editor.downloadBatch": "📦 Download Alles (ZIP)",
-  "editor.reset": "🔄 Nieuwe Foto’s Uploaden",
+  "editor.reset": "Nieuwe Foto’s Uploaden",
   "work.badge.remove": "Achtergrond verwijderen",
   "work.badge.blur": "Achtergrond vervagen",
   "work.badge.color": "Paspoort kleur",
   "work.badge.brush": "Magische borstel",
-  "work.action.cut": "▶️ Achtergrond nu verwijderen",
+  "work.action.cut": "Achtergrond nu verwijderen",
   "color.off.red": "Standaard rood",
   "color.off.blue": "Standaard blauw",
   "color.off.white": "Standaard Wit",
@@ -1083,5 +1083,6 @@
   "nav.searchLang": "🔍 Zoek taal (bijv. Korea, ES, RU)...",
   "nav.noLang": "Geen taal gevonden",
   "landing.default.title.home": "Alle AI-tools die u nodig heeft voor bulk-afbeeldingbewerking",
-  "landing.default.desc.home": "Uw lokale AI-foto-editor is altijd gratis! 100% privé, draait rechtstreeks in uw browser."
+  "landing.default.desc.home": "Uw lokale AI-foto-editor is altijd gratis! 100% privé, draait rechtstreeks in uw browser.",
+  "work.startAi": "Achtergrond Nu Verwijderen"
 }

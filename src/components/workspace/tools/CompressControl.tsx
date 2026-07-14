@@ -64,33 +64,33 @@ export const CompressControl: React.FC<CompressControlProps> = ({
       </div>
 
       <div className="space-y-3 pt-2">
-        <div className="flex gap-2">
+        <button
+          onClick={handleProcess}
+          disabled={isProcessing || batchCount === 0}
+          className="w-full flex items-center justify-center gap-2.5 py-3.5 px-4 rounded-xl bg-gradient-to-r from-neon-cyan via-neon-emerald to-neon-indigo hover:opacity-95 text-dark-900 font-extrabold shadow-glow-cyan transition-all duration-200 transform hover:-translate-y-0.5 disabled:opacity-50 text-sm uppercase tracking-wide"
+        >
+          <RefreshCw className={`w-4 h-4 shrink-0 ${isProcessing ? 'animate-spin' : ''}`} />
+          <span>{isProcessing ? t('btn.processing') : (t('compress.process') || 'Compress Now')}</span>
+        </button>
+
+        {onProcessBatch && batchCount > 1 && (
           <button
-            onClick={handleProcess}
-            disabled={isProcessing || batchCount === 0}
-            className="flex-1 flex flex-col items-center justify-center gap-1 py-3 px-2 rounded-xl bg-dark-700 hover:bg-dark-600 text-white font-extrabold shadow-sm transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed border border-dark-500"
+            onClick={handleProcessBatch}
+            disabled={isProcessing}
+            className="w-full flex items-center justify-center gap-2 py-3.5 px-4 rounded-xl bg-dark-700 hover:bg-dark-600 border border-neon-cyan/50 text-white font-extrabold text-sm uppercase tracking-wide transition-all duration-200 disabled:opacity-50"
           >
-            <RefreshCw className={`w-4 h-4 ${isProcessing ? 'animate-spin' : ''}`} />
-            <span className="text-xs">{isProcessing ? t('btn.processing') : (t('compress.process') || 'Process 1')}</span>
+            <RefreshCw className={`w-4 h-4 shrink-0 ${isProcessing ? 'animate-spin' : ''}`} />
+            <span>{t('compress.processAll', { count: String(batchCount) }) === 'compress.processAll' ? `Process All (${batchCount})` : t('compress.processAll', { count: String(batchCount) })}</span>
           </button>
-          {onProcessBatch && batchCount > 1 && (
-            <button
-              onClick={handleProcessBatch}
-              disabled={isProcessing}
-              className="flex-1 flex flex-col items-center justify-center gap-1 py-3 px-2 rounded-xl bg-neon-cyan/10 hover:bg-neon-cyan/20 text-neon-cyan font-extrabold shadow-sm transition-all duration-200 disabled:opacity-50 border border-neon-cyan/50"
-            >
-              <RefreshCw className={`w-4 h-4 ${isProcessing ? 'animate-spin' : ''}`} />
-              <span className="text-xs">{t('compress.processAll', { count: String(batchCount) }) === 'compress.processAll' ? `Process All (${batchCount})` : t('compress.processAll', { count: String(batchCount) })}</span>
-            </button>
-          )}
-        </div>
+        )}
+
         {batchCount === 1 && (
           <button
             onClick={onUploadOther || onReset}
             disabled={isProcessing}
-            className="w-full flex items-center justify-center gap-2 py-3 px-4 rounded-xl border border-dark-600 bg-dark-800 text-slate-300 font-semibold hover:bg-dark-700 hover:text-white transition-colors disabled:opacity-50"
+            className="w-full flex items-center justify-center gap-2 py-3 px-4 rounded-xl border border-dark-600 bg-dark-800 text-slate-300 font-semibold hover:bg-dark-700 hover:text-white transition-colors disabled:opacity-50 text-sm"
           >
-            <RefreshCw className="w-4 h-4 text-neon-cyan" />
+            <RefreshCw className="w-4 h-4 text-neon-cyan shrink-0" />
             <span>{t('editor.reset')}</span>
           </button>
         )}

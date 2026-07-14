@@ -37,9 +37,8 @@ export const RemoveBgControl: React.FC<RemoveBgControlProps> = ({
 
   const shouldShowActionButtons =
     status === 'idle' ||
-    status === 'done' ||
     status === 'error' ||
-    (!hasProcessedAi && status !== 'processing' && status !== 'queued');
+    (!hasProcessedAi && status !== 'processing' && status !== 'queued' && status !== 'done');
 
   return (
     <div className="space-y-6">
@@ -81,44 +80,26 @@ export const RemoveBgControl: React.FC<RemoveBgControlProps> = ({
       )}
 
       {/* Tombol Action saat Status Idle (Belum Diproses) atau Dibypass */}
-      {shouldShowActionButtons && (
+      {(shouldShowActionButtons || (status === 'done' && hasProcessedAi)) && (
         <div className="space-y-3">
           <button
             onClick={onProcessNow}
             disabled={isProcessing || batchCount === 0}
-            className="w-full flex items-center justify-center gap-2.5 py-4 px-4 rounded-xl bg-gradient-to-r from-neon-cyan via-neon-emerald to-neon-indigo hover:opacity-95 text-dark-900 font-extrabold shadow-glow-cyan transition-all duration-200 transform hover:-translate-y-0.5 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none disabled:shadow-none"
+            className="w-full flex items-center justify-center gap-2.5 py-3.5 px-4 rounded-xl bg-gradient-to-r from-neon-cyan via-neon-emerald to-neon-indigo hover:opacity-95 text-dark-900 font-extrabold shadow-glow-cyan transition-all duration-200 transform hover:-translate-y-0.5 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none disabled:shadow-none text-sm uppercase tracking-wide"
           >
-            <span>{t('work.action.cut')}</span>
+            <Sparkles className="w-4 h-4 text-dark-900 shrink-0" />
+            <span>{t('work.startAi', { defaultValue: 'Remove Background Now' })}</span>
           </button>
 
           {batchCount > 1 && onProcessBatch && (
             <button
               onClick={onProcessBatch}
               disabled={isProcessing}
-              className="w-full flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-dark-700 hover:bg-dark-600 border border-neon-cyan/50 text-white font-bold text-sm transition-all cursor-pointer"
+              className="w-full flex items-center justify-center gap-2 py-3.5 px-4 rounded-xl bg-dark-700 hover:bg-dark-600 border border-neon-cyan/50 text-white font-extrabold text-sm uppercase tracking-wide transition-all cursor-pointer"
             >
-              <Sparkles className="w-4 h-4 text-neon-cyan" />
+              <Sparkles className="w-4 h-4 text-neon-cyan shrink-0" />
               <span>{t('work.action.batch')} ({batchCount} {t('work.action.photos')})</span>
             </button>
-          )}
-        </div>
-      )}
-
-      {/* Tampilan Saat Sukses Diproses */}
-      {status === 'done' && hasProcessedAi && (
-        <div className="space-y-3">
-          {/* Tombol Proses Ulang */}
-          {onProcessNow && (
-            <div className="pt-2 border-t border-dark-600">
-              <button
-                onClick={onProcessNow}
-                disabled={isProcessing}
-                className="w-full flex items-center justify-center gap-2 py-3 rounded-xl bg-dark-800 hover:bg-dark-700 text-slate-300 hover:text-neon-cyan transition-colors text-sm font-semibold border border-dark-600"
-              >
-                <RefreshCw className={`w-4 h-4 ${isProcessing ? 'animate-spin' : ''}`} />
-                <span>{isProcessing ? t('work.processing') : t('remove.processAgain')}</span>
-              </button>
-            </div>
           )}
         </div>
       )}

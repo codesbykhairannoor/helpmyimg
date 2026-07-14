@@ -26,14 +26,14 @@
   "dropzone.btn": "⚡ 지금 사진 선택",
   "dropzone.privacy": "🔒 100% 개인정보 보호: AI 처리가 브라우저 내부에서 로컬로만 실행됩니다",
   "editor.settings": "⚙️ 편집기 설정",
-  "editor.download": "⬇️ 고화질 HD 다운로드 (무료)",
+  "editor.download": "고화질 HD 다운로드 (무료)",
   "editor.downloadBatch": "📦 모두 다운로드 (ZIP 파일)",
-  "editor.reset": "🔄 다른 사진 업로드",
+  "editor.reset": "다른 사진 업로드",
   "work.badge.remove": "배경 제거",
   "work.badge.blur": "배경 흐림",
   "work.badge.color": "여권색상",
   "work.badge.brush": "매직 브러쉬",
-  "work.action.cut": "▶️ 지금 배경 제거",
+  "work.action.cut": "지금 배경 제거",
   "color.off.red": "스탠다드 레드",
   "color.off.blue": "스탠다드 블루",
   "color.off.white": "스탠다드 화이트",
@@ -1083,5 +1083,6 @@
   "nav.searchLang": "🔍 언어 검색 (예: 한국, ES, RU)...",
   "nav.noLang": "언어를 찾을 수 없습니다",
   "landing.default.title.home": "대량 이미지 편집을 위한 모든 AI 도구",
-  "landing.default.desc.home": "로컬 AI 사진 편집기를 영구 무료로 사용하세요! 100% 개인정보 보호, 브라우저에서 직접 실행됩니다."
+  "landing.default.desc.home": "로컬 AI 사진 편집기를 영구 무료로 사용하세요! 100% 개인정보 보호, 브라우저에서 직접 실행됩니다.",
+  "work.startAi": "지금 배경 제거"
 }

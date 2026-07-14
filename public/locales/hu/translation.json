@@ -27,14 +27,14 @@
   "dropzone.btn": "⚡ Képek Kiválasztása",
   "dropzone.privacy": "🔒 100% Privát: Az AI feldolgozás helyben, a böngészőben fut",
   "editor.settings": "⚙️ Eszköz Beállítások",
-  "editor.download": "⬇️ HD Letöltés (Ingyenes)",
+  "editor.download": "HD Letöltés (Ingyenes)",
   "editor.downloadBatch": "📦 Összes Letöltése (ZIP)",
-  "editor.reset": "🔄 Új Képek Feltöltése",
+  "editor.reset": "Új Képek Feltöltése",
   "work.badge.remove": "Háttér eltávolítása",
   "work.badge.blur": "Elmosódott háttér",
   "work.badge.color": "Útlevél színe",
   "work.badge.brush": "Mágikus ecset",
-  "work.action.cut": "▶️ Távolítsa el a hátteret most",
+  "work.action.cut": "Távolítsa el a hátteret most",
   "color.off.red": "Normál piros",
   "color.off.blue": "Standard kék",
   "color.off.white": "Standard fehér",
@@ -1083,5 +1083,6 @@
   "nav.searchLang": "🔍 Search locale (e.g., Korea, ES, RU)...",
   "nav.noLang": "No locale found",
   "landing.default.title.home": "Every AI tool you need to edit images in bulk",
-  "landing.default.desc.home": "Your local AI photo editor is here and forever free! 100% private, runs directly in your browser."
+  "landing.default.desc.home": "Your local AI photo editor is here and forever free! 100% private, runs directly in your browser.",
+  "work.startAi": "Háttér Eltávolítása Most"
 }
