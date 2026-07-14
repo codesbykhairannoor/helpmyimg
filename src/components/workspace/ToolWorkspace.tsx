@@ -5,7 +5,7 @@ import React, { useState, useRef, useEffect, Suspense } from 'react';
 import { useParams } from 'react-router-dom';
 import { useTranslation } from '../../context/LanguageContext';
 import { aiService } from '../../services/aiService';
-import { Upload, Download, Scissors, Loader2, Sparkles, Image as ImageIcon, Archive, Trash2 } from 'lucide-react';
+import { Upload, Download, Loader2, Sparkles, Archive, Trash2 } from 'lucide-react';
 import JSZip from 'jszip';
 import { motion } from 'framer-motion';
 
@@ -812,6 +812,7 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({ initialTab = 'remo
                   {activeTab === 'picker' && t('work.badge.picker')}
                 </span>
               </div>
+            </div>
 
             <div className="flex-1 overflow-y-auto custom-scrollbar pr-2 pb-2">
               <Suspense fallback={
