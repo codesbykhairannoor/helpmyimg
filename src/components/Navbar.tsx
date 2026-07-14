@@ -252,46 +252,46 @@ export const Navbar: React.FC = () => {
             exit={{ opacity: 0, height: 0 }}
             className="lg:hidden overflow-hidden bg-dark-900 border-b border-dark-500/40 shadow-2xl"
           >
-            <div className="flex flex-col px-4 pt-4 pb-6 space-y-6 h-[calc(100vh-64px)] overflow-y-auto">
+            <div className="flex flex-col px-4 pt-4 pb-6 space-y-5 h-[calc(100vh-64px)] overflow-y-auto custom-scrollbar">
               
               {/* Theme Toggle inside Mobile Menu */}
               <button
                 onClick={toggleTheme}
-                className="flex items-center justify-between w-full p-4 bg-dark-800 hover:bg-dark-700 border border-dark-600 rounded-2xl transition-colors"
+                className="flex items-center justify-between w-full p-3 bg-dark-800 hover:bg-dark-700 border border-dark-600 rounded-xl transition-colors shadow-sm"
               >
-                <span className="text-sm font-semibold text-slate-200">
+                <span className="text-xs font-bold text-slate-800 dark:text-slate-200">
                   {theme === 'dark' ? 'Switch to Light Mode' : 'Switch to Dark Mode'}
                 </span>
                 {theme === 'dark' ? (
-                  <Sun className="w-5 h-5 text-amber-400" />
+                  <Sun className="w-4 h-4 text-amber-400" />
                 ) : (
-                  <Moon className="w-5 h-5 text-indigo-400" />
+                  <Moon className="w-4 h-4 text-indigo-500" />
                 )}
               </button>
 
-              <nav className="flex flex-col space-y-6">
+              <nav className="flex flex-col space-y-5">
                 {categories.filter(c => c.id !== 'all').map(cat => {
                   const catTools = tools.filter(t => t.category === cat.id);
                   if (catTools.length === 0) return null;
 
                   return (
-                    <div key={cat.id} className="space-y-3">
-                      <div className="text-[11px] font-mono font-bold text-slate-400 uppercase tracking-widest px-2 border-b border-dark-700 pb-2">
+                    <div key={cat.id} className="space-y-2">
+                      <div className="text-[10px] font-mono font-bold text-slate-500 dark:text-slate-400 uppercase tracking-widest px-1">
                         {t(cat.labelKey)}
                       </div>
-                      <div className="flex flex-col space-y-1">
+                      <div className="grid grid-cols-2 gap-2">
                         {catTools.map(tool => (
                           <Link
                             key={tool.id}
                             to={`/${lang}/${getLocalizedSlug(tool.id, lang)}`}
                             onClick={() => setMobileMenuOpen(false)}
-                            className="flex items-center gap-4 p-3 rounded-xl hover:bg-dark-800/50 active:bg-dark-800 transition-colors group"
+                            className="flex items-center gap-2.5 p-2 rounded-xl bg-dark-800 border border-dark-600/50 hover:border-neon-cyan/50 active:bg-dark-700 transition-all group shadow-sm"
                           >
-                            <div className="w-10 h-10 rounded-xl bg-dark-800 flex items-center justify-center border border-dark-600 group-active:border-neon-cyan/50">
-                              <tool.icon className="w-5 h-5 text-neon-cyan" />
+                            <div className="w-8 h-8 rounded-lg bg-dark-900 flex items-center justify-center shrink-0 group-active:scale-95 transition-transform border border-dark-600/50 group-hover:border-neon-cyan/30">
+                              <tool.icon className="w-4 h-4 text-neon-cyan" />
                             </div>
-                            <div className="flex flex-col">
-                              <span className="text-sm font-semibold text-slate-200">{t(tool.titleKey)}</span>
+                            <div className="flex flex-col justify-center min-w-0 pr-1">
+                              <span className="text-[11px] font-bold text-slate-800 dark:text-slate-200 leading-tight line-clamp-2">{t(tool.titleKey)}</span>
                             </div>
                           </Link>
                         ))}
