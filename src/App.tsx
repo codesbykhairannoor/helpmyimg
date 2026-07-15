@@ -51,8 +51,8 @@ function App() {
               <main className="flex-1 w-full flex flex-col gap-8 md:gap-16 pt-8 sm:pt-10 md:pt-14 pb-16 min-h-screen">
                 <div className="relative">
                   {/* Dekorasi Cahaya Latar Belakang */}
-                  <div className="absolute top-1/2 left-0 w-72 h-72 bg-neon-cyan/10 blur-[120px] rounded-full pointer-events-none -z-10" />
-                  <div className="absolute top-1/3 right-0 w-96 h-96 bg-neon-indigo/10 blur-[120px] rounded-full pointer-events-none -z-10" />
+                  <div className="fixed top-1/2 left-0 w-72 h-72 bg-neon-cyan/10 blur-[120px] rounded-full pointer-events-none -z-10 transform-gpu" />
+                  <div className="fixed top-1/3 right-0 w-96 h-96 bg-neon-indigo/10 blur-[120px] rounded-full pointer-events-none -z-10 transform-gpu" />
                   
                   <Routes>
                     {/* Root Route -> Secret Hat Bot-Aware Redirector */}
