@@ -73,7 +73,18 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({ initialTab = 'remo
 
   useEffect(() => {
     if (keywordSlug) {
-      setSelectedColor(keywordSlug.toLowerCase().includes('biru') ? '#00529C' : '#DB1514');
+      const lower = keywordSlug.toLowerCase();
+      setSelectedColor(lower.includes('biru') ? '#00529C' : '#DB1514');
+      
+      // Auto-configure compression quality if pSEO keyword targets exact KB sizes
+      if (lower.includes('50kb')) setCompressQuality(0.5);
+      else if (lower.includes('100kb')) setCompressQuality(0.65);
+      else if (lower.includes('200kb') || lower.includes('500kb')) setCompressQuality(0.75);
+
+      // Auto-configure target convert format if pSEO keyword specifies format
+      if (lower.includes('webp')) setConvertFormat('image/webp');
+      else if (lower.includes('jpg') || lower.includes('jpeg')) setConvertFormat('image/jpeg');
+      else if (lower.includes('png')) setConvertFormat('image/png');
     }
   }, [keywordSlug]);
 
