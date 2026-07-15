@@ -12,8 +12,8 @@ interface HeroProps {
 export const Hero: React.FC<HeroProps> = ({ title, description }) => {
   const { t } = useTranslation();
 
-  const fallbackTitle = t('landing.default.title.home', { defaultValue: "Help Your Image Shine: Professional Bulk Photo Studio" });
-  const fallbackDesc = t('landing.default.desc.home', { defaultValue: "The complete all-in-one local photo toolkit. Remove backgrounds, change passport colors, blur studio bokeh, compress, convert, and resize instantly right in your browser. 100% free, private, and zero upload required." });
+  const fallbackTitle = t('hero.title', { defaultValue: t('landing.default.title.home', { defaultValue: "Help Your Image Shine: Professional Bulk Photo Studio" }) });
+  const fallbackDesc = t('hero.subtitle', { defaultValue: t('landing.default.desc.home', { defaultValue: "The complete all-in-one local photo toolkit. Remove backgrounds, change passport colors, blur studio bokeh, compress, convert, and resize instantly right in your browser. 100% free, private, and zero upload required." }) });
 
   return (
     <section className="relative pt-6 sm:pt-10 md:pt-12 pb-6 sm:pb-8 overflow-hidden">

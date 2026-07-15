@@ -1102,7 +1102,7 @@
   "home.why.c2.b": "Zero Cloud Storage",
   "home.why.c3.t": "Forever Free & Unlimited",
   "home.why.c3.d": "No subscriptions, no watermarks, no credit packs, and no hidden fees. High-definition photo editing made accessible for all.",
-  "home.why.c3.b": " / Lifetime",
+  "home.why.c3.b": "$0 / Lifetime",
   "home.why.c4.t": "Batch Power up to 10",
   "home.why.c4.d": "Drag and drop up to 10 photos simultaneously. Process, optimize, and export your entire photoshoot as a neat ZIP archive in seconds.",
   "home.why.c4.b": "10x Workflow Speed",
@@ -1124,5 +1124,9 @@
   "home.faq.fq3.q": "How does HelpMyIMG guarantee 100% privacy for my confidential photos?",
   "home.faq.fq3.a": "Your privacy is guaranteed by architectural design. When you drag photos into HelpMyIMG, your files are never transmitted across the internet to any external server. All pixel modifications occur exclusively within the secure sandbox of your local device (Local Web Engine). Once you close the tab, all temporary data evaporates instantly.",
   "home.faq.fq4.q": "Can I process multiple pictures at once for my online store or school application?",
-  "home.faq.fq4.a": "Absolutely! HelpMyIMG supports batch processing of up to 10 photos simultaneously across our core tools, including background removal, compression, and format conversion. You can apply uniform settings to all items and download the entire batch cleanly packaged in a single ZIP file with one click."
+  "home.faq.fq4.a": "Absolutely! HelpMyIMG supports batch processing of up to 10 photos simultaneously across our core tools, including background removal, compression, and format conversion. You can apply uniform settings to all items and download the entire batch cleanly packaged in a single ZIP file with one click.",
+  "common.new": "New!",
+  "home.cta.title": "Ready to Supercharge Your Photo Workflow with HelpMyIMG?",
+  "home.cta.desc": "Join thousands of e-commerce sellers, creators, and professionals who trust HelpMyIMG for instant, private, high-definition photo editing.",
+  "home.cta.btn": "Open HelpMyIMG Studio Now"
 }

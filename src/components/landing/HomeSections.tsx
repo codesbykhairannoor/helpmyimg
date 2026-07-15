@@ -184,17 +184,17 @@ export const HomeSections: React.FC = () => {
           <div className="absolute -right-20 -bottom-20 w-80 h-80 bg-neon-cyan/10 rounded-full blur-3xl pointer-events-none" />
           
           <h3 className="text-2xl sm:text-3xl font-heading font-extrabold text-white mb-4 tracking-tight">
-            Ready to Supercharge Your Photo Workflow with HelpMyIMG?
+            {t('home.cta.title', { defaultValue: 'Ready to Supercharge Your Photo Workflow with HelpMyIMG?' })}
           </h3>
           <p className="text-slate-300 text-sm sm:text-base max-w-xl mx-auto mb-8 leading-relaxed">
-            Join thousands of e-commerce sellers, creators, and professionals who trust HelpMyIMG for instant, private, high-definition photo editing.
+            {t('home.cta.desc', { defaultValue: 'Join thousands of e-commerce sellers, creators, and professionals who trust HelpMyIMG for instant, private, high-definition photo editing.' })}
           </p>
           <Link
             to={`/${lang}/${getLocalizedSlug('remove', lang)}`}
             className="inline-flex items-center gap-2.5 px-8 py-4 rounded-2xl bg-gradient-to-r from-neon-cyan via-neon-emerald to-neon-indigo text-dark-900 font-extrabold shadow-glow-cyan hover:opacity-95 transition-all transform hover:-translate-y-0.5"
           >
             <Sparkles className="w-5 h-5 fill-dark-900" />
-            <span>Open HelpMyIMG Studio Now</span>
+            <span>{t('home.cta.btn', { defaultValue: 'Open HelpMyIMG Studio Now' })}</span>
             <ArrowRight className="w-5 h-5" />
           </Link>
         </div>

@@ -50,7 +50,7 @@ export const ToolGrid: React.FC = () => {
               
               {tool.isNew && (
                 <span className="absolute top-4 right-4 text-[10px] uppercase font-extrabold tracking-wider px-2.5 py-1 rounded-full bg-rose-600 text-white shadow-sm">
-                  New!
+                  {t('common.new', { defaultValue: 'New!' })}
                 </span>
               )}
               
