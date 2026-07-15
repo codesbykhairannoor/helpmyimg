@@ -116,29 +116,36 @@ for (const lang of LANGS) {
     }
   }
 
-  // 2. Compress Generator
+  // 2. Compress Generator (Targeting exact KB sizes 50kb, 100kb, 200kb, 500kb & Batch up to 50+ photos)
   count = 0;
-  for (const action of ['compress-image', 'reduce-size', 'make-200kb']) {
-    for (const obj of objects) {
-      for (const ctx of contexts) {
-        if (count >= 100) break;
-        const slug = getLocalizedSlug('compress', lang);
-        sitemap += `  <url>\n    <loc>${DOMAIN}/${lang}/${slug}/${action}-for-${obj}-${ctx}</loc>\n  </url>\n`;
-        totalUrls++; count++;
-      }
+  const compressActions = [
+    'kompres-foto-100kb', 'kompres-foto-200kb', 'kompres-foto-50kb', 'compress-image-to-100kb', 'comprimir-foto-a-100kb',
+    'kompres-20-foto-sekaligus', 'kompres-50-foto-batch', 'compress-20-photos-batch', 'compress-50-photos-at-once',
+    'kompres-pas-foto-cpns-100kb', 'reduce-photo-size-under-100kb', 'bulk-compress-30-images'
+  ];
+  const compressTargets = ['online-gratis', 'free-no-watermark', 'tanpa-pecah', 'hd-quality', 'fast-zip-download', 'ecommerce-catalog', 'untuk-ktp-ijazah'];
+  for (const action of compressActions) {
+    for (const tgt of compressTargets) {
+      if (count >= 200) break;
+      const slug = getLocalizedSlug('compress', lang);
+      sitemap += `  <url>\n    <loc>${DOMAIN}/${lang}/${slug}/${action}-${tgt}</loc>\n  </url>\n`;
+      totalUrls++; count++;
     }
   }
 
-  // 3. Convert Generator
+  // 3. Convert Generator (Targeting bulk PNG/JPG/WEBP conversions up to 30-50 photos)
   count = 0;
-  for (const action of ['convert-format', 'change-to-jpg', 'png-to-webp']) {
-    for (const obj of objects) {
-      for (const ctx of contexts) {
-        if (count >= 100) break;
-        const slug = getLocalizedSlug('convert', lang);
-        sitemap += `  <url>\n    <loc>${DOMAIN}/${lang}/${slug}/${action}-for-${obj}-${ctx}</loc>\n  </url>\n`;
-        totalUrls++; count++;
-      }
+  const convertActions = [
+    'convert-30-photos-to-webp', 'konversi-20-foto-ke-jpg', 'png-to-webp-batch-50-photos', 'convert-format-in-bulk',
+    'change-png-to-jpg-20-files', 'konversi-massal-foto-produk', 'webp-converter-for-shopify', 'convert-image-format-free'
+  ];
+  const convertTargets = ['online-free', 'gratis-tanpa-kuota', 'download-zip-instan', 'high-definition', 'batch-processing'];
+  for (const action of convertActions) {
+    for (const tgt of convertTargets) {
+      if (count >= 200) break;
+      const slug = getLocalizedSlug('convert', lang);
+      sitemap += `  <url>\n    <loc>${DOMAIN}/${lang}/${slug}/${action}-${tgt}</loc>\n  </url>\n`;
+      totalUrls++; count++;
     }
   }
 

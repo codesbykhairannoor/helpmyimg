@@ -12,6 +12,7 @@ import { type Language } from '../i18n/translations';
 import { CheckCircle2, Loader2 } from 'lucide-react';
 
 import { getToolFromSlug } from '../utils/urlMapper';
+import { synthesizeDynamicPSeo } from '../utils/dynamicPSeoSynthesizer';
 
 const ToolWorkspace = React.lazy(() => import('../components/workspace/ToolWorkspace').then(module => ({ default: module.ToolWorkspace })));
 
@@ -106,44 +107,39 @@ export const ToolLandingPage: React.FC = () => {
     ? t('landing.default.desc.design')
     : t('landing.default.desc.remove');
 
-  let dynamicTitle = defaultTitle;
-  let dynamicH1 = defaultH1;
-  
-  if (keywordSlug && !config) {
-    // Ubah slug seperti "ganti-background-merah" menjadi "Ganti Background Merah"
-    const formattedSlug = keywordSlug.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
-    dynamicTitle = formattedSlug;
-    dynamicH1 = formattedSlug;
-  }
-
-  // Ensure title always has (LANG) suffix for consistency and NO HelpMyIMG as requested
-  const finalTitle = `${dynamicTitle} (${lang.toUpperCase()})`;
-
   // Resolve tool string for i18n keys
   const toolMapName = ['remove', 'color', 'watermark', 'compress', 'convert', 'resize', 'crop', 'rotate', 'picker'].includes(internalTool) ? internalTool : 'remove';
 
-  const displayConfig = config || {
-    slug: keywordSlug || tool || '',
-    tool: internalTool,
-    lang: lang,
-    title: finalTitle,
-    h1: dynamicH1,
-    description: defaultDesc,
-    citationFirst: defaultDesc,
-    quantitativeProof: defaultDesc,
-    beforeImageLabel: 'Original',
-    afterImageLabel: 'HD Result',
-    faqs: [
-      {
-        question: t(`landing.${toolMapName}.faq1.q`),
-        answer: t(`landing.${toolMapName}.faq1.a`)
-      },
-      {
-        question: t(`landing.${toolMapName}.faq2.q`),
-        answer: t(`landing.${toolMapName}.faq2.a`)
-      }
-    ]
-  };
+  let displayConfig: PSeoKeywordConfig;
+  if (config) {
+    displayConfig = config;
+  } else if (keywordSlug) {
+    // Gunakan Mesin Sintesis pSEO dinamis untuk memproses slug seperti kompres-foto-100kb atau compress-20-photos
+    displayConfig = synthesizeDynamicPSeo(keywordSlug, internalTool, lang, defaultTitle, defaultDesc);
+  } else {
+    displayConfig = {
+      slug: tool || '',
+      tool: internalTool as any,
+      lang: lang,
+      title: `${defaultTitle} (${lang.toUpperCase()})`,
+      h1: defaultH1,
+      description: defaultDesc,
+      citationFirst: defaultDesc,
+      quantitativeProof: defaultDesc,
+      beforeImageLabel: 'Original',
+      afterImageLabel: 'HD Result',
+      faqs: [
+        {
+          question: t(`landing.${toolMapName}.faq1.q`),
+          answer: t(`landing.${toolMapName}.faq1.a`)
+        },
+        {
+          question: t(`landing.${toolMapName}.faq2.q`),
+          answer: t(`landing.${toolMapName}.faq2.a`)
+        }
+      ]
+    };
+  }
 
   return (
     <div className="min-h-screen bg-dark-900 text-slate-100 transition-colors duration-300">
