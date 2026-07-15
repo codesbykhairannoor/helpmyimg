@@ -26,22 +26,22 @@ export const Footer: React.FC = () => {
                 HelpMyIMG <span className="text-neon-cyan text-sm px-2 py-0.5 rounded-full bg-neon-cyan/10 border border-neon-cyan/30 font-mono">{t('footer.badge.ai')}</span>
               </span>
             </div>
-            <p className="text-xs text-slate-400 font-body leading-relaxed">
+            <p className="text-xs text-slate-300 font-body leading-relaxed font-medium">
               {t('landing.default.desc')}
             </p>
           </div>
 
           {/* Geo & Tech Badges */}
           <div className="flex flex-wrap items-center gap-4 text-xs font-mono">
-            <div className="flex items-center gap-2 px-3.5 py-2 rounded-xl bg-dark-800/80 border border-dark-600 text-neon-cyan">
+            <div className="flex items-center gap-2 px-3.5 py-2 rounded-xl bg-dark-800/80 border border-dark-600 text-cyan-300 font-semibold">
               <Zap className="w-4 h-4" />
               <span>{t('footer.badge.latency')}</span>
             </div>
-            <div className="flex items-center gap-2 px-3.5 py-2 rounded-xl bg-dark-800/80 border border-dark-600 text-neon-emerald">
+            <div className="flex items-center gap-2 px-3.5 py-2 rounded-xl bg-dark-800/80 border border-dark-600 text-emerald-300 font-semibold">
               <Shield className="w-4 h-4" />
               <span>{t('footer.badge.privacy')}</span>
             </div>
-            <div className="flex items-center gap-2 px-3.5 py-2 rounded-xl bg-dark-800/80 border border-dark-600 text-neon-purple">
+            <div className="flex items-center gap-2 px-3.5 py-2 rounded-xl bg-dark-800/80 border border-dark-600 text-purple-300 font-semibold">
               <Globe className="w-4 h-4" />
               <span>{t('footer.badge.lang', { lang: lang.toUpperCase() })}</span>
             </div>
@@ -101,19 +101,19 @@ export const Footer: React.FC = () => {
         </div>
 
         {/* Bottom Section: Copyright & Built With */}
-        <div className="pt-8 border-t border-dark-700/50 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500 font-mono mb-4">
+        <div className="pt-8 border-t border-dark-700/50 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-300 font-mono mb-4 font-medium">
           <p className="flex items-center gap-1.5">
             <span>&copy; {new Date().getFullYear()} HelpMyIMG AI Platform.</span>
             <span>{t('footer.rights')}</span>
           </p>
-          <p className="flex items-center gap-1.5 text-slate-400">
+          <p className="flex items-center gap-1.5 text-slate-300 font-medium">
             <span>{t('footer.built')}</span>
-            <Heart className="w-3.5 h-3.5 text-neon-cyan inline fill-neon-cyan/20" />
+            <Heart className="w-3.5 h-3.5 text-cyan-400 inline fill-cyan-400/20" />
           </p>
         </div>
 
         {/* LSI Keywords Tag Cloud - Rule #4 */}
-        <div className="text-[11px] text-zinc-400 opacity-30 leading-relaxed font-sans max-w-7xl mx-auto text-justify pb-4">
+        <div className="text-xs text-slate-400 leading-relaxed font-sans max-w-7xl mx-auto text-justify pb-4 font-medium">
           {[
             'remove background online', 'free background remover', 'transparent background maker', 'change photo background', 
             'passport photo maker', 'red background cpns', 'blue background ktp', 'official document photo', 'webgpu ai processing',
@@ -124,7 +124,7 @@ export const Footer: React.FC = () => {
           ].map((kw, idx, arr) => (
             <React.Fragment key={idx}>
               <span>{kw}</span>
-              {idx < arr.length - 1 && <span className="mx-2 opacity-30">•</span>}
+              {idx < arr.length - 1 && <span className="mx-2 text-slate-600">•</span>}
             </React.Fragment>
           ))}
         </div>
