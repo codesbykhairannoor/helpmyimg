@@ -48,7 +48,7 @@ export const HomeSections: React.FC = () => {
             <p className="text-slate-300 text-sm leading-relaxed">
               {t('home.why.c1.d', { defaultValue: 'Your photos are processed directly inside your device memory with zero latency. No slow file uploads or cloud queues.' })}
             </p>
-            <div className="mt-6 flex items-center gap-2 text-xs font-mono text-neon-cyan font-bold">
+            <div className="mt-6 flex items-center gap-2 text-xs font-mono text-cyan-300 font-bold">
               <span>{t('home.why.c1.b', { defaultValue: '0ms Server Delay' })}</span>
             </div>
           </div>
@@ -63,7 +63,7 @@ export const HomeSections: React.FC = () => {
             <p className="text-slate-300 text-sm leading-relaxed">
               {t('home.why.c2.d', { defaultValue: 'Your personal portraits, confidential documents, and product shots never leave your computer or phone. Total peace of mind.' })}
             </p>
-            <div className="mt-6 flex items-center gap-2 text-xs font-mono text-neon-emerald font-bold">
+            <div className="mt-6 flex items-center gap-2 text-xs font-mono text-emerald-300 font-bold">
               <span>{t('home.why.c2.b', { defaultValue: 'Zero Cloud Storage' })}</span>
             </div>
           </div>
@@ -78,7 +78,7 @@ export const HomeSections: React.FC = () => {
             <p className="text-slate-300 text-sm leading-relaxed">
               {t('home.why.c3.d', { defaultValue: 'No subscriptions, no watermarks, no credit packs, and no hidden fees. High-definition photo editing made accessible for all.' })}
             </p>
-            <div className="mt-6 flex items-center gap-2 text-xs font-mono text-neon-indigo font-bold">
+            <div className="mt-6 flex items-center gap-2 text-xs font-mono text-indigo-300 font-bold">
               <span>{t('home.why.c3.b', { defaultValue: '$0 / Lifetime' })}</span>
             </div>
           </div>
@@ -93,7 +93,7 @@ export const HomeSections: React.FC = () => {
             <p className="text-slate-300 text-sm leading-relaxed">
               {t('home.why.c4.d', { defaultValue: 'Drag and drop up to 10 photos simultaneously. Process, optimize, and export your entire photoshoot as a neat ZIP archive in seconds.' })}
             </p>
-            <div className="mt-6 flex items-center gap-2 text-xs font-mono text-neon-pink font-bold">
+            <div className="mt-6 flex items-center gap-2 text-xs font-mono text-pink-300 font-bold">
               <span>{t('home.why.c4.b', { defaultValue: '10x Workflow Speed' })}</span>
             </div>
           </div>

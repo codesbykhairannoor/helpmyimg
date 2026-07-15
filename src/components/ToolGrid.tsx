@@ -34,7 +34,9 @@ export const ToolGrid: React.FC = () => {
       </div>
 
       {/* Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+      {/* Invisible H2 to preserve strict semantic heading hierarchy H1 -> H2 -> H3 */}
+      <h2 className="sr-only">AI Image & Photo Studio Tools</h2>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {filteredTools.map(tool => {
           const Icon = tool.icon;
           return (
@@ -47,7 +49,7 @@ export const ToolGrid: React.FC = () => {
               <div className="absolute inset-0 bg-gradient-to-br from-neon-cyan/10 via-neon-violet/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl pointer-events-none" />
               
               {tool.isNew && (
-                <span className="absolute top-4 right-4 text-[10px] uppercase font-bold tracking-wider px-2 py-1 rounded bg-neon-pink/20 text-neon-pink border border-neon-pink/30">
+                <span className="absolute top-4 right-4 text-[10px] uppercase font-extrabold tracking-wider px-2.5 py-1 rounded-full bg-rose-600 text-white shadow-sm">
                   New!
                 </span>
               )}

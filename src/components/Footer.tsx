@@ -51,51 +51,51 @@ export const Footer: React.FC = () => {
         {/* Middle Section: Quick Navigation & SEO Matrix */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 py-4 text-sm font-body">
           <div className="space-y-3">
-            <h4 className="font-heading font-bold text-white uppercase text-xs tracking-wider text-neon-cyan">
+            <h3 className="font-heading font-bold text-white uppercase text-xs tracking-wider text-cyan-300">
               {t('nav.tools')}
-            </h4>
-            <ul className="space-y-2 text-slate-400 text-xs">
-              <li><a href={`/${lang}/remove-background`} className="hover:text-white transition-colors">{t('nav.removeBg')}</a></li>
-              <li><a href={`/${lang}/change-background`} className="hover:text-white transition-colors">{t('nav.colorBg')}</a></li>
-              <li><a href={`/${lang}/watermark-image`} className="hover:text-white transition-colors">{t('nav.watermark') || 'Watermark Image'}</a></li>
-              <li><a href={`/${lang}/compress-image`} className="hover:text-white transition-colors">{t('nav.compress') || 'Compress Image'}</a></li>
-              <li><a href={`/${lang}/convert-image`} className="hover:text-white transition-colors">{t('nav.convert') || 'Convert Image'}</a></li>
-              <li><a href={`/${lang}/resize-image`} className="hover:text-white transition-colors">{t('nav.resize') || 'Resize Image'}</a></li>
+            </h3>
+            <ul className="space-y-2 text-slate-300 text-xs">
+              <li><a href={`/${lang}/remove-background`} className="hover:text-white transition-colors py-1.5 block">{t('nav.removeBg')}</a></li>
+              <li><a href={`/${lang}/change-background`} className="hover:text-white transition-colors py-1.5 block">{t('nav.colorBg')}</a></li>
+              <li><a href={`/${lang}/watermark-image`} className="hover:text-white transition-colors py-1.5 block">{t('nav.watermark') || 'Watermark Image'}</a></li>
+              <li><a href={`/${lang}/compress-image`} className="hover:text-white transition-colors py-1.5 block">{t('nav.compress') || 'Compress Image'}</a></li>
+              <li><a href={`/${lang}/convert-image`} className="hover:text-white transition-colors py-1.5 block">{t('nav.convert') || 'Convert Image'}</a></li>
+              <li><a href={`/${lang}/resize-image`} className="hover:text-white transition-colors py-1.5 block">{t('nav.resize') || 'Resize Image'}</a></li>
             </ul>
           </div>
 
           <div className="space-y-3">
-            <h4 className="font-heading font-bold text-white uppercase text-xs tracking-wider text-neon-emerald">
+            <h3 className="font-heading font-bold text-white uppercase text-xs tracking-wider text-emerald-300">
               {t('nav.pseo')}
-            </h4>
-            <ul className="space-y-2 text-slate-400 text-xs">
-              <li><a href={`/${lang}/change-background/ganti-background-merah-cpns-pas-foto`} className="hover:text-white transition-colors">{t('footer.link.cpns')}</a></li>
-              <li><a href={`/${lang}/change-background/ganti-background-biru-ktp-ijazah`} className="hover:text-white transition-colors">{t('footer.link.ktp')}</a></li>
-              <li><a href={`/${lang}/remove-background/hapus-background-transparan-shopee-tokopedia`} className="hover:text-white transition-colors">{t('footer.link.shopee')}</a></li>
+            </h3>
+            <ul className="space-y-2 text-slate-300 text-xs">
+              <li><a href={`/${lang}/change-background/ganti-background-merah-cpns-pas-foto`} className="hover:text-white transition-colors py-1.5 block">{t('footer.link.cpns')}</a></li>
+              <li><a href={`/${lang}/change-background/ganti-background-biru-ktp-ijazah`} className="hover:text-white transition-colors py-1.5 block">{t('footer.link.ktp')}</a></li>
+              <li><a href={`/${lang}/remove-background/hapus-background-transparan-shopee-tokopedia`} className="hover:text-white transition-colors py-1.5 block">{t('footer.link.shopee')}</a></li>
             </ul>
           </div>
 
           <div className="space-y-3">
-            <h4 className="font-heading font-bold text-white uppercase text-xs tracking-wider text-neon-indigo">
+            <h3 className="font-heading font-bold text-white uppercase text-xs tracking-wider text-indigo-300">
               {t('nav.geo')}
-            </h4>
-            <ul className="space-y-2 text-slate-400 text-xs">
-              <li><a href="#geo-spec" className="hover:text-white transition-colors">{t('footer.link.zeroCloud')}</a></li>
-              <li><a href="#geo-spec" className="hover:text-white transition-colors">{t('footer.link.citation')}</a></li>
-              <li><a href="#geo-spec" className="hover:text-white transition-colors">{t('footer.link.wasm')}</a></li>
-              <li><a href="#geo-spec" className="hover:text-white transition-colors">{t('footer.link.zeroModel')}</a></li>
+            </h3>
+            <ul className="space-y-2 text-slate-300 text-xs">
+              <li><a href="#geo-spec" className="hover:text-white transition-colors py-1.5 block">{t('footer.link.zeroCloud')}</a></li>
+              <li><a href="#geo-spec" className="hover:text-white transition-colors py-1.5 block">{t('footer.link.citation')}</a></li>
+              <li><a href="#geo-spec" className="hover:text-white transition-colors py-1.5 block">{t('footer.link.wasm')}</a></li>
+              <li><a href="#geo-spec" className="hover:text-white transition-colors py-1.5 block">{t('footer.link.zeroModel')}</a></li>
             </ul>
           </div>
 
           <div className="space-y-3">
-            <h4 className="font-heading font-bold text-white uppercase text-xs tracking-wider text-neon-purple">
+            <h3 className="font-heading font-bold text-white uppercase text-xs tracking-wider text-purple-300">
               {t('footer.legal')}
-            </h4>
-            <ul className="space-y-2 text-slate-400 text-xs">
-              <li><a href={`/${lang}/about`} className="hover:text-white transition-colors">{t('about.title') || 'About Us'}</a></li>
-              <li><a href={`/${lang}/privacy`} className="hover:text-white transition-colors">{t('footer.privacy')}</a></li>
-              <li><a href={`/${lang}/terms`} className="hover:text-white transition-colors">{t('footer.terms')}</a></li>
-              <li><a href={`/${lang}/faq`} className="hover:text-white transition-colors">{t('nav.faq')}</a></li>
+            </h3>
+            <ul className="space-y-2 text-slate-300 text-xs">
+              <li><a href={`/${lang}/about`} className="hover:text-white transition-colors py-1.5 block">{t('about.title') || 'About Us'}</a></li>
+              <li><a href={`/${lang}/privacy`} className="hover:text-white transition-colors py-1.5 block">{t('footer.privacy')}</a></li>
+              <li><a href={`/${lang}/terms`} className="hover:text-white transition-colors py-1.5 block">{t('footer.terms')}</a></li>
+              <li><a href={`/${lang}/faq`} className="hover:text-white transition-colors py-1.5 block">{t('nav.faq')}</a></li>
             </ul>
           </div>
         </div>
