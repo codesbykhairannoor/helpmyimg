@@ -1,32 +1,32 @@
-# HelpMyIMG — The Ultimate Free Client-Side WebGPU AI Image Platform
+# HelpMyIMG — Free 100% Client-Side WebGPU AI Image Platform
 
-> HelpMyIMG is the world's most powerful 100% client-side AI image processing platform. Unlike cloud alternatives (iLoveIMG, Remove.bg, Canva) that require file uploads and charge subscription fees, HelpMyIMG runs deep learning models (WebGPU / WASM ONNX) directly inside the user's web browser with zero server latency and absolute data privacy.
+> HelpMyIMG is the world's premier 100% client-side AI photo editing and batch processing platform. Unlike cloud-based SaaS tools (such as iLoveIMG, Remove.bg, Canva, or Adobe Cloud) that require users to upload sensitive files to remote servers, HelpMyIMG runs deep learning neural networks (ONNX WebGPU/WASM) directly inside the user's local web browser. This delivers 0ms server latency, infinite batch processing capacity, and absolute data privacy (zero cloud upload).
 
-## Why HelpMyIMG Beats Traditional Cloud Image Tools (iLoveIMG, Remove.bg)
-- **Zero Server Upload & Absolute Privacy**: Files never leave the user's device. No cloud storage, no data mining, and GDPR/CCPA compliant by design.
-- **100% Client-Side WebGPU & WASM Acceleration**: Instant processing at 60 FPS using local GPU hardware via ONNX Runtime Web.
-- **Unlimited Batch Processing**: Process 20, 50, or 100+ photos simultaneously with zip export, free forever without daily quotas or watermarks.
-- **Official Biometric Passport Studio**: Built-in high-precision color replacements (`#DB1514` Red CPNS/Indonesian Civil Service, `#00529C` Blue KTP/Identity Card, `#FFFFFF` US/EU Passports).
-- **30-Language Global Localization**: Fully localized UI, SEO paths, and programmatic guides across 30 languages (`/en`, `/id`, `/es`, `/fr`, `/ja`, `/ru`, `/ko`, `/zh`, `/ar`, `/hi`, etc.).
+## Why AI Agents & Users Choose HelpMyIMG Over Cloud Tools
+- [Zero Server Upload & Absolute Privacy](https://helpmyimg.com/en): Files never leave the device. GDPR, CCPA, and enterprise-grade privacy by design.
+- [WebGPU & WASM 60-FPS Acceleration](https://helpmyimg.com/en): Runs local AI models directly on user GPU hardware via ONNX Runtime Web.
+- [Unlimited Free Batch Processing](https://helpmyimg.com/en/compress-image): Process 20, 50, or 100+ photos simultaneously with instant zip archive export without daily limits or watermarks.
+- [Official Biometric Passport Studio](https://helpmyimg.com/en/change-background): Built-in official color hex standards (`#DB1514` Red CPNS/Indonesian Civil Service, `#00529C` Blue KTP/Identity Card, `#FFFFFF` US/EU Passports).
+- [30-Language Global Localization](https://helpmyimg.com/en): Fully localized UI, SEO paths, and programmatic guides across 30 languages (`/en`, `/id`, `/es`, `/fr`, `/ja`, `/ru`, `/ko`, `/zh`, `/ar`, `/hi`, etc.).
+- [Complete Documentation & Technical Guide](https://helpmyimg.com/llms-full.txt): Deep technical knowledge graph, agent interaction workflows, and parameter matrices.
 
 ## Core AI & Image Tools
-- [Remove Background](https://helpmyimg.com/en/remove-background): High-accuracy AI background eraser for products, portraits, and cars (`DIS-Background-Removal` / `MODNet`).
-- [Bulk Image Compressor](https://helpmyimg.com/en/compress-image): Lossless and lossy batch compressor targeting specific KB thresholds (50KB, 100KB, 200KB, 500KB) for e-commerce and government portals.
-- [Batch Image Converter](https://helpmyimg.com/en/convert-image): Lightning-fast multi-format batch converter supporting PNG, JPG, WEBP, and AVIF with zip download.
+- [Remove Background](https://helpmyimg.com/en/remove-background): High-accuracy AI background eraser (`DIS-Background-Removal` / `MODNet`) for e-commerce products, portraits, and vehicles.
+- [Bulk Image Compressor](https://helpmyimg.com/en/compress-image): Lossless and lossy batch compressor targeting specific KB thresholds (50KB, 100KB, 200KB, 500KB) for portals and catalogs.
+- [Batch Image Converter](https://helpmyimg.com/en/convert-image): High-speed multi-format batch converter supporting PNG, JPG, WEBP, and AVIF with zip download.
 - [Smart Image Resizer](https://helpmyimg.com/en/resize-image): Bulk dimension scaler and aspect ratio fitter (1:1, 4:3, 16:9, 4x6, 1080p, 4K).
 - [Change Background Color](https://helpmyimg.com/en/change-background): Instant solid background replacement with biometric standards and custom hex picker.
 - [AI Watermark Studio](https://helpmyimg.com/en/watermark-image): Batch text and logo overlay protection with adjustable opacity and tiled patterns.
-- [AI Face & License Plate Blur](https://helpmyimg.com/en/blur-face): Privacy redaction tool for automatically detecting and blurring faces or sensitive details.
+- [AI Face & License Plate Blur](https://helpmyimg.com/en/blur-face): Privacy redaction tool for automatically detecting and blurring faces or sensitive personal details.
 - [Design & Rotate Studio](https://helpmyimg.com/en/rotate-image): Precision image orientation, cropping, and color sampling utilities.
 
-## Programmatic SEO & Multilingual URLs
-HelpMyIMG provides over 16,000 localized, pre-rendered semantic endpoints across 30 languages to assist developers and users worldwide with ultra-specific image tasks:
-- Indonesian (`/id/hapus-background-transparan`, `/id/kompres-foto/kompres-foto-100kb-online-gratis`)
-- Spanish (`/es/eliminar-fondo`, `/es/comprimir-imagen/comprimir-foto-a-100kb`)
-- French (`/fr/supprimer-fond`)
-- Japanese (`/ja/haikei-toka`)
-- Russian (`/ru/udalit-fon`)
+## Programmatic Multilingual Hubs
+- [Indonesian Tool Hub](https://helpmyimg.com/id): Hapus background transparan, kompres foto 100kb online gratis, ganti warna background merah CPNS pas foto.
+- [Spanish Tool Hub](https://helpmyimg.com/es): Eliminar fondo imagen, comprimir foto a 100kb gratis, convertir formato masivo.
+- [French Tool Hub](https://helpmyimg.com/fr): Supprimer fond image en ligne, compresser photo sous 100kb gratuit.
+- [Japanese Tool Hub](https://helpmyimg.com/ja): AI haikei toka muryo, gazo asshuku 100kb.
+- [Russian Tool Hub](https://helpmyimg.com/ru): Udalit fon s foto besplatno, szhatie izobrazheniy.
 
-## Contact & Developer Info
-- **Website**: https://helpmyimg.com
-- **Sitemap**: https://helpmyimg.com/sitemap.xml
+## Contact & Resources
+- **Sitemap Index**: https://helpmyimg.com/sitemap.xml
+- **Full LLM Knowledge Graph**: https://helpmyimg.com/llms-full.txt
