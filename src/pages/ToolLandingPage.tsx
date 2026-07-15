@@ -4,6 +4,7 @@ import { getPSeoConfigBySlug, type PSeoKeywordConfig } from '../data/pseoKeyword
 import { SeoHead } from '../components/seo/SeoHead';
 import { Hero } from '../components/Hero';
 import { LandingSections } from '../components/landing/LandingSections';
+import { HomeSections } from '../components/landing/HomeSections';
 import { LandingStats } from '../components/landing/LandingStats';
 import { ToolGrid } from '../components/ToolGrid';
 import { useTranslation } from '../context/LanguageContext';
@@ -184,30 +185,34 @@ export const ToolLandingPage: React.FC = () => {
       {/* STATISTICS */}
       <LandingStats />
 
-      {/* LANDING SECTIONS (Only show if a specific tool is selected, or if we want to show it on homepage too) */}
-      {tool && (
-        <LandingSections tool={(displayConfig.tool === 'brush' ? 'remove' : displayConfig.tool) as any} />
-      )}
-
-      {/* FAQ SECTION (Clean & Simple) */}
-      <section className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <h2 className="text-2xl sm:text-3xl font-bold font-heading text-white text-center mb-8">
-          {t(`landing.${toolMapName}.faqTitle`)}
-        </h2>
-        <div className="space-y-4">
-          {displayConfig.faqs.map((faq, idx) => (
-            <div key={idx} className="glass-panel p-6 border-dark-500/30">
-              <h3 className="text-base sm:text-lg font-bold text-white flex items-start gap-3">
-                <CheckCircle2 className="w-5 h-5 text-neon-cyan shrink-0 mt-0.5" />
-                <span>{faq.question}</span>
-              </h3>
-              <p className="text-slate-300 text-sm sm:text-base mt-3 pl-8 leading-relaxed font-body">
-                {faq.answer}
-              </p>
+      {/* SECTIONS & FAQ: Home Domination vs Tool Specific */}
+      {!tool ? (
+        <HomeSections />
+      ) : (
+        <>
+          <LandingSections tool={(displayConfig.tool === 'brush' ? 'remove' : displayConfig.tool) as any} />
+          
+          {/* Tool Specific FAQ Section */}
+          <section className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+            <h2 className="text-2xl sm:text-3xl font-bold font-heading text-white text-center mb-8">
+              {t(`landing.${toolMapName}.faqTitle`)}
+            </h2>
+            <div className="space-y-4">
+              {displayConfig.faqs.map((faq, idx) => (
+                <div key={idx} className="glass-panel p-6 border-dark-500/30">
+                  <h3 className="text-base sm:text-lg font-bold text-white flex items-start gap-3">
+                    <CheckCircle2 className="w-5 h-5 text-neon-cyan shrink-0 mt-0.5" />
+                    <span>{faq.question}</span>
+                  </h3>
+                  <p className="text-slate-300 text-sm sm:text-base mt-3 pl-8 leading-relaxed font-body">
+                    {faq.answer}
+                  </p>
+                </div>
+              ))}
             </div>
-          ))}
-        </div>
-      </section>
+          </section>
+        </>
+      )}
     </div>
   );
 };

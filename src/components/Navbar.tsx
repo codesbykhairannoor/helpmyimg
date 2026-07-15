@@ -62,8 +62,8 @@ export const Navbar: React.FC = () => {
             <div className="flex flex-col">
               <span className="text-xl font-heading font-extrabold tracking-tight text-white flex items-center gap-1">
                 HelpMyIMG
-                <span className="text-xs px-1.5 py-0.5 rounded-full bg-neon-cyan/20 text-neon-cyan border border-neon-cyan/40 font-mono">
-                  AI
+                <span className="text-xs px-2 py-0.5 rounded-full bg-neon-cyan/20 text-neon-cyan border border-neon-cyan/40 font-mono tracking-wider font-bold">
+                  STUDIO
                 </span>
               </span>
             </div>
@@ -80,16 +80,20 @@ export const Navbar: React.FC = () => {
               {t('nav.compress') || 'Compress'}
             </Link>
             <Link to={`/${lang}/${getLocalizedSlug('resize', lang)}`} className="hover:text-neon-cyan transition-colors font-semibold flex items-center gap-1.5 whitespace-nowrap capitalize">
-              {t('nav.resize') || 'Resize'}
+              {t('nav.resize')}
+            </Link>
+            <Link to={`/${lang}/${getLocalizedSlug('convert', lang)}`} className="hover:text-neon-cyan transition-colors font-semibold flex items-center gap-1.5 whitespace-nowrap capitalize">
+              {t('nav.convert') || 'Convert Format'}
             </Link>
             
-            <div className="relative group/more cursor-pointer">
-              <span className="hover:text-neon-cyan transition-colors font-semibold flex items-center gap-1 whitespace-nowrap capitalize">
-                {t('nav.tools') || 'All AI Tools'} <ChevronDown className="w-3.5 h-3.5" />
-              </span>
+            {/* Menu Dropdown Lainnya */}
+            <div className="relative group/dropdown">
+              <button className="flex items-center gap-1 text-slate-300 hover:text-neon-cyan transition-colors font-semibold py-2">
+                {t('nav.tools') === 'AI Tools' ? 'All Photo Tools' : (t('nav.tools') || 'All Photo Tools')} <ChevronDown className="w-3.5 h-3.5" />
+              </button>
               
               {/* Mega Menu Dropdown */}
-              <div className="absolute left-1/2 -translate-x-1/2 top-full mt-2 w-[850px] bg-white dark:bg-dark-800/95 backdrop-blur-xl border border-slate-200 dark:border-dark-500/80 rounded-3xl shadow-[0_30px_60px_-15px_rgba(0,0,0,0.2)] dark:shadow-2xl opacity-0 invisible group-hover/more:opacity-100 group-hover/more:visible transition-all duration-300 p-5 z-50">
+              <div className="absolute left-1/2 -translate-x-1/2 top-full mt-2 w-[850px] bg-white dark:bg-dark-800/95 backdrop-blur-xl border border-slate-200 dark:border-dark-500/80 rounded-3xl shadow-[0_30px_60px_-15px_rgba(0,0,0,0.2)] dark:shadow-2xl opacity-0 invisible group-hover/dropdown:opacity-100 group-hover/dropdown:visible transition-all duration-300 p-5 z-50">
                 <div className="grid grid-cols-3 gap-x-6 gap-y-4">
                   {categories.filter(c => c.id !== 'all').map(cat => {
                     const catTools = tools.filter(t => t.category === cat.id);

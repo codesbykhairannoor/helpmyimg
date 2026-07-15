@@ -89,7 +89,7 @@ export const ResizeControl: React.FC<ResizeControlProps> = ({
             onClick={() => setResizeMode('smart')}
             className={`flex-1 py-1.5 text-xs font-bold rounded-lg transition-colors flex items-center justify-center gap-1 ${resizeMode === 'smart' ? 'bg-gradient-to-r from-neon-cyan to-neon-indigo text-dark-900 shadow-glow-cyan' : 'text-slate-400 hover:text-slate-200'}`}
           >
-            <span className="text-[10px]">✨</span> Smart (AI)
+            <span className="text-[10px]">✨</span> Smart Auto
           </button>
         </div>
         

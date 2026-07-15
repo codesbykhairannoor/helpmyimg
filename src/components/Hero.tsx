@@ -13,21 +13,31 @@ interface HeroProps {
 export const Hero: React.FC<HeroProps> = ({ title, description }) => {
   const { t } = useTranslation();
 
-  const fallbackTitle = t('landing.default.title.home', { defaultValue: "Every AI tool you need to edit images in bulk" });
-  const fallbackDesc = t('landing.default.desc.home', { defaultValue: "Your local AI photo editor is here and forever free! 100% private, runs directly in your browser." });
+  const fallbackTitle = t('landing.default.title.home', { defaultValue: "Professional Photo Studio & Bulk Image Editor by HelpMyIMG" });
+  const fallbackDesc = t('landing.default.desc.home', { defaultValue: "The complete all-in-one local photo toolkit. Remove backgrounds, change passport colors, blur studio bokeh, compress, convert, and resize instantly right in your browser. 100% free, private, and zero upload required." });
 
   return (
-    <section className="relative pt-12 pb-6 sm:pt-16 md:pt-20 md:pb-8 overflow-hidden">
+    <section className="relative pt-10 pb-6 sm:pt-16 md:pt-20 md:pb-8 overflow-hidden">
       {/* Background Glows */}
       <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[550px] h-[350px] bg-gradient-to-tr from-neon-cyan/20 via-neon-indigo/20 to-neon-violet/20 blur-[130px] rounded-full pointer-events-none -z-10" />
 
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        {/* Badge */}
+        <motion.div
+          initial={{ opacity: 0, y: 15 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-dark-800/80 border border-neon-cyan/40 text-neon-cyan text-xs sm:text-sm font-semibold mb-6 shadow-glow-cyan/20 backdrop-blur-md"
+        >
+          <span>{t('hero.badge', { defaultValue: '✨ 100% Free & Private • Powered by HelpMyIMG Engine' })}</span>
+        </motion.div>
+
         {/* Title */}
         <motion.h1
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.1 }}
-          className="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white mb-4 leading-tight"
+          className="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white mb-5 leading-tight"
         >
           {title || fallbackTitle}
         </motion.h1>
@@ -37,7 +47,7 @@ export const Hero: React.FC<HeroProps> = ({ title, description }) => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="text-base sm:text-lg text-slate-300 max-w-3xl mx-auto mb-8 leading-relaxed"
+          className="text-base sm:text-lg text-slate-300 max-w-3xl mx-auto mb-8 leading-relaxed font-body"
         >
           {description || fallbackDesc}
         </motion.p>

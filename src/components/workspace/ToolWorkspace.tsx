@@ -627,21 +627,21 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({ initialTab = 'remo
                   <Upload className="w-7 h-7 md:w-10 md:h-10 text-neon-cyan animate-bounce" />
                 </div>
 
-                <h3 className="text-lg md:text-2xl font-heading font-extrabold text-white mb-1.5 md:mb-2 px-2">
+                <h3 className="text-lg md:text-2xl font-heading font-extrabold text-white mb-2 px-2 tracking-tight">
                   {currentItem?.status === 'error' ? (
                     <>
                       <span className="font-bold text-red-600 block mb-1">⚠️ {t('work.failedAi')}</span>
                       <span className="text-xs md:text-sm text-gray-600 block">{batchItems[selectedIndex].errorMessage || t('work.errorHint')}</span>
                     </>
-                  ) : t('dropzone.title')}
+                  ) : t('dropzone.title', { defaultValue: 'Upload Photos Here' }).replace(/^[⚡✨🔄\s]+/u, '')}
                 </h3>
-                <p className="text-xs md:text-sm text-slate-400 max-w-sm mx-auto mb-5 md:mb-6 px-2 leading-relaxed">
-                  {t('dropzone.subtitle')}
+                <p className="text-xs md:text-sm text-slate-400 max-w-md mx-auto mb-6 px-4 leading-relaxed font-body">
+                  {t('dropzone.subtitle', { defaultValue: 'Drag and drop images (PNG, JPG, WEBP) or click to browse' })}
                 </p>
 
-                <div className="w-[92%] max-w-sm sm:w-auto sm:inline-flex items-center justify-center gap-2 px-6 py-4 md:px-8 md:py-3.5 rounded-2xl bg-gradient-to-r from-neon-cyan via-neon-emerald to-neon-indigo text-dark-900 font-extrabold shadow-glow-cyan transform group-hover:-translate-y-0.5 transition-all text-sm sm:text-base tracking-wide mb-6 md:mb-0">
+                <div className="inline-flex items-center justify-center gap-2.5 px-8 py-3.5 sm:px-10 sm:py-4 rounded-2xl bg-gradient-to-r from-neon-cyan via-neon-emerald to-neon-indigo text-dark-900 font-extrabold shadow-glow-cyan transform group-hover:-translate-y-0.5 transition-all text-sm sm:text-base tracking-wide mb-6 md:mb-0 shadow-lg cursor-pointer">
                   <Sparkles className="w-4 h-4 fill-dark-900 shrink-0" />
-                  <span>{t('dropzone.btn')}</span>
+                  <span>{t('dropzone.btn', { defaultValue: 'Select Photos' }).replace(/^[⚡✨🔄\s]+/u, '')}</span>
                 </div>
 
                 <div className="md:absolute md:bottom-4 left-0 right-0 text-center text-[10px] md:text-xs text-slate-400/80 font-medium px-4">
