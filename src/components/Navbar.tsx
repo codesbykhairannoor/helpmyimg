@@ -91,8 +91,8 @@ export const Navbar: React.FC = () => {
               
               {/* Mega Menu Dropdown */}
               {/* Mega Menu Dropdown */}
-              <div className="absolute left-1/2 -translate-x-1/2 top-full mt-2 w-[900px] max-w-[94vw] bg-white dark:bg-dark-800/95 backdrop-blur-xl border border-slate-200 dark:border-dark-500/80 rounded-3xl shadow-[0_30px_60px_-15px_rgba(0,0,0,0.25)] dark:shadow-2xl opacity-0 invisible group-hover/dropdown:opacity-100 group-hover/dropdown:visible transition-all duration-300 p-6 z-50">
-                <div className="grid grid-cols-5 gap-x-6 gap-y-4">
+              <div className="fixed left-1/2 -translate-x-1/2 top-[64px] mt-1 w-[880px] max-w-[95vw] bg-white dark:bg-dark-800/95 backdrop-blur-xl border border-slate-200 dark:border-dark-500/80 rounded-3xl shadow-[0_30px_60px_-15px_rgba(0,0,0,0.25)] dark:shadow-2xl opacity-0 invisible group-hover/dropdown:opacity-100 group-hover/dropdown:visible transition-all duration-300 p-6 z-50">
+                <div className="grid grid-cols-5 gap-x-5 gap-y-4 text-left">
                   {categories.filter(c => c.id !== 'all').map(cat => {
                     const catTools = tools.filter(t => t.category === cat.id);
                     if (catTools.length === 0) return null;
@@ -102,21 +102,30 @@ export const Navbar: React.FC = () => {
                         <div className="text-[11px] font-mono font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider border-b border-slate-100 dark:border-dark-600/60 pb-2">
                           {t(cat.labelKey)}
                         </div>
-                        <div className="space-y-1">
-                          {catTools.map(tool => (
-                            <Link 
-                              key={tool.id} 
-                              to={`/${lang}/${getLocalizedSlug(tool.id, lang)}`} 
-                              className="flex items-center gap-2.5 p-1.5 -mx-1.5 rounded-xl hover:bg-slate-50 dark:hover:bg-dark-700/60 transition-all duration-150 group/item"
-                            >
-                              <div className="w-6 h-6 rounded-lg bg-slate-100 dark:bg-dark-700 flex items-center justify-center shrink-0 group-hover/item:bg-neon-cyan/15 group-hover/item:text-neon-cyan transition-colors text-slate-500 dark:text-slate-400 shadow-sm dark:shadow-none group-hover/item:scale-105">
-                                <tool.icon className="w-3.5 h-3.5" />
-                              </div>
-                              <span className="text-xs font-semibold text-slate-700 dark:text-slate-200 group-hover/item:text-neon-cyan transition-colors leading-tight">
-                                {t(tool.titleKey)}
-                              </span>
-                            </Link>
-                          ))}
+                        <div className="space-y-1.5">
+                          {catTools.map(tool => {
+                            const descWords = t(tool.descKey).split(' ');
+                            const shortDesc = descWords.slice(0, 4).join(' ') + (descWords.length > 4 ? '...' : '');
+                            return (
+                              <Link 
+                                key={tool.id} 
+                                to={`/${lang}/${getLocalizedSlug(tool.id, lang)}`} 
+                                className="flex items-start gap-2.5 p-1.5 -mx-1.5 rounded-xl hover:bg-slate-50 dark:hover:bg-dark-700/60 transition-all duration-150 group/item"
+                              >
+                                <div className="w-7 h-7 rounded-lg bg-slate-100 dark:bg-dark-700 flex items-center justify-center shrink-0 group-hover/item:bg-neon-cyan/15 group-hover/item:text-neon-cyan transition-colors text-slate-500 dark:text-slate-400 mt-0.5 shadow-sm dark:shadow-none group-hover/item:scale-105">
+                                  <tool.icon className="w-3.5 h-3.5" />
+                                </div>
+                                <div className="min-w-0 flex-1 pt-0.5">
+                                  <div className="text-xs font-semibold text-slate-800 dark:text-slate-200 group-hover/item:text-neon-cyan transition-colors truncate">
+                                    {t(tool.titleKey)}
+                                  </div>
+                                  <div className="text-[10px] text-slate-500 dark:text-slate-400 mt-0.5 truncate font-normal leading-tight">
+                                    {shortDesc}
+                                  </div>
+                                </div>
+                              </Link>
+                            );
+                          })}
                         </div>
                       </div>
                     );
