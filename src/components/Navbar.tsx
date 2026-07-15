@@ -90,41 +90,94 @@ export const Navbar: React.FC = () => {
               </button>
               
               {/* Mega Menu Dropdown */}
-              <div className="absolute left-1/2 -translate-x-1/2 top-full mt-2 w-[850px] bg-white dark:bg-dark-800/95 backdrop-blur-xl border border-slate-200 dark:border-dark-500/80 rounded-3xl shadow-[0_30px_60px_-15px_rgba(0,0,0,0.2)] dark:shadow-2xl opacity-0 invisible group-hover/dropdown:opacity-100 group-hover/dropdown:visible transition-all duration-300 p-5 z-50">
-                <div className="grid grid-cols-3 gap-x-6 gap-y-4">
-                  {categories.filter(c => c.id !== 'all').map(cat => {
-                    const catTools = tools.filter(t => t.category === cat.id);
-                    if (catTools.length === 0) return null;
-                    
-                    return (
-                      <div key={cat.id} className="break-inside-avoid space-y-2">
-                        <div className="text-[10px] font-mono font-bold text-slate-500 dark:text-slate-400 uppercase tracking-widest border-b border-slate-100 dark:border-dark-600/50 pb-1.5">
-                          {t(cat.labelKey)}
-                        </div>
-                        <div className="space-y-1">
-                          {catTools.map(tool => (
-                            <Link 
-                              key={tool.id} 
-                              to={`/${lang}/${getLocalizedSlug(tool.id, lang)}`} 
-                              className="flex items-start gap-3 p-2 -mx-2 rounded-2xl hover:bg-slate-50 dark:hover:bg-dark-700/50 transition-colors group/item"
-                            >
-                              <div className="w-8 h-8 rounded-xl bg-slate-100 dark:bg-dark-700 flex items-center justify-center shrink-0 group-hover/item:bg-neon-cyan/10 dark:group-hover/item:bg-neon-cyan/20 group-hover/item:text-neon-cyan transition-colors text-slate-500 dark:text-slate-400 shadow-sm dark:shadow-none">
-                                <tool.icon className="w-4 h-4" />
-                              </div>
-                              <div className="pt-0.5">
-                                <div className="text-xs font-semibold text-slate-800 dark:text-slate-200 group-hover/item:text-neon-cyan transition-colors">
-                                  {t(tool.titleKey)}
+              {/* Mega Menu Dropdown */}
+              <div className="absolute left-1/2 -translate-x-1/2 top-full mt-2 w-[680px] bg-white dark:bg-dark-800/95 backdrop-blur-xl border border-slate-200 dark:border-dark-500/80 rounded-3xl shadow-[0_30px_60px_-15px_rgba(0,0,0,0.25)] dark:shadow-2xl opacity-0 invisible group-hover/dropdown:opacity-100 group-hover/dropdown:visible transition-all duration-300 p-6 z-50">
+                <div className="grid grid-cols-2 gap-x-8 gap-y-6">
+                  {/* Kolom 1: OPTIMIZE (2) + STUDIO & EDIT (3) = 5 Tools */}
+                  <div className="space-y-5">
+                    {categories.filter(c => ['optimize', 'edit'].includes(c.id)).map(cat => {
+                      const catTools = tools.filter(t => t.category === cat.id);
+                      if (catTools.length === 0) return null;
+                      
+                      return (
+                        <div key={cat.id} className="space-y-2">
+                          <div className="text-[10px] font-mono font-bold text-slate-500 dark:text-slate-400 uppercase tracking-widest border-b border-slate-100 dark:border-dark-600/50 pb-1.5 flex items-center justify-between">
+                            <span>{t(cat.labelKey)}</span>
+                            <span className="text-[9px] text-slate-400 dark:text-slate-500 font-normal">{catTools.length} {catTools.length === 1 ? 'tool' : 'tools'}</span>
+                          </div>
+                          <div className="space-y-1">
+                            {catTools.map(tool => (
+                              <Link 
+                                key={tool.id} 
+                                to={`/${lang}/${getLocalizedSlug(tool.id, lang)}`} 
+                                className="flex items-start gap-3 p-2 -mx-2 rounded-2xl hover:bg-slate-50 dark:hover:bg-dark-700/60 transition-all duration-200 group/item border border-transparent hover:border-slate-200/50 dark:hover:border-dark-500/50"
+                              >
+                                <div className="w-8 h-8 rounded-xl bg-slate-100 dark:bg-dark-700 flex items-center justify-center shrink-0 group-hover/item:bg-neon-cyan/10 dark:group-hover/item:bg-neon-cyan/20 group-hover/item:text-neon-cyan transition-colors text-slate-500 dark:text-slate-400 shadow-sm dark:shadow-none group-hover/item:scale-105">
+                                  <tool.icon className="w-4 h-4" />
                                 </div>
-                                <div className="text-[10px] text-slate-500 dark:text-slate-400 mt-0.5 leading-snug line-clamp-2">
-                                  {t(tool.descKey)}
+                                <div className="pt-0.5 min-w-0 flex-1">
+                                  <div className="text-xs font-semibold text-slate-800 dark:text-slate-200 group-hover/item:text-neon-cyan transition-colors flex items-center gap-1.5">
+                                    <span className="truncate">{t(tool.titleKey)}</span>
+                                    {tool.isNew && (
+                                      <span className="text-[8px] uppercase font-extrabold px-1.5 py-0.5 rounded-full bg-rose-600 text-white shrink-0 tracking-wider">
+                                        New
+                                      </span>
+                                    )}
+                                  </div>
+                                  <div className="text-[10px] text-slate-500 dark:text-slate-400 mt-0.5 leading-snug line-clamp-2">
+                                    {t(tool.descKey)}
+                                  </div>
                                 </div>
-                              </div>
-                            </Link>
-                          ))}
+                              </Link>
+                            ))}
+                          </div>
                         </div>
-                      </div>
-                    );
-                  })}
+                      );
+                    })}
+                  </div>
+
+                  {/* Kolom 2: MODIFY (2) + CONVERT (1) + SECURITY (2) = 5 Tools */}
+                  <div className="space-y-5">
+                    {categories.filter(c => ['modify', 'convert', 'security'].includes(c.id)).map(cat => {
+                      const catTools = tools.filter(t => t.category === cat.id);
+                      if (catTools.length === 0) return null;
+                      
+                      return (
+                        <div key={cat.id} className="space-y-2">
+                          <div className="text-[10px] font-mono font-bold text-slate-500 dark:text-slate-400 uppercase tracking-widest border-b border-slate-100 dark:border-dark-600/50 pb-1.5 flex items-center justify-between">
+                            <span>{t(cat.labelKey)}</span>
+                            <span className="text-[9px] text-slate-400 dark:text-slate-500 font-normal">{catTools.length} {catTools.length === 1 ? 'tool' : 'tools'}</span>
+                          </div>
+                          <div className="space-y-1">
+                            {catTools.map(tool => (
+                              <Link 
+                                key={tool.id} 
+                                to={`/${lang}/${getLocalizedSlug(tool.id, lang)}`} 
+                                className="flex items-start gap-3 p-2 -mx-2 rounded-2xl hover:bg-slate-50 dark:hover:bg-dark-700/60 transition-all duration-200 group/item border border-transparent hover:border-slate-200/50 dark:hover:border-dark-500/50"
+                              >
+                                <div className="w-8 h-8 rounded-xl bg-slate-100 dark:bg-dark-700 flex items-center justify-center shrink-0 group-hover/item:bg-neon-cyan/10 dark:group-hover/item:bg-neon-cyan/20 group-hover/item:text-neon-cyan transition-colors text-slate-500 dark:text-slate-400 shadow-sm dark:shadow-none group-hover/item:scale-105">
+                                  <tool.icon className="w-4 h-4" />
+                                </div>
+                                <div className="pt-0.5 min-w-0 flex-1">
+                                  <div className="text-xs font-semibold text-slate-800 dark:text-slate-200 group-hover/item:text-neon-cyan transition-colors flex items-center gap-1.5">
+                                    <span className="truncate">{t(tool.titleKey)}</span>
+                                    {tool.isNew && (
+                                      <span className="text-[8px] uppercase font-extrabold px-1.5 py-0.5 rounded-full bg-rose-600 text-white shrink-0 tracking-wider">
+                                        New
+                                      </span>
+                                    )}
+                                  </div>
+                                  <div className="text-[10px] text-slate-500 dark:text-slate-400 mt-0.5 leading-snug line-clamp-2">
+                                    {t(tool.descKey)}
+                                  </div>
+                                </div>
+                              </Link>
+                            ))}
+                          </div>
+                        </div>
+                      );
+                    })}
+                  </div>
                 </div>
               </div>
             </div>
