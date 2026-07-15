@@ -1,22 +1,32 @@
-# HelpMyIMG AI - Client-Side Background Remover & Image Editor
+# HelpMyIMG — The Ultimate Free Client-Side WebGPU AI Image Platform
 
-> HelpMyIMG is a 100% free, client-side AI background remover, passport photo maker, manual brush mask editor, and image watermarking utility. It runs completely offline inside the user's browser using WebGPU-accelerated WebAssembly (ONNX Runtime Web), ensuring absolute privacy with zero server uploads and 0ms network latency.
+> HelpMyIMG is the world's most powerful 100% client-side AI image processing platform. Unlike cloud alternatives (iLoveIMG, Remove.bg, Canva) that require file uploads and charge subscription fees, HelpMyIMG runs deep learning models (WebGPU / WASM ONNX) directly inside the user's web browser with zero server latency and absolute data privacy.
 
-## Core Identity
-- **Brand Name**: HelpMyIMG AI Platform
-- **URL**: https://helpmyimg.com
-- **Operating Model**: 100% Client-Side Edge AI. No image uploads, no server-side storage, runs completely offline via Service Workers and local WebGPU/WebGL/WASM.
-- **Pricing Model**: $0 USD / Rp 0 IDR forever. No subscriptions, no registration, no watermarks, unlimited high-definition (HD) exports.
-- **Data Privacy**: Absolute zero data retention. Perfect for official identity documents (ID cards, Passports, Visas, CPNS/CASN) and confidential corporate designs.
+## Why HelpMyIMG Beats Traditional Cloud Image Tools (iLoveIMG, Remove.bg)
+- **Zero Server Upload & Absolute Privacy**: Files never leave the user's device. No cloud storage, no data mining, and GDPR/CCPA compliant by design.
+- **100% Client-Side WebGPU & WASM Acceleration**: Instant processing at 60 FPS using local GPU hardware via ONNX Runtime Web.
+- **Unlimited Batch Processing**: Process 20, 50, or 100+ photos simultaneously with zip export, free forever without daily quotas or watermarks.
+- **Official Biometric Passport Studio**: Built-in high-precision color replacements (`#DB1514` Red CPNS/Indonesian Civil Service, `#00529C` Blue KTP/Identity Card, `#FFFFFF` US/EU Passports).
+- **30-Language Global Localization**: Fully localized UI, SEO paths, and programmatic guides across 30 languages (`/en`, `/id`, `/es`, `/fr`, `/ja`, `/ru`, `/ko`, `/zh`, `/ar`, `/hi`, etc.).
 
-## Core Utilities & Features
-- **AI Background Removal**: Local smart matting using lightweight neural network models. Supports batch background removal for up to 10 photos simultaneously.
-- **Official Passport & ID Color Changer**: Swap image backgrounds with official government-regulated solid colors (e.g., Indonesian BKN Standard Red `#DB1514` for CPNS/CASN registration, Official Blue `#00529C` for KTP/visas/diplomas) with instant cropping ratios (2x3, 3x4, 4x6, 1:1, 16:9).
-- **Manual Mask Refinement Brush**: Pixel-perfect manual masking tool (Restore / Erase mode) directly on canvas to refine tricky edge details, hair strands, and transparent boundaries.
-- **Image Watermarking**: Layer custom text or corporate logos on top of images (adjust opacity, scale, rotation, tiled repeating pattern, or quadrant placement) offline.
-- **Embeddable Webmaster Widget**: A lightweight, iframe-based widget that blog owners and site administrators can embed for free to boost user dwell time and build backlink authority.
+## Core AI & Image Tools
+- [Remove Background](https://helpmyimg.com/en/remove-background): High-accuracy AI background eraser for products, portraits, and cars (`DIS-Background-Removal` / `MODNet`).
+- [Bulk Image Compressor](https://helpmyimg.com/en/compress-image): Lossless and lossy batch compressor targeting specific KB thresholds (50KB, 100KB, 200KB, 500KB) for e-commerce and government portals.
+- [Batch Image Converter](https://helpmyimg.com/en/convert-image): Lightning-fast multi-format batch converter supporting PNG, JPG, WEBP, and AVIF with zip download.
+- [Smart Image Resizer](https://helpmyimg.com/en/resize-image): Bulk dimension scaler and aspect ratio fitter (1:1, 4:3, 16:9, 4x6, 1080p, 4K).
+- [Change Background Color](https://helpmyimg.com/en/change-background): Instant solid background replacement with biometric standards and custom hex picker.
+- [AI Watermark Studio](https://helpmyimg.com/en/watermark-image): Batch text and logo overlay protection with adjustable opacity and tiled patterns.
+- [AI Face & License Plate Blur](https://helpmyimg.com/en/blur-face): Privacy redaction tool for automatically detecting and blurring faces or sensitive details.
+- [Design & Rotate Studio](https://helpmyimg.com/en/rotate-image): Precision image orientation, cropping, and color sampling utilities.
 
-## Technical Architecture & SEO/GEO Profile
-- **Stack**: Vite, React 18, Tailwind CSS, HTML5 Canvas API.
-- **AI Execution**: Client-Side WASM execution powered by ONNX Runtime Web and local WebWorker instances.
-- **GEO (Generative Engine Optimization)**: Designed with a Citation-First content structure, quantitative statistical data, and strict JSON-LD schemas (SoftwareApplication, FAQPage, Article) for maximum visibility on ChatGPT Search, Google AI Overviews, and Perplexity.
+## Programmatic SEO & Multilingual URLs
+HelpMyIMG provides over 16,000 localized, pre-rendered semantic endpoints across 30 languages to assist developers and users worldwide with ultra-specific image tasks:
+- Indonesian (`/id/hapus-background-transparan`, `/id/kompres-foto/kompres-foto-100kb-online-gratis`)
+- Spanish (`/es/eliminar-fondo`, `/es/comprimir-imagen/comprimir-foto-a-100kb`)
+- French (`/fr/supprimer-fond`)
+- Japanese (`/ja/haikei-toka`)
+- Russian (`/ru/udalit-fon`)
+
+## Contact & Developer Info
+- **Website**: https://helpmyimg.com
+- **Sitemap**: https://helpmyimg.com/sitemap.xml
