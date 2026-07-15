@@ -9,16 +9,18 @@ import { Upload, Download, Loader2, Sparkles, Archive, Trash2, Settings2, Chevro
 import JSZip from 'jszip';
 import { motion } from 'framer-motion';
 
-const RemoveBgControl = React.lazy(() => import('./tools/RemoveBgControl').then(m => ({ default: m.RemoveBgControl })));
-const ColorBgControl = React.lazy(() => import('./tools/ColorBgControl').then(m => ({ default: m.ColorBgControl })));
-const BrushControl = React.lazy(() => import('./tools/BrushControl').then(m => ({ default: m.BrushControl })));
-const WatermarkControl = React.lazy(() => import('./tools/WatermarkControl').then(m => ({ default: m.WatermarkControl })));
-const CompressControl = React.lazy(() => import('./tools/CompressControl').then(m => ({ default: m.CompressControl })));
-const ConvertControl = React.lazy(() => import('./tools/ConvertControl').then(m => ({ default: m.ConvertControl })));
-const ResizeControl = React.lazy(() => import('./tools/ResizeControl').then(m => ({ default: m.ResizeControl })));
-const CropControl = React.lazy(() => import('./tools/CropControl').then(m => ({ default: m.CropControl })));
-const RotateControl = React.lazy(() => import('./tools/RotateControl').then(m => ({ default: m.RotateControl })));
-const ColorPickerControl = React.lazy(() => import('./tools/ColorPickerControl').then(m => ({ default: m.ColorPickerControl })));
+import { lazyWithRetry } from '../../utils/lazyWithRetry';
+
+const RemoveBgControl = lazyWithRetry(() => import('./tools/RemoveBgControl').then(m => ({ default: m.RemoveBgControl })), 'RemoveBgControl');
+const ColorBgControl = lazyWithRetry(() => import('./tools/ColorBgControl').then(m => ({ default: m.ColorBgControl })), 'ColorBgControl');
+const BrushControl = lazyWithRetry(() => import('./tools/BrushControl').then(m => ({ default: m.BrushControl })), 'BrushControl');
+const WatermarkControl = lazyWithRetry(() => import('./tools/WatermarkControl').then(m => ({ default: m.WatermarkControl })), 'WatermarkControl');
+const CompressControl = lazyWithRetry(() => import('./tools/CompressControl').then(m => ({ default: m.CompressControl })), 'CompressControl');
+const ConvertControl = lazyWithRetry(() => import('./tools/ConvertControl').then(m => ({ default: m.ConvertControl })), 'ConvertControl');
+const ResizeControl = lazyWithRetry(() => import('./tools/ResizeControl').then(m => ({ default: m.ResizeControl })), 'ResizeControl');
+const CropControl = lazyWithRetry(() => import('./tools/CropControl').then(m => ({ default: m.CropControl })), 'CropControl');
+const RotateControl = lazyWithRetry(() => import('./tools/RotateControl').then(m => ({ default: m.RotateControl })), 'RotateControl');
+const ColorPickerControl = lazyWithRetry(() => import('./tools/ColorPickerControl').then(m => ({ default: m.ColorPickerControl })), 'ColorPickerControl');
 import { InteractiveCropOverlay } from './tools/InteractiveCropOverlay';
 import { ImageCompareSlider } from './tools/ImageCompareSlider';
 

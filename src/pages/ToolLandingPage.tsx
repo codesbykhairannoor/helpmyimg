@@ -13,8 +13,9 @@ import { CheckCircle2, Loader2 } from 'lucide-react';
 
 import { getToolFromSlug } from '../utils/urlMapper';
 import { synthesizeDynamicPSeo } from '../utils/dynamicPSeoSynthesizer';
+import { lazyWithRetry } from '../utils/lazyWithRetry';
 
-const ToolWorkspace = React.lazy(() => import('../components/workspace/ToolWorkspace').then(module => ({ default: module.ToolWorkspace })));
+const ToolWorkspace = lazyWithRetry(() => import('../components/workspace/ToolWorkspace').then(module => ({ default: module.ToolWorkspace })), 'ToolWorkspace');
 
 export const ToolLandingPage: React.FC = () => {
   const { lang = 'en', tool, keywordSlug } = useParams<{ lang: string; tool: string; keywordSlug: string }>();

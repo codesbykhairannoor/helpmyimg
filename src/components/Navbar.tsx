@@ -62,9 +62,6 @@ export const Navbar: React.FC = () => {
             <div className="flex flex-col">
               <span className="text-xl font-heading font-extrabold tracking-tight text-white flex items-center gap-1">
                 HelpMyIMG
-                <span className="text-xs px-2 py-0.5 rounded-full bg-neon-cyan/20 text-neon-cyan border border-neon-cyan/40 font-mono tracking-wider font-bold">
-                  STUDIO
-                </span>
               </span>
             </div>
           </Link>
