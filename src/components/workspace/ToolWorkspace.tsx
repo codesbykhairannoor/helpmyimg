@@ -683,9 +683,9 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({ initialTab = 'remo
               </div>
             ) : (
               /* Viewport Gambar Terpilih */
-              <div className="space-y-4 sticky top-[72px] z-30 lg:static">
-                <div className={`w-full rounded-3xl border border-dark-500/80 bg-dark-900/90 shadow-glass overflow-hidden relative flex items-center justify-center checkerboard-bg ${
-                  activeTab === 'design' ? 'h-[75vh] md:h-auto md:aspect-[4/3]' : 'aspect-video md:aspect-[4/3]'
+              <div className="space-y-4 lg:static">
+                <div className={`w-full rounded-3xl border border-dark-500/80 bg-dark-900/90 shadow-glass overflow-hidden relative flex items-center justify-center checkerboard-bg transition-all duration-150 ${
+                  activeTab === 'design' ? 'h-[75vh] md:h-auto md:aspect-[4/3]' : 'min-h-[380px] sm:min-h-[460px] aspect-[4/5] sm:aspect-square md:min-h-0 md:aspect-[4/3]'
                 }`}>
                   {currentItem?.status === 'processing' && (
                     <div className="absolute inset-0 bg-dark-900 md:bg-dark-900/80 md:backdrop-blur-md flex flex-col items-center justify-center z-20 space-y-4 p-6 text-center">
@@ -714,7 +714,7 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({ initialTab = 'remo
                       onMouseMove={handleCanvasMouseMove}
                       onMouseUp={handleCanvasMouseUp}
                       onMouseLeave={handleCanvasMouseUp}
-                      className={`max-h-full max-w-full object-contain shadow-2xl rounded-lg ${
+                      className={`max-h-[360px] sm:max-h-[440px] md:max-h-full max-w-full object-contain shadow-2xl rounded-lg ${
                         activeTab === 'picker' ? 'cursor-picker' : 'cursor-brush'
                       }`}
                     />
@@ -734,14 +734,14 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({ initialTab = 'remo
                             ref={setImageElement as React.Ref<HTMLImageElement>}
                             initial={{ opacity: 0, scale: 0.95 }}
                             animate={{ opacity: 1, scale: 1 }}
-                            transition={{ duration: 0.2 }}
+                            transition={{ duration: 0.15 }}
                             src={activeTab === 'blurface' ? currentItem.originalUrl : (currentItem.processedUrl || currentItem.originalUrl)}
                             alt="Image"
                             style={activeTab === 'resize' && resizeWidth > 0 && resizeHeight > 0 ? {
                                aspectRatio: `${resizeWidth} / ${resizeHeight}`,
                                objectFit: resizeMode === 'smart' ? 'cover' : 'fill'
                             } : {}}
-                            className={`max-h-full max-w-full shadow-2xl rounded-lg ${activeTab !== 'resize' ? 'object-contain' : ''}`}
+                            className={`max-h-[360px] sm:max-h-[440px] md:max-h-full max-w-full shadow-2xl rounded-lg ${activeTab !== 'resize' ? 'object-contain' : ''}`}
                           />
                         )}
                         {activeTab === 'crop' && (

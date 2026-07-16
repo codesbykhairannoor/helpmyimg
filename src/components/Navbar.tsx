@@ -249,16 +249,17 @@ export const Navbar: React.FC = () => {
         </div>
       </div>
 
-      {/* Mobile Menu Overlay */}
+      {/* Mobile Menu Overlay - FIXED position, zero layout shift/pushdown! */}
       <AnimatePresence>
         {mobileMenuOpen && (
           <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
-            exit={{ opacity: 0, height: 0 }}
-            className="lg:hidden overflow-hidden bg-dark-900 border-b border-dark-500/40 shadow-2xl"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.15, ease: 'easeInOut' }}
+            className="lg:hidden fixed inset-x-0 top-16 bottom-0 z-50 bg-dark-900/95 backdrop-blur-xl border-t border-dark-500/40 overflow-y-auto"
           >
-            <div className="flex flex-col px-4 pt-4 pb-6 space-y-5 h-[calc(100vh-64px)] overflow-y-auto custom-scrollbar">
+            <div className="flex flex-col px-4 pt-4 pb-12 space-y-5">
               
               {/* Theme Toggle inside Mobile Menu */}
               <button

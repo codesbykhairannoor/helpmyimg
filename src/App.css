@@ -182,3 +182,17 @@
     border-right-color: var(--border);
   }
 }
+
+/* HP / Mobile Instant Performance & Anti-Throwback Safeguards */
+html, body {
+  overscroll-behavior-x: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+button, a, input, select {
+  touch-action: manipulation;
+}
+
+.custom-scrollbar {
+  -webkit-overflow-scrolling: touch;
+}
