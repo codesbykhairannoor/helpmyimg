@@ -18,7 +18,7 @@ export const Footer: React.FC = () => {
           <div className="space-y-3 max-w-sm">
             <div className="flex items-center gap-2.5 group cursor-pointer">
               <div className="w-10 h-10 flex-shrink-0 drop-shadow-glow-cyan">
-                <img src="/logohelpmy.png" alt="HelpMyIMG Logo" width="40" height="40" decoding="async" className="w-full h-full object-contain" />
+                <img src="/logohelpimg.png" alt="HelpMyIMG Logo" width="40" height="40" decoding="async" className="w-full h-full object-contain" />
               </div>
               <span className="text-xl font-heading font-extrabold tracking-tight text-white">
                 HelpMyIMG <span className="text-neon-cyan text-sm px-2 py-0.5 rounded-full bg-neon-cyan/10 border border-neon-cyan/30 font-mono">{t('footer.badge.ai')}</span>
