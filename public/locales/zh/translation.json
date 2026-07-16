@@ -1129,7 +1129,5 @@
   "grid.colorDesc": "将证件照背景色一键更改为官方红/蓝背景，或即时应用摄影棚级渐变效果，全本地安全处理。",
   "color.officialTitle": "官方标准证件照背景色",
   "color.customTitle": "自定义背景颜色",
-  "work": {
-    "emptyFileNameAlert": "文件名不能为空！"
-  }
+  "work.emptyFileNameAlert": "文件名不能为空！"
 }

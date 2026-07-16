@@ -1129,7 +1129,5 @@
   "grid.colorDesc": "Altere a cor de fundo da foto do passaporte para o vermelho/azul oficial ou aplique gradientes de estúdio.",
   "color.officialTitle": "Cores Oficiais para Passaporte",
   "color.customTitle": "Cor de Fundo Personalizada",
-  "work": {
-    "emptyFileNameAlert": "O nome do arquivo não pode estar vazio!"
-  }
+  "work.emptyFileNameAlert": "O nome do arquivo não pode estar vazio!"
 }

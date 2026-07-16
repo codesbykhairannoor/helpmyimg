@@ -1203,7 +1203,5 @@
   "grid.colorDesc": "Ganti warna latar pas foto menjadi merah/biru resmi atau aplikasikan gradien studio secara lokal dan instan.",
   "color.officialTitle": "Warna Resmi Pas Foto & Dokumen",
   "color.customTitle": "Pilih Warna Kustom",
-  "work": {
-    "emptyFileNameAlert": "Nama file tidak boleh kosong!"
-  }
+  "work.emptyFileNameAlert": "Nama file tidak boleh kosong!"
 }

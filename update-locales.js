@@ -42,13 +42,15 @@ for (const lang of langs) {
   if (fs.existsSync(filePath)) {
     const data = JSON.parse(fs.readFileSync(filePath, 'utf8'));
     
-    if (!data.work) {
-      data.work = {};
+    // Clean up incorrect nested object if exists
+    if (data.work && typeof data.work === 'object') {
+      delete data.work;
     }
     
-    data.work.emptyFileNameAlert = translations[lang] || translations['en'];
+    // Add the flat key
+    data['work.emptyFileNameAlert'] = translations[lang] || translations['en'];
     
     fs.writeFileSync(filePath, JSON.stringify(data, null, 2), 'utf8');
-    console.log(`Updated ${lang}`);
+    console.log(`Updated ${lang} flat key`);
   }
 }
