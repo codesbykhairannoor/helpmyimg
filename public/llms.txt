@@ -6,7 +6,7 @@
 - [Zero Server Upload & Absolute Privacy](https://helpmyimg.com/en): Files never leave the device. GDPR, CCPA, and enterprise-grade privacy by design.
 - [WebGPU & WASM 60-FPS Acceleration](https://helpmyimg.com/en): Runs local AI models directly on user GPU hardware via ONNX Runtime Web.
 - [Unlimited Free Batch Processing](https://helpmyimg.com/en/compress-image): Process 20, 50, or 100+ photos simultaneously with instant zip archive export without daily limits or watermarks.
-- [Official Biometric Passport Studio](https://helpmyimg.com/en/change-background): Built-in official color hex standards (`#DB1514` Red CPNS/Indonesian Civil Service, `#00529C` Blue KTP/Identity Card, `#FFFFFF` US/EU Passports).
+- [Official Biometric Passport Studio](https://helpmyimg.com/en/change-background): Built-in official color hex standards (`#DB1514` Standard Red, `#00529C` Standard Blue, `#FFFFFF` US/EU Passports).
 - [30-Language Global Localization](https://helpmyimg.com/en): Fully localized UI, SEO paths, and programmatic guides across 30 languages (`/en`, `/id`, `/es`, `/fr`, `/ja`, `/ru`, `/ko`, `/zh`, `/ar`, `/hi`, etc.).
 - [Complete Documentation & Technical Guide](https://helpmyimg.com/llms-full.txt): Deep technical knowledge graph, agent interaction workflows, and parameter matrices.
 

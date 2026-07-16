@@ -26,6 +26,7 @@ export interface ToolItem {
 }
 
 export const tools: ToolItem[] = [
+  // Modify Category (3 items)
   {
     id: 'color',
     category: 'modify',
@@ -35,13 +36,6 @@ export const tools: ToolItem[] = [
     isNew: true,
   },
   {
-    id: 'compress',
-    category: 'optimize',
-    icon: Minimize2,
-    titleKey: 'nav.compress',
-    descKey: 'grid.compressDesc',
-  },
-  {
     id: 'resize',
     category: 'modify',
     icon: Maximize2,
@@ -49,50 +43,21 @@ export const tools: ToolItem[] = [
     descKey: 'grid.resizeDesc',
   },
   {
-    id: 'remove',
-    category: 'optimize',
-    icon: Scissors,
-    titleKey: 'nav.removeBg',
-    descKey: 'grid.removeDesc',
+    id: 'crop',
+    category: 'modify',
+    icon: Crop,
+    titleKey: 'nav.crop',
+    descKey: 'grid.cropDesc',
     isNew: true,
   },
-  {
-    id: 'convert',
-    category: 'convert',
-    icon: ImageIcon,
-    titleKey: 'nav.convert',
-    descKey: 'grid.convertDesc',
-    isNew: true,
-  },
-  {
-    id: 'watermark',
-    category: 'security',
-    icon: Stamp,
-    titleKey: 'nav.watermark',
-    descKey: 'grid.watermarkDesc',
-  },
-  {
-    id: 'blurface',
-    category: 'security',
-    icon: ScanFace,
-    titleKey: 'nav.blurface',
-    descKey: 'grid.blurfaceDesc',
-    isNew: true,
-  },
+
+  // Edit Category (3 items)
   {
     id: 'design',
     category: 'edit',
     icon: Wand2,
     titleKey: 'nav.design',
     descKey: 'grid.designDesc',
-    isNew: true,
-  },
-  {
-    id: 'crop',
-    category: 'modify',
-    icon: Crop,
-    titleKey: 'nav.crop',
-    descKey: 'grid.cropDesc',
     isNew: true,
   },
   {
@@ -110,14 +75,58 @@ export const tools: ToolItem[] = [
     titleKey: 'nav.picker',
     descKey: 'grid.pickerDesc',
     isNew: true,
+  },
+
+  // Optimize Category (2 items)
+  {
+    id: 'remove',
+    category: 'optimize',
+    icon: Scissors,
+    titleKey: 'nav.removeBg',
+    descKey: 'grid.removeDesc',
+    isNew: true,
+  },
+  {
+    id: 'compress',
+    category: 'optimize',
+    icon: Minimize2,
+    titleKey: 'nav.compress',
+    descKey: 'grid.compressDesc',
+  },
+
+  // Security Category (2 items)
+  {
+    id: 'watermark',
+    category: 'security',
+    icon: Stamp,
+    titleKey: 'nav.watermark',
+    descKey: 'grid.watermarkDesc',
+  },
+  {
+    id: 'blurface',
+    category: 'security',
+    icon: ScanFace,
+    titleKey: 'nav.blurface',
+    descKey: 'grid.blurfaceDesc',
+    isNew: true,
+  },
+
+  // Convert Category (1 item at the rightmost end)
+  {
+    id: 'convert',
+    category: 'convert',
+    icon: ImageIcon,
+    titleKey: 'nav.convert',
+    descKey: 'grid.convertDesc',
+    isNew: true,
   }
 ];
 
 export const categories = [
   { id: 'all', labelKey: 'grid.catAll' },
-  { id: 'optimize', labelKey: 'grid.catOptimize' },
   { id: 'modify', labelKey: 'grid.catModify' },
-  { id: 'convert', labelKey: 'grid.catConvert' },
   { id: 'edit', labelKey: 'grid.catEdit' },
-  { id: 'security', labelKey: 'grid.catSecurity' }
+  { id: 'optimize', labelKey: 'grid.catOptimize' },
+  { id: 'security', labelKey: 'grid.catSecurity' },
+  { id: 'convert', labelKey: 'grid.catConvert' }
 ];
