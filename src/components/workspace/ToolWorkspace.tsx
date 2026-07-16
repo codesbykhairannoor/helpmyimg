@@ -66,12 +66,14 @@ interface ToolWorkspaceProps {
 export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({ initialTab = 'remove' }) => {
   const { t } = useTranslation();
   const [activeTab, setActiveTab] = useState<TabType>(initialTab);
+  const prevInitialTabRef = useRef<TabType>(initialTab);
+
+  if (initialTab !== prevInitialTabRef.current) {
+    prevInitialTabRef.current = initialTab;
+    setActiveTab(initialTab);
+  }
 
   const { keywordSlug } = useParams<{ keywordSlug?: string }>();
-
-  useEffect(() => {
-    setActiveTab(initialTab);
-  }, [initialTab]);
 
   useEffect(() => {
     if (keywordSlug) {
@@ -404,7 +406,7 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({ initialTab = 'remo
         watermarkScale,
         watermarkRotation
       );
-    } else if (activeTab === 'crop' || activeTab === 'rotate') {
+    } else {
       return;
     }
 
@@ -704,7 +706,7 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({ initialTab = 'remo
                           />
                         ) : (
                           <motion.img
-                            key={`${currentItem.id}_${activeTab}`}
+                            key={currentItem.id}
                             ref={setImageElement as React.Ref<HTMLImageElement>}
                             initial={{ opacity: 0, scale: 0.95 }}
                             animate={{ opacity: 1, scale: 1 }}

@@ -70,16 +70,16 @@ export const Navbar: React.FC = () => {
         {/* Tengah: Navigation Links (Desktop) */}
         <div className="hidden lg:flex items-center justify-center flex-1 relative group px-4">
           <nav className="flex items-center gap-4 xl:gap-6 text-sm font-medium text-slate-300">
-            <Link to={`/${lang}/${getLocalizedSlug('remove', lang)}`} className="hover:text-neon-cyan transition-colors font-semibold flex items-center gap-1.5 whitespace-nowrap capitalize">
+            <Link to={`/${lang}/${getLocalizedSlug('remove', lang)}`} onClick={() => (document.activeElement as HTMLElement)?.blur()} className="hover:text-neon-cyan transition-colors font-semibold flex items-center gap-1.5 whitespace-nowrap capitalize">
               {t('nav.removeBg')}
             </Link>
-            <Link to={`/${lang}/${getLocalizedSlug('compress', lang)}`} className="hover:text-neon-cyan transition-colors font-semibold flex items-center gap-1.5 whitespace-nowrap capitalize">
+            <Link to={`/${lang}/${getLocalizedSlug('compress', lang)}`} onClick={() => (document.activeElement as HTMLElement)?.blur()} className="hover:text-neon-cyan transition-colors font-semibold flex items-center gap-1.5 whitespace-nowrap capitalize">
               {t('nav.compress') || 'Compress'}
             </Link>
-            <Link to={`/${lang}/${getLocalizedSlug('resize', lang)}`} className="hover:text-neon-cyan transition-colors font-semibold flex items-center gap-1.5 whitespace-nowrap capitalize">
+            <Link to={`/${lang}/${getLocalizedSlug('resize', lang)}`} onClick={() => (document.activeElement as HTMLElement)?.blur()} className="hover:text-neon-cyan transition-colors font-semibold flex items-center gap-1.5 whitespace-nowrap capitalize">
               {t('nav.resize')}
             </Link>
-            <Link to={`/${lang}/${getLocalizedSlug('convert', lang)}`} className="hover:text-neon-cyan transition-colors font-semibold flex items-center gap-1.5 whitespace-nowrap capitalize">
+            <Link to={`/${lang}/${getLocalizedSlug('convert', lang)}`} onClick={() => (document.activeElement as HTMLElement)?.blur()} className="hover:text-neon-cyan transition-colors font-semibold flex items-center gap-1.5 whitespace-nowrap capitalize">
               {t('nav.convert') || 'Convert Format'}
             </Link>
             
@@ -110,6 +110,9 @@ export const Navbar: React.FC = () => {
                               <Link 
                                 key={tool.id} 
                                 to={`/${lang}/${getLocalizedSlug(tool.id, lang)}`} 
+                                onClick={() => {
+                                  (document.activeElement as HTMLElement)?.blur();
+                                }}
                                 className="flex items-start gap-2.5 p-1.5 -mx-1.5 rounded-xl hover:bg-slate-50 dark:hover:bg-dark-700/60 transition-all duration-150 group/item"
                               >
                                 <div className="w-7 h-7 rounded-lg bg-slate-100 dark:bg-dark-700 flex items-center justify-center shrink-0 group-hover/item:bg-neon-cyan/15 group-hover/item:text-neon-cyan transition-colors text-slate-500 dark:text-slate-400 mt-0.5 shadow-sm dark:shadow-none group-hover/item:scale-105">
