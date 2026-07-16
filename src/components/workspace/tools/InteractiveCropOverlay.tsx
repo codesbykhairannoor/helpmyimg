@@ -30,29 +30,32 @@ export const InteractiveCropOverlay: React.FC<InteractiveCropOverlayProps> = ({
     const img = imageElement;
     const container = containerRef.current;
 
-    const containerRatio = container.clientWidth / container.clientHeight;
-    // Handle cases where natural dimensions aren't loaded yet
+    const imgRect = img.getBoundingClientRect();
+    const containerRect = container.getBoundingClientRect();
+
     const imgNaturalW = img.naturalWidth || originalWidth;
     const imgNaturalH = img.naturalHeight || originalHeight;
-    
-    if (!imgNaturalW || !imgNaturalH) return;
-    
-    const imageRatio = imgNaturalW / imgNaturalH;
 
-    let renderWidth, renderHeight;
-    if (containerRatio > imageRatio) {
-      renderHeight = container.clientHeight;
-      renderWidth = container.clientHeight * imageRatio;
-    } else {
-      renderWidth = container.clientWidth;
-      renderHeight = container.clientWidth / imageRatio;
-    }
+    if (!imgNaturalW || !imgNaturalH || imgRect.width === 0 || imgRect.height === 0) return;
 
-    const left = (container.clientWidth - renderWidth) / 2;
-    const top = (container.clientHeight - renderHeight) / 2;
+    // object-contain scaling factor
+    const scale = Math.min(imgRect.width / imgNaturalW, imgRect.height / imgNaturalH);
 
-    setRenderRect({ left, top, width: renderWidth, height: renderHeight });
-  }, [imageElement, originalWidth, originalHeight]);
+    // Actual rendered texture dimensions
+    const renderedW = imgNaturalW * scale;
+    const renderedH = imgNaturalH * scale;
+
+    // object-contain centers the texture inside the img element bounds
+    const offsetX = (imgRect.width - renderedW) / 2;
+    const offsetY = (imgRect.height - renderedH) / 2;
+
+    setRenderRect({
+      left: (imgRect.left - containerRect.left) + offsetX,
+      top: (imgRect.top - containerRect.top) + offsetY,
+      width: renderedW,
+      height: renderedH,
+    });
+  }, [imageElement]);
 
   useEffect(() => {
     updateRenderRect();
