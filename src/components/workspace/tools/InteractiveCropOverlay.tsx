@@ -73,16 +73,28 @@ export const InteractiveCropOverlay: React.FC<InteractiveCropOverlayProps> = ({
   const scaleX = renderRect.width / originalWidth;
   const scaleY = renderRect.height / originalHeight;
 
-  // Actual bounding box in container coordinates
-  const boxX = renderRect.left + cropX * scaleX;
-  const boxY = renderRect.top + cropY * scaleY;
-  const boxW = cropWidth * scaleX;
-  const boxH = cropHeight * scaleY;
-
   // Interaction State
   const [isDragging, setIsDragging] = useState(false);
   const [dragHandle, setDragHandle] = useState<string | null>(null);
   const dragStartRef = useRef({ x: 0, y: 0, cx: 0, cy: 0, cw: 0, ch: 0 });
+
+  // Local state for instant 0ms dragging without triggering heavy parent re-render
+  const [localCrop, setLocalCrop] = useState<{ x: number; y: number; w: number; h: number } | null>(null);
+
+  // Sync when outside props change while not actively dragging
+  useEffect(() => {
+    if (!isDragging) {
+      setLocalCrop(null);
+    }
+  }, [cropX, cropY, cropWidth, cropHeight, isDragging]);
+
+  const currentCrop = localCrop || { x: cropX, y: cropY, w: cropWidth, h: cropHeight };
+
+  // Actual bounding box in container coordinates
+  const boxX = renderRect.left + currentCrop.x * scaleX;
+  const boxY = renderRect.top + currentCrop.y * scaleY;
+  const boxW = currentCrop.w * scaleX;
+  const boxH = currentCrop.h * scaleY;
 
   const handlePointerDown = (e: React.PointerEvent, handle: string) => {
     e.stopPropagation();
@@ -91,12 +103,13 @@ export const InteractiveCropOverlay: React.FC<InteractiveCropOverlayProps> = ({
     dragStartRef.current = {
       x: e.clientX,
       y: e.clientY,
-      cx: cropX,
-      cy: cropY,
-      cw: cropWidth,
-      ch: cropHeight
+      cx: currentCrop.x,
+      cy: currentCrop.y,
+      cw: currentCrop.w,
+      ch: currentCrop.h
     };
-    (e.target as HTMLElement).setPointerCapture(e.pointerId);
+    setLocalCrop(currentCrop);
+    try { (e.target as HTMLElement).setPointerCapture(e.pointerId); } catch(err) {}
   };
 
   const handlePointerMove = (e: React.PointerEvent) => {
@@ -156,13 +169,22 @@ export const InteractiveCropOverlay: React.FC<InteractiveCropOverlayProps> = ({
       if (cy + ch > originalHeight) ch = originalHeight - cy;
     }
 
-    onCropChange(Math.round(cx), Math.round(cy), Math.round(cw), Math.round(ch));
+    const newX = Math.round(cx);
+    const newY = Math.round(cy);
+    const newW = Math.round(cw);
+    const newH = Math.round(ch);
+
+    // Update local state instantaneously at 120 FPS
+    setLocalCrop({ x: newX, y: newY, w: newW, h: newH });
   };
 
   const handlePointerUp = (e: React.PointerEvent) => {
+    if (localCrop && isDragging) {
+      onCropChange(localCrop.x, localCrop.y, localCrop.w, localCrop.h);
+    }
     setIsDragging(false);
     setDragHandle(null);
-    (e.target as HTMLElement).releasePointerCapture(e.pointerId);
+    try { (e.target as HTMLElement).releasePointerCapture(e.pointerId); } catch(err) {}
   };
 
   if (!renderRect.width || !renderRect.height || !originalWidth || !originalHeight) {

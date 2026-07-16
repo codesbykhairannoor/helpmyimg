@@ -404,19 +404,8 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({ initialTab = 'remo
         watermarkScale,
         watermarkRotation
       );
-    } else if (activeTab === 'crop') {
+    } else if (activeTab === 'crop' || activeTab === 'rotate') {
       return;
-    } else if (activeTab === 'rotate') {
-      resultCanvas = document.createElement('canvas');
-      const radians = (rotationDeg * Math.PI) / 180;
-      const is90 = Math.abs(rotationDeg) === 90 || Math.abs(rotationDeg) === 270;
-      resultCanvas.width = is90 ? refinedTransImg.height : refinedTransImg.width;
-      resultCanvas.height = is90 ? refinedTransImg.width : refinedTransImg.height;
-      const ctx = resultCanvas.getContext('2d')!;
-      ctx.translate(resultCanvas.width / 2, resultCanvas.height / 2);
-      ctx.rotate(radians);
-      ctx.scale(flipH ? -1 : 1, flipV ? -1 : 1);
-      ctx.drawImage(refinedTransImg, -refinedTransImg.width / 2, -refinedTransImg.height / 2);
     }
 
     if (resultCanvas) {
@@ -427,21 +416,6 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({ initialTab = 'remo
           setBatchItems((prev) =>
             prev.map((i, idx) => {
               if (idx === selectedIndex) {
-                if (activeTab === 'rotate') {
-                  const baseRotateUrl = i.rotateBaseUrl || i.transparentUrl || i.originalUrl;
-                  const baseRotateFile = i.rotateBaseFile || i.file;
-                  const newFile = new File([blob], i.name, { type: blob.type || 'image/png' });
-                  return {
-                    ...i,
-                    rotateBaseUrl: baseRotateUrl,
-                    rotateBaseFile: baseRotateFile,
-                    file: newFile,
-                    originalUrl: url,
-                    transparentUrl: i.transparentUrl ? url : null,
-                    processedUrl: url,
-                    status: 'done'
-                  };
-                }
                 return {
                   ...i,
                   processedUrl: url,
@@ -685,7 +659,7 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({ initialTab = 'remo
               /* Viewport Gambar Terpilih */
               <div className="space-y-4 lg:static">
                 <div className={`w-full rounded-3xl border border-dark-500/80 bg-dark-900/90 shadow-glass overflow-hidden relative flex items-center justify-center checkerboard-bg transition-all duration-150 ${
-                  activeTab === 'design' ? 'h-[75vh] md:h-auto md:aspect-[4/3]' : 'min-h-[380px] sm:min-h-[460px] aspect-[4/5] sm:aspect-square md:min-h-0 md:aspect-[4/3]'
+                  activeTab === 'design' ? 'h-[75vh] md:h-auto md:aspect-[4/3]' : 'h-[420px] sm:h-[480px] md:h-[540px] lg:h-auto lg:aspect-[4/3]'
                 }`}>
                   {currentItem?.status === 'processing' && (
                     <div className="absolute inset-0 bg-dark-900 md:bg-dark-900/80 md:backdrop-blur-md flex flex-col items-center justify-center z-20 space-y-4 p-6 text-center">
@@ -714,7 +688,7 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({ initialTab = 'remo
                       onMouseMove={handleCanvasMouseMove}
                       onMouseUp={handleCanvasMouseUp}
                       onMouseLeave={handleCanvasMouseUp}
-                      className={`max-h-[360px] sm:max-h-[440px] md:max-h-full max-w-full object-contain shadow-2xl rounded-lg ${
+                      className={`max-h-full max-w-full object-contain shadow-2xl rounded-lg ${
                         activeTab === 'picker' ? 'cursor-picker' : 'cursor-brush'
                       }`}
                     />
@@ -737,11 +711,21 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({ initialTab = 'remo
                             transition={{ duration: 0.15 }}
                             src={activeTab === 'blurface' ? currentItem.originalUrl : (currentItem.processedUrl || currentItem.originalUrl)}
                             alt="Image"
-                            style={activeTab === 'resize' && resizeWidth > 0 && resizeHeight > 0 ? {
-                               aspectRatio: `${resizeWidth} / ${resizeHeight}`,
-                               objectFit: resizeMode === 'smart' ? 'cover' : 'fill'
-                            } : {}}
-                            className={`max-h-[360px] sm:max-h-[440px] md:max-h-full max-w-full shadow-2xl rounded-lg ${activeTab !== 'resize' ? 'object-contain' : ''}`}
+                            style={{
+                              ...(activeTab === 'rotate'
+                                ? {
+                                    transform: `rotate(${rotationDeg}deg) scaleX(${flipH ? -1 : 1}) scaleY(${flipV ? -1 : 1})`,
+                                    transition: 'transform 0.2s cubic-bezier(0.16, 1, 0.3, 1)'
+                                  }
+                                : {}),
+                              ...(activeTab === 'resize' && resizeWidth > 0 && resizeHeight > 0
+                                ? {
+                                    aspectRatio: `${resizeWidth} / ${resizeHeight}`,
+                                    objectFit: resizeMode === 'smart' ? 'cover' : 'fill'
+                                  }
+                                : {})
+                            }}
+                            className={`max-h-full max-w-full shadow-2xl rounded-lg ${activeTab !== 'resize' ? 'object-contain' : ''}`}
                           />
                         )}
                         {activeTab === 'crop' && (
