@@ -1124,5 +1124,7 @@
   "home.cta.title": "Pronto para Acelerar seu Fluxo de Edição de Fotos com o HelpMyIMG?",
   "home.cta.desc": "Junte-se a milhares de vendedores de e-commerce, criadores e profissionais que confiam no HelpMyIMG para edição de fotos instantânea, privada e de alta definição.",
   "home.cta.btn": "Abrir o HelpMyIMG Studio Agora",
-  "hero.badge": ""
+  "hero.badge": "",
+  "nav.color": "Mudar Cor do Fundo",
+  "grid.colorDesc": "Altere a cor de fundo da foto do passaporte para o vermelho/azul oficial ou aplique gradientes de estúdio."
 }

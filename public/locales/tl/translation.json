@@ -66,7 +66,7 @@
   "landing.default.title.color": "Libreng Passport Photo Maker",
   "footer.badge.privacy": "100% Pribado",
   "footer.badge.lang": "{lang} Locale",
-  "nav.removeBg": "Alisin ang Background",
+  "nav.removeBg": "Remove Background",
   "nav.colorBg": "Passport Photo",
   "footer.link.cpns": "Opisyal na Aplikasyon sa Trabaho",
   "footer.link.ktp": "Tagagawa ng ID at Pasaporte",
@@ -1124,5 +1124,7 @@
   "home.cta.title": "Ready to Supercharge Your Photo Workflow with HelpMyIMG?",
   "home.cta.desc": "Join thousands of e-commerce sellers, creators, and professionals who trust HelpMyIMG for instant, private, high-definition photo editing.",
   "home.cta.btn": "Open HelpMyIMG Studio Now",
-  "hero.badge": ""
+  "hero.badge": "",
+  "nav.color": "Change Background Color",
+  "grid.colorDesc": "Change passport photo background color to official red/blue or apply studio gradients locally and instantly."
 }

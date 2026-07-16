@@ -73,7 +73,7 @@
   "footer.badge.latency": "Latenza 0 ms",
   "footer.badge.privacy": "100% privato",
   "footer.badge.lang": "{lang} Locale",
-  "nav.removeBg": "Rimuovi Sfondo",
+  "nav.removeBg": "Remove Background",
   "nav.blurBg": "Sfocatura Studio",
   "nav.colorBg": "Foto Passaporto",
   "footer.link.cpns": "Domanda di lavoro ufficiale",
@@ -1124,5 +1124,7 @@
   "home.cta.title": "Ready to Supercharge Your Photo Workflow with HelpMyIMG?",
   "home.cta.desc": "Join thousands of e-commerce sellers, creators, and professionals who trust HelpMyIMG for instant, private, high-definition photo editing.",
   "home.cta.btn": "Open HelpMyIMG Studio Now",
-  "hero.badge": ""
+  "hero.badge": "",
+  "nav.color": "Change Background Color",
+  "grid.colorDesc": "Change passport photo background color to official red/blue or apply studio gradients locally and instantly."
 }

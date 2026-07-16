@@ -73,7 +73,7 @@
   "footer.badge.latency": "Latence de 0 ms",
   "footer.badge.privacy": "100% Privé",
   "footer.badge.lang": "{lang} Locale",
-  "nav.removeBg": "Supprimer le Fond",
+  "nav.removeBg": "Supprimer Fond",
   "nav.blurBg": "Flou de Studio",
   "nav.colorBg": "Photo de Passeport",
   "footer.link.cpns": "Demande d'emploi officielle",
@@ -1124,5 +1124,7 @@
   "home.cta.title": "Prêt à Accélérer Votre Flux de Travail Photo avec HelpMyIMG ?",
   "home.cta.desc": "Rejoignez des milliers de vendeurs e-commerce, créateurs et professionnels qui font confiance à HelpMyIMG pour une retouche photo instantanée, privée et haute définition.",
   "home.cta.btn": "Ouvrir HelpMyIMG Studio Maintenant",
-  "hero.badge": ""
+  "hero.badge": "",
+  "nav.color": "Changer Couleur Fond",
+  "grid.colorDesc": "Changez instantanément la couleur de fond des photos d'identité en rouge/bleu officiel ou appliquez des dégradés."
 }

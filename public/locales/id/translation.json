@@ -73,7 +73,7 @@
   "footer.badge.latency": "Latensi 0 ms",
   "footer.badge.privacy": "100% Pribadi",
   "footer.badge.lang": "{lang} Locale",
-  "nav.removeBg": "Hapus Latar",
+  "nav.removeBg": "Hapus Latar Belakang",
   "nav.blurBg": "Blur Studio",
   "nav.colorBg": "Pas Foto",
   "footer.link.cpns": "Lamaran Pekerjaan Resmi",
@@ -1198,5 +1198,7 @@
   "home.cta.title": "Siap Meningkatkan Kecepatan Pengeditan Foto Anda dengan HelpMyIMG?",
   "home.cta.desc": "Bergabunglah dengan ribuan penjual e-commerce, kreator, dan profesional yang mempercayai HelpMyIMG untuk pengeditan foto instan, privat, dan resolusi tinggi.",
   "home.cta.btn": "Buka HelpMyIMG Studio Sekarang",
-  "hero.badge": ""
+  "hero.badge": "",
+  "nav.color": "Ganti Warna Latar",
+  "grid.colorDesc": "Ganti warna latar pas foto menjadi merah/biru resmi atau aplikasikan gradien studio secara lokal dan instan."
 }

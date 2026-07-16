@@ -73,7 +73,7 @@
   "footer.badge.latency": "Latencia de 0 ms",
   "footer.badge.privacy": "100% Privado",
   "footer.badge.lang": "{lang} Locale",
-  "nav.removeBg": "Quitar Fondo",
+  "nav.removeBg": "Eliminar Fondo",
   "nav.blurBg": "Desenfoque de Estudio",
   "nav.colorBg": "Foto de Pasaporte",
   "footer.link.cpns": "Solicitud de empleo oficial",
@@ -1124,5 +1124,7 @@
   "home.cta.title": "¿Listo para Acelerar tu Flujo de Edición de Fotos con HelpMyIMG?",
   "home.cta.desc": "Únete a miles de vendedores de e-commerce, creadores y profesionales que confían en HelpMyIMG para una edición de fotos instantánea, privada y de alta resolución.",
   "home.cta.btn": "Abrir HelpMyIMG Studio Ahora",
-  "hero.badge": ""
+  "hero.badge": "",
+  "nav.color": "Cambiar Color de Fondo",
+  "grid.colorDesc": "Cambia el color de fondo de fotos de pasaporte al rojo/azul oficial o aplica degradados de estudio al instante."
 }

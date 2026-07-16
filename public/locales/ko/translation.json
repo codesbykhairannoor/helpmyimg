@@ -1124,5 +1124,7 @@
   "home.cta.title": "Ready to Supercharge Your Photo Workflow with HelpMyIMG?",
   "home.cta.desc": "Join thousands of e-commerce sellers, creators, and professionals who trust HelpMyIMG for instant, private, high-definition photo editing.",
   "home.cta.btn": "Open HelpMyIMG Studio Now",
-  "hero.badge": ""
+  "hero.badge": "",
+  "nav.color": "배경색 변경",
+  "grid.colorDesc": "여권 사진 배경색을 공식 빨강/파랑으로 변경하거나 스튜디오 그라데이션을 로컬에서 즉시 적용하세요."
 }

@@ -73,7 +73,7 @@
   "footer.badge.latency": "Độ trễ 0ms",
   "footer.badge.privacy": "100% riêng tư",
   "footer.badge.lang": "{lang} Locale",
-  "nav.removeBg": "Xóa Nền",
+  "nav.removeBg": "Remove Background",
   "nav.blurBg": "Làm mờ Studio",
   "nav.colorBg": "Ảnh hộ chiếu",
   "footer.link.cpns": "Đơn xin việc chính thức",
@@ -1124,5 +1124,7 @@
   "home.cta.title": "Ready to Supercharge Your Photo Workflow with HelpMyIMG?",
   "home.cta.desc": "Join thousands of e-commerce sellers, creators, and professionals who trust HelpMyIMG for instant, private, high-definition photo editing.",
   "home.cta.btn": "Open HelpMyIMG Studio Now",
-  "hero.badge": ""
+  "hero.badge": "",
+  "nav.color": "Change Background Color",
+  "grid.colorDesc": "Change passport photo background color to official red/blue or apply studio gradients locally and instantly."
 }

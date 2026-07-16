@@ -10,7 +10,8 @@ import {
   RotateCw,
   Pipette,
   ScanFace,
-  Wand2
+  Wand2,
+  Palette
 } from 'lucide-react';
 
 export type ToolCategory = 'optimize' | 'modify' | 'convert' | 'security' | 'edit';
@@ -25,6 +26,14 @@ export interface ToolItem {
 }
 
 export const tools: ToolItem[] = [
+  {
+    id: 'color',
+    category: 'modify',
+    icon: Palette,
+    titleKey: 'nav.color',
+    descKey: 'grid.colorDesc',
+    isNew: true,
+  },
   {
     id: 'compress',
     category: 'optimize',

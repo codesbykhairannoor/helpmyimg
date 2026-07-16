@@ -1124,5 +1124,7 @@
   "home.cta.title": "HelpMyIMG で写真編集ワークフローを劇的に高速化しましょう！",
   "home.cta.desc": "高速で安全、そして高画質な写真編集を求める何千人ものECセラー、クリエイター、プロフェッショナルに選ばれています。",
   "home.cta.btn": "今すぐ HelpMyIMG Studio を開く",
-  "hero.badge": ""
+  "hero.badge": "",
+  "nav.color": "背景色変更",
+  "grid.colorDesc": "証明写真の背景色を公式の赤や青に変更したり、スタジオグラデーションをブラウザ内で瞬時に適用します。"
 }

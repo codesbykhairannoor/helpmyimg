@@ -1124,5 +1124,7 @@
   "home.cta.title": "Bereit, Ihren Fotobearbeitungs-Workflow mit HelpMyIMG zu beschleunigen?",
   "home.cta.desc": "Schließen Sie sich Tausenden von E-Commerce-Verkäufern, Kreativen und Profis an, die für schnelle, private und hochauflösende Fotobearbeitung auf HelpMyIMG vertrauen.",
   "home.cta.btn": "HelpMyIMG Studio jetzt öffnen",
-  "hero.badge": ""
+  "hero.badge": "",
+  "nav.color": "Hintergrundfarbe ändern",
+  "grid.colorDesc": "Ändern Sie die Hintergrundfarbe von Passfotos in offizielles Rot/Blau oder wenden Sie Studio-Verläufe an."
 }
