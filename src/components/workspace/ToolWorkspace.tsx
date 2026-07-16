@@ -252,16 +252,16 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({ initialTab = 'remo
         initialFile: f,
         initialOriginalUrl: url,
         modelType: 'rmbg',
-        status: 'idle', // Status awal 'idle'. Harus di-klik manual untuk masuk ke 'queued' atau diproses.
+        status: ['remove', 'color', 'brush'].includes(activeTab) ? 'queued' : 'idle',
         progress: 0,
-        progressStep: t('work.waiting'),
+        progressStep: ['remove', 'color', 'brush'].includes(activeTab) ? t('work.startAi', { defaultValue: 'Memulai AI...' }) : t('work.waiting'),
       };
     });
 
     setBatchItems((prev) => {
       const merged = [...prev, ...newItems];
       
-      // Bypass AI instantly for some tools, otherwise leave as idle
+      // Bypass AI instantly for some tools, otherwise leave as idle or queued
       if (['watermark', 'compress', 'convert', 'resize', 'crop', 'rotate', 'picker', 'blurface', 'design'].includes(activeTab)) {
         return merged.map(i => 
           newItems.some(n => n.id === i.id) 
@@ -330,6 +330,24 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({ initialTab = 'remo
     
     processQueue();
   }, [batchItems, activeTab, processSingleItem]);
+
+  // Otomatis hapus background jika masuk ke tab color/remove/brush tapi item belum transparan
+  useEffect(() => {
+    if (['remove', 'color', 'brush'].includes(activeTab)) {
+      setBatchItems((prev) =>
+        prev.map((item) => {
+          if ((!item.transparentUrl || item.transparentUrl === item.originalUrl || item.status === 'idle') && item.status !== 'processing' && item.status !== 'queued' && item.status !== 'error') {
+            return {
+              ...item,
+              status: 'queued',
+              progressStep: t('work.startAi', { defaultValue: 'Memulai AI...' })
+            };
+          }
+          return item;
+        })
+      );
+    }
+  }, [activeTab, batchItems.length]);
 
   // Menerapkan perubahan efek pada gambar terpilih
   const applyCurrentEffect = async () => {
@@ -475,6 +493,8 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({ initialTab = 'remo
     flipH,
     flipV,
     batchItems.length,
+    batchItems[selectedIndex]?.transparentUrl,
+    batchItems[selectedIndex]?.status,
     compressQuality, 
     convertFormat, 
     resizeWidth, 

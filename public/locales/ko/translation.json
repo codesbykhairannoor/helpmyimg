@@ -1126,5 +1126,7 @@
   "home.cta.btn": "Open HelpMyIMG Studio Now",
   "hero.badge": "",
   "nav.color": "배경색 변경",
-  "grid.colorDesc": "여권 사진 배경색을 공식 빨강/파랑으로 변경하거나 스튜디오 그라데이션을 로컬에서 즉시 적용하세요."
+  "grid.colorDesc": "여권 사진 배경색을 공식 빨강/파랑으로 변경하거나 스튜디오 그라데이션을 로컬에서 즉시 적용하세요.",
+  "color.officialTitle": "공식 여권 및 규격 사진 배경색",
+  "color.customTitle": "사용자 지정 배경색 선택"
 }

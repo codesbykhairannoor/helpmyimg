@@ -1126,5 +1126,7 @@
   "home.cta.btn": "HelpMyIMG Studio jetzt öffnen",
   "hero.badge": "",
   "nav.color": "Hintergrundfarbe ändern",
-  "grid.colorDesc": "Ändern Sie die Hintergrundfarbe von Passfotos in offizielles Rot/Blau oder wenden Sie Studio-Verläufe an."
+  "grid.colorDesc": "Ändern Sie die Hintergrundfarbe von Passfotos in offizielles Rot/Blau oder wenden Sie Studio-Verläufe an.",
+  "color.officialTitle": "Offizielle Passfoto-Farben",
+  "color.customTitle": "Benutzerdefinierte Hintergrundfarbe"
 }

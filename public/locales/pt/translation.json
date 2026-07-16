@@ -1126,5 +1126,7 @@
   "home.cta.btn": "Abrir o HelpMyIMG Studio Agora",
   "hero.badge": "",
   "nav.color": "Mudar Cor do Fundo",
-  "grid.colorDesc": "Altere a cor de fundo da foto do passaporte para o vermelho/azul oficial ou aplique gradientes de estúdio."
+  "grid.colorDesc": "Altere a cor de fundo da foto do passaporte para o vermelho/azul oficial ou aplique gradientes de estúdio.",
+  "color.officialTitle": "Cores Oficiais para Passaporte",
+  "color.customTitle": "Cor de Fundo Personalizada"
 }

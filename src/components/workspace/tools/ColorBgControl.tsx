@@ -1,5 +1,5 @@
 // src/components/workspace/tools/ColorBgControl.tsx
-// Kontrol Penggantian Warna Solid Resmi (Pas Foto CPNS/KTP), Gradasi, dan Rasio Potong
+// Kontrol Penggantian Warna Solid Resmi (Pas Foto & Dokumen), Gradasi, dan Rasio Potong
 
 import React from 'react';
 import { useTranslation } from '../../../context/LanguageContext';
@@ -33,11 +33,11 @@ export const ColorBgControl: React.FC<ColorBgControlProps> = ({
 
   return (
     <div className="space-y-6">
-      {/* Warna Resmi Pas Foto CPNS & KTP */}
+      {/* Warna Resmi Pas Foto & Dokumen */}
       <div className="space-y-3">
         <label className="text-xs font-bold text-slate-300 flex items-center gap-2">
           <Palette className="w-4 h-4 text-neon-cyan" />
-          <span>{t('color.officialTitle')}</span>
+          <span>{t('color.officialTitle', { defaultValue: t('color.official', { defaultValue: 'Official Passport Colors' }) })}</span>
         </label>
         <div className="grid grid-cols-2 gap-2.5">
           {officialColors.map((col) => (
@@ -67,7 +67,7 @@ export const ColorBgControl: React.FC<ColorBgControlProps> = ({
 
       {/* Custom Color Picker */}
       <div className="space-y-3 pt-2 border-t border-dark-700/60">
-        <label className="text-xs font-bold text-slate-300">{t('color.customTitle')}</label>
+        <label className="text-xs font-bold text-slate-300">{t('color.customTitle', { defaultValue: t('color.custom', { defaultValue: 'Custom Background Color' }) })}</label>
         <div className="flex items-center gap-3 bg-dark-800 p-2.5 rounded-xl border border-dark-600">
           <input
             type="color"

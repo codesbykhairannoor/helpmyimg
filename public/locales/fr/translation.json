@@ -1126,5 +1126,7 @@
   "home.cta.btn": "Ouvrir HelpMyIMG Studio Maintenant",
   "hero.badge": "",
   "nav.color": "Changer Couleur Fond",
-  "grid.colorDesc": "Changez instantanément la couleur de fond des photos d'identité en rouge/bleu officiel ou appliquez des dégradés."
+  "grid.colorDesc": "Changez instantanément la couleur de fond des photos d'identité en rouge/bleu officiel ou appliquez des dégradés.",
+  "color.officialTitle": "Couleurs Officielles Passeport",
+  "color.customTitle": "Couleur de Fond Personnalisée"
 }

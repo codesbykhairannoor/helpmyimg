@@ -1126,5 +1126,7 @@
   "home.cta.btn": "Abrir HelpMyIMG Studio Ahora",
   "hero.badge": "",
   "nav.color": "Cambiar Color de Fondo",
-  "grid.colorDesc": "Cambia el color de fondo de fotos de pasaporte al rojo/azul oficial o aplica degradados de estudio al instante."
+  "grid.colorDesc": "Cambia el color de fondo de fotos de pasaporte al rojo/azul oficial o aplica degradados de estudio al instante.",
+  "color.officialTitle": "Colores Oficiales de Pasaporte",
+  "color.customTitle": "Color de Fondo Personalizado"
 }
