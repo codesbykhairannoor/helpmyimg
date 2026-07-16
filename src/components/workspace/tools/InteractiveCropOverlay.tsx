@@ -169,7 +169,8 @@ export const InteractiveCropOverlay: React.FC<InteractiveCropOverlayProps> = ({
     return <div ref={containerRef} className="absolute inset-0 pointer-events-none" />;
   }
 
-  const handleSize = 8;
+  const handleSize = 18; // Larger visual handle (18px)
+  const hitTargetSize = 44; // Apple/Google standard 44px touch hit target for HP
 
   return (
     <div ref={containerRef} className="absolute inset-0 z-20 pointer-events-none">
@@ -191,7 +192,7 @@ export const InteractiveCropOverlay: React.FC<InteractiveCropOverlayProps> = ({
           height={boxH}
           fill="none"
           stroke="#00F0FF"
-          strokeWidth="1.5"
+          strokeWidth="2"
           className="pointer-events-none"
         />
         {/* Rule of Thirds Grid */}
@@ -201,16 +202,17 @@ export const InteractiveCropOverlay: React.FC<InteractiveCropOverlayProps> = ({
         <line x1={boxX} y1={boxY + (boxH * 2) / 3} x2={boxX + boxW} y2={boxY + (boxH * 2) / 3} stroke="#00F0FF" strokeWidth="1" opacity="0.4" strokeDasharray="3 3" className="pointer-events-none" />
       </svg>
 
-      {/* Interactive Move Area */}
+      {/* Interactive Move Area with touch-action: none for HP */}
       <div
         className="absolute cursor-move pointer-events-auto"
-        style={{ left: boxX, top: boxY, width: boxW, height: boxH }}
+        style={{ left: boxX, top: boxY, width: boxW, height: boxH, touchAction: 'none' }}
         onPointerDown={(e) => handlePointerDown(e, 'move')}
         onPointerMove={handlePointerMove}
         onPointerUp={handlePointerUp}
+        onPointerCancel={handlePointerUp}
       />
 
-      {/* Resize Handles */}
+      {/* Resize Handles with 44px touch hit targets for easy HP dragging */}
       {[
         { id: 'nw', cursor: 'nwse-resize', x: boxX, y: boxY },
         { id: 'n', cursor: 'ns-resize', x: boxX + boxW / 2, y: boxY },
@@ -223,18 +225,29 @@ export const InteractiveCropOverlay: React.FC<InteractiveCropOverlayProps> = ({
       ].map((handle) => (
         <div
           key={handle.id}
-          className="absolute bg-neon-cyan pointer-events-auto shadow-sm"
+          className="absolute pointer-events-auto flex items-center justify-center"
           style={{
-            left: handle.x - handleSize / 2,
-            top: handle.y - handleSize / 2,
-            width: handleSize,
-            height: handleSize,
+            left: handle.x - hitTargetSize / 2,
+            top: handle.y - hitTargetSize / 2,
+            width: hitTargetSize,
+            height: hitTargetSize,
             cursor: handle.cursor,
+            touchAction: 'none',
           }}
           onPointerDown={(e) => handlePointerDown(e, handle.id)}
           onPointerMove={handlePointerMove}
           onPointerUp={handlePointerUp}
-        />
+          onPointerCancel={handlePointerUp}
+        >
+          {/* Visual Dot */}
+          <div
+            className="bg-neon-cyan border-2 border-dark-900 rounded-full shadow-lg transition-transform active:scale-125"
+            style={{
+              width: handleSize,
+              height: handleSize,
+            }}
+          />
+        </div>
       ))}
     </div>
   );
