@@ -5,9 +5,9 @@
   "nav.widget": "ฝังวิดเจ็ต",
   "nav.geo": "เทคโนโลยี AI",
   "nav.faq": "คำถามที่พบบ่อย",
-  "hero.title": "Help Your Image Shine: Professional All-in-One AI Photo Studio",
+  "hero.title": "Help Your Image Shine: Professional Photo Studio & Bulk Toolkit",
   "hero.titleHighlight": "ในทันที",
-  "hero.subtitle": "The ultimate local AI photo editing powerhouse. Remove backgrounds with hair-edge precision, generate official passport photos with custom colors, apply studio bokeh blur, compress, convert, and resize up to 10 images in seconds. 100% free, private, and powered directly by your browser—no uploads required.",
+  "hero.subtitle": "The ultimate local photo editing powerhouse. Remove backgrounds with hair-edge precision, generate official passport photos with custom colors, apply studio bokeh blur, compress, convert, and resize up to 10 images in seconds. 100% free, private, and powered directly by your browser—no uploads required.",
   "stat.time.val": "⚡ 1 วินาที",
   "stat.time.label": "ประมวลผลอัตโนมัติทันที",
   "stat.prec.label": "ความแม่นยำตัดขอบเส้นผม",
@@ -1081,8 +1081,8 @@
   "nav.selectLang": "เลือกภาษา / ภูมิภาค (30)",
   "nav.searchLang": "🔍 ค้นหาภาษา (เช่น เกาหลี, ES, RU)...",
   "nav.noLang": "ไม่พบภาษา",
-  "landing.default.title.home": "Help Your Image Shine: Professional All-in-One AI Photo Studio",
-  "landing.default.desc.home": "The ultimate local AI photo editing powerhouse. Remove backgrounds with hair-edge precision, generate official passport photos with custom colors, apply studio bokeh blur, compress, convert, and resize up to 10 images in seconds. 100% free, private, and powered directly by your browser—no uploads required.",
+  "landing.default.title.home": "Help Your Image Shine: Professional Photo Studio & Bulk Toolkit",
+  "landing.default.desc.home": "The ultimate local photo editing powerhouse. Remove backgrounds with hair-edge precision, generate official passport photos with custom colors, apply studio bokeh blur, compress, convert, and resize up to 10 images in seconds. 100% free, private, and powered directly by your browser—no uploads required.",
   "work.startAi": "ลบพื้นหลังทันที",
   "convert.action": "แปลงรูปภาพ ตอนนี้",
   "convert.processAll": "แปลงทั้งหมด ({{count}})",
@@ -1124,5 +1124,5 @@
   "home.cta.title": "Ready to Supercharge Your Photo Workflow with HelpMyIMG?",
   "home.cta.desc": "Join thousands of e-commerce sellers, creators, and professionals who trust HelpMyIMG for instant, private, high-definition photo editing.",
   "home.cta.btn": "Open HelpMyIMG Studio Now",
-  "hero.badge": "⚡ 100% Local Web Engine — Zero Cloud Latency & Total Privacy"
+  "hero.badge": ""
 }

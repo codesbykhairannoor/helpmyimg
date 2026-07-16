@@ -5,9 +5,9 @@
   "nav.widget": "Widget Intégrable",
   "nav.geo": "Tech IA",
   "nav.faq": "FAQ",
-  "hero.title": "Help Your Image Shine : Studio Photo IA Professionnel Tout-en-Un",
+  "hero.title": "Help Your Image Shine : Studio Photo Professionnel & Boîte à Outils",
   "hero.titleHighlight": "Instantanément",
-  "hero.subtitle": "La plateforme ultime d'édition photo par intelligence artificielle locale. Supprimez les arrière-plans avec une précision au cheveu près, créez des photos d'identité officielles aux couleurs personnalisées, appliquez un flou bokeh de studio, compressez, convertissez et redimensionnez jusqu'à 10 photos simultanément dans votre navigateur. 100% gratuit, privé et sans téléchargement cloud.",
+  "hero.subtitle": "La plateforme ultime d'édition photo locale. Supprimez les arrière-plans avec une précision au cheveu près, créez des photos d'identité officielles aux couleurs personnalisées, appliquez un flou bokeh de studio, compressez, convertissez et redimensionnez jusqu'à 10 photos simultanément dans votre navigateur. 100% gratuit, privé et sans téléchargement cloud.",
   "stat.time.val": "⚡ 1 Seconde",
   "stat.time.label": "Traitement Instantané",
   "stat.prec.val": "🎯 99,8%",
@@ -1081,8 +1081,8 @@
   "nav.selectLang": "Sélectionner la langue / région (30)",
   "nav.searchLang": "🔍 Rechercher une langue (ex., Corée, ES, RU)...",
   "nav.noLang": "Aucune langue trouvée",
-  "landing.default.title.home": "Help Your Image Shine : Studio Photo IA Professionnel Tout-en-Un",
-  "landing.default.desc.home": "La plateforme ultime d'édition photo par intelligence artificielle locale. Supprimez les arrière-plans avec une précision au cheveu près, créez des photos d'identité officielles aux couleurs personnalisées, appliquez un flou bokeh de studio, compressez, convertissez et redimensionnez jusqu'à 10 photos simultanément dans votre navigateur. 100% gratuit, privé et sans téléchargement cloud.",
+  "landing.default.title.home": "Help Your Image Shine : Studio Photo Professionnel & Boîte à Outils",
+  "landing.default.desc.home": "La plateforme ultime d'édition photo locale. Supprimez les arrière-plans avec une précision au cheveu près, créez des photos d'identité officielles aux couleurs personnalisées, appliquez un flou bokeh de studio, compressez, convertissez et redimensionnez jusqu'à 10 photos simultanément dans votre navigateur. 100% gratuit, privé et sans téléchargement cloud.",
   "work.startAi": "Supprimer l'Arrière-plan",
   "convert.action": "Convertir L'image Maintenant",
   "convert.processAll": "Tout Convertir ({{count}})",
@@ -1124,5 +1124,5 @@
   "home.cta.title": "Prêt à Accélérer Votre Flux de Travail Photo avec HelpMyIMG ?",
   "home.cta.desc": "Rejoignez des milliers de vendeurs e-commerce, créateurs et professionnels qui font confiance à HelpMyIMG pour une retouche photo instantanée, privée et haute définition.",
   "home.cta.btn": "Ouvrir HelpMyIMG Studio Maintenant",
-  "hero.badge": "⚡ Moteur Web Local 100% — Zéro Latence Cloud & Confidentialité Totale"
+  "hero.badge": ""
 }

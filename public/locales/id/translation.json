@@ -5,9 +5,9 @@
   "nav.widget": "Widget Backlink",
   "nav.geo": "Keunggulan AI",
   "nav.faq": "Tanya Jawab",
-  "hero.title": "Help Your Image Shine: Studio Foto AI & Pengeditan Massal Profesional",
+  "hero.title": "Help Your Image Shine: Studio Foto & Pengeditan Massal Profesional",
   "hero.titleHighlight": "Secara Instan",
-  "hero.subtitle": "Pusat pengeditan foto AI berteknologi lokal tercanggih. Hapus latar belakang dengan presisi helai rambut, buat pas foto resmi dengan warna kustom, aplikasikan efek bokeh studio, kompres, konversi, dan ubah ukuran hingga 10 foto sekaligus langsung di dalam browser Anda. 100% gratis, privat, dan tanpa unggah ke server cloud.",
+  "hero.subtitle": "Pusat pengeditan foto berteknologi lokal tercanggih. Hapus latar belakang dengan presisi helai rambut, buat pas foto resmi dengan warna kustom, aplikasikan efek bokeh studio, kompres, konversi, dan ubah ukuran hingga 10 foto sekaligus langsung di dalam browser Anda. 100% gratis, privat, dan tanpa unggah ke server cloud.",
   "stat.time.val": "⚡ 1 Detik",
   "stat.time.label": "Proses Instan & Otomatis",
   "stat.prec.val": "🎯 99,8%",
@@ -1156,8 +1156,8 @@
   "design.info1": "Rancang gambar Anda menggunakan alat canggih di area pratinjau.",
   "design.saveBtn": "Simpan Desain",
   "design.info2": "Mendukung lapisan, penggabungan gambar, gambar, teks, filter, dan tanda air khusus.",
-  "landing.default.title.home": "Help Your Image Shine: Studio Foto AI & Pengeditan Massal Profesional",
-  "landing.default.desc.home": "Pusat pengeditan foto AI berteknologi lokal tercanggih. Hapus latar belakang dengan presisi helai rambut, buat pas foto resmi dengan warna kustom, aplikasikan efek bokeh studio, kompres, konversi, dan ubah ukuran hingga 10 foto sekaligus langsung di dalam browser Anda. 100% gratis, privat, dan tanpa unggah ke server cloud.",
+  "landing.default.title.home": "Help Your Image Shine: Studio Foto & Pengeditan Massal Profesional",
+  "landing.default.desc.home": "Pusat pengeditan foto berteknologi lokal tercanggih. Hapus latar belakang dengan presisi helai rambut, buat pas foto resmi dengan warna kustom, aplikasikan efek bokeh studio, kompres, konversi, dan ubah ukuran hingga 10 foto sekaligus langsung di dalam browser Anda. 100% gratis, privat, dan tanpa unggah ke server cloud.",
   "convert.action": "Konversi Gambar Sekarang",
   "convert.processAll": "Konversi Semua ({{count}})",
   "home.why.tag": "MENGAPA HELPMYIMG",
@@ -1198,5 +1198,5 @@
   "home.cta.title": "Siap Meningkatkan Kecepatan Pengeditan Foto Anda dengan HelpMyIMG?",
   "home.cta.desc": "Bergabunglah dengan ribuan penjual e-commerce, kreator, dan profesional yang mempercayai HelpMyIMG untuk pengeditan foto instan, privat, dan resolusi tinggi.",
   "home.cta.btn": "Buka HelpMyIMG Studio Sekarang",
-  "hero.badge": "⚡ Mesin Web Lokal 100% — Jeda Cloud 0ms & Privasi Total"
+  "hero.badge": ""
 }

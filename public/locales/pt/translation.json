@@ -5,9 +5,9 @@
   "nav.widget": "Widget / Incorporar",
   "nav.geo": "Tecnologia IA",
   "nav.faq": "Perguntas Frequentes",
-  "hero.title": "Help Your Image Shine: Estúdio Fotográfico AI Profissional Tudo-em-Um",
+  "hero.title": "Help Your Image Shine: Estúdio Fotográfico Profissional Tudo-em-Um",
   "hero.titleHighlight": "Instantaneamente",
-  "hero.subtitle": "A central definitiva de edição de fotos com inteligência artificial local. Remova fundos com precisão de fios de cabelo, crie fotos de passaporte oficiais com cores personalizadas, aplique desfoque bokeh de estúdio, comprima, converta e redimensione até 10 fotos simultaneamente no seu navegador. 100% grátis, privado e sem uploads para a nuvem.",
+  "hero.subtitle": "A central definitiva de edição de fotos local. Remova fundos com precisão de fios de cabelo, crie fotos de passaporte oficiais com cores personalizadas, aplique desfoque bokeh de estúdio, comprima, converta e redimensione até 10 fotos simultaneamente no seu navegador. 100% grátis, privado e sem uploads para a nuvem.",
   "stat.time.val": "⚡ 1 Segundo",
   "stat.time.label": "Processamento Instantâneo",
   "stat.prec.val": "🎯 99,8%",
@@ -1081,8 +1081,8 @@
   "nav.selectLang": "Selecionar idioma / localidade (30)",
   "nav.searchLang": "🔍 Buscar idioma (ex., Coreia, ES, RU)...",
   "nav.noLang": "Nenhum idioma encontrado",
-  "landing.default.title.home": "Help Your Image Shine: Estúdio Fotográfico AI Profissional Tudo-em-Um",
-  "landing.default.desc.home": "A central definitiva de edição de fotos com inteligência artificial local. Remova fundos com precisão de fios de cabelo, crie fotos de passaporte oficiais com cores personalizadas, aplique desfoque bokeh de estúdio, comprima, converta e redimensione até 10 fotos simultaneamente no seu navegador. 100% grátis, privado e sem uploads para a nuvem.",
+  "landing.default.title.home": "Help Your Image Shine: Estúdio Fotográfico Profissional Tudo-em-Um",
+  "landing.default.desc.home": "A central definitiva de edição de fotos local. Remova fundos com precisão de fios de cabelo, crie fotos de passaporte oficiais com cores personalizadas, aplique desfoque bokeh de estúdio, comprima, converta e redimensione até 10 fotos simultaneamente no seu navegador. 100% grátis, privado e sem uploads para a nuvem.",
   "work.startAi": "Remover Fundo Agora",
   "convert.action": "Converter Imagem Agora",
   "convert.processAll": "Converter Tudo ({{count}})",
@@ -1124,5 +1124,5 @@
   "home.cta.title": "Pronto para Acelerar seu Fluxo de Edição de Fotos com o HelpMyIMG?",
   "home.cta.desc": "Junte-se a milhares de vendedores de e-commerce, criadores e profissionais que confiam no HelpMyIMG para edição de fotos instantânea, privada e de alta definição.",
   "home.cta.btn": "Abrir o HelpMyIMG Studio Agora",
-  "hero.badge": "⚡ Motor Web Local 100% — Zero Latência na Nuvem & Privacidade Total"
+  "hero.badge": ""
 }
