@@ -57,7 +57,7 @@ export const Navbar: React.FC = () => {
         <div className="flex items-center justify-start flex-shrink-0">
           <Link to={`/${lang}`} className="flex items-center gap-2.5 group">
             <div className="w-10 h-10 flex-shrink-0 transition-all duration-300 group-hover:scale-105 drop-shadow-glow-cyan">
-              <img src="/logohelpimg.png" alt="HelpMyIMG Logo" width="40" height="40" decoding="async" className="w-full h-full object-contain" />
+              <img src="/logobaru.png" alt="HelpMyIMG Logo" width="40" height="40" decoding="async" className="w-full h-full object-contain" />
             </div>
             <div className="flex flex-col">
               <span className="text-xl font-heading font-extrabold tracking-tight text-white flex items-center gap-1">

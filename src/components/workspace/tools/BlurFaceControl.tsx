@@ -84,11 +84,11 @@ export const BlurFaceControl: React.FC<BlurFaceControlProps> = ({
       </div>
 
       <div className="p-4 border-t border-dark-600 bg-dark-900/90 backdrop-blur-md sticky bottom-0 z-10 space-y-2.5">
-        <button
-          onClick={onApply}
-          disabled={isProcessing || batchCount === 0}
-          className="w-full py-3.5 bg-gradient-to-r from-neon-cyan to-neon-indigo text-dark-900 font-extrabold rounded-xl hover:shadow-glow-cyan transition-all flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed text-sm tracking-wider"
-        >
+          <button
+            onClick={onApply}
+            disabled={isProcessing || boxes.length === 0}
+            className="w-full flex items-center justify-center gap-2.5 py-3.5 px-4 rounded-xl bg-gradient-to-r from-neon-cyan via-neon-emerald to-neon-indigo hover:opacity-95 text-dark-900 font-extrabold shadow-glow-cyan transition-all duration-200 transform hover:-translate-y-0.5 disabled:opacity-50 text-sm tracking-wide"
+          >
           <span>{isProcessing ? t('btn.processing') : t('work.action.apply', { defaultValue: 'Apply Now' })}</span>
         </button>
 

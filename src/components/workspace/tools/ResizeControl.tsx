@@ -155,7 +155,7 @@ export const ResizeControl: React.FC<ResizeControlProps> = ({
         <button
           onClick={onApply}
           disabled={isProcessing || resizeWidth <= 0 || resizeHeight <= 0}
-          className="w-full flex items-center justify-center gap-2 py-3.5 px-4 rounded-xl bg-gradient-to-r from-neon-cyan via-neon-emerald to-neon-indigo text-dark-900 font-extrabold shadow-lg hover:shadow-glow-cyan hover:scale-[1.01] transition-all disabled:opacity-50 text-sm cursor-pointer"
+          className="w-full flex items-center justify-center gap-2.5 py-3.5 px-4 rounded-xl bg-gradient-to-r from-neon-cyan via-neon-emerald to-neon-indigo hover:opacity-95 text-dark-900 font-extrabold shadow-glow-cyan transition-all duration-200 transform hover:-translate-y-0.5 disabled:opacity-50 text-sm tracking-wide"
         >
           <CheckCircle2 className="w-5 h-5 text-dark-900 shrink-0" />
           <span>{t('btn.apply', { defaultValue: 'Terapkan Ukuran / Apply' })}</span>

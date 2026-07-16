@@ -1571,9 +1571,15 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({ initialTab = 'remo
                   <div className="flex gap-2">
                     {batchItems.length > 1 ? (
                       <button
-                        onClick={handleZipDownload}
+                        onClick={() => {
+                          if (batchItems.some(i => !i.name.trim() || i.name.startsWith('.'))) {
+                            alert(t('work.emptyFileNameAlert', { defaultValue: 'Nama file tidak boleh kosong! / File name cannot be empty!' }));
+                            return;
+                          }
+                          handleZipDownload();
+                        }}
                         disabled={isZipping || batchItems.some(i => i.status !== 'done')}
-                        className="flex-1 px-4 py-3.5 bg-gradient-to-r from-neon-indigo to-neon-cyan text-white font-extrabold rounded-xl text-sm flex items-center justify-center gap-2 hover:shadow-glow-cyan transition-all disabled:opacity-50 disabled:cursor-not-allowed transform hover:-translate-y-0.5"
+                        className="flex-1 px-4 py-3.5 bg-gradient-to-r from-neon-cyan via-neon-emerald to-neon-indigo text-dark-900 font-extrabold rounded-xl text-sm flex items-center justify-center gap-2 shadow-glow-cyan transition-all disabled:opacity-50 disabled:cursor-not-allowed transform hover:-translate-y-0.5 hover:opacity-95"
                       >
                         {isZipping ? <Loader2 className="w-5 h-5 animate-spin" /> : <Archive className="w-5 h-5" />}
                         <span>{t('work.downloadZip', { defaultValue: 'Download All (ZIP)' })}</span>
@@ -1582,6 +1588,10 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({ initialTab = 'remo
                       <button
                         onClick={() => {
                           const item = batchItems[0];
+                          if (!item.name.trim() || item.name.startsWith('.')) {
+                            alert(t('work.emptyFileNameAlert', { defaultValue: 'Nama file tidak boleh kosong! / File name cannot be empty!' }));
+                            return;
+                          }
                           if (item && item.processedUrl) {
                             const a = document.createElement('a');
                             a.href = item.processedUrl;
@@ -1590,7 +1600,7 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({ initialTab = 'remo
                           }
                         }}
                         disabled={batchItems[0]?.status !== 'done'}
-                        className="flex-1 px-4 py-3.5 bg-gradient-to-r from-neon-cyan to-neon-indigo text-dark-900 font-extrabold rounded-xl text-sm flex items-center justify-center gap-2 hover:shadow-glow-cyan transition-all disabled:opacity-50 disabled:cursor-not-allowed transform hover:-translate-y-0.5"
+                        className="flex-1 px-4 py-3.5 bg-gradient-to-r from-neon-cyan via-neon-emerald to-neon-indigo text-dark-900 font-extrabold rounded-xl text-sm flex items-center justify-center gap-2 shadow-glow-cyan transition-all disabled:opacity-50 disabled:cursor-not-allowed transform hover:-translate-y-0.5 hover:opacity-95"
                       >
                         <Download className="w-5 h-5" />
                         <span>{t('editor.download', { defaultValue: 'Download Image' })}</span>

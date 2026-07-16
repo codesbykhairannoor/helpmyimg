@@ -90,7 +90,7 @@ export const SeoHead: React.FC<SeoHeadProps> = ({
         "name": "HelpMyIMG",
         "logo": {
           "@type": "ImageObject",
-          "url": "https://helpmyimg.com/logo.png"
+          "url": "https://helpmyimg.com/logobaru.png"
         }
       },
       "mainEntityOfPage": fullUrl
