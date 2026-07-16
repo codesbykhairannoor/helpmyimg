@@ -73,6 +73,10 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({ initialTab = 'remo
     setActiveTab(initialTab);
   }
 
+  useEffect(() => {
+    setActiveTab(initialTab);
+  }, [initialTab]);
+
   const { keywordSlug } = useParams<{ keywordSlug?: string }>();
 
   useEffect(() => {
@@ -609,8 +613,13 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({ initialTab = 'remo
             ref={fileInputRef}
             type="file"
             multiple
-            accept="image/png,image/jpeg,image/webp,image/jpg"
-            onChange={(e) => e.target.files && handleFiles(e.target.files)}
+            accept="image/*,image/png,image/jpeg,image/webp,image/jpg"
+            onChange={(e) => {
+              if (e.target.files && e.target.files.length > 0) {
+                handleFiles(e.target.files);
+                e.target.value = '';
+              }
+            }}
             className="hidden"
           />
           {/* Main Dropzone / Viewport Area */}
