@@ -1,7 +1,7 @@
 // src/components/workspace/tools/RotateControl.tsx
 import React from 'react';
 import { useTranslation } from '../../../context/LanguageContext';
-import { RotateCw, RotateCcw, FlipHorizontal, FlipVertical, RefreshCw } from 'lucide-react';
+import { RotateCw, RotateCcw, FlipHorizontal, FlipVertical, RefreshCw, CheckCircle2 } from 'lucide-react';
 
 interface RotateControlProps {
   rotation: number;
@@ -24,6 +24,7 @@ export const RotateControl: React.FC<RotateControlProps> = ({
   setFlipH,
   flipV,
   setFlipV,
+  onApply,
   onUploadOther,
   onReset,
   isProcessing,
@@ -132,18 +133,29 @@ export const RotateControl: React.FC<RotateControlProps> = ({
         </div>
       </div>
 
-      {batchCount === 1 && (
-        <div className="space-y-3 pt-2">
+      <div className="space-y-3 pt-2">
+        {onApply && (
+          <button
+            onClick={onApply}
+            disabled={isProcessing}
+            className="w-full flex items-center justify-center gap-2 py-3.5 px-4 rounded-xl bg-gradient-to-r from-neon-orange to-neon-cyan text-dark-900 font-extrabold shadow-lg hover:shadow-glow-orange hover:scale-[1.01] transition-all disabled:opacity-50 text-sm cursor-pointer"
+          >
+            <CheckCircle2 className="w-5 h-5 text-dark-900 shrink-0" />
+            <span>{t('btn.apply', { defaultValue: 'Terapkan Rotasi / Apply' })}</span>
+          </button>
+        )}
+
+        {batchCount === 1 && (
           <button
             onClick={onUploadOther || onReset}
             disabled={isProcessing}
-            className="w-full flex items-center justify-center gap-2 py-3 px-4 rounded-xl border border-dark-600 bg-dark-800 text-slate-300 font-semibold hover:bg-dark-700 hover:text-white transition-colors disabled:opacity-50"
+            className="w-full flex items-center justify-center gap-2 py-3 px-4 rounded-xl border border-dark-600 bg-dark-800 text-slate-300 font-semibold hover:bg-dark-700 hover:text-white transition-colors disabled:opacity-50 text-sm"
           >
-            <RefreshCw className="w-4 h-4 text-neon-cyan" />
+            <RefreshCw className="w-4 h-4 text-neon-cyan shrink-0" />
             <span>{t('editor.reset')}</span>
           </button>
-        </div>
-      )}
+        )}
+      </div>
     </div>
   );
 };

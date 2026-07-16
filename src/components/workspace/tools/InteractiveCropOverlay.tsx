@@ -88,7 +88,13 @@ export const InteractiveCropOverlay: React.FC<InteractiveCropOverlayProps> = ({
     }
   }, [cropX, cropY, cropWidth, cropHeight, isDragging]);
 
-  const currentCrop = localCrop || { x: cropX, y: cropY, w: cropWidth, h: cropHeight };
+  const rawCrop = localCrop || { x: cropX, y: cropY, w: cropWidth, h: cropHeight };
+  const currentCrop = {
+    x: Math.max(0, Math.min(rawCrop.x, Math.max(0, originalWidth - 10))),
+    y: Math.max(0, Math.min(rawCrop.y, Math.max(0, originalHeight - 10))),
+    w: Math.max(10, Math.min(rawCrop.w, originalWidth - Math.max(0, Math.min(rawCrop.x, originalWidth - 10)))),
+    h: Math.max(10, Math.min(rawCrop.h, originalHeight - Math.max(0, Math.min(rawCrop.y, originalHeight - 10)))),
+  };
 
   // Actual bounding box in container coordinates
   const boxX = renderRect.left + currentCrop.x * scaleX;

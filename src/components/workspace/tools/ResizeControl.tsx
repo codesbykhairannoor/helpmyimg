@@ -1,7 +1,7 @@
 // src/components/workspace/tools/ResizeControl.tsx
-import React, { useEffect, useRef } from 'react';
+import React from 'react';
 import { useTranslation } from '../../../context/LanguageContext';
-import { RefreshCw, Link as LinkIcon, Unlink } from 'lucide-react';
+import { RefreshCw, Link as LinkIcon, Unlink, CheckCircle2 } from 'lucide-react';
 
 interface ResizeControlProps {
   originalWidth: number;
@@ -42,20 +42,7 @@ export const ResizeControl: React.FC<ResizeControlProps> = ({
   const aspectRatio = originalWidth && originalHeight ? originalWidth / originalHeight : 1;
   const [unit, setUnit] = React.useState('px');
 
-  // Auto-apply (auto save) when dimensions or mode change after debounce
-  const isFirstRender = useRef(true);
-  useEffect(() => {
-    if (isFirstRender.current) {
-      isFirstRender.current = false;
-      return;
-    }
-    const timer = setTimeout(() => {
-      if (resizeWidth > 0 && resizeHeight > 0 && !isProcessing && (resizeWidth !== originalWidth || resizeHeight !== originalHeight)) {
-        onApply();
-      }
-    }, 500);
-    return () => clearTimeout(timer);
-  }, [resizeWidth, resizeHeight, resizeMode]);
+
 
   // Sync width/height based on aspect ratio when changed
   const handleWidthChange = (val: string) => {
@@ -165,6 +152,15 @@ export const ResizeControl: React.FC<ResizeControlProps> = ({
       </div>
 
       <div className="space-y-3 pt-2">
+        <button
+          onClick={onApply}
+          disabled={isProcessing || resizeWidth <= 0 || resizeHeight <= 0}
+          className="w-full flex items-center justify-center gap-2 py-3.5 px-4 rounded-xl bg-gradient-to-r from-neon-cyan via-neon-emerald to-neon-indigo text-dark-900 font-extrabold shadow-lg hover:shadow-glow-cyan hover:scale-[1.01] transition-all disabled:opacity-50 text-sm cursor-pointer"
+        >
+          <CheckCircle2 className="w-5 h-5 text-dark-900 shrink-0" />
+          <span>{t('btn.apply', { defaultValue: 'Terapkan Ukuran / Apply' })}</span>
+        </button>
+
         <button
           onClick={onReset}
           disabled={isProcessing}
