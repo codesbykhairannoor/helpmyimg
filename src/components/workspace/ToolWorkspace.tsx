@@ -66,15 +66,16 @@ interface ToolWorkspaceProps {
 export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({ initialTab = 'remove' }) => {
   const { t } = useTranslation();
   const [activeTab, setActiveTab] = useState<TabType>(initialTab);
-  const prevInitialTabRef = useRef<TabType>(initialTab);
+  const [prevInitialTab, setPrevInitialTab] = useState<TabType>(initialTab);
 
-  if (initialTab !== prevInitialTabRef.current) {
-    prevInitialTabRef.current = initialTab;
+  if (initialTab !== prevInitialTab) {
+    setPrevInitialTab(initialTab);
     setActiveTab(initialTab);
   }
 
   useEffect(() => {
     setActiveTab(initialTab);
+    setPrevInitialTab(initialTab);
   }, [initialTab]);
 
   const { keywordSlug } = useParams<{ keywordSlug?: string }>();
