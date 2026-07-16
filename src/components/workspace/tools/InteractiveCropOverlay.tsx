@@ -56,12 +56,26 @@ export const InteractiveCropOverlay: React.FC<InteractiveCropOverlayProps> = ({
 
   useEffect(() => {
     updateRenderRect();
+    
+    const container = containerRef.current;
+    let resizeObserver: ResizeObserver | null = null;
+    
+    if (container) {
+      // ResizeObserver detects DOM layout/CSS changes (like Dropzone -> Viewport transitions)
+      resizeObserver = new ResizeObserver(() => {
+        updateRenderRect();
+      });
+      resizeObserver.observe(container);
+    }
+
     window.addEventListener('resize', updateRenderRect);
-    // Observe image load
     if (imageElement) {
+      // For cross-browser safety, some browsers need explicit load listener
       imageElement.addEventListener('load', updateRenderRect);
     }
+    
     return () => {
+      if (resizeObserver) resizeObserver.disconnect();
       window.removeEventListener('resize', updateRenderRect);
       if (imageElement) {
         imageElement.removeEventListener('load', updateRenderRect);
