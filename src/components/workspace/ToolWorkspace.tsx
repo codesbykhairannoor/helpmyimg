@@ -181,6 +181,7 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({ initialTab = 'remo
   const [cropY, setCropY] = useState(0);
   const [cropWidth, setCropWidth] = useState(0);
   const [cropHeight, setCropHeight] = useState(0);
+  const [cropRadius, setCropRadius] = useState(0);
 
   // Rotate State
   const [rotationDeg, setRotationDeg] = useState(0);
@@ -751,6 +752,7 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({ initialTab = 'remo
                             cropY={cropY}
                             cropWidth={cropWidth}
                             cropHeight={cropHeight}
+                            cropRadius={cropRadius}
                             onCropChange={(x, y, w, h) => {
                               setCropX(x);
                               setCropY(y);
@@ -1248,6 +1250,8 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({ initialTab = 'remo
                     setCropWidth={setCropWidth}
                     cropHeight={cropHeight}
                     setCropHeight={setCropHeight}
+                    cropRadius={cropRadius}
+                    setCropRadius={setCropRadius}
                     onApply={async () => {
                       if (currentItem?.file) {
                         try {
@@ -1259,7 +1263,7 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({ initialTab = 'remo
                             const res = await fetch(currentItem.processedUrl);
                             sourceBlob = await res.blob();
                           }
-                          const blob = await cropImage(sourceBlob, cropX, cropY, cropWidth, cropHeight);
+                          const blob = await cropImage(sourceBlob, cropX, cropY, cropWidth, cropHeight, sourceBlob.type, 0.95, cropRadius);
                           const url = URL.createObjectURL(blob);
                           const newFile = new File([blob], currentItem.name, { type: blob.type || 'image/png' });
                           setBatchItems(prev => prev.map(item => item.id === currentItem.id ? { 
@@ -1520,25 +1524,30 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({ initialTab = 'remo
                       ) : (
                         <div className="flex flex-col gap-2.5">
                           <div className="text-[10px] font-bold text-slate-500 uppercase tracking-wider">{t('work.renameFile', { defaultValue: 'Rename File' })}</div>
-                          <div className="flex items-center gap-2 bg-dark-800/50 p-2 rounded-lg border border-dark-600/50 focus-within:border-neon-cyan/50 transition-colors">
-                            <input
-                              type="text"
-                              value={batchItems[0].name.split('.').slice(0, -1).join('.') || batchItems[0].name}
-                              onChange={(e) => {
-                                const newBase = e.target.value;
-                                const nameParts = batchItems[0].name.split('.');
-                                const ext = nameParts.length > 1 ? `.${nameParts.pop()}` : '';
-                                setBatchItems(prev => prev.map((img, i) => i === 0 ? { ...img, name: `${newBase}${ext}` } : img));
-                              }}
-                              className="flex-1 bg-transparent text-xs text-white outline-none px-1 w-full min-w-0"
-                              placeholder="File name"
-                            />
-                            {batchItems[0].name.includes('.') && (
-                              <span className="text-xs font-mono text-neon-cyan font-bold pr-2 shrink-0">
-                                .{batchItems[0].name.split('.').pop()}
-                              </span>
-                            )}
-                          </div>
+                          {(() => {
+                               const nameParts = batchItems[0].name.split('.');
+                               const ext = nameParts.length > 1 ? `.${nameParts.pop()}` : '';
+                               const base = nameParts.length > 0 ? nameParts.join('.') : batchItems[0].name;
+                               return (
+                                 <div className="flex items-center gap-2 bg-dark-800/50 p-2 rounded-lg border border-dark-600/50 focus-within:border-neon-cyan/50 transition-colors">
+                                   <input
+                                     type="text"
+                                     value={base}
+                                     onChange={(e) => {
+                                       const newBase = e.target.value;
+                                       setBatchItems(prev => prev.map((img, i) => i === 0 ? { ...img, name: `${newBase}${ext}` } : img));
+                                     }}
+                                     className="flex-1 bg-transparent text-xs text-white outline-none px-1 w-full min-w-0"
+                                     placeholder="File name"
+                                   />
+                                   {ext && (
+                                     <span className="text-xs font-mono text-neon-cyan font-bold pr-2 shrink-0">
+                                       {ext}
+                                     </span>
+                                   )}
+                                 </div>
+                               );
+                             })()}
                         </div>
                       )}
 

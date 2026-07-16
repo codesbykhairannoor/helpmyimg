@@ -8,6 +8,7 @@ interface InteractiveCropOverlayProps {
   cropY: number;
   cropWidth: number;
   cropHeight: number;
+  cropRadius?: number;
   onCropChange: (x: number, y: number, w: number, h: number) => void;
 }
 
@@ -19,6 +20,7 @@ export const InteractiveCropOverlay: React.FC<InteractiveCropOverlayProps> = ({
   cropY,
   cropWidth,
   cropHeight,
+  cropRadius = 0,
   onCropChange,
 }) => {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -210,32 +212,59 @@ export const InteractiveCropOverlay: React.FC<InteractiveCropOverlayProps> = ({
 
   return (
     <div ref={containerRef} className="absolute inset-0 z-20 pointer-events-none">
-      {/* Darkened overlay mask */}
+      {/* Darkened overlay mask with Border Radius Support */}
       <svg className="absolute inset-0 w-full h-full pointer-events-none">
-        <path
-          d={`
-            M 0 0 H 10000 V 10000 H 0 Z
-            M ${boxX} ${boxY} H ${boxX + boxW} V ${boxY + boxH} H ${boxX} Z
-          `}
-          fill="rgba(0, 0, 0, 0.65)"
-          fillRule="evenodd"
+        <defs>
+          <mask id="crop-mask">
+            <rect width="100%" height="100%" fill="white" />
+            <rect 
+              x={boxX} 
+              y={boxY} 
+              width={boxW} 
+              height={boxH} 
+              rx={(Math.min(boxW, boxH) / 2) * (cropRadius / 50)} 
+              fill="black" 
+            />
+          </mask>
+          <mask id="crop-mask-inner">
+            <rect 
+              x={boxX} 
+              y={boxY} 
+              width={boxW} 
+              height={boxH} 
+              rx={(Math.min(boxW, boxH) / 2) * (cropRadius / 50)} 
+              fill="white" 
+            />
+          </mask>
+        </defs>
+        
+        {/* Dimmed Background */}
+        <rect 
+          width="100%" 
+          height="100%" 
+          fill="rgba(0, 0, 0, 0.65)" 
+          mask="url(#crop-mask)" 
         />
+        
         {/* Solid Border */}
         <rect
           x={boxX}
           y={boxY}
           width={boxW}
           height={boxH}
+          rx={(Math.min(boxW, boxH) / 2) * (cropRadius / 50)}
           fill="none"
           stroke="#00F0FF"
           strokeWidth="2"
           className="pointer-events-none"
         />
-        {/* Rule of Thirds Grid */}
-        <line x1={boxX + boxW / 3} y1={boxY} x2={boxX + boxW / 3} y2={boxY + boxH} stroke="#00F0FF" strokeWidth="1" opacity="0.4" strokeDasharray="3 3" className="pointer-events-none" />
-        <line x1={boxX + (boxW * 2) / 3} y1={boxY} x2={boxX + (boxW * 2) / 3} y2={boxY + boxH} stroke="#00F0FF" strokeWidth="1" opacity="0.4" strokeDasharray="3 3" className="pointer-events-none" />
-        <line x1={boxX} y1={boxY + boxH / 3} x2={boxX + boxW} y2={boxY + boxH / 3} stroke="#00F0FF" strokeWidth="1" opacity="0.4" strokeDasharray="3 3" className="pointer-events-none" />
-        <line x1={boxX} y1={boxY + (boxH * 2) / 3} x2={boxX + boxW} y2={boxY + (boxH * 2) / 3} stroke="#00F0FF" strokeWidth="1" opacity="0.4" strokeDasharray="3 3" className="pointer-events-none" />
+        {/* Rule of Thirds Grid masked to stay within rounded bounds */}
+        <g mask="url(#crop-mask-inner)">
+          <line x1={boxX + boxW / 3} y1={boxY} x2={boxX + boxW / 3} y2={boxY + boxH} stroke="#00F0FF" strokeWidth="1" opacity="0.4" strokeDasharray="3 3" className="pointer-events-none" />
+          <line x1={boxX + (boxW * 2) / 3} y1={boxY} x2={boxX + (boxW * 2) / 3} y2={boxY + boxH} stroke="#00F0FF" strokeWidth="1" opacity="0.4" strokeDasharray="3 3" className="pointer-events-none" />
+          <line x1={boxX} y1={boxY + boxH / 3} x2={boxX + boxW} y2={boxY + boxH / 3} stroke="#00F0FF" strokeWidth="1" opacity="0.4" strokeDasharray="3 3" className="pointer-events-none" />
+          <line x1={boxX} y1={boxY + (boxH * 2) / 3} x2={boxX + boxW} y2={boxY + (boxH * 2) / 3} stroke="#00F0FF" strokeWidth="1" opacity="0.4" strokeDasharray="3 3" className="pointer-events-none" />
+        </g>
       </svg>
 
       {/* Interactive Move Area with touch-action: none for HP */}

@@ -14,6 +14,8 @@ interface CropControlProps {
   setCropWidth: (v: number) => void;
   cropHeight: number;
   setCropHeight: (v: number) => void;
+  cropRadius: number;
+  setCropRadius: (v: number) => void;
   onApply: () => void;
   onUploadOther?: () => void;
   onReset: () => void;
@@ -32,6 +34,8 @@ export const CropControl: React.FC<CropControlProps> = ({
   setCropWidth,
   cropHeight,
   setCropHeight,
+  cropRadius = 0,
+  setCropRadius,
   onApply,
   onUploadOther,
   onReset,
@@ -127,6 +131,22 @@ export const CropControl: React.FC<CropControlProps> = ({
               className="w-full bg-dark-800 border border-dark-600 rounded-lg px-3 py-2 text-white outline-none focus:border-neon-violet text-sm"
             />
           </div>
+        </div>
+        
+        {/* Border Radius (Lengkungan) */}
+        <div className="space-y-2">
+          <div className="flex justify-between items-center text-xs">
+            <label className="text-slate-400 font-medium">{t('crop.radius', { defaultValue: 'Lengkungan' })}</label>
+            <span className="text-neon-violet font-bold">{cropRadius}%</span>
+          </div>
+          <input
+            type="range"
+            min="0"
+            max="50"
+            value={cropRadius}
+            onChange={(e) => setCropRadius(parseInt(e.target.value))}
+            className="w-full accent-neon-violet h-1.5 bg-dark-600 rounded-lg appearance-none cursor-pointer"
+          />
         </div>
       </div>
 

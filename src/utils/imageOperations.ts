@@ -103,7 +103,8 @@ export async function processImage(file: Blob | File, config: ImageOpConfig): Pr
 export async function cropImage(
   file: Blob | File,
   x: number, y: number, w: number, h: number,
-  mimeType = 'image/png', quality = 0.95
+  mimeType = 'image/png', quality = 0.95,
+  borderRadius = 0
 ): Promise<Blob> {
   const img = await loadImage(file);
   const canvas = document.createElement('canvas');
@@ -112,7 +113,19 @@ export async function cropImage(
   const ctx = canvas.getContext('2d');
   if (!ctx) throw new Error('Gagal membuat canvas context');
 
-  if (mimeType === 'image/jpeg') {
+  if (borderRadius > 0) {
+    mimeType = 'image/png'; // Force PNG for transparency
+    ctx.beginPath();
+    // Border radius is a percentage from 0 to 50, where 50 is a perfect circle/pill
+    const radiusPx = (Math.min(w, h) / 2) * (borderRadius / 50);
+    if (typeof ctx.roundRect === 'function') {
+      ctx.roundRect(0, 0, w, h, radiusPx);
+    } else {
+      // Fallback for very old browsers
+      ctx.arcTo(w, 0, w, h, radiusPx);
+    }
+    ctx.clip();
+  } else if (mimeType === 'image/jpeg') {
     ctx.fillStyle = '#FFFFFF';
     ctx.fillRect(0, 0, w, h);
   }
