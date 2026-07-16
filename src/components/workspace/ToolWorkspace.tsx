@@ -719,17 +719,19 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({ initialTab = 'remo
                             key={currentItem.id}
                             ref={setImageElement as React.Ref<HTMLImageElement>}
                             initial={{ opacity: 0, scale: 0.95 }}
-                            animate={{ opacity: 1, scale: 1 }}
-                            transition={{ duration: 0.15 }}
+                            animate={{
+                              opacity: 1,
+                              scale: activeTab === 'rotate' && Math.abs(rotationDeg % 180) === 90 && originalDimensions.width > originalDimensions.height && originalDimensions.height > 0
+                                ? Math.min(1, originalDimensions.height / originalDimensions.width)
+                                : 1,
+                              rotate: activeTab === 'rotate' ? rotationDeg : 0,
+                              scaleX: activeTab === 'rotate' ? (flipH ? -1 : 1) : 1,
+                              scaleY: activeTab === 'rotate' ? (flipV ? -1 : 1) : 1,
+                            }}
+                            transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
                             src={activeTab === 'blurface' ? currentItem.originalUrl : (currentItem.processedUrl || currentItem.originalUrl)}
                             alt="Image"
                             style={{
-                              ...(activeTab === 'rotate'
-                                ? {
-                                    transform: `rotate(${rotationDeg}deg) scaleX(${flipH ? -1 : 1}) scaleY(${flipV ? -1 : 1})`,
-                                    transition: 'transform 0.2s cubic-bezier(0.16, 1, 0.3, 1)'
-                                  }
-                                : {}),
                               ...(activeTab === 'resize' && resizeWidth > 0 && resizeHeight > 0
                                 ? {
                                     aspectRatio: `${resizeWidth} / ${resizeHeight}`,
