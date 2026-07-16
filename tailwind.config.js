@@ -36,6 +36,7 @@ export default {
         'glow-cyan': '0 0 25px hsla(190, 95%, 50%, 0.35)',
         'glow-indigo': '0 0 30px hsla(250, 90%, 65%, 0.4)',
         'glow-violet': '0 0 30px hsla(280, 85%, 60%, 0.4)',
+        'glow-red': '0 0 25px hsla(0, 100%, 50%, 0.4)',
       },
       animation: {
         'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',

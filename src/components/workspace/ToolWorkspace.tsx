@@ -7,7 +7,7 @@ import { useTranslation } from '../../context/LanguageContext';
 import { aiService } from '../../services/aiService';
 import { Upload, Download, Loader2, Sparkles, Archive, Trash2, Settings2, ChevronDown } from 'lucide-react';
 import JSZip from 'jszip';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 
 import { lazyWithRetry } from '../../utils/lazyWithRetry';
 
@@ -128,6 +128,13 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({ initialTab = 'remo
 
   // --- Handlers ---
   
+  const [toastMessage, setToastMessage] = useState<string | null>(null);
+
+  const showToast = useCallback((msg: string) => {
+    setToastMessage(msg);
+    setTimeout(() => setToastMessage(null), 3000);
+  }, []);
+
   const handleZipDownload = async () => {
     if (isZipping) return;
     setIsZipping(true);
@@ -1573,7 +1580,7 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({ initialTab = 'remo
                       <button
                         onClick={() => {
                           if (batchItems.some(i => !i.name.trim() || i.name.startsWith('.'))) {
-                            alert(t('work.emptyFileNameAlert', { defaultValue: 'Nama file tidak boleh kosong! / File name cannot be empty!' }));
+                            showToast(t('work.emptyFileNameAlert', { defaultValue: 'Nama file tidak boleh kosong! / File name cannot be empty!' }));
                             return;
                           }
                           handleZipDownload();
@@ -1589,7 +1596,7 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({ initialTab = 'remo
                         onClick={() => {
                           const item = batchItems[0];
                           if (!item.name.trim() || item.name.startsWith('.')) {
-                            alert(t('work.emptyFileNameAlert', { defaultValue: 'Nama file tidak boleh kosong! / File name cannot be empty!' }));
+                            showToast(t('work.emptyFileNameAlert', { defaultValue: 'Nama file tidak boleh kosong! / File name cannot be empty!' }));
                             return;
                           }
                           if (item && item.processedUrl) {
@@ -1613,6 +1620,26 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({ initialTab = 'remo
 
           </div>
         </div>
+
+      {/* Global Toast Alert */}
+      <AnimatePresence>
+        {toastMessage && (
+          <motion.div
+            initial={{ opacity: 0, y: 50, scale: 0.9 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, y: 20, scale: 0.9 }}
+            transition={{ type: 'spring', damping: 20, stiffness: 300 }}
+            className="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 px-6 py-3.5 bg-dark-900 border border-red-500/50 shadow-glow-red rounded-2xl flex items-center gap-3 backdrop-blur-xl"
+          >
+            <div className="w-8 h-8 rounded-full bg-red-500/20 flex items-center justify-center shrink-0">
+              <span className="text-red-500 text-lg">⚠️</span>
+            </div>
+            <span className="text-sm font-bold text-white tracking-wide">
+              {toastMessage}
+            </span>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </section>
   );
 };
