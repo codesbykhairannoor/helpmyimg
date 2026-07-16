@@ -1128,5 +1128,8 @@
   "nav.color": "Hintergrundfarbe ändern",
   "grid.colorDesc": "Ändern Sie die Hintergrundfarbe von Passfotos in offizielles Rot/Blau oder wenden Sie Studio-Verläufe an.",
   "color.officialTitle": "Offizielle Passfoto-Farben",
-  "color.customTitle": "Benutzerdefinierte Hintergrundfarbe"
+  "color.customTitle": "Benutzerdefinierte Hintergrundfarbe",
+  "work": {
+    "emptyFileNameAlert": "Dateiname darf nicht leer sein!"
+  }
 }

@@ -1128,5 +1128,8 @@
   "nav.color": "Change Background Color",
   "grid.colorDesc": "Change passport photo background color to official red/blue or apply studio gradients locally and instantly.",
   "color.officialTitle": "Official Passport Colors",
-  "color.customTitle": "Custom Background Color"
+  "color.customTitle": "Custom Background Color",
+  "work": {
+    "emptyFileNameAlert": "Hindi maaaring walang laman ang pangalan ng file!"
+  }
 }

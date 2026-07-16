@@ -1128,5 +1128,8 @@
   "nav.color": "背景色変更",
   "grid.colorDesc": "証明写真の背景色を公式の赤や青に変更したり、スタジオグラデーションをブラウザ内で瞬時に適用します。",
   "color.officialTitle": "証明写真・公式規定カラー",
-  "color.customTitle": "カスタム背景色を選択"
+  "color.customTitle": "カスタム背景色を選択",
+  "work": {
+    "emptyFileNameAlert": "ファイル名を空にはできません！"
+  }
 }

@@ -1128,5 +1128,8 @@
   "nav.color": "Cambiar Color de Fondo",
   "grid.colorDesc": "Cambia el color de fondo de fotos de pasaporte al rojo/azul oficial o aplica degradados de estudio al instante.",
   "color.officialTitle": "Colores Oficiales de Pasaporte",
-  "color.customTitle": "Color de Fondo Personalizado"
+  "color.customTitle": "Color de Fondo Personalizado",
+  "work": {
+    "emptyFileNameAlert": "¡El nombre del archivo no puede estar vacío!"
+  }
 }
