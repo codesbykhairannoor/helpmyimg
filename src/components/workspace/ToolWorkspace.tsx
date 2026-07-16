@@ -212,15 +212,15 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({ initialTab = 'remo
             initialDimensions: { width: img.width, height: img.height }
           } : item));
         }
-        // Set initial values if not set
-        if (resizeWidth === 0 && resizeHeight === 0) {
-          setResizeWidth(img.width);
-          setResizeHeight(img.height);
-        }
-        if (cropWidth === 0 && cropHeight === 0) {
-          setCropWidth(img.width);
-          setCropHeight(img.height);
-        }
+        // Set initial values or reset if dimensions changed to prevent out of bounds
+        setResizeWidth(img.width);
+        setResizeHeight(img.height);
+        
+        // Reset crop box to full image size whenever a new image loads or is transformed
+        setCropX(0);
+        setCropY(0);
+        setCropWidth(img.width);
+        setCropHeight(img.height);
       };
       img.src = currentItem.originalUrl;
     }

@@ -30,32 +30,29 @@ export const InteractiveCropOverlay: React.FC<InteractiveCropOverlayProps> = ({
     const img = imageElement;
     const container = containerRef.current;
 
-    const imgRect = img.getBoundingClientRect();
-    const containerRect = container.getBoundingClientRect();
-
+    const containerRatio = container.clientWidth / container.clientHeight;
+    // Handle cases where natural dimensions aren't loaded yet
     const imgNaturalW = img.naturalWidth || originalWidth;
     const imgNaturalH = img.naturalHeight || originalHeight;
+    
+    if (!imgNaturalW || !imgNaturalH) return;
+    
+    const imageRatio = imgNaturalW / imgNaturalH;
 
-    if (!imgNaturalW || !imgNaturalH || imgRect.width === 0 || imgRect.height === 0) return;
+    let renderWidth, renderHeight;
+    if (containerRatio > imageRatio) {
+      renderHeight = container.clientHeight;
+      renderWidth = container.clientHeight * imageRatio;
+    } else {
+      renderWidth = container.clientWidth;
+      renderHeight = container.clientWidth / imageRatio;
+    }
 
-    // object-contain scaling factor
-    const scale = Math.min(imgRect.width / imgNaturalW, imgRect.height / imgNaturalH);
+    const left = (container.clientWidth - renderWidth) / 2;
+    const top = (container.clientHeight - renderHeight) / 2;
 
-    // Actual rendered texture dimensions
-    const renderedW = imgNaturalW * scale;
-    const renderedH = imgNaturalH * scale;
-
-    // object-contain centers the texture inside the img element bounds
-    const offsetX = (imgRect.width - renderedW) / 2;
-    const offsetY = (imgRect.height - renderedH) / 2;
-
-    setRenderRect({
-      left: (imgRect.left - containerRect.left) + offsetX,
-      top: (imgRect.top - containerRect.top) + offsetY,
-      width: renderedW,
-      height: renderedH,
-    });
-  }, [imageElement]);
+    setRenderRect({ left, top, width: renderWidth, height: renderHeight });
+  }, [imageElement, originalWidth, originalHeight]);
 
   useEffect(() => {
     updateRenderRect();
@@ -91,13 +88,7 @@ export const InteractiveCropOverlay: React.FC<InteractiveCropOverlayProps> = ({
     }
   }, [cropX, cropY, cropWidth, cropHeight, isDragging]);
 
-  const rawCrop = localCrop || { x: cropX, y: cropY, w: cropWidth, h: cropHeight };
-  const currentCrop = {
-    x: Math.max(0, Math.min(rawCrop.x, Math.max(0, originalWidth - 10))),
-    y: Math.max(0, Math.min(rawCrop.y, Math.max(0, originalHeight - 10))),
-    w: Math.max(10, Math.min(rawCrop.w, originalWidth - Math.max(0, Math.min(rawCrop.x, originalWidth - 10)))),
-    h: Math.max(10, Math.min(rawCrop.h, originalHeight - Math.max(0, Math.min(rawCrop.y, originalHeight - 10)))),
-  };
+  const currentCrop = localCrop || { x: cropX, y: cropY, w: cropWidth, h: cropHeight };
 
   // Actual bounding box in container coordinates
   const boxX = renderRect.left + currentCrop.x * scaleX;
