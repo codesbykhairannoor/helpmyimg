@@ -5,9 +5,9 @@
   "nav.widget": "Widget Einbetten",
   "nav.geo": "KI-Technik",
   "nav.faq": "FAQ",
-  "hero.title": "Foto-Hintergrund entfernen & bearbeiten",
+  "hero.title": "Help Your Image Shine: Professionelles All-in-One KI-Fotostudio",
   "hero.titleHighlight": "in Sekunden",
-  "hero.subtitle": "Professionelle KI-Tools zum Entfernen von Produkthintergründen, Ändern der offiziellen Passfotofarben, Erstellen von Studio-Bokeh und manuellen Bearbeiten.",
+  "hero.subtitle": "Das ultimative Kraftpaket für lokale KI-Fotobearbeitung. Entfernen Sie Hintergründe mit haarpräziser Genauigkeit, erstellen Sie offizielle Passfotos mit benutzerdefinierten Farben, wenden Sie Studio-Bokeh-Unschärfe an, komprimieren, konvertieren und ändern Sie die Größe von bis zu 10 Bildern gleichzeitig direkt in Ihrem Browser. 100% kostenlos, privat und ohne Cloud-Uploads.",
   "stat.time.val": "⚡ 1 Sekunde",
   "stat.time.label": "Sofortige KI-Verarbeitung",
   "stat.prec.val": "🎯 99,8 %",
@@ -1081,8 +1081,8 @@
   "nav.selectLang": "Sprache / Region auswählen (30)",
   "nav.searchLang": "🔍 Sprache suchen (z.B. Korea, ES, RU)...",
   "nav.noLang": "Keine Sprache gefunden",
-  "landing.default.title.home": "Help Your Image: Professionelles Foto-Studio & Bulk-Bildeditor",
-  "landing.default.desc.home": "The complete all-in-one local photo toolkit. Remove backgrounds, change passport colors, blur studio bokeh, compress, convert, and resize instantly right in your browser. 100% free, private, and zero upload required.",
+  "landing.default.title.home": "Help Your Image Shine: Professionelles All-in-One KI-Fotostudio",
+  "landing.default.desc.home": "Das ultimative Kraftpaket für lokale KI-Fotobearbeitung. Entfernen Sie Hintergründe mit haarpräziser Genauigkeit, erstellen Sie offizielle Passfotos mit benutzerdefinierten Farben, wenden Sie Studio-Bokeh-Unschärfe an, komprimieren, konvertieren und ändern Sie die Größe von bis zu 10 Bildern gleichzeitig direkt in Ihrem Browser. 100% kostenlos, privat und ohne Cloud-Uploads.",
   "work.startAi": "Hintergrund Jetzt Entfernen",
   "convert.action": "Bild Jetzt Konvertieren",
   "convert.processAll": "Alle Konvertieren ({{count}})",
@@ -1123,5 +1123,6 @@
   "common.new": "Neu!",
   "home.cta.title": "Bereit, Ihren Fotobearbeitungs-Workflow mit HelpMyIMG zu beschleunigen?",
   "home.cta.desc": "Schließen Sie sich Tausenden von E-Commerce-Verkäufern, Kreativen und Profis an, die für schnelle, private und hochauflösende Fotobearbeitung auf HelpMyIMG vertrauen.",
-  "home.cta.btn": "HelpMyIMG Studio jetzt öffnen"
+  "home.cta.btn": "HelpMyIMG Studio jetzt öffnen",
+  "hero.badge": "⚡ 100% Lokale Web-Engine — Null Cloud-Verzögerung & Absoluter Datenschutz"
 }

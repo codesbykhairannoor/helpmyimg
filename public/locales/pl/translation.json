@@ -5,9 +5,9 @@
   "nav.widget": "Widżet dla strony",
   "nav.geo": "Technologia AI",
   "nav.faq": "Częste pytania",
-  "hero.title": "Edytuj i Usuwaj Tło ze Zdjęć",
+  "hero.title": "Help Your Image Shine: Professional All-in-One AI Photo Studio",
   "hero.titleHighlight": "Błyskawicznie",
-  "hero.subtitle": "Profesjonalne narzędzia AI do usuwania tła z produktów, zmiany kolorów zdjęć paszportowych i tworzenia rozmycia bokeh.",
+  "hero.subtitle": "The ultimate local AI photo editing powerhouse. Remove backgrounds with hair-edge precision, generate official passport photos with custom colors, apply studio bokeh blur, compress, convert, and resize up to 10 images in seconds. 100% free, private, and powered directly by your browser—no uploads required.",
   "stat.time.val": "⚡ 1 Sekunda",
   "stat.time.label": "Błyskawiczne Przetwarzanie",
   "stat.prec.val": "🎯 99,8%",
@@ -1086,8 +1086,8 @@
   "nav.selectLang": "Wybierz język / region (30)",
   "nav.searchLang": "🔍 Szukaj języka (np. Korea, ES, RU)...",
   "nav.noLang": "Nie znaleziono języka",
-  "landing.default.title.home": "Help Your Image: Profesjonalne Studio Foto i Masowy Edytor Zdjęć",
-  "landing.default.desc.home": "The complete all-in-one local photo toolkit. Remove backgrounds, change passport colors, blur studio bokeh, compress, convert, and resize instantly right in your browser. 100% free, private, and zero upload required.",
+  "landing.default.title.home": "Help Your Image Shine: Professional All-in-One AI Photo Studio",
+  "landing.default.desc.home": "The ultimate local AI photo editing powerhouse. Remove backgrounds with hair-edge precision, generate official passport photos with custom colors, apply studio bokeh blur, compress, convert, and resize up to 10 images in seconds. 100% free, private, and powered directly by your browser—no uploads required.",
   "work.startAi": "Usuń Tło Teraz",
   "convert.action": "Konwertuj Obraz Teraz",
   "convert.processAll": "Konwertuj Wszystko ({{count}})",
@@ -1128,5 +1128,6 @@
   "common.new": "New!",
   "home.cta.title": "Ready to Supercharge Your Photo Workflow with HelpMyIMG?",
   "home.cta.desc": "Join thousands of e-commerce sellers, creators, and professionals who trust HelpMyIMG for instant, private, high-definition photo editing.",
-  "home.cta.btn": "Open HelpMyIMG Studio Now"
+  "home.cta.btn": "Open HelpMyIMG Studio Now",
+  "hero.badge": "⚡ 100% Local Web Engine — Zero Cloud Latency & Total Privacy"
 }

@@ -5,9 +5,9 @@
   "nav.widget": "埋め込みウィジェット",
   "nav.geo": "AI技術仕様",
   "nav.faq": "よくある質問",
-  "hero.title": "AI写真編集 & 背景自動切り抜き",
+  "hero.title": "Help Your Image Shine：プロ仕様のオールインワンAI写真スタジオ",
   "hero.titleHighlight": "瞬時に作成",
-  "hero.subtitle": "商品写真の背景削除、証明写真の背景色変更、スタジオ品質のボケ効果、手動ブラシ補正が可能なプロ仕様のAIツール。ブラウザ内で完結するため安全です。",
+  "hero.subtitle": "最新のローカルAI技術を搭載した究極の写真編集ツールキット。髪の毛のディテールまで正確に背景を切り抜き、証明写真の背景色変更、スタジオ品質のボケ効果、最大10枚のバッチ圧縮・変換・リサイズをブラウザ内で完結。100%完全無料＆プライバシー保護、サーバーへのアップロードは一切不要です。",
   "stat.time.val": "⚡ 1秒処理",
   "stat.time.label": "全自動インスタント処理",
   "stat.prec.label": "髪の毛やエッジの精密度",
@@ -1081,8 +1081,8 @@
   "nav.selectLang": "言語/地域を選択 (30)",
   "nav.searchLang": "🔍 言語を検索 (例: 韓国, ES, RU)...",
   "nav.noLang": "言語が見つかりません",
-  "landing.default.title.home": "Help Your Image：プロ仕様の一括画像編集・写真スタジオ",
-  "landing.default.desc.home": "The complete all-in-one local photo toolkit. Remove backgrounds, change passport colors, blur studio bokeh, compress, convert, and resize instantly right in your browser. 100% free, private, and zero upload required.",
+  "landing.default.title.home": "Help Your Image Shine：プロ仕様のオールインワンAI写真スタジオ",
+  "landing.default.desc.home": "最新のローカルAI技術を搭載した究極の写真編集ツールキット。髪の毛のディテールまで正確に背景を切り抜き、証明写真の背景色変更、スタジオ品質のボケ効果、最大10枚のバッチ圧縮・変換・リサイズをブラウザ内で完結。100%完全無料＆プライバシー保護、サーバーへのアップロードは一切不要です。",
   "work.startAi": "今すぐ背景を削除",
   "convert.action": "今すぐ画像を変換",
   "convert.processAll": "すべて変換 ({{count}})",
@@ -1123,5 +1123,6 @@
   "common.new": "新着!",
   "home.cta.title": "HelpMyIMG で写真編集ワークフローを劇的に高速化しましょう！",
   "home.cta.desc": "高速で安全、そして高画質な写真編集を求める何千人ものECセラー、クリエイター、プロフェッショナルに選ばれています。",
-  "home.cta.btn": "今すぐ HelpMyIMG Studio を開く"
+  "home.cta.btn": "今すぐ HelpMyIMG Studio を開く",
+  "hero.badge": "⚡ 100% ローカルWebエンジン — クラウド遅延ゼロ＆完全プライバシー保護"
 }

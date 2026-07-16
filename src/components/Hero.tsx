@@ -12,8 +12,8 @@ interface HeroProps {
 export const Hero: React.FC<HeroProps> = ({ title, description }) => {
   const { t } = useTranslation();
 
-  const fallbackTitle = t('hero.title', { defaultValue: t('landing.default.title.home', { defaultValue: "Help Your Image Shine: Professional Bulk Photo Studio" }) });
-  const fallbackDesc = t('hero.subtitle', { defaultValue: t('landing.default.desc.home', { defaultValue: "The complete all-in-one local photo toolkit. Remove backgrounds, change passport colors, blur studio bokeh, compress, convert, and resize instantly right in your browser. 100% free, private, and zero upload required." }) });
+  const fallbackTitle = t('hero.title', { defaultValue: t('landing.default.title.home', { defaultValue: "Help Your Image Shine: Professional All-in-One AI Photo Studio" }) });
+  const fallbackDesc = t('hero.subtitle', { defaultValue: t('landing.default.desc.home', { defaultValue: "The ultimate local AI photo editing powerhouse. Remove backgrounds with hair-edge precision, generate official passport photos with custom colors, apply studio bokeh blur, compress, convert, and resize up to 10 images in seconds. 100% free, private, and powered directly by your browser—no uploads required." }) });
 
   return (
     <section className="relative pt-6 sm:pt-10 md:pt-12 pb-6 sm:pb-8 overflow-hidden">
@@ -21,6 +21,12 @@ export const Hero: React.FC<HeroProps> = ({ title, description }) => {
       <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[550px] h-[350px] bg-gradient-to-tr from-neon-cyan/20 via-neon-indigo/20 to-neon-violet/20 blur-[130px] rounded-full pointer-events-none -z-10" />
 
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center animate-in fade-in slide-in-from-bottom-4 duration-700">
+        {/* Sleek Local Engine Badge */}
+        <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-dark-800/80 backdrop-blur-md border border-neon-cyan/30 text-neon-cyan text-xs sm:text-sm font-bold mb-6 shadow-glow-cyan/10 hover:border-neon-cyan/60 transition-all">
+          <span className="w-2 h-2 rounded-full bg-neon-cyan animate-ping" />
+          <span>{t('hero.badge', { defaultValue: '⚡ 100% Local Web Engine — Zero Cloud Latency & Total Privacy' })}</span>
+        </div>
+
         {/* Title */}
         <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white mb-5 leading-tight">
           {title || fallbackTitle}

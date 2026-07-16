@@ -5,9 +5,9 @@
   "nav.widget": "Widget de Enlace",
   "nav.geo": "Especificaciones IA",
   "nav.faq": "Preguntas Frecuentes",
-  "hero.title": "Edita y Elimina Fondos de Fotos",
+  "hero.title": "Help Your Image Shine: Estudio Fotográfico AI Profesional Todo en Uno",
   "hero.titleHighlight": "al Instante",
-  "hero.subtitle": "Herramientas de IA profesionales para eliminar fondos de productos, cambiar colores oficiales de pasaporte, crear desenfoque bokeh de estudio y editar manualmente.",
+  "hero.subtitle": "La plataforma definitiva de edición fotográfica con inteligencia artificial local. Elimina fondos con precisión de cabello, crea fotos de pasaporte oficiales con colores personalizados, aplica desenfoque bokeh de estudio, comprime, convierte y cambia el tamaño de hasta 10 fotos a la vez directamente en tu navegador. 100% gratis, privado y sin subidas a la nube.",
   "stat.time.val": "⚡ 1 Segundo",
   "stat.time.label": "Procesamiento Instantáneo",
   "stat.prec.val": "🎯 99,8%",
@@ -1081,8 +1081,8 @@
   "nav.selectLang": "Seleccionar idioma / región (30)",
   "nav.searchLang": "🔍 Buscar idioma (ej., Corea, ES, RU)...",
   "nav.noLang": "No se encontró el idioma",
-  "landing.default.title.home": "Help Your Image: Estudio Fotográfico y Editor Masivo Profesional",
-  "landing.default.desc.home": "El conjunto completo de herramientas de fotografía local en tu navegador. Elimina fondos, cambia colores oficiales de pasaporte, difumina fondos, comprime, convierte y redimensiona al instante. 100% gratis y privado.",
+  "landing.default.title.home": "Help Your Image Shine: Estudio Fotográfico AI Profesional Todo en Uno",
+  "landing.default.desc.home": "La plataforma definitiva de edición fotográfica con inteligencia artificial local. Elimina fondos con precisión de cabello, crea fotos de pasaporte oficiales con colores personalizados, aplica desenfoque bokeh de estudio, comprime, convierte y cambia el tamaño de hasta 10 fotos a la vez directamente en tu navegador. 100% gratis, privado y sin subidas a la nube.",
   "work.startAi": "Eliminar Fondo Ahora",
   "convert.action": "Convertir Imagen Ahora",
   "convert.processAll": "Convertir Todo ({{count}})",
@@ -1123,5 +1123,6 @@
   "common.new": "¡Nuevo!",
   "home.cta.title": "¿Listo para Acelerar tu Flujo de Edición de Fotos con HelpMyIMG?",
   "home.cta.desc": "Únete a miles de vendedores de e-commerce, creadores y profesionales que confían en HelpMyIMG para una edición de fotos instantánea, privada y de alta resolución.",
-  "home.cta.btn": "Abrir HelpMyIMG Studio Ahora"
+  "home.cta.btn": "Abrir HelpMyIMG Studio Ahora",
+  "hero.badge": "⚡ Motor Web Local 100% — Cero Latencia en Nube y Privacidad Total"
 }
