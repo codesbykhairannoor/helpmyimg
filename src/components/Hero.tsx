@@ -12,7 +12,7 @@ interface HeroProps {
 export const Hero: React.FC<HeroProps> = ({ title, description }) => {
   const { t } = useTranslation();
 
-  const fallbackTitle = t('hero.title', { defaultValue: t('landing.default.title.home', { defaultValue: "Help Your Image Shine: Professional Photo Studio & Bulk Toolkit" }) });
+  const fallbackTitle = t('hero.title', { defaultValue: t('landing.default.title.home', { defaultValue: "Professional Photo Studio & Bulk Toolkit" }) });
   const fallbackDesc = t('hero.subtitle', { defaultValue: t('landing.default.desc.home', { defaultValue: "The ultimate local photo editing powerhouse. Remove backgrounds with hair-edge precision, generate official passport photos with custom colors, apply studio bokeh blur, compress, convert, and resize up to 10 images in seconds. 100% free, private, and powered directly by your browser—no uploads required." }) });
 
   return (
