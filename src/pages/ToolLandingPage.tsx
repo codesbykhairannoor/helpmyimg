@@ -174,7 +174,7 @@ export const ToolLandingPage: React.FC = () => {
               <p className="text-slate-400 font-medium">Memuat Workspace...</p>
             </div>
           }>
-            <ToolWorkspace initialTab={displayConfig.tool} />
+            <ToolWorkspace key={displayConfig.tool} initialTab={displayConfig.tool} />
           </React.Suspense>
         )}
       </div>
