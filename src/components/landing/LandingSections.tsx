@@ -5,6 +5,17 @@
 
 import React from 'react';
 import { useTranslation } from '../../context/LanguageContext';
+import { RemoveBgSections } from './tools/RemoveBgSections';
+import { CompressSections } from './tools/CompressSections';
+import { ColorBgSections } from './tools/ColorBgSections';
+import { ResizeSections } from './tools/ResizeSections';
+import { CropSections } from './tools/CropSections';
+import { DesignSections } from './tools/DesignSections';
+import { RotateSections } from './tools/RotateSections';
+import { PickerSections } from './tools/PickerSections';
+import { WatermarkSections } from './tools/WatermarkSections';
+import { BlurFaceSections } from './tools/BlurFaceSections';
+import { ConvertSections } from './tools/ConvertSections';
 import {
   ShieldCheck,
   Zap,
@@ -14,12 +25,11 @@ import {
   Camera,
   FileText,
   Code2,
-  CheckCircle2,
-  Star
+  CheckCircle2
 } from 'lucide-react';
 
 interface LandingSectionsProps {
-  tool: 'remove' | 'color' | 'watermark' | 'compress' | 'convert' | 'resize' | 'crop' | 'rotate' | 'picker';
+  tool: 'remove' | 'color' | 'watermark' | 'compress' | 'convert' | 'resize' | 'crop' | 'rotate' | 'picker' | 'design' | 'blurface';
 }
 
 export const LandingSections: React.FC<LandingSectionsProps> = ({ tool }) => {
@@ -27,80 +37,114 @@ export const LandingSections: React.FC<LandingSectionsProps> = ({ tool }) => {
   // Tool-prefixed translation: landing.remove.why.tag, landing.color.why.tag, etc.
   const tp = (key: string) => t(`landing.${tool}.${key}`);
 
+  if (tool === 'remove') {
+    return <RemoveBgSections />;
+  }
+  if (tool === 'compress') {
+    return <CompressSections />;
+  }
+  if (tool === 'color') {
+    return <ColorBgSections />;
+  }
+  if (tool === 'resize') {
+    return <ResizeSections />;
+  }
+  if (tool === 'crop') {
+    return <CropSections />;
+  }
+  if (tool === 'design') {
+    return <DesignSections />;
+  }
+  if (tool === 'rotate') {
+    return <RotateSections />;
+  }
+  if (tool === 'picker') {
+    return <PickerSections />;
+  }
+  if (tool === 'watermark') {
+    return <WatermarkSections />;
+  }
+  if (tool === 'blurface') {
+    return <BlurFaceSections />;
+  }
+  if (tool === 'convert') {
+    return <ConvertSections />;
+  }
+
   return (
     <div className="space-y-24 py-16 text-slate-100">
       
       {/* 1. WHY CHOOSE US - KEUNGGULAN MUTLAK VS KOMPETITOR CLOUD */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <span className="text-xs font-mono font-bold uppercase tracking-widest text-neon-cyan bg-neon-cyan/10 px-3 py-1.5 rounded-full border border-neon-cyan/30">
+          <span className="text-xs font-mono font-bold uppercase tracking-widest text-[#12DA91] bg-[#12DA91]/10 px-3 py-1.5 rounded-full border border-[#12DA91]/30 block w-max mx-auto mb-4">
             {tp('why.tag')}
           </span>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-heading font-extrabold text-white mt-4 tracking-tight">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-heading font-extrabold text-white leading-tight">
             {tp('why.title')}
           </h2>
-          <p className="text-slate-300 text-base sm:text-lg mt-4 font-body leading-relaxed">
+          <p className="text-lg text-slate-400 leading-relaxed mt-6 max-w-2xl mx-auto">
             {tp('why.desc')}
           </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          <div className="glass-panel p-8 rounded-3xl border-dark-500/60 relative overflow-hidden group hover:border-neon-cyan/50 transition-all duration-300 transform hover:-translate-y-1">
-            <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-neon-cyan to-blue-600 flex items-center justify-center text-dark-900 mb-6 shadow-glow-cyan">
+          <div className="glass-panel p-8 rounded-3xl border-dark-500/60 relative overflow-hidden group hover:border-[#05DAED]/50 transition-all duration-300 transform hover:-translate-y-1">
+            <div className="w-14 h-14 rounded-2xl bg-[#05DAED]/10 flex items-center justify-center text-[#05DAED] mb-6 border border-[#05DAED]/30">
               <Zap className="w-7 h-7 stroke-[2.5]" />
             </div>
             <h3 className="text-xl font-heading font-bold text-white mb-3">
               {tp('why.card1.title')}
             </h3>
-            <p className="text-slate-300 text-sm leading-relaxed">
+            <p className="text-slate-400 text-sm leading-relaxed">
               {tp('why.card1.desc')}
             </p>
-            <div className="mt-6 flex items-center gap-2 text-xs font-mono text-neon-cyan font-bold">
+            <div className="mt-6 flex items-center gap-2 text-xs font-mono text-[#05DAED] font-bold">
               <span>{tp('why.card1.badge')}</span>
             </div>
           </div>
 
-          <div className="glass-panel p-8 rounded-3xl border-dark-500/60 relative overflow-hidden group hover:border-neon-emerald/50 transition-all duration-300 transform hover:-translate-y-1">
-            <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-neon-emerald to-teal-600 flex items-center justify-center text-dark-900 mb-6 shadow-glow-emerald">
+          <div className="glass-panel p-8 rounded-3xl border-dark-500/60 relative overflow-hidden group hover:border-[#12DA91]/50 transition-all duration-300 transform hover:-translate-y-1">
+            <div className="w-14 h-14 rounded-2xl bg-[#12DA91]/10 flex items-center justify-center text-[#12DA91] mb-6 border border-[#12DA91]/30">
               <ShieldCheck className="w-7 h-7 stroke-[2.5]" />
             </div>
             <h3 className="text-xl font-heading font-bold text-white mb-3">
               {tp('why.card2.title')}
             </h3>
-            <p className="text-slate-300 text-sm leading-relaxed">
+            <p className="text-slate-400 text-sm leading-relaxed">
               {tp('why.card2.desc')}
             </p>
-            <div className="mt-6 flex items-center gap-2 text-xs font-mono text-neon-emerald font-bold">
+            <div className="mt-6 flex items-center gap-2 text-xs font-mono text-[#12DA91] font-bold">
               <span>{tp('why.card2.badge')}</span>
             </div>
           </div>
 
-          <div className="glass-panel p-8 rounded-3xl border-dark-500/60 relative overflow-hidden group hover:border-neon-indigo/50 transition-all duration-300 transform hover:-translate-y-1">
-            <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-neon-indigo to-purple-600 flex items-center justify-center text-white mb-6 shadow-glow-indigo">
+          <div className="glass-panel p-8 rounded-3xl border-dark-500/60 relative overflow-hidden group hover:border-[#05DAED]/50 transition-all duration-300 transform hover:-translate-y-1">
+            <div className="w-14 h-14 rounded-2xl bg-[#05DAED]/10 flex items-center justify-center text-[#05DAED] mb-6 border border-[#05DAED]/30">
               <DollarSign className="w-7 h-7 stroke-[2.5]" />
             </div>
             <h3 className="text-xl font-heading font-bold text-white mb-3">
               {tp('why.card3.title')}
             </h3>
-            <p className="text-slate-300 text-sm leading-relaxed">
+            <p className="text-slate-400 text-sm leading-relaxed">
               {tp('why.card3.desc')}
             </p>
-            <div className="mt-6 flex items-center gap-2 text-xs font-mono text-neon-indigo font-bold">
+            <div className="mt-6 flex items-center gap-2 text-xs font-mono text-[#05DAED] font-bold">
               <span>{tp('why.card3.badge')}</span>
             </div>
           </div>
 
-          <div className="glass-panel p-8 rounded-3xl border-dark-500/60 relative overflow-hidden group hover:border-neon-purple/50 transition-all duration-300 transform hover:-translate-y-1">
-            <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-neon-purple to-pink-600 flex items-center justify-center text-white mb-6 shadow-glow-purple">
+          <div className="glass-panel p-8 rounded-3xl border-dark-500/60 relative overflow-hidden group hover:border-[#12DA91]/50 transition-all duration-300 transform hover:-translate-y-1">
+            <div className="w-14 h-14 rounded-2xl bg-[#12DA91]/10 flex items-center justify-center text-[#12DA91] mb-6 border border-[#12DA91]/30">
               <Globe className="w-7 h-7 stroke-[2.5]" />
             </div>
             <h3 className="text-xl font-heading font-bold text-white mb-3">
               {tp('why.card4.title')}
             </h3>
-            <p className="text-slate-300 text-sm leading-relaxed">
+            <p className="text-slate-400 text-sm leading-relaxed">
               {tp('why.card4.desc')}
             </p>
-            <div className="mt-6 flex items-center gap-2 text-xs font-mono text-neon-purple font-bold">
+            <div className="mt-6 flex items-center gap-2 text-xs font-mono text-[#12DA91] font-bold">
               <span>{tp('why.card4.badge')}</span>
             </div>
           </div>
@@ -110,112 +154,112 @@ export const LandingSections: React.FC<LandingSectionsProps> = ({ tool }) => {
       {/* 2. WHO IS IT MADE FOR - SOLUSI SPESIFIK PER PROFESI */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <span className="text-xs font-mono font-bold uppercase tracking-widest text-neon-emerald bg-neon-emerald/10 px-3 py-1.5 rounded-full border border-neon-emerald/30">
+          <span className="text-xs font-mono font-bold uppercase tracking-widest text-[#05DAED] bg-[#05DAED]/10 px-3 py-1.5 rounded-full border border-[#05DAED]/30 block w-max mx-auto mb-4">
             {tp('who.tag')}
           </span>
-          <h2 className="text-3xl sm:text-4xl font-heading font-extrabold text-white mt-4">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-heading font-extrabold text-white leading-tight">
             {tp('who.title')}
           </h2>
-          <p className="text-slate-300 text-base mt-3">
+          <p className="text-lg text-slate-400 leading-relaxed mt-6 max-w-2xl mx-auto">
             {tp('who.desc')}
           </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          <div className="glass-panel p-8 rounded-3xl border-dark-500/60 flex flex-col sm:flex-row gap-6 items-start">
-            <div className="w-16 h-16 rounded-2xl bg-dark-800 border border-dark-600 flex items-center justify-center shrink-0 text-neon-cyan">
+          <div className="glass-panel p-8 rounded-3xl border-dark-500/60 flex flex-col sm:flex-row gap-6 items-start hover:border-[#05DAED]/30 transition-colors">
+            <div className="w-16 h-16 rounded-2xl bg-[#05DAED]/10 border border-[#05DAED]/30 flex items-center justify-center shrink-0 text-[#05DAED]">
               <ShoppingBag className="w-8 h-8" />
             </div>
             <div className="space-y-3">
               <h3 className="text-xl font-heading font-bold text-white flex items-center gap-2">
                 <span>{tp('who.c1.title')}</span>
-                <span className="text-[10px] px-2 py-0.5 rounded bg-neon-cyan/20 text-neon-cyan font-mono">{tp('who.c1.badge')}</span>
+                <span className="text-[10px] px-2 py-0.5 rounded bg-[#05DAED]/20 text-[#05DAED] font-mono border border-[#05DAED]/30">{tp('who.c1.badge')}</span>
               </h3>
-              <p className="text-slate-300 text-sm leading-relaxed">
+              <p className="text-slate-400 text-sm leading-relaxed">
                 {tp('who.c1.desc')}
               </p>
               <ul className="text-xs text-slate-400 space-y-1 pt-1 font-medium">
                 <li className="flex items-center gap-2">
-                  <CheckCircle2 className="w-3.5 h-3.5 text-neon-cyan shrink-0" />
+                  <CheckCircle2 className="w-3.5 h-3.5 text-[#05DAED] shrink-0" />
                   <span>{tp('who.c1.l1')}</span>
                 </li>
                 <li className="flex items-center gap-2">
-                  <CheckCircle2 className="w-3.5 h-3.5 text-neon-cyan shrink-0" />
+                  <CheckCircle2 className="w-3.5 h-3.5 text-[#05DAED] shrink-0" />
                   <span>{tp('who.c1.l2')}</span>
                 </li>
               </ul>
             </div>
           </div>
 
-          <div className="glass-panel p-8 rounded-3xl border-dark-500/60 flex flex-col sm:flex-row gap-6 items-start">
-            <div className="w-16 h-16 rounded-2xl bg-dark-800 border border-dark-600 flex items-center justify-center shrink-0 text-neon-emerald">
+          <div className="glass-panel p-8 rounded-3xl border-dark-500/60 flex flex-col sm:flex-row gap-6 items-start hover:border-[#12DA91]/30 transition-colors">
+            <div className="w-16 h-16 rounded-2xl bg-[#12DA91]/10 border border-[#12DA91]/30 flex items-center justify-center shrink-0 text-[#12DA91]">
               <Camera className="w-8 h-8" />
             </div>
             <div className="space-y-3">
               <h3 className="text-xl font-heading font-bold text-white flex items-center gap-2">
                 <span>{tp('who.c2.title')}</span>
-                <span className="text-[10px] px-2 py-0.5 rounded bg-neon-emerald/20 text-neon-emerald font-mono">{tp('who.c2.badge')}</span>
+                <span className="text-[10px] px-2 py-0.5 rounded bg-[#12DA91]/20 text-[#12DA91] font-mono border border-[#12DA91]/30">{tp('who.c2.badge')}</span>
               </h3>
-              <p className="text-slate-300 text-sm leading-relaxed">
+              <p className="text-slate-400 text-sm leading-relaxed">
                 {tp('who.c2.desc')}
               </p>
               <ul className="text-xs text-slate-400 space-y-1 pt-1 font-medium">
                 <li className="flex items-center gap-2">
-                  <CheckCircle2 className="w-3.5 h-3.5 text-neon-emerald shrink-0" />
+                  <CheckCircle2 className="w-3.5 h-3.5 text-[#12DA91] shrink-0" />
                   <span>{tp('who.c2.l1')}</span>
                 </li>
                 <li className="flex items-center gap-2">
-                  <CheckCircle2 className="w-3.5 h-3.5 text-neon-emerald shrink-0" />
+                  <CheckCircle2 className="w-3.5 h-3.5 text-[#12DA91] shrink-0" />
                   <span>{tp('who.c2.l2')}</span>
                 </li>
               </ul>
             </div>
           </div>
 
-          <div className="glass-panel p-8 rounded-3xl border-dark-500/60 flex flex-col sm:flex-row gap-6 items-start">
-            <div className="w-16 h-16 rounded-2xl bg-dark-800 border border-dark-600 flex items-center justify-center shrink-0 text-neon-indigo">
+          <div className="glass-panel p-8 rounded-3xl border-dark-500/60 flex flex-col sm:flex-row gap-6 items-start hover:border-[#05DAED]/30 transition-colors">
+            <div className="w-16 h-16 rounded-2xl bg-[#05DAED]/10 border border-[#05DAED]/30 flex items-center justify-center shrink-0 text-[#05DAED]">
               <FileText className="w-8 h-8" />
             </div>
             <div className="space-y-3">
               <h3 className="text-xl font-heading font-bold text-white flex items-center gap-2">
                 <span>{tp('who.c3.title')}</span>
-                <span className="text-[10px] px-2 py-0.5 rounded bg-neon-indigo/20 text-neon-indigo font-mono">{tp('who.c3.badge')}</span>
+                <span className="text-[10px] px-2 py-0.5 rounded bg-[#05DAED]/20 text-[#05DAED] font-mono border border-[#05DAED]/30">{tp('who.c3.badge')}</span>
               </h3>
-              <p className="text-slate-300 text-sm leading-relaxed">
+              <p className="text-slate-400 text-sm leading-relaxed">
                 {tp('who.c3.desc')}
               </p>
               <ul className="text-xs text-slate-400 space-y-1 pt-1 font-medium">
                 <li className="flex items-center gap-2">
-                  <CheckCircle2 className="w-3.5 h-3.5 text-neon-indigo shrink-0" />
+                  <CheckCircle2 className="w-3.5 h-3.5 text-[#05DAED] shrink-0" />
                   <span>{tp('who.c3.l1')}</span>
                 </li>
                 <li className="flex items-center gap-2">
-                  <CheckCircle2 className="w-3.5 h-3.5 text-neon-indigo shrink-0" />
+                  <CheckCircle2 className="w-3.5 h-3.5 text-[#05DAED] shrink-0" />
                   <span>{tp('who.c3.l2')}</span>
                 </li>
               </ul>
             </div>
           </div>
 
-          <div className="glass-panel p-8 rounded-3xl border-dark-500/60 flex flex-col sm:flex-row gap-6 items-start">
-            <div className="w-16 h-16 rounded-2xl bg-dark-800 border border-dark-600 flex items-center justify-center shrink-0 text-neon-purple">
+          <div className="glass-panel p-8 rounded-3xl border-dark-500/60 flex flex-col sm:flex-row gap-6 items-start hover:border-[#12DA91]/30 transition-colors">
+            <div className="w-16 h-16 rounded-2xl bg-[#12DA91]/10 border border-[#12DA91]/30 flex items-center justify-center shrink-0 text-[#12DA91]">
               <Code2 className="w-8 h-8" />
             </div>
             <div className="space-y-3">
               <h3 className="text-xl font-heading font-bold text-white flex items-center gap-2">
                 <span>{tp('who.c4.title')}</span>
-                <span className="text-[10px] px-2 py-0.5 rounded bg-neon-purple/20 text-neon-purple font-mono">{tp('who.c4.badge')}</span>
+                <span className="text-[10px] px-2 py-0.5 rounded bg-[#12DA91]/20 text-[#12DA91] font-mono border border-[#12DA91]/30">{tp('who.c4.badge')}</span>
               </h3>
-              <p className="text-slate-300 text-sm leading-relaxed">
+              <p className="text-slate-400 text-sm leading-relaxed">
                 {tp('who.c4.desc')}
               </p>
               <ul className="text-xs text-slate-400 space-y-1 pt-1 font-medium">
                 <li className="flex items-center gap-2">
-                  <CheckCircle2 className="w-3.5 h-3.5 text-neon-purple shrink-0" />
+                  <CheckCircle2 className="w-3.5 h-3.5 text-[#12DA91] shrink-0" />
                   <span>{tp('who.c4.l1')}</span>
                 </li>
                 <li className="flex items-center gap-2">
-                  <CheckCircle2 className="w-3.5 h-3.5 text-neon-purple shrink-0" />
+                  <CheckCircle2 className="w-3.5 h-3.5 text-[#12DA91] shrink-0" />
                   <span>{tp('who.c4.l2')}</span>
                 </li>
               </ul>
@@ -227,51 +271,51 @@ export const LandingSections: React.FC<LandingSectionsProps> = ({ tool }) => {
       {/* 3. HOW IT WORKS IN 3 SECONDS - ALUR KERJA CEPAT */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="glass-panel p-10 sm:p-14 rounded-3xl border-dark-500/60 relative overflow-hidden bg-gradient-to-b from-dark-900/90 to-dark-800/90">
-          <div className="text-center max-w-3xl mx-auto mb-16">
-            <span className="text-xs font-mono font-bold uppercase tracking-widest text-neon-cyan">
+          <div className="text-center max-w-3xl mx-auto mb-16 px-4 relative z-10">
+            <span className="text-xs font-mono font-bold uppercase tracking-widest text-[#05DAED] bg-[#05DAED]/10 px-3 py-1.5 rounded-full border border-[#05DAED]/30 block w-max mx-auto mb-4">
               {tp('work.tag')}
             </span>
-            <h2 className="text-3xl sm:text-4xl font-heading font-extrabold text-white mt-3">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-heading font-extrabold text-white leading-tight">
               {tp('work.title')}
             </h2>
-            <p className="text-slate-300 text-sm sm:text-base mt-2">
+            <p className="text-lg text-slate-400 leading-relaxed mt-6 max-w-2xl mx-auto">
               {tp('work.desc')}
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 relative z-10">
-            <div className="text-center space-y-4">
-              <div className="w-16 h-16 rounded-2xl bg-dark-800 border-2 border-neon-cyan/50 text-neon-cyan font-heading font-extrabold text-2xl flex items-center justify-center mx-auto shadow-glow-cyan">
+            <div className="flex flex-col items-center text-center p-6 rounded-2xl bg-dark-800/60 border border-dark-600/40">
+              <div className="w-12 h-12 rounded-full bg-[#05DAED]/20 border border-[#05DAED]/50 text-[#05DAED] font-bold font-mono flex items-center justify-center text-lg mb-4 shadow-glow-cyan/20">
                 1
               </div>
-              <h3 className="font-heading font-bold text-white text-lg">
+              <h3 className="text-lg font-bold text-white mb-2">
                 {tp('work.s1.title')}
               </h3>
-              <p className="text-slate-400 text-xs sm:text-sm leading-relaxed px-4">
+              <p className="text-sm text-slate-400 leading-relaxed">
                 {tp('work.s1.desc')}
               </p>
             </div>
 
-            <div className="text-center space-y-4">
-              <div className="w-16 h-16 rounded-2xl bg-dark-800 border-2 border-neon-emerald/50 text-neon-emerald font-heading font-extrabold text-2xl flex items-center justify-center mx-auto shadow-glow-emerald">
+            <div className="flex flex-col items-center text-center p-6 rounded-2xl bg-dark-800/60 border border-dark-600/40">
+              <div className="w-12 h-12 rounded-full bg-[#12DA91]/20 border border-[#12DA91]/50 text-[#12DA91] font-bold font-mono flex items-center justify-center text-lg mb-4 shadow-glow-emerald/20">
                 2
               </div>
-              <h3 className="font-heading font-bold text-white text-lg">
+              <h3 className="text-lg font-bold text-white mb-2">
                 {tp('work.s2.title')}
               </h3>
-              <p className="text-slate-400 text-xs sm:text-sm leading-relaxed px-4">
+              <p className="text-sm text-slate-400 leading-relaxed">
                 {tp('work.s2.desc')}
               </p>
             </div>
 
-            <div className="text-center space-y-4">
-              <div className="w-16 h-16 rounded-2xl bg-dark-800 border-2 border-neon-indigo/50 text-neon-indigo font-heading font-extrabold text-2xl flex items-center justify-center mx-auto shadow-glow-indigo">
+            <div className="flex flex-col items-center text-center p-6 rounded-2xl bg-dark-800/60 border border-dark-600/40">
+              <div className="w-12 h-12 rounded-full bg-[#05DAED]/20 border border-[#05DAED]/50 text-[#05DAED] font-bold font-mono flex items-center justify-center text-lg mb-4 shadow-glow-cyan/20">
                 3
               </div>
-              <h3 className="font-heading font-bold text-white text-lg">
+              <h3 className="text-lg font-bold text-white mb-2">
                 {tp('work.s3.title')}
               </h3>
-              <p className="text-slate-400 text-xs sm:text-sm leading-relaxed px-4">
+              <p className="text-sm text-slate-400 leading-relaxed">
                 {tp('work.s3.desc')}
               </p>
             </div>
@@ -279,84 +323,46 @@ export const LandingSections: React.FC<LandingSectionsProps> = ({ tool }) => {
         </div>
       </section>
 
-      {/* 4. TESTIMONIALS & SOCIAL PROOF */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <span className="text-xs font-mono font-bold uppercase tracking-widest text-neon-purple">
-            {tp('proof.tag')}
+      {/* 4. SYSTEM ARCHITECTURE - FLEXING (Replaced Testimonials) */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-24">
+        <div className="text-center max-w-3xl mx-auto mb-16 px-4">
+          <span className="text-xs font-mono font-bold uppercase tracking-widest text-[#12DA91] bg-[#12DA91]/10 px-3 py-1.5 rounded-full border border-[#12DA91]/30 block w-max mx-auto mb-4">
+            {t('landing.flex.tag', { defaultValue: 'SYSTEM ARCHITECTURE' })}
           </span>
-          <h2 className="text-3xl sm:text-4xl font-heading font-extrabold text-white mt-3">
-            {tp('proof.title')}
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-heading font-extrabold text-white leading-tight">
+            {t('landing.flex.title', { defaultValue: 'Engineered for Extreme Privacy & Millisecond Performance' })}
           </h2>
-          <p className="text-slate-300 text-base mt-2">
-            {tp('proof.desc')}
+          <p className="text-lg text-slate-400 leading-relaxed mt-6 max-w-2xl mx-auto">
+            {t('landing.flex.desc', { defaultValue: 'We don\'t rely on slow cloud servers. HelpMyIMG utilizes next-generation WebAssembly to run complex AI algorithms directly inside your browser memory.' })}
           </p>
         </div>
-
+        
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <div className="glass-panel p-8 rounded-3xl border-dark-500/60 flex flex-col justify-between space-y-6">
-            <div className="space-y-4">
-              <div className="flex text-amber-400 gap-1">
-                {[...Array(5)].map((_, i) => <Star key={i} className="w-4 h-4 fill-amber-400" />)}
-              </div>
-              <p className="text-slate-300 text-sm leading-relaxed italic font-body">
-                {tp('proof.q1')}
-              </p>
+          <div className="bg-dark-800/40 p-8 rounded-3xl border border-[#05DAED]/20 hover:border-[#05DAED]/50 transition-colors group">
+            <div className="w-12 h-12 bg-[#05DAED]/10 text-[#05DAED] rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+              <ShieldCheck className="w-6 h-6" />
             </div>
-            <div className="flex items-center gap-3 pt-4 border-t border-dark-600/50">
-              <div className="w-10 h-10 rounded-full bg-gradient-to-tr from-neon-cyan to-blue-600 flex items-center justify-center text-dark-900 font-bold font-heading">
-                PG
-              </div>
-              <div>
-                <h4 className="text-sm font-bold text-white">Powell Gao</h4>
-                <p className="text-xs text-slate-400">{tp('proof.t1.role')}</p>
-              </div>
-            </div>
+            <h3 className="text-xl font-bold text-white mb-3">{t('landing.flex.c1.title', { defaultValue: 'Local AI Processing' })}</h3>
+            <p className="text-slate-400">{t('landing.flex.c1.desc', { defaultValue: 'Your sensitive files never touch our servers. All AI operations are executed locally on your device for 100% privacy.' })}</p>
           </div>
 
-          <div className="glass-panel p-8 rounded-3xl border-dark-500/60 flex flex-col justify-between space-y-6">
-            <div className="space-y-4">
-              <div className="flex text-amber-400 gap-1">
-                {[...Array(5)].map((_, i) => <Star key={i} className="w-4 h-4 fill-amber-400" />)}
-              </div>
-              <p className="text-slate-300 text-sm leading-relaxed italic font-body">
-                {tp('proof.q2')}
-              </p>
+          <div className="bg-dark-800/40 p-8 rounded-3xl border border-[#05DAED]/20 hover:border-[#05DAED]/50 transition-colors group">
+            <div className="w-12 h-12 bg-[#05DAED]/10 text-[#05DAED] rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+              <Zap className="w-6 h-6" />
             </div>
-            <div className="flex items-center gap-3 pt-4 border-t border-dark-600/50">
-              <div className="w-10 h-10 rounded-full bg-gradient-to-tr from-neon-emerald to-teal-600 flex items-center justify-center text-dark-900 font-bold font-heading">
-                AM
-              </div>
-              <div>
-                <h4 className="text-sm font-bold text-white">Andrea Mangano</h4>
-                <p className="text-xs text-slate-400">{tp('proof.t2.role')}</p>
-              </div>
-            </div>
+            <h3 className="text-xl font-bold text-white mb-3">{t('landing.flex.c2.title', { defaultValue: '0ms Network Latency' })}</h3>
+            <p className="text-slate-400">{t('landing.flex.c2.desc', { defaultValue: 'Skip the upload and download wait times. Processing begins the exact millisecond you drag and drop your photos.' })}</p>
           </div>
 
-          <div className="glass-panel p-8 rounded-3xl border-dark-500/60 flex flex-col justify-between space-y-6">
-            <div className="space-y-4">
-              <div className="flex text-amber-400 gap-1">
-                {[...Array(5)].map((_, i) => <Star key={i} className="w-4 h-4 fill-amber-400" />)}
-              </div>
-              <p className="text-slate-300 text-sm leading-relaxed italic font-body">
-                {tp('proof.q3')}
-              </p>
+          <div className="bg-dark-800/40 p-8 rounded-3xl border border-[#12DA91]/20 hover:border-[#12DA91]/50 transition-colors group">
+            <div className="w-12 h-12 bg-[#12DA91]/10 text-[#12DA91] rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+              <Code2 className="w-6 h-6" />
             </div>
-            <div className="flex items-center gap-3 pt-4 border-t border-dark-600/50">
-              <div className="w-10 h-10 rounded-full bg-gradient-to-tr from-neon-indigo to-purple-600 flex items-center justify-center text-white font-bold font-heading">
-                OH
-              </div>
-              <div>
-                <h4 className="text-sm font-bold text-white">Omar Hamza</h4>
-                <p className="text-xs text-slate-400">{tp('proof.t3.role')}</p>
-              </div>
-            </div>
+            <h3 className="text-xl font-bold text-white mb-3">{t('landing.flex.c3.title', { defaultValue: 'WebAssembly Powered' })}</h3>
+            <p className="text-slate-400">{t('landing.flex.c3.desc', { defaultValue: 'Leveraging ultra-fast WASM binaries, HelpMyIMG matches the performance of native desktop applications inside the web browser.' })}</p>
           </div>
         </div>
       </section>
-
-
 
     </div>
   );

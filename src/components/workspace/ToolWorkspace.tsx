@@ -8,10 +8,11 @@ import { aiService } from '../../services/aiService';
 import { Upload, Download, Loader2, Sparkles, Archive, Trash2, Settings2, ChevronDown } from 'lucide-react';
 import JSZip from 'jszip';
 import { motion, AnimatePresence } from 'framer-motion';
+import { trackEvent } from '../../utils/analytics';
 
 import { lazyWithRetry } from '../../utils/lazyWithRetry';
+import { RemoveBgControl } from './tools/RemoveBgControl';
 
-const RemoveBgControl = lazyWithRetry(() => import('./tools/RemoveBgControl').then(m => ({ default: m.RemoveBgControl })), 'RemoveBgControl');
 const ColorBgControl = lazyWithRetry(() => import('./tools/ColorBgControl').then(m => ({ default: m.ColorBgControl })), 'ColorBgControl');
 const BrushControl = lazyWithRetry(() => import('./tools/BrushControl').then(m => ({ default: m.BrushControl })), 'BrushControl');
 const WatermarkControl = lazyWithRetry(() => import('./tools/WatermarkControl').then(m => ({ default: m.WatermarkControl })), 'WatermarkControl');
@@ -1576,6 +1577,7 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({ initialTab = 'remo
                             showToast(t('work.emptyFileNameAlert', { defaultValue: 'Nama file tidak boleh kosong! / File name cannot be empty!' }));
                             return;
                           }
+                          trackEvent('file_downloaded', { count: batchItems.length, type: 'zip', tool: activeTab });
                           handleZipDownload();
                         }}
                         disabled={isZipping || batchItems.some(i => i.status !== 'done')}
@@ -1593,6 +1595,7 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({ initialTab = 'remo
                             return;
                           }
                           if (item && item.processedUrl) {
+                            trackEvent('file_downloaded', { count: 1, type: 'single', tool: activeTab });
                             const a = document.createElement('a');
                             a.href = item.processedUrl;
                             a.download = item.name;

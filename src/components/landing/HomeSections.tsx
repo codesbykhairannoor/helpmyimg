@@ -4,12 +4,10 @@
 
 import React from 'react';
 import { useTranslation } from '../../context/LanguageContext';
-import {
-  Zap,
-  ShieldCheck,
+import { 
+  Zap, ShieldCheck,
   DollarSign,
   Cpu,
-  CheckCircle2,
   HelpCircle,
   Sparkles,
   ArrowRight
@@ -21,182 +19,240 @@ export const HomeSections: React.FC = () => {
   const { t, lang } = useTranslation();
 
   return (
-    <div className="space-y-24 py-16 text-slate-100 relative z-10">
+    <div className="space-y-32 sm:space-y-40 py-16 text-slate-100 relative z-10">
       
       {/* 1. WHY HELPMYIMG - KEUNGGULAN MUTLAK vs KOMPETITOR CLOUD */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <span className="text-xs font-mono font-bold tracking-widest text-neon-cyan bg-neon-cyan/10 px-3.5 py-1.5 rounded-full border border-neon-cyan/30">
+        <div className="text-center max-w-3xl mx-auto mb-16 px-4">
+          <span className="text-xs font-mono font-bold uppercase tracking-widest text-[#12DA91] bg-[#12DA91]/10 px-3 py-1.5 rounded-full border border-[#12DA91]/30 block w-max mx-auto mb-4">
             {t('home.why.tag', { defaultValue: 'WHY HELPMYIMG' })}
           </span>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-heading font-extrabold text-white mt-4 tracking-tight leading-tight">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-heading font-extrabold text-white leading-tight">
             {t('home.why.title', { defaultValue: 'Why HelpMyIMG is the Smartest Choice for Creators & Businesses' })}
           </h2>
-          <p className="text-slate-300 text-base sm:text-lg mt-4 font-body leading-relaxed">
+          <p className="text-lg text-slate-400 leading-relaxed mt-6 max-w-2xl mx-auto">
             {t('home.why.desc', { defaultValue: 'Designed from the ground up for maximum privacy, blazing speed, and zero cost. Here is why thousands trust HelpMyIMG every day.' })}
           </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          <div className="glass-panel p-8 rounded-3xl border-dark-500/60 relative overflow-hidden group hover:border-neon-cyan/50 transition-all duration-300 transform hover:-translate-y-1">
-            <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-neon-cyan to-blue-600 flex items-center justify-center text-dark-900 mb-6 shadow-glow-cyan">
+          <div className="glass-panel p-8 rounded-3xl border-dark-500/60 relative overflow-hidden group hover:border-[#05DAED]/50 transition-all duration-300 transform hover:-translate-y-1">
+            <div className="w-14 h-14 rounded-2xl bg-[#05DAED]/10 flex items-center justify-center text-[#05DAED] mb-6 border border-[#05DAED]/30">
               <Zap className="w-7 h-7 stroke-[2.5]" />
             </div>
             <h3 className="text-xl font-heading font-bold text-white mb-3">
               {t('home.why.c1.t', { defaultValue: 'Instant Local Speed' })}
             </h3>
-            <p className="text-slate-300 text-sm leading-relaxed">
+            <p className="text-slate-400 text-sm leading-relaxed">
               {t('home.why.c1.d', { defaultValue: 'Your photos are processed directly inside your device memory with zero latency. No slow file uploads or cloud queues.' })}
             </p>
-            <div className="mt-6 flex items-center gap-2 text-xs font-mono text-cyan-300 font-bold">
+            <div className="mt-6 flex items-center gap-2 text-xs font-mono text-[#05DAED] font-bold">
               <span>{t('home.why.c1.b', { defaultValue: '0ms Server Delay' })}</span>
             </div>
           </div>
 
-          <div className="glass-panel p-8 rounded-3xl border-dark-500/60 relative overflow-hidden group hover:border-neon-emerald/50 transition-all duration-300 transform hover:-translate-y-1">
-            <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-neon-emerald to-teal-600 flex items-center justify-center text-dark-900 mb-6 shadow-glow-emerald">
+          <div className="glass-panel p-8 rounded-3xl border-dark-500/60 relative overflow-hidden group hover:border-[#12DA91]/50 transition-all duration-300 transform hover:-translate-y-1">
+            <div className="w-14 h-14 rounded-2xl bg-[#12DA91]/10 flex items-center justify-center text-[#12DA91] mb-6 border border-[#12DA91]/30">
               <ShieldCheck className="w-7 h-7 stroke-[2.5]" />
             </div>
             <h3 className="text-xl font-heading font-bold text-white mb-3">
               {t('home.why.c2.t', { defaultValue: '100% Absolute Privacy' })}
             </h3>
-            <p className="text-slate-300 text-sm leading-relaxed">
+            <p className="text-slate-400 text-sm leading-relaxed">
               {t('home.why.c2.d', { defaultValue: 'Your personal portraits, confidential documents, and product shots never leave your computer or phone. Total peace of mind.' })}
             </p>
-            <div className="mt-6 flex items-center gap-2 text-xs font-mono text-emerald-300 font-bold">
+            <div className="mt-6 flex items-center gap-2 text-xs font-mono text-[#12DA91] font-bold">
               <span>{t('home.why.c2.b', { defaultValue: 'Zero Cloud Storage' })}</span>
             </div>
           </div>
 
-          <div className="glass-panel p-8 rounded-3xl border-dark-500/60 relative overflow-hidden group hover:border-neon-indigo/50 transition-all duration-300 transform hover:-translate-y-1">
-            <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-neon-indigo to-purple-600 flex items-center justify-center text-white mb-6 shadow-glow-indigo">
+          <div className="glass-panel p-8 rounded-3xl border-dark-500/60 relative overflow-hidden group hover:border-[#05DAED]/50 transition-all duration-300 transform hover:-translate-y-1">
+            <div className="w-14 h-14 rounded-2xl bg-[#05DAED]/10 flex items-center justify-center text-[#05DAED] mb-6 border border-[#05DAED]/30">
               <DollarSign className="w-7 h-7 stroke-[2.5]" />
             </div>
             <h3 className="text-xl font-heading font-bold text-white mb-3">
               {t('home.why.c3.t', { defaultValue: 'Forever Free & Unlimited' })}
             </h3>
-            <p className="text-slate-300 text-sm leading-relaxed">
+            <p className="text-slate-400 text-sm leading-relaxed">
               {t('home.why.c3.d', { defaultValue: 'No subscriptions, no watermarks, no credit packs, and no hidden fees. High-definition photo editing made accessible for all.' })}
             </p>
-            <div className="mt-6 flex items-center gap-2 text-xs font-mono text-indigo-300 font-bold">
+            <div className="mt-6 flex items-center gap-2 text-xs font-mono text-[#05DAED] font-bold">
               <span>{t('home.why.c3.b', { defaultValue: '$0 / Lifetime' })}</span>
             </div>
           </div>
 
-          <div className="glass-panel p-8 rounded-3xl border-dark-500/60 relative overflow-hidden group hover:border-neon-pink/50 transition-all duration-300 transform hover:-translate-y-1">
-            <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-neon-pink to-rose-600 flex items-center justify-center text-white mb-6 shadow-glow-purple">
+          <div className="glass-panel p-8 rounded-3xl border-dark-500/60 relative overflow-hidden group hover:border-[#12DA91]/50 transition-all duration-300 transform hover:-translate-y-1">
+            <div className="w-14 h-14 rounded-2xl bg-[#12DA91]/10 flex items-center justify-center text-[#12DA91] mb-6 border border-[#12DA91]/30">
               <Cpu className="w-7 h-7 stroke-[2.5]" />
             </div>
             <h3 className="text-xl font-heading font-bold text-white mb-3">
               {t('home.why.c4.t', { defaultValue: 'Batch Power up to 10' })}
             </h3>
-            <p className="text-slate-300 text-sm leading-relaxed">
+            <p className="text-slate-400 text-sm leading-relaxed">
               {t('home.why.c4.d', { defaultValue: 'Drag and drop up to 10 photos simultaneously. Process, optimize, and export your entire photoshoot as a neat ZIP archive in seconds.' })}
             </p>
-            <div className="mt-6 flex items-center gap-2 text-xs font-mono text-pink-300 font-bold">
+            <div className="mt-6 flex items-center gap-2 text-xs font-mono text-[#12DA91] font-bold">
               <span>{t('home.why.c4.b', { defaultValue: '10x Workflow Speed' })}</span>
             </div>
           </div>
         </div>
       </section>
 
-      {/* 2. HOW IT WORKS IN 3 STEPS */}
+      {/* 2. HOW IT WORKS IN 3 STEPS (Timeline on Mobile, Side-by-side Desktop) */}
       <section className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="glass-panel p-8 sm:p-14 rounded-3xl border-dark-500/60 relative overflow-hidden">
-          <div className="absolute top-0 left-1/4 w-96 h-96 bg-neon-cyan/5 rounded-full blur-3xl pointer-events-none" />
+        <div className="glass-panel p-6 sm:p-14 md:rounded-[3rem] border-dark-500/30 relative overflow-hidden bg-dark-900/40">
+          <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-neon-cyan/5 rounded-full blur-[120px] pointer-events-none" />
           
-          <div className="text-center max-w-2xl mx-auto mb-14 relative z-10">
-            <h2 className="text-2xl sm:text-4xl font-heading font-extrabold text-white tracking-tight">
+          <div className="text-left md:text-center max-w-3xl md:mx-auto mb-12 md:mb-20 px-2 relative z-10">
+          <span className="text-[10px] md:text-xs font-mono font-bold uppercase tracking-[0.2em] text-[#05DAED] bg-[#05DAED]/10 px-4 py-2 rounded-full border border-[#05DAED]/30 block w-max md:mx-auto mb-6">
+            {t('home.steps.tag', { defaultValue: 'HOW IT WORKS' })}
+          </span>
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-heading font-black text-white leading-tight mb-6">
               {t('home.steps.title', { defaultValue: 'How HelpMyIMG Works in 3 Simple Steps' })}
             </h2>
-            <p className="text-slate-300 text-sm sm:text-base mt-3 leading-relaxed">
+            <p className="text-base md:text-xl text-slate-400 leading-relaxed max-w-2xl md:mx-auto font-light">
               {t('home.steps.desc', { defaultValue: 'No software installation required. Get professional results directly from your web browser.' })}
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 relative z-10">
-            <div className="flex flex-col items-center text-center p-6 rounded-2xl bg-dark-800/60 border border-dark-600/40">
-              <div className="w-12 h-12 rounded-full bg-neon-cyan/20 border border-neon-cyan/50 text-neon-cyan font-bold font-mono flex items-center justify-center text-lg mb-4 shadow-glow-cyan/20">
-                1
+          <div className="flex flex-col md:grid md:grid-cols-3 gap-8 md:gap-12 relative z-10">
+            
+            {/* Step 1 */}
+            <div className="flex md:flex-col items-start md:items-center text-left md:text-center p-0 md:p-8 rounded-2xl group">
+              <div className="w-14 h-14 md:w-20 md:h-20 shrink-0 rounded-[1.25rem] bg-dark-800 border border-dark-600/50 flex items-center justify-center mb-0 md:mb-8 mr-6 md:mr-0 group-hover:bg-neon-cyan/10 group-hover:border-neon-cyan/40 group-hover:shadow-[0_0_30px_rgba(5,218,237,0.2)] transition-all duration-500">
+                <span className="text-xl md:text-3xl font-black font-mono text-white group-hover:text-neon-cyan transition-colors">1</span>
               </div>
-              <h3 className="text-lg font-bold text-white mb-2">
-                {t('home.steps.s1.t', { defaultValue: '1. Select or Drop Photos' })}
-              </h3>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-                {t('home.steps.s1.d', { defaultValue: 'Upload single pictures or batches up to 10 files in PNG, JPG, or WEBP format. Everything loads instantly into your browser workspace.' })}
-              </p>
+              <div>
+                <h3 className="text-lg md:text-2xl font-bold text-white mb-2 md:mb-4">
+                  {t('home.steps.s1.t', { defaultValue: '1. Select or Drop Photos' })}
+                </h3>
+                <p className="text-sm md:text-base text-slate-400 leading-relaxed font-light">
+                  {t('home.steps.s1.d', { defaultValue: 'Upload single pictures or batches up to 10 files in PNG, JPG, or WEBP format. Everything loads instantly into your browser workspace.' })}
+                </p>
+              </div>
             </div>
 
-            <div className="flex flex-col items-center text-center p-6 rounded-2xl bg-dark-800/60 border border-dark-600/40">
-              <div className="w-12 h-12 rounded-full bg-neon-emerald/20 border border-neon-emerald/50 text-neon-emerald font-bold font-mono flex items-center justify-center text-lg mb-4 shadow-glow-emerald/20">
-                2
+            {/* Step 2 */}
+            <div className="flex md:flex-col items-start md:items-center text-left md:text-center p-0 md:p-8 rounded-2xl group">
+              <div className="w-14 h-14 md:w-20 md:h-20 shrink-0 rounded-[1.25rem] bg-dark-800 border border-dark-600/50 flex items-center justify-center mb-0 md:mb-8 mr-6 md:mr-0 group-hover:bg-neon-emerald/10 group-hover:border-neon-emerald/40 group-hover:shadow-[0_0_30px_rgba(18,218,145,0.2)] transition-all duration-500">
+                <span className="text-xl md:text-3xl font-black font-mono text-white group-hover:text-neon-emerald transition-colors">2</span>
               </div>
-              <h3 className="text-lg font-bold text-white mb-2">
-                {t('home.steps.s2.t', { defaultValue: '2. Customize & Preview' })}
-              </h3>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-                {t('home.steps.s2.d', { defaultValue: 'Choose your desired tool—whether stripping backgrounds, applying official passport colors, adding watermarks, or resizing dimensions.' })}
-              </p>
+              <div>
+                <h3 className="text-lg md:text-2xl font-bold text-white mb-2 md:mb-4">
+                  {t('home.steps.s2.t', { defaultValue: '2. Customize & Preview' })}
+                </h3>
+                <p className="text-sm md:text-base text-slate-400 leading-relaxed font-light">
+                  {t('home.steps.s2.d', { defaultValue: 'Choose your desired tool—whether stripping backgrounds, applying official passport colors, adding watermarks, or resizing dimensions.' })}
+                </p>
+              </div>
             </div>
 
-            <div className="flex flex-col items-center text-center p-6 rounded-2xl bg-dark-800/60 border border-dark-600/40">
-              <div className="w-12 h-12 rounded-full bg-neon-indigo/20 border border-neon-indigo/50 text-neon-indigo font-bold font-mono flex items-center justify-center text-lg mb-4 shadow-glow-indigo/20">
-                3
+            {/* Step 3 */}
+            <div className="flex md:flex-col items-start md:items-center text-left md:text-center p-0 md:p-8 rounded-2xl group">
+              <div className="w-14 h-14 md:w-20 md:h-20 shrink-0 rounded-[1.25rem] bg-dark-800 border border-dark-600/50 flex items-center justify-center mb-0 md:mb-8 mr-6 md:mr-0 group-hover:bg-neon-indigo/10 group-hover:border-neon-indigo/40 group-hover:shadow-[0_0_30px_rgba(99,102,241,0.2)] transition-all duration-500">
+                <span className="text-xl md:text-3xl font-black font-mono text-white group-hover:text-neon-indigo transition-colors">3</span>
               </div>
-              <h3 className="text-lg font-bold text-white mb-2">
-                {t('home.steps.s3.t', { defaultValue: '3. Export HD Results' })}
-              </h3>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-                {t('home.steps.s3.d', { defaultValue: 'Download your polished high-definition photos individually or grab all batch results instantly packed in a convenient ZIP file.' })}
-              </p>
+              <div>
+                <h3 className="text-lg md:text-2xl font-bold text-white mb-2 md:mb-4">
+                  {t('home.steps.s3.t', { defaultValue: '3. Export HD Results' })}
+                </h3>
+                <p className="text-sm md:text-base text-slate-400 leading-relaxed font-light">
+                  {t('home.steps.s3.d', { defaultValue: 'Download your polished high-definition photos individually or grab all batch results instantly packed in a convenient ZIP file.' })}
+                </p>
+              </div>
             </div>
+
           </div>
         </div>
       </section>
 
       {/* 3. GEO & ANSWER ENGINE OPTIMIZATION FAQ FOR HELPMYIMG STUDIO */}
-      <section className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <div className="text-center mb-12">
-          <h2 className="text-2xl sm:text-3xl font-bold font-heading text-white tracking-tight flex items-center justify-center gap-2.5">
-            <HelpCircle className="w-7 h-7 text-neon-cyan" />
-            <span>{t('home.faq.title', { defaultValue: 'Frequently Asked Questions About HelpMyIMG Studio' })}</span>
+      <section className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-24 mb-16 relative">
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-neon-cyan/5 rounded-full blur-[100px] pointer-events-none -z-10" />
+        
+        <div className="text-center max-w-3xl mx-auto mb-16 px-4">
+          <span className="text-xs font-mono font-bold uppercase tracking-widest text-[#12DA91] bg-[#12DA91]/10 px-3 py-1.5 rounded-full border border-[#12DA91]/30 block w-max mx-auto mb-4">
+            {t('landing.global.faq.tag', { defaultValue: 'HELP CENTER & FAQ' })}
+          </span>
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-heading font-extrabold text-white leading-tight">
+            {t('landing.global.faq.title', { defaultValue: 'Frequently Asked Questions' })}
           </h2>
+          <p className="text-lg text-slate-400 leading-relaxed mt-6 max-w-2xl mx-auto">
+            {t('landing.global.faq.desc', { defaultValue: 'Everything you need to know about our local processing engine.' })}
+          </p>
         </div>
 
-        <div className="space-y-4">
-          {[1, 2, 3, 4].map((num) => (
-            <div key={num} className="glass-panel p-6 sm:p-7 rounded-2xl border-dark-500/40 hover:border-dark-500/80 transition-colors">
-              <h3 className="text-base sm:text-lg font-bold text-white flex items-start gap-3">
-                <CheckCircle2 className="w-5 h-5 text-neon-cyan shrink-0 mt-0.5" />
-                <span>{t(`home.faq.fq${num}.q` as any)}</span>
-              </h3>
-              <p className="text-slate-300 text-sm sm:text-base mt-3 pl-8 leading-relaxed font-body">
-                {t(`home.faq.fq${num}.a` as any)}
-              </p>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 relative z-10">
+          {[1, 2, 3, 4].map((num) => {
+            // General homepage FAQ fallback
+            let defQ = '';
+            let defA = '';
+            if (num === 1) {
+              defQ = 'Is HelpMyIMG completely free to use?';
+              defA = 'Yes, it is 100% free with no hidden fees, subscriptions, or credit systems. We provide unlimited access to all tools.';
+            } else if (num === 2) {
+              defQ = 'Do you save or upload my photos?';
+              defA = 'Absolutely not. All processing happens locally on your device via WebAssembly. Your files never touch our servers.';
+            } else if (num === 3) {
+              defQ = 'Can I process multiple images at once?';
+              defA = 'Yes, you can select up to 10 photos simultaneously for batch processing and download them as a convenient ZIP file.';
+            } else {
+              defQ = 'Does it work offline?';
+              defA = 'Once the web application loads in your browser, the AI engine can function entirely offline without an active internet connection.';
+            }
+
+            return (
+            <div key={num} className="glass-panel p-8 rounded-3xl border border-dark-600/50 hover:border-[#05DAED]/40 hover:bg-dark-800/80 transition-all duration-300 group hover:shadow-[0_10px_30px_-15px_rgba(5,218,237,0.2)] flex flex-col justify-between">
+              <div>
+                <div className="w-10 h-10 rounded-xl bg-dark-900 border border-dark-600 flex items-center justify-center text-[#05DAED] mb-6 group-hover:bg-[#05DAED]/10 group-hover:border-[#05DAED]/30 transition-colors">
+                  <HelpCircle className="w-5 h-5" />
+                </div>
+                <h3 className="text-lg font-bold text-white mb-3 leading-snug group-hover:text-[#05DAED] transition-colors">
+                  {t(`landing.remove.faq${num}.q`, { defaultValue: defQ })}
+                </h3>
+                <p className="text-slate-400 text-sm leading-relaxed font-body">
+                  {t(`landing.remove.faq${num}.a`, { defaultValue: defA })}
+                </p>
+              </div>
             </div>
-          ))}
+            );
+          })}
         </div>
       </section>
 
-      {/* 4. CALL TO ACTION BANNER */}
-      <section className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="p-8 sm:p-12 rounded-3xl bg-gradient-to-r from-dark-800 via-dark-800 to-dark-700 border border-neon-cyan/40 text-center relative overflow-hidden shadow-2xl">
-          <div className="absolute -right-20 -bottom-20 w-80 h-80 bg-neon-cyan/10 rounded-full blur-3xl pointer-events-none" />
+      {/* 4. CALL TO ACTION BANNER (Luxurious) */}
+      <section className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 mb-20">
+        <div className="p-10 md:p-20 rounded-[2rem] md:rounded-[4rem] bg-dark-900 border border-white/10 text-center relative overflow-hidden shadow-[0_30px_100px_-20px_rgba(0,0,0,0.7)] group">
           
-          <h3 className="text-2xl sm:text-3xl font-heading font-extrabold text-white mb-4 tracking-tight">
-            {t('home.cta.title', { defaultValue: 'Ready to Supercharge Your Photo Workflow with HelpMyIMG?' })}
-          </h3>
-          <p className="text-slate-300 text-sm sm:text-base max-w-xl mx-auto mb-8 leading-relaxed">
-            {t('home.cta.desc', { defaultValue: 'Join thousands of e-commerce sellers, creators, and professionals who trust HelpMyIMG for instant, private, high-definition photo editing.' })}
-          </p>
-          <Link
-            to={`/${lang}/${getLocalizedSlug('remove', lang)}`}
-            className="inline-flex items-center gap-2.5 px-8 py-4 rounded-2xl bg-gradient-to-r from-neon-cyan via-neon-emerald to-neon-indigo text-dark-900 font-extrabold shadow-glow-cyan hover:opacity-95 transition-all transform hover:-translate-y-0.5"
-          >
-            <Sparkles className="w-5 h-5 fill-dark-900" />
-            <span>{t('home.cta.btn', { defaultValue: 'Open HelpMyIMG Studio Now' })}</span>
-            <ArrowRight className="w-5 h-5" />
-          </Link>
+          {/* Intense Gradient Backgrounds */}
+          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-dark-800/50 to-dark-800 opacity-80 z-0" />
+          <div className="absolute top-0 right-0 w-full h-full bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-neon-cyan/20 via-transparent to-transparent opacity-60 mix-blend-screen transition-opacity duration-700 group-hover:opacity-100" />
+          <div className="absolute bottom-0 left-0 w-full h-full bg-[radial-gradient(ellipse_at_bottom_left,_var(--tw-gradient-stops))] from-neon-indigo/20 via-transparent to-transparent opacity-60 mix-blend-screen transition-opacity duration-700 group-hover:opacity-100" />
+          
+          <div className="relative z-10 flex flex-col items-center">
+            <span className="text-[10px] md:text-xs font-mono font-bold uppercase tracking-[0.3em] text-[#05DAED] mb-6">
+              {t('home.redesign.ctaTag', { defaultValue: 'UNLEASH CREATIVITY' })}
+            </span>
+            
+            <h3 className="text-3xl sm:text-5xl md:text-7xl font-heading font-black text-white mb-6 md:mb-8 tracking-tighter leading-tight max-w-4xl mx-auto">
+              <span className="bg-gradient-to-br from-white via-slate-200 to-slate-400 bg-clip-text text-transparent drop-shadow-sm">
+                {t('home.redesign.ctaTitle', { defaultValue: 'Transform Your Workflow.' })}
+              </span>
+            </h3>
+            
+            <p className="text-base sm:text-lg md:text-2xl text-slate-300 max-w-2xl mx-auto mb-10 md:mb-14 leading-relaxed font-light">
+              {t('home.redesign.ctaDesc', { defaultValue: 'No installations. Ultimate privacy. Professional grade image processing directly on your local device.' })}
+            </p>
+            
+            <Link
+              to={`/${lang}/${getLocalizedSlug('remove', lang)}`}
+              className="inline-flex items-center justify-center gap-3 px-10 py-5 rounded-full bg-gradient-to-r from-neon-cyan via-neon-emerald to-neon-indigo text-dark-900 font-black tracking-wide shadow-[0_0_40px_rgba(5,218,237,0.4)] hover:shadow-[0_0_60px_rgba(5,218,237,0.6)] transition-all duration-300 hover:scale-105"
+            >
+              <Sparkles className="w-5 h-5 md:w-6 md:h-6 fill-dark-900" />
+              <span className="text-sm md:text-base uppercase">{t('home.redesign.ctaBtn', { defaultValue: 'Enter Studio' })}</span>
+              <ArrowRight className="w-5 h-5 md:w-6 md:h-6" />
+            </Link>
+          </div>
         </div>
       </section>
 

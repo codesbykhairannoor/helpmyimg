@@ -44,7 +44,7 @@ function App() {
         <LanguageProvider>
           <BrowserRouter>
             <ScrollToTop />
-            <div className="min-h-screen bg-dark-900 text-slate-100 font-body flex flex-col transition-colors duration-300 selection:bg-neon-cyan/30 selection:text-neon-cyan">
+            <div className="min-h-screen bg-dark-900 text-slate-900 dark:text-slate-100 font-body flex flex-col transition-colors duration-300 selection:bg-neon-cyan/30 selection:text-neon-cyan">
               <JsonLd />
               <Navbar />
               
