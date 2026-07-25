@@ -744,8 +744,8 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({ initialTab = 'remo
                               ...(activeTab === 'resize' && resizeWidth > 0 && resizeHeight > 0 ? {
                                 aspectRatio: `${resizeWidth} / ${resizeHeight}`,
                                 objectFit: resizeMode === 'smart' ? 'cover' : 'fill',
-                                width: 'auto',
-                                height: 'auto'
+                                width: resizeWidth,
+                                height: resizeHeight
                               } : {})
                             }}
                             className="max-h-full max-w-full shadow-2xl rounded-lg object-contain"
