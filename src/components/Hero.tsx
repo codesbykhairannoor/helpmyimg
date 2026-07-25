@@ -14,9 +14,12 @@ export const Hero: React.FC<HeroProps> = ({ title, description }) => {
 
   const rawTitle = title || t('hero.title', { defaultValue: t('landing.default.title.home', { defaultValue: "Professional Photo Studio & Bulk Toolkit" }) });
   
-  // Split title intelligently for the gradient effect requested
-  const words = rawTitle.split(' ');
-  const splitIndex = Math.max(1, Math.ceil(words.length * 0.6));
+  // Remove long SEO suffixes like " - Change Size" for the UI display
+  const cleanTitle = rawTitle.split(' - ')[0].trim();
+  
+  // Highlight only the core keywords (max 2 words) for a "genius" look
+  const words = cleanTitle.split(' ');
+  const splitIndex = Math.min(2, Math.max(1, Math.floor(words.length * 0.4))); 
   const gradientPart = words.slice(0, splitIndex).join(' ');
   const solidPart = words.slice(splitIndex).join(' ');
 

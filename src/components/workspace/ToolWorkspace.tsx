@@ -740,7 +740,14 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({ initialTab = 'remo
                             transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
                             src={activeTab === 'blurface' ? currentItem.originalUrl : (currentItem.processedUrl || currentItem.originalUrl)}
                             alt="Image"
-                            style={{}}
+                            style={{
+                              ...(activeTab === 'resize' && resizeWidth > 0 && resizeHeight > 0 ? {
+                                aspectRatio: `${resizeWidth} / ${resizeHeight}`,
+                                objectFit: resizeMode === 'smart' ? 'cover' : 'fill',
+                                width: 'auto',
+                                height: 'auto'
+                              } : {})
+                            }}
                             className="max-h-full max-w-full shadow-2xl rounded-lg object-contain"
                           />
                         )}
