@@ -1591,14 +1591,46 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({ initialTab = 'remo
                       </button>
                     ) : (
                       <button
-                        onClick={() => {
+                        onClick={async () => {
                           const item = batchItems[0];
                           if (!item.name.trim() || item.name.startsWith('.')) {
                             showToast(t('work.emptyFileNameAlert', { defaultValue: 'Nama file tidak boleh kosong! / File name cannot be empty!' }));
                             return;
                           }
+                          if (!item) return;
+                          trackEvent('file_downloaded', { count: 1, type: 'single', tool: activeTab });
+
+                          // For resize: auto-process on download — no Apply needed, WYSIWYG
+                          if (activeTab === 'resize' && resizeWidth > 0 && resizeHeight > 0) {
+                            try {
+                              let sourceBlob: Blob = item.file;
+                              if (item.processedUrl && item.processedUrl !== item.originalUrl) {
+                                const res = await fetch(item.processedUrl);
+                                sourceBlob = await res.blob();
+                              }
+                              let blob: Blob;
+                              if (resizeMode === 'smart') {
+                                blob = await smartCropImage(sourceBlob, resizeWidth, resizeHeight, item.file.type || 'image/jpeg');
+                              } else {
+                                blob = await processImage(sourceBlob, {
+                                  mimeType: item.file.type || 'image/jpeg',
+                                  quality: 0.95,
+                                  width: resizeWidth,
+                                  height: resizeHeight,
+                                  maintainAspectRatio: false
+                                });
+                              }
+                              const a = document.createElement('a');
+                              a.href = URL.createObjectURL(blob);
+                              a.download = item.name;
+                              a.click();
+                              return;
+                            } catch (err) {
+                              console.error('Resize download failed', err);
+                            }
+                          }
+
                           if (item && item.processedUrl) {
-                            trackEvent('file_downloaded', { count: 1, type: 'single', tool: activeTab });
                             const a = document.createElement('a');
                             a.href = item.processedUrl;
                             a.download = item.name;
