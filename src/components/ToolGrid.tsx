@@ -42,7 +42,7 @@ export const ToolGrid: React.FC = () => {
       <h2 className="sr-only">AI Image & Photo Studio Tools</h2>
       
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 lg:gap-8 auto-rows-[minmax(180px,auto)]">
-        {filteredTools.map((tool, index) => {
+        {filteredTools.map((tool) => {
           const Icon = tool.icon;
           
           // Logic for Bento Grid: Feature the first two tools if viewing all
