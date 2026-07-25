@@ -1,7 +1,7 @@
 // src/components/workspace/tools/ResizeControl.tsx
 import React from 'react';
 import { useTranslation } from '../../../context/LanguageContext';
-import { RefreshCw, Link as LinkIcon, Unlink, CheckCircle2 } from 'lucide-react';
+import { RefreshCw, Link as LinkIcon, Unlink } from 'lucide-react';
 
 interface ResizeControlProps {
   originalWidth: number;
@@ -14,7 +14,7 @@ interface ResizeControlProps {
   setMaintainRatio: (r: boolean) => void;
   resizeMode: 'standard' | 'smart';
   setResizeMode: (m: 'standard' | 'smart') => void;
-  onApply: () => void;
+  onApply?: () => void;
   onUploadOther?: () => void;
   onReset: () => void;
   isProcessing: boolean;
@@ -32,7 +32,7 @@ export const ResizeControl: React.FC<ResizeControlProps> = ({
   setMaintainRatio,
   resizeMode,
   setResizeMode,
-  onApply,
+  onApply: _onApply,
   onUploadOther,
   onReset,
   isProcessing,

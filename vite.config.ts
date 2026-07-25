@@ -12,6 +12,7 @@ export default defineConfig({
     exclude: ['@huggingface/transformers'],
   },
   build: {
+    chunkSizeWarningLimit: 2000,
     rollupOptions: {
       output: {
         manualChunks(id) {
