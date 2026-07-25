@@ -723,6 +723,31 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({ initialTab = 'remo
                             originalSize={currentItem.compressSourceSize || currentItem.file?.size}
                             compressedSize={currentItem.compressBlob.size}
                           />
+                        ) : activeTab === 'resize' && resizeWidth > 0 && resizeHeight > 0 ? (
+                          <div 
+                            className="relative flex items-center justify-center max-w-full max-h-full"
+                            style={{ 
+                              maxWidth: `min(100%, ${resizeWidth}px)`, 
+                              maxHeight: `min(100%, ${resizeHeight}px)` 
+                            }}
+                          >
+                            <img 
+                              src={`data:image/svg+xml;utf8,<svg viewBox="0 0 ${resizeWidth} ${resizeHeight}" xmlns="http://www.w3.org/2000/svg" />`}
+                              className="max-w-full max-h-full opacity-0 pointer-events-none"
+                              alt="spacer"
+                            />
+                            <motion.img
+                              key={currentItem.id}
+                              ref={setImageElement as React.Ref<HTMLImageElement>}
+                              initial={{ opacity: 0, scale: 0.95 }}
+                              animate={{ opacity: 1, scale: 1 }}
+                              transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
+                              src={currentItem.processedUrl || currentItem.originalUrl}
+                              alt="Image"
+                              className="absolute inset-0 w-full h-full shadow-2xl rounded-lg"
+                              style={{ objectFit: resizeMode === 'smart' ? 'cover' : 'fill' }}
+                            />
+                          </div>
                         ) : (
                           <motion.img
                             key={currentItem.id}
@@ -740,16 +765,6 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({ initialTab = 'remo
                             transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
                             src={activeTab === 'blurface' ? currentItem.originalUrl : (currentItem.processedUrl || currentItem.originalUrl)}
                             alt="Image"
-                            style={{
-                              ...(activeTab === 'resize' && resizeWidth > 0 && resizeHeight > 0 ? {
-                                aspectRatio: `${resizeWidth} / ${resizeHeight}`,
-                                objectFit: resizeMode === 'smart' ? 'cover' : 'fill',
-                                width: '100%',
-                                height: '100%',
-                                maxWidth: `min(100%, ${resizeWidth}px)`,
-                                maxHeight: `min(100%, ${resizeHeight}px)`
-                              } : {})
-                            }}
                             className="max-h-full max-w-full shadow-2xl rounded-lg object-contain"
                           />
                         )}
