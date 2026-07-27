@@ -5,10 +5,11 @@ import { SeoHead } from '../components/seo/SeoHead';
 import { Hero } from '../components/Hero';
 import { LandingSections } from '../components/landing/LandingSections';
 import { HomeSections } from '../components/landing/HomeSections';
+import { ToolFaqSection } from '../components/landing/ToolFaqSection';
 import { ToolGrid } from '../components/ToolGrid';
 import { useTranslation } from '../context/LanguageContext';
 import { type Language } from '../i18n/translations';
-import { Loader2, HelpCircle } from 'lucide-react';
+import { Loader2 } from 'lucide-react';
 
 import { getToolFromSlug } from '../utils/urlMapper';
 import { synthesizeDynamicPSeo } from '../utils/dynamicPSeoSynthesizer';
@@ -179,49 +180,23 @@ export const ToolLandingPage: React.FC = () => {
             <LandingSections tool={(displayConfig.tool === 'brush' ? 'remove' : displayConfig.tool) as any} />
           
           {/* Tool Specific FAQ Section - Unified 4 Questions Redesign */}
-          <section className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-24 mb-16 relative">
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-neon-cyan/5 rounded-full blur-[100px] pointer-events-none -z-10" />
-            
-            <div className="text-center mb-16">
-              <span className="text-xs font-mono font-bold uppercase tracking-widest text-neon-cyan bg-neon-cyan/10 px-3 py-1.5 rounded-full border border-neon-cyan/30">
-                {t('landing.global.faq.tag', { defaultValue: 'HELP CENTER & FAQ' })}
-              </span>
-              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-heading font-extrabold text-white mt-6 tracking-tight">
-                {t('landing.global.faq.title', { defaultValue: 'Frequently Asked Questions' })}
-              </h2>
-              <p className="text-slate-400 text-lg mt-4 max-w-2xl mx-auto">
-                {t('landing.global.faq.desc', { defaultValue: 'Everything you need to know about our local processing engine.' })}
-              </p>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 relative z-10">
-              {[1, 2, 3, 4].map((num) => {
-                const qKey = `landing.${toolMapName}.faq${num}.q`;
-                const aKey = `landing.${toolMapName}.faq${num}.a`;
-                const qText = t(qKey);
-                const aText = t(aKey);
-                
-                // If the translation key equals the result, it means it doesn't exist for this tool
-                if (qText === qKey) return null;
-                
-                return (
-                  <div key={num} className="glass-panel p-8 rounded-3xl border border-dark-600/50 hover:border-neon-cyan/40 hover:bg-dark-800/80 transition-all duration-300 group hover:shadow-[0_10px_30px_-15px_rgba(34,211,238,0.2)] flex flex-col justify-between">
-                    <div>
-                      <div className="w-10 h-10 rounded-xl bg-dark-900 border border-dark-600 flex items-center justify-center text-neon-cyan mb-6 group-hover:bg-neon-cyan/10 group-hover:border-neon-cyan/30 transition-colors">
-                        <HelpCircle className="w-5 h-5" />
-                      </div>
-                      <h3 className="text-lg font-bold text-white mb-3 leading-snug group-hover:text-neon-cyan transition-colors">
-                        {qText}
-                      </h3>
-                      <p className="text-slate-400 text-sm leading-relaxed font-body">
-                        {aText}
-                      </p>
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
-          </section>
+          {/* Tool Specific FAQ Section - Dynamic Variants */}
+          <ToolFaqSection 
+            toolMapName={toolMapName} 
+            variant={
+              toolMapName === 'remove' ? 'grid' :
+              toolMapName === 'compress' ? 'cards' :
+              toolMapName === 'color' ? 'accordion' :
+              toolMapName === 'resize' ? 'split' :
+              toolMapName === 'crop' ? 'cards' :
+              toolMapName === 'rotate' ? 'accordion' :
+              toolMapName === 'watermark' ? 'split' :
+              toolMapName === 'design' ? 'grid' :
+              toolMapName === 'picker' ? 'cards' :
+              toolMapName === 'blurface' ? 'accordion' :
+              toolMapName === 'convert' ? 'split' : 'grid'
+            } 
+          />
         </>
       )}
       </div>

@@ -1444,5 +1444,17 @@
   "home.redesign.ctaTag": "UNLEASH CREATIVITY",
   "home.redesign.ctaTitle": "Transform Your Workflow.",
   "home.redesign.ctaDesc": "No installations. Ultimate privacy. Professional grade image processing directly on your local device.",
-  "home.redesign.ctaBtn": "Enter Studio"
+  "home.redesign.ctaBtn": "Enter Studio",
+  "landing.color.faq3.q": "Does it work with complex backgrounds?",
+  "landing.color.faq3.a": "Yes, our local AI effectively separates hair and complex edges before applying the new color.",
+  "landing.color.faq4.q": "Can I use custom hex colors?",
+  "landing.color.faq4.a": "Absolutely! You can choose any custom HEX, RGB, or HSL color code for the new background.",
+  "landing.resize.faq3.q": "Does resizing affect image quality?",
+  "landing.resize.faq3.a": "Our tool uses advanced resampling algorithms to maintain maximum clarity and sharpness during resizing.",
+  "landing.resize.faq4.q": "Can I resize images in bulk?",
+  "landing.resize.faq4.a": "Yes, you can drop multiple photos and resize them all to exact dimensions instantly.",
+  "landing.crop.faq3.q": "Are there preset crop ratios?",
+  "landing.crop.faq3.a": "Yes! We provide built-in aspect ratios for Instagram, Facebook, YouTube, and standard print sizes.",
+  "landing.crop.faq4.q": "Does cropping reduce file size?",
+  "landing.crop.faq4.a": "Cropping removes unnecessary pixels, which usually results in a perfectly optimized, smaller file size."
 }
