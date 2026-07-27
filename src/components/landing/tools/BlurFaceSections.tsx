@@ -1,4 +1,5 @@
 import React from 'react';
+import { SystemArchitecture } from '../SystemArchitecture';
 import { useTranslation } from '../../../context/LanguageContext';
 import { ScanFace, EyeOff, Shield, Crop, UserX, Download, Upload } from 'lucide-react';
 
@@ -161,6 +162,8 @@ export const BlurFaceSections: React.FC = () => {
         </div>
       </section>
 
+    
+      <SystemArchitecture variant="bento" />
     </div>
   );
 };

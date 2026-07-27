@@ -1,4 +1,5 @@
 import React from 'react';
+import { SystemArchitecture } from '../SystemArchitecture';
 import { useTranslation } from '../../../context/LanguageContext';
 import { Maximize, Layers, Unlock, Share2, Globe, MonitorSmartphone, Download, Image as ImageIcon } from 'lucide-react';
 
@@ -179,6 +180,8 @@ export const ResizeSections: React.FC = () => {
         </div>
       </section>
 
+    
+      <SystemArchitecture variant="grid" />
     </div>
   );
 };

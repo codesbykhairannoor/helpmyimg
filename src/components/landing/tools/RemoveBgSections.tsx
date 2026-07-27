@@ -1,5 +1,6 @@
 // src/components/landing/tools/RemoveBgSections.tsx
 import React from 'react';
+import { SystemArchitecture } from '../SystemArchitecture';
 import { useTranslation } from '../../../context/LanguageContext';
 import { Wand2, Image as ImageIcon, Sparkles, Scissors, Lock, Focus, ShoppingBag, Palette, Download } from 'lucide-react';
 
@@ -12,8 +13,8 @@ export const RemoveBgSections: React.FC = () => {
       
       {/* HERO / WHY SECTION - MAGIC THEME */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
-        <div className="absolute top-0 right-0 w-96 h-96 bg-[#05DAED]/10 rounded-full blur-3xl -z-10 animate-pulse" />
-        <div className="absolute bottom-0 left-0 w-96 h-96 bg-[#12DA91]/10 rounded-full blur-3xl -z-10 animate-pulse" style={{ animationDelay: '2s' }} />
+        <div className="absolute top-0 right-0 w-96 h-96 bg-[#05DAED]/10 rounded-full  -z-10 animate-pulse" />
+        <div className="absolute bottom-0 left-0 w-96 h-96 bg-[#12DA91]/10 rounded-full  -z-10 animate-pulse" style={{ animationDelay: '2s' }} />
 
         <div className="flex flex-col lg:flex-row items-center gap-16">
           <div className="flex-1 space-y-6 text-center lg:text-left z-10">
@@ -163,6 +164,8 @@ export const RemoveBgSections: React.FC = () => {
         </div>
       </section>
 
+    
+      <SystemArchitecture variant="split" />
     </div>
   );
 };

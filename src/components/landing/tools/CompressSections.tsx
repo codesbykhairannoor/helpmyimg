@@ -1,5 +1,6 @@
 // src/components/landing/tools/CompressSections.tsx
 import React from 'react';
+import { SystemArchitecture } from '../SystemArchitecture';
 import { useTranslation } from '../../../context/LanguageContext';
 import { Zap, FileArchive, Activity, ShieldCheck, Gauge, Image as ImageIcon } from 'lucide-react';
 
@@ -182,6 +183,8 @@ export const CompressSections: React.FC = () => {
         </div>
       </section>
 
+    
+      <SystemArchitecture variant="grid" />
     </div>
   );
 };

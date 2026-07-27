@@ -28,8 +28,8 @@ export default {
         }
       },
       fontFamily: {
-        heading: ['"Inter"', 'system-ui', '-apple-system', 'sans-serif'],
-        body: ['"Inter"', 'system-ui', '-apple-system', 'sans-serif'],
+        heading: ['var(--font-display)', 'system-ui', 'sans-serif'],
+        body: ['var(--font-main)', 'system-ui', 'sans-serif'],
       },
       boxShadow: {
         'glass': '0 8px 32px 0 rgba(0, 0, 0, 0.37)',

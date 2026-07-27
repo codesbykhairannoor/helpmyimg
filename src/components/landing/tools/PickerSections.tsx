@@ -1,4 +1,5 @@
 import React from 'react';
+import { SystemArchitecture } from '../SystemArchitecture';
 import { useTranslation } from '../../../context/LanguageContext';
 import { Pipette, Search, Palette, Code2, Copy, Crosshair, Image as ImageIcon } from 'lucide-react';
 
@@ -57,7 +58,7 @@ export const PickerSections: React.FC = () => {
         {/* Top Split */}
         <div className="flex flex-col md:flex-row gap-6">
           <div className="flex-1 bg-dark-800/80 p-10 sm:p-12 rounded-[3rem] border border-dark-600 hover:border-[#05DAED]/50 transition-colors relative overflow-hidden group">
-             <div className="absolute top-0 right-0 w-64 h-64 bg-gradient-to-br from-[#05DAED]/10 to-transparent blur-3xl rounded-full transform translate-x-1/2 -translate-y-1/2 group-hover:scale-150 transition-transform duration-700" />
+             <div className="absolute top-0 right-0 w-64 h-64 bg-gradient-to-br from-[#05DAED]/10 to-transparent  rounded-full transform translate-x-1/2 -translate-y-1/2 group-hover:scale-150 transition-transform duration-700" />
              <div className="relative z-10">
                <div className="w-16 h-16 rounded-2xl bg-dark-900 border border-[#05DAED]/30 flex items-center justify-center text-[#05DAED] mb-8">
                  <Search className="w-8 h-8" />
@@ -74,7 +75,7 @@ export const PickerSections: React.FC = () => {
           </div>
 
           <div className="flex-1 bg-dark-800/80 p-10 sm:p-12 rounded-[3rem] border border-dark-600 hover:border-[#12DA91]/50 transition-colors relative overflow-hidden group">
-             <div className="absolute bottom-0 right-0 w-64 h-64 bg-gradient-to-tl from-[#12DA91]/10 to-transparent blur-3xl rounded-full transform translate-x-1/2 translate-y-1/2 group-hover:scale-150 transition-transform duration-700" />
+             <div className="absolute bottom-0 right-0 w-64 h-64 bg-gradient-to-tl from-[#12DA91]/10 to-transparent  rounded-full transform translate-x-1/2 translate-y-1/2 group-hover:scale-150 transition-transform duration-700" />
              <div className="relative z-10">
                <div className="w-16 h-16 rounded-2xl bg-dark-900 border border-[#12DA91]/30 flex items-center justify-center text-[#12DA91] mb-8">
                  <Code2 className="w-8 h-8" />
@@ -98,7 +99,7 @@ export const PickerSections: React.FC = () => {
 
         {/* Bottom Wide Box */}
         <div className="bg-dark-800/80 p-10 sm:p-14 rounded-[3rem] border border-dark-600 hover:border-[#8B5CF6]/50 transition-colors relative overflow-hidden group">
-           <div className="absolute top-1/2 left-1/2 w-full h-full bg-gradient-to-t from-[#8B5CF6]/10 to-transparent blur-3xl transform -translate-x-1/2 -translate-y-1/2" />
+           <div className="absolute top-1/2 left-1/2 w-full h-full bg-gradient-to-t from-[#8B5CF6]/10 to-transparent  transform -translate-x-1/2 -translate-y-1/2" />
            <div className="relative z-10 flex flex-col md:flex-row items-center gap-12">
              <div className="flex-1">
                 <div className="w-16 h-16 rounded-2xl bg-dark-900 border border-[#8B5CF6]/30 flex items-center justify-center text-[#8B5CF6] mb-8">
@@ -162,6 +163,8 @@ export const PickerSections: React.FC = () => {
         </div>
       </section>
 
+    
+      <SystemArchitecture variant="bento" />
     </div>
   );
 };

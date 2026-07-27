@@ -1,4 +1,5 @@
 import React from 'react';
+import { SystemArchitecture } from '../SystemArchitecture';
 import { useTranslation } from '../../../context/LanguageContext';
 import { Crop, Move, Scissors, Grid3X3, Image as ImageIcon, Crosshair, Download } from 'lucide-react';
 
@@ -135,6 +136,8 @@ export const CropSections: React.FC = () => {
         </div>
       </section>
 
+    
+      <SystemArchitecture variant="cards" />
     </div>
   );
 };

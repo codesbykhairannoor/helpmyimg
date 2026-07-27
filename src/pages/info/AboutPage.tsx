@@ -75,7 +75,7 @@ export const AboutPage: React.FC = () => {
             viewport={{ once: true }}
             className="relative"
           >
-            <div className="absolute inset-0 bg-gradient-to-tr from-neon-indigo/20 to-neon-purple/20 blur-3xl rounded-full" />
+            <div className="absolute inset-0 bg-gradient-to-tr from-neon-indigo/20 to-neon-purple/20  rounded-full" />
             <div className="relative aspect-square rounded-[40px] overflow-hidden border border-dark-600 bg-dark-800 p-10 flex items-center justify-center shadow-2xl">
               <div className="grid grid-cols-2 gap-6 w-full h-full">
                 <div className="bg-dark-700/50 rounded-3xl p-8 flex flex-col items-center justify-center text-center gap-4 border border-dark-600 hover:border-neon-cyan/50 transition-colors">

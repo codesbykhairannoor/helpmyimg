@@ -35,57 +35,57 @@ export const HomeSections: React.FC = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          <div className="glass-panel p-8 rounded-3xl border-dark-500/60 relative overflow-hidden group hover:border-[#05DAED]/50 transition-all duration-300 transform hover:-translate-y-1">
-            <div className="w-14 h-14 rounded-2xl bg-[#05DAED]/10 flex items-center justify-center text-[#05DAED] mb-6 border border-[#05DAED]/30">
-              <Zap className="w-7 h-7 stroke-[2.5]" />
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+          <div className="glass-panel p-6 sm:p-8 rounded-3xl border-dark-500/60 relative overflow-hidden group hover:border-[#05DAED]/50 transition-all duration-300 transform hover:-translate-y-1">
+            <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-[#05DAED]/10 flex items-center justify-center text-[#05DAED] mb-4 sm:mb-6 border border-[#05DAED]/30">
+              <Zap className="w-6 h-6 sm:w-7 sm:h-7 stroke-[2.5]" />
             </div>
-            <h3 className="text-xl font-heading font-bold text-white mb-3">
+            <h3 className="text-lg sm:text-xl font-heading font-bold text-white mb-2 sm:mb-3">
               {t('home.why.c1.t', { defaultValue: 'Instant Local Speed' })}
             </h3>
             <p className="text-slate-400 text-sm leading-relaxed">
               {t('home.why.c1.d', { defaultValue: 'Your photos are processed directly inside your device memory with zero latency. No slow file uploads or cloud queues.' })}
             </p>
-            <div className="mt-6 flex items-center gap-2 text-xs font-mono text-[#05DAED] font-bold">
+            <div className="mt-4 sm:mt-6 flex items-center gap-2 text-xs font-mono text-[#05DAED] font-bold">
               <span>{t('home.why.c1.b', { defaultValue: '0ms Server Delay' })}</span>
             </div>
           </div>
 
-          <div className="glass-panel p-8 rounded-3xl border-dark-500/60 relative overflow-hidden group hover:border-[#12DA91]/50 transition-all duration-300 transform hover:-translate-y-1">
-            <div className="w-14 h-14 rounded-2xl bg-[#12DA91]/10 flex items-center justify-center text-[#12DA91] mb-6 border border-[#12DA91]/30">
-              <ShieldCheck className="w-7 h-7 stroke-[2.5]" />
+          <div className="glass-panel p-6 sm:p-8 rounded-3xl border-dark-500/60 relative overflow-hidden group hover:border-[#12DA91]/50 transition-all duration-300 transform hover:-translate-y-1">
+            <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-[#12DA91]/10 flex items-center justify-center text-[#12DA91] mb-4 sm:mb-6 border border-[#12DA91]/30">
+              <ShieldCheck className="w-6 h-6 sm:w-7 sm:h-7 stroke-[2.5]" />
             </div>
-            <h3 className="text-xl font-heading font-bold text-white mb-3">
+            <h3 className="text-lg sm:text-xl font-heading font-bold text-white mb-2 sm:mb-3">
               {t('home.why.c2.t', { defaultValue: '100% Absolute Privacy' })}
             </h3>
             <p className="text-slate-400 text-sm leading-relaxed">
               {t('home.why.c2.d', { defaultValue: 'Your personal portraits, confidential documents, and product shots never leave your computer or phone. Total peace of mind.' })}
             </p>
-            <div className="mt-6 flex items-center gap-2 text-xs font-mono text-[#12DA91] font-bold">
+            <div className="mt-4 sm:mt-6 flex items-center gap-2 text-xs font-mono text-[#12DA91] font-bold">
               <span>{t('home.why.c2.b', { defaultValue: 'Zero Cloud Storage' })}</span>
             </div>
           </div>
 
-          <div className="glass-panel p-8 rounded-3xl border-dark-500/60 relative overflow-hidden group hover:border-[#05DAED]/50 transition-all duration-300 transform hover:-translate-y-1">
-            <div className="w-14 h-14 rounded-2xl bg-[#05DAED]/10 flex items-center justify-center text-[#05DAED] mb-6 border border-[#05DAED]/30">
-              <DollarSign className="w-7 h-7 stroke-[2.5]" />
+          <div className="glass-panel p-6 sm:p-8 rounded-3xl border-dark-500/60 relative overflow-hidden group hover:border-[#05DAED]/50 transition-all duration-300 transform hover:-translate-y-1">
+            <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-[#05DAED]/10 flex items-center justify-center text-[#05DAED] mb-4 sm:mb-6 border border-[#05DAED]/30">
+              <DollarSign className="w-6 h-6 sm:w-7 sm:h-7 stroke-[2.5]" />
             </div>
-            <h3 className="text-xl font-heading font-bold text-white mb-3">
+            <h3 className="text-lg sm:text-xl font-heading font-bold text-white mb-2 sm:mb-3">
               {t('home.why.c3.t', { defaultValue: 'Forever Free & Unlimited' })}
             </h3>
             <p className="text-slate-400 text-sm leading-relaxed">
               {t('home.why.c3.d', { defaultValue: 'No subscriptions, no watermarks, no credit packs, and no hidden fees. High-definition photo editing made accessible for all.' })}
             </p>
-            <div className="mt-6 flex items-center gap-2 text-xs font-mono text-[#05DAED] font-bold">
+            <div className="mt-4 sm:mt-6 flex items-center gap-2 text-xs font-mono text-[#05DAED] font-bold">
               <span>{t('home.why.c3.b', { defaultValue: '$0 / Lifetime' })}</span>
             </div>
           </div>
 
-          <div className="glass-panel p-8 rounded-3xl border-dark-500/60 relative overflow-hidden group hover:border-[#12DA91]/50 transition-all duration-300 transform hover:-translate-y-1">
-            <div className="w-14 h-14 rounded-2xl bg-[#12DA91]/10 flex items-center justify-center text-[#12DA91] mb-6 border border-[#12DA91]/30">
-              <Cpu className="w-7 h-7 stroke-[2.5]" />
+          <div className="glass-panel p-6 sm:p-8 rounded-3xl border-dark-500/60 relative overflow-hidden group hover:border-[#12DA91]/50 transition-all duration-300 transform hover:-translate-y-1">
+            <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-[#12DA91]/10 flex items-center justify-center text-[#12DA91] mb-4 sm:mb-6 border border-[#12DA91]/30">
+              <Cpu className="w-6 h-6 sm:w-7 sm:h-7 stroke-[2.5]" />
             </div>
-            <h3 className="text-xl font-heading font-bold text-white mb-3">
+            <h3 className="text-lg sm:text-xl font-heading font-bold text-white mb-2 sm:mb-3">
               {t('home.why.c4.t', { defaultValue: 'Batch Power up to 10' })}
             </h3>
             <p className="text-slate-400 text-sm leading-relaxed">
@@ -167,17 +167,17 @@ export const HomeSections: React.FC = () => {
       </section>
 
       {/* 3. GEO & ANSWER ENGINE OPTIMIZATION FAQ FOR HELPMYIMG STUDIO */}
-      <section className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-24 mb-16 relative">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px]  rounded-full bg-[radial-gradient(circle_at_center,rgba(5,218,237,0.08)_0%,transparent_60%)] pointer-events-none -z-10" />
+      <section className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24 mb-12 sm:mb-16 relative">
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] sm:w-[500px] h-[300px] sm:h-[500px]  rounded-full bg-[radial-gradient(circle_at_center,rgba(5,218,237,0.08)_0%,transparent_60%)] pointer-events-none -z-10" />
         
-        <div className="text-center max-w-3xl mx-auto mb-16 px-4">
+        <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-16 px-4">
           <span className="text-xs font-mono font-bold uppercase tracking-widest text-[#12DA91] bg-[#12DA91]/10 px-3 py-1.5 rounded-full border border-[#12DA91]/30 block w-max mx-auto mb-4">
             {t('landing.global.faq.tag', { defaultValue: 'HELP CENTER & FAQ' })}
           </span>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-heading font-extrabold text-white leading-tight">
+          <h2 className="text-2xl sm:text-4xl lg:text-5xl font-heading font-extrabold text-white leading-tight">
             {t('landing.global.faq.title', { defaultValue: 'Frequently Asked Questions' })}
           </h2>
-          <p className="text-lg text-slate-400 leading-relaxed mt-6 max-w-2xl mx-auto">
+          <p className="text-base sm:text-lg text-slate-400 leading-relaxed mt-4 sm:mt-6 max-w-2xl mx-auto">
             {t('landing.global.faq.desc', { defaultValue: 'Everything you need to know about our local processing engine.' })}
           </p>
         </div>
@@ -202,12 +202,12 @@ export const HomeSections: React.FC = () => {
             }
 
             return (
-            <div key={num} className="glass-panel p-8 rounded-3xl border border-dark-600/50 hover:border-[#05DAED]/40 hover:bg-dark-800/80 transition-all duration-300 group hover:shadow-[0_10px_30px_-15px_rgba(5,218,237,0.2)] flex flex-col justify-between">
+            <div key={num} className="glass-panel p-6 sm:p-8 rounded-2xl sm:rounded-3xl border border-dark-600/50 hover:border-[#05DAED]/40 hover:bg-dark-800/80 transition-all duration-300 group hover:shadow-[0_10px_30px_-15px_rgba(5,218,237,0.2)] flex flex-col justify-between">
               <div>
-                <div className="w-10 h-10 rounded-xl bg-dark-900 border border-dark-600 flex items-center justify-center text-[#05DAED] mb-6 group-hover:bg-[#05DAED]/10 group-hover:border-[#05DAED]/30 transition-colors">
+                <div className="w-10 h-10 rounded-xl bg-dark-900 border border-dark-600 flex items-center justify-center text-[#05DAED] mb-4 sm:mb-6 group-hover:bg-[#05DAED]/10 group-hover:border-[#05DAED]/30 transition-colors">
                   <HelpCircle className="w-5 h-5" />
                 </div>
-                <h3 className="text-lg font-bold text-white mb-3 leading-snug group-hover:text-[#05DAED] transition-colors">
+                <h3 className="text-base sm:text-lg font-bold text-white mb-2 sm:mb-3 leading-snug group-hover:text-[#05DAED] transition-colors">
                   {t(`landing.remove.faq${num}.q`, { defaultValue: defQ })}
                 </h3>
                 <p className="text-slate-400 text-sm leading-relaxed font-body">
@@ -222,7 +222,7 @@ export const HomeSections: React.FC = () => {
 
       {/* 4. CALL TO ACTION BANNER (Luxurious) */}
       <section className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 mb-20">
-        <div className="p-10 md:p-20 rounded-[2rem] md:rounded-[4rem] bg-dark-900 border border-white/10 text-center relative overflow-hidden shadow-[0_30px_100px_-20px_rgba(0,0,0,0.7)] group">
+        <div className="p-8 sm:p-10 md:p-20 rounded-3xl sm:rounded-[2rem] md:rounded-[4rem] bg-dark-900 border border-white/10 text-center relative overflow-hidden shadow-[0_30px_100px_-20px_rgba(0,0,0,0.7)] group">
           
           {/* Intense Gradient Backgrounds */}
           <div className="absolute inset-0 bg-gradient-to-b from-transparent via-dark-800/50 to-dark-800 opacity-80 z-0" />
@@ -230,11 +230,11 @@ export const HomeSections: React.FC = () => {
           <div className="absolute bottom-0 left-0 w-full h-full bg-[radial-gradient(ellipse_at_bottom_left,_var(--tw-gradient-stops))] from-neon-indigo/20 via-transparent to-transparent opacity-60 mix-blend-screen transition-opacity duration-700 group-hover:opacity-100" />
           
           <div className="relative z-10 flex flex-col items-center">
-            <span className="text-[10px] md:text-xs font-mono font-bold uppercase tracking-[0.3em] text-[#05DAED] mb-6">
+            <span className="text-[10px] md:text-xs font-mono font-bold uppercase tracking-[0.3em] text-[#05DAED] mb-4 sm:mb-6">
               {t('home.redesign.ctaTag', { defaultValue: 'UNLEASH CREATIVITY' })}
             </span>
             
-            <h3 className="text-3xl sm:text-5xl md:text-7xl font-heading font-black text-slate-900 dark:text-white mb-6 md:mb-8 tracking-tighter leading-tight max-w-4xl mx-auto">
+            <h3 className="text-2xl sm:text-5xl md:text-7xl font-heading font-black text-slate-900 dark:text-white mb-4 sm:mb-6 md:mb-8 tracking-tighter leading-tight max-w-4xl mx-auto">
               <span className="bg-gradient-to-br from-slate-900 via-slate-700 to-slate-500 dark:from-white dark:via-slate-200 dark:to-slate-400 bg-clip-text text-transparent drop-shadow-sm">
                 {t('home.redesign.ctaTitle', { defaultValue: 'Transform Your Workflow.' })}
               </span>

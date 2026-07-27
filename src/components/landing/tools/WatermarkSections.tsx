@@ -1,4 +1,5 @@
 import React from 'react';
+import { SystemArchitecture } from '../SystemArchitecture';
 import { useTranslation } from '../../../context/LanguageContext';
 import { ShieldAlert, Layers, SlidersHorizontal, Grid, Fingerprint, Upload, Save } from 'lucide-react';
 
@@ -46,7 +47,7 @@ export const WatermarkSections: React.FC = () => {
               <div className="relative w-full h-full bg-dark-900 rounded-3xl overflow-hidden border border-dark-700">
                 {/* Background "Photo" */}
                 <div className="absolute inset-0 bg-gradient-to-br from-slate-800 to-slate-900" />
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-48 h-48 bg-[#05DAED]/20 rounded-full blur-3xl" />
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-48 h-48 bg-[#05DAED]/20 rounded-full " />
                 
                 {/* Watermark Layer interacting with hover */}
                 <div className="absolute inset-0 flex items-center justify-center opacity-40 group-hover:opacity-80 transition-opacity duration-700 transform group-hover:scale-110">
@@ -116,7 +117,7 @@ export const WatermarkSections: React.FC = () => {
       {/* WORKFLOW */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="glass-panel rounded-[3rem] p-10 md:p-16 border-[#8B5CF6]/20 bg-gradient-to-br from-dark-900/90 to-dark-800/90 relative overflow-hidden">
-          <div className="absolute top-0 right-0 w-96 h-96 bg-[#EC4899]/10 rounded-full blur-3xl transform translate-x-1/2 -translate-y-1/2" />
+          <div className="absolute top-0 right-0 w-96 h-96 bg-[#EC4899]/10 rounded-full  transform translate-x-1/2 -translate-y-1/2" />
           
           <div className="text-center max-w-3xl mx-auto mb-16 relative z-10">
             <span className="text-xs font-mono font-bold uppercase tracking-widest text-[#8B5CF6] bg-[#8B5CF6]/10 px-3 py-1.5 rounded-full border border-[#8B5CF6]/30 block w-max mx-auto mb-4">
@@ -161,6 +162,8 @@ export const WatermarkSections: React.FC = () => {
         </div>
       </section>
 
+    
+      <SystemArchitecture variant="cards" />
     </div>
   );
 };

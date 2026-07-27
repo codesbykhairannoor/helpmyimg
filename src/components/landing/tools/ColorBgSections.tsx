@@ -1,4 +1,5 @@
 import React from 'react';
+import { SystemArchitecture } from '../SystemArchitecture';
 import { useTranslation } from '../../../context/LanguageContext';
 import { Palette, Wand2, Image as ImageIcon, Focus, Monitor, LayoutGrid, Droplet, Download, Lock } from 'lucide-react';
 
@@ -62,7 +63,7 @@ export const ColorBgSections: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-12 gap-6 auto-rows-[minmax(280px,auto)]">
           {/* Big Feature */}
           <div className="md:col-span-8 glass-panel p-10 sm:p-12 rounded-[2.5rem] border-dark-600/30 hover:border-[#05DAED]/40 transition-colors flex flex-col justify-end relative overflow-hidden group">
-            <div className="absolute top-0 right-0 w-64 h-64 bg-gradient-to-br from-[#05DAED]/20 to-transparent blur-3xl rounded-full transform translate-x-1/2 -translate-y-1/2 group-hover:scale-150 transition-transform duration-700" />
+            <div className="absolute top-0 right-0 w-64 h-64 bg-gradient-to-br from-[#05DAED]/20 to-transparent  rounded-full transform translate-x-1/2 -translate-y-1/2 group-hover:scale-150 transition-transform duration-700" />
             <div className="relative z-10 w-3/4">
               <div className="w-16 h-16 rounded-2xl bg-dark-900 border border-[#05DAED]/30 flex items-center justify-center text-[#05DAED] mb-8">
                 <Palette className="w-8 h-8" />
@@ -96,7 +97,7 @@ export const ColorBgSections: React.FC = () => {
 
           {/* Medium Feature */}
           <div className="md:col-span-8 glass-panel p-10 sm:p-12 rounded-[2.5rem] border-dark-600/30 hover:border-[#12DA91]/40 transition-colors flex flex-col justify-end relative overflow-hidden group">
-             <div className="absolute bottom-0 right-0 w-64 h-64 bg-gradient-to-tl from-[#12DA91]/20 to-transparent blur-3xl rounded-full transform translate-x-1/3 translate-y-1/3 group-hover:scale-150 transition-transform duration-700" />
+             <div className="absolute bottom-0 right-0 w-64 h-64 bg-gradient-to-tl from-[#12DA91]/20 to-transparent  rounded-full transform translate-x-1/3 translate-y-1/3 group-hover:scale-150 transition-transform duration-700" />
             <div className="relative z-10 w-3/4">
               <div className="w-16 h-16 rounded-2xl bg-dark-900 border border-[#12DA91]/30 flex items-center justify-center text-[#12DA91] mb-8">
                 <Lock className="w-8 h-8" />
@@ -187,6 +188,8 @@ export const ColorBgSections: React.FC = () => {
         </div>
       </section>
 
+    
+      <SystemArchitecture variant="split" />
     </div>
   );
 };

@@ -8,6 +8,8 @@
   --color-bg-700: 220 20% 93%;
   --color-bg-600: 220 15% 85%;
   --color-bg-500: 220 15% 75%;
+  --font-main: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-display: 'Inter', system-ui, -apple-system, sans-serif;
 }
 
 .dark {

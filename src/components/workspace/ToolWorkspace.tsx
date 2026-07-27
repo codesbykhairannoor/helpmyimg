@@ -420,6 +420,47 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({ initialTab = 'remo
         watermarkScale,
         watermarkRotation
       );
+    } else if (activeTab === 'resize' && resizeWidth > 0 && resizeHeight > 0) {
+      const currentSeq = ++effectSequenceRef.current;
+      try {
+        let sourceBlob = currentItem.file;
+        if (currentItem.transparentUrl && currentItem.transparentUrl !== currentItem.originalUrl) {
+          const res = await fetch(currentItem.transparentUrl);
+          sourceBlob = await res.blob();
+        }
+        
+        let blob: Blob;
+        if (resizeMode === 'smart') {
+          blob = await smartCropImage(sourceBlob, resizeWidth, resizeHeight, currentItem.file.type || 'image/jpeg');
+        } else {
+          blob = await processImage(sourceBlob, { 
+            mimeType: currentItem.file.type || 'image/jpeg', 
+            quality: 0.95,
+            width: resizeWidth,
+            height: resizeHeight,
+            maintainAspectRatio: false
+          });
+        }
+        
+        if (currentSeq === effectSequenceRef.current) {
+          const url = URL.createObjectURL(blob);
+          setBatchItems((prev) =>
+            prev.map((i, idx) => {
+              if (idx === selectedIndex) {
+                return {
+                  ...i,
+                  processedUrl: url,
+                  status: 'done'
+                };
+              }
+              return i;
+            })
+          );
+        }
+      } catch (err) {
+        console.error('Auto-resize failed', err);
+      }
+      return; // Early return for resize since blob is already handled
     } else {
       return;
     }
@@ -459,9 +500,10 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({ initialTab = 'remo
 
   useEffect(() => {
     if (debounceTimerRef.current) clearTimeout(debounceTimerRef.current);
+    const delay = activeTab === 'resize' ? 500 : 50;
     debounceTimerRef.current = setTimeout(() => {
       applyCurrentEffect();
-    }, 50);
+    }, delay);
 
     return () => {
       if (debounceTimerRef.current) clearTimeout(debounceTimerRef.current);
@@ -740,11 +782,7 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({ initialTab = 'remo
                             transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
                             src={activeTab === 'blurface' ? currentItem.originalUrl : (currentItem.processedUrl || currentItem.originalUrl)}
                             alt="Image"
-                            style={activeTab === 'resize' && resizeWidth > 0 && resizeHeight > 0 ? {
-                              aspectRatio: `${resizeWidth} / ${resizeHeight}`,
-                              objectFit: resizeMode === 'smart' ? 'cover' : 'fill',
-                            } : undefined}
-                            className={`max-h-full max-w-full shadow-2xl rounded-lg ${activeTab === 'resize' ? '' : 'object-contain'}`}
+                            className="max-h-full max-w-full shadow-2xl rounded-lg object-contain"
                           />
                         )}
                         {activeTab === 'crop' && (
@@ -1600,36 +1638,9 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({ initialTab = 'remo
                           if (!item) return;
                           trackEvent('file_downloaded', { count: 1, type: 'single', tool: activeTab });
 
-                          // For resize: auto-process on download — no Apply needed, WYSIWYG
-                          if (activeTab === 'resize' && resizeWidth > 0 && resizeHeight > 0) {
-                            try {
-                              let sourceBlob: Blob = item.file;
-                              if (item.processedUrl && item.processedUrl !== item.originalUrl) {
-                                const res = await fetch(item.processedUrl);
-                                sourceBlob = await res.blob();
-                              }
-                              let blob: Blob;
-                              if (resizeMode === 'smart') {
-                                blob = await smartCropImage(sourceBlob, resizeWidth, resizeHeight, item.file.type || 'image/jpeg');
-                              } else {
-                                blob = await processImage(sourceBlob, {
-                                  mimeType: item.file.type || 'image/jpeg',
-                                  quality: 0.95,
-                                  width: resizeWidth,
-                                  height: resizeHeight,
-                                  maintainAspectRatio: false
-                                });
-                              }
-                              const a = document.createElement('a');
-                              a.href = URL.createObjectURL(blob);
-                              a.download = item.name;
-                              a.click();
-                              return;
-                            } catch (err) {
-                              console.error('Resize download failed', err);
-                            }
-                          }
-
+                          // For single resize, the auto-save (debounce) has already updated processedUrl.
+                          // We just download it directly like any other effect.
+                          
                           if (item && item.processedUrl) {
                             const a = document.createElement('a');
                             a.href = item.processedUrl;

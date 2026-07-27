@@ -1,4 +1,5 @@
 import React from 'react';
+import { SystemArchitecture } from '../SystemArchitecture';
 import { useTranslation } from '../../../context/LanguageContext';
 import { RotateCw, FlipHorizontal, FlipVertical, Image as ImageIcon, Download, SlidersHorizontal, MousePointerClick } from 'lucide-react';
 
@@ -194,6 +195,8 @@ export const RotateSections: React.FC = () => {
         </div>
       </section>
 
+    
+      <SystemArchitecture variant="minimal" />
     </div>
   );
 };
