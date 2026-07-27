@@ -1,7 +1,7 @@
 // src/components/landing/tools/RemoveBgSections.tsx
 import React from 'react';
 import { useTranslation } from '../../../context/LanguageContext';
-import { Wand2, Image as ImageIcon, Sparkles, Scissors, Lock, Focus, ShoppingBag, Palette, Download, Zap } from 'lucide-react';
+import { Wand2, Image as ImageIcon, Sparkles, Scissors, Lock, Focus, ShoppingBag, Palette, Download } from 'lucide-react';
 
 export const RemoveBgSections: React.FC = () => {
   const { t } = useTranslation();
@@ -159,47 +159,6 @@ export const RemoveBgSections: React.FC = () => {
             </div>
             <h3 className="text-xl font-bold text-white mb-2">{tr('s3Title', 'Download HD')}</h3>
             <p className="text-slate-400">{tr('s3Desc', 'Export your cut-out photo with a transparent background.')}</p>
-          </div>
-        </div>
-      </section>
-
-      {/* SYSTEM ARCHITECTURE - FLEXING (Replaced Testimonials) */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-24">
-        <div className="text-center max-w-3xl mx-auto mb-16 px-4">
-          <span className="text-xs font-mono font-bold uppercase tracking-widest text-[#12DA91] bg-[#12DA91]/10 px-3 py-1.5 rounded-full border border-[#12DA91]/30 block w-max mx-auto mb-4">
-            {t('landing.flex.tag', { defaultValue: 'SYSTEM ARCHITECTURE' })}
-          </span>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl sm:lg:font-heading font-extrabold leading-tight">
-            {t('landing.flex.title', { defaultValue: 'Engineered for Extreme Privacy & Millisecond Performance' })}
-          </h2>
-          <p className="text-lg text-slate-400 leading-relaxed mt-6 max-w-2xl mx-auto">
-            {t('landing.flex.desc', { defaultValue: 'We don\'t rely on slow cloud servers. HelpMyIMG utilizes next-generation WebAssembly to run complex AI algorithms directly inside your browser memory.' })}
-          </p>
-        </div>
-        
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <div className="bg-dark-800/40 p-8 rounded-3xl border border-[#05DAED]/20 hover:border-[#05DAED]/50 transition-colors group">
-            <div className="w-12 h-12 bg-[#05DAED]/10 text-[#05DAED] rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-              <Lock className="w-6 h-6" />
-            </div>
-            <h3 className="text-xl font-bold text-white mb-3">{t('landing.flex.c1.title', { defaultValue: 'Local AI Processing' })}</h3>
-            <p className="text-slate-400">{t('landing.flex.c1.desc', { defaultValue: 'Your sensitive files never touch our servers. All AI operations are executed locally on your device for 100% privacy.' })}</p>
-          </div>
-
-          <div className="bg-dark-800/40 p-8 rounded-3xl border border-[#05DAED]/20 hover:border-[#05DAED]/50 transition-colors group">
-            <div className="w-12 h-12 bg-[#05DAED]/10 text-[#05DAED] rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-              <Zap className="w-6 h-6" />
-            </div>
-            <h3 className="text-xl font-bold text-white mb-3">{t('landing.flex.c2.title', { defaultValue: '0ms Network Latency' })}</h3>
-            <p className="text-slate-400">{t('landing.flex.c2.desc', { defaultValue: 'Skip the upload and download wait times. Processing begins the exact millisecond you drag and drop your photos.' })}</p>
-          </div>
-
-          <div className="bg-dark-800/40 p-8 rounded-3xl border border-[#12DA91]/20 hover:border-[#12DA91]/50 transition-colors group">
-            <div className="w-12 h-12 bg-[#12DA91]/10 text-[#12DA91] rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-              <Sparkles className="w-6 h-6" />
-            </div>
-            <h3 className="text-xl font-bold text-white mb-3">{t('landing.flex.c3.title', { defaultValue: 'WebAssembly Powered' })}</h3>
-            <p className="text-slate-400">{t('landing.flex.c3.desc', { defaultValue: 'Leveraging ultra-fast WASM binaries, HelpMyIMG matches the performance of native desktop applications inside the web browser.' })}</p>
           </div>
         </div>
       </section>

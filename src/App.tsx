@@ -3,21 +3,23 @@
 
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { HelmetProvider } from 'react-helmet-async';
-import { Suspense } from 'react';
+import { lazy, Suspense } from 'react';
 import './i18n/i18n';
 import { LanguageProvider } from './context/LanguageContext';
 import { ThemeProvider } from './context/ThemeContext';
 import { Navbar } from './components/Navbar';
 import { Footer } from './components/Footer';
 import { JsonLd } from './components/seo/JsonLd';
-import { ToolLandingPage } from './pages/ToolLandingPage';
-import { AboutPage } from './pages/info/AboutPage';
-import { PrivacyPage } from './pages/info/PrivacyPage';
-import { TermsPage } from './pages/info/TermsPage';
-import { FaqPage } from './pages/info/FaqPage';
 import ScrollToTop from './components/ScrollToTop';
 import { shouldAutoRedirectToLang } from './services/geoDetector';
 import { SUPPORTED_LANGUAGES } from './i18n/translations';
+
+// Lazy loaded routes for extreme performance
+const ToolLandingPage = lazy(() => import('./pages/ToolLandingPage').then(m => ({ default: m.ToolLandingPage })));
+const AboutPage = lazy(() => import('./pages/info/AboutPage').then(m => ({ default: m.AboutPage })));
+const PrivacyPage = lazy(() => import('./pages/info/PrivacyPage').then(m => ({ default: m.PrivacyPage })));
+const TermsPage = lazy(() => import('./pages/info/TermsPage').then(m => ({ default: m.TermsPage })));
+const FaqPage = lazy(() => import('./pages/info/FaqPage').then(m => ({ default: m.FaqPage })));
 
 /**
  * RootRedirector: Mekanisme rahasia "Chameleon / Secret Hat"
@@ -39,20 +41,20 @@ import { SeoFooterMatrix } from './components/seo/SeoFooterMatrix';
 function App() {
   return (
     <HelmetProvider>
-      <Suspense fallback={<div className="min-h-screen bg-dark-900 flex items-center justify-center"><div className="w-16 h-16 border-4 border-neon-cyan/20 border-t-neon-cyan rounded-full animate-spin"></div></div>}>
+      <Suspense fallback={<div className="min-h-screen bg-dark-900 flex items-center justify-center"><div className="w-16 h-16 border-4 border-[#05DAED]/20 border-t-[#05DAED] rounded-full animate-spin"></div></div>}>
         <ThemeProvider>
         <LanguageProvider>
           <BrowserRouter>
             <ScrollToTop />
-            <div className="min-h-screen bg-dark-900 text-slate-900 dark:text-slate-100 font-body flex flex-col transition-colors duration-300 selection:bg-neon-cyan/30 selection:text-neon-cyan">
+            <div className="min-h-screen bg-dark-900 text-slate-900 dark:text-slate-100 font-body flex flex-col transition-colors duration-300 selection:bg-[#05DAED]/30 selection:text-[#05DAED]">
               <JsonLd />
               <Navbar />
               
               <main className="flex-1 w-full flex flex-col gap-8 md:gap-16 pt-8 sm:pt-10 md:pt-14 pb-16 min-h-screen">
                 <div className="relative">
-                  {/* Dekorasi Cahaya Latar Belakang */}
-                  <div className="fixed top-1/2 left-0 w-72 h-72 bg-neon-cyan/10 blur-[120px] rounded-full pointer-events-none -z-10 transform-gpu" />
-                  <div className="fixed top-1/3 right-0 w-96 h-96 bg-neon-indigo/10 blur-[120px] rounded-full pointer-events-none -z-10 transform-gpu" />
+                  {/* Dekorasi Cahaya Latar Belakang - Optimized: Removed heavy blur-[120px] and used pre-rendered radial gradients to eliminate scroll GPU lag */}
+                  <div className="fixed top-1/2 left-0 w-[500px] h-[500px] -translate-x-1/2 -translate-y-1/2 bg-[radial-gradient(circle_at_center,rgba(5,218,237,0.12)_0%,transparent_60%)] rounded-full pointer-events-none -z-10" />
+                  <div className="fixed top-1/3 right-0 w-[600px] h-[600px] translate-x-1/3 -translate-y-1/2 bg-[radial-gradient(circle_at_center,rgba(79,70,229,0.1)_0%,transparent_60%)] rounded-full pointer-events-none -z-10" />
                   
                   <Routes>
                     {/* Root Route -> Secret Hat Bot-Aware Redirector */}

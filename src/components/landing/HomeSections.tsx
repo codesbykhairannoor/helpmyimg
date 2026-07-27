@@ -101,7 +101,7 @@ export const HomeSections: React.FC = () => {
       {/* 2. HOW IT WORKS IN 3 STEPS (Timeline on Mobile, Side-by-side Desktop) */}
       <section className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="glass-panel p-6 sm:p-14 md:rounded-[3rem] border-dark-500/30 relative overflow-hidden bg-dark-900/40">
-          <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-neon-cyan/5 rounded-full blur-[120px] pointer-events-none" />
+          <div className="absolute top-0 right-0 w-[500px] h-[500px]  rounded-full bg-[radial-gradient(circle_at_center,rgba(5,218,237,0.08)_0%,transparent_60%)] pointer-events-none" />
           
           <div className="text-left md:text-center max-w-3xl md:mx-auto mb-12 md:mb-20 px-2 relative z-10">
           <span className="text-[10px] md:text-xs font-mono font-bold uppercase tracking-[0.2em] text-[#05DAED] bg-[#05DAED]/10 px-4 py-2 rounded-full border border-[#05DAED]/30 block w-max md:mx-auto mb-6">
@@ -168,7 +168,7 @@ export const HomeSections: React.FC = () => {
 
       {/* 3. GEO & ANSWER ENGINE OPTIMIZATION FAQ FOR HELPMYIMG STUDIO */}
       <section className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-24 mb-16 relative">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-neon-cyan/5 rounded-full blur-[100px] pointer-events-none -z-10" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px]  rounded-full bg-[radial-gradient(circle_at_center,rgba(5,218,237,0.08)_0%,transparent_60%)] pointer-events-none -z-10" />
         
         <div className="text-center max-w-3xl mx-auto mb-16 px-4">
           <span className="text-xs font-mono font-bold uppercase tracking-widest text-[#12DA91] bg-[#12DA91]/10 px-3 py-1.5 rounded-full border border-[#12DA91]/30 block w-max mx-auto mb-4">
@@ -234,13 +234,13 @@ export const HomeSections: React.FC = () => {
               {t('home.redesign.ctaTag', { defaultValue: 'UNLEASH CREATIVITY' })}
             </span>
             
-            <h3 className="text-3xl sm:text-5xl md:text-7xl font-heading font-black text-white mb-6 md:mb-8 tracking-tighter leading-tight max-w-4xl mx-auto">
-              <span className="bg-gradient-to-br from-white via-slate-200 to-slate-400 bg-clip-text text-transparent drop-shadow-sm">
+            <h3 className="text-3xl sm:text-5xl md:text-7xl font-heading font-black text-slate-900 dark:text-white mb-6 md:mb-8 tracking-tighter leading-tight max-w-4xl mx-auto">
+              <span className="bg-gradient-to-br from-slate-900 via-slate-700 to-slate-500 dark:from-white dark:via-slate-200 dark:to-slate-400 bg-clip-text text-transparent drop-shadow-sm">
                 {t('home.redesign.ctaTitle', { defaultValue: 'Transform Your Workflow.' })}
               </span>
             </h3>
             
-            <p className="text-base sm:text-lg md:text-2xl text-slate-300 max-w-2xl mx-auto mb-10 md:mb-14 leading-relaxed font-light">
+            <p className="text-base sm:text-lg md:text-2xl text-slate-600 dark:text-slate-300 max-w-2xl mx-auto mb-10 md:mb-14 leading-relaxed font-light">
               {t('home.redesign.ctaDesc', { defaultValue: 'No installations. Ultimate privacy. Professional grade image processing directly on your local device.' })}
             </p>
             

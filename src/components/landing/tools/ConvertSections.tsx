@@ -1,6 +1,6 @@
 import React from 'react';
 import { useTranslation } from '../../../context/LanguageContext';
-import { ArrowRightLeft, Image as ImageIcon, Zap, Upload, LayoutGrid, FileType2, Download, Lock, Shield, Sparkles } from 'lucide-react';
+import { ArrowRightLeft, Image as ImageIcon, Zap, Upload, LayoutGrid, FileType2, Download } from 'lucide-react';
 
 export const ConvertSections: React.FC = () => {
   const { t } = useTranslation();
@@ -168,47 +168,6 @@ export const ConvertSections: React.FC = () => {
               <h3 className="text-xl sm:text-2xl font-bold font-heading sm:mb-3">{tr('s3Title', 'Export')}</h3>
               <p className="text-lg text-slate-400">{tr('s3Desc', 'Click export and get your newly formatted files instantly.')}</p>
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* SYSTEM ARCHITECTURE - FLEXING */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-24">
-        <div className="text-center max-w-3xl mx-auto mb-16 px-4">
-          <span className="text-xs font-mono font-bold uppercase tracking-widest text-[#06B6D4] bg-[#06B6D4]/10 px-3 py-1.5 rounded-full border border-[#06B6D4]/30 block w-max mx-auto mb-4">
-            {t('landing.flex.tag', { defaultValue: 'SYSTEM ARCHITECTURE' })}
-          </span>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl sm:lg:font-heading font-black leading-tight">
-            {t('landing.flex.title', { defaultValue: 'Engineered for Extreme Privacy & Millisecond Performance' })}
-          </h2>
-          <p className="text-lg sm:text-xl text-slate-400 leading-relaxed mt-6 max-w-2xl mx-auto">
-            {t('landing.flex.desc', { defaultValue: 'We don\'t rely on slow cloud servers. HelpMyIMG utilizes next-generation WebAssembly to run complex AI algorithms directly inside your browser memory.' })}
-          </p>
-        </div>
-        
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <div className="bg-dark-800/40 p-8 rounded-3xl border border-[#06B6D4]/20 hover:border-[#06B6D4]/50 transition-colors group">
-            <div className="w-12 h-12 bg-[#06B6D4]/10 text-[#06B6D4] rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-              <Lock className="w-6 h-6" />
-            </div>
-            <h3 className="text-xl font-bold text-white mb-3">{t('landing.flex.b1.title', { defaultValue: 'Local AI Processing' })}</h3>
-            <p className="text-slate-400 text-sm leading-relaxed">{t('landing.flex.b1.desc', { defaultValue: 'Your sensitive files never touch our servers. All operations execute locally on your device.' })}</p>
-          </div>
-          
-          <div className="bg-dark-800/40 p-8 rounded-3xl border border-[#EC4899]/20 hover:border-[#EC4899]/50 transition-colors group">
-            <div className="w-12 h-12 bg-[#EC4899]/10 text-[#EC4899] rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-              <Sparkles className="w-6 h-6" />
-            </div>
-            <h3 className="text-xl font-bold text-white mb-3">{t('landing.flex.b2.title', { defaultValue: '0ms Network Latency' })}</h3>
-            <p className="text-slate-400 text-sm leading-relaxed">{t('landing.flex.b2.desc', { defaultValue: 'Skip the upload and download wait times. Processing starts the exact millisecond you drop your photos.' })}</p>
-          </div>
-
-          <div className="bg-dark-800/40 p-8 rounded-3xl border border-[#06B6D4]/20 hover:border-[#06B6D4]/50 transition-colors group">
-            <div className="w-12 h-12 bg-[#06B6D4]/10 text-[#06B6D4] rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-              <Shield className="w-6 h-6" />
-            </div>
-            <h3 className="text-xl font-bold text-white mb-3">{t('landing.flex.b3.title', { defaultValue: 'WebAssembly Powered' })}</h3>
-            <p className="text-slate-400 text-sm leading-relaxed">{t('landing.flex.b3.desc', { defaultValue: 'HelpMyIMG matches the performance of native desktop applications right inside your web browser.' })}</p>
           </div>
         </div>
       </section>

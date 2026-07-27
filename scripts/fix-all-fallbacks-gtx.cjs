@@ -36,9 +36,9 @@ async function run() {
     let keysToTranslate = [];
 
     for (const key of Object.keys(enData)) {
-      if (key.startsWith('landing.')) {
-        // If it's an exact match with English (and not empty)
-        if (data[key] === enData[key] && enData[key].trim() !== '') {
+      if (key.startsWith('landing.') || key.startsWith('grid.') || key.startsWith('nav.') || key.startsWith('hero.') || key.startsWith('footer.')) {
+        // If it's an exact match with English (and not empty) OR completely missing
+        if (!data[key] || (data[key] === enData[key] && enData[key].trim() !== '')) {
           keysToTranslate.push(key);
         }
       }
