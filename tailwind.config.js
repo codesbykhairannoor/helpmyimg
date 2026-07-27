@@ -28,8 +28,8 @@ export default {
         }
       },
       fontFamily: {
-        heading: ['-apple-system', 'BlinkMacSystemFont', '"SF Pro Display"', '"SF Pro Text"', '"Inter"', '"Helvetica Neue"', 'sans-serif'],
-        body: ['-apple-system', 'BlinkMacSystemFont', '"SF Pro Text"', '"SF Pro Display"', '"Inter"', '"Helvetica Neue"', 'sans-serif'],
+        heading: ['"Inter"', 'system-ui', '-apple-system', 'sans-serif'],
+        body: ['"Inter"', 'system-ui', '-apple-system', 'sans-serif'],
       },
       boxShadow: {
         'glass': '0 8px 32px 0 rgba(0, 0, 0, 0.37)',
