@@ -74,9 +74,9 @@ export const CropSections: React.FC = () => {
         </div>
       </section>
 
-      {/* VERTICAL TIMELINE WORKFLOW */}
-      <section className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="text-center mb-16">
+      {/* HOW IT WORKS */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center max-w-3xl mx-auto mb-16 relative z-10">
           <span className="text-xs font-mono font-bold uppercase tracking-widest text-[#12DA91] bg-[#12DA91]/10 px-3 py-1.5 rounded-full border border-[#12DA91]/30 block w-max mx-auto mb-4">
             {tr('stepsTag', 'HOW TO CROP')}
           </span>
@@ -84,54 +84,34 @@ export const CropSections: React.FC = () => {
             {tr('stepsTitle', 'Perfect Framing in Seconds')}
           </h2>
         </div>
-
-        <div className="relative pl-8 sm:pl-0">
-          {/* Glowing Vertical Line */}
-          <div className="absolute left-8 sm:left-1/2 top-0 bottom-0 w-[2px] bg-dark-600 sm:-translate-x-1/2">
-             <div className="absolute top-0 w-full h-1/2 bg-gradient-to-b from-[#12DA91] to-[#05DAED] animate-pulse" />
+        
+        <div className="flex flex-col md:flex-row gap-8 md:gap-8 justify-center items-center md:items-start mt-8 md:mt-16 relative z-10">
+          <div className="flex-1 text-center group relative z-10 w-full max-w-sm mx-auto md:max-w-none md:w-auto bg-dark-800/40 md:bg-transparent p-8 md:p-0 rounded-3xl border border-dark-600/30 md:border-transparent">
+            <div className="w-20 h-20 mx-auto bg-dark-900 rounded-2xl border border-[#12DA91]/50 flex items-center justify-center mb-6 shadow-[0_0_20px_rgba(18,218,145,0.2)] group-hover:scale-110 transition-transform duration-300">
+              <ImageIcon className="w-8 h-8 text-[#12DA91]" />
+            </div>
+            <h3 className="text-xl sm:text-2xl font-bold font-heading mb-3">{tr('s1Title', 'Upload Photo')}</h3>
+            <p className="text-lg sm:text-xl text-slate-400">{tr('s1Desc', 'Drag and drop your image into the workspace.')}</p>
           </div>
 
-          <div className="space-y-16">
-            <div className="relative sm:flex items-center justify-between group">
-              <div className="sm:w-5/12 text-left sm:text-right pr-0 sm:pr-12">
-                <h3 className="text-xl sm:text-2xl font-bold font-heading mb-3">{tr('s1Title', 'Upload Photo')}</h3>
-                <p className="text-lg sm:text-xl text-slate-400">{tr('s1Desc', 'Drag and drop your image into the workspace.')}</p>
-              </div>
-              <div className="absolute left-[-42px] sm:left-1/2 w-12 h-12 rounded-full bg-dark-900 border-2 border-[#12DA91] flex items-center justify-center sm:-translate-x-1/2 z-10 shadow-[0_0_15px_rgba(18,218,145,0.4)]">
-                <ImageIcon className="w-5 h-5 text-[#12DA91]" />
-              </div>
-              <div className="sm:w-5/12 pl-0 sm:pl-12 mt-6 sm:mt-0 hidden sm:block">
-                <div className="h-24 bg-dark-800 rounded-2xl border border-dark-600 opacity-50" />
-              </div>
-            </div>
+          <div className="hidden md:block w-16 h-[2px] mt-10 bg-gradient-to-r from-transparent via-dark-500 to-transparent" />
 
-            <div className="relative sm:flex items-center justify-between group flex-row-reverse">
-              <div className="sm:w-5/12 text-left pl-0 sm:pl-12">
-                <h3 className="text-xl sm:text-2xl font-bold font-heading mb-3">{tr('s2Title', 'Drag the Box')}</h3>
-                <p className="text-lg sm:text-xl text-slate-400">{tr('s2Desc', 'Use the corner handles to adjust the crop area.')}</p>
-              </div>
-              <div className="absolute left-[-42px] sm:left-1/2 w-12 h-12 rounded-full bg-dark-900 border-2 border-[#05DAED] flex items-center justify-center sm:-translate-x-1/2 z-10 shadow-[0_0_15px_rgba(5,218,237,0.4)]">
-                <Crosshair className="w-5 h-5 text-[#05DAED]" />
-              </div>
-              <div className="sm:w-5/12 pr-0 sm:pr-12 mt-6 sm:mt-0 hidden sm:block">
-                 <div className="h-24 bg-dark-800 rounded-2xl border border-[#05DAED]/30 relative flex items-center justify-center opacity-80">
-                    <div className="w-16 h-12 border border-dashed border-[#05DAED]" />
-                 </div>
-              </div>
+          <div className="flex-1 text-center group relative z-10 w-full max-w-sm mx-auto md:max-w-none md:w-auto bg-dark-800/40 md:bg-transparent p-8 md:p-0 rounded-3xl border border-dark-600/30 md:border-transparent">
+            <div className="w-20 h-20 mx-auto bg-dark-900 rounded-2xl border border-[#05DAED]/50 flex items-center justify-center mb-6 shadow-[0_0_20px_rgba(5,218,237,0.2)] group-hover:scale-110 transition-transform duration-300">
+              <Crosshair className="w-8 h-8 text-[#05DAED]" />
             </div>
+            <h3 className="text-xl sm:text-2xl font-bold font-heading mb-3">{tr('s2Title', 'Drag the Box')}</h3>
+            <p className="text-lg sm:text-xl text-slate-400">{tr('s2Desc', 'Use the corner handles to adjust the crop area.')}</p>
+          </div>
 
-            <div className="relative sm:flex items-center justify-between group">
-              <div className="sm:w-5/12 text-left sm:text-right pr-0 sm:pr-12">
-                <h3 className="text-xl sm:text-2xl font-bold font-heading mb-3">{tr('s3Title', 'Apply & Save')}</h3>
-                <p className="text-lg sm:text-xl text-slate-400">{tr('s3Desc', 'Hit crop and download your extracted image.')}</p>
-              </div>
-              <div className="absolute left-[-42px] sm:left-1/2 w-12 h-12 rounded-full bg-dark-900 border-2 border-[#12DA91] flex items-center justify-center sm:-translate-x-1/2 z-10 shadow-[0_0_15px_rgba(18,218,145,0.4)]">
-                <Download className="w-5 h-5 text-[#12DA91]" />
-              </div>
-              <div className="sm:w-5/12 pl-0 sm:pl-12 mt-6 sm:mt-0 hidden sm:block">
-                <div className="h-24 bg-dark-800 rounded-2xl border border-dark-600 opacity-50" />
-              </div>
+          <div className="hidden md:block w-16 h-[2px] mt-10 bg-gradient-to-r from-transparent via-dark-500 to-transparent" />
+
+          <div className="flex-1 text-center group relative z-10 w-full max-w-sm mx-auto md:max-w-none md:w-auto bg-dark-800/40 md:bg-transparent p-8 md:p-0 rounded-3xl border border-dark-600/30 md:border-transparent">
+            <div className="w-20 h-20 mx-auto bg-dark-900 rounded-2xl border border-[#12DA91]/50 flex items-center justify-center mb-6 shadow-[0_0_20px_rgba(18,218,145,0.2)] group-hover:scale-110 transition-transform duration-300">
+              <Download className="w-8 h-8 text-[#12DA91]" />
             </div>
+            <h3 className="text-xl sm:text-2xl font-bold font-heading mb-3">{tr('s3Title', 'Apply & Save')}</h3>
+            <p className="text-lg sm:text-xl text-slate-400">{tr('s3Desc', 'Hit crop and download your extracted image.')}</p>
           </div>
         </div>
       </section>
