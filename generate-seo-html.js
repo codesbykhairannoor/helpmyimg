@@ -54,9 +54,13 @@ const TOOLS = ['remove', 'compress', 'convert', 'resize', 'color', 'watermark'];
 // Read the original index.html built by Vite
 const indexHtmlContent = fs.readFileSync(path.join(distDir, 'index.html'), 'utf8');
 
+// Strip hardcoded hreflang tags from the base HTML
+let baseHtmlContent = indexHtmlContent.replace(/<link rel="alternate" hreflang="[^"]+" href="[^"]+" \/>\n?\s*/g, '');
+baseHtmlContent = baseHtmlContent.replace(/<!-- Static Hreflang Tags for 30 Languages -->\n?\s*/g, '');
+
 // Function to generate the modified HTML
-const generateHtml = (lang, urlPath, seoTitle, seoDesc) => {
-  let html = indexHtmlContent;
+const generateHtml = (lang, urlPath, seoTitle, seoDesc, tool = null) => {
+  let html = baseHtmlContent;
 
   // 1. Replace <html lang="en">
   html = html.replace(/<html lang="[^"]+">/i, `<html lang="${lang}">`);
@@ -71,6 +75,19 @@ const generateHtml = (lang, urlPath, seoTitle, seoDesc) => {
   const ogDesc = `<meta property="og:description" content="${seoDesc}" />`;
   
   html = html.replace(/(<\/title>)/i, `$1\n    ${metaDesc}\n    ${canonical}\n    ${ogTitle}\n    ${ogDesc}`);
+
+  // 4. Generate and inject dynamic hreflangs for THIS specific route
+  let dynamicHreflangs = `<!-- Dynamic Localized Hreflang Tags -->\n`;
+  for (const l of LANGS) {
+    let targetPath = `/${l}/`;
+    if (tool) targetPath = `/${l}/${getLocalizedSlug(tool, l)}/`;
+    dynamicHreflangs += `    <link rel="alternate" hreflang="${l}" href="${DOMAIN}${targetPath}" />\n`;
+  }
+  let xDefaultPath = `/en/`;
+  if (tool) xDefaultPath = `/en/${getLocalizedSlug(tool, 'en')}/`;
+  dynamicHreflangs += `    <link rel="alternate" hreflang="x-default" href="${DOMAIN}${xDefaultPath}" />\n`;
+
+  html = html.replace(/(<\/head>)/i, `${dynamicHreflangs}  $1`);
 
   return html;
 };
@@ -113,7 +130,7 @@ for (const lang of LANGS) {
       toolTitle = `${translations['tab.remove']} - HelpMyIMG`;
     }
 
-    const toolHtml = generateHtml(lang, toolUrl, toolTitle, toolDesc);
+    const toolHtml = generateHtml(lang, toolUrl, toolTitle, toolDesc, tool);
     const toolDir = path.join(distDir, lang, slug);
     if (!fs.existsSync(toolDir)) fs.mkdirSync(toolDir, { recursive: true });
     fs.writeFileSync(path.join(toolDir, 'index.html'), toolHtml, 'utf8');
