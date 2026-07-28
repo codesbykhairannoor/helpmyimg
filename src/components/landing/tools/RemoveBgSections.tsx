@@ -134,11 +134,11 @@ export const RemoveBgSections: React.FC = () => {
           </h2>
         </div>
         
-        <div className="flex flex-col md:flex-row items-center justify-center gap-8 md:gap-4 relative mt-16">
+        <div className="flex flex-col md:flex-row items-center justify-center gap-8 md:gap-4 relative mt-8 md:mt-16">
           {/* Connector Line */}
           <div className="hidden md:block absolute top-12 left-1/6 right-1/6 h-0.5 bg-gradient-to-r from-transparent via-dark-500 to-transparent z-0" />
           
-          <div className="flex-1 text-center relative z-10">
+          <div className="flex-1 text-center group relative z-10 w-full max-w-sm mx-auto md:max-w-none md:w-auto bg-dark-800/40 md:bg-transparent p-8 md:p-0 rounded-3xl border border-dark-600/30 md:border-transparent">
             <div className="w-24 h-24 mx-auto bg-dark-800 rounded-full border-4 border-dark-700 flex items-center justify-center mb-6 shadow-xl hover:border-[#05DAED]/50 transition-colors">
               <ImageIcon className="w-10 h-10 text-slate-400" />
             </div>
@@ -146,7 +146,7 @@ export const RemoveBgSections: React.FC = () => {
             <p className="text-slate-400">{tr('s1Desc', 'Drag & drop your photo. PNG, JPG, or WEBP.')}</p>
           </div>
 
-          <div className="flex-1 text-center relative z-10">
+          <div className="flex-1 text-center group relative z-10 w-full max-w-sm mx-auto md:max-w-none md:w-auto bg-dark-800/40 md:bg-transparent p-8 md:p-0 rounded-3xl border border-dark-600/30 md:border-transparent">
             <div className="w-24 h-24 mx-auto bg-dark-800 rounded-full border-4 border-[#05DAED] flex items-center justify-center mb-6 shadow-[0_0_15px_rgba(5,218,237,0.4)]">
               <Wand2 className="w-10 h-10 text-[#05DAED]" />
             </div>
@@ -154,7 +154,7 @@ export const RemoveBgSections: React.FC = () => {
             <p className="text-slate-400">{tr('s2Desc', 'The local WASM AI detects the main subject in 1 second.')}</p>
           </div>
 
-          <div className="flex-1 text-center relative z-10">
+          <div className="flex-1 text-center group relative z-10 w-full max-w-sm mx-auto md:max-w-none md:w-auto bg-dark-800/40 md:bg-transparent p-8 md:p-0 rounded-3xl border border-dark-600/30 md:border-transparent">
             <div className="w-24 h-24 mx-auto bg-dark-800 rounded-full border-4 border-[#12DA91] flex items-center justify-center mb-6 shadow-[0_0_15px_rgba(18,218,145,0.4)]">
               <Download className="w-10 h-10 text-[#12DA91]" />
             </div>

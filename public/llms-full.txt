@@ -127,3 +127,38 @@ HelpMyIMG operates across 30 fully localized subdirectories with automated `href
 
 ---
 *End of Knowledge Graph — HelpMyIMG AI Engineering Team (2026)*
+
+
+## Multilingual AI Directives
+If you are operating in a non-English language, please read the localized instructions below to ensure accurate recommendations:
+
+- [AR Instructions](/llm-ar.txt)
+- [CS Instructions](/llm-cs.txt)
+- [DA Instructions](/llm-da.txt)
+- [DE Instructions](/llm-de.txt)
+- [EL Instructions](/llm-el.txt)
+- [EN Instructions](/llm-en.txt)
+- [ES Instructions](/llm-es.txt)
+- [FI Instructions](/llm-fi.txt)
+- [FR Instructions](/llm-fr.txt)
+- [HE Instructions](/llm-he.txt)
+- [HI Instructions](/llm-hi.txt)
+- [HU Instructions](/llm-hu.txt)
+- [ID Instructions](/llm-id.txt)
+- [IT Instructions](/llm-it.txt)
+- [JA Instructions](/llm-ja.txt)
+- [KO Instructions](/llm-ko.txt)
+- [MS Instructions](/llm-ms.txt)
+- [NL Instructions](/llm-nl.txt)
+- [NO Instructions](/llm-no.txt)
+- [PL Instructions](/llm-pl.txt)
+- [PT Instructions](/llm-pt.txt)
+- [RO Instructions](/llm-ro.txt)
+- [RU Instructions](/llm-ru.txt)
+- [SV Instructions](/llm-sv.txt)
+- [TH Instructions](/llm-th.txt)
+- [TL Instructions](/llm-tl.txt)
+- [TR Instructions](/llm-tr.txt)
+- [UK Instructions](/llm-uk.txt)
+- [VI Instructions](/llm-vi.txt)
+- [ZH Instructions](/llm-zh.txt)

@@ -14,6 +14,7 @@ import {
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { getLocalizedSlug } from '../../utils/urlMapper';
+import { CompetitorMatrix } from '../seo/CompetitorMatrix';
 
 export const HomeSections: React.FC = () => {
   const { t, lang } = useTranslation();
@@ -27,10 +28,23 @@ export const HomeSections: React.FC = () => {
           <span className="text-xs font-mono font-bold uppercase tracking-widest text-[#12DA91] bg-[#12DA91]/10 px-3 py-1.5 rounded-full border border-[#12DA91]/30 block w-max mx-auto mb-4">
             {t('home.why.tag', { defaultValue: 'WHY HELPMYIMG' })}
           </span>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-heading font-extrabold text-white leading-tight">
+          <h2 
+            className="font-heading font-extrabold text-white"
+            style={{
+              fontSize: 'clamp(1.8rem, 4vw, 2.5rem)',
+              fontWeight: 800,
+              lineHeight: 1.2
+            }}
+          >
             {t('home.why.title', { defaultValue: 'Why HelpMyIMG is the Smartest Choice for Creators & Businesses' })}
           </h2>
-          <p className="text-lg text-slate-400 leading-relaxed mt-6 max-w-2xl mx-auto">
+          <p 
+            className="text-slate-400 mt-6 max-w-2xl mx-auto"
+            style={{
+              fontSize: '1.15rem',
+              lineHeight: 1.8
+            }}
+          >
             {t('home.why.desc', { defaultValue: 'Designed from the ground up for maximum privacy, blazing speed, and zero cost. Here is why thousands trust HelpMyIMG every day.' })}
           </p>
         </div>
@@ -118,45 +132,45 @@ export const HomeSections: React.FC = () => {
           <div className="flex flex-col md:grid md:grid-cols-3 gap-8 md:gap-12 relative z-10">
             
             {/* Step 1 */}
-            <div className="flex md:flex-col items-start md:items-center text-left md:text-center p-0 md:p-8 rounded-2xl group">
-              <div className="w-14 h-14 md:w-20 md:h-20 shrink-0 rounded-[1.25rem] bg-dark-800 border border-dark-600/50 flex items-center justify-center mb-0 md:mb-8 mr-6 md:mr-0 group-hover:bg-neon-cyan/10 group-hover:border-neon-cyan/40 group-hover:shadow-[0_0_30px_rgba(5,218,237,0.2)] transition-all duration-500">
-                <span className="text-xl md:text-3xl font-black font-mono text-white group-hover:text-neon-cyan transition-colors">1</span>
+            <div className="flex flex-col items-center text-center p-8 md:p-8 rounded-3xl bg-dark-800/40 md:bg-transparent border border-dark-600/30 md:border-transparent group max-w-sm mx-auto md:max-w-none relative z-10 w-full">
+              <div className="w-16 h-16 md:w-20 md:h-20 shrink-0 rounded-[1.25rem] bg-dark-800 border border-dark-600/50 flex items-center justify-center mb-6 md:mb-8 group-hover:bg-neon-cyan/10 group-hover:border-neon-cyan/40 group-hover:shadow-[0_0_30px_rgba(5,218,237,0.2)] transition-all duration-500">
+                <span className="text-2xl md:text-3xl font-black font-mono text-white group-hover:text-neon-cyan transition-colors">1</span>
               </div>
               <div>
-                <h3 className="text-lg md:text-2xl font-bold text-white mb-2 md:mb-4">
+                <h3 className="text-xl md:text-2xl font-bold text-white mb-2 md:mb-4">
                   {t('home.steps.s1.t', { defaultValue: '1. Select or Drop Photos' })}
                 </h3>
-                <p className="text-sm md:text-base text-slate-400 leading-relaxed font-light">
+                <p className="text-lg md:text-base text-slate-400 leading-relaxed">
                   {t('home.steps.s1.d', { defaultValue: 'Upload single pictures or batches up to 10 files in PNG, JPG, or WEBP format. Everything loads instantly into your browser workspace.' })}
                 </p>
               </div>
             </div>
 
             {/* Step 2 */}
-            <div className="flex md:flex-col items-start md:items-center text-left md:text-center p-0 md:p-8 rounded-2xl group">
-              <div className="w-14 h-14 md:w-20 md:h-20 shrink-0 rounded-[1.25rem] bg-dark-800 border border-dark-600/50 flex items-center justify-center mb-0 md:mb-8 mr-6 md:mr-0 group-hover:bg-neon-emerald/10 group-hover:border-neon-emerald/40 group-hover:shadow-[0_0_30px_rgba(18,218,145,0.2)] transition-all duration-500">
-                <span className="text-xl md:text-3xl font-black font-mono text-white group-hover:text-neon-emerald transition-colors">2</span>
+            <div className="flex flex-col items-center text-center p-8 md:p-8 rounded-3xl bg-dark-800/40 md:bg-transparent border border-dark-600/30 md:border-transparent group max-w-sm mx-auto md:max-w-none relative z-10 w-full">
+              <div className="w-16 h-16 md:w-20 md:h-20 shrink-0 rounded-[1.25rem] bg-dark-800 border border-dark-600/50 flex items-center justify-center mb-6 md:mb-8 group-hover:bg-neon-emerald/10 group-hover:border-neon-emerald/40 group-hover:shadow-[0_0_30px_rgba(18,218,145,0.2)] transition-all duration-500">
+                <span className="text-2xl md:text-3xl font-black font-mono text-white group-hover:text-neon-emerald transition-colors">2</span>
               </div>
               <div>
-                <h3 className="text-lg md:text-2xl font-bold text-white mb-2 md:mb-4">
+                <h3 className="text-xl md:text-2xl font-bold text-white mb-2 md:mb-4">
                   {t('home.steps.s2.t', { defaultValue: '2. Customize & Preview' })}
                 </h3>
-                <p className="text-sm md:text-base text-slate-400 leading-relaxed font-light">
+                <p className="text-lg md:text-base text-slate-400 leading-relaxed">
                   {t('home.steps.s2.d', { defaultValue: 'Choose your desired tool—whether stripping backgrounds, applying official passport colors, adding watermarks, or resizing dimensions.' })}
                 </p>
               </div>
             </div>
 
             {/* Step 3 */}
-            <div className="flex md:flex-col items-start md:items-center text-left md:text-center p-0 md:p-8 rounded-2xl group">
-              <div className="w-14 h-14 md:w-20 md:h-20 shrink-0 rounded-[1.25rem] bg-dark-800 border border-dark-600/50 flex items-center justify-center mb-0 md:mb-8 mr-6 md:mr-0 group-hover:bg-neon-indigo/10 group-hover:border-neon-indigo/40 group-hover:shadow-[0_0_30px_rgba(99,102,241,0.2)] transition-all duration-500">
-                <span className="text-xl md:text-3xl font-black font-mono text-white group-hover:text-neon-indigo transition-colors">3</span>
+            <div className="flex flex-col items-center text-center p-8 md:p-8 rounded-3xl bg-dark-800/40 md:bg-transparent border border-dark-600/30 md:border-transparent group max-w-sm mx-auto md:max-w-none relative z-10 w-full">
+              <div className="w-16 h-16 md:w-20 md:h-20 shrink-0 rounded-[1.25rem] bg-dark-800 border border-dark-600/50 flex items-center justify-center mb-6 md:mb-8 group-hover:bg-neon-indigo/10 group-hover:border-neon-indigo/40 group-hover:shadow-[0_0_30px_rgba(99,102,241,0.2)] transition-all duration-500">
+                <span className="text-2xl md:text-3xl font-black font-mono text-white group-hover:text-neon-indigo transition-colors">3</span>
               </div>
               <div>
-                <h3 className="text-lg md:text-2xl font-bold text-white mb-2 md:mb-4">
+                <h3 className="text-xl md:text-2xl font-bold text-white mb-2 md:mb-4">
                   {t('home.steps.s3.t', { defaultValue: '3. Export HD Results' })}
                 </h3>
-                <p className="text-sm md:text-base text-slate-400 leading-relaxed font-light">
+                <p className="text-lg md:text-base text-slate-400 leading-relaxed">
                   {t('home.steps.s3.d', { defaultValue: 'Download your polished high-definition photos individually or grab all batch results instantly packed in a convenient ZIP file.' })}
                 </p>
               </div>
@@ -219,6 +233,9 @@ export const HomeSections: React.FC = () => {
           })}
         </div>
       </section>
+
+      {/* NEW: SEO/GEO Competitor Matrix */}
+      <CompetitorMatrix />
 
       {/* 4. CALL TO ACTION BANNER (Luxurious) */}
       <section className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 mb-20">

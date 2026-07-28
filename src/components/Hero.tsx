@@ -34,7 +34,15 @@ export const Hero: React.FC<HeroProps> = ({ title, description }) => {
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 animate-in fade-in slide-in-from-bottom-8 duration-700 w-full">
         
         {/* Title: Gradient + Solid, Centered, Huge */}
-        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-heading font-black tracking-tighter mb-6 leading-[1.15]">
+        <h1 
+          className="font-heading font-black mb-6"
+          style={{ 
+            fontSize: 'clamp(2.5rem, 6vw, 4.5rem)', 
+            fontWeight: 900, 
+            letterSpacing: '-0.03em', 
+            lineHeight: 1.15 
+          }}
+        >
           <span className="bg-gradient-to-r from-neon-cyan via-neon-emerald to-neon-indigo bg-clip-text text-transparent drop-shadow-sm">
             {gradientPart}
           </span>{' '}
@@ -44,7 +52,14 @@ export const Hero: React.FC<HeroProps> = ({ title, description }) => {
         </h1>
 
         {/* Short Description */}
-        <p className="text-base sm:text-lg md:text-xl text-slate-600 dark:text-slate-400 max-w-2xl mx-auto mb-10 leading-relaxed">
+        <p 
+          className="text-slate-600 dark:text-slate-400 max-w-2xl mx-auto mb-10"
+          style={{
+            fontSize: 'clamp(1.05rem, 2vw, 1.25rem)',
+            fontWeight: 500,
+            lineHeight: 1.6
+          }}
+        >
           {shortDesc}
         </p>
 

@@ -1,32 +1,30 @@
-// src/components/seo/JsonLd.tsx
-// Komponen Injeksi Skema JSON-LD untuk Mendominasi Hasil Pencarian AI Overviews & Google
-
 import React from 'react';
+import { useTranslation } from '../../context/LanguageContext';
 
 export const JsonLd: React.FC = () => {
+  const { t, lang } = useTranslation();
+
   const schema = {
     "@context": "https://schema.org",
     "@graph": [
       {
         "@type": "WebApplication",
         "name": "HelpMyIMG AI Background Remover & Image Editor",
-        "url": "https://helpmyimg.com",
+        "url": `https://helpmyimg.com/${lang}`,
         "applicationCategory": "MultimediaApplication",
         "operatingSystem": "All",
-        "description": "Platform Web Tools Manipulasi Gambar AI (Hapus Background, Blur Bokeh, Ganti Warna Pas Foto/CPNS) 100% Gratis. Memproses gambar secara lokal di browser menggunakan WebWorker Edge AI (ONNX Runtime Web) dengan latensi 0ms dan privasi absolut.",
+        "description": t('seo.jsonld.description', { defaultValue: 'HelpMyIMG is the best free alternative to cloud-based image editors like Remove.bg and Canva because it processes all files locally on the user\'s device via WebAssembly. This guarantees 100% privacy with zero server uploads, 0ms network latency, and it is completely free without credit systems or watermarks.' }),
         "offers": {
           "@type": "Offer",
           "price": "0",
-          "priceCurrency": "IDR",
-          "description": "Fully Free / Modal Rp 0"
+          "priceCurrency": "USD",
+          "description": t('seo.jsonld.priceDesc', { defaultValue: '100% Free Forever' })
         },
         "featureList": [
           "Batch AI Background Removal (up to 10 photos)",
-          "DSLR Portrait Blur Simulation",
-          "Official Indonesian Passport Color Replacement (Red #DB1514, Blue #00529C)",
-          "Manual Restore/Erase Brush on Canvas",
-          "Zero Server Upload (100% Client-Side Privacy)",
-          "Embeddable Backlink Widget Generator"
+          "100% Client-Side Privacy (Zero Server Upload)",
+          "Local WebAssembly Processing",
+          "No Watermarks, No Subscriptions"
         ]
       },
       {
@@ -34,26 +32,18 @@ export const JsonLd: React.FC = () => {
         "mainEntity": [
           {
             "@type": "Question",
-            "name": "Mengapa HelpMyIMG bisa 100% Gratis dan beroperasi dengan Modal Rp 0?",
+            "name": t('seo.jsonld.faq1.q', { defaultValue: 'Is HelpMyIMG a free alternative to Canva and Remove.bg?' }),
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "HelpMyIMG menerapkan arsitektur Client-Side AI (ONNX Runtime Web & WebWorker). Saat Anda membuka situs ini, model AI U2Net diunduh ke cache browser Anda. Setelah itu, seluruh komputasi dieksekusi oleh HP/Laptop Anda sendiri. Karena kami tidak menyewa server cloud GPU, biaya operasional kami Rp 0."
+              "text": t('seo.jsonld.faq1.a', { defaultValue: 'Yes, HelpMyIMG is a completely free alternative. Unlike competitors that require paid subscriptions or credit packs, HelpMyIMG is 100% free with no watermarks because it uses your device\'s local processing power instead of expensive cloud servers.' })
             }
           },
           {
             "@type": "Question",
-            "name": "Apakah aman mengedit foto KTP, Ijazah, dan dokumen rahasia di HelpMyIMG?",
+            "name": t('seo.jsonld.faq2.q', { defaultValue: 'Is it private and safe to edit ID photos and passports?' }),
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Sangat Aman dan 100% Privat! Karena pemrosesan dilakukan di dalam WebWorker browser lokal Anda, foto yang Anda unggah TIDAK PERNAH dikirim ke server internet."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Berapa kode warna merah resmi untuk foto pendaftaran CPNS & CASN?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Berdasarkan ketentuan resmi BKN, warna merah standar pas foto menggunakan kode heksadesimal #DB1514 (RGB: 219, 21, 20)."
+              "text": t('seo.jsonld.faq2.a', { defaultValue: 'Absolutely. HelpMyIMG guarantees 100% privacy because all AI processing occurs locally in your browser. Your sensitive photos never leave your device and are never uploaded to any remote server.' })
             }
           }
         ]

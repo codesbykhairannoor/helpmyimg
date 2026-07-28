@@ -15,5 +15,7 @@ Allow: /
 
 # LLMs.txt for AI Agents & Search Overviews
 Allow: /llms.txt
+Allow: /llm.txt
+Allow: /llm-*.txt
 
 Sitemap: https://helpmyimg.com/sitemap.xml

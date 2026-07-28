@@ -108,6 +108,50 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({ initialTab = 'remo
   // Keep ref in sync with state
   useEffect(() => { imageTypeRef.current = imageType; }, [imageType]);
 
+  // --- MEMORY GC / LEAK PREVENTION ---
+  const prevBatchItemsRef = useRef<BatchItem[]>([]);
+  useEffect(() => {
+    const prevItems = prevBatchItemsRef.current;
+    const currentUrls = new Set<string>();
+    
+    batchItems.forEach(item => {
+      if (item.originalUrl) currentUrls.add(item.originalUrl);
+      if (item.transparentUrl) currentUrls.add(item.transparentUrl);
+      if (item.processedUrl) currentUrls.add(item.processedUrl);
+      if (item.compressUrl) currentUrls.add(item.compressUrl);
+    });
+
+    prevItems.forEach(item => {
+      if (item.originalUrl && !currentUrls.has(item.originalUrl)) URL.revokeObjectURL(item.originalUrl);
+      if (item.transparentUrl && !currentUrls.has(item.transparentUrl)) URL.revokeObjectURL(item.transparentUrl);
+      if (item.processedUrl && !currentUrls.has(item.processedUrl)) URL.revokeObjectURL(item.processedUrl);
+      if (item.compressUrl && !currentUrls.has(item.compressUrl)) URL.revokeObjectURL(item.compressUrl);
+    });
+
+    prevBatchItemsRef.current = batchItems;
+  }, [batchItems]);
+
+  useEffect(() => {
+    return () => {
+      // Complete cleanup on unmount (e.g. changing tabs)
+      const items = prevBatchItemsRef.current;
+      items.forEach(item => {
+        if (item.originalUrl) URL.revokeObjectURL(item.originalUrl);
+        if (item.transparentUrl) URL.revokeObjectURL(item.transparentUrl);
+        if (item.processedUrl) URL.revokeObjectURL(item.processedUrl);
+        if (item.compressUrl) URL.revokeObjectURL(item.compressUrl);
+      });
+      // Also cleanup watermark image if it exists
+      setWatermarkImage(prev => {
+        if (prev && prev.src && prev.src.startsWith('blob:')) {
+          URL.revokeObjectURL(prev.src);
+        }
+        return prev;
+      });
+    };
+  }, []);
+  // ------------------------------------
+
   // Parameter Alat
   const initialColor = keywordSlug && keywordSlug.toLowerCase().includes('biru') ? '#00529C' : '#DB1514';
   const [selectedColor, setSelectedColor] = useState(initialColor);

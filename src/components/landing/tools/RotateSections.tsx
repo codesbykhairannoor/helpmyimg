@@ -164,8 +164,8 @@ export const RotateSections: React.FC = () => {
           </h2>
         </div>
         
-        <div className="flex flex-col md:flex-row gap-8 justify-center items-start">
-          <div className="flex-1 text-center group">
+        <div className="flex flex-col md:flex-row gap-8 md:gap-8 justify-center items-center md:items-start mt-8 md:mt-16">
+          <div className="flex-1 text-center group relative z-10 w-full max-w-sm mx-auto md:max-w-none md:w-auto bg-dark-800/40 md:bg-transparent p-8 md:p-0 rounded-3xl border border-dark-600/30 md:border-transparent">
             <div className="w-20 h-20 mx-auto bg-dark-900 rounded-2xl border border-dark-600 flex items-center justify-center mb-6 group-hover:border-[#05DAED]/50 transition-colors">
               <ImageIcon className="w-8 h-8 text-slate-400 group-hover:text-[#05DAED] transition-colors" />
             </div>
@@ -175,7 +175,7 @@ export const RotateSections: React.FC = () => {
 
           <div className="hidden md:block w-16 h-[2px] mt-10 bg-gradient-to-r from-transparent via-dark-500 to-transparent" />
 
-          <div className="flex-1 text-center group">
+          <div className="flex-1 text-center group relative z-10 w-full max-w-sm mx-auto md:max-w-none md:w-auto bg-dark-800/40 md:bg-transparent p-8 md:p-0 rounded-3xl border border-dark-600/30 md:border-transparent">
             <div className="w-20 h-20 mx-auto bg-dark-900 rounded-2xl border-[#05DAED]/40 border flex items-center justify-center mb-6 shadow-[0_0_20px_rgba(5,218,237,0.2)]">
               <MousePointerClick className="w-8 h-8 text-[#05DAED]" />
             </div>
@@ -185,7 +185,7 @@ export const RotateSections: React.FC = () => {
 
           <div className="hidden md:block w-16 h-[2px] mt-10 bg-gradient-to-r from-transparent via-dark-500 to-transparent" />
 
-          <div className="flex-1 text-center group">
+          <div className="flex-1 text-center group relative z-10 w-full max-w-sm mx-auto md:max-w-none md:w-auto bg-dark-800/40 md:bg-transparent p-8 md:p-0 rounded-3xl border border-dark-600/30 md:border-transparent">
             <div className="w-20 h-20 mx-auto bg-dark-900 rounded-2xl border border-[#12DA91]/40 flex items-center justify-center mb-6 shadow-[0_0_20px_rgba(18,218,145,0.2)]">
               <Download className="w-8 h-8 text-[#12DA91]" />
             </div>
