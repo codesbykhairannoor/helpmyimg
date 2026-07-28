@@ -8,7 +8,7 @@ export const PickerSections: React.FC = () => {
   const tr = (key: string, def: string = '') => t(`landing.picker.redesign.${key}`, { defaultValue: def });
 
   return (
-    <div className="space-y-32 py-16 text-slate-100 overflow-hidden">
+    <div className="space-y-16 lg:space-y-24 py-16 text-slate-100 overflow-hidden">
       
       {/* HERO / PIXEL EXTRACTION THEME */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
@@ -57,7 +57,7 @@ export const PickerSections: React.FC = () => {
         
         {/* Top Split */}
         <div className="flex flex-col md:flex-row gap-6">
-          <div className="flex-1 bg-dark-800/80 p-10 sm:p-12 rounded-[3rem] border border-dark-600 hover:border-[#05DAED]/50 transition-colors relative overflow-hidden group">
+          <div className="flex-1 bg-dark-800/80 p-6 sm:p-12 rounded-[2rem] sm:rounded-[3rem] border border-dark-600 hover:border-[#05DAED]/50 transition-colors relative overflow-hidden group">
              <div className="absolute top-0 right-0 w-64 h-64 bg-gradient-to-br from-[#05DAED]/10 to-transparent  rounded-full transform translate-x-1/2 -translate-y-1/2 group-hover:scale-150 transition-transform duration-700" />
              <div className="relative z-10">
                <div className="w-16 h-16 rounded-2xl bg-dark-900 border border-[#05DAED]/30 flex items-center justify-center text-[#05DAED] mb-8">
@@ -74,7 +74,7 @@ export const PickerSections: React.FC = () => {
              </div>
           </div>
 
-          <div className="flex-1 bg-dark-800/80 p-10 sm:p-12 rounded-[3rem] border border-dark-600 hover:border-[#12DA91]/50 transition-colors relative overflow-hidden group">
+          <div className="flex-1 bg-dark-800/80 p-6 sm:p-12 rounded-[2rem] sm:rounded-[3rem] border border-dark-600 hover:border-[#12DA91]/50 transition-colors relative overflow-hidden group">
              <div className="absolute bottom-0 right-0 w-64 h-64 bg-gradient-to-tl from-[#12DA91]/10 to-transparent  rounded-full transform translate-x-1/2 translate-y-1/2 group-hover:scale-150 transition-transform duration-700" />
              <div className="relative z-10">
                <div className="w-16 h-16 rounded-2xl bg-dark-900 border border-[#12DA91]/30 flex items-center justify-center text-[#12DA91] mb-8">
@@ -83,12 +83,12 @@ export const PickerSections: React.FC = () => {
                <h3 className="text-xl sm:text-2xl font-bold font-heading mb-4">{tr('feat2Title', 'Multiple Formats')}</h3>
                <p className="text-lg sm:text-xl text-slate-400 leading-relaxed mb-8">{tr('feat2Desc', 'Get your colors instantly converted into HEX, RGB, and HSL formats. Click once to copy to your clipboard and paste directly into your CSS.')}</p>
                
-               <div className="space-y-3 font-mono text-sm">
-                 <div className="flex items-center justify-between bg-dark-900 border border-dark-700 rounded-xl p-3">
+               <div className="space-y-3 font-mono text-xs sm:text-sm">
+                 <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between bg-dark-900 border border-dark-700 rounded-xl p-3 gap-2">
                    <span className="text-slate-500">HEX</span>
                    <span className="text-white flex items-center gap-2">#12DA91 <Copy className="w-4 h-4 text-slate-600" /></span>
                  </div>
-                 <div className="flex items-center justify-between bg-dark-900 border border-dark-700 rounded-xl p-3">
+                 <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between bg-dark-900 border border-dark-700 rounded-xl p-3 gap-2">
                    <span className="text-slate-500">RGB</span>
                    <span className="text-white flex items-center gap-2">rgb(18, 218, 145) <Copy className="w-4 h-4 text-slate-600" /></span>
                  </div>
@@ -98,7 +98,7 @@ export const PickerSections: React.FC = () => {
         </div>
 
         {/* Bottom Wide Box */}
-        <div className="bg-dark-800/80 p-10 sm:p-14 rounded-[3rem] border border-dark-600 hover:border-[#8B5CF6]/50 transition-colors relative overflow-hidden group">
+        <div className="bg-dark-800/80 p-6 sm:p-14 rounded-[2rem] sm:rounded-[3rem] border border-dark-600 hover:border-[#8B5CF6]/50 transition-colors relative overflow-hidden group">
            <div className="absolute top-1/2 left-1/2 w-full h-full bg-gradient-to-t from-[#8B5CF6]/10 to-transparent  transform -translate-x-1/2 -translate-y-1/2" />
            <div className="relative z-10 flex flex-col md:flex-row items-center gap-12">
              <div className="flex-1">

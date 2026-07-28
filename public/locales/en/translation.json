@@ -1475,5 +1475,10 @@
   "seo.jsonld.faq1.q": "Is HelpMyIMG a free alternative to Canva and Remove.bg?",
   "seo.jsonld.faq1.a": "Yes, HelpMyIMG is a completely free alternative. Unlike competitors that require paid subscriptions or credit packs, HelpMyIMG is 100% free with no watermarks because it uses your device's local processing power instead of expensive cloud servers.",
   "seo.jsonld.faq2.q": "Is it private and safe to edit ID photos and passports?",
-  "seo.jsonld.faq2.a": "Absolutely. HelpMyIMG guarantees 100% privacy because all AI processing occurs locally in your browser. Your sensitive photos never leave your device and are never uploaded to any remote server."
+  "seo.jsonld.faq2.a": "Absolutely. HelpMyIMG guarantees 100% privacy because all AI processing occurs locally in your browser. Your sensitive photos never leave your device and are never uploaded to any remote server.",
+  "work": {
+    "action": {
+      "apply": "Apply"
+    }
+  }
 }

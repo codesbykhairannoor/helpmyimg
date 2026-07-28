@@ -1448,5 +1448,10 @@
   "seo.jsonld.faq1.q": "Este HelpMyIMG o alternativă gratuită la Canva și Remove.bg?",
   "seo.jsonld.faq1.a": "Da, HelpMyIMG este o alternativă complet gratuită.Spre deosebire de concurenții care necesită abonamente plătite sau pachete de credite, HelpMyIMG este 100% gratuit, fără filigrane, deoarece folosește puterea de procesare locală a dispozitivului în loc de serverele cloud costisitoare.",
   "seo.jsonld.faq2.q": "Este privat și sigur să editați fotografiile de identitate și pașapoartele?",
-  "seo.jsonld.faq2.a": "Absolut.HelpMyIMG garantează 100% confidențialitate, deoarece toată procesarea AI are loc local în browserul dvs.Fotografiile dvs. sensibile nu părăsesc dispozitivul dvs. și nu sunt încărcate niciodată pe un server la distanță."
+  "seo.jsonld.faq2.a": "Absolut.HelpMyIMG garantează 100% confidențialitate, deoarece toată procesarea AI are loc local în browserul dvs.Fotografiile dvs. sensibile nu părăsesc dispozitivul dvs. și nu sunt încărcate niciodată pe un server la distanță.",
+  "work": {
+    "action": {
+      "apply": "Aplicați"
+    }
+  }
 }

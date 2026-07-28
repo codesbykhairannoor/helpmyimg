@@ -1448,5 +1448,10 @@
   "seo.jsonld.faq1.q": "Is HelpMyIMG een gratis alternatief voor Canva en Remove.bg?",
   "seo.jsonld.faq1.a": "Ja, HelpMyIMG is een volledig gratis alternatief.In tegenstelling tot concurrenten die betaalde abonnementen of creditpakketten nodig hebben, is HelpMyIMG 100% gratis zonder watermerken, omdat het de lokale verwerkingskracht van uw apparaat gebruikt in plaats van dure cloudservers.",
   "seo.jsonld.faq2.q": "Is het privé en veilig om identiteitsfoto's en paspoorten te bewerken?",
-  "seo.jsonld.faq2.a": "Absoluut.HelpMyIMG garandeert 100% privacy omdat alle AI-verwerking lokaal in uw browser plaatsvindt.Uw gevoelige foto's verlaten nooit uw apparaat en worden nooit geüpload naar een externe server."
+  "seo.jsonld.faq2.a": "Absoluut.HelpMyIMG garandeert 100% privacy omdat alle AI-verwerking lokaal in uw browser plaatsvindt.Uw gevoelige foto's verlaten nooit uw apparaat en worden nooit geüpload naar een externe server.",
+  "work": {
+    "action": {
+      "apply": "Toepassen"
+    }
+  }
 }

@@ -157,7 +157,7 @@ export const CropControl: React.FC<CropControlProps> = ({
           disabled={isProcessing || cropWidth <= 0 || cropHeight <= 0}
           className="w-full flex items-center justify-center gap-2.5 py-3.5 px-4 rounded-xl bg-gradient-to-r from-neon-cyan via-neon-emerald to-neon-indigo hover:opacity-95 text-dark-900 font-extrabold shadow-glow-cyan transition-all duration-200 transform hover:-translate-y-0.5 disabled:opacity-50 text-sm tracking-wide"
         >
-          <span>{isProcessing ? t('btn.processing') : t('work.action.apply', { defaultValue: 'Apply' })}</span>
+          <span>{isProcessing ? t('btn.processing') : t('work.action.apply')}</span>
         </button>
 
         {batchCount === 1 && (

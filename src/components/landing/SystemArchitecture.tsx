@@ -38,7 +38,7 @@ export const SystemArchitecture: React.FC<SystemArchitectureProps> = ({ variant 
 
   const HeaderTextLeft = () => (
     <>
-      <span className="text-xs font-mono font-bold uppercase tracking-widest text-[#05DAED] bg-[#05DAED]/10 px-3 py-1.5 rounded-full border border-[#05DAED]/30 block w-max mb-4">
+      <span className="text-xs font-mono font-bold uppercase tracking-widest text-[#05DAED] bg-[#05DAED]/10 px-3 py-1.5 rounded-full border border-[#05DAED]/30 block w-max mx-auto sm:mx-0 mb-4">
         {headerTag}
       </span>
       <h2 className="text-2xl sm:text-4xl lg:text-5xl font-black leading-tight text-white font-heading">

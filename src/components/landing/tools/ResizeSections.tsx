@@ -8,7 +8,7 @@ export const ResizeSections: React.FC = () => {
   const tr = (key: string, def: string = '') => t(`landing.resize.redesign.${key}`, { defaultValue: def });
 
   return (
-    <div className="space-y-32 py-16 text-slate-100 overflow-hidden">
+    <div className="space-y-16 lg:space-y-24 py-16 text-slate-100 overflow-hidden">
       
       {/* HERO / PRECISION THEME */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">

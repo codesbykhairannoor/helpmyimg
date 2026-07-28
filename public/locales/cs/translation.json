@@ -1448,5 +1448,10 @@
   "seo.jsonld.faq1.q": "Je HelpMyIMG bezplatnou alternativou k Canva a Remove.bg?",
   "seo.jsonld.faq1.a": "Ano, HelpMyIMG je zcela bezplatná alternativa.Na rozdíl od konkurentů, kteří vyžadují placené předplatné nebo kreditní balíčky, je HelpMyIMG 100% zdarma bez vodoznaků, protože místo drahých cloudových serverů využívá místní výpočetní výkon vašeho zařízení.",
   "seo.jsonld.faq2.q": "Je soukromé a bezpečné upravovat průkazové fotografie a pasy?",
-  "seo.jsonld.faq2.a": "Absolutně.HelpMyIMG zaručuje 100% soukromí, protože veškeré zpracování AI probíhá lokálně ve vašem prohlížeči.Vaše citlivé fotografie nikdy neopustí vaše zařízení a nikdy nejsou nahrány na žádný vzdálený server."
+  "seo.jsonld.faq2.a": "Absolutně.HelpMyIMG zaručuje 100% soukromí, protože veškeré zpracování AI probíhá lokálně ve vašem prohlížeči.Vaše citlivé fotografie nikdy neopustí vaše zařízení a nikdy nejsou nahrány na žádný vzdálený server.",
+  "work": {
+    "action": {
+      "apply": "Použít"
+    }
+  }
 }

@@ -1448,5 +1448,10 @@
   "seo.jsonld.faq1.q": "Er HelpMyIMG et gratis alternativ til Canva og Remove.bg?",
   "seo.jsonld.faq1.a": "Ja, HelpMyIMG er et helt gratis alternativ.I modsætning til konkurrenter, der kræver betalte abonnementer eller kreditpakker, er HelpMyIMG 100 % gratis uden vandmærker, fordi den bruger din enheds lokale processorkraft i stedet for dyre cloud-servere.",
   "seo.jsonld.faq2.q": "Er det privat og sikkert at redigere ID-billeder og pas?",
-  "seo.jsonld.faq2.a": "Absolut.HelpMyIMG garanterer 100 % privatliv, fordi al AI-behandling foregår lokalt i din browser.Dine følsomme billeder forlader aldrig din enhed og uploades aldrig til nogen ekstern server."
+  "seo.jsonld.faq2.a": "Absolut.HelpMyIMG garanterer 100 % privatliv, fordi al AI-behandling foregår lokalt i din browser.Dine følsomme billeder forlader aldrig din enhed og uploades aldrig til nogen ekstern server.",
+  "work": {
+    "action": {
+      "apply": "Anvende"
+    }
+  }
 }

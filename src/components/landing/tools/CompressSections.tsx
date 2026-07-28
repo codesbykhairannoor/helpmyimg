@@ -9,7 +9,7 @@ export const CompressSections: React.FC = () => {
   const tr = (key: string, def: string = '') => t(`landing.compress.redesign.${key}`, { defaultValue: def });
 
   return (
-    <div className="space-y-32 py-16 text-slate-100 overflow-hidden bg-dark-900">
+    <div className="space-y-16 lg:space-y-24 py-16 text-slate-100 overflow-hidden bg-dark-900">
       
       {/* HERO / WHY SECTION - SPEED & SIZE REDUCTION THEME */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
@@ -17,17 +17,17 @@ export const CompressSections: React.FC = () => {
           
           <div className="flex-1 w-full relative z-10">
             {/* Visual Representation of Compression */}
-            <div className="relative bg-dark-800 rounded-[2.5rem] p-8 border border-dark-600/50 shadow-2xl overflow-hidden">
+            <div className="relative bg-dark-800 rounded-[2rem] sm:rounded-[2.5rem] p-4 sm:p-8 border border-dark-600/50 shadow-2xl overflow-hidden">
               <div className="absolute inset-0 bg-gradient-to-br from-[#12DA91]/5 to-transparent pointer-events-none" />
               
               <div className="flex flex-col gap-6 relative z-10">
-                <div className="bg-dark-900 rounded-2xl p-6 border border-dark-700 flex items-center justify-between">
-                  <div className="flex items-center gap-4">
-                    <div className="w-12 h-12 bg-rose-500/20 text-rose-500 rounded-xl flex items-center justify-center">
+                <div className="bg-dark-900 rounded-2xl p-4 sm:p-6 border border-dark-700 flex items-center justify-between">
+                  <div className="flex items-center gap-3 sm:gap-4 overflow-hidden pr-2">
+                    <div className="w-12 h-12 bg-rose-500/20 text-rose-500 rounded-xl flex items-center justify-center shrink-0">
                       <ImageIcon className="w-6 h-6" />
                     </div>
                     <div>
-                      <div className="font-bold text-slate-300">original_photo.jpg</div>
+                      <div className="font-bold text-slate-300 truncate max-w-[120px] sm:max-w-xs text-sm sm:text-base">original_photo.jpg</div>
                       <div className="text-xs text-rose-400 font-mono">5.2 MB</div>
                     </div>
                   </div>
@@ -40,13 +40,13 @@ export const CompressSections: React.FC = () => {
                   </div>
                 </div>
 
-                <div className="bg-dark-900 rounded-2xl p-6 border border-[#12DA91]/30 shadow-[0_0_15px_rgba(18,218,145,0.1)] flex items-center justify-between">
-                  <div className="flex items-center gap-4">
-                    <div className="w-12 h-12 bg-[#12DA91]/20 text-[#12DA91] rounded-xl flex items-center justify-center">
+                <div className="bg-dark-900 rounded-2xl p-4 sm:p-6 border border-[#12DA91]/30 shadow-[0_0_15px_rgba(18,218,145,0.1)] flex items-center justify-between">
+                  <div className="flex items-center gap-3 sm:gap-4 overflow-hidden pr-2">
+                    <div className="w-12 h-12 bg-[#12DA91]/20 text-[#12DA91] rounded-xl flex items-center justify-center shrink-0">
                       <FileArchive className="w-6 h-6" />
                     </div>
                     <div>
-                      <div className="font-bold text-white">compressed_photo.jpg</div>
+                      <div className="font-bold text-white truncate max-w-[110px] sm:max-w-xs text-sm sm:text-base">compressed_photo.jpg</div>
                       <div className="text-xs text-[#12DA91] font-mono tracking-wider">185 KB</div>
                     </div>
                   </div>

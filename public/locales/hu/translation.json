@@ -1448,5 +1448,10 @@
   "seo.jsonld.faq1.q": "A HelpMyIMG ingyenes alternatívája a Canva és a Remove.bg számára?",
   "seo.jsonld.faq1.a": "Igen, a HelpMyIMG egy teljesen ingyenes alternatíva.Ellentétben a fizetős előfizetéseket vagy hitelcsomagokat igénylő versenytársakkal, a HelpMyIMG 100%-ban ingyenes, vízjelek nélkül, mivel a drága felhőszerverek helyett az eszköz helyi feldolgozási teljesítményét használja.",
   "seo.jsonld.faq2.q": "Privát és biztonságos az igazolványképek és útlevelek szerkesztése?",
-  "seo.jsonld.faq2.a": "Teljesen.A HelpMyIMG 100%-os adatvédelmet garantál, mivel minden mesterséges intelligencia feldolgozás helyileg, a böngészőben történik.Érzékeny fotói soha nem hagyják el az eszközt, és soha nem töltődnek fel semmilyen távoli szerverre."
+  "seo.jsonld.faq2.a": "Teljesen.A HelpMyIMG 100%-os adatvédelmet garantál, mivel minden mesterséges intelligencia feldolgozás helyileg, a böngészőben történik.Érzékeny fotói soha nem hagyják el az eszközt, és soha nem töltődnek fel semmilyen távoli szerverre.",
+  "work": {
+    "action": {
+      "apply": "Alkalmazni"
+    }
+  }
 }

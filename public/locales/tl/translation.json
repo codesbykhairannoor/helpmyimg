@@ -1448,5 +1448,10 @@
   "seo.jsonld.faq1.q": "Ang HelpMyIMG ba ay isang libreng alternatibo sa Canva at Remove.bg?",
   "seo.jsonld.faq1.a": "Oo, ang HelpMyIMG ay isang ganap na libreng alternatibo.Hindi tulad ng mga kakumpitensya na nangangailangan ng mga bayad na subscription o credit pack, ang HelpMyIMG ay 100% libre na walang mga watermark dahil ginagamit nito ang lokal na kapangyarihan sa pagproseso ng iyong device sa halip na mga mamahaling cloud server.",
   "seo.jsonld.faq2.q": "Pribado ba at ligtas na mag-edit ng mga larawan ng ID at pasaporte?",
-  "seo.jsonld.faq2.a": "Talagang.Ginagarantiya ng HelpMyIMG ang 100% privacy dahil lokal na nangyayari ang lahat ng pagproseso ng AI sa iyong browser.Ang iyong mga sensitibong larawan ay hindi kailanman umaalis sa iyong device at hindi kailanman ina-upload sa anumang malayong server."
+  "seo.jsonld.faq2.a": "Talagang.Ginagarantiya ng HelpMyIMG ang 100% privacy dahil lokal na nangyayari ang lahat ng pagproseso ng AI sa iyong browser.Ang iyong mga sensitibong larawan ay hindi kailanman umaalis sa iyong device at hindi kailanman ina-upload sa anumang malayong server.",
+  "work": {
+    "action": {
+      "apply": "Mag-apply"
+    }
+  }
 }
