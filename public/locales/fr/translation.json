@@ -1449,9 +1449,6 @@
   "seo.jsonld.faq1.a": "Oui, HelpMyIMG est une alternative entièrement gratuite.Contrairement à ses concurrents qui nécessitent des abonnements payants ou des packs de crédits, HelpMyIMG est 100 % gratuit, sans filigrane, car il utilise la puissance de traitement locale de votre appareil au lieu de serveurs cloud coûteux.",
   "seo.jsonld.faq2.q": "Est-il privé et sûr de modifier des photos d'identité et des passeports ?",
   "seo.jsonld.faq2.a": "Absolument.HelpMyIMG garantit une confidentialité à 100 % car tout le traitement de l'IA s'effectue localement dans votre navigateur.Vos photos sensibles ne quittent jamais votre appareil et ne sont jamais téléchargées sur un serveur distant.",
-  "work": {
-    "action": {
-      "apply": "Appliquer"
-    }
-  }
+  "work.action.apply": "Appliquer",
+  "crop.radius": "Rayon d'angle"
 }

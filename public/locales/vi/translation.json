@@ -1449,9 +1449,6 @@
   "seo.jsonld.faq1.a": "Có, HelpMyIMG là một giải pháp thay thế hoàn toàn miễn phí.Không giống như các đối thủ cạnh tranh yêu cầu đăng ký trả phí hoặc gói tín dụng, HelpMyIMG miễn phí 100% không có hình mờ vì nó sử dụng sức mạnh xử lý cục bộ của thiết bị của bạn thay vì các máy chủ đám mây đắt tiền.",
   "seo.jsonld.faq2.q": "Việc chỉnh sửa ảnh CMND và hộ chiếu có riêng tư và an toàn không?",
   "seo.jsonld.faq2.a": "Tuyệt đối.HelpMyIMG đảm bảo quyền riêng tư 100% vì tất cả quá trình xử lý AI đều diễn ra cục bộ trong trình duyệt của bạn.Những bức ảnh nhạy cảm của bạn sẽ không bao giờ rời khỏi thiết bị của bạn và không bao giờ được tải lên bất kỳ máy chủ từ xa nào.",
-  "work": {
-    "action": {
-      "apply": "Áp dụng"
-    }
-  }
+  "work.action.apply": "Áp dụng",
+  "crop.radius": "Bán kính góc"
 }

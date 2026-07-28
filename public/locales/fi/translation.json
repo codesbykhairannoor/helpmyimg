@@ -1449,9 +1449,6 @@
   "seo.jsonld.faq1.a": "Kyllä, HelpMyIMG on täysin ilmainen vaihtoehto.Toisin kuin kilpailijat, jotka vaativat maksullisia tilauksia tai luottopaketteja, HelpMyIMG on 100 % ilmainen ilman vesileimoja, koska se käyttää laitteesi paikallista prosessointitehoa kalliiden pilvipalvelimien sijaan.",
   "seo.jsonld.faq2.q": "Onko henkilötodistuskuvien ja passien muokkaaminen yksityistä ja turvallista?",
   "seo.jsonld.faq2.a": "Täysin.HelpMyIMG takaa 100 % yksityisyyden, koska kaikki tekoälyn käsittely tapahtuu paikallisesti selaimessasi.Arkaluontoiset valokuvasi eivät koskaan poistu laitteestasi, eikä niitä koskaan ladata millekään etäpalvelimelle.",
-  "work": {
-    "action": {
-      "apply": "Käytä"
-    }
-  }
+  "work.action.apply": "Käytä",
+  "crop.radius": "Kulman säde"
 }

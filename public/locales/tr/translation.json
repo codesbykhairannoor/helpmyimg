@@ -1449,9 +1449,6 @@
   "seo.jsonld.faq1.a": "Evet, HelpMyIMG tamamen ücretsiz bir alternatiftir.Ücretli abonelikler veya kredi paketleri gerektiren rakiplerin aksine HelpMyIMG, filigran olmadan %100 ücretsizdir çünkü pahalı bulut sunucuları yerine cihazınızın yerel işlem gücünü kullanır.",
   "seo.jsonld.faq2.q": "Kimlik fotoğraflarını ve pasaportları düzenlemek özel ve güvenli midir?",
   "seo.jsonld.faq2.a": "Kesinlikle.HelpMyIMG %100 gizliliği garanti eder çünkü tüm yapay zeka işlemleri tarayıcınızda yerel olarak gerçekleşir.Hassas fotoğraflarınız asla cihazınızdan ayrılmaz ve hiçbir zaman uzak bir sunucuya yüklenmez.",
-  "work": {
-    "action": {
-      "apply": "Uygula"
-    }
-  }
+  "work.action.apply": "Uygula",
+  "crop.radius": "Köşe yarıçapı"
 }

@@ -1449,9 +1449,6 @@
   "seo.jsonld.faq1.a": "Ja, HelpMyIMG ist eine völlig kostenlose Alternative.Im Gegensatz zu Mitbewerbern, die kostenpflichtige Abonnements oder Credit-Pakete erfordern, ist HelpMyIMG 100 % kostenlos und ohne Wasserzeichen, da es die lokale Rechenleistung Ihres Geräts anstelle teurer Cloud-Server nutzt.",
   "seo.jsonld.faq2.q": "Ist die Bearbeitung von Ausweisfotos und Reisepässen privat und sicher?",
   "seo.jsonld.faq2.a": "Absolut.HelpMyIMG garantiert 100 % Datenschutz, da die gesamte KI-Verarbeitung lokal in Ihrem Browser erfolgt.Ihre sensiblen Fotos verlassen niemals Ihr Gerät und werden niemals auf einen Remote-Server hochgeladen.",
-  "work": {
-    "action": {
-      "apply": "Anwenden"
-    }
-  }
+  "work.action.apply": "Anwenden",
+  "crop.radius": "Eckenradius"
 }

@@ -1449,9 +1449,19 @@
   "seo.jsonld.faq1.a": "Ano, HelpMyIMG je zcela bezplatná alternativa.Na rozdíl od konkurentů, kteří vyžadují placené předplatné nebo kreditní balíčky, je HelpMyIMG 100% zdarma bez vodoznaků, protože místo drahých cloudových serverů využívá místní výpočetní výkon vašeho zařízení.",
   "seo.jsonld.faq2.q": "Je soukromé a bezpečné upravovat průkazové fotografie a pasy?",
   "seo.jsonld.faq2.a": "Absolutně.HelpMyIMG zaručuje 100% soukromí, protože veškeré zpracování AI probíhá lokálně ve vašem prohlížeči.Vaše citlivé fotografie nikdy neopustí vaše zařízení a nikdy nejsou nahrány na žádný vzdálený server.",
-  "work": {
-    "action": {
-      "apply": "Použít"
-    }
-  }
+  "hero.subtitle.short": "Kombinujte, rozdělujte, komprimujte, převádějte a zpracovávajte fotografie přímo ve vašem prohlížeči.100% offline přes WebAssembly.Zdarma, neomezené a vysoce bezpečné.",
+  "hero.search.placeholder": "Vyhledávací nástroje (Odebrat BG, Komprimovat, Upravit)...",
+  "compress.maxCompress": "Maximální komprese",
+  "compress.balanced": "Vyrovnaný",
+  "compress.highQuality": "Vysoká kvalita",
+  "crop.radius": "Poloměr rohu",
+  "work.queued": "Ve frontě",
+  "work.exportSettingsTitle": "Možnosti exportu a stahování",
+  "work.settings": "Nastavení exportu",
+  "work.batchRename": "Přejmenovat soubory",
+  "work.renameFile": "Přejmenovat soubor",
+  "work.zipName": "Název souboru ZIP",
+  "work.zipNamePlaceholder": "Vlastní PSČ (volitelné)",
+  "work.downloadZip": "Stáhnout vše (ZIP)",
+  "work.action.apply": "Aplikovat"
 }

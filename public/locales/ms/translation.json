@@ -1449,9 +1449,6 @@
   "seo.jsonld.faq1.a": "Ya, HelpMyIMG ialah alternatif percuma sepenuhnya.Tidak seperti pesaing yang memerlukan langganan berbayar atau pek kredit, HelpMyIMG adalah 100% percuma tanpa tera air kerana ia menggunakan kuasa pemprosesan tempatan peranti anda dan bukannya pelayan awan yang mahal.",
   "seo.jsonld.faq2.q": "Adakah peribadi dan selamat untuk mengedit foto ID dan pasport?",
   "seo.jsonld.faq2.a": "betul-betul.HelpMyIMG menjamin 100% privasi kerana semua pemprosesan AI berlaku secara setempat dalam penyemak imbas anda.Foto sensitif anda tidak pernah meninggalkan peranti anda dan tidak pernah dimuat naik ke mana-mana pelayan jauh.",
-  "work": {
-    "action": {
-      "apply": "Mohon"
-    }
-  }
+  "work.action.apply": "Gunakan",
+  "crop.radius": "Jejari sudut"
 }

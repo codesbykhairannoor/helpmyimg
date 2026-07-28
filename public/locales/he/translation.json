@@ -1430,9 +1430,6 @@
   "home.redesign.ctaDesc": "ללא התקנות. פרטיות מוחלטת. עיבוד תמונה מקצועי ישירות על המכשיר שלך.",
   "home.redesign.ctaBtn": "היכנס לסטודיו",
   "landing.global.faq.tag": "מרכז עזרה ושאלות נפוצות",
-  "work": {
-    "action": {
-      "apply": "לִפְנוֹת"
-    }
-  }
+  "work.action.apply": "החל",
+  "crop.radius": "רדיוס הפינה"
 }

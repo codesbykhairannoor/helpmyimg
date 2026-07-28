@@ -1449,9 +1449,6 @@
   "seo.jsonld.faq1.a": "Ja, HelpMyIMG är ett helt gratis alternativ.Till skillnad från konkurrenter som kräver betalda prenumerationer eller kreditpaket är HelpMyIMG 100 % gratis utan vattenstämplar eftersom den använder din enhets lokala processorkraft istället för dyra molnservrar.",
   "seo.jsonld.faq2.q": "Är det privat och säkert att redigera ID-bilder och pass?",
   "seo.jsonld.faq2.a": "Absolut.HelpMyIMG garanterar 100 % integritet eftersom all AI-bearbetning sker lokalt i din webbläsare.Dina känsliga bilder lämnar aldrig din enhet och laddas aldrig upp till någon fjärrserver.",
-  "work": {
-    "action": {
-      "apply": "Tillämpas"
-    }
-  }
+  "work.action.apply": "Tillämpa",
+  "crop.radius": "Hörnradie"
 }
