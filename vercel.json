@@ -10,6 +10,15 @@
   ],
   "headers": [
     {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "Link",
+          "value": "</llms.txt>; rel=\"llms-txt\""
+        }
+      ]
+    },
+    {
       "source": "/assets/(.*)",
       "headers": [
         {
