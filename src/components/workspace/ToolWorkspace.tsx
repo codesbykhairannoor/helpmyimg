@@ -220,7 +220,7 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({ initialTab = 'remo
   };
 
   const [compressQuality, setCompressQuality] = useState(0.8);
-  const [convertFormat, setConvertFormat] = useState<'image/png' | 'image/jpeg' | 'image/webp' | 'image/gif' | 'image/bmp' | 'image/x-icon' | 'image/avif'>('image/jpeg');
+  const [convertFormat, setConvertFormat] = useState<'image/png' | 'image/jpeg' | 'image/webp' | 'image/gif' | 'image/bmp' | 'image/x-icon' | 'image/avif' | 'image/svg+xml'>('image/jpeg');
   const [resizeWidth, setResizeWidth] = useState(0);
   const [resizeHeight, setResizeHeight] = useState(0);
   const [resizeMaintainRatio, setResizeMaintainRatio] = useState(false);

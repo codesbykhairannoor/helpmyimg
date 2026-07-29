@@ -11,8 +11,7 @@ import { Navbar } from './components/Navbar';
 import { Footer } from './components/Footer';
 import { JsonLd } from './components/seo/JsonLd';
 import ScrollToTop from './components/ScrollToTop';
-import { shouldAutoRedirectToLang } from './services/geoDetector';
-import { SUPPORTED_LANGUAGES } from './i18n/translations';
+
 
 // Lazy loaded routes for extreme performance
 const ToolLandingPage = lazy(() => import('./pages/ToolLandingPage').then(m => ({ default: m.ToolLandingPage })));
