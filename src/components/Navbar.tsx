@@ -31,22 +31,28 @@ export const Navbar: React.FC = () => {
     setLang(newLang);
     setLangOpen(false);
     
-    // Ganti subdirektori bahasa di URL saat ini (misal /id/hapus... -> /en/remove...)
     const currentPath = location.pathname;
     const pathParts = currentPath.split('/').filter(Boolean);
+    let oldLang = 'en';
+    let toolSlugIndex = 0;
+
     if (pathParts.length > 0 && SUPPORTED_LANGUAGES.some(l => l.code === pathParts[0])) {
-      const oldLang = pathParts[0];
-      pathParts[0] = newLang;
+      oldLang = pathParts[0];
+      toolSlugIndex = 1;
+    }
+
+    const toolSlug = pathParts[toolSlugIndex];
+    if (toolSlug) {
+      // Map current localized slug back to internal tool, then map to new localized slug
+      const internalTool = getToolFromSlug(toolSlug, oldLang);
+      const newSlug = getLocalizedSlug(internalTool, newLang);
       
-      if (pathParts[1]) {
-        // Map current localized slug back to internal tool, then map to new localized slug
-        const internalTool = getToolFromSlug(pathParts[1], oldLang);
-        pathParts[1] = getLocalizedSlug(internalTool, newLang);
-      }
-      
-      navigate('/' + pathParts.join('/'));
+      const rest = pathParts.slice(toolSlugIndex + 1);
+      const newPathParts = newLang === 'en' ? [newSlug, ...rest] : [newLang, newSlug, ...rest];
+      navigate('/' + newPathParts.join('/'));
     } else {
-      navigate(`/${newLang}/${getLocalizedSlug('remove', newLang)}`);
+      // At root
+      navigate(newLang === 'en' ? '/' : `/${newLang}`);
     }
   };
 
@@ -55,7 +61,7 @@ export const Navbar: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
         {/* Kiri: Brand Logo */}
         <div className="flex items-center justify-start flex-shrink-0">
-          <Link to={`/${lang}`} className="flex items-center gap-2.5 group">
+          <Link to={lang === 'en' ? '/' : `/${lang}`} className="flex items-center gap-2.5 group">
             <div className="w-10 h-10 flex-shrink-0 transition-all duration-300 group-hover:scale-105 drop-shadow-glow-cyan">
               <img src="/logobaru.png" alt="HelpMyIMG Logo" width="40" height="40" decoding="async" className="w-full h-full object-contain" />
             </div>
@@ -70,16 +76,16 @@ export const Navbar: React.FC = () => {
         {/* Tengah: Navigation Links (Desktop) */}
         <div className="hidden lg:flex items-center justify-center flex-1 relative group px-4">
           <nav className="flex items-center gap-4 xl:gap-6 text-sm font-medium text-slate-300">
-            <Link to={`/${lang}/${getLocalizedSlug('remove', lang)}`} onClick={() => (document.activeElement as HTMLElement)?.blur()} className="hover:text-neon-cyan transition-colors font-semibold flex items-center gap-1.5 whitespace-nowrap capitalize">
+            <Link to={lang === 'en' ? `/${getLocalizedSlug('remove', lang)}` : `/${lang}/${getLocalizedSlug('remove', lang)}`} onClick={() => (document.activeElement as HTMLElement)?.blur()} className="hover:text-neon-cyan transition-colors font-semibold flex items-center gap-1.5 whitespace-nowrap capitalize">
               {t('nav.removeBg')}
             </Link>
-            <Link to={`/${lang}/${getLocalizedSlug('compress', lang)}`} onClick={() => (document.activeElement as HTMLElement)?.blur()} className="hover:text-neon-cyan transition-colors font-semibold flex items-center gap-1.5 whitespace-nowrap capitalize">
+            <Link to={lang === 'en' ? `/${getLocalizedSlug('compress', lang)}` : `/${lang}/${getLocalizedSlug('compress', lang)}`} onClick={() => (document.activeElement as HTMLElement)?.blur()} className="hover:text-neon-cyan transition-colors font-semibold flex items-center gap-1.5 whitespace-nowrap capitalize">
               {t('nav.compress') || 'Compress'}
             </Link>
-            <Link to={`/${lang}/${getLocalizedSlug('resize', lang)}`} onClick={() => (document.activeElement as HTMLElement)?.blur()} className="hover:text-neon-cyan transition-colors font-semibold flex items-center gap-1.5 whitespace-nowrap capitalize">
+            <Link to={lang === 'en' ? `/${getLocalizedSlug('resize', lang)}` : `/${lang}/${getLocalizedSlug('resize', lang)}`} onClick={() => (document.activeElement as HTMLElement)?.blur()} className="hover:text-neon-cyan transition-colors font-semibold flex items-center gap-1.5 whitespace-nowrap capitalize">
               {t('nav.resize')}
             </Link>
-            <Link to={`/${lang}/${getLocalizedSlug('convert', lang)}`} onClick={() => (document.activeElement as HTMLElement)?.blur()} className="hover:text-neon-cyan transition-colors font-semibold flex items-center gap-1.5 whitespace-nowrap capitalize">
+            <Link to={lang === 'en' ? `/${getLocalizedSlug('convert', lang)}` : `/${lang}/${getLocalizedSlug('convert', lang)}`} onClick={() => (document.activeElement as HTMLElement)?.blur()} className="hover:text-neon-cyan transition-colors font-semibold flex items-center gap-1.5 whitespace-nowrap capitalize">
               {t('nav.convert') || 'Convert Format'}
             </Link>
             
@@ -109,7 +115,7 @@ export const Navbar: React.FC = () => {
                             return (
                               <Link 
                                 key={tool.id} 
-                                to={`/${lang}/${getLocalizedSlug(tool.id, lang)}`} 
+                                to={lang === 'en' ? `/${getLocalizedSlug(tool.id, lang)}` : `/${lang}/${getLocalizedSlug(tool.id, lang)}`} 
                                 onClick={() => {
                                   (document.activeElement as HTMLElement)?.blur();
                                 }}
@@ -212,7 +218,7 @@ export const Navbar: React.FC = () => {
                         filteredLangs.map((l) => (
                           <Link
                             key={l.code}
-                            to={`/${l.code}`}
+                            to={l.code === 'en' ? '/' : `/${l.code}`}
                             onClick={(e) => {
                               e.preventDefault();
                               handleLangChange(l.code as Language);
@@ -293,7 +299,7 @@ export const Navbar: React.FC = () => {
                         {catTools.map(tool => (
                           <Link
                             key={tool.id}
-                            to={`/${lang}/${getLocalizedSlug(tool.id, lang)}`}
+                            to={lang === 'en' ? `/${getLocalizedSlug(tool.id, lang)}` : `/${lang}/${getLocalizedSlug(tool.id, lang)}`}
                             onClick={() => setMobileMenuOpen(false)}
                             className="flex items-center gap-2.5 p-2 rounded-xl bg-dark-800 border border-dark-600/50 hover:border-neon-cyan/50 active:bg-dark-700 transition-all group shadow-sm"
                           >

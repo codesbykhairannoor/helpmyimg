@@ -5,8 +5,8 @@ import { Image as ImageIcon, RefreshCw } from 'lucide-react';
 import confetti from 'canvas-confetti';
 
 interface ConvertControlProps {
-  format: 'image/png' | 'image/jpeg' | 'image/webp' | 'image/gif' | 'image/bmp' | 'image/x-icon' | 'image/avif';
-  setFormat: (f: 'image/png' | 'image/jpeg' | 'image/webp' | 'image/gif' | 'image/bmp' | 'image/x-icon' | 'image/avif') => void;
+  format: 'image/png' | 'image/jpeg' | 'image/webp' | 'image/gif' | 'image/bmp' | 'image/x-icon' | 'image/avif' | 'image/svg+xml';
+  setFormat: (f: 'image/png' | 'image/jpeg' | 'image/webp' | 'image/gif' | 'image/bmp' | 'image/x-icon' | 'image/avif' | 'image/svg+xml') => void;
   onConvert?: () => void;
   onDownload?: () => void;
   onProcessBatch?: () => void;
@@ -47,6 +47,7 @@ export const ConvertControl: React.FC<ConvertControlProps> = ({
     { label: 'GIF', value: 'image/gif' },
     { label: 'BMP', value: 'image/bmp' },
     { label: 'ICO', value: 'image/x-icon' },
+    { label: 'SVG', value: 'image/svg+xml' },
   ] as const;
 
   return (

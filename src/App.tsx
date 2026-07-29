@@ -21,19 +21,7 @@ const PrivacyPage = lazy(() => import('./pages/info/PrivacyPage').then(m => ({ d
 const TermsPage = lazy(() => import('./pages/info/TermsPage').then(m => ({ default: m.TermsPage })));
 const FaqPage = lazy(() => import('./pages/info/FaqPage').then(m => ({ default: m.FaqPage })));
 
-/**
- * RootRedirector: Mekanisme rahasia "Chameleon / Secret Hat"
- * Manusia -> Redirect otomatis ke subdirektori bahasa mereka (/id, /en, /es, /ko, /ru, dll.)
- * Bot Crawler (Googlebot/AI) -> BYPASS REDIRECT! Biarkan mengindeks 30 subdirektori tanpa cloaking trap.
- */
-const RootRedirector: React.FC = () => {
-  const supportedCodes = SUPPORTED_LANGUAGES.map((l) => l.code);
-  const targetPath = shouldAutoRedirectToLang(window.location.pathname, supportedCodes);
-  if (targetPath) {
-    return <Navigate to={targetPath} replace />;
-  }
-  return <Navigate to="/en" replace />;
-};
+// RootGuard dihilangkan atas permintaan untuk tidak menggunakan auto-redirect sama sekali.
 
 import { SeoFooterMatrix } from './components/seo/SeoFooterMatrix';
 
@@ -57,26 +45,32 @@ function App() {
                   <div className="fixed top-1/3 right-0 w-[600px] h-[600px] translate-x-1/3 -translate-y-1/2 bg-[radial-gradient(circle_at_center,rgba(79,70,229,0.1)_0%,transparent_60%)] rounded-full pointer-events-none -z-10" />
                   
                   <Routes>
-                    {/* Root Route -> Secret Hat Bot-Aware Redirector */}
-                    <Route path="/" element={<RootRedirector />} />
+                    {/* Root Route -> English Default without Geo-Redirect */}
+                    <Route path="/" element={<ToolLandingPage />} />
                     
-                    {/* 1. Language Root Route (/id, /en, /es, dll) */}
+                    {/* English SEO Info Pages */}
+                    <Route path="/about" element={<AboutPage />} />
+                    <Route path="/privacy" element={<PrivacyPage />} />
+                    <Route path="/terms" element={<TermsPage />} />
+                    <Route path="/faq" element={<FaqPage />} />
+
+                    {/* 1. Language Root Route (/id, /es, dll) or English Tool Route (/remove-background) */}
                     <Route path="/:lang" element={<ToolLandingPage />} />
                     
-                    {/* SEO Info Pages */}
+                    {/* Localized SEO Info Pages */}
                     <Route path="/:lang/about" element={<AboutPage />} />
                     <Route path="/:lang/privacy" element={<PrivacyPage />} />
                     <Route path="/:lang/terms" element={<TermsPage />} />
                     <Route path="/:lang/faq" element={<FaqPage />} />
                     
-                    {/* 2. Tool Hub Route (/id/remove-background, /en/change-background, dll) */}
+                    {/* 2. Tool Hub Route (/id/remove-background) or English pSEO (/remove-background/keyword) */}
                     <Route path="/:lang/:tool" element={<ToolLandingPage />} />
                     
                     {/* 3. pSEO Thousands Keyword Matrix Route (/id/change-background/merah-cpns-pas-foto) */}
                     <Route path="/:lang/:tool/:keywordSlug" element={<ToolLandingPage />} />
 
                     {/* Fallback untuk SEO */}
-                    <Route path="*" element={<Navigate to="/id" replace />} />
+                    <Route path="*" element={<Navigate to="/" replace />} />
                   </Routes>
                 </div>
               </main>

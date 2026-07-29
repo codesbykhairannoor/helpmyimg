@@ -8,7 +8,7 @@ import { HomeSections } from '../components/landing/HomeSections';
 import { ToolFaqSection } from '../components/landing/ToolFaqSection';
 import { ToolGrid } from '../components/ToolGrid';
 import { useTranslation } from '../context/LanguageContext';
-import { type Language } from '../i18n/translations';
+import { type Language, SUPPORTED_LANGUAGES } from '../i18n/translations';
 import { Loader2 } from 'lucide-react';
 
 import { getToolFromSlug } from '../utils/urlMapper';
@@ -18,8 +18,19 @@ import { lazyWithRetry } from '../utils/lazyWithRetry';
 const ToolWorkspace = lazyWithRetry(() => import('../components/workspace/ToolWorkspace').then(module => ({ default: module.ToolWorkspace })), 'ToolWorkspace');
 
 export const ToolLandingPage: React.FC = () => {
-  const { lang = 'en', tool, keywordSlug } = useParams<{ lang: string; tool: string; keywordSlug: string }>();
+  let { lang, tool, keywordSlug } = useParams<{ lang: string; tool: string; keywordSlug: string }>();
   const { setLang, lang: currentLang, t } = useTranslation();
+
+  // If lang is not a valid language code (e.g. /remove-background), it means it's an English route.
+  // Shift the params accordingly.
+  const isLangValid = lang && SUPPORTED_LANGUAGES.some(l => l.code === lang);
+  if (!isLangValid && lang) {
+    keywordSlug = tool;
+    tool = lang;
+    lang = 'en';
+  } else if (!lang) {
+    lang = 'en';
+  }
 
   // Sync language dari URL ke context
   useEffect(() => {
@@ -138,7 +149,7 @@ export const ToolLandingPage: React.FC = () => {
       <SeoHead
         title={displayConfig.title}
         description={displayConfig.description}
-        canonicalPath={`/${lang}/${tool || 'remove-background'}${keywordSlug ? `/${keywordSlug}` : ''}`}
+        canonicalPath={`/${lang === 'en' ? '' : lang + '/'}${tool || 'remove-background'}${keywordSlug ? `/${keywordSlug}` : ''}`.replace('//', '/')}
         lang={lang}
         citationFirst={displayConfig.citationFirst}
         quantitativeProof={displayConfig.quantitativeProof}

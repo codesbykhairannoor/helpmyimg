@@ -1198,15 +1198,16 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({ initialTab = 'remo
                         try {
                           const blob = await processImage(currentItem.file, { mimeType: convertFormat, quality: 0.95 });
                           const url = URL.createObjectURL(blob);
-                          const extMap: Record<string, string> = { 'image/x-icon': 'ico', 'image/jpeg': 'jpg', 'image/png': 'png', 'image/gif': 'gif', 'image/bmp': 'bmp', 'image/avif': 'avif' };
+                          const extMap: Record<string, string> = { 'image/x-icon': 'ico', 'image/jpeg': 'jpg', 'image/png': 'png', 'image/gif': 'gif', 'image/bmp': 'bmp', 'image/avif': 'avif', 'image/svg+xml': 'svg' };
                           const ext = extMap[convertFormat] || convertFormat.split('/')[1];
                           let baseName = currentItem.name || `HelpMyIMG_${Date.now()}`;
                           if (baseName.includes('.')) baseName = baseName.substring(0, baseName.lastIndexOf('.'));
                           const newName = `${baseName}.${ext}`;
                           const newFile = new File([blob], newName, { type: blob.type || convertFormat });
                           setBatchItems(prev => prev.map(item => item.id === currentItem.id ? { ...item, file: newFile, name: newName, processedUrl: url, status: 'done' } : item));
-                        } catch (err) {
+                        } catch (err: any) {
                           console.error('Convert failed', err);
+                          setBatchItems(prev => prev.map(item => item.id === currentItem.id ? { ...item, status: 'error', errorMessage: err.message || 'Convert failed' } : item));
                         }
                       }
                     }}
@@ -1221,15 +1222,15 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({ initialTab = 'remo
                         try {
                           const blob = await processImage(item.file, { mimeType: convertFormat, quality: 0.95 });
                           const url = URL.createObjectURL(blob);
-                          const extMap: Record<string, string> = { 'image/x-icon': 'ico', 'image/jpeg': 'jpg', 'image/png': 'png', 'image/gif': 'gif', 'image/bmp': 'bmp', 'image/avif': 'avif' };
+                          const extMap: Record<string, string> = { 'image/x-icon': 'ico', 'image/jpeg': 'jpg', 'image/png': 'png', 'image/gif': 'gif', 'image/bmp': 'bmp', 'image/avif': 'avif', 'image/svg+xml': 'svg' };
                           const ext = extMap[convertFormat] || convertFormat.split('/')[1];
                           let baseName = item.name;
                           if (baseName.includes('.')) baseName = baseName.substring(0, baseName.lastIndexOf('.'));
                           const newName = `${baseName}.${ext}`;
                           const newFile = new File([blob], newName, { type: blob.type || convertFormat });
                           newItems[i] = { ...item, file: newFile, name: newName, processedUrl: url, status: 'done' };
-                        } catch (err) {
-                          newItems[i] = { ...item, status: 'error', errorMessage: 'Convert failed' };
+                        } catch (err: any) {
+                          newItems[i] = { ...item, status: 'error', errorMessage: err.message || 'Convert failed' };
                         }
                         setBatchItems([...newItems]);
                         await new Promise(r => setTimeout(r, 60));

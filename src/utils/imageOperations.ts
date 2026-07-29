@@ -84,11 +84,55 @@ export async function processImage(file: Blob | File, config: ImageOpConfig): Pr
 
   // Return blob
   return new Promise((resolve, reject) => {
+    if (config.mimeType === 'image/svg+xml') {
+      const dataUrl = canvas.toDataURL('image/png');
+      const svgStr = `<svg xmlns="http://www.w3.org/2000/svg" width="${finalWidth}" height="${finalHeight}"><image href="${dataUrl}" width="${finalWidth}" height="${finalHeight}"/></svg>`;
+      const blob = new Blob([svgStr], { type: 'image/svg+xml' });
+      resolve(blob);
+      return;
+    }
+
+    if (config.mimeType === 'image/x-icon') {
+      canvas.toBlob((pngBlob) => {
+        if (!pngBlob) return reject(new Error('Gagal mengkonversi ke ICO'));
+        pngBlob.arrayBuffer().then(pngBuffer => {
+          const header = new Uint8Array(22);
+          const view = new DataView(header.buffer);
+          // ICO Header
+          view.setUint16(0, 0, true); // Reserved
+          view.setUint16(2, 1, true); // Type (1 = ICO)
+          view.setUint16(4, 1, true); // Number of images
+          
+          // Image Entry
+          const w = finalWidth >= 256 ? 0 : finalWidth;
+          const h = finalHeight >= 256 ? 0 : finalHeight;
+          header[6] = w;
+          header[7] = h;
+          header[8] = 0; // Color palette
+          header[9] = 0; // Reserved
+          view.setUint16(10, 1, true); // Color planes
+          view.setUint16(12, 32, true); // BPP
+          view.setUint32(14, pngBuffer.byteLength, true); // Size of PNG data
+          view.setUint32(18, 22, true); // Offset to PNG data
+          
+          const icoBlob = new Blob([header, pngBuffer], { type: 'image/x-icon' });
+          resolve(icoBlob);
+        });
+      }, 'image/png');
+      return;
+    }
+
     canvas.toBlob(
       (blob) => {
         canvas.width = 0;
         canvas.height = 0;
-        if (blob) resolve(blob);
+        if (blob) {
+          if (config.mimeType !== 'image/png' && blob.type === 'image/png' && config.mimeType === 'image/avif') {
+            reject(new Error(`Format ${config.mimeType} belum didukung penuh oleh browser ini.`));
+            return;
+          }
+          resolve(blob);
+        }
         else reject(new Error('Gagal membuat blob gambar'));
       },
       config.mimeType,
