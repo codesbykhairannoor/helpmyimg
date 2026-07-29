@@ -28,7 +28,7 @@ export const SeoHead: React.FC<SeoHeadProps> = ({
   keywordSlug
 }) => {
   const fullUrl = `https://helpmyimg.com${canonicalPath}`;
-  const defaultUrl = `https://helpmyimg.com/en/${getLocalizedSlug((internalTool as InternalTool) || 'remove', 'en')}${keywordSlug ? `/${keywordSlug}` : ''}`;
+  const defaultUrl = `https://helpmyimg.com/${getLocalizedSlug((internalTool as InternalTool) || 'remove', 'en')}${keywordSlug ? `/${keywordSlug}` : ''}`.replace('//', '/');
 
   const schemas: Record<string, unknown>[] = [
     {
@@ -112,9 +112,13 @@ export const SeoHead: React.FC<SeoHeadProps> = ({
       <link rel="canonical" href={fullUrl} />
 
       {/* hrefLang Alternate Links untuk 30 Bahasa */}
-      {SUPPORTED_LANGS.map((l) => (
-        <link key={l} rel="alternate" hrefLang={l} href={`https://helpmyimg.com/${l}/${getLocalizedSlug((internalTool as InternalTool) || 'remove', l)}${keywordSlug ? `/${keywordSlug}` : ''}`} />
-      ))}
+      {SUPPORTED_LANGS.map((l) => {
+        const pathSlug = getLocalizedSlug((internalTool as InternalTool) || 'remove', l);
+        const lPath = l === 'en' ? `/${pathSlug}` : `/${l}/${pathSlug}`;
+        return (
+          <link key={l} rel="alternate" hrefLang={l} href={`https://helpmyimg.com${lPath}${keywordSlug ? `/${keywordSlug}` : ''}`.replace('//', '/')} />
+        );
+      })}
       {/* x-default untuk Googlebot */}
       <link rel="alternate" hrefLang="x-default" href={defaultUrl} />
 
