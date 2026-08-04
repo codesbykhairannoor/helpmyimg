@@ -1454,5 +1454,7 @@
   "landing.remove.faq5.q": "What is HelpMyIMG?",
   "landing.remove.faq5.a": "HelpMyIMG is a client-side web application that processes image background removal and compression locally using WebAssembly (Wasm). This ensures 100% data privacy without requiring any server uploads.",
   "landing.remove.faq6.q": "How does HelpMyIMG ensure data privacy compliance?",
-  "landing.remove.faq6.a": "Unlike traditional cloud editors, our WebAssembly architecture ensures 0 bytes of user data are transmitted. By executing neural networks strictly on the client device, it neutralizes interception risks, ensuring inherent compliance with GDPR Article 5 and CCPA privacy frameworks."
+  "landing.remove.faq6.a": "Unlike traditional cloud editors, our WebAssembly architecture ensures 0 bytes of user data are transmitted. By executing neural networks strictly on the client device, it neutralizes interception risks, ensuring inherent compliance with GDPR Article 5 and CCPA privacy frameworks.",
+  "hero.subtitle.short": "Kombinieren, teilen, komprimieren, konvertieren und verarbeiten Sie Fotos direkt in Ihrem Browser. 100 % offline über WebAssembly. Kostenlos, unbegrenzt und äußerst sicher.",
+  "hero.search.placeholder": "Suchwerkzeuge (BG entfernen, Komprimieren, Bearbeiten) ..."
 }

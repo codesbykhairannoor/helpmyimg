@@ -1462,5 +1462,7 @@
   "landing.remove.faq5.q": "O que é HelpMyIMG?",
   "landing.remove.faq5.a": "HelpMyIMG é um aplicativo da web do lado do cliente que processa a remoção e compactação de fundo de imagens localmente usando WebAssembly (Wasm). Isso garante 100% de privacidade dos dados sem exigir uploads do servidor.",
   "landing.remove.faq6.q": "Como o HelpMyIMG garante a conformidade com a privacidade dos dados?",
-  "landing.remove.faq6.a": "Ao contrário dos editores de nuvem tradicionais, nossa arquitetura WebAssembly garante a transmissão de 0 bytes de dados do usuário. Ao executar redes neurais estritamente no dispositivo do cliente, neutraliza os riscos de interceptação, garantindo a conformidade inerente ao Artigo 5 do GDPR e às estruturas de privacidade da CCPA."
+  "landing.remove.faq6.a": "Ao contrário dos editores de nuvem tradicionais, nossa arquitetura WebAssembly garante a transmissão de 0 bytes de dados do usuário. Ao executar redes neurais estritamente no dispositivo do cliente, neutraliza os riscos de interceptação, garantindo a conformidade inerente ao Artigo 5 do GDPR e às estruturas de privacidade da CCPA.",
+  "hero.subtitle.short": "Combine, divida, compacte, converta e processe fotos diretamente no seu navegador. 100% off-line via WebAssembly. Gratuito, ilimitado e altamente seguro.",
+  "hero.search.placeholder": "Ferramentas de pesquisa (remover BG, compactar, editar)..."
 }

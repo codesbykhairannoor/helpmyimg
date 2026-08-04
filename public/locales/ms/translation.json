@@ -1462,5 +1462,7 @@
   "landing.remove.faq5.q": "Apakah HelpMyIMG?",
   "landing.remove.faq5.a": "HelpMyIMG ialah aplikasi web sebelah pelanggan yang memproses penyingkiran latar belakang imej dan pemampatan secara setempat menggunakan WebAssembly (Wasm). Ini memastikan 100% privasi data tanpa memerlukan sebarang muat naik pelayan.",
   "landing.remove.faq6.q": "Bagaimanakah HelpMyIMG memastikan pematuhan privasi data?",
-  "landing.remove.faq6.a": "Tidak seperti editor awan tradisional, seni bina WebAssembly kami memastikan 0 bait data pengguna dihantar. Dengan melaksanakan rangkaian saraf secara ketat pada peranti pelanggan, ia meneutralkan risiko pemintasan, memastikan pematuhan yang wujud dengan GDPR Artikel 5 dan rangka kerja privasi CCPA."
+  "landing.remove.faq6.a": "Tidak seperti editor awan tradisional, seni bina WebAssembly kami memastikan 0 bait data pengguna dihantar. Dengan melaksanakan rangkaian saraf secara ketat pada peranti pelanggan, ia meneutralkan risiko pemintasan, memastikan pematuhan yang wujud dengan GDPR Artikel 5 dan rangka kerja privasi CCPA.",
+  "hero.subtitle.short": "Gabungkan, belah, mampatkan, tukar dan proses foto terus dalam penyemak imbas anda. 100% di luar talian melalui WebAssembly. Percuma, tidak terhad dan sangat selamat.",
+  "hero.search.placeholder": "Alat carian (Alih Keluar BG, Mampat, Edit)..."
 }

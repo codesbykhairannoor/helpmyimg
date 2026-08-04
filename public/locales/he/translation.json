@@ -1443,5 +1443,7 @@
   "landing.remove.faq5.q": "מה זה HelpMyIMG?",
   "landing.remove.faq5.a": "HelpMyIMG הוא יישום אינטרנט בצד הלקוח המעבד הסרה ודחיסה של רקע תמונה באופן מקומי באמצעות WebAssembly (Wasm). זה מבטיח 100% פרטיות נתונים ללא צורך בהעלאות שרת.",
   "landing.remove.faq6.q": "כיצד HelpMyIMG מבטיח תאימות לפרטיות נתונים?",
-  "landing.remove.faq6.a": "שלא כמו עורכי ענן מסורתיים, ארכיטקטורת ה-WebAssembly שלנו מבטיחה שידור של 0 בתים של נתוני משתמש. By executing neural networks strictly on the client device, it neutralizes interception risks, ensuring inherent compliance with GDPR Article 5 and CCPA privacy frameworks."
+  "landing.remove.faq6.a": "שלא כמו עורכי ענן מסורתיים, ארכיטקטורת ה-WebAssembly שלנו מבטיחה שידור של 0 בתים של נתוני משתמש. By executing neural networks strictly on the client device, it neutralizes interception risks, ensuring inherent compliance with GDPR Article 5 and CCPA privacy frameworks.",
+  "hero.subtitle.short": "שלב, פצל, דחס, המר ועבד תמונות ישירות בדפדפן שלך. 100% לא מקוון באמצעות WebAssembly. חינם, ללא הגבלה, ומאובטח מאוד.",
+  "hero.search.placeholder": "כלי חיפוש (הסר BG, דחיסה, עריכה)..."
 }

@@ -1462,5 +1462,7 @@
   "landing.remove.faq5.q": "Ce este HelpMyIMG?",
   "landing.remove.faq5.a": "HelpMyIMG este o aplicație web la nivelul clientului care procesează eliminarea și comprimarea fundalului imaginii la nivel local folosind WebAssembly (Wasm). Acest lucru asigură confidențialitatea 100% a datelor fără a necesita încărcări de server.",
   "landing.remove.faq6.q": "Cum asigură HelpMyIMG respectarea confidențialității datelor?",
-  "landing.remove.faq6.a": "Spre deosebire de editorii cloud tradiționali, arhitectura noastră WebAssembly asigură transmiterea a 0 octeți de date utilizator. Prin executarea rețelelor neuronale strict pe dispozitivul client, neutralizează riscurile de interceptare, asigurând conformitatea inerentă cu articolul 5 GDPR și cadrele de confidențialitate CCPA."
+  "landing.remove.faq6.a": "Spre deosebire de editorii cloud tradiționali, arhitectura noastră WebAssembly asigură transmiterea a 0 octeți de date utilizator. Prin executarea rețelelor neuronale strict pe dispozitivul client, neutralizează riscurile de interceptare, asigurând conformitatea inerentă cu articolul 5 GDPR și cadrele de confidențialitate CCPA.",
+  "hero.subtitle.short": "Combinați, împărțiți, comprimați, convertiți și procesați fotografiile direct în browser. 100% offline prin WebAssembly. Gratuit, nelimitat și foarte sigur.",
+  "hero.search.placeholder": "Instrumente de căutare (Eliminare BG, Comprimare, Editare)..."
 }

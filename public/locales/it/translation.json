@@ -1462,5 +1462,7 @@
   "landing.remove.faq5.q": "Cos'è HelpMyIMG?",
   "landing.remove.faq5.a": "HelpMyIMG è un'applicazione Web lato client che elabora la rimozione e la compressione dello sfondo dell'immagine localmente utilizzando WebAssembly (Wasm). Ciò garantisce la riservatezza dei dati al 100% senza richiedere alcun caricamento sul server.",
   "landing.remove.faq6.q": "In che modo HelpMyIMG garantisce la conformità alla privacy dei dati?",
-  "landing.remove.faq6.a": "A differenza dei tradizionali editor cloud, la nostra architettura WebAssembly garantisce che vengano trasmessi 0 byte di dati utente. Eseguendo reti neurali rigorosamente sul dispositivo client, neutralizza i rischi di intercettazione, garantendo la conformità intrinseca all'Articolo 5 del GDPR e ai quadri sulla privacy del CCPA."
+  "landing.remove.faq6.a": "A differenza dei tradizionali editor cloud, la nostra architettura WebAssembly garantisce che vengano trasmessi 0 byte di dati utente. Eseguendo reti neurali rigorosamente sul dispositivo client, neutralizza i rischi di intercettazione, garantendo la conformità intrinseca all'Articolo 5 del GDPR e ai quadri sulla privacy del CCPA.",
+  "hero.subtitle.short": "Combina, dividi, comprimi, converti ed elabora le foto direttamente nel tuo browser. 100% offline tramite WebAssembly. Gratuito, illimitato e altamente sicuro.",
+  "hero.search.placeholder": "Strumenti di ricerca (Rimuovi BG, Comprimi, Modifica)..."
 }

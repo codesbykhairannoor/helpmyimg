@@ -1462,5 +1462,7 @@
   "landing.remove.faq5.q": "Hva er HelpMyIMG?",
   "landing.remove.faq5.a": "HelpMyIMG er en nettapplikasjon på klientsiden som behandler fjerning og komprimering av bildebakgrunn lokalt ved hjelp av WebAssembly (Wasm). Dette sikrer 100 % datavern uten at det kreves noen serveropplastinger.",
   "landing.remove.faq6.q": "Hvordan sikrer HelpMyIMG overholdelse av personvern?",
-  "landing.remove.faq6.a": "I motsetning til tradisjonelle skyredigerere, sikrer WebAssembly-arkitekturen vår at 0 byte med brukerdata overføres. Ved å utføre nevrale nettverk strengt på klientenheten, nøytraliserer det avskjæringsrisikoer, og sikrer iboende samsvar med GDPR artikkel 5 og CCPA personvernrammeverk."
+  "landing.remove.faq6.a": "I motsetning til tradisjonelle skyredigerere, sikrer WebAssembly-arkitekturen vår at 0 byte med brukerdata overføres. Ved å utføre nevrale nettverk strengt på klientenheten, nøytraliserer det avskjæringsrisikoer, og sikrer iboende samsvar med GDPR artikkel 5 og CCPA personvernrammeverk.",
+  "hero.subtitle.short": "Kombiner, del, komprimer, konverter og bearbeid bilder direkte i nettleseren din. 100 % offline via WebAssembly. Gratis, ubegrenset og svært sikker.",
+  "hero.search.placeholder": "Søkeverktøy (Fjern BG, Komprimer, Rediger)..."
 }

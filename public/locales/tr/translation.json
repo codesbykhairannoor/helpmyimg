@@ -1462,5 +1462,7 @@
   "landing.remove.faq5.q": "HelpMyIMG nedir?",
   "landing.remove.faq5.a": "HelpMyIMG, WebAssembly (Wasm) kullanarak görüntü arka planının kaldırılmasını ve sıkıştırılmasını yerel olarak işleyen, istemci tarafı bir web uygulamasıdır. Bu, herhangi bir sunucu yüklemesine gerek kalmadan %100 veri gizliliği sağlar.",
   "landing.remove.faq6.q": "HelpMyIMG veri gizliliği uyumluluğunu nasıl sağlıyor?",
-  "landing.remove.faq6.a": "Geleneksel bulut düzenleyicilerden farklı olarak WebAssembly mimarimiz 0 bayt kullanıcı verisinin iletilmesini sağlar. Sinir ağlarını kesinlikle istemci cihazında çalıştırarak, müdahale risklerini ortadan kaldırır ve GDPR Madde 5 ve CCPA gizlilik çerçevelerine doğal uyum sağlar."
+  "landing.remove.faq6.a": "Geleneksel bulut düzenleyicilerden farklı olarak WebAssembly mimarimiz 0 bayt kullanıcı verisinin iletilmesini sağlar. Sinir ağlarını kesinlikle istemci cihazında çalıştırarak, müdahale risklerini ortadan kaldırır ve GDPR Madde 5 ve CCPA gizlilik çerçevelerine doğal uyum sağlar.",
+  "hero.subtitle.short": "Fotoğrafları doğrudan tarayıcınızda birleştirin, bölün, sıkıştırın, dönüştürün ve işleyin. WebAssembly aracılığıyla %100 çevrimdışı. Ücretsiz, sınırsız ve son derece güvenli.",
+  "hero.search.placeholder": "Arama araçları (BG'yi Kaldır, Sıkıştır, Düzenle)..."
 }

@@ -1462,5 +1462,7 @@
   "landing.remove.faq5.q": "Mi az a HelpMyIMG?",
   "landing.remove.faq5.a": "A HelpMyIMG egy kliensoldali webalkalmazás, amely a WebAssembly (Wasm) segítségével helyileg dolgozza fel a kép hátterének eltávolítását és tömörítését. Ez 100%-os adatvédelmet biztosít anélkül, hogy szerverfeltöltést igényelne.",
   "landing.remove.faq6.q": "Hogyan biztosítja a HelpMyIMG adatvédelmi megfelelést?",
-  "landing.remove.faq6.a": "A hagyományos felhőszerkesztőkkel ellentétben a WebAssembly architektúránk 0 bájt felhasználói adat átvitelét biztosítja. Azáltal, hogy a neurális hálózatokat szigorúan a kliens eszközön hajtja végre, semlegesíti az elfogási kockázatokat, biztosítva a GDPR 5. cikkének és a CCPA adatvédelmi kereteinek való belső megfelelést."
+  "landing.remove.faq6.a": "A hagyományos felhőszerkesztőkkel ellentétben a WebAssembly architektúránk 0 bájt felhasználói adat átvitelét biztosítja. Azáltal, hogy a neurális hálózatokat szigorúan a kliens eszközön hajtja végre, semlegesíti az elfogási kockázatokat, biztosítva a GDPR 5. cikkének és a CCPA adatvédelmi kereteinek való belső megfelelést.",
+  "hero.subtitle.short": "Kombinálja, osztja fel, tömörítse, konvertálja és dolgozza fel a fényképeket közvetlenül a böngészőben. 100%-ban offline a WebAssembly segítségével. Ingyenes, korlátlan és rendkívül biztonságos.",
+  "hero.search.placeholder": "Keresőeszközök (BG eltávolítása, tömörítés, szerkesztés)..."
 }

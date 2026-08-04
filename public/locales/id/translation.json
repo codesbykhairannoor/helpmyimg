@@ -1536,5 +1536,7 @@
   "landing.remove.faq5.q": "Apa itu HelpMyIMG?",
   "landing.remove.faq5.a": "HelpMyIMG adalah aplikasi web sisi klien yang memproses penghapusan dan kompresi latar belakang gambar secara lokal menggunakan WebAssembly (Wasm). Ini memastikan privasi data 100% tanpa memerlukan unggahan server apa pun.",
   "landing.remove.faq6.q": "Bagaimana HelpMyIMG memastikan kepatuhan privasi data?",
-  "landing.remove.faq6.a": "Tidak seperti editor cloud tradisional, arsitektur WebAssembly kami memastikan 0 byte data pengguna dikirimkan. Dengan menjalankan jaringan saraf secara ketat pada perangkat klien, hal ini menetralisir risiko intersepsi, memastikan kepatuhan yang melekat terhadap Pasal 5 GDPR dan kerangka privasi CCPA."
+  "landing.remove.faq6.a": "Tidak seperti editor cloud tradisional, arsitektur WebAssembly kami memastikan 0 byte data pengguna dikirimkan. Dengan menjalankan jaringan saraf secara ketat pada perangkat klien, hal ini menetralisir risiko intersepsi, memastikan kepatuhan yang melekat terhadap Pasal 5 GDPR dan kerangka privasi CCPA.",
+  "hero.subtitle.short": "Gabungkan, pisahkan, kompres, konversi, dan proses foto langsung di browser Anda. 100% offline melalui WebAssembly. Gratis, tidak terbatas, dan sangat aman.",
+  "hero.search.placeholder": "Alat pencarian (Hapus BG, Kompres, Edit)..."
 }

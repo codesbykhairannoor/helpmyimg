@@ -1462,5 +1462,7 @@
   "landing.remove.faq5.q": "Wat is HelpMijnIMG?",
   "landing.remove.faq5.a": "HelpMyIMG is een client-side webapplicatie die het verwijderen en comprimeren van afbeeldingsachtergronden lokaal verwerkt met behulp van WebAssembly (Wasm). Dit garandeert 100% gegevensprivacy zonder dat er serveruploads nodig zijn.",
   "landing.remove.faq6.q": "Hoe zorgt HelpMyIMG ervoor dat de privacy van gegevens wordt nageleefd?",
-  "landing.remove.faq6.a": "In tegenstelling tot traditionele cloudeditors zorgt onze WebAssembly-architectuur ervoor dat er 0 bytes aan gebruikersgegevens worden verzonden. Door neurale netwerken strikt op het clientapparaat uit te voeren, worden de risico's van onderschepping geneutraliseerd, waardoor inherente naleving van AVG-artikel 5 en CCPA-privacykaders wordt gegarandeerd."
+  "landing.remove.faq6.a": "In tegenstelling tot traditionele cloudeditors zorgt onze WebAssembly-architectuur ervoor dat er 0 bytes aan gebruikersgegevens worden verzonden. Door neurale netwerken strikt op het clientapparaat uit te voeren, worden de risico's van onderschepping geneutraliseerd, waardoor inherente naleving van AVG-artikel 5 en CCPA-privacykaders wordt gegarandeerd.",
+  "hero.subtitle.short": "Combineer, splits, comprimeer, converteer en verwerk foto's rechtstreeks in uw browser. 100% offline via WebAssembly. Gratis, onbeperkt en zeer veilig.",
+  "hero.search.placeholder": "Zoekhulpmiddelen (BG verwijderen, comprimeren, bewerken)..."
 }
