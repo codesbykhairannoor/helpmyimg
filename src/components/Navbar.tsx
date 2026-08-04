@@ -49,10 +49,10 @@ export const Navbar: React.FC = () => {
       
       const rest = pathParts.slice(toolSlugIndex + 1);
       const newPathParts = newLang === 'en' ? [newSlug, ...rest] : [newLang, newSlug, ...rest];
-      navigate('/' + newPathParts.join('/'));
+      navigate('/' + newPathParts.join('/'), { state: { preserveScroll: true } });
     } else {
       // At root
-      navigate(newLang === 'en' ? '/' : `/${newLang}`);
+      navigate(newLang === 'en' ? '/' : `/${newLang}`, { state: { preserveScroll: true } });
     }
   };
 
