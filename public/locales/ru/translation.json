@@ -1449,5 +1449,17 @@
   "seo.jsonld.faq2.q": "Насколько конфиденциально и безопасно редактировать фотографии на документы и паспорта?",
   "seo.jsonld.faq2.a": "Абсолютно.HelpMyIMG гарантирует 100% конфиденциальность, поскольку вся обработка ИИ происходит локально в вашем браузере.Ваши конфиденциальные фотографии никогда не покидают ваше устройство и никогда не загружаются на какой-либо удаленный сервер.",
   "work.action.apply": "Применить",
-  "crop.radius": "Радиус угла"
+  "crop.radius": "Радиус угла",
+  "landing": {
+    "remove": {
+      "faq5": {
+        "q": "What is HelpMyIMG?",
+        "a": "HelpMyIMG is a client-side web application that processes image background removal and compression locally using WebAssembly (Wasm). This ensures 100% data privacy without requiring any server uploads."
+      },
+      "faq6": {
+        "q": "How does HelpMyIMG ensure data privacy compliance?",
+        "a": "Unlike traditional cloud editors, our WebAssembly architecture ensures 0 bytes of user data are transmitted. By executing neural networks strictly on the client device, it neutralizes interception risks, ensuring inherent compliance with GDPR Article 5 and CCPA privacy frameworks."
+      }
+    }
+  }
 }

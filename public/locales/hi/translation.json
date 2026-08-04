@@ -1450,5 +1450,17 @@
   "seo.jsonld.faq2.q": "क्या आईडी फ़ोटो और पासपोर्ट संपादित करना निजी और सुरक्षित है?",
   "seo.jsonld.faq2.a": "बिल्कुल।हेल्पमायआईएमजी 100% गोपनीयता की गारंटी देता है क्योंकि सभी एआई प्रोसेसिंग आपके ब्राउज़र में स्थानीय रूप से होती है।आपकी संवेदनशील तस्वीरें आपके डिवाइस को कभी नहीं छोड़ती हैं और कभी भी किसी दूरस्थ सर्वर पर अपलोड नहीं की जाती हैं।",
   "work.action.apply": "लागू करें",
-  "crop.radius": "कोने की त्रिज्या"
+  "crop.radius": "कोने की त्रिज्या",
+  "landing": {
+    "remove": {
+      "faq5": {
+        "q": "What is HelpMyIMG?",
+        "a": "HelpMyIMG is a client-side web application that processes image background removal and compression locally using WebAssembly (Wasm). This ensures 100% data privacy without requiring any server uploads."
+      },
+      "faq6": {
+        "q": "How does HelpMyIMG ensure data privacy compliance?",
+        "a": "Unlike traditional cloud editors, our WebAssembly architecture ensures 0 bytes of user data are transmitted. By executing neural networks strictly on the client device, it neutralizes interception risks, ensuring inherent compliance with GDPR Article 5 and CCPA privacy frameworks."
+      }
+    }
+  }
 }

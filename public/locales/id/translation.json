@@ -1524,5 +1524,17 @@
   "seo.jsonld.faq2.q": "Apakah mengedit foto identitas dan paspor bersifat pribadi dan aman?",
   "seo.jsonld.faq2.a": "Sangat.HelpMyIMG menjamin privasi 100% karena semua pemrosesan AI terjadi secara lokal di browser Anda.Foto sensitif Anda tidak pernah keluar dari perangkat Anda dan tidak pernah diunggah ke server jarak jauh mana pun.",
   "work.action.apply": "Terapkan",
-  "crop.radius": "Lengkungan"
+  "crop.radius": "Lengkungan",
+  "landing": {
+    "remove": {
+      "faq5": {
+        "q": "What is HelpMyIMG?",
+        "a": "HelpMyIMG is a client-side web application that processes image background removal and compression locally using WebAssembly (Wasm). This ensures 100% data privacy without requiring any server uploads."
+      },
+      "faq6": {
+        "q": "How does HelpMyIMG ensure data privacy compliance?",
+        "a": "Unlike traditional cloud editors, our WebAssembly architecture ensures 0 bytes of user data are transmitted. By executing neural networks strictly on the client device, it neutralizes interception risks, ensuring inherent compliance with GDPR Article 5 and CCPA privacy frameworks."
+      }
+    }
+  }
 }

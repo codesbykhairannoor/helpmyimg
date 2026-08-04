@@ -1450,5 +1450,17 @@
   "seo.jsonld.faq2.q": "신분증 사진과 여권을 편집하는 것이 비공개적이고 안전한가요?",
   "seo.jsonld.faq2.a": "전적으로.HelpMyIMG는 모든 AI 처리가 브라우저에서 로컬로 이루어지기 때문에 100% 개인정보 보호를 보장합니다.귀하의 민감한 사진은 절대로 귀하의 장치를 떠나지 않으며 어떠한 원격 서버에도 업로드되지 않습니다.",
   "work.action.apply": "적용하다",
-  "crop.radius": "모서리 반경"
+  "crop.radius": "모서리 반경",
+  "landing": {
+    "remove": {
+      "faq5": {
+        "q": "What is HelpMyIMG?",
+        "a": "HelpMyIMG is a client-side web application that processes image background removal and compression locally using WebAssembly (Wasm). This ensures 100% data privacy without requiring any server uploads."
+      },
+      "faq6": {
+        "q": "How does HelpMyIMG ensure data privacy compliance?",
+        "a": "Unlike traditional cloud editors, our WebAssembly architecture ensures 0 bytes of user data are transmitted. By executing neural networks strictly on the client device, it neutralizes interception risks, ensuring inherent compliance with GDPR Article 5 and CCPA privacy frameworks."
+      }
+    }
+  }
 }

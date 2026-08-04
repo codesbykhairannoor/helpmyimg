@@ -1450,5 +1450,17 @@
   "seo.jsonld.faq2.q": "编辑身份证照片和护照是否私密且安全？",
   "seo.jsonld.faq2.a": "绝对地。HelpMyIMG 保证 100% 的隐私，因为所有 AI 处理都在您的浏览器本地进行。您的敏感照片永远不会离开您的设备，也永远不会上传到任何远程服务器。",
   "work.action.apply": "应用",
-  "crop.radius": "圆角半径"
+  "crop.radius": "圆角半径",
+  "landing": {
+    "remove": {
+      "faq5": {
+        "q": "What is HelpMyIMG?",
+        "a": "HelpMyIMG is a client-side web application that processes image background removal and compression locally using WebAssembly (Wasm). This ensures 100% data privacy without requiring any server uploads."
+      },
+      "faq6": {
+        "q": "How does HelpMyIMG ensure data privacy compliance?",
+        "a": "Unlike traditional cloud editors, our WebAssembly architecture ensures 0 bytes of user data are transmitted. By executing neural networks strictly on the client device, it neutralizes interception risks, ensuring inherent compliance with GDPR Article 5 and CCPA privacy frameworks."
+      }
+    }
+  }
 }

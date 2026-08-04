@@ -1450,5 +1450,17 @@
   "seo.jsonld.faq2.q": "Ist die Bearbeitung von Ausweisfotos und Reisepässen privat und sicher?",
   "seo.jsonld.faq2.a": "Absolut.HelpMyIMG garantiert 100 % Datenschutz, da die gesamte KI-Verarbeitung lokal in Ihrem Browser erfolgt.Ihre sensiblen Fotos verlassen niemals Ihr Gerät und werden niemals auf einen Remote-Server hochgeladen.",
   "work.action.apply": "Anwenden",
-  "crop.radius": "Eckenradius"
+  "crop.radius": "Eckenradius",
+  "landing": {
+    "remove": {
+      "faq5": {
+        "q": "What is HelpMyIMG?",
+        "a": "HelpMyIMG is a client-side web application that processes image background removal and compression locally using WebAssembly (Wasm). This ensures 100% data privacy without requiring any server uploads."
+      },
+      "faq6": {
+        "q": "How does HelpMyIMG ensure data privacy compliance?",
+        "a": "Unlike traditional cloud editors, our WebAssembly architecture ensures 0 bytes of user data are transmitted. By executing neural networks strictly on the client device, it neutralizes interception risks, ensuring inherent compliance with GDPR Article 5 and CCPA privacy frameworks."
+      }
+    }
+  }
 }

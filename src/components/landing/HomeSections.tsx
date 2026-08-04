@@ -197,7 +197,7 @@ export const HomeSections: React.FC = () => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 relative z-10">
-          {[1, 2, 3, 4].map((num) => {
+          {[1, 2, 3, 4, 5, 6].map((num) => {
             // General homepage FAQ fallback
             let defQ = '';
             let defA = '';
@@ -210,9 +210,15 @@ export const HomeSections: React.FC = () => {
             } else if (num === 3) {
               defQ = 'Can I process multiple images at once?';
               defA = 'Yes, you can select up to 10 photos simultaneously for batch processing and download them as a convenient ZIP file.';
-            } else {
+            } else if (num === 4) {
               defQ = 'Does it work offline?';
               defA = 'Once the web application loads in your browser, the AI engine can function entirely offline without an active internet connection.';
+            } else if (num === 5) {
+              defQ = 'What is HelpMyIMG?';
+              defA = 'HelpMyIMG is a client-side web application that processes image background removal and compression locally using WebAssembly (Wasm). This ensures 100% data privacy without requiring any server uploads.';
+            } else if (num === 6) {
+              defQ = 'How does HelpMyIMG ensure data privacy compliance?';
+              defA = 'Unlike traditional cloud editors, our WebAssembly architecture ensures 0 bytes of user data are transmitted. By executing neural networks strictly on the client device, it neutralizes interception risks, ensuring inherent compliance with GDPR Article 5 and CCPA privacy frameworks.';
             }
 
             return (

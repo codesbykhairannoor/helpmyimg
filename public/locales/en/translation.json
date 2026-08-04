@@ -1477,5 +1477,17 @@
   "seo.jsonld.faq2.q": "Is it private and safe to edit ID photos and passports?",
   "seo.jsonld.faq2.a": "Absolutely. HelpMyIMG guarantees 100% privacy because all AI processing occurs locally in your browser. Your sensitive photos never leave your device and are never uploaded to any remote server.",
   "work.action.apply": "Apply",
-  "crop.radius": "Corner Radius"
+  "crop.radius": "Corner Radius",
+  "landing": {
+    "remove": {
+      "faq5": {
+        "q": "What is HelpMyIMG?",
+        "a": "HelpMyIMG is a client-side web application that processes image background removal and compression locally using WebAssembly (Wasm). This ensures 100% data privacy without requiring any server uploads."
+      },
+      "faq6": {
+        "q": "How does HelpMyIMG ensure data privacy compliance?",
+        "a": "Unlike traditional cloud editors, our WebAssembly architecture ensures 0 bytes of user data are transmitted. By executing neural networks strictly on the client device, it neutralizes interception risks, ensuring inherent compliance with GDPR Article 5 and CCPA privacy frameworks."
+      }
+    }
+  }
 }

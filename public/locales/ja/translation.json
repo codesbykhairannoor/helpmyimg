@@ -1450,5 +1450,17 @@
   "seo.jsonld.faq2.q": "証明写真やパスポートを編集するのはプライベートで安全ですか?",
   "seo.jsonld.faq2.a": "絶対に。HelpMyIMG は、すべての AI 処理がブラウザ内でローカルに行われるため、100% のプライバシーを保証します。機密性の高い写真がデバイスの外に出たり、リモート サーバーにアップロードされたりすることはありません。",
   "work.action.apply": "適用する",
-  "crop.radius": "角丸の半径"
+  "crop.radius": "角丸の半径",
+  "landing": {
+    "remove": {
+      "faq5": {
+        "q": "What is HelpMyIMG?",
+        "a": "HelpMyIMG is a client-side web application that processes image background removal and compression locally using WebAssembly (Wasm). This ensures 100% data privacy without requiring any server uploads."
+      },
+      "faq6": {
+        "q": "How does HelpMyIMG ensure data privacy compliance?",
+        "a": "Unlike traditional cloud editors, our WebAssembly architecture ensures 0 bytes of user data are transmitted. By executing neural networks strictly on the client device, it neutralizes interception risks, ensuring inherent compliance with GDPR Article 5 and CCPA privacy frameworks."
+      }
+    }
+  }
 }

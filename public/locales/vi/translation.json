@@ -1450,5 +1450,17 @@
   "seo.jsonld.faq2.q": "Việc chỉnh sửa ảnh CMND và hộ chiếu có riêng tư và an toàn không?",
   "seo.jsonld.faq2.a": "Tuyệt đối.HelpMyIMG đảm bảo quyền riêng tư 100% vì tất cả quá trình xử lý AI đều diễn ra cục bộ trong trình duyệt của bạn.Những bức ảnh nhạy cảm của bạn sẽ không bao giờ rời khỏi thiết bị của bạn và không bao giờ được tải lên bất kỳ máy chủ từ xa nào.",
   "work.action.apply": "Áp dụng",
-  "crop.radius": "Bán kính góc"
+  "crop.radius": "Bán kính góc",
+  "landing": {
+    "remove": {
+      "faq5": {
+        "q": "What is HelpMyIMG?",
+        "a": "HelpMyIMG is a client-side web application that processes image background removal and compression locally using WebAssembly (Wasm). This ensures 100% data privacy without requiring any server uploads."
+      },
+      "faq6": {
+        "q": "How does HelpMyIMG ensure data privacy compliance?",
+        "a": "Unlike traditional cloud editors, our WebAssembly architecture ensures 0 bytes of user data are transmitted. By executing neural networks strictly on the client device, it neutralizes interception risks, ensuring inherent compliance with GDPR Article 5 and CCPA privacy frameworks."
+      }
+    }
+  }
 }
