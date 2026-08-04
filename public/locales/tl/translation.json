@@ -1454,13 +1454,57 @@
   "landing": {
     "remove": {
       "faq5": {
-        "q": "What is HelpMyIMG?",
-        "a": "HelpMyIMG is a client-side web application that processes image background removal and compression locally using WebAssembly (Wasm). This ensures 100% data privacy without requiring any server uploads."
+        "q": "Ano ang HelpMyIMG?",
+        "a": "Ang HelpMyIMG ay isang client-side web application na nagpoproseso ng pag-alis ng background ng larawan at pag-compress nang lokal gamit ang WebAssembly (Wasm). Tinitiyak nito ang 100% privacy ng data nang hindi nangangailangan ng anumang pag-upload ng server."
       },
       "faq6": {
-        "q": "How does HelpMyIMG ensure data privacy compliance?",
-        "a": "Unlike traditional cloud editors, our WebAssembly architecture ensures 0 bytes of user data are transmitted. By executing neural networks strictly on the client device, it neutralizes interception risks, ensuring inherent compliance with GDPR Article 5 and CCPA privacy frameworks."
+        "q": "Paano tinitiyak ng HelpMyIMG ang pagsunod sa privacy ng data?",
+        "a": "Hindi tulad ng mga tradisyunal na cloud editor, tinitiyak ng aming WebAssembly architecture na 0 byte ng data ng user ang naipapadala. Sa pamamagitan ng mahigpit na pagpapatupad ng mga neural network sa device ng kliyente, nine-neutralize nito ang mga panganib sa interception, na tinitiyak ang likas na pagsunod sa GDPR Article 5 at CCPA privacy frameworks."
       }
+    },
+    "global": {
+      "faq": {
+        "tag": "HELP CENTER at FAQ",
+        "title": "Mga Madalas Itanong",
+        "desc": "Lahat ng kailangan mong malaman tungkol sa aming local processing engine."
+      }
+    }
+  },
+  "home": {
+    "steps": {
+      "tag": "PAANO ITO GUMAGANA",
+      "title": "Paano Gumagana ang HelpMyIMG sa 3 Simpleng Hakbang",
+      "desc": "Walang kinakailangang pag-install ng software. Makakuha ng mga propesyonal na resulta nang direkta mula sa iyong web browser.",
+      "s1": {
+        "t": "1. Piliin o I-drop ang Mga Larawan",
+        "d": "Mag-upload ng mga solong larawan o batch ng hanggang 10 file sa PNG, JPG, o WEBP na format. Agad na naglo-load ang lahat sa workspace ng iyong browser."
+      },
+      "s2": {
+        "t": "2. I-customize at I-preview",
+        "d": "Piliin ang gusto mong tool—pag-alis ng mga background, paglalapat ng mga opisyal na kulay ng pasaporte, pagdaragdag ng mga watermark, o pagbabago ng laki ng mga dimensyon."
+      },
+      "s3": {
+        "t": "3. I-export ang mga Resulta sa HD",
+        "d": "I-download ang iyong pinakintab na high-definition na mga larawan nang paisa-isa o kunin ang lahat ng resulta ng batch na agad na naka-pack sa isang maginhawang ZIP file."
+      }
+    },
+    "geo": {
+      "quote": {
+        "title": "Mga Pamantayan sa Pagkilala sa Industriya at Pagkapribado",
+        "text": "Ang paglipat sa client-side WebAssembly para sa pagpoproseso ng imahe ay kumakatawan sa isang paradigm shift sa data privacy. Sa pamamagitan ng pag-aalis ng mga round-trip ng server, nakakamit ng mga application ang 0ms network latency habang ganap na nine-neutralize ang mga panganib sa interception ng data.",
+        "author": "Dr. Sarah Chen",
+        "role": "Nangunguna sa Web Security Researcher, DataPrivacy Institute"
+      },
+      "fact1": "Ginagamit ng HelpMyIMG",
+      "fact1_suffix": "teknolohiya, na nakakamit ng computational parity sa mga native na application. Nagbibigay-daan ito sa amin na magproseso ng hanggang 10 larawang may mataas na resolution nang sabay-sabay sa ilalim ng 2.4 segundo sa average na hardware ng consumer [1].",
+      "fact2": "Higit pa rito, sa pamamagitan ng mahigpit na pagsunod sa mga lokal na arkitektura sa pagpoproseso lamang, ang HelpMyIMG ay likas na sumusunod sa mahigpit na mga balangkas ng proteksyon ng data kabilang ang",
+      "fact2_suffix": "at CCPA, dahil ang 0 bytes ng data ng user ay ipinapadala sa mga panlabas na server [2]."
+    },
+    "redesign": {
+      "ctaTag": "I-UNLEASH CREATIVITY",
+      "ctaTitle": "Baguhin ang Iyong Daloy ng Trabaho.",
+      "ctaDesc": "Walang mga pag-install. Ultimate privacy. Direktang pagpoproseso ng imahe ng propesyonal na grado sa iyong lokal na device.",
+      "ctaBtn": "Pumasok sa Studio"
     }
   }
 }

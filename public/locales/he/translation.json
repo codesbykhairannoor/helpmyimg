@@ -1435,13 +1435,57 @@
   "landing": {
     "remove": {
       "faq5": {
-        "q": "What is HelpMyIMG?",
-        "a": "HelpMyIMG is a client-side web application that processes image background removal and compression locally using WebAssembly (Wasm). This ensures 100% data privacy without requiring any server uploads."
+        "q": "מה זה HelpMyIMG?",
+        "a": "HelpMyIMG הוא יישום אינטרנט בצד הלקוח המעבד הסרה ודחיסה של רקע תמונה באופן מקומי באמצעות WebAssembly (Wasm). זה מבטיח 100% פרטיות נתונים ללא צורך בהעלאות שרת."
       },
       "faq6": {
-        "q": "How does HelpMyIMG ensure data privacy compliance?",
-        "a": "Unlike traditional cloud editors, our WebAssembly architecture ensures 0 bytes of user data are transmitted. By executing neural networks strictly on the client device, it neutralizes interception risks, ensuring inherent compliance with GDPR Article 5 and CCPA privacy frameworks."
+        "q": "כיצד HelpMyIMG מבטיח תאימות לפרטיות נתונים?",
+        "a": "שלא כמו עורכי ענן מסורתיים, ארכיטקטורת ה-WebAssembly שלנו מבטיחה שידור של 0 בתים של נתוני משתמש. By executing neural networks strictly on the client device, it neutralizes interception risks, ensuring inherent compliance with GDPR Article 5 and CCPA privacy frameworks."
       }
+    },
+    "global": {
+      "faq": {
+        "tag": "מרכז העזרה ושאלות נפוצות",
+        "title": "שאלות נפוצות",
+        "desc": "כל מה שאתה צריך לדעת על מנוע העיבוד המקומי שלנו."
+      }
+    }
+  },
+  "home": {
+    "steps": {
+      "tag": "איך זה עובד",
+      "title": "איך HelpMyIMG עובד ב-3 שלבים פשוטים",
+      "desc": "אין צורך בהתקנת תוכנה. קבל תוצאות מקצועיות ישירות מדפדפן האינטרנט שלך.",
+      "s1": {
+        "t": "1. בחר או שחרר תמונות",
+        "d": "העלה תמונות בודדות או אצווה של עד 10 קבצים בפורמט PNG, JPG או WEBP. הכל נטען באופן מיידי לתוך סביבת העבודה של הדפדפן שלך."
+      },
+      "s2": {
+        "t": "2. התאמה אישית ותצוגה מקדימה",
+        "d": "בחר את הכלי הרצוי לך - בין אם הפשטת רקעים, החלת צבעי דרכון רשמיים, הוספת סימני מים או שינוי גודל של מידות."
+      },
+      "s3": {
+        "t": "3. ייצוא תוצאות HD",
+        "d": "הורד את התמונות המלוטשות שלך בהבחנה גבוהה בנפרד או קח את כל תוצאות האצווה ארוזות באופן מיידי בקובץ ZIP נוח."
+      }
+    },
+    "geo": {
+      "quote": {
+        "title": "תקני הכרה ופרטיות בתעשייה",
+        "text": "המעבר ל-WebAssembly בצד הלקוח לעיבוד תמונה מייצג שינוי פרדיגמה בפרטיות הנתונים. על ידי ביטול החזרות של שרתים הלוך ושוב, יישומים משיגים זמן חביון רשת של 0ms תוך נטרול מוחלט של סיכוני יירוט הנתונים.",
+        "author": "ד\"ר שרה חן",
+        "role": "חוקר אבטחת אינטרנט מוביל, מכון פרטיות נתונים"
+      },
+      "fact1": "HelpMyIMG משתמש",
+      "fact1_suffix": "טכנולוגיה, השגת שוויון חישובי עם יישומים מקוריים. זה מאפשר לנו לעבד עד 10 תמונות ברזולוציה גבוהה בו-זמנית תוך פחות מ-2.4 שניות בחומרה צרכנית ממוצעת [1].",
+      "fact2": "יתר על כן, על ידי הקפדה על ארכיטקטורות עיבוד מקומיות בלבד, HelpMyIMG תואמת מטבעה למסגרות קפדניות להגנה על נתונים, כולל",
+      "fact2_suffix": "ו-CCPA, שכן 0 בתים של נתוני משתמש מועברים לשרתים חיצוניים [2]."
+    },
+    "redesign": {
+      "ctaTag": "שחרר את היצירתיות",
+      "ctaTitle": "שנה את זרימת העבודה שלך.",
+      "ctaDesc": "אין התקנות. פרטיות אולטימטיבית. עיבוד תמונה בדרגה מקצועית ישירות במכשיר המקומי שלך.",
+      "ctaBtn": "היכנסו לסטודיו"
     }
   }
 }

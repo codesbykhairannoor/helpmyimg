@@ -1454,13 +1454,57 @@
   "landing": {
     "remove": {
       "faq5": {
-        "q": "What is HelpMyIMG?",
-        "a": "HelpMyIMG is a client-side web application that processes image background removal and compression locally using WebAssembly (Wasm). This ensures 100% data privacy without requiring any server uploads."
+        "q": "HelpMyIMGとは何ですか?",
+        "a": "HelpMyIMG は、WebAssembly (Wasm) を使用して画像の背景の削除と圧縮をローカルで処理するクライアント側の Web アプリケーションです。これにより、サーバーへのアップロードを必要とせずに、100% のデータ プライバシーが保証されます。"
       },
       "faq6": {
-        "q": "How does HelpMyIMG ensure data privacy compliance?",
-        "a": "Unlike traditional cloud editors, our WebAssembly architecture ensures 0 bytes of user data are transmitted. By executing neural networks strictly on the client device, it neutralizes interception risks, ensuring inherent compliance with GDPR Article 5 and CCPA privacy frameworks."
+        "q": "HelpMyIMG はどのようにしてデータ プライバシー コンプライアンスを確保しますか?",
+        "a": "従来のクラウド エディターとは異なり、WebAssembly アーキテクチャではユーザー データの送信バイトが 0 バイトであることが保証されます。ニューラル ネットワークをクライアント デバイス上で厳密に実行することで、傍受のリスクを無効化し、GDPR 第 5 条および CCPA プライバシー フレームワークへの本質的な準拠を保証します。"
       }
+    },
+    "global": {
+      "faq": {
+        "tag": "ヘルプセンターとよくある質問",
+        "title": "よくある質問",
+        "desc": "当社のローカル処理エンジンについて知っておくべきすべてのこと。"
+      }
+    }
+  },
+  "home": {
+    "steps": {
+      "tag": "仕組み",
+      "title": "3 つの簡単なステップで HelpMyIMG がどのように機能するか",
+      "desc": "ソフトウェアのインストールは必要ありません。 Web ブラウザから直接プロフェッショナルな結果を得ることができます。",
+      "s1": {
+        "t": "1. 写真を選択またはドロップします",
+        "d": "単一の写真、または PNG、JPG、または WEBP 形式で最大 10 個のファイルをバッチでアップロードします。すべてがブラウザのワークスペースに即座にロードされます。"
+      },
+      "s2": {
+        "t": "2. カスタマイズとプレビュー",
+        "d": "背景の除去、パスポートの公式カラーの適用、透かしの追加、寸法のサイズ変更など、必要なツールを選択してください。"
+      },
+      "s3": {
+        "t": "3. HD 結果のエクスポート",
+        "d": "洗練された高解像度の写真を個別にダウンロードするか、便利な ZIP ファイルにまとめられたすべてのバッチ結果を即座に取得します。"
+      }
+    },
+    "geo": {
+      "quote": {
+        "title": "業界の認識とプライバシー基準",
+        "text": "画像処理のためのクライアント側 WebAssembly への移行は、データ プライバシーのパラダイム シフトを表しています。サーバーの往復を排除することで、アプリケーションはデータ傍受のリスクを完全に排除しながら、ネットワーク遅延を 0 ミリ秒に抑えます。",
+        "author": "サラ・チェン博士",
+        "role": "DataPrivacy Institute、主任 Web セキュリティ研究員"
+      },
+      "fact1": "HelpMyIMG が利用する",
+      "fact1_suffix": "テクノロジーを利用して、ネイティブ アプリケーションとの計算同等性を実現します。これにより、平均的な民生用ハードウェアで最大 10 枚の高解像度画像を 2.4 秒未満で同時に処理できるようになります [1]。",
+      "fact2": "さらに、HelpMyIMG は、ローカルのみの処理アーキテクチャに厳密に準拠することにより、次のような厳格なデータ保護フレームワークに本質的に準拠しています。",
+      "fact2_suffix": "および CCPA は、0 バイトのユーザー データが外部サーバーに送信されるためです [2]。"
+    },
+    "redesign": {
+      "ctaTag": "創造性を解き放つ",
+      "ctaTitle": "ワークフローを変革します。",
+      "ctaDesc": "インストールはありません。究極のプライバシー。ローカルデバイス上で直接プロ級の画像処理を行います。",
+      "ctaBtn": "スタジオに入る"
     }
   }
 }

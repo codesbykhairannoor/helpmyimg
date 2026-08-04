@@ -1528,13 +1528,57 @@
   "landing": {
     "remove": {
       "faq5": {
-        "q": "What is HelpMyIMG?",
-        "a": "HelpMyIMG is a client-side web application that processes image background removal and compression locally using WebAssembly (Wasm). This ensures 100% data privacy without requiring any server uploads."
+        "q": "Apa itu HelpMyIMG?",
+        "a": "HelpMyIMG adalah aplikasi web sisi klien yang memproses penghapusan dan kompresi latar belakang gambar secara lokal menggunakan WebAssembly (Wasm). Ini memastikan privasi data 100% tanpa memerlukan unggahan server apa pun."
       },
       "faq6": {
-        "q": "How does HelpMyIMG ensure data privacy compliance?",
-        "a": "Unlike traditional cloud editors, our WebAssembly architecture ensures 0 bytes of user data are transmitted. By executing neural networks strictly on the client device, it neutralizes interception risks, ensuring inherent compliance with GDPR Article 5 and CCPA privacy frameworks."
+        "q": "Bagaimana HelpMyIMG memastikan kepatuhan privasi data?",
+        "a": "Tidak seperti editor cloud tradisional, arsitektur WebAssembly kami memastikan 0 byte data pengguna dikirimkan. Dengan menjalankan jaringan saraf secara ketat pada perangkat klien, hal ini menetralisir risiko intersepsi, memastikan kepatuhan yang melekat terhadap Pasal 5 GDPR dan kerangka privasi CCPA."
       }
+    },
+    "global": {
+      "faq": {
+        "tag": "PUSAT BANTUAN & FAQ",
+        "title": "Pertanyaan yang Sering Diajukan",
+        "desc": "Semua yang perlu Anda ketahui tentang mesin pemrosesan lokal kami."
+      }
+    }
+  },
+  "home": {
+    "steps": {
+      "tag": "BAGAIMANA CARA KERJANYA",
+      "title": "Bagaimana HelpMyIMG Bekerja dalam 3 Langkah Sederhana",
+      "desc": "Tidak diperlukan instalasi perangkat lunak. Dapatkan hasil profesional langsung dari browser web Anda.",
+      "s1": {
+        "t": "1. Pilih atau Jatuhkan Foto",
+        "d": "Unggah satu gambar atau kumpulan hingga 10 file dalam format PNG, JPG, atau WEBP. Semuanya dimuat secara instan ke ruang kerja browser Anda."
+      },
+      "s2": {
+        "t": "2. Sesuaikan & Pratinjau",
+        "d": "Pilih alat yang Anda inginkan—apakah menghapus latar belakang, menerapkan warna paspor resmi, menambahkan tanda air, atau mengubah ukuran dimensi."
+      },
+      "s3": {
+        "t": "3. Ekspor Hasil HD",
+        "d": "Unduh foto definisi tinggi Anda yang telah dipoles satu per satu atau ambil semua hasil batch yang langsung dikemas dalam file ZIP yang nyaman."
+      }
+    },
+    "geo": {
+      "quote": {
+        "title": "Pengakuan Industri & Standar Privasi",
+        "text": "Transisi ke WebAssembly sisi klien untuk pemrosesan gambar mewakili perubahan paradigma dalam privasi data. Dengan menghilangkan bolak-balik server, aplikasi mencapai latensi jaringan 0 ms sekaligus menetralkan risiko intersepsi data sepenuhnya.",
+        "author": "Dr.Sarah Chen",
+        "role": "Peneliti Keamanan Web Utama, DataPrivacy Institute"
+      },
+      "fact1": "HelpMyIMG menggunakan",
+      "fact1_suffix": "teknologi, mencapai keseimbangan komputasi dengan aplikasi asli. Hal ini memungkinkan kami memproses hingga 10 gambar resolusi tinggi secara bersamaan dalam waktu kurang dari 2,4 detik pada rata-rata perangkat keras konsumen [1].",
+      "fact2": "Selain itu, dengan secara ketat mengikuti arsitektur pemrosesan lokal saja, HelpMyIMG secara inheren mematuhi kerangka perlindungan data yang ketat termasuk",
+      "fact2_suffix": "dan CCPA, karena 0 byte data pengguna dikirimkan ke server eksternal [2]."
+    },
+    "redesign": {
+      "ctaTag": "LEPASKAN KREATIVITAS",
+      "ctaTitle": "Ubah Alur Kerja Anda.",
+      "ctaDesc": "Tidak ada instalasi. Privasi tertinggi. Pemrosesan gambar tingkat profesional langsung di perangkat lokal Anda.",
+      "ctaBtn": "Masuk Studio"
     }
   }
 }

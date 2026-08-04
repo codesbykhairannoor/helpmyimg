@@ -1459,13 +1459,57 @@
   "landing": {
     "remove": {
       "faq5": {
-        "q": "What is HelpMyIMG?",
-        "a": "HelpMyIMG is a client-side web application that processes image background removal and compression locally using WebAssembly (Wasm). This ensures 100% data privacy without requiring any server uploads."
+        "q": "Co to jest HelpMyIMG?",
+        "a": "HelpMyIMG to aplikacja internetowa po stronie klienta, która przetwarza usuwanie tła obrazu i kompresję lokalnie przy użyciu WebAssembly (Wasm). Zapewnia to 100% prywatności danych bez konieczności przesyłania plików na serwer."
       },
       "faq6": {
-        "q": "How does HelpMyIMG ensure data privacy compliance?",
-        "a": "Unlike traditional cloud editors, our WebAssembly architecture ensures 0 bytes of user data are transmitted. By executing neural networks strictly on the client device, it neutralizes interception risks, ensuring inherent compliance with GDPR Article 5 and CCPA privacy frameworks."
+        "q": "W jaki sposób HelpMyIMG zapewnia zgodność z polityką prywatności danych?",
+        "a": "W przeciwieństwie do tradycyjnych edytorów w chmurze, nasza architektura WebAssembly zapewnia transmisję 0 bajtów danych użytkownika. Wykonując sieci neuronowe wyłącznie na urządzeniu klienckim, neutralizuje ryzyko przechwycenia, zapewniając nieodłączną zgodność z art. 5 RODO i ramami prywatności CCPA."
       }
+    },
+    "global": {
+      "faq": {
+        "tag": "CENTRUM POMOCY I FAQ",
+        "title": "Często zadawane pytania",
+        "desc": "Wszystko, co musisz wiedzieć o naszym lokalnym silniku przetwarzania."
+      }
+    }
+  },
+  "home": {
+    "steps": {
+      "tag": "JAK TO DZIAŁA",
+      "title": "Jak działa HelpMyIMG w 3 prostych krokach",
+      "desc": "Nie wymaga instalacji oprogramowania. Uzyskaj profesjonalne wyniki bezpośrednio ze swojej przeglądarki internetowej.",
+      "s1": {
+        "t": "1. Wybierz lub upuść zdjęcia",
+        "d": "Prześlij pojedyncze zdjęcia lub partie maksymalnie 10 plików w formacie PNG, JPG lub WEBP. Wszystko ładuje się natychmiast do obszaru roboczego przeglądarki."
+      },
+      "s2": {
+        "t": "2. Dostosuj i wyświetl podgląd",
+        "d": "Wybierz żądane narzędzie — czy to usuwanie tła, stosowanie oficjalnych kolorów paszportu, dodawanie znaków wodnych czy zmiana rozmiaru."
+      },
+      "s3": {
+        "t": "3. Eksportuj wyniki HD",
+        "d": "Pobierz pojedynczo dopracowane zdjęcia w wysokiej rozdzielczości lub zbierz wszystkie wyniki wsadowe natychmiast spakowane w wygodnym pliku ZIP."
+      }
+    },
+    "geo": {
+      "quote": {
+        "title": "Uznanie branżowe i standardy prywatności",
+        "text": "Przejście na zestaw WebAssembly po stronie klienta do przetwarzania obrazów stanowi zmianę paradygmatu w zakresie prywatności danych. Eliminując objazdy serwerów, aplikacje osiągają opóźnienia sieciowe na poziomie 0 ms, całkowicie neutralizując ryzyko przechwycenia danych.",
+        "author": "Doktor Sarah Chen",
+        "role": "Główny badacz bezpieczeństwa sieciowego, DataPrivacy Institute"
+      },
+      "fact1": "HelpMyIMG wykorzystuje",
+      "fact1_suffix": "technologii, osiągając zgodność obliczeniową z aplikacjami natywnymi. Pozwala to na jednoczesne przetwarzanie do 10 obrazów o wysokiej rozdzielczości w czasie krótszym niż 2,4 sekundy na przeciętnym sprzęcie konsumenckim [1].",
+      "fact2": "Co więcej, poprzez ścisłe przestrzeganie lokalnych architektur przetwarzania, HelpMyIMG jest z natury zgodny ze ścisłymi ramami ochrony danych, w tym",
+      "fact2_suffix": "i CCPA, ponieważ 0 bajtów danych użytkownika jest przesyłanych do serwerów zewnętrznych [2]."
+    },
+    "redesign": {
+      "ctaTag": "UWOLNIJ KREATYWNOŚĆ",
+      "ctaTitle": "Zmień swój przepływ pracy.",
+      "ctaDesc": "Żadnych instalacji. Maksymalna prywatność. Profesjonalne przetwarzanie obrazu bezpośrednio na urządzeniu lokalnym.",
+      "ctaBtn": "Wejdź do Studia"
     }
   }
 }

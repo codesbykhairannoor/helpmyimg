@@ -1454,13 +1454,57 @@
   "landing": {
     "remove": {
       "faq5": {
-        "q": "What is HelpMyIMG?",
-        "a": "HelpMyIMG is a client-side web application that processes image background removal and compression locally using WebAssembly (Wasm). This ensures 100% data privacy without requiring any server uploads."
+        "q": "HelpMyIMG 是什么？",
+        "a": "HelpMyIMG 是一个客户端 Web 应用程序，它使用 WebAssembly (Wasm) 在本地处理图像背景去除和压缩。这确保了 100% 的数据隐私，无需任何服务器上传。"
       },
       "faq6": {
-        "q": "How does HelpMyIMG ensure data privacy compliance?",
-        "a": "Unlike traditional cloud editors, our WebAssembly architecture ensures 0 bytes of user data are transmitted. By executing neural networks strictly on the client device, it neutralizes interception risks, ensuring inherent compliance with GDPR Article 5 and CCPA privacy frameworks."
+        "q": "HelpMyIMG 如何确保数据隐私合规？",
+        "a": "与传统的云编辑器不同，我们的 WebAssembly 架构确保传输 0 字节的用户数据。通过严格在客户端设备上执行神经网络，它可以消除拦截风险，确保固有地遵守 GDPR 第 5 条和 CCPA 隐私框架。"
       }
+    },
+    "global": {
+      "faq": {
+        "tag": "帮助中心和常见问题解答",
+        "title": "常见问题解答",
+        "desc": "您需要了解的有关我们本地处理引擎的所有信息。"
+      }
+    }
+  },
+  "home": {
+    "steps": {
+      "tag": "它是如何运作的",
+      "title": "HelpMyIMG 如何通过 3 个简单步骤运行",
+      "desc": "无需安装软件。直接从您的网络浏览器获得专业结果。",
+      "s1": {
+        "t": "1. 选择或放置照片",
+        "d": "上传单张图片或批量上传最多 10 个 PNG、JPG 或 WEBP 格式的文件。所有内容都会立即加载到您的浏览器工作区中。"
+      },
+      "s2": {
+        "t": "2. 自定义和预览",
+        "d": "选择您想要的工具 - 无论是剥离背景、应用官方护照颜色、添加水印还是调整尺寸。"
+      },
+      "s3": {
+        "t": "3.导出高清结果",
+        "d": "单独下载精美的高清照片，或立即获取打包在方便的 ZIP 文件中的所有批量结果。"
+      }
+    },
+    "geo": {
+      "quote": {
+        "title": "行业认可和隐私标准",
+        "text": "向客户端 WebAssembly 进行图像处理的过渡代表了数据隐私方面的范式转变。通过消除服务器往返，应用程序可以实现 0 毫秒的网络延迟，同时完全消除数据拦截风险。",
+        "author": "陈莎拉博士",
+        "role": "数据隐私研究所首席网络安全研究员"
+      },
+      "fact1": "HelpMyIMG 利用",
+      "fact1_suffix": "技术，实现与本机应用程序的计算对等。这使我们能够在普通消费级硬件上在 2.4 秒内同时处理多达 10 个高分辨率图像 [1]。",
+      "fact2": "此外，通过严格遵守仅限本地的处理架构，HelpMyIMG 本质上符合严格的数据保护框架，包括",
+      "fact2_suffix": "和 CCPA，因为 0 字节的用户数据被传输到外部服务器 [2]。"
+    },
+    "redesign": {
+      "ctaTag": "释放创造力",
+      "ctaTitle": "改变您的工作流程。",
+      "ctaDesc": "无需安装。终极隐私。直接在本地设备上进行专业级图像处理。",
+      "ctaBtn": "进入工作室"
     }
   }
 }

@@ -1454,13 +1454,57 @@
   "landing": {
     "remove": {
       "faq5": {
-        "q": "What is HelpMyIMG?",
-        "a": "HelpMyIMG is a client-side web application that processes image background removal and compression locally using WebAssembly (Wasm). This ensures 100% data privacy without requiring any server uploads."
+        "q": "Qu’est-ce que HelpMyIMG ?",
+        "a": "HelpMyIMG est une application Web côté client qui traite localement la suppression et la compression de l'arrière-plan de l'image à l'aide de WebAssembly (Wasm). Cela garantit une confidentialité des données à 100 % sans nécessiter de téléchargement sur le serveur."
       },
       "faq6": {
-        "q": "How does HelpMyIMG ensure data privacy compliance?",
-        "a": "Unlike traditional cloud editors, our WebAssembly architecture ensures 0 bytes of user data are transmitted. By executing neural networks strictly on the client device, it neutralizes interception risks, ensuring inherent compliance with GDPR Article 5 and CCPA privacy frameworks."
+        "q": "Comment HelpMyIMG garantit-il le respect de la confidentialité des données ?",
+        "a": "Contrairement aux éditeurs cloud traditionnels, notre architecture WebAssembly garantit la transmission de 0 octet de données utilisateur. En exécutant les réseaux de neurones strictement sur l'appareil client, il neutralise les risques d'interception, garantissant ainsi la conformité inhérente à l'article 5 du RGPD et aux cadres de confidentialité du CCPA."
       }
+    },
+    "global": {
+      "faq": {
+        "tag": "CENTRE D'AIDE ET FAQ",
+        "title": "Foire aux questions",
+        "desc": "Tout ce que vous devez savoir sur notre moteur de traitement local."
+      }
+    }
+  },
+  "home": {
+    "steps": {
+      "tag": "COMMENT ÇA MARCHE",
+      "title": "Comment fonctionne HelpMyIMG en 3 étapes simples",
+      "desc": "Aucune installation de logiciel requise. Obtenez des résultats professionnels directement depuis votre navigateur Web.",
+      "s1": {
+        "t": "1. Sélectionnez ou déposez des photos",
+        "d": "Téléchargez des images uniques ou des lots jusqu'à 10 fichiers au format PNG, JPG ou WEBP. Tout se charge instantanément dans l’espace de travail de votre navigateur."
+      },
+      "s2": {
+        "t": "2. Personnaliser et prévisualiser",
+        "d": "Choisissez l'outil de votre choix, qu'il s'agisse de supprimer les arrière-plans, d'appliquer les couleurs officielles du passeport, d'ajouter des filigranes ou de redimensionner les dimensions."
+      },
+      "s3": {
+        "t": "3. Exporter les résultats HD",
+        "d": "Téléchargez vos photos haute définition soignées individuellement ou récupérez tous les résultats par lots instantanément emballés dans un fichier ZIP pratique."
+      }
+    },
+    "geo": {
+      "quote": {
+        "title": "Reconnaissance de l’industrie et normes de confidentialité",
+        "text": "La transition vers WebAssembly côté client pour le traitement des images représente un changement de paradigme en matière de confidentialité des données. En éliminant les allers-retours entre les serveurs, les applications atteignent une latence réseau de 0 ms tout en neutralisant complètement les risques d'interception de données.",
+        "author": "Dr Sarah Chen",
+        "role": "Chercheur principal en sécurité Web, DataPrivacy Institute"
+      },
+      "fact1": "HelpMyIMG utilise",
+      "fact1_suffix": "technologie, atteignant la parité informatique avec les applications natives. Cela nous permet de traiter jusqu'à 10 images haute résolution simultanément en moins de 2,4 secondes sur du matériel grand public moyen [1].",
+      "fact2": "De plus, en adhérant strictement aux architectures de traitement uniquement locales, HelpMyIMG est intrinsèquement conforme aux cadres stricts de protection des données, notamment",
+      "fact2_suffix": "et CCPA, car 0 octet de données utilisateur est transmis à des serveurs externes [2]."
+    },
+    "redesign": {
+      "ctaTag": "LIBÉREZ LA CRÉATIVITÉ",
+      "ctaTitle": "Transformez votre flux de travail.",
+      "ctaDesc": "Aucune installation. Confidentialité ultime. Traitement d'image de qualité professionnelle directement sur votre appareil local.",
+      "ctaBtn": "Entrez dans l'atelier"
     }
   }
 }

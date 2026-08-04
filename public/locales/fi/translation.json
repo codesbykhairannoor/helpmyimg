@@ -1454,13 +1454,57 @@
   "landing": {
     "remove": {
       "faq5": {
-        "q": "What is HelpMyIMG?",
-        "a": "HelpMyIMG is a client-side web application that processes image background removal and compression locally using WebAssembly (Wasm). This ensures 100% data privacy without requiring any server uploads."
+        "q": "Mikä on HelpMyIMG?",
+        "a": "HelpMyIMG on asiakaspuolen verkkosovellus, joka käsittelee kuvan taustan poiston ja pakkaamisen paikallisesti käyttämällä WebAssemblya (Wasm). Tämä takaa 100 %:n tietosuojan ilman palvelimen latauksia."
       },
       "faq6": {
-        "q": "How does HelpMyIMG ensure data privacy compliance?",
-        "a": "Unlike traditional cloud editors, our WebAssembly architecture ensures 0 bytes of user data are transmitted. By executing neural networks strictly on the client device, it neutralizes interception risks, ensuring inherent compliance with GDPR Article 5 and CCPA privacy frameworks."
+        "q": "Kuinka HelpMyIMG varmistaa tietosuojan noudattamisen?",
+        "a": "Toisin kuin perinteiset pilvieditorit, WebAssembly-arkkitehtuurimme varmistaa, että käyttäjätietoja siirretään 0 tavua. Suorittamalla hermoverkkoja tiukasti asiakaslaitteella, se neutraloi sieppausriskit ja varmistaa GDPR-artikla 5:n ja CCPA:n tietosuojakehysten luontaisen noudattamisen."
       }
+    },
+    "global": {
+      "faq": {
+        "tag": "OHJEKESKUS & UKK",
+        "title": "Usein kysytyt kysymykset",
+        "desc": "Kaikki mitä sinun tulee tietää paikallisesta prosessointimoottoristamme."
+      }
+    }
+  },
+  "home": {
+    "steps": {
+      "tag": "MITEN SE TOIMII",
+      "title": "Kuinka HelpMyIMG toimii kolmessa yksinkertaisessa vaiheessa",
+      "desc": "Ohjelmiston asennusta ei vaadita. Saat ammattimaisia ​​tuloksia suoraan verkkoselaimestasi.",
+      "s1": {
+        "t": "1. Valitse tai pudota valokuvat",
+        "d": "Lataa yksittäisiä kuvia tai jopa 10 tiedostoa PNG-, JPG- tai WEBP-muodossa. Kaikki latautuu välittömästi selaimesi työtilaan."
+      },
+      "s2": {
+        "t": "2. Mukauta ja esikatsele",
+        "d": "Valitse haluamasi työkalu – taustan poistaminen, virallisten passin värien lisääminen, vesileimojen lisääminen tai mittojen muuttaminen."
+      },
+      "s3": {
+        "t": "3. Vie HD-tulokset",
+        "d": "Lataa kiillotetut teräväpiirtokuvasi yksitellen tai nappaa kaikki erätulokset heti kätevään ZIP-tiedostoon pakattuna."
+      }
+    },
+    "geo": {
+      "quote": {
+        "title": "Toimialan tunnustamis- ja tietosuojastandardit",
+        "text": "Siirtyminen asiakaspuolen WebAssembly-ohjelmaan kuvankäsittelyssä edustaa paradigman muutosta tietosuojassa. Poistamalla palvelinten edestakaiset sovellukset saavuttavat 0 ms:n verkkoviiveen ja neutraloivat täysin tiedon sieppausriskit.",
+        "author": "Tohtori Sarah Chen",
+        "role": "Johtava verkkoturvatutkija, DataPrivacy Institute"
+      },
+      "fact1": "HelpMyIMG käyttää",
+      "fact1_suffix": "teknologiaa, saavuttaen laskennallisen pariteetin alkuperäisten sovellusten kanssa. Tämän ansiosta voimme käsitellä jopa 10 korkearesoluutioista kuvaa samanaikaisesti alle 2,4 sekunnissa keskivertokuluttajan laitteistolla [1].",
+      "fact2": "Lisäksi, noudattamalla tiukasti vain paikallisia käsittelyarkkitehtuureja, HelpMyIMG on luonnostaan ​​tiukkojen tietosuojakehysten mukainen, mukaan lukien",
+      "fact2_suffix": "ja CCPA, koska 0 tavua käyttäjädataa lähetetään ulkoisille palvelimille [2]."
+    },
+    "redesign": {
+      "ctaTag": "PÄÄLTÄ LUOVUUS VÄÄRÄ",
+      "ctaTitle": "Muuta työnkulkusi.",
+      "ctaDesc": "Ei asennuksia. Lopullinen yksityisyys. Ammattitason kuvankäsittely suoraan paikallisella laitteellasi.",
+      "ctaBtn": "Siirry Studioon"
     }
   }
 }

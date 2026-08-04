@@ -1454,13 +1454,57 @@
   "landing": {
     "remove": {
       "faq5": {
-        "q": "What is HelpMyIMG?",
-        "a": "HelpMyIMG is a client-side web application that processes image background removal and compression locally using WebAssembly (Wasm). This ensures 100% data privacy without requiring any server uploads."
+        "q": "Ce este HelpMyIMG?",
+        "a": "HelpMyIMG este o aplicație web la nivelul clientului care procesează eliminarea și comprimarea fundalului imaginii la nivel local folosind WebAssembly (Wasm). Acest lucru asigură confidențialitatea 100% a datelor fără a necesita încărcări de server."
       },
       "faq6": {
-        "q": "How does HelpMyIMG ensure data privacy compliance?",
-        "a": "Unlike traditional cloud editors, our WebAssembly architecture ensures 0 bytes of user data are transmitted. By executing neural networks strictly on the client device, it neutralizes interception risks, ensuring inherent compliance with GDPR Article 5 and CCPA privacy frameworks."
+        "q": "Cum asigură HelpMyIMG respectarea confidențialității datelor?",
+        "a": "Spre deosebire de editorii cloud tradiționali, arhitectura noastră WebAssembly asigură transmiterea a 0 octeți de date utilizator. Prin executarea rețelelor neuronale strict pe dispozitivul client, neutralizează riscurile de interceptare, asigurând conformitatea inerentă cu articolul 5 GDPR și cadrele de confidențialitate CCPA."
       }
+    },
+    "global": {
+      "faq": {
+        "tag": "CENTRUL DE AJUTOR și Întrebări frecvente",
+        "title": "Întrebări frecvente",
+        "desc": "Tot ce trebuie să știți despre motorul nostru de procesare local."
+      }
+    }
+  },
+  "home": {
+    "steps": {
+      "tag": "CUM FUNcționează",
+      "title": "Cum funcționează HelpMyIMG în 3 pași simpli",
+      "desc": "Nu este necesară instalarea de software. Obțineți rezultate profesionale direct din browserul dvs. web.",
+      "s1": {
+        "t": "1. Selectați sau aruncați fotografii",
+        "d": "Încărcați fotografii individuale sau loturi de până la 10 fișiere în format PNG, JPG sau WEBP. Totul se încarcă instantaneu în spațiul de lucru al browserului."
+      },
+      "s2": {
+        "t": "2. Personalizare și previzualizare",
+        "d": "Alegeți instrumentul dorit, indiferent dacă decuparea fundalurilor, aplicarea culorilor oficiale pentru pașaport, adăugarea de filigrane sau redimensionarea dimensiunilor."
+      },
+      "s3": {
+        "t": "3. Exportați rezultatele HD",
+        "d": "Descărcați-vă fotografiile de înaltă definiție lustruite individual sau luați toate rezultatele lotului ambalate instantaneu într-un fișier ZIP convenabil."
+      }
+    },
+    "geo": {
+      "quote": {
+        "title": "Recunoașterea industriei și standardele de confidențialitate",
+        "text": "Trecerea la WebAssembly la nivelul clientului pentru procesarea imaginilor reprezintă o schimbare de paradigmă în privința confidențialității datelor. Prin eliminarea deplasărilor dus-întors pe server, aplicațiile obțin o latență de rețea de 0 ms, în timp ce neutralizează complet riscurile de interceptare a datelor.",
+        "author": "Dr. Sarah Chen",
+        "role": "Cercetător principal de securitate web, DataPrivacy Institute"
+      },
+      "fact1": "HelpMyIMG folosește",
+      "fact1_suffix": "tehnologie, realizând paritatea computațională cu aplicațiile native. Acest lucru ne permite să procesăm până la 10 imagini de înaltă rezoluție simultan în mai puțin de 2,4 secunde pe hardware-ul de consum mediu [1].",
+      "fact2": "În plus, prin respectarea strictă a arhitecturilor de procesare doar locale, HelpMyIMG respectă în mod inerent cadrele stricte de protecție a datelor, inclusiv",
+      "fact2_suffix": "și CCPA, deoarece 0 octeți de date utilizator sunt transmise către servere externe [2]."
+    },
+    "redesign": {
+      "ctaTag": "DEZLEAZĂ CREATIVITATEA",
+      "ctaTitle": "Transformă-ți fluxul de lucru.",
+      "ctaDesc": "Fara instalatii. confidențialitate supremă. Procesare profesională a imaginilor direct pe dispozitivul local.",
+      "ctaBtn": "Intră în Studio"
     }
   }
 }

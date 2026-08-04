@@ -1454,13 +1454,57 @@
   "landing": {
     "remove": {
       "faq5": {
-        "q": "What is HelpMyIMG?",
-        "a": "HelpMyIMG is a client-side web application that processes image background removal and compression locally using WebAssembly (Wasm). This ensures 100% data privacy without requiring any server uploads."
+        "q": "HelpMyIMG란 무엇입니까?",
+        "a": "HelpMyIMG는 WebAssembly(Wasm)를 사용하여 로컬에서 이미지 배경 제거 및 압축을 처리하는 클라이언트 측 웹 애플리케이션입니다. 이는 서버 업로드 없이도 100% 데이터 개인정보 보호를 보장합니다."
       },
       "faq6": {
-        "q": "How does HelpMyIMG ensure data privacy compliance?",
-        "a": "Unlike traditional cloud editors, our WebAssembly architecture ensures 0 bytes of user data are transmitted. By executing neural networks strictly on the client device, it neutralizes interception risks, ensuring inherent compliance with GDPR Article 5 and CCPA privacy frameworks."
+        "q": "HelpMyIMG는 데이터 개인 정보 보호 규정 준수를 어떻게 보장합니까?",
+        "a": "기존 클라우드 편집기와 달리 WebAssembly 아키텍처는 0바이트의 사용자 데이터 전송을 보장합니다. 클라이언트 장치에서 신경망을 엄격하게 실행함으로써 가로채기 위험을 무력화하고 GDPR 5조 및 CCPA 개인 정보 보호 프레임워크를 기본적으로 준수합니다."
       }
+    },
+    "global": {
+      "faq": {
+        "tag": "도움말 센터 및 FAQ",
+        "title": "자주 묻는 질문",
+        "desc": "로컬 처리 엔진에 대해 알아야 할 모든 것."
+      }
+    }
+  },
+  "home": {
+    "steps": {
+      "tag": "작동 방식",
+      "title": "HelpMyIMG가 간단한 3단계로 작동하는 방식",
+      "desc": "소프트웨어 설치가 필요하지 않습니다. 웹 브라우저에서 직접 전문적인 결과를 얻으세요.",
+      "s1": {
+        "t": "1. 사진 선택 또는 삭제",
+        "d": "단일 사진을 업로드하거나 PNG, JPG 또는 WEBP 형식의 파일 최대 10개를 일괄 업로드하세요. 모든 것이 브라우저 작업 공간에 즉시 로드됩니다."
+      },
+      "s2": {
+        "t": "2. 사용자 정의 및 미리보기",
+        "d": "배경 제거, 공식 여권 색상 적용, 워터마크 추가, 크기 조정 등 원하는 도구를 선택하세요."
+      },
+      "s3": {
+        "t": "3. HD 결과 내보내기",
+        "d": "세련된 고화질 사진을 개별적으로 다운로드하거나 편리한 ZIP 파일로 즉시 압축된 모든 배치 결과를 가져옵니다."
+      }
+    },
+    "geo": {
+      "quote": {
+        "title": "업계 인정 및 개인 정보 보호 표준",
+        "text": "이미지 처리를 위해 클라이언트 측 WebAssembly로의 전환은 데이터 개인 정보 보호의 패러다임 변화를 나타냅니다. 서버 왕복을 제거함으로써 애플리케이션은 데이터 가로채기 위험을 완전히 무력화하는 동시에 0ms 네트워크 대기 시간을 달성합니다.",
+        "author": "사라 첸 박사",
+        "role": "DataPrivacy Institute의 수석 웹 보안 연구원"
+      },
+      "fact1": "HelpMyIMG는",
+      "fact1_suffix": "기술을 사용하여 기본 애플리케이션과의 컴퓨팅 패리티를 달성합니다. 이를 통해 평균 소비자 하드웨어에서 2.4초 이내에 최대 10개의 고해상도 이미지를 동시에 처리할 수 있습니다[1].",
+      "fact2": "또한, 로컬 전용 처리 아키텍처를 엄격하게 준수함으로써 HelpMyIMG는 본질적으로 다음을 포함한 엄격한 데이터 보호 프레임워크를 준수합니다.",
+      "fact2_suffix": "CCPA는 0바이트의 사용자 데이터가 외부 서버로 전송되기 때문이다[2]."
+    },
+    "redesign": {
+      "ctaTag": "창의성을 발휘하세요",
+      "ctaTitle": "워크플로우를 혁신하세요.",
+      "ctaDesc": "설치가 없습니다. 최고의 프라이버시. 로컬 장치에서 직접 전문가 수준의 이미지 처리를 수행합니다.",
+      "ctaBtn": "스튜디오에 입장"
     }
   }
 }

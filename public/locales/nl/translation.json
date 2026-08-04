@@ -1454,13 +1454,57 @@
   "landing": {
     "remove": {
       "faq5": {
-        "q": "What is HelpMyIMG?",
-        "a": "HelpMyIMG is a client-side web application that processes image background removal and compression locally using WebAssembly (Wasm). This ensures 100% data privacy without requiring any server uploads."
+        "q": "Wat is HelpMijnIMG?",
+        "a": "HelpMyIMG is een client-side webapplicatie die het verwijderen en comprimeren van afbeeldingsachtergronden lokaal verwerkt met behulp van WebAssembly (Wasm). Dit garandeert 100% gegevensprivacy zonder dat er serveruploads nodig zijn."
       },
       "faq6": {
-        "q": "How does HelpMyIMG ensure data privacy compliance?",
-        "a": "Unlike traditional cloud editors, our WebAssembly architecture ensures 0 bytes of user data are transmitted. By executing neural networks strictly on the client device, it neutralizes interception risks, ensuring inherent compliance with GDPR Article 5 and CCPA privacy frameworks."
+        "q": "Hoe zorgt HelpMyIMG ervoor dat de privacy van gegevens wordt nageleefd?",
+        "a": "In tegenstelling tot traditionele cloudeditors zorgt onze WebAssembly-architectuur ervoor dat er 0 bytes aan gebruikersgegevens worden verzonden. Door neurale netwerken strikt op het clientapparaat uit te voeren, worden de risico's van onderschepping geneutraliseerd, waardoor inherente naleving van AVG-artikel 5 en CCPA-privacykaders wordt gegarandeerd."
       }
+    },
+    "global": {
+      "faq": {
+        "tag": "HELPCENTRUM & FAQ",
+        "title": "Veelgestelde vragen",
+        "desc": "Alles wat u moet weten over onze lokale verwerkingsmotor."
+      }
+    }
+  },
+  "home": {
+    "steps": {
+      "tag": "HOE HET WERKT",
+      "title": "Hoe HelpMyIMG werkt in 3 eenvoudige stappen",
+      "desc": "Geen software-installatie vereist. Ontvang professionele resultaten rechtstreeks vanuit uw webbrowser.",
+      "s1": {
+        "t": "1. Selecteer of zet foto's neer",
+        "d": "Upload afzonderlijke afbeeldingen of batches van maximaal 10 bestanden in PNG-, JPG- of WEBP-indeling. Alles wordt direct in uw browserwerkruimte geladen."
+      },
+      "s2": {
+        "t": "2. Aanpassen en bekijken",
+        "d": "Kies het gewenste hulpmiddel, of u nu achtergronden wilt verwijderen, officiële paspoortkleuren wilt toepassen, watermerken wilt toevoegen of de afmetingen wilt wijzigen."
+      },
+      "s3": {
+        "t": "3. Exporteer HD-resultaten",
+        "d": "Download uw gepolijste high-definition foto's afzonderlijk of verzamel alle batchresultaten onmiddellijk, verpakt in een handig ZIP-bestand."
+      }
+    },
+    "geo": {
+      "quote": {
+        "title": "Erkenning en privacynormen voor de sector",
+        "text": "De overgang naar WebAssembly aan de clientzijde voor beeldverwerking vertegenwoordigt een paradigmaverschuiving op het gebied van gegevensprivacy. Door server round-trips te elimineren, bereiken applicaties een netwerklatentie van 0 ms, terwijl de risico's voor gegevensonderschepping volledig worden geneutraliseerd.",
+        "author": "Dr. Sarah Chen",
+        "role": "Hoofdonderzoeker op het gebied van webbeveiliging, DataPrivacy Institute"
+      },
+      "fact1": "HelpMyIMG maakt gebruik van",
+      "fact1_suffix": "technologie, waardoor computationele pariteit met native applicaties wordt bereikt. Hierdoor kunnen we tot 10 afbeeldingen met hoge resolutie tegelijkertijd verwerken in minder dan 2,4 seconden op gemiddelde consumentenhardware [1].",
+      "fact2": "Bovendien voldoet HelpMyIMG, door zich strikt te houden aan uitsluitend lokale verwerkingsarchitecturen, inherent aan strikte raamwerken voor gegevensbescherming, waaronder",
+      "fact2_suffix": "en CCPA, aangezien er 0 bytes aan gebruikersgegevens naar externe servers worden verzonden [2]."
+    },
+    "redesign": {
+      "ctaTag": "ONTDEK CREATIVITEIT",
+      "ctaTitle": "Transformeer uw workflow.",
+      "ctaDesc": "Geen installaties. Ultieme privacy. Professionele beeldverwerking rechtstreeks op uw lokale apparaat.",
+      "ctaBtn": "Ga Studio binnen"
     }
   }
 }

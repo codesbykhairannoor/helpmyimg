@@ -1454,13 +1454,57 @@
   "landing": {
     "remove": {
       "faq5": {
-        "q": "What is HelpMyIMG?",
-        "a": "HelpMyIMG is a client-side web application that processes image background removal and compression locally using WebAssembly (Wasm). This ensures 100% data privacy without requiring any server uploads."
+        "q": "Vad är HelpMyIMG?",
+        "a": "HelpMyIMG är en webbapplikation på klientsidan som bearbetar borttagning och komprimering av bildbakgrund lokalt med hjälp av WebAssembly (Wasm). Detta säkerställer 100 % datasekretess utan att några serveruppladdningar krävs."
       },
       "faq6": {
-        "q": "How does HelpMyIMG ensure data privacy compliance?",
-        "a": "Unlike traditional cloud editors, our WebAssembly architecture ensures 0 bytes of user data are transmitted. By executing neural networks strictly on the client device, it neutralizes interception risks, ensuring inherent compliance with GDPR Article 5 and CCPA privacy frameworks."
+        "q": "Hur säkerställer HelpMyIMG efterlevnad av datasekretess?",
+        "a": "Till skillnad från traditionella molnredigerare säkerställer vår WebAssembly-arkitektur att 0 byte med användardata överförs. Genom att exekvera neurala nätverk strikt på klientenheten neutraliserar det avlyssningsrisker, vilket säkerställer en inneboende överensstämmelse med GDPR Artikel 5 och CCPA:s sekretessramverk."
       }
+    },
+    "global": {
+      "faq": {
+        "tag": "HJÄLPCENTER & FAQ",
+        "title": "Vanliga frågor",
+        "desc": "Allt du behöver veta om vår lokala processmotor."
+      }
+    }
+  },
+  "home": {
+    "steps": {
+      "tag": "HUR DET FUNGERAR",
+      "title": "Hur HelpMyIMG fungerar i 3 enkla steg",
+      "desc": "Ingen mjukvaruinstallation krävs. Få professionella resultat direkt från din webbläsare.",
+      "s1": {
+        "t": "1. Välj eller släpp foton",
+        "d": "Ladda upp enstaka bilder eller partier upp till 10 filer i PNG-, JPG- eller WEBP-format. Allt laddas omedelbart in i din webbläsares arbetsyta."
+      },
+      "s2": {
+        "t": "2. Anpassa och förhandsgranska",
+        "d": "Välj önskat verktyg – oavsett om du tar bort bakgrunder, använder officiella passfärger, lägger till vattenstämplar eller ändrar storlek på mått."
+      },
+      "s3": {
+        "t": "3. Exportera HD-resultat",
+        "d": "Ladda ner dina polerade högupplösta foton individuellt eller ta alla batchresultat omedelbart packade i en praktisk ZIP-fil."
+      }
+    },
+    "geo": {
+      "quote": {
+        "title": "Branschernas erkännande och sekretessstandarder",
+        "text": "Övergången till klientsidan WebAssembly för bildbehandling representerar ett paradigmskifte i datasekretess. Genom att eliminera serverns rundresor uppnår applikationer 0ms nätverkslatens samtidigt som riskerna för dataavlyssning helt neutraliseras.",
+        "author": "Dr Sarah Chen",
+        "role": "Ledande webbsäkerhetsforskare, DataPrivacy Institute"
+      },
+      "fact1": "HelpMyIMG använder",
+      "fact1_suffix": "teknik, vilket uppnår beräkningsparitet med inhemska applikationer. Detta gör att vi kan bearbeta upp till 10 högupplösta bilder samtidigt på under 2,4 sekunder på genomsnittlig konsumenthårdvara [1].",
+      "fact2": "Dessutom, genom att strikt följa lokalbearbetningsarkitekturer, är HelpMyIMG till sin natur kompatibel med strikta ramverk för dataskydd, inklusive",
+      "fact2_suffix": "och CCPA, eftersom 0 byte av användardata överförs till externa servrar [2]."
+    },
+    "redesign": {
+      "ctaTag": "SLÄPP LOSS KREATIVITET",
+      "ctaTitle": "Förvandla ditt arbetsflöde.",
+      "ctaDesc": "Inga installationer. Ultimat integritet. Professionell bildbehandling direkt på din lokala enhet.",
+      "ctaBtn": "Gå in i Studio"
     }
   }
 }

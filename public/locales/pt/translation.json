@@ -1454,13 +1454,57 @@
   "landing": {
     "remove": {
       "faq5": {
-        "q": "What is HelpMyIMG?",
-        "a": "HelpMyIMG is a client-side web application that processes image background removal and compression locally using WebAssembly (Wasm). This ensures 100% data privacy without requiring any server uploads."
+        "q": "O que é HelpMyIMG?",
+        "a": "HelpMyIMG é um aplicativo da web do lado do cliente que processa a remoção e compactação de fundo de imagens localmente usando WebAssembly (Wasm). Isso garante 100% de privacidade dos dados sem exigir uploads do servidor."
       },
       "faq6": {
-        "q": "How does HelpMyIMG ensure data privacy compliance?",
-        "a": "Unlike traditional cloud editors, our WebAssembly architecture ensures 0 bytes of user data are transmitted. By executing neural networks strictly on the client device, it neutralizes interception risks, ensuring inherent compliance with GDPR Article 5 and CCPA privacy frameworks."
+        "q": "Como o HelpMyIMG garante a conformidade com a privacidade dos dados?",
+        "a": "Ao contrário dos editores de nuvem tradicionais, nossa arquitetura WebAssembly garante a transmissão de 0 bytes de dados do usuário. Ao executar redes neurais estritamente no dispositivo do cliente, neutraliza os riscos de interceptação, garantindo a conformidade inerente ao Artigo 5 do GDPR e às estruturas de privacidade da CCPA."
       }
+    },
+    "global": {
+      "faq": {
+        "tag": "CENTRO DE AJUDA e perguntas frequentes",
+        "title": "Perguntas frequentes",
+        "desc": "Tudo o que você precisa saber sobre nosso mecanismo de processamento local."
+      }
+    }
+  },
+  "home": {
+    "steps": {
+      "tag": "COMO FUNCIONA",
+      "title": "Como HelpMyIMG funciona em 3 etapas simples",
+      "desc": "Não é necessária instalação de software. Obtenha resultados profissionais diretamente do seu navegador.",
+      "s1": {
+        "t": "1. Selecione ou solte fotos",
+        "d": "Carregue imagens únicas ou lotes de até 10 arquivos nos formatos PNG, JPG ou WEBP. Tudo carrega instantaneamente na área de trabalho do seu navegador."
+      },
+      "s2": {
+        "t": "2. Personalizar e visualizar",
+        "d": "Escolha a ferramenta desejada – seja remover fundos, aplicar cores oficiais de passaporte, adicionar marcas d’água ou redimensionar dimensões."
+      },
+      "s3": {
+        "t": "3. Exportar resultados em HD",
+        "d": "Baixe suas fotos refinadas de alta definição individualmente ou obtenha todos os resultados em lote embalados instantaneamente em um arquivo ZIP conveniente."
+      }
+    },
+    "geo": {
+      "quote": {
+        "title": "Reconhecimento da indústria e padrões de privacidade",
+        "text": "A transição para WebAssembly do lado do cliente para processamento de imagens representa uma mudança de paradigma na privacidade de dados. Ao eliminar as viagens de ida e volta do servidor, os aplicativos atingem uma latência de rede de 0 ms, ao mesmo tempo que neutralizam completamente os riscos de interceptação de dados.",
+        "author": "Dra.",
+        "role": "Pesquisador líder de segurança na Web, DataPrivacy Institute"
+      },
+      "fact1": "HelpMyIMG utiliza",
+      "fact1_suffix": "tecnologia, alcançando paridade computacional com aplicativos nativos. Isso nos permite processar até 10 imagens de alta resolução simultaneamente em menos de 2,4 segundos em hardware de consumo médio [1].",
+      "fact2": "Além disso, ao aderir estritamente às arquiteturas de processamento apenas locais, o HelpMyIMG é inerentemente compatível com estruturas rígidas de proteção de dados, incluindo",
+      "fact2_suffix": "e CCPA, já que 0 bytes de dados do usuário são transmitidos para servidores externos [2]."
+    },
+    "redesign": {
+      "ctaTag": "LIBERE A CRIATIVIDADE",
+      "ctaTitle": "Transforme seu fluxo de trabalho.",
+      "ctaDesc": "Sem instalações. Privacidade máxima. Processamento de imagens de nível profissional diretamente no seu dispositivo local.",
+      "ctaBtn": "Entre no estúdio"
     }
   }
 }

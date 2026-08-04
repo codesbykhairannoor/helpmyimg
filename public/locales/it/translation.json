@@ -1454,13 +1454,57 @@
   "landing": {
     "remove": {
       "faq5": {
-        "q": "What is HelpMyIMG?",
-        "a": "HelpMyIMG is a client-side web application that processes image background removal and compression locally using WebAssembly (Wasm). This ensures 100% data privacy without requiring any server uploads."
+        "q": "Cos'è HelpMyIMG?",
+        "a": "HelpMyIMG è un'applicazione Web lato client che elabora la rimozione e la compressione dello sfondo dell'immagine localmente utilizzando WebAssembly (Wasm). Ciò garantisce la riservatezza dei dati al 100% senza richiedere alcun caricamento sul server."
       },
       "faq6": {
-        "q": "How does HelpMyIMG ensure data privacy compliance?",
-        "a": "Unlike traditional cloud editors, our WebAssembly architecture ensures 0 bytes of user data are transmitted. By executing neural networks strictly on the client device, it neutralizes interception risks, ensuring inherent compliance with GDPR Article 5 and CCPA privacy frameworks."
+        "q": "In che modo HelpMyIMG garantisce la conformità alla privacy dei dati?",
+        "a": "A differenza dei tradizionali editor cloud, la nostra architettura WebAssembly garantisce che vengano trasmessi 0 byte di dati utente. Eseguendo reti neurali rigorosamente sul dispositivo client, neutralizza i rischi di intercettazione, garantendo la conformità intrinseca all'Articolo 5 del GDPR e ai quadri sulla privacy del CCPA."
       }
+    },
+    "global": {
+      "faq": {
+        "tag": "CENTRO AIUTO E FAQ",
+        "title": "Domande frequenti",
+        "desc": "Tutto quello che devi sapere sul nostro motore di elaborazione locale."
+      }
+    }
+  },
+  "home": {
+    "steps": {
+      "tag": "COME FUNZIONA",
+      "title": "Come funziona HelpMyIMG in 3 semplici passaggi",
+      "desc": "Nessuna installazione di software richiesta. Ottieni risultati professionali direttamente dal tuo browser web.",
+      "s1": {
+        "t": "1. Seleziona o rilascia foto",
+        "d": "Carica singole immagini o gruppi fino a 10 file in formato PNG, JPG o WEBP. Tutto viene caricato istantaneamente nell'area di lavoro del browser."
+      },
+      "s2": {
+        "t": "2. Personalizza e visualizza in anteprima",
+        "d": "Scegli lo strumento che preferisci: elimina gli sfondi, applica i colori ufficiali del passaporto, aggiungi filigrane o ridimensiona le dimensioni."
+      },
+      "s3": {
+        "t": "3. Esporta risultati HD",
+        "d": "Scarica singolarmente le tue foto raffinate ad alta definizione o acquisisci tutti i risultati batch immediatamente raggruppati in un comodo file ZIP."
+      }
+    },
+    "geo": {
+      "quote": {
+        "title": "Riconoscimenti del settore e standard sulla privacy",
+        "text": "La transizione al WebAssembly lato client per l'elaborazione delle immagini rappresenta un cambiamento di paradigma nella privacy dei dati. Eliminando i round trip del server, le applicazioni raggiungono una latenza di rete di 0 ms neutralizzando completamente i rischi di intercettazione dei dati.",
+        "author": "La dottoressa Sarah Chen",
+        "role": "Responsabile ricercatore sulla sicurezza web, DataPrivacy Institute"
+      },
+      "fact1": "HelpMyIMG utilizza",
+      "fact1_suffix": "tecnologia, raggiungendo la parità computazionale con le applicazioni native. Ciò ci consente di elaborare fino a 10 immagini ad alta risoluzione simultaneamente in meno di 2,4 secondi su un hardware consumer medio [1].",
+      "fact2": "Inoltre, aderendo rigorosamente alle architetture di elaborazione esclusivamente locali, HelpMyIMG è intrinsecamente conforme a rigorosi quadri di protezione dei dati, tra cui",
+      "fact2_suffix": "e CCPA, poiché 0 byte di dati utente vengono trasmessi a server esterni [2]."
+    },
+    "redesign": {
+      "ctaTag": "LIBERA LA CREATIVITÀ",
+      "ctaTitle": "Trasforma il tuo flusso di lavoro.",
+      "ctaDesc": "Nessuna installazione. Massima privacy. Elaborazione delle immagini di livello professionale direttamente sul tuo dispositivo locale.",
+      "ctaBtn": "Entra in Studio"
     }
   }
 }

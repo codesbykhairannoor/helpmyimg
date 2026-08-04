@@ -1454,13 +1454,57 @@
   "landing": {
     "remove": {
       "faq5": {
-        "q": "What is HelpMyIMG?",
-        "a": "HelpMyIMG is a client-side web application that processes image background removal and compression locally using WebAssembly (Wasm). This ensures 100% data privacy without requiring any server uploads."
+        "q": "¿Qué es HelpMyIMG?",
+        "a": "HelpMyIMG es una aplicación web del lado del cliente que procesa la eliminación y compresión del fondo de imágenes localmente mediante WebAssembly (Wasm). Esto garantiza el 100% de privacidad de los datos sin necesidad de cargar ningún servidor."
       },
       "faq6": {
-        "q": "How does HelpMyIMG ensure data privacy compliance?",
-        "a": "Unlike traditional cloud editors, our WebAssembly architecture ensures 0 bytes of user data are transmitted. By executing neural networks strictly on the client device, it neutralizes interception risks, ensuring inherent compliance with GDPR Article 5 and CCPA privacy frameworks."
+        "q": "¿Cómo garantiza HelpMyIMG el cumplimiento de la privacidad de los datos?",
+        "a": "A diferencia de los editores en la nube tradicionales, nuestra arquitectura WebAssembly garantiza que se transmitan 0 bytes de datos del usuario. Al ejecutar redes neuronales estrictamente en el dispositivo del cliente, neutraliza los riesgos de interceptación, garantizando el cumplimiento inherente del artículo 5 del RGPD y los marcos de privacidad de la CCPA."
       }
+    },
+    "global": {
+      "faq": {
+        "tag": "CENTRO DE AYUDA Y PREGUNTAS FRECUENTES",
+        "title": "Preguntas frecuentes",
+        "desc": "Todo lo que necesitas saber sobre nuestro motor de procesamiento local."
+      }
+    }
+  },
+  "home": {
+    "steps": {
+      "tag": "CÓMO FUNCIONA",
+      "title": "Cómo funciona HelpMyIMG en 3 sencillos pasos",
+      "desc": "No se requiere instalación de software. Obtenga resultados profesionales directamente desde su navegador web.",
+      "s1": {
+        "t": "1. Seleccionar o soltar fotos",
+        "d": "Cargue imágenes individuales o lotes de hasta 10 archivos en formato PNG, JPG o WEBP. Todo se carga instantáneamente en el espacio de trabajo de su navegador."
+      },
+      "s2": {
+        "t": "2. Personalizar y obtener vista previa",
+        "d": "Elija la herramienta que desee, ya sea eliminar fondos, aplicar colores de pasaporte oficiales, agregar marcas de agua o cambiar el tamaño de las dimensiones."
+      },
+      "s3": {
+        "t": "3. Exportar resultados HD",
+        "d": "Descargue sus pulidas fotografías de alta definición individualmente o obtenga todos los resultados por lotes empaquetados instantáneamente en un práctico archivo ZIP."
+      }
+    },
+    "geo": {
+      "quote": {
+        "title": "Estándares de privacidad y reconocimiento de la industria",
+        "text": "La transición a WebAssembly del lado del cliente para el procesamiento de imágenes representa un cambio de paradigma en la privacidad de los datos. Al eliminar los viajes de ida y vuelta del servidor, las aplicaciones logran una latencia de red de 0 ms y, al mismo tiempo, neutralizan por completo los riesgos de interceptación de datos.",
+        "author": "Dra. Sara Chen",
+        "role": "Investigador principal de seguridad web, DataPrivacy Institute"
+      },
+      "fact1": "HelpMyIMG utiliza",
+      "fact1_suffix": "tecnología, logrando paridad computacional con aplicaciones nativas. Esto nos permite procesar hasta 10 imágenes de alta resolución simultáneamente en menos de 2,4 segundos en un hardware de consumo promedio [1].",
+      "fact2": "Además, al adherirse estrictamente a arquitecturas de procesamiento exclusivamente local, HelpMyIMG cumple inherentemente con estrictos marcos de protección de datos que incluyen",
+      "fact2_suffix": "y CCPA, ya que se transmiten 0 bytes de datos del usuario a servidores externos [2]."
+    },
+    "redesign": {
+      "ctaTag": "DESATA LA CREATIVIDAD",
+      "ctaTitle": "Transforme su flujo de trabajo.",
+      "ctaDesc": "Sin instalaciones. Máxima privacidad. Procesamiento de imágenes de nivel profesional directamente en su dispositivo local.",
+      "ctaBtn": "Entrar al estudio"
     }
   }
 }
