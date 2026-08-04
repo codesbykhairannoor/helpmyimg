@@ -107,7 +107,19 @@ try {
 
 // 3. Elite Curated High-Intent Matrix (Matching iLoveIMG's exact ~1,650 URL footprint to guarantee zero keyword dilution)
 const eliteRemoveIntent = ['remove-background-from-image-online', 'transparent-bg-ecommerce-product', 'erase-bg-hd-free'];
-const eliteCompressIntent = ['kompres-foto-100kb-online-gratis', 'compress-image-to-50kb-for-passport', 'bulk-compress-20-photos-batch', 'reduce-photo-size-under-200kb'];
+const eliteCompressIntent = [
+  'kompres-foto-100kb-online-gratis', 
+  'compress-image-to-50kb-for-passport', 
+  'bulk-compress-20-photos-batch', 
+  'reduce-photo-size-under-200kb',
+  'jpeg-to-jpg-compressor',
+  'how-can-i-reduce-picture-file-size',
+  'how-do-i-decrease-the-file-size-of-a-jpeg',
+  'how-to-reduce-picture-file-size',
+  'how-to-shrink-file-size-of-a-picture',
+  'smaller-file-size-jpeg',
+  'how-to-reduce-file-size-of-jpeg'
+];
 const eliteConvertIntent = ['convert-30-photos-to-webp-batch', 'png-to-jpg-converter-online', 'convert-heic-to-jpg-free', 'webp-converter-for-shopify'];
 const eliteResizeIntent = ['resize-dimensions-1080p-hd', 'make-4x6-passport-photo-size', 'scale-image-for-instagram-square'];
 const eliteColorIntent = ['change-background-color-online', 'red-background-cpns-pas-foto', 'blue-background-ktp-ijazah', 'white-background-for-amazon-product'];
