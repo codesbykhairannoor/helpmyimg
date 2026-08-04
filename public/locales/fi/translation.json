@@ -1104,13 +1104,13 @@
   "home.tools.title": "Everything You Need in One HelpMyIMG Workspace",
   "home.tools.desc": "Explore our suite of specialized precision tools tailored for e-commerce sellers, professionals, students, and digital creators.",
   "home.steps.title": "Kuinka HelpMyIMG toimii kolmessa yksinkertaisessa vaiheessa",
-  "home.steps.desc": "Ohjelmiston asennusta ei vaadita. Hanki ammattimaisia tuloksia suoraan selaimestasi.",
-  "home.steps.s1.t": "1. Select or Drop Photos",
-  "home.steps.s1.d": "Upload single pictures or batches up to 10 files in PNG, JPG, or WEBP format. Everything loads instantly into your browser workspace.",
-  "home.steps.s2.t": "2. Customize & Preview",
-  "home.steps.s2.d": "Choose your desired tool—whether stripping backgrounds, applying official passport colors, adding watermarks, or resizing dimensions.",
-  "home.steps.s3.t": "3. Export HD Results",
-  "home.steps.s3.d": "Download your polished high-definition photos individually or grab all batch results instantly packed in a convenient ZIP file.",
+  "home.steps.desc": "Ohjelmiston asennusta ei vaadita. Saat ammattimaisia ​​tuloksia suoraan verkkoselaimestasi.",
+  "home.steps.s1.t": "1. Valitse tai pudota valokuvat",
+  "home.steps.s1.d": "Lataa yksittäisiä kuvia tai jopa 10 tiedostoa PNG-, JPG- tai WEBP-muodossa. Kaikki latautuu välittömästi selaimesi työtilaan.",
+  "home.steps.s2.t": "2. Mukauta ja esikatsele",
+  "home.steps.s2.d": "Valitse haluamasi työkalu – taustan poistaminen, virallisten passin värien lisääminen, vesileimojen lisääminen tai mittojen muuttaminen.",
+  "home.steps.s3.t": "3. Vie HD-tulokset",
+  "home.steps.s3.d": "Lataa kiillotetut teräväpiirtokuvasi yksitellen tai nappaa kaikki erätulokset heti kätevään ZIP-tiedostoon pakattuna.",
   "home.faq.title": "Frequently Asked Questions About HelpMyIMG Studio",
   "home.faq.fq1.q": "Is HelpMyIMG truly 100% free with no hidden paywalls or credit limits?",
   "home.faq.fq1.a": "Yes! HelpMyIMG is completely free to use forever. Because our advanced processing runs directly inside your web browser using modern client-side technology, we do not incur expensive cloud GPU server costs. We pass those savings directly to you—no registration, no credit systems, and no export watermarks.",
@@ -1201,8 +1201,8 @@
   "landing.flex.c2.desc": "Ohita lataus- ja latausodotusajat. Käsittely alkaa juuri sillä millisekunnilla, kun vedät ja pudotat valokuvasi.",
   "landing.flex.c3.title": "Toimii WebAssemblyllä",
   "landing.flex.c3.desc": "Hyödyntämällä erittäin nopeita WASM-binaareja HelpMyIMG vastaa alkuperäisten työpöytäsovellusten suorituskykyä verkkoselaimessa.",
-  "landing.global.faq.title": "Usein Kysytyt Kysymykset",
-  "landing.global.faq.desc": "Kaikki mitä sinun tarvitsee tietää paikallisesta käsittelymoottoristamme.",
+  "landing.global.faq.title": "Usein kysytyt kysymykset",
+  "landing.global.faq.desc": "Kaikki mitä sinun tulee tietää paikallisesta prosessointimoottoristamme.",
   "landing.remove.faq3.q": "Toimiiko se hyvin monimutkaisilla hiusten reunoilla?",
   "landing.remove.faq3.a": "Ehdottomasti. WebAssembly AI -malli on erityisesti koulutettu irrottamaan hienoja yksityiskohtia, kuten hiuksia, turkista ja puoliläpinäkyviä esineitä.",
   "landing.remove.faq4.q": "Onko olemassa raja, kuinka monta kuvaa voin käsitellä?",
@@ -1215,7 +1215,7 @@
   "landing.compress.redesign.stepsTag": "KUINKA SE TOIMII",
   "landing.remove.redesign.whoTag": "KENELLE SE ON TARKOITETTU",
   "landing.remove.redesign.stepsTag": "KUINKA SE TOIMII",
-  "home.steps.tag": "KUINKA SE TOIMII",
+  "home.steps.tag": "MITEN SE TOIMII",
   "landing.color.redesign.heroBadge": "VÄLITÖN VÄRISTUDIO",
   "landing.color.redesign.heroTitle": "Muuta taustavärejä reaaliajassa",
   "landing.color.redesign.heroDesc": "Käytä tasaisia värejä, liukuvärejä tai HEX-koodeja välittömästi. Täydellinen tuotekuvaukseen.",
@@ -1425,11 +1425,11 @@
   "landing.convert.faq4.a": "Täysin yksityisiä. Kaikki tapahtuu selaimessasi.",
   "home.redesign.badge": "SEURAAVAN SUKUPOLVEN AI-STUDIO",
   "home.redesign.explore": "Tutki Studiota",
-  "home.redesign.ctaTag": "VAPAUTA LUOVUUS",
+  "home.redesign.ctaTag": "PÄÄLTÄ LUOVUUS VÄÄRÄ",
   "home.redesign.ctaTitle": "Muuta työnkulkusi.",
-  "home.redesign.ctaDesc": "Ei asennuksia. Täydellinen yksityisyys. Ammattitason kuvankäsittely suoraan paikallisella laitteellasi.",
-  "home.redesign.ctaBtn": "Astu Studioon",
-  "landing.global.faq.tag": "HELP CENTER & FAQ",
+  "home.redesign.ctaDesc": "Ei asennuksia. Lopullinen yksityisyys. Ammattitason kuvankäsittely suoraan paikallisella laitteellasi.",
+  "home.redesign.ctaBtn": "Siirry Studioon",
+  "landing.global.faq.tag": "OHJEKESKUS & UKK",
   "landing.geo.matrix.tag": "PARAS VAIHTOEHTO",
   "landing.geo.matrix.title": "Miksi HelpMyIMG Beats Cloud Editors",
   "landing.geo.matrix.desc": "Kun verrataan HelpMyIMG:tä massiivisiin pilvialustoihin, kuten Canva, Remove.bg ja ILoveIMG, ero yksityisyyden ja kustannusten välillä on ehdoton.",
@@ -1451,60 +1451,16 @@
   "seo.jsonld.faq2.a": "Täysin.HelpMyIMG takaa 100 % yksityisyyden, koska kaikki tekoälyn käsittely tapahtuu paikallisesti selaimessasi.Arkaluontoiset valokuvasi eivät koskaan poistu laitteestasi, eikä niitä koskaan ladata millekään etäpalvelimelle.",
   "work.action.apply": "Käytä",
   "crop.radius": "Kulman säde",
-  "landing": {
-    "remove": {
-      "faq5": {
-        "q": "Mikä on HelpMyIMG?",
-        "a": "HelpMyIMG on asiakaspuolen verkkosovellus, joka käsittelee kuvan taustan poiston ja pakkaamisen paikallisesti käyttämällä WebAssemblya (Wasm). Tämä takaa 100 %:n tietosuojan ilman palvelimen latauksia."
-      },
-      "faq6": {
-        "q": "Kuinka HelpMyIMG varmistaa tietosuojan noudattamisen?",
-        "a": "Toisin kuin perinteiset pilvieditorit, WebAssembly-arkkitehtuurimme varmistaa, että käyttäjätietoja siirretään 0 tavua. Suorittamalla hermoverkkoja tiukasti asiakaslaitteella, se neutraloi sieppausriskit ja varmistaa GDPR-artikla 5:n ja CCPA:n tietosuojakehysten luontaisen noudattamisen."
-      }
-    },
-    "global": {
-      "faq": {
-        "tag": "OHJEKESKUS & UKK",
-        "title": "Usein kysytyt kysymykset",
-        "desc": "Kaikki mitä sinun tulee tietää paikallisesta prosessointimoottoristamme."
-      }
-    }
-  },
-  "home": {
-    "steps": {
-      "tag": "MITEN SE TOIMII",
-      "title": "Kuinka HelpMyIMG toimii kolmessa yksinkertaisessa vaiheessa",
-      "desc": "Ohjelmiston asennusta ei vaadita. Saat ammattimaisia ​​tuloksia suoraan verkkoselaimestasi.",
-      "s1": {
-        "t": "1. Valitse tai pudota valokuvat",
-        "d": "Lataa yksittäisiä kuvia tai jopa 10 tiedostoa PNG-, JPG- tai WEBP-muodossa. Kaikki latautuu välittömästi selaimesi työtilaan."
-      },
-      "s2": {
-        "t": "2. Mukauta ja esikatsele",
-        "d": "Valitse haluamasi työkalu – taustan poistaminen, virallisten passin värien lisääminen, vesileimojen lisääminen tai mittojen muuttaminen."
-      },
-      "s3": {
-        "t": "3. Vie HD-tulokset",
-        "d": "Lataa kiillotetut teräväpiirtokuvasi yksitellen tai nappaa kaikki erätulokset heti kätevään ZIP-tiedostoon pakattuna."
-      }
-    },
-    "geo": {
-      "quote": {
-        "title": "Toimialan tunnustamis- ja tietosuojastandardit",
-        "text": "Siirtyminen asiakaspuolen WebAssembly-ohjelmaan kuvankäsittelyssä edustaa paradigman muutosta tietosuojassa. Poistamalla palvelinten edestakaiset sovellukset saavuttavat 0 ms:n verkkoviiveen ja neutraloivat täysin tiedon sieppausriskit.",
-        "author": "Tohtori Sarah Chen",
-        "role": "Johtava verkkoturvatutkija, DataPrivacy Institute"
-      },
-      "fact1": "HelpMyIMG käyttää",
-      "fact1_suffix": "teknologiaa, saavuttaen laskennallisen pariteetin alkuperäisten sovellusten kanssa. Tämän ansiosta voimme käsitellä jopa 10 korkearesoluutioista kuvaa samanaikaisesti alle 2,4 sekunnissa keskivertokuluttajan laitteistolla [1].",
-      "fact2": "Lisäksi, noudattamalla tiukasti vain paikallisia käsittelyarkkitehtuureja, HelpMyIMG on luonnostaan ​​tiukkojen tietosuojakehysten mukainen, mukaan lukien",
-      "fact2_suffix": "ja CCPA, koska 0 tavua käyttäjädataa lähetetään ulkoisille palvelimille [2]."
-    },
-    "redesign": {
-      "ctaTag": "PÄÄLTÄ LUOVUUS VÄÄRÄ",
-      "ctaTitle": "Muuta työnkulkusi.",
-      "ctaDesc": "Ei asennuksia. Lopullinen yksityisyys. Ammattitason kuvankäsittely suoraan paikallisella laitteellasi.",
-      "ctaBtn": "Siirry Studioon"
-    }
-  }
+  "home.geo.quote.title": "Toimialan tunnustamis- ja tietosuojastandardit",
+  "home.geo.quote.text": "Siirtyminen asiakaspuolen WebAssembly-ohjelmaan kuvankäsittelyssä edustaa paradigman muutosta tietosuojassa. Poistamalla palvelinten edestakaiset sovellukset saavuttavat 0 ms:n verkkoviiveen ja neutraloivat täysin tiedon sieppausriskit.",
+  "home.geo.quote.author": "Tohtori Sarah Chen",
+  "home.geo.quote.role": "Johtava verkkoturvatutkija, DataPrivacy Institute",
+  "home.geo.fact1": "HelpMyIMG käyttää",
+  "home.geo.fact1_suffix": "teknologiaa, saavuttaen laskennallisen pariteetin alkuperäisten sovellusten kanssa. Tämän ansiosta voimme käsitellä jopa 10 korkearesoluutioista kuvaa samanaikaisesti alle 2,4 sekunnissa keskivertokuluttajan laitteistolla [1].",
+  "home.geo.fact2": "Lisäksi, noudattamalla tiukasti vain paikallisia käsittelyarkkitehtuureja, HelpMyIMG on luonnostaan ​​tiukkojen tietosuojakehysten mukainen, mukaan lukien",
+  "home.geo.fact2_suffix": "ja CCPA, koska 0 tavua käyttäjädataa lähetetään ulkoisille palvelimille [2].",
+  "landing.remove.faq5.q": "Mikä on HelpMyIMG?",
+  "landing.remove.faq5.a": "HelpMyIMG on asiakaspuolen verkkosovellus, joka käsittelee kuvan taustan poiston ja pakkaamisen paikallisesti käyttämällä WebAssemblya (Wasm). Tämä takaa 100 %:n tietosuojan ilman palvelimen latauksia.",
+  "landing.remove.faq6.q": "Kuinka HelpMyIMG varmistaa tietosuojan noudattamisen?",
+  "landing.remove.faq6.a": "Toisin kuin perinteiset pilvieditorit, WebAssembly-arkkitehtuurimme varmistaa, että käyttäjätietoja siirretään 0 tavua. Suorittamalla hermoverkkoja tiukasti asiakaslaitteella, se neutraloi sieppausriskit ja varmistaa GDPR-artikla 5:n ja CCPA:n tietosuojakehysten luontaisen noudattamisen."
 }

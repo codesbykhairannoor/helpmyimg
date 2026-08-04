@@ -1108,14 +1108,14 @@
   "home.why.c4.b": "10x Szybkość pracy",
   "home.tools.title": "Everything You Need in One HelpMyIMG Workspace",
   "home.tools.desc": "Explore our suite of specialized precision tools tailored for e-commerce sellers, professionals, students, and digital creators.",
-  "home.steps.title": "Jak to działa w 3 prostych krokach",
-  "home.steps.desc": "Nie wymaga instalacji oprogramowania. Uzyskaj profesjonalne rezultaty w przeglądarce.",
-  "home.steps.s1.t": "1. Select or Drop Photos",
-  "home.steps.s1.d": "Upload single pictures or batches up to 10 files in PNG, JPG, or WEBP format. Everything loads instantly into your browser workspace.",
-  "home.steps.s2.t": "2. Customize & Preview",
-  "home.steps.s2.d": "Choose your desired tool—whether stripping backgrounds, applying official passport colors, adding watermarks, or resizing dimensions.",
-  "home.steps.s3.t": "3. Export HD Results",
-  "home.steps.s3.d": "Download your polished high-definition photos individually or grab all batch results instantly packed in a convenient ZIP file.",
+  "home.steps.title": "Jak działa HelpMyIMG w 3 prostych krokach",
+  "home.steps.desc": "Nie wymaga instalacji oprogramowania. Uzyskaj profesjonalne wyniki bezpośrednio ze swojej przeglądarki internetowej.",
+  "home.steps.s1.t": "1. Wybierz lub upuść zdjęcia",
+  "home.steps.s1.d": "Prześlij pojedyncze zdjęcia lub partie maksymalnie 10 plików w formacie PNG, JPG lub WEBP. Wszystko ładuje się natychmiast do obszaru roboczego przeglądarki.",
+  "home.steps.s2.t": "2. Dostosuj i wyświetl podgląd",
+  "home.steps.s2.d": "Wybierz żądane narzędzie — czy to usuwanie tła, stosowanie oficjalnych kolorów paszportu, dodawanie znaków wodnych czy zmiana rozmiaru.",
+  "home.steps.s3.t": "3. Eksportuj wyniki HD",
+  "home.steps.s3.d": "Pobierz pojedynczo dopracowane zdjęcia w wysokiej rozdzielczości lub zbierz wszystkie wyniki wsadowe natychmiast spakowane w wygodnym pliku ZIP.",
   "home.faq.title": "Frequently Asked Questions About HelpMyIMG Studio",
   "home.faq.fq1.q": "Is HelpMyIMG truly 100% free with no hidden paywalls or credit limits?",
   "home.faq.fq1.a": "Yes! HelpMyIMG is completely free to use forever. Because our advanced processing runs directly inside your web browser using modern client-side technology, we do not incur expensive cloud GPU server costs. We pass those savings directly to you—no registration, no credit systems, and no export watermarks.",
@@ -1206,7 +1206,7 @@
   "landing.flex.c2.desc": "Pomiń czas oczekiwania na przesyłanie i pobieranie. Przetwarzanie rozpoczyna się dokładnie w tej samej milisekundzie, w której upuszczasz zdjęcia.",
   "landing.flex.c3.title": "Oparte na WebAssembly",
   "landing.flex.c3.desc": "Wykorzystując ultraszybkie pliki binarne WASM, HelpMyIMG dorównuje wydajnością natywnym aplikacjom komputerowym w przeglądarce internetowej.",
-  "landing.global.faq.title": "Często Zadawane Pytania",
+  "landing.global.faq.title": "Często zadawane pytania",
   "landing.global.faq.desc": "Wszystko, co musisz wiedzieć o naszym lokalnym silniku przetwarzania.",
   "landing.remove.faq3.q": "Czy dobrze radzi sobie ze skomplikowanymi krawędziami włosów?",
   "landing.remove.faq3.a": "Oczywiście. Model AI WebAssembly został specjalnie wytrenowany do matowania drobnych szczegółów, takich jak włosy, futro i obiekty półprzezroczyste.",
@@ -1432,7 +1432,7 @@
   "home.redesign.explore": "Odkryj Studio",
   "home.redesign.ctaTag": "UWOLNIJ KREATYWNOŚĆ",
   "home.redesign.ctaTitle": "Zmień swój przepływ pracy.",
-  "home.redesign.ctaDesc": "Bez instalacji. Pełna prywatność. Profesjonalne przetwarzanie obrazów bezpośrednio na Twoim urządzeniu.",
+  "home.redesign.ctaDesc": "Żadnych instalacji. Maksymalna prywatność. Profesjonalne przetwarzanie obrazu bezpośrednio na urządzeniu lokalnym.",
   "home.redesign.ctaBtn": "Wejdź do Studia",
   "landing.global.faq.tag": "CENTRUM POMOCY I FAQ",
   "landing.geo.matrix.tag": "NAJLEPSZA ALTERNATYWA",
@@ -1456,60 +1456,16 @@
   "seo.jsonld.faq2.a": "Absolutnie.HelpMyIMG gwarantuje 100% prywatności, ponieważ całe przetwarzanie AI odbywa się lokalnie w Twojej przeglądarce.Twoje wrażliwe zdjęcia nigdy nie opuszczają Twojego urządzenia i nigdy nie są przesyłane na żaden zdalny serwer.",
   "work.action.apply": "Zastosuj",
   "crop.radius": "Promień narożnika",
-  "landing": {
-    "remove": {
-      "faq5": {
-        "q": "Co to jest HelpMyIMG?",
-        "a": "HelpMyIMG to aplikacja internetowa po stronie klienta, która przetwarza usuwanie tła obrazu i kompresję lokalnie przy użyciu WebAssembly (Wasm). Zapewnia to 100% prywatności danych bez konieczności przesyłania plików na serwer."
-      },
-      "faq6": {
-        "q": "W jaki sposób HelpMyIMG zapewnia zgodność z polityką prywatności danych?",
-        "a": "W przeciwieństwie do tradycyjnych edytorów w chmurze, nasza architektura WebAssembly zapewnia transmisję 0 bajtów danych użytkownika. Wykonując sieci neuronowe wyłącznie na urządzeniu klienckim, neutralizuje ryzyko przechwycenia, zapewniając nieodłączną zgodność z art. 5 RODO i ramami prywatności CCPA."
-      }
-    },
-    "global": {
-      "faq": {
-        "tag": "CENTRUM POMOCY I FAQ",
-        "title": "Często zadawane pytania",
-        "desc": "Wszystko, co musisz wiedzieć o naszym lokalnym silniku przetwarzania."
-      }
-    }
-  },
-  "home": {
-    "steps": {
-      "tag": "JAK TO DZIAŁA",
-      "title": "Jak działa HelpMyIMG w 3 prostych krokach",
-      "desc": "Nie wymaga instalacji oprogramowania. Uzyskaj profesjonalne wyniki bezpośrednio ze swojej przeglądarki internetowej.",
-      "s1": {
-        "t": "1. Wybierz lub upuść zdjęcia",
-        "d": "Prześlij pojedyncze zdjęcia lub partie maksymalnie 10 plików w formacie PNG, JPG lub WEBP. Wszystko ładuje się natychmiast do obszaru roboczego przeglądarki."
-      },
-      "s2": {
-        "t": "2. Dostosuj i wyświetl podgląd",
-        "d": "Wybierz żądane narzędzie — czy to usuwanie tła, stosowanie oficjalnych kolorów paszportu, dodawanie znaków wodnych czy zmiana rozmiaru."
-      },
-      "s3": {
-        "t": "3. Eksportuj wyniki HD",
-        "d": "Pobierz pojedynczo dopracowane zdjęcia w wysokiej rozdzielczości lub zbierz wszystkie wyniki wsadowe natychmiast spakowane w wygodnym pliku ZIP."
-      }
-    },
-    "geo": {
-      "quote": {
-        "title": "Uznanie branżowe i standardy prywatności",
-        "text": "Przejście na zestaw WebAssembly po stronie klienta do przetwarzania obrazów stanowi zmianę paradygmatu w zakresie prywatności danych. Eliminując objazdy serwerów, aplikacje osiągają opóźnienia sieciowe na poziomie 0 ms, całkowicie neutralizując ryzyko przechwycenia danych.",
-        "author": "Doktor Sarah Chen",
-        "role": "Główny badacz bezpieczeństwa sieciowego, DataPrivacy Institute"
-      },
-      "fact1": "HelpMyIMG wykorzystuje",
-      "fact1_suffix": "technologii, osiągając zgodność obliczeniową z aplikacjami natywnymi. Pozwala to na jednoczesne przetwarzanie do 10 obrazów o wysokiej rozdzielczości w czasie krótszym niż 2,4 sekundy na przeciętnym sprzęcie konsumenckim [1].",
-      "fact2": "Co więcej, poprzez ścisłe przestrzeganie lokalnych architektur przetwarzania, HelpMyIMG jest z natury zgodny ze ścisłymi ramami ochrony danych, w tym",
-      "fact2_suffix": "i CCPA, ponieważ 0 bajtów danych użytkownika jest przesyłanych do serwerów zewnętrznych [2]."
-    },
-    "redesign": {
-      "ctaTag": "UWOLNIJ KREATYWNOŚĆ",
-      "ctaTitle": "Zmień swój przepływ pracy.",
-      "ctaDesc": "Żadnych instalacji. Maksymalna prywatność. Profesjonalne przetwarzanie obrazu bezpośrednio na urządzeniu lokalnym.",
-      "ctaBtn": "Wejdź do Studia"
-    }
-  }
+  "home.geo.quote.title": "Uznanie branżowe i standardy prywatności",
+  "home.geo.quote.text": "Przejście na zestaw WebAssembly po stronie klienta do przetwarzania obrazów stanowi zmianę paradygmatu w zakresie prywatności danych. Eliminując objazdy serwerów, aplikacje osiągają opóźnienia sieciowe na poziomie 0 ms, całkowicie neutralizując ryzyko przechwycenia danych.",
+  "home.geo.quote.author": "Doktor Sarah Chen",
+  "home.geo.quote.role": "Główny badacz bezpieczeństwa sieciowego, DataPrivacy Institute",
+  "home.geo.fact1": "HelpMyIMG wykorzystuje",
+  "home.geo.fact1_suffix": "technologii, osiągając zgodność obliczeniową z aplikacjami natywnymi. Pozwala to na jednoczesne przetwarzanie do 10 obrazów o wysokiej rozdzielczości w czasie krótszym niż 2,4 sekundy na przeciętnym sprzęcie konsumenckim [1].",
+  "home.geo.fact2": "Co więcej, poprzez ścisłe przestrzeganie lokalnych architektur przetwarzania, HelpMyIMG jest z natury zgodny ze ścisłymi ramami ochrony danych, w tym",
+  "home.geo.fact2_suffix": "i CCPA, ponieważ 0 bajtów danych użytkownika jest przesyłanych do serwerów zewnętrznych [2].",
+  "landing.remove.faq5.q": "Co to jest HelpMyIMG?",
+  "landing.remove.faq5.a": "HelpMyIMG to aplikacja internetowa po stronie klienta, która przetwarza usuwanie tła obrazu i kompresję lokalnie przy użyciu WebAssembly (Wasm). Zapewnia to 100% prywatności danych bez konieczności przesyłania plików na serwer.",
+  "landing.remove.faq6.q": "W jaki sposób HelpMyIMG zapewnia zgodność z polityką prywatności danych?",
+  "landing.remove.faq6.a": "W przeciwieństwie do tradycyjnych edytorów w chmurze, nasza architektura WebAssembly zapewnia transmisję 0 bajtów danych użytkownika. Wykonując sieci neuronowe wyłącznie na urządzeniu klienckim, neutralizuje ryzyko przechwycenia, zapewniając nieodłączną zgodność z art. 5 RODO i ramami prywatności CCPA."
 }

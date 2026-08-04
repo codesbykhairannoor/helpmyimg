@@ -1104,13 +1104,13 @@
   "home.tools.title": "Everything You Need in One HelpMyIMG Workspace",
   "home.tools.desc": "Explore our suite of specialized precision tools tailored for e-commerce sellers, professionals, students, and digital creators.",
   "home.steps.title": "Cum funcționează HelpMyIMG în 3 pași simpli",
-  "home.steps.desc": "Nu necesită instalare software. Obțineți rezultate profesionale direct din browserul web.",
-  "home.steps.s1.t": "1. Select or Drop Photos",
-  "home.steps.s1.d": "Upload single pictures or batches up to 10 files in PNG, JPG, or WEBP format. Everything loads instantly into your browser workspace.",
-  "home.steps.s2.t": "2. Customize & Preview",
-  "home.steps.s2.d": "Choose your desired tool—whether stripping backgrounds, applying official passport colors, adding watermarks, or resizing dimensions.",
-  "home.steps.s3.t": "3. Export HD Results",
-  "home.steps.s3.d": "Download your polished high-definition photos individually or grab all batch results instantly packed in a convenient ZIP file.",
+  "home.steps.desc": "Nu este necesară instalarea de software. Obțineți rezultate profesionale direct din browserul dvs. web.",
+  "home.steps.s1.t": "1. Selectați sau aruncați fotografii",
+  "home.steps.s1.d": "Încărcați fotografii individuale sau loturi de până la 10 fișiere în format PNG, JPG sau WEBP. Totul se încarcă instantaneu în spațiul de lucru al browserului.",
+  "home.steps.s2.t": "2. Personalizare și previzualizare",
+  "home.steps.s2.d": "Alegeți instrumentul dorit, indiferent dacă decuparea fundalurilor, aplicarea culorilor oficiale pentru pașaport, adăugarea de filigrane sau redimensionarea dimensiunilor.",
+  "home.steps.s3.t": "3. Exportați rezultatele HD",
+  "home.steps.s3.d": "Descărcați-vă fotografiile de înaltă definiție lustruite individual sau luați toate rezultatele lotului ambalate instantaneu într-un fișier ZIP convenabil.",
   "home.faq.title": "Frequently Asked Questions About HelpMyIMG Studio",
   "home.faq.fq1.q": "Is HelpMyIMG truly 100% free with no hidden paywalls or credit limits?",
   "home.faq.fq1.a": "Yes! HelpMyIMG is completely free to use forever. Because our advanced processing runs directly inside your web browser using modern client-side technology, we do not incur expensive cloud GPU server costs. We pass those savings directly to you—no registration, no credit systems, and no export watermarks.",
@@ -1201,8 +1201,8 @@
   "landing.flex.c2.desc": "Treceți peste timpii de așteptare pentru încărcare și descărcare. Procesarea începe exact în milisecunda în care glisați și plasați fotografiile.",
   "landing.flex.c3.title": "Alimentat de WebAssembly",
   "landing.flex.c3.desc": "Folosind fișiere binare WASM ultra-rapide, HelpMyIMG se potrivește cu performanța aplicațiilor desktop native din interiorul browserului web.",
-  "landing.global.faq.title": "Întrebări Frecvente",
-  "landing.global.faq.desc": "Tot ce trebuie să știți despre motorul nostru local de procesare.",
+  "landing.global.faq.title": "Întrebări frecvente",
+  "landing.global.faq.desc": "Tot ce trebuie să știți despre motorul nostru de procesare local.",
   "landing.remove.faq3.q": "Funcționează bine cu marginile complexe ale părului?",
   "landing.remove.faq3.a": "Absolut. Modelul WebAssembly AI este special antrenat pentru a decupa detalii fine, cum ar fi părul, blana și obiectele semitransparente.",
   "landing.remove.faq4.q": "Există o limită la câte imagini pot procesa?",
@@ -1215,7 +1215,7 @@
   "landing.compress.redesign.stepsTag": "CUM FUNCȚIONEAZĂ",
   "landing.remove.redesign.whoTag": "PENTRU CINE ESTE",
   "landing.remove.redesign.stepsTag": "CUM FUNCȚIONEAZĂ",
-  "home.steps.tag": "CUM FUNCȚIONEAZĂ",
+  "home.steps.tag": "CUM FUNcționează",
   "landing.color.redesign.heroBadge": "STUDIO DE CULORI INSTANT",
   "landing.color.redesign.heroTitle": "Schimbă Culorile de Fundal în Timp Real",
   "landing.color.redesign.heroDesc": "Aplică culori solide, gradiente sau coduri HEX instantaneu. Perfect pentru fotografii de produse.",
@@ -1425,10 +1425,10 @@
   "landing.convert.faq4.a": "Complet privat. Totul are loc în browser-ul tău.",
   "home.redesign.badge": "STUDIO AI DE GENERAȚIE URMĂTOARE",
   "home.redesign.explore": "Explorați Studioul",
-  "home.redesign.ctaTag": "ELIBERAȚI CREATIVITATEA",
-  "home.redesign.ctaTitle": "Transformați-vă fluxul de lucru.",
-  "home.redesign.ctaDesc": "Fără instalări. Confidențialitate absolută. Procesare profesională a imaginilor direct pe dispozitivul dvs.",
-  "home.redesign.ctaBtn": "Intrați în Studio",
+  "home.redesign.ctaTag": "DEZLEAZĂ CREATIVITATEA",
+  "home.redesign.ctaTitle": "Transformă-ți fluxul de lucru.",
+  "home.redesign.ctaDesc": "Fara instalatii. confidențialitate supremă. Procesare profesională a imaginilor direct pe dispozitivul local.",
+  "home.redesign.ctaBtn": "Intră în Studio",
   "landing.global.faq.tag": "CENTRUL DE AJUTOR și Întrebări frecvente",
   "landing.geo.matrix.tag": "CEA MAI BUNĂ ALTERNATIVĂ",
   "landing.geo.matrix.title": "De ce HelpMyIMG bate editorii cloud",
@@ -1451,60 +1451,16 @@
   "seo.jsonld.faq2.a": "Absolut.HelpMyIMG garantează 100% confidențialitate, deoarece toată procesarea AI are loc local în browserul dvs.Fotografiile dvs. sensibile nu părăsesc dispozitivul dvs. și nu sunt încărcate niciodată pe un server la distanță.",
   "work.action.apply": "Aplică",
   "crop.radius": "Raza colțului",
-  "landing": {
-    "remove": {
-      "faq5": {
-        "q": "Ce este HelpMyIMG?",
-        "a": "HelpMyIMG este o aplicație web la nivelul clientului care procesează eliminarea și comprimarea fundalului imaginii la nivel local folosind WebAssembly (Wasm). Acest lucru asigură confidențialitatea 100% a datelor fără a necesita încărcări de server."
-      },
-      "faq6": {
-        "q": "Cum asigură HelpMyIMG respectarea confidențialității datelor?",
-        "a": "Spre deosebire de editorii cloud tradiționali, arhitectura noastră WebAssembly asigură transmiterea a 0 octeți de date utilizator. Prin executarea rețelelor neuronale strict pe dispozitivul client, neutralizează riscurile de interceptare, asigurând conformitatea inerentă cu articolul 5 GDPR și cadrele de confidențialitate CCPA."
-      }
-    },
-    "global": {
-      "faq": {
-        "tag": "CENTRUL DE AJUTOR și Întrebări frecvente",
-        "title": "Întrebări frecvente",
-        "desc": "Tot ce trebuie să știți despre motorul nostru de procesare local."
-      }
-    }
-  },
-  "home": {
-    "steps": {
-      "tag": "CUM FUNcționează",
-      "title": "Cum funcționează HelpMyIMG în 3 pași simpli",
-      "desc": "Nu este necesară instalarea de software. Obțineți rezultate profesionale direct din browserul dvs. web.",
-      "s1": {
-        "t": "1. Selectați sau aruncați fotografii",
-        "d": "Încărcați fotografii individuale sau loturi de până la 10 fișiere în format PNG, JPG sau WEBP. Totul se încarcă instantaneu în spațiul de lucru al browserului."
-      },
-      "s2": {
-        "t": "2. Personalizare și previzualizare",
-        "d": "Alegeți instrumentul dorit, indiferent dacă decuparea fundalurilor, aplicarea culorilor oficiale pentru pașaport, adăugarea de filigrane sau redimensionarea dimensiunilor."
-      },
-      "s3": {
-        "t": "3. Exportați rezultatele HD",
-        "d": "Descărcați-vă fotografiile de înaltă definiție lustruite individual sau luați toate rezultatele lotului ambalate instantaneu într-un fișier ZIP convenabil."
-      }
-    },
-    "geo": {
-      "quote": {
-        "title": "Recunoașterea industriei și standardele de confidențialitate",
-        "text": "Trecerea la WebAssembly la nivelul clientului pentru procesarea imaginilor reprezintă o schimbare de paradigmă în privința confidențialității datelor. Prin eliminarea deplasărilor dus-întors pe server, aplicațiile obțin o latență de rețea de 0 ms, în timp ce neutralizează complet riscurile de interceptare a datelor.",
-        "author": "Dr. Sarah Chen",
-        "role": "Cercetător principal de securitate web, DataPrivacy Institute"
-      },
-      "fact1": "HelpMyIMG folosește",
-      "fact1_suffix": "tehnologie, realizând paritatea computațională cu aplicațiile native. Acest lucru ne permite să procesăm până la 10 imagini de înaltă rezoluție simultan în mai puțin de 2,4 secunde pe hardware-ul de consum mediu [1].",
-      "fact2": "În plus, prin respectarea strictă a arhitecturilor de procesare doar locale, HelpMyIMG respectă în mod inerent cadrele stricte de protecție a datelor, inclusiv",
-      "fact2_suffix": "și CCPA, deoarece 0 octeți de date utilizator sunt transmise către servere externe [2]."
-    },
-    "redesign": {
-      "ctaTag": "DEZLEAZĂ CREATIVITATEA",
-      "ctaTitle": "Transformă-ți fluxul de lucru.",
-      "ctaDesc": "Fara instalatii. confidențialitate supremă. Procesare profesională a imaginilor direct pe dispozitivul local.",
-      "ctaBtn": "Intră în Studio"
-    }
-  }
+  "home.geo.quote.title": "Recunoașterea industriei și standardele de confidențialitate",
+  "home.geo.quote.text": "Trecerea la WebAssembly la nivelul clientului pentru procesarea imaginilor reprezintă o schimbare de paradigmă în privința confidențialității datelor. Prin eliminarea deplasărilor dus-întors pe server, aplicațiile obțin o latență de rețea de 0 ms, în timp ce neutralizează complet riscurile de interceptare a datelor.",
+  "home.geo.quote.author": "Dr. Sarah Chen",
+  "home.geo.quote.role": "Cercetător principal de securitate web, DataPrivacy Institute",
+  "home.geo.fact1": "HelpMyIMG folosește",
+  "home.geo.fact1_suffix": "tehnologie, realizând paritatea computațională cu aplicațiile native. Acest lucru ne permite să procesăm până la 10 imagini de înaltă rezoluție simultan în mai puțin de 2,4 secunde pe hardware-ul de consum mediu [1].",
+  "home.geo.fact2": "În plus, prin respectarea strictă a arhitecturilor de procesare doar locale, HelpMyIMG respectă în mod inerent cadrele stricte de protecție a datelor, inclusiv",
+  "home.geo.fact2_suffix": "și CCPA, deoarece 0 octeți de date utilizator sunt transmise către servere externe [2].",
+  "landing.remove.faq5.q": "Ce este HelpMyIMG?",
+  "landing.remove.faq5.a": "HelpMyIMG este o aplicație web la nivelul clientului care procesează eliminarea și comprimarea fundalului imaginii la nivel local folosind WebAssembly (Wasm). Acest lucru asigură confidențialitatea 100% a datelor fără a necesita încărcări de server.",
+  "landing.remove.faq6.q": "Cum asigură HelpMyIMG respectarea confidențialității datelor?",
+  "landing.remove.faq6.a": "Spre deosebire de editorii cloud tradiționali, arhitectura noastră WebAssembly asigură transmiterea a 0 octeți de date utilizator. Prin executarea rețelelor neuronale strict pe dispozitivul client, neutralizează riscurile de interceptare, asigurând conformitatea inerentă cu articolul 5 GDPR și cadrele de confidențialitate CCPA."
 }

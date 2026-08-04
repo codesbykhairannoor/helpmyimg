@@ -1103,14 +1103,14 @@
   "home.why.c4.b": "10x Kelajuan Aliran Kerja",
   "home.tools.title": "Everything You Need in One HelpMyIMG Workspace",
   "home.tools.desc": "Explore our suite of specialized precision tools tailored for e-commerce sellers, professionals, students, and digital creators.",
-  "home.steps.title": "Bagaimana HelpMyIMG Berfungsi dalam 3 Langkah Mudah",
-  "home.steps.desc": "Tiada pemasangan perisian diperlukan. Dapatkan hasil profesional terus dari pelayar web anda.",
-  "home.steps.s1.t": "1. Select or Drop Photos",
-  "home.steps.s1.d": "Upload single pictures or batches up to 10 files in PNG, JPG, or WEBP format. Everything loads instantly into your browser workspace.",
-  "home.steps.s2.t": "2. Customize & Preview",
-  "home.steps.s2.d": "Choose your desired tool—whether stripping backgrounds, applying official passport colors, adding watermarks, or resizing dimensions.",
-  "home.steps.s3.t": "3. Export HD Results",
-  "home.steps.s3.d": "Download your polished high-definition photos individually or grab all batch results instantly packed in a convenient ZIP file.",
+  "home.steps.title": "Cara HelpMyIMG Berfungsi dalam 3 Langkah Mudah",
+  "home.steps.desc": "Tiada pemasangan perisian diperlukan. Dapatkan hasil profesional terus daripada pelayar web anda.",
+  "home.steps.s1.t": "1. Pilih atau Lepaskan Foto",
+  "home.steps.s1.d": "Muat naik gambar tunggal atau kelompok sehingga 10 fail dalam format PNG, JPG atau WEBP. Semuanya dimuatkan serta-merta ke dalam ruang kerja penyemak imbas anda.",
+  "home.steps.s2.t": "2. Sesuaikan & Pratonton",
+  "home.steps.s2.d": "Pilih alat yang anda inginkan—sama ada menanggalkan latar belakang, menggunakan warna pasport rasmi, menambah tera air atau mengubah saiz dimensi.",
+  "home.steps.s3.t": "3. Eksport Hasil HD",
+  "home.steps.s3.d": "Muat turun foto definisi tinggi anda yang digilap secara individu atau ambil semua hasil kumpulan serta-merta yang dibungkus dalam fail ZIP yang mudah.",
   "home.faq.title": "Frequently Asked Questions About HelpMyIMG Studio",
   "home.faq.fq1.q": "Is HelpMyIMG truly 100% free with no hidden paywalls or credit limits?",
   "home.faq.fq1.a": "Yes! HelpMyIMG is completely free to use forever. Because our advanced processing runs directly inside your web browser using modern client-side technology, we do not incur expensive cloud GPU server costs. We pass those savings directly to you—no registration, no credit systems, and no export watermarks.",
@@ -1202,7 +1202,7 @@
   "landing.flex.c3.title": "Dikuasakan oleh WebAssembly",
   "landing.flex.c3.desc": "Memanfaatkan binari WASM ultra-pantas, HelpMyIMG menyamai prestasi aplikasi desktop asli di dalam pelayar web.",
   "landing.global.faq.title": "Soalan Lazim",
-  "landing.global.faq.desc": "Semua yang anda perlu tahu mengenai enjin pemprosesan tempatan kami.",
+  "landing.global.faq.desc": "Semua yang anda perlu tahu tentang enjin pemprosesan tempatan kami.",
   "landing.remove.faq3.q": "Adakah ia berfungsi dengan baik dengan tepi rambut yang kompleks?",
   "landing.remove.faq3.a": "Tentu sekali. Model AI WebAssembly dilatih khusus untuk memotong butiran halus seperti rambut, bulu, dan objek separuh lutsinar.",
   "landing.remove.faq4.q": "Adakah terdapat had kepada bilangan imej yang boleh saya proses?",
@@ -1425,10 +1425,10 @@
   "landing.convert.faq4.a": "Sepenuhnya peribadi. Semuanya berlaku dalam penyemak imbas anda.",
   "home.redesign.badge": "STUDIO AI GENERASI SETERUSNYA",
   "home.redesign.explore": "Terokai Studio",
-  "home.redesign.ctaTag": "LEPASKAN KREATIVITI",
+  "home.redesign.ctaTag": "LUARKAN KREATIVITI",
   "home.redesign.ctaTitle": "Ubah Aliran Kerja Anda.",
-  "home.redesign.ctaDesc": "Tiada pemasangan. Privasi mutlak. Pemprosesan imej gred profesional terus pada peranti tempatan anda.",
-  "home.redesign.ctaBtn": "Masuk ke Studio",
+  "home.redesign.ctaDesc": "Tiada pemasangan. Privasi muktamad. Pemprosesan imej gred profesional terus pada peranti tempatan anda.",
+  "home.redesign.ctaBtn": "Masuk Studio",
   "landing.global.faq.tag": "PUSAT BANTUAN & FAQ",
   "landing.geo.matrix.tag": "ALTERNATIF TERBAIK",
   "landing.geo.matrix.title": "Mengapa HelpMyIMG Mengalahkan Editor Awan",
@@ -1451,60 +1451,16 @@
   "seo.jsonld.faq2.a": "betul-betul.HelpMyIMG menjamin 100% privasi kerana semua pemprosesan AI berlaku secara setempat dalam penyemak imbas anda.Foto sensitif anda tidak pernah meninggalkan peranti anda dan tidak pernah dimuat naik ke mana-mana pelayan jauh.",
   "work.action.apply": "Gunakan",
   "crop.radius": "Jejari sudut",
-  "landing": {
-    "remove": {
-      "faq5": {
-        "q": "Apakah HelpMyIMG?",
-        "a": "HelpMyIMG ialah aplikasi web sebelah pelanggan yang memproses penyingkiran latar belakang imej dan pemampatan secara setempat menggunakan WebAssembly (Wasm). Ini memastikan 100% privasi data tanpa memerlukan sebarang muat naik pelayan."
-      },
-      "faq6": {
-        "q": "Bagaimanakah HelpMyIMG memastikan pematuhan privasi data?",
-        "a": "Tidak seperti editor awan tradisional, seni bina WebAssembly kami memastikan 0 bait data pengguna dihantar. Dengan melaksanakan rangkaian saraf secara ketat pada peranti pelanggan, ia meneutralkan risiko pemintasan, memastikan pematuhan yang wujud dengan GDPR Artikel 5 dan rangka kerja privasi CCPA."
-      }
-    },
-    "global": {
-      "faq": {
-        "tag": "PUSAT BANTUAN & FAQ",
-        "title": "Soalan Lazim",
-        "desc": "Semua yang anda perlu tahu tentang enjin pemprosesan tempatan kami."
-      }
-    }
-  },
-  "home": {
-    "steps": {
-      "tag": "BAGAIMANA IA BERFUNGSI",
-      "title": "Cara HelpMyIMG Berfungsi dalam 3 Langkah Mudah",
-      "desc": "Tiada pemasangan perisian diperlukan. Dapatkan hasil profesional terus daripada pelayar web anda.",
-      "s1": {
-        "t": "1. Pilih atau Lepaskan Foto",
-        "d": "Muat naik gambar tunggal atau kelompok sehingga 10 fail dalam format PNG, JPG atau WEBP. Semuanya dimuatkan serta-merta ke dalam ruang kerja penyemak imbas anda."
-      },
-      "s2": {
-        "t": "2. Sesuaikan & Pratonton",
-        "d": "Pilih alat yang anda inginkan—sama ada menanggalkan latar belakang, menggunakan warna pasport rasmi, menambah tera air atau mengubah saiz dimensi."
-      },
-      "s3": {
-        "t": "3. Eksport Hasil HD",
-        "d": "Muat turun foto definisi tinggi anda yang digilap secara individu atau ambil semua hasil kumpulan serta-merta yang dibungkus dalam fail ZIP yang mudah."
-      }
-    },
-    "geo": {
-      "quote": {
-        "title": "Piawaian Pengiktirafan & Privasi Industri",
-        "text": "Peralihan kepada WebAssembly sebelah klien untuk pemprosesan imej mewakili anjakan paradigma dalam privasi data. Dengan menghapuskan perjalanan pergi balik pelayan, aplikasi mencapai kependaman rangkaian 0ms sambil meneutralkan sepenuhnya risiko pemintasan data.",
-        "author": "Dr Sarah Chen",
-        "role": "Penyelidik Keselamatan Web Utama, DataPrivacy Institute"
-      },
-      "fact1": "HelpMyIMG menggunakan",
-      "fact1_suffix": "teknologi, mencapai pariti pengiraan dengan aplikasi asli. Ini membolehkan kami memproses sehingga 10 imej beresolusi tinggi secara serentak dalam masa kurang daripada 2.4 saat pada purata perkakasan pengguna [1].",
-      "fact2": "Tambahan pula, dengan mematuhi sepenuhnya seni bina pemprosesan tempatan sahaja, HelpMyIMG sememangnya mematuhi rangka kerja perlindungan data yang ketat termasuk",
-      "fact2_suffix": "dan CCPA, kerana 0 bait data pengguna dihantar ke pelayan luaran [2]."
-    },
-    "redesign": {
-      "ctaTag": "LUARKAN KREATIVITI",
-      "ctaTitle": "Ubah Aliran Kerja Anda.",
-      "ctaDesc": "Tiada pemasangan. Privasi muktamad. Pemprosesan imej gred profesional terus pada peranti tempatan anda.",
-      "ctaBtn": "Masuk Studio"
-    }
-  }
+  "home.geo.quote.title": "Piawaian Pengiktirafan & Privasi Industri",
+  "home.geo.quote.text": "Peralihan kepada WebAssembly sebelah klien untuk pemprosesan imej mewakili anjakan paradigma dalam privasi data. Dengan menghapuskan perjalanan pergi balik pelayan, aplikasi mencapai kependaman rangkaian 0ms sambil meneutralkan sepenuhnya risiko pemintasan data.",
+  "home.geo.quote.author": "Dr Sarah Chen",
+  "home.geo.quote.role": "Penyelidik Keselamatan Web Utama, DataPrivacy Institute",
+  "home.geo.fact1": "HelpMyIMG menggunakan",
+  "home.geo.fact1_suffix": "teknologi, mencapai pariti pengiraan dengan aplikasi asli. Ini membolehkan kami memproses sehingga 10 imej beresolusi tinggi secara serentak dalam masa kurang daripada 2.4 saat pada purata perkakasan pengguna [1].",
+  "home.geo.fact2": "Tambahan pula, dengan mematuhi sepenuhnya seni bina pemprosesan tempatan sahaja, HelpMyIMG sememangnya mematuhi rangka kerja perlindungan data yang ketat termasuk",
+  "home.geo.fact2_suffix": "dan CCPA, kerana 0 bait data pengguna dihantar ke pelayan luaran [2].",
+  "landing.remove.faq5.q": "Apakah HelpMyIMG?",
+  "landing.remove.faq5.a": "HelpMyIMG ialah aplikasi web sebelah pelanggan yang memproses penyingkiran latar belakang imej dan pemampatan secara setempat menggunakan WebAssembly (Wasm). Ini memastikan 100% privasi data tanpa memerlukan sebarang muat naik pelayan.",
+  "landing.remove.faq6.q": "Bagaimanakah HelpMyIMG memastikan pematuhan privasi data?",
+  "landing.remove.faq6.a": "Tidak seperti editor awan tradisional, seni bina WebAssembly kami memastikan 0 bait data pengguna dihantar. Dengan melaksanakan rangkaian saraf secara ketat pada peranti pelanggan, ia meneutralkan risiko pemintasan, memastikan pematuhan yang wujud dengan GDPR Artikel 5 dan rangka kerja privasi CCPA."
 }

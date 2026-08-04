@@ -1103,14 +1103,14 @@
   "home.why.c4.b": "10x Velocidad de Trabajo",
   "home.tools.title": "Todas las Herramientas en un Solo Espacio de Trabajo HelpMyIMG",
   "home.tools.desc": "Explora nuestra suite de herramientas de precisión diseñadas para vendedores de e-commerce, fotógrafos y estudiantes.",
-  "home.steps.title": "Cómo Funciona HelpMyIMG en 3 Sencillos Pasos",
-  "home.steps.desc": "No se requiere instalación de software. Obtenga resultados profesionales desde su navegador web.",
-  "home.steps.s1.t": "1. Selecciona o Suelta Fotos",
-  "home.steps.s1.d": "Sube imágenes individuales o lotes de hasta 10 archivos en formato PNG, JPG o WEBP. Todo se carga al instante en tu área de trabajo web.",
-  "home.steps.s2.t": "2. Personaliza y Previsualiza",
-  "home.steps.s2.d": "Elige tu herramienta: eliminar fondos, aplicar colores oficiales de pasaporte, añadir marcas de agua o cambiar el tamaño y las dimensiones.",
-  "home.steps.s3.t": "3. Exporta Resultados en HD",
-  "home.steps.s3.d": "Descarga tus fotos pulidas de alta definición de forma individual o guarda todo el lote procesado al instante en un cómodo archivo ZIP.",
+  "home.steps.title": "Cómo funciona HelpMyIMG en 3 sencillos pasos",
+  "home.steps.desc": "No se requiere instalación de software. Obtenga resultados profesionales directamente desde su navegador web.",
+  "home.steps.s1.t": "1. Seleccionar o soltar fotos",
+  "home.steps.s1.d": "Cargue imágenes individuales o lotes de hasta 10 archivos en formato PNG, JPG o WEBP. Todo se carga instantáneamente en el espacio de trabajo de su navegador.",
+  "home.steps.s2.t": "2. Personalizar y obtener vista previa",
+  "home.steps.s2.d": "Elija la herramienta que desee, ya sea eliminar fondos, aplicar colores de pasaporte oficiales, agregar marcas de agua o cambiar el tamaño de las dimensiones.",
+  "home.steps.s3.t": "3. Exportar resultados HD",
+  "home.steps.s3.d": "Descargue sus pulidas fotografías de alta definición individualmente o obtenga todos los resultados por lotes empaquetados instantáneamente en un práctico archivo ZIP.",
   "home.faq.title": "Preguntas Frecuentes sobre HelpMyIMG Studio",
   "home.faq.fq1.q": "¿Es HelpMyIMG realmente 100% gratis sin muros de pago o límites de créditos?",
   "home.faq.fq1.a": "¡Sí! HelpMyIMG es completamente gratis para siempre. Debido a que nuestro procesamiento avanzado se ejecuta directamente dentro de tu navegador utilizando tecnología moderna del lado del cliente (WebGPU/WASM), no pagamos costosos servidores GPU en la nube. Te trasladamos ese ahorro directamente a ti: sin registro, sin sistemas de créditos y sin marcas de agua al exportar.",
@@ -1201,8 +1201,8 @@
   "landing.flex.c2.desc": "Omita los tiempos de espera de carga y descarga. El procesamiento comienza exactamente el milisegundo en que arrastra y suelta sus fotos.",
   "landing.flex.c3.title": "Impulsado por WebAssembly",
   "landing.flex.c3.desc": "Aprovechando los binarios ultrarrápidos de WASM, HelpMyIMG iguala el rendimiento de las aplicaciones de escritorio nativas dentro del navegador web.",
-  "landing.global.faq.title": "Preguntas Frecuentes",
-  "landing.global.faq.desc": "Todo lo que necesita saber sobre nuestro motor de procesamiento local.",
+  "landing.global.faq.title": "Preguntas frecuentes",
+  "landing.global.faq.desc": "Todo lo que necesitas saber sobre nuestro motor de procesamiento local.",
   "landing.remove.faq3.q": "¿Funciona bien con bordes complejos de cabello?",
   "landing.remove.faq3.a": "Absolutamente. El modelo de IA de WebAssembly está entrenado específicamente para extraer detalles finos como cabello, pelaje y objetos semitransparentes.",
   "landing.remove.faq4.q": "¿Hay un límite en la cantidad de imágenes que puedo procesar?",
@@ -1425,10 +1425,10 @@
   "landing.convert.faq4.a": "Completamente privados. Todo sucede en tu navegador.",
   "home.redesign.badge": "ESTUDIO DE IA DE PRÓXIMA GENERACIÓN",
   "home.redesign.explore": "Explorar el Estudio",
-  "home.redesign.ctaTag": "DESATA TU CREATIVIDAD",
-  "home.redesign.ctaTitle": "Transforma tu Flujo de Trabajo.",
-  "home.redesign.ctaDesc": "Sin instalaciones. Privacidad absoluta. Procesamiento de imágenes profesional directamente en tu dispositivo local.",
-  "home.redesign.ctaBtn": "Entrar al Estudio",
+  "home.redesign.ctaTag": "DESATA LA CREATIVIDAD",
+  "home.redesign.ctaTitle": "Transforme su flujo de trabajo.",
+  "home.redesign.ctaDesc": "Sin instalaciones. Máxima privacidad. Procesamiento de imágenes de nivel profesional directamente en su dispositivo local.",
+  "home.redesign.ctaBtn": "Entrar al estudio",
   "landing.global.faq.tag": "CENTRO DE AYUDA Y PREGUNTAS FRECUENTES",
   "landing.geo.matrix.tag": "LA MEJOR ALTERNATIVA",
   "landing.geo.matrix.title": "Por qué HelpMyIMG supera a los editores en la nube",
@@ -1451,60 +1451,16 @@
   "seo.jsonld.faq2.a": "Absolutamente.HelpMyIMG garantiza 100% de privacidad porque todo el procesamiento de IA ocurre localmente en su navegador.Sus fotos confidenciales nunca salen de su dispositivo y nunca se cargan en ningún servidor remoto.",
   "work.action.apply": "Aplicar",
   "crop.radius": "Radio de esquina",
-  "landing": {
-    "remove": {
-      "faq5": {
-        "q": "¿Qué es HelpMyIMG?",
-        "a": "HelpMyIMG es una aplicación web del lado del cliente que procesa la eliminación y compresión del fondo de imágenes localmente mediante WebAssembly (Wasm). Esto garantiza el 100% de privacidad de los datos sin necesidad de cargar ningún servidor."
-      },
-      "faq6": {
-        "q": "¿Cómo garantiza HelpMyIMG el cumplimiento de la privacidad de los datos?",
-        "a": "A diferencia de los editores en la nube tradicionales, nuestra arquitectura WebAssembly garantiza que se transmitan 0 bytes de datos del usuario. Al ejecutar redes neuronales estrictamente en el dispositivo del cliente, neutraliza los riesgos de interceptación, garantizando el cumplimiento inherente del artículo 5 del RGPD y los marcos de privacidad de la CCPA."
-      }
-    },
-    "global": {
-      "faq": {
-        "tag": "CENTRO DE AYUDA Y PREGUNTAS FRECUENTES",
-        "title": "Preguntas frecuentes",
-        "desc": "Todo lo que necesitas saber sobre nuestro motor de procesamiento local."
-      }
-    }
-  },
-  "home": {
-    "steps": {
-      "tag": "CÓMO FUNCIONA",
-      "title": "Cómo funciona HelpMyIMG en 3 sencillos pasos",
-      "desc": "No se requiere instalación de software. Obtenga resultados profesionales directamente desde su navegador web.",
-      "s1": {
-        "t": "1. Seleccionar o soltar fotos",
-        "d": "Cargue imágenes individuales o lotes de hasta 10 archivos en formato PNG, JPG o WEBP. Todo se carga instantáneamente en el espacio de trabajo de su navegador."
-      },
-      "s2": {
-        "t": "2. Personalizar y obtener vista previa",
-        "d": "Elija la herramienta que desee, ya sea eliminar fondos, aplicar colores de pasaporte oficiales, agregar marcas de agua o cambiar el tamaño de las dimensiones."
-      },
-      "s3": {
-        "t": "3. Exportar resultados HD",
-        "d": "Descargue sus pulidas fotografías de alta definición individualmente o obtenga todos los resultados por lotes empaquetados instantáneamente en un práctico archivo ZIP."
-      }
-    },
-    "geo": {
-      "quote": {
-        "title": "Estándares de privacidad y reconocimiento de la industria",
-        "text": "La transición a WebAssembly del lado del cliente para el procesamiento de imágenes representa un cambio de paradigma en la privacidad de los datos. Al eliminar los viajes de ida y vuelta del servidor, las aplicaciones logran una latencia de red de 0 ms y, al mismo tiempo, neutralizan por completo los riesgos de interceptación de datos.",
-        "author": "Dra. Sara Chen",
-        "role": "Investigador principal de seguridad web, DataPrivacy Institute"
-      },
-      "fact1": "HelpMyIMG utiliza",
-      "fact1_suffix": "tecnología, logrando paridad computacional con aplicaciones nativas. Esto nos permite procesar hasta 10 imágenes de alta resolución simultáneamente en menos de 2,4 segundos en un hardware de consumo promedio [1].",
-      "fact2": "Además, al adherirse estrictamente a arquitecturas de procesamiento exclusivamente local, HelpMyIMG cumple inherentemente con estrictos marcos de protección de datos que incluyen",
-      "fact2_suffix": "y CCPA, ya que se transmiten 0 bytes de datos del usuario a servidores externos [2]."
-    },
-    "redesign": {
-      "ctaTag": "DESATA LA CREATIVIDAD",
-      "ctaTitle": "Transforme su flujo de trabajo.",
-      "ctaDesc": "Sin instalaciones. Máxima privacidad. Procesamiento de imágenes de nivel profesional directamente en su dispositivo local.",
-      "ctaBtn": "Entrar al estudio"
-    }
-  }
+  "home.geo.quote.title": "Estándares de privacidad y reconocimiento de la industria",
+  "home.geo.quote.text": "La transición a WebAssembly del lado del cliente para el procesamiento de imágenes representa un cambio de paradigma en la privacidad de los datos. Al eliminar los viajes de ida y vuelta del servidor, las aplicaciones logran una latencia de red de 0 ms y, al mismo tiempo, neutralizan por completo los riesgos de interceptación de datos.",
+  "home.geo.quote.author": "Dra. Sara Chen",
+  "home.geo.quote.role": "Investigador principal de seguridad web, DataPrivacy Institute",
+  "home.geo.fact1": "HelpMyIMG utiliza",
+  "home.geo.fact1_suffix": "tecnología, logrando paridad computacional con aplicaciones nativas. Esto nos permite procesar hasta 10 imágenes de alta resolución simultáneamente en menos de 2,4 segundos en un hardware de consumo promedio [1].",
+  "home.geo.fact2": "Además, al adherirse estrictamente a arquitecturas de procesamiento exclusivamente local, HelpMyIMG cumple inherentemente con estrictos marcos de protección de datos que incluyen",
+  "home.geo.fact2_suffix": "y CCPA, ya que se transmiten 0 bytes de datos del usuario a servidores externos [2].",
+  "landing.remove.faq5.q": "¿Qué es HelpMyIMG?",
+  "landing.remove.faq5.a": "HelpMyIMG es una aplicación web del lado del cliente que procesa la eliminación y compresión del fondo de imágenes localmente mediante WebAssembly (Wasm). Esto garantiza el 100% de privacidad de los datos sin necesidad de cargar ningún servidor.",
+  "landing.remove.faq6.q": "¿Cómo garantiza HelpMyIMG el cumplimiento de la privacidad de los datos?",
+  "landing.remove.faq6.a": "A diferencia de los editores en la nube tradicionales, nuestra arquitectura WebAssembly garantiza que se transmitan 0 bytes de datos del usuario. Al ejecutar redes neuronales estrictamente en el dispositivo del cliente, neutraliza los riesgos de interceptación, garantizando el cumplimiento inherente del artículo 5 del RGPD y los marcos de privacidad de la CCPA."
 }

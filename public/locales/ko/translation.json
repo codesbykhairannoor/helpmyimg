@@ -1103,14 +1103,14 @@
   "home.why.c4.b": "10x 작업 속도",
   "home.tools.title": "Everything You Need in One HelpMyIMG Workspace",
   "home.tools.desc": "Explore our suite of specialized precision tools tailored for e-commerce sellers, professionals, students, and digital creators.",
-  "home.steps.title": "3가지 간단한 단계로 HelpMyIMG가 작동하는 방식",
-  "home.steps.desc": "소프트웨어 설치가 필요하지 않습니다. 웹 브라우저에서 직접 전문가 수준의 결과를 얻으세요.",
-  "home.steps.s1.t": "1. Select or Drop Photos",
-  "home.steps.s1.d": "Upload single pictures or batches up to 10 files in PNG, JPG, or WEBP format. Everything loads instantly into your browser workspace.",
-  "home.steps.s2.t": "2. Customize & Preview",
-  "home.steps.s2.d": "Choose your desired tool—whether stripping backgrounds, applying official passport colors, adding watermarks, or resizing dimensions.",
-  "home.steps.s3.t": "3. Export HD Results",
-  "home.steps.s3.d": "Download your polished high-definition photos individually or grab all batch results instantly packed in a convenient ZIP file.",
+  "home.steps.title": "HelpMyIMG가 간단한 3단계로 작동하는 방식",
+  "home.steps.desc": "소프트웨어 설치가 필요하지 않습니다. 웹 브라우저에서 직접 전문적인 결과를 얻으세요.",
+  "home.steps.s1.t": "1. 사진 선택 또는 삭제",
+  "home.steps.s1.d": "단일 사진을 업로드하거나 PNG, JPG 또는 WEBP 형식의 파일 최대 10개를 일괄 업로드하세요. 모든 것이 브라우저 작업 공간에 즉시 로드됩니다.",
+  "home.steps.s2.t": "2. 사용자 정의 및 미리보기",
+  "home.steps.s2.d": "배경 제거, 공식 여권 색상 적용, 워터마크 추가, 크기 조정 등 원하는 도구를 선택하세요.",
+  "home.steps.s3.t": "3. HD 결과 내보내기",
+  "home.steps.s3.d": "세련된 고화질 사진을 개별적으로 다운로드하거나 편리한 ZIP 파일로 즉시 압축된 모든 배치 결과를 가져옵니다.",
   "home.faq.title": "Frequently Asked Questions About HelpMyIMG Studio",
   "home.faq.fq1.q": "Is HelpMyIMG truly 100% free with no hidden paywalls or credit limits?",
   "home.faq.fq1.a": "Yes! HelpMyIMG is completely free to use forever. Because our advanced processing runs directly inside your web browser using modern client-side technology, we do not incur expensive cloud GPU server costs. We pass those savings directly to you—no registration, no credit systems, and no export watermarks.",
@@ -1202,7 +1202,7 @@
   "landing.flex.c3.title": "WebAssembly 구동",
   "landing.flex.c3.desc": "초고속 WASM 바이너리를 활용하는 HelpMyIMG는 웹 브라우저 내에서 기본 데스크톱 응용 프로그램의 성능과 일치합니다.",
   "landing.global.faq.title": "자주 묻는 질문",
-  "landing.global.faq.desc": "당사의 로컬 처리 엔진에 대해 알아야 할 모든 것.",
+  "landing.global.faq.desc": "로컬 처리 엔진에 대해 알아야 할 모든 것.",
   "landing.remove.faq3.q": "복잡한 머리카락 가장자리에서도 잘 작동하나요?",
   "landing.remove.faq3.a": "물론입니다. WebAssembly AI 모델은 머리카락, 털, 반투명한 물체와 같은 미세한 디테일을 분리하도록 특별히 훈련되었습니다.",
   "landing.remove.faq4.q": "처리할 수 있는 이미지 수에 제한이 있나요?",
@@ -1215,7 +1215,7 @@
   "landing.compress.redesign.stepsTag": "사용 방법",
   "landing.remove.redesign.whoTag": "대상이 누구인가요",
   "landing.remove.redesign.stepsTag": "사용 방법",
-  "home.steps.tag": "사용 방법",
+  "home.steps.tag": "작동 방식",
   "landing.color.redesign.heroBadge": "인스턴트 컬러 스튜디오",
   "landing.color.redesign.heroTitle": "실시간으로 배경색 변경",
   "landing.color.redesign.heroDesc": "단색, 그라데이션 또는 HEX 코드를 즉시 적용하세요. 제품 사진에 완벽합니다.",
@@ -1425,10 +1425,10 @@
   "landing.convert.faq4.a": "완벽하게 프라이빗합니다. 모든 작업은 브라우저 창 내부에서 직접 이루어집니다.",
   "home.redesign.badge": "차세대 AI 스튜디오",
   "home.redesign.explore": "스튜디오 탐색하기",
-  "home.redesign.ctaTag": "창의력을 발휘하세요",
+  "home.redesign.ctaTag": "창의성을 발휘하세요",
   "home.redesign.ctaTitle": "워크플로우를 혁신하세요.",
-  "home.redesign.ctaDesc": "설치 불필요. 완벽한 프라이버시. 로컬 기기에서 직접 전문가 수준의 이미지 처리.",
-  "home.redesign.ctaBtn": "스튜디오 입장",
+  "home.redesign.ctaDesc": "설치가 없습니다. 최고의 프라이버시. 로컬 장치에서 직접 전문가 수준의 이미지 처리를 수행합니다.",
+  "home.redesign.ctaBtn": "스튜디오에 입장",
   "landing.global.faq.tag": "도움말 센터 및 FAQ",
   "landing.geo.matrix.tag": "최고의 대안",
   "landing.geo.matrix.title": "HelpMyIMG가 클라우드 편집자를 능가하는 이유",
@@ -1451,60 +1451,16 @@
   "seo.jsonld.faq2.a": "전적으로.HelpMyIMG는 모든 AI 처리가 브라우저에서 로컬로 이루어지기 때문에 100% 개인정보 보호를 보장합니다.귀하의 민감한 사진은 절대로 귀하의 장치를 떠나지 않으며 어떠한 원격 서버에도 업로드되지 않습니다.",
   "work.action.apply": "적용하다",
   "crop.radius": "모서리 반경",
-  "landing": {
-    "remove": {
-      "faq5": {
-        "q": "HelpMyIMG란 무엇입니까?",
-        "a": "HelpMyIMG는 WebAssembly(Wasm)를 사용하여 로컬에서 이미지 배경 제거 및 압축을 처리하는 클라이언트 측 웹 애플리케이션입니다. 이는 서버 업로드 없이도 100% 데이터 개인정보 보호를 보장합니다."
-      },
-      "faq6": {
-        "q": "HelpMyIMG는 데이터 개인 정보 보호 규정 준수를 어떻게 보장합니까?",
-        "a": "기존 클라우드 편집기와 달리 WebAssembly 아키텍처는 0바이트의 사용자 데이터 전송을 보장합니다. 클라이언트 장치에서 신경망을 엄격하게 실행함으로써 가로채기 위험을 무력화하고 GDPR 5조 및 CCPA 개인 정보 보호 프레임워크를 기본적으로 준수합니다."
-      }
-    },
-    "global": {
-      "faq": {
-        "tag": "도움말 센터 및 FAQ",
-        "title": "자주 묻는 질문",
-        "desc": "로컬 처리 엔진에 대해 알아야 할 모든 것."
-      }
-    }
-  },
-  "home": {
-    "steps": {
-      "tag": "작동 방식",
-      "title": "HelpMyIMG가 간단한 3단계로 작동하는 방식",
-      "desc": "소프트웨어 설치가 필요하지 않습니다. 웹 브라우저에서 직접 전문적인 결과를 얻으세요.",
-      "s1": {
-        "t": "1. 사진 선택 또는 삭제",
-        "d": "단일 사진을 업로드하거나 PNG, JPG 또는 WEBP 형식의 파일 최대 10개를 일괄 업로드하세요. 모든 것이 브라우저 작업 공간에 즉시 로드됩니다."
-      },
-      "s2": {
-        "t": "2. 사용자 정의 및 미리보기",
-        "d": "배경 제거, 공식 여권 색상 적용, 워터마크 추가, 크기 조정 등 원하는 도구를 선택하세요."
-      },
-      "s3": {
-        "t": "3. HD 결과 내보내기",
-        "d": "세련된 고화질 사진을 개별적으로 다운로드하거나 편리한 ZIP 파일로 즉시 압축된 모든 배치 결과를 가져옵니다."
-      }
-    },
-    "geo": {
-      "quote": {
-        "title": "업계 인정 및 개인 정보 보호 표준",
-        "text": "이미지 처리를 위해 클라이언트 측 WebAssembly로의 전환은 데이터 개인 정보 보호의 패러다임 변화를 나타냅니다. 서버 왕복을 제거함으로써 애플리케이션은 데이터 가로채기 위험을 완전히 무력화하는 동시에 0ms 네트워크 대기 시간을 달성합니다.",
-        "author": "사라 첸 박사",
-        "role": "DataPrivacy Institute의 수석 웹 보안 연구원"
-      },
-      "fact1": "HelpMyIMG는",
-      "fact1_suffix": "기술을 사용하여 기본 애플리케이션과의 컴퓨팅 패리티를 달성합니다. 이를 통해 평균 소비자 하드웨어에서 2.4초 이내에 최대 10개의 고해상도 이미지를 동시에 처리할 수 있습니다[1].",
-      "fact2": "또한, 로컬 전용 처리 아키텍처를 엄격하게 준수함으로써 HelpMyIMG는 본질적으로 다음을 포함한 엄격한 데이터 보호 프레임워크를 준수합니다.",
-      "fact2_suffix": "CCPA는 0바이트의 사용자 데이터가 외부 서버로 전송되기 때문이다[2]."
-    },
-    "redesign": {
-      "ctaTag": "창의성을 발휘하세요",
-      "ctaTitle": "워크플로우를 혁신하세요.",
-      "ctaDesc": "설치가 없습니다. 최고의 프라이버시. 로컬 장치에서 직접 전문가 수준의 이미지 처리를 수행합니다.",
-      "ctaBtn": "스튜디오에 입장"
-    }
-  }
+  "home.geo.quote.title": "업계 인정 및 개인 정보 보호 표준",
+  "home.geo.quote.text": "이미지 처리를 위해 클라이언트 측 WebAssembly로의 전환은 데이터 개인 정보 보호의 패러다임 변화를 나타냅니다. 서버 왕복을 제거함으로써 애플리케이션은 데이터 가로채기 위험을 완전히 무력화하는 동시에 0ms 네트워크 대기 시간을 달성합니다.",
+  "home.geo.quote.author": "사라 첸 박사",
+  "home.geo.quote.role": "DataPrivacy Institute의 수석 웹 보안 연구원",
+  "home.geo.fact1": "HelpMyIMG는",
+  "home.geo.fact1_suffix": "기술을 사용하여 기본 애플리케이션과의 컴퓨팅 패리티를 달성합니다. 이를 통해 평균 소비자 하드웨어에서 2.4초 이내에 최대 10개의 고해상도 이미지를 동시에 처리할 수 있습니다[1].",
+  "home.geo.fact2": "또한, 로컬 전용 처리 아키텍처를 엄격하게 준수함으로써 HelpMyIMG는 본질적으로 다음을 포함한 엄격한 데이터 보호 프레임워크를 준수합니다.",
+  "home.geo.fact2_suffix": "CCPA는 0바이트의 사용자 데이터가 외부 서버로 전송되기 때문이다[2].",
+  "landing.remove.faq5.q": "HelpMyIMG란 무엇입니까?",
+  "landing.remove.faq5.a": "HelpMyIMG는 WebAssembly(Wasm)를 사용하여 로컬에서 이미지 배경 제거 및 압축을 처리하는 클라이언트 측 웹 애플리케이션입니다. 이는 서버 업로드 없이도 100% 데이터 개인정보 보호를 보장합니다.",
+  "landing.remove.faq6.q": "HelpMyIMG는 데이터 개인 정보 보호 규정 준수를 어떻게 보장합니까?",
+  "landing.remove.faq6.a": "기존 클라우드 편집기와 달리 WebAssembly 아키텍처는 0바이트의 사용자 데이터 전송을 보장합니다. 클라이언트 장치에서 신경망을 엄격하게 실행함으로써 가로채기 위험을 무력화하고 GDPR 5조 및 CCPA 개인 정보 보호 프레임워크를 기본적으로 준수합니다."
 }

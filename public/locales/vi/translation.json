@@ -1104,13 +1104,13 @@
   "home.tools.title": "Everything You Need in One HelpMyIMG Workspace",
   "home.tools.desc": "Explore our suite of specialized precision tools tailored for e-commerce sellers, professionals, students, and digital creators.",
   "home.steps.title": "Cách HelpMyIMG hoạt động trong 3 bước đơn giản",
-  "home.steps.desc": "Không cần cài đặt phần mềm. Nhận kết quả chuyên nghiệp trực tiếp từ trình duyệt của bạn.",
-  "home.steps.s1.t": "1. Select or Drop Photos",
-  "home.steps.s1.d": "Upload single pictures or batches up to 10 files in PNG, JPG, or WEBP format. Everything loads instantly into your browser workspace.",
-  "home.steps.s2.t": "2. Customize & Preview",
-  "home.steps.s2.d": "Choose your desired tool—whether stripping backgrounds, applying official passport colors, adding watermarks, or resizing dimensions.",
-  "home.steps.s3.t": "3. Export HD Results",
-  "home.steps.s3.d": "Download your polished high-definition photos individually or grab all batch results instantly packed in a convenient ZIP file.",
+  "home.steps.desc": "Không cần cài đặt phần mềm. Nhận kết quả chuyên nghiệp trực tiếp từ trình duyệt web của bạn.",
+  "home.steps.s1.t": "1. Chọn hoặc thả ảnh",
+  "home.steps.s1.d": "Tải lên từng ảnh hoặc nhóm tối đa 10 tệp ở định dạng PNG, JPG hoặc WEBP. Mọi thứ tải ngay lập tức vào không gian làm việc của trình duyệt của bạn.",
+  "home.steps.s2.t": "2. Tùy chỉnh & Xem trước",
+  "home.steps.s2.d": "Chọn công cụ bạn muốn—dù là tước nền, áp dụng màu hộ chiếu chính thức, thêm hình mờ hay thay đổi kích thước kích thước.",
+  "home.steps.s3.t": "3. Xuất kết quả HD",
+  "home.steps.s3.d": "Tải xuống riêng lẻ các ảnh có độ phân giải cao được đánh bóng của bạn hoặc lấy tất cả các kết quả hàng loạt được đóng gói ngay lập tức trong một tệp ZIP tiện lợi.",
   "home.faq.title": "Frequently Asked Questions About HelpMyIMG Studio",
   "home.faq.fq1.q": "Is HelpMyIMG truly 100% free with no hidden paywalls or credit limits?",
   "home.faq.fq1.a": "Yes! HelpMyIMG is completely free to use forever. Because our advanced processing runs directly inside your web browser using modern client-side technology, we do not incur expensive cloud GPU server costs. We pass those savings directly to you—no registration, no credit systems, and no export watermarks.",
@@ -1202,7 +1202,7 @@
   "landing.flex.c3.title": "Được hỗ trợ bởi WebAssembly",
   "landing.flex.c3.desc": "Tận dụng các tệp nhị phân WASM cực nhanh, HelpMyIMG phù hợp với hiệu suất của các ứng dụng máy tính để bàn gốc bên trong trình duyệt web.",
   "landing.global.faq.title": "Câu hỏi thường gặp",
-  "landing.global.faq.desc": "Mọi điều bạn cần biết về công cụ xử lý cục bộ của chúng tôi.",
+  "landing.global.faq.desc": "Mọi thứ bạn cần biết về công cụ xử lý cục bộ của chúng tôi.",
   "landing.remove.faq3.q": "Nó có hoạt động tốt với các cạnh tóc phức tạp không?",
   "landing.remove.faq3.a": "Hoàn toàn. Mô hình WebAssembly AI được đào tạo đặc biệt để tách các chi tiết nhỏ như tóc, lông thú và các vật thể bán trong suốt.",
   "landing.remove.faq4.q": "Có giới hạn về số lượng hình ảnh tôi có thể xử lý không?",
@@ -1215,7 +1215,7 @@
   "landing.compress.redesign.stepsTag": "CÁCH THỨC HOẠT ĐỘNG",
   "landing.remove.redesign.whoTag": "DÀNH CHO AI",
   "landing.remove.redesign.stepsTag": "CÁCH THỨC HOẠT ĐỘNG",
-  "home.steps.tag": "CÁCH THỨC HOẠT ĐỘNG",
+  "home.steps.tag": "CÁCH HOẠT ĐỘNG",
   "landing.color.redesign.heroBadge": "STUDIO MÀU SẮC TỨC THÌ",
   "landing.color.redesign.heroTitle": "Thay đổi Màu nền trong Thời gian Thực",
   "landing.color.redesign.heroDesc": "Áp dụng màu đồng nhất, dải màu hoặc mã HEX ngay lập tức. Hoàn hảo cho chụp ảnh sản phẩm.",
@@ -1425,9 +1425,9 @@
   "landing.convert.faq4.a": "Hoàn toàn riêng tư. Mọi thứ diễn ra ngay trong cửa sổ trình duyệt của bạn.",
   "home.redesign.badge": "STUDIO AI THẾ HỆ TIẾP THEO",
   "home.redesign.explore": "Khám phá Studio",
-  "home.redesign.ctaTag": "GIẢI PHÓNG SỰ SÁNG TẠO",
+  "home.redesign.ctaTag": "GIẢI PHÁP SÁNG TẠO",
   "home.redesign.ctaTitle": "Chuyển đổi quy trình làm việc của bạn.",
-  "home.redesign.ctaDesc": "Không cần cài đặt. Quyền riêng tư tuyệt đối. Xử lý hình ảnh chuyên nghiệp trực tiếp trên thiết bị của bạn.",
+  "home.redesign.ctaDesc": "Không có cài đặt. Sự riêng tư tối đa. Xử lý hình ảnh cấp chuyên nghiệp trực tiếp trên thiết bị cục bộ của bạn.",
   "home.redesign.ctaBtn": "Vào Studio",
   "landing.global.faq.tag": "TRUNG TÂM TRỢ GIÚP & Câu hỏi thường gặp",
   "landing.geo.matrix.tag": "GIẢI PHÁP THAY THẾ TỐT NHẤT",
@@ -1451,60 +1451,16 @@
   "seo.jsonld.faq2.a": "Tuyệt đối.HelpMyIMG đảm bảo quyền riêng tư 100% vì tất cả quá trình xử lý AI đều diễn ra cục bộ trong trình duyệt của bạn.Những bức ảnh nhạy cảm của bạn sẽ không bao giờ rời khỏi thiết bị của bạn và không bao giờ được tải lên bất kỳ máy chủ từ xa nào.",
   "work.action.apply": "Áp dụng",
   "crop.radius": "Bán kính góc",
-  "landing": {
-    "remove": {
-      "faq5": {
-        "q": "HelpMyIMG là gì?",
-        "a": "HelpMyIMG là một ứng dụng web phía máy khách xử lý cục bộ việc xóa và nén nền hình ảnh bằng WebAssembly (Wasm). Điều này đảm bảo quyền riêng tư dữ liệu 100% mà không yêu cầu bất kỳ tải lên máy chủ nào."
-      },
-      "faq6": {
-        "q": "HelpMyIMG đảm bảo tuân thủ quyền riêng tư dữ liệu như thế nào?",
-        "a": "Không giống như các trình chỉnh sửa đám mây truyền thống, kiến ​​trúc WebAssugging của chúng tôi đảm bảo truyền 0 byte dữ liệu người dùng. Bằng cách thực thi nghiêm ngặt các mạng thần kinh trên thiết bị khách, nó sẽ vô hiệu hóa các rủi ro bị chặn, đảm bảo tuân thủ Điều 5 GDPR và khuôn khổ quyền riêng tư của CCPA."
-      }
-    },
-    "global": {
-      "faq": {
-        "tag": "TRUNG TÂM TRỢ GIÚP & Câu hỏi thường gặp",
-        "title": "Câu hỏi thường gặp",
-        "desc": "Mọi thứ bạn cần biết về công cụ xử lý cục bộ của chúng tôi."
-      }
-    }
-  },
-  "home": {
-    "steps": {
-      "tag": "CÁCH HOẠT ĐỘNG",
-      "title": "Cách HelpMyIMG hoạt động trong 3 bước đơn giản",
-      "desc": "Không cần cài đặt phần mềm. Nhận kết quả chuyên nghiệp trực tiếp từ trình duyệt web của bạn.",
-      "s1": {
-        "t": "1. Chọn hoặc thả ảnh",
-        "d": "Tải lên từng ảnh hoặc nhóm tối đa 10 tệp ở định dạng PNG, JPG hoặc WEBP. Mọi thứ tải ngay lập tức vào không gian làm việc của trình duyệt của bạn."
-      },
-      "s2": {
-        "t": "2. Tùy chỉnh & Xem trước",
-        "d": "Chọn công cụ bạn muốn—dù là tước nền, áp dụng màu hộ chiếu chính thức, thêm hình mờ hay thay đổi kích thước kích thước."
-      },
-      "s3": {
-        "t": "3. Xuất kết quả HD",
-        "d": "Tải xuống riêng lẻ các ảnh có độ phân giải cao được đánh bóng của bạn hoặc lấy tất cả các kết quả hàng loạt được đóng gói ngay lập tức trong một tệp ZIP tiện lợi."
-      }
-    },
-    "geo": {
-      "quote": {
-        "title": "Tiêu chuẩn công nhận và quyền riêng tư của ngành",
-        "text": "Việc chuyển đổi sang WebAssugging phía máy khách để xử lý hình ảnh thể hiện sự thay đổi mô hình về quyền riêng tư dữ liệu. Bằng cách loại bỏ các chuyến đi khứ hồi của máy chủ, các ứng dụng đạt được độ trễ mạng 0ms đồng thời vô hiệu hóa hoàn toàn các rủi ro chặn dữ liệu.",
-        "author": "Tiến sĩ Sarah Chen",
-        "role": "Trưởng nhóm nghiên cứu bảo mật web, Viện DataPrivacy"
-      },
-      "fact1": "HelpMyIMG sử dụng",
-      "fact1_suffix": "công nghệ, đạt được sự tương đương tính toán với các ứng dụng gốc. Điều này cho phép chúng tôi xử lý đồng thời tối đa 10 hình ảnh có độ phân giải cao trong vòng chưa đầy 2,4 giây trên phần cứng tiêu dùng trung bình [1].",
-      "fact2": "Hơn nữa, bằng cách tuân thủ nghiêm ngặt các kiến ​​trúc xử lý chỉ cục bộ, HelpMyIMG vốn đã tuân thủ các khuôn khổ bảo vệ dữ liệu nghiêm ngặt bao gồm",
-      "fact2_suffix": "và CCPA, vì 0 byte dữ liệu người dùng được truyền đến các máy chủ bên ngoài [2]."
-    },
-    "redesign": {
-      "ctaTag": "GIẢI PHÁP SÁNG TẠO",
-      "ctaTitle": "Chuyển đổi quy trình làm việc của bạn.",
-      "ctaDesc": "Không có cài đặt. Sự riêng tư tối đa. Xử lý hình ảnh cấp chuyên nghiệp trực tiếp trên thiết bị cục bộ của bạn.",
-      "ctaBtn": "Vào Studio"
-    }
-  }
+  "home.geo.quote.title": "Tiêu chuẩn công nhận và quyền riêng tư của ngành",
+  "home.geo.quote.text": "Việc chuyển đổi sang WebAssugging phía máy khách để xử lý hình ảnh thể hiện sự thay đổi mô hình về quyền riêng tư dữ liệu. Bằng cách loại bỏ các chuyến đi khứ hồi của máy chủ, các ứng dụng đạt được độ trễ mạng 0ms đồng thời vô hiệu hóa hoàn toàn các rủi ro chặn dữ liệu.",
+  "home.geo.quote.author": "Tiến sĩ Sarah Chen",
+  "home.geo.quote.role": "Trưởng nhóm nghiên cứu bảo mật web, Viện DataPrivacy",
+  "home.geo.fact1": "HelpMyIMG sử dụng",
+  "home.geo.fact1_suffix": "công nghệ, đạt được sự tương đương tính toán với các ứng dụng gốc. Điều này cho phép chúng tôi xử lý đồng thời tối đa 10 hình ảnh có độ phân giải cao trong vòng chưa đầy 2,4 giây trên phần cứng tiêu dùng trung bình [1].",
+  "home.geo.fact2": "Hơn nữa, bằng cách tuân thủ nghiêm ngặt các kiến ​​trúc xử lý chỉ cục bộ, HelpMyIMG vốn đã tuân thủ các khuôn khổ bảo vệ dữ liệu nghiêm ngặt bao gồm",
+  "home.geo.fact2_suffix": "và CCPA, vì 0 byte dữ liệu người dùng được truyền đến các máy chủ bên ngoài [2].",
+  "landing.remove.faq5.q": "HelpMyIMG là gì?",
+  "landing.remove.faq5.a": "HelpMyIMG là một ứng dụng web phía máy khách xử lý cục bộ việc xóa và nén nền hình ảnh bằng WebAssembly (Wasm). Điều này đảm bảo quyền riêng tư dữ liệu 100% mà không yêu cầu bất kỳ tải lên máy chủ nào.",
+  "landing.remove.faq6.q": "HelpMyIMG đảm bảo tuân thủ quyền riêng tư dữ liệu như thế nào?",
+  "landing.remove.faq6.a": "Không giống như các trình chỉnh sửa đám mây truyền thống, kiến ​​trúc WebAssugging của chúng tôi đảm bảo truyền 0 byte dữ liệu người dùng. Bằng cách thực thi nghiêm ngặt các mạng thần kinh trên thiết bị khách, nó sẽ vô hiệu hóa các rủi ro bị chặn, đảm bảo tuân thủ Điều 5 GDPR và khuôn khổ quyền riêng tư của CCPA."
 }

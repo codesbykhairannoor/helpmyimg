@@ -1103,10 +1103,10 @@
   "home.why.c4.b": "10x Arbeitsgeschwindigkeit",
   "home.tools.title": "Everything You Need in One HelpMyIMG Workspace",
   "home.tools.desc": "Explore our suite of specialized precision tools tailored for e-commerce sellers, professionals, students, and digital creators.",
-  "home.steps.title": "Wie HelpMyIMG in 3 einfachen Schritten funktioniert",
-  "home.steps.desc": "Keine Softwareinstallation erforderlich. Erhalten Sie professionelle Ergebnisse direkt aus Ihrem Webbrowser.",
-  "home.steps.s1.t": "1. Fotos auswählen oder ablegen",
-  "home.steps.s1.d": "Laden Sie einzelne Bilder oder Stapel von bis zu 10 Dateien im PNG-, JPG- oder WEBP-Format hoch. Alles wird sofort in Ihren Arbeitsbereich geladen.",
+  "home.steps.title": "So funktioniert HelpMyIMG in 3 einfachen Schritten",
+  "home.steps.desc": "Keine Softwareinstallation erforderlich. Erhalten Sie professionelle Ergebnisse direkt über Ihren Webbrowser.",
+  "home.steps.s1.t": "1. Wählen Sie Fotos aus oder legen Sie sie ab",
+  "home.steps.s1.d": "Laden Sie einzelne Bilder oder Stapel von bis zu 10 Dateien im PNG-, JPG- oder WEBP-Format hoch. Alles wird sofort in Ihren Browser-Arbeitsbereich geladen.",
   "home.steps.s2.t": "2. Anpassen & Vorschau",
   "home.steps.s2.d": "Wählen Sie Ihr gewünschtes Tool – ob Hintergrund freistellen, offizielle Passfotofarben anwenden, Wasserzeichen hinzufügen oder die Größe ändern.",
   "home.steps.s3.t": "3. HD-Ergebnisse exportieren",
@@ -1451,27 +1451,8 @@
   "seo.jsonld.faq2.a": "Absolut.HelpMyIMG garantiert 100 % Datenschutz, da die gesamte KI-Verarbeitung lokal in Ihrem Browser erfolgt.Ihre sensiblen Fotos verlassen niemals Ihr Gerät und werden niemals auf einen Remote-Server hochgeladen.",
   "work.action.apply": "Anwenden",
   "crop.radius": "Eckenradius",
-  "landing": {
-    "remove": {
-      "faq5": {
-        "q": "What is HelpMyIMG?",
-        "a": "HelpMyIMG is a client-side web application that processes image background removal and compression locally using WebAssembly (Wasm). This ensures 100% data privacy without requiring any server uploads."
-      },
-      "faq6": {
-        "q": "How does HelpMyIMG ensure data privacy compliance?",
-        "a": "Unlike traditional cloud editors, our WebAssembly architecture ensures 0 bytes of user data are transmitted. By executing neural networks strictly on the client device, it neutralizes interception risks, ensuring inherent compliance with GDPR Article 5 and CCPA privacy frameworks."
-      }
-    }
-  },
-  "home": {
-    "steps": {
-      "tag": "WIE ES FUNKTIONIERT",
-      "title": "So funktioniert HelpMyIMG in 3 einfachen Schritten",
-      "desc": "Keine Softwareinstallation erforderlich. Erhalten Sie professionelle Ergebnisse direkt über Ihren Webbrowser.",
-      "s1": {
-        "t": "1. Wählen Sie Fotos aus oder legen Sie sie ab",
-        "d": "Laden Sie einzelne Bilder oder Stapel von bis zu 10 Dateien im PNG-, JPG- oder WEBP-Format hoch. Alles wird sofort in Ihren Browser-Arbeitsbereich geladen."
-      }
-    }
-  }
+  "landing.remove.faq5.q": "What is HelpMyIMG?",
+  "landing.remove.faq5.a": "HelpMyIMG is a client-side web application that processes image background removal and compression locally using WebAssembly (Wasm). This ensures 100% data privacy without requiring any server uploads.",
+  "landing.remove.faq6.q": "How does HelpMyIMG ensure data privacy compliance?",
+  "landing.remove.faq6.a": "Unlike traditional cloud editors, our WebAssembly architecture ensures 0 bytes of user data are transmitted. By executing neural networks strictly on the client device, it neutralizes interception risks, ensuring inherent compliance with GDPR Article 5 and CCPA privacy frameworks."
 }

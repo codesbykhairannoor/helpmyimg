@@ -1104,13 +1104,13 @@
   "home.tools.title": "Everything You Need in One HelpMyIMG Workspace",
   "home.tools.desc": "Explore our suite of specialized precision tools tailored for e-commerce sellers, professionals, students, and digital creators.",
   "home.steps.title": "Hogyan működik a HelpMyIMG 3 egyszerű lépésben",
-  "home.steps.desc": "Nincs szükség szoftvertelepítésre. Kapjon professzionális eredményeket a böngészőből.",
-  "home.steps.s1.t": "1. Select or Drop Photos",
-  "home.steps.s1.d": "Upload single pictures or batches up to 10 files in PNG, JPG, or WEBP format. Everything loads instantly into your browser workspace.",
-  "home.steps.s2.t": "2. Customize & Preview",
-  "home.steps.s2.d": "Choose your desired tool—whether stripping backgrounds, applying official passport colors, adding watermarks, or resizing dimensions.",
-  "home.steps.s3.t": "3. Export HD Results",
-  "home.steps.s3.d": "Download your polished high-definition photos individually or grab all batch results instantly packed in a convenient ZIP file.",
+  "home.steps.desc": "Nincs szükség szoftver telepítésére. Professzionális eredményeket érhet el közvetlenül a böngészőből.",
+  "home.steps.s1.t": "1. Válassza ki vagy dobja el a Fényképeket",
+  "home.steps.s1.d": "Töltsön fel egyetlen képet vagy akár 10 fájl kötegét PNG, JPG vagy WEBP formátumban. Minden azonnal betöltődik a böngésző munkaterületére.",
+  "home.steps.s2.t": "2. Testreszabás és előnézet",
+  "home.steps.s2.d": "Válassza ki a kívánt eszközt – legyen szó hátterek eltávolításáról, hivatalos útlevélszínek alkalmazásáról, vízjelek hozzáadása vagy méretek átméretezése.",
+  "home.steps.s3.t": "3. HD eredmények exportálása",
+  "home.steps.s3.d": "Töltse le csiszolt nagyfelbontású fotóit egyenként, vagy töltse le az összes kötegelt eredményt azonnal egy kényelmes ZIP-fájlba csomagolva.",
   "home.faq.title": "Frequently Asked Questions About HelpMyIMG Studio",
   "home.faq.fq1.q": "Is HelpMyIMG truly 100% free with no hidden paywalls or credit limits?",
   "home.faq.fq1.a": "Yes! HelpMyIMG is completely free to use forever. Because our advanced processing runs directly inside your web browser using modern client-side technology, we do not incur expensive cloud GPU server costs. We pass those savings directly to you—no registration, no credit systems, and no export watermarks.",
@@ -1425,10 +1425,10 @@
   "landing.convert.faq4.a": "Teljesen privát. Minden közvetlenül a böngészőjében történik.",
   "home.redesign.badge": "KÖVETKEZŐ GENERÁCIÓS AI STÚDIÓ",
   "home.redesign.explore": "Fedezze fel a Stúdiót",
-  "home.redesign.ctaTag": "ENGEDJE SZABADJÁRA KREATIVITÁSÁT",
+  "home.redesign.ctaTag": "FELSZABADÍTSA KREATIVITÁST",
   "home.redesign.ctaTitle": "Alakítsa át munkafolyamatát.",
-  "home.redesign.ctaDesc": "Nincs telepítés. Teljes adatvédelem. Professzionális képfeldolgozás közvetlenül az Ön eszközén.",
-  "home.redesign.ctaBtn": "Belépés a Stúdióba",
+  "home.redesign.ctaDesc": "Nincsenek telepítések. Végső magánélet. Professzionális képfeldolgozás közvetlenül a helyi eszközön.",
+  "home.redesign.ctaBtn": "Lépjen be a Stúdióba",
   "landing.global.faq.tag": "SÚGÓ ÉS GYIK",
   "landing.geo.matrix.tag": "A LEGJOBB ALTERNATÍV",
   "landing.geo.matrix.title": "Miért a HelpMyIMG Beats Cloud Editors?",
@@ -1451,60 +1451,16 @@
   "seo.jsonld.faq2.a": "Teljesen.A HelpMyIMG 100%-os adatvédelmet garantál, mivel minden mesterséges intelligencia feldolgozás helyileg, a böngészőben történik.Érzékeny fotói soha nem hagyják el az eszközt, és soha nem töltődnek fel semmilyen távoli szerverre.",
   "work.action.apply": "Alkalmaz",
   "crop.radius": "Sarok sugara",
-  "landing": {
-    "remove": {
-      "faq5": {
-        "q": "Mi az a HelpMyIMG?",
-        "a": "A HelpMyIMG egy kliensoldali webalkalmazás, amely a WebAssembly (Wasm) segítségével helyileg dolgozza fel a kép hátterének eltávolítását és tömörítését. Ez 100%-os adatvédelmet biztosít anélkül, hogy szerverfeltöltést igényelne."
-      },
-      "faq6": {
-        "q": "Hogyan biztosítja a HelpMyIMG adatvédelmi megfelelést?",
-        "a": "A hagyományos felhőszerkesztőkkel ellentétben a WebAssembly architektúránk 0 bájt felhasználói adat átvitelét biztosítja. Azáltal, hogy a neurális hálózatokat szigorúan a kliens eszközön hajtja végre, semlegesíti az elfogási kockázatokat, biztosítva a GDPR 5. cikkének és a CCPA adatvédelmi kereteinek való belső megfelelést."
-      }
-    },
-    "global": {
-      "faq": {
-        "tag": "SÚGÓ ÉS GYIK",
-        "title": "Gyakran Ismételt Kérdések",
-        "desc": "Minden, amit tudnia kell a helyi feldolgozó motorunkról."
-      }
-    }
-  },
-  "home": {
-    "steps": {
-      "tag": "HOGYAN MŰKÖDIK",
-      "title": "Hogyan működik a HelpMyIMG 3 egyszerű lépésben",
-      "desc": "Nincs szükség szoftver telepítésére. Professzionális eredményeket érhet el közvetlenül a böngészőből.",
-      "s1": {
-        "t": "1. Válassza ki vagy dobja el a Fényképeket",
-        "d": "Töltsön fel egyetlen képet vagy akár 10 fájl kötegét PNG, JPG vagy WEBP formátumban. Minden azonnal betöltődik a böngésző munkaterületére."
-      },
-      "s2": {
-        "t": "2. Testreszabás és előnézet",
-        "d": "Válassza ki a kívánt eszközt – legyen szó hátterek eltávolításáról, hivatalos útlevélszínek alkalmazásáról, vízjelek hozzáadása vagy méretek átméretezése."
-      },
-      "s3": {
-        "t": "3. HD eredmények exportálása",
-        "d": "Töltse le csiszolt nagyfelbontású fotóit egyenként, vagy töltse le az összes kötegelt eredményt azonnal egy kényelmes ZIP-fájlba csomagolva."
-      }
-    },
-    "geo": {
-      "quote": {
-        "title": "Iparági elismerési és adatvédelmi szabványok",
-        "text": "Az ügyféloldali WebAssembly-re való átállás a képfeldolgozáshoz paradigmaváltást jelent az adatvédelem terén. A szerver oda-vissza útjainak kiküszöbölésével az alkalmazások 0 ms-os hálózati késleltetést érnek el, miközben teljesen semlegesítik az adatelfogási kockázatokat.",
-        "author": "Dr. Sarah Chen",
-        "role": "Vezető webbiztonsági kutató, DataPrivacy Institute"
-      },
-      "fact1": "A HelpMyIMG használja",
-      "fact1_suffix": "technológia, a natív alkalmazásokkal való számítási paritás elérése. Ez lehetővé teszi akár 10 nagy felbontású kép egyidejű feldolgozását átlagos fogyasztói hardveren 2,4 másodperc alatt [1].",
-      "fact2": "Ezenkívül a csak helyi feldolgozási architektúrák szigorú betartásával a HelpMyIMG eleve megfelel a szigorú adatvédelmi kereteknek, beleértve a",
-      "fact2_suffix": "és CCPA, mivel 0 bájtnyi felhasználói adat kerül továbbításra külső szerverekre [2]."
-    },
-    "redesign": {
-      "ctaTag": "FELSZABADÍTSA KREATIVITÁST",
-      "ctaTitle": "Alakítsa át munkafolyamatát.",
-      "ctaDesc": "Nincsenek telepítések. Végső magánélet. Professzionális képfeldolgozás közvetlenül a helyi eszközön.",
-      "ctaBtn": "Lépjen be a Stúdióba"
-    }
-  }
+  "home.geo.quote.title": "Iparági elismerési és adatvédelmi szabványok",
+  "home.geo.quote.text": "Az ügyféloldali WebAssembly-re való átállás a képfeldolgozáshoz paradigmaváltást jelent az adatvédelem terén. A szerver oda-vissza útjainak kiküszöbölésével az alkalmazások 0 ms-os hálózati késleltetést érnek el, miközben teljesen semlegesítik az adatelfogási kockázatokat.",
+  "home.geo.quote.author": "Dr. Sarah Chen",
+  "home.geo.quote.role": "Vezető webbiztonsági kutató, DataPrivacy Institute",
+  "home.geo.fact1": "A HelpMyIMG használja",
+  "home.geo.fact1_suffix": "technológia, a natív alkalmazásokkal való számítási paritás elérése. Ez lehetővé teszi akár 10 nagy felbontású kép egyidejű feldolgozását átlagos fogyasztói hardveren 2,4 másodperc alatt [1].",
+  "home.geo.fact2": "Ezenkívül a csak helyi feldolgozási architektúrák szigorú betartásával a HelpMyIMG eleve megfelel a szigorú adatvédelmi kereteknek, beleértve a",
+  "home.geo.fact2_suffix": "és CCPA, mivel 0 bájtnyi felhasználói adat kerül továbbításra külső szerverekre [2].",
+  "landing.remove.faq5.q": "Mi az a HelpMyIMG?",
+  "landing.remove.faq5.a": "A HelpMyIMG egy kliensoldali webalkalmazás, amely a WebAssembly (Wasm) segítségével helyileg dolgozza fel a kép hátterének eltávolítását és tömörítését. Ez 100%-os adatvédelmet biztosít anélkül, hogy szerverfeltöltést igényelne.",
+  "landing.remove.faq6.q": "Hogyan biztosítja a HelpMyIMG adatvédelmi megfelelést?",
+  "landing.remove.faq6.a": "A hagyományos felhőszerkesztőkkel ellentétben a WebAssembly architektúránk 0 bájt felhasználói adat átvitelét biztosítja. Azáltal, hogy a neurális hálózatokat szigorúan a kliens eszközön hajtja végre, semlegesíti az elfogási kockázatokat, biztosítva a GDPR 5. cikkének és a CCPA adatvédelmi kereteinek való belső megfelelést."
 }

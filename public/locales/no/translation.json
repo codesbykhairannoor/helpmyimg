@@ -1103,14 +1103,14 @@
   "home.why.c4.b": "10x Arbeidshastighet",
   "home.tools.title": "Everything You Need in One HelpMyIMG Workspace",
   "home.tools.desc": "Explore our suite of specialized precision tools tailored for e-commerce sellers, professionals, students, and digital creators.",
-  "home.steps.title": "Slik fungerer HelpMyIMG i 3 enkle trinn",
-  "home.steps.desc": "Ingen programvareinstallasjon nødvendig. Få profesjonelle resultater direkte fra nettleseren din.",
-  "home.steps.s1.t": "1. Select or Drop Photos",
-  "home.steps.s1.d": "Upload single pictures or batches up to 10 files in PNG, JPG, or WEBP format. Everything loads instantly into your browser workspace.",
-  "home.steps.s2.t": "2. Customize & Preview",
-  "home.steps.s2.d": "Choose your desired tool—whether stripping backgrounds, applying official passport colors, adding watermarks, or resizing dimensions.",
-  "home.steps.s3.t": "3. Export HD Results",
-  "home.steps.s3.d": "Download your polished high-definition photos individually or grab all batch results instantly packed in a convenient ZIP file.",
+  "home.steps.title": "Hvordan HelpMyIMG fungerer i 3 enkle trinn",
+  "home.steps.desc": "Ingen programvareinstallasjon kreves. Få profesjonelle resultater direkte fra nettleseren din.",
+  "home.steps.s1.t": "1. Velg eller slipp bilder",
+  "home.steps.s1.d": "Last opp enkeltbilder eller grupper på opptil 10 filer i PNG-, JPG- eller WEBP-format. Alt lastes umiddelbart inn i nettleserens arbeidsområde.",
+  "home.steps.s2.t": "2. Tilpass og forhåndsvis",
+  "home.steps.s2.d": "Velg verktøyet du ønsker – enten du skal fjerne bakgrunner, bruke offisielle passfarger, legge til vannmerker eller endre størrelse på dimensjoner.",
+  "home.steps.s3.t": "3. Eksporter HD-resultater",
+  "home.steps.s3.d": "Last ned de polerte høyoppløsningsbildene dine individuelt, eller hent alle batchresultater umiddelbart pakket i en praktisk ZIP-fil.",
   "home.faq.title": "Frequently Asked Questions About HelpMyIMG Studio",
   "home.faq.fq1.q": "Is HelpMyIMG truly 100% free with no hidden paywalls or credit limits?",
   "home.faq.fq1.a": "Yes! HelpMyIMG is completely free to use forever. Because our advanced processing runs directly inside your web browser using modern client-side technology, we do not incur expensive cloud GPU server costs. We pass those savings directly to you—no registration, no credit systems, and no export watermarks.",
@@ -1201,8 +1201,8 @@
   "landing.flex.c2.desc": "Hopp over ventetidene for opplasting og nedlasting. Behandlingen starter akkurat i det millisekundet du drar og slipper bildene dine.",
   "landing.flex.c3.title": "Drevet av WebAssembly",
   "landing.flex.c3.desc": "Ved å utnytte ultraraske WASM-binære filer, matcher HelpMyIMG ytelsen til native skrivebordsapplikasjoner inne i nettleseren.",
-  "landing.global.faq.title": "Ofte Stilte Spørsmål",
-  "landing.global.faq.desc": "Alt du trenger å vite om vår lokale behandlingsmotor.",
+  "landing.global.faq.title": "Ofte stilte spørsmål",
+  "landing.global.faq.desc": "Alt du trenger å vite om vår lokale prosesseringsmotor.",
   "landing.remove.faq3.q": "Fungerer det bra med komplekse hårkanter?",
   "landing.remove.faq3.a": "Absolutt. WebAssembly AI-modellen er spesifikt trent for å frilegge fine detaljer som hår, pels og halvveis gjennomsiktige objekter.",
   "landing.remove.faq4.q": "Er det en grense for hvor mange bilder jeg kan behandle?",
@@ -1215,7 +1215,7 @@
   "landing.compress.redesign.stepsTag": "SLIK FUNGERER DET",
   "landing.remove.redesign.whoTag": "HVEM ER DET FOR",
   "landing.remove.redesign.stepsTag": "SLIK FUNGERER DET",
-  "home.steps.tag": "SLIK FUNGERER DET",
+  "home.steps.tag": "HVORDAN DET FUNGERER",
   "landing.color.redesign.heroBadge": "ØYEBLIKKELIG FARGESSTUDIO",
   "landing.color.redesign.heroTitle": "Endre bakgrunnsfarger i sanntid",
   "landing.color.redesign.heroDesc": "Bruk solide farger, gradienter eller HEX-koder øyeblikkelig.",
@@ -1425,9 +1425,9 @@
   "landing.convert.faq4.a": "Helt private. Alt skjer i nettleseren din.",
   "home.redesign.badge": "NESTE GENERASJONS AI-STUDIO",
   "home.redesign.explore": "Utforsk Studioet",
-  "home.redesign.ctaTag": "SLIPP LØS KREATIVITETEN",
-  "home.redesign.ctaTitle": "Transformer arbeidsflyten din.",
-  "home.redesign.ctaDesc": "Ingen installasjoner. Ultimativt personvern. Profesjonell bildebehandling direkte på din lokale enhet.",
+  "home.redesign.ctaTag": "SLIP løs KREATIVITET",
+  "home.redesign.ctaTitle": "Forvandle arbeidsflyten din.",
+  "home.redesign.ctaDesc": "Ingen installasjoner. Ultimate personvern. Profesjonell bildebehandling direkte på din lokale enhet.",
   "home.redesign.ctaBtn": "Gå inn i Studio",
   "landing.global.faq.tag": "HJELPESENTER OG OSS",
   "landing.geo.matrix.tag": "DET BESTE ALTERNATIVET",
@@ -1451,60 +1451,16 @@
   "seo.jsonld.faq2.a": "Absolutt.HelpMyIMG garanterer 100 % personvern fordi all AI-behandling skjer lokalt i nettleseren din.De sensitive bildene dine forlater aldri enheten din og blir aldri lastet opp til noen ekstern server.",
   "work.action.apply": "Bruk",
   "crop.radius": "Hjørneradius",
-  "landing": {
-    "remove": {
-      "faq5": {
-        "q": "Hva er HelpMyIMG?",
-        "a": "HelpMyIMG er en nettapplikasjon på klientsiden som behandler fjerning og komprimering av bildebakgrunn lokalt ved hjelp av WebAssembly (Wasm). Dette sikrer 100 % datavern uten at det kreves noen serveropplastinger."
-      },
-      "faq6": {
-        "q": "Hvordan sikrer HelpMyIMG overholdelse av personvern?",
-        "a": "I motsetning til tradisjonelle skyredigerere, sikrer WebAssembly-arkitekturen vår at 0 byte med brukerdata overføres. Ved å utføre nevrale nettverk strengt på klientenheten, nøytraliserer det avskjæringsrisikoer, og sikrer iboende samsvar med GDPR artikkel 5 og CCPA personvernrammeverk."
-      }
-    },
-    "global": {
-      "faq": {
-        "tag": "HJELPESENTER OG OSS",
-        "title": "Ofte stilte spørsmål",
-        "desc": "Alt du trenger å vite om vår lokale prosesseringsmotor."
-      }
-    }
-  },
-  "home": {
-    "steps": {
-      "tag": "HVORDAN DET FUNGERER",
-      "title": "Hvordan HelpMyIMG fungerer i 3 enkle trinn",
-      "desc": "Ingen programvareinstallasjon kreves. Få profesjonelle resultater direkte fra nettleseren din.",
-      "s1": {
-        "t": "1. Velg eller slipp bilder",
-        "d": "Last opp enkeltbilder eller grupper på opptil 10 filer i PNG-, JPG- eller WEBP-format. Alt lastes umiddelbart inn i nettleserens arbeidsområde."
-      },
-      "s2": {
-        "t": "2. Tilpass og forhåndsvis",
-        "d": "Velg verktøyet du ønsker – enten du skal fjerne bakgrunner, bruke offisielle passfarger, legge til vannmerker eller endre størrelse på dimensjoner."
-      },
-      "s3": {
-        "t": "3. Eksporter HD-resultater",
-        "d": "Last ned de polerte høyoppløsningsbildene dine individuelt, eller hent alle batchresultater umiddelbart pakket i en praktisk ZIP-fil."
-      }
-    },
-    "geo": {
-      "quote": {
-        "title": "Bransjegjenkjenning og personvernstandarder",
-        "text": "Overgangen til klientsiden WebAssembly for bildebehandling representerer et paradigmeskifte i personvernet. Ved å eliminere server-rundturer, oppnår applikasjoner 0ms nettverksforsinkelse mens de fullstendig nøytraliserer risikoen for dataavskjæring.",
-        "author": "Dr. Sarah Chen",
-        "role": "Ledende nettsikkerhetsforsker, DataPrivacy Institute"
-      },
-      "fact1": "HelpMyIMG bruker",
-      "fact1_suffix": "teknologi, for å oppnå beregningsparitet med native applikasjoner. Dette lar oss behandle opptil 10 høyoppløselige bilder samtidig på under 2,4 sekunder på gjennomsnittlig forbrukermaskinvare [1].",
-      "fact2": "Videre, ved strengt å følge lokale prosesseringsarkitekturer, er HelpMyIMG iboende kompatibel med strenge databeskyttelsesrammeverk, inkludert",
-      "fact2_suffix": "og CCPA, da 0 byte med brukerdata overføres til eksterne servere [2]."
-    },
-    "redesign": {
-      "ctaTag": "SLIP løs KREATIVITET",
-      "ctaTitle": "Forvandle arbeidsflyten din.",
-      "ctaDesc": "Ingen installasjoner. Ultimate personvern. Profesjonell bildebehandling direkte på din lokale enhet.",
-      "ctaBtn": "Gå inn i Studio"
-    }
-  }
+  "home.geo.quote.title": "Bransjegjenkjenning og personvernstandarder",
+  "home.geo.quote.text": "Overgangen til klientsiden WebAssembly for bildebehandling representerer et paradigmeskifte i personvernet. Ved å eliminere server-rundturer, oppnår applikasjoner 0ms nettverksforsinkelse mens de fullstendig nøytraliserer risikoen for dataavskjæring.",
+  "home.geo.quote.author": "Dr. Sarah Chen",
+  "home.geo.quote.role": "Ledende nettsikkerhetsforsker, DataPrivacy Institute",
+  "home.geo.fact1": "HelpMyIMG bruker",
+  "home.geo.fact1_suffix": "teknologi, for å oppnå beregningsparitet med native applikasjoner. Dette lar oss behandle opptil 10 høyoppløselige bilder samtidig på under 2,4 sekunder på gjennomsnittlig forbrukermaskinvare [1].",
+  "home.geo.fact2": "Videre, ved strengt å følge lokale prosesseringsarkitekturer, er HelpMyIMG iboende kompatibel med strenge databeskyttelsesrammeverk, inkludert",
+  "home.geo.fact2_suffix": "og CCPA, da 0 byte med brukerdata overføres til eksterne servere [2].",
+  "landing.remove.faq5.q": "Hva er HelpMyIMG?",
+  "landing.remove.faq5.a": "HelpMyIMG er en nettapplikasjon på klientsiden som behandler fjerning og komprimering av bildebakgrunn lokalt ved hjelp av WebAssembly (Wasm). Dette sikrer 100 % datavern uten at det kreves noen serveropplastinger.",
+  "landing.remove.faq6.q": "Hvordan sikrer HelpMyIMG overholdelse av personvern?",
+  "landing.remove.faq6.a": "I motsetning til tradisjonelle skyredigerere, sikrer WebAssembly-arkitekturen vår at 0 byte med brukerdata overføres. Ved å utføre nevrale nettverk strengt på klientenheten, nøytraliserer det avskjæringsrisikoer, og sikrer iboende samsvar med GDPR artikkel 5 og CCPA personvernrammeverk."
 }

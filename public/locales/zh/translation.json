@@ -1103,14 +1103,14 @@
   "home.why.c4.b": "10倍 工作速度",
   "home.tools.title": "Everything You Need in One HelpMyIMG Workspace",
   "home.tools.desc": "Explore our suite of specialized precision tools tailored for e-commerce sellers, professionals, students, and digital creators.",
-  "home.steps.title": "HelpMyIMG 的简单3步操作",
+  "home.steps.title": "HelpMyIMG 如何通过 3 个简单步骤运行",
   "home.steps.desc": "无需安装软件。直接从您的网络浏览器获得专业结果。",
-  "home.steps.s1.t": "1. 选择或拖拽图片",
-  "home.steps.s1.d": "上传单张或多达 10 张 PNG、JPG 或 WEBP 格式图片。所有文件将瞬间加载至您的浏览器工作区中。",
-  "home.steps.s2.t": "2. 自定义参数与预览",
-  "home.steps.s2.d": "选择所需的工具功能——无论是智能抠图、更换证件照官方背景色、添加防盗水印，还是调整尺寸比例。",
-  "home.steps.s3.t": "3. 导出高清效果图",
-  "home.steps.s3.d": "单独下载精美的高清照片，或点击一次按钮将整组批量处理的结果打包成便捷的 ZIP 文件瞬间下载。",
+  "home.steps.s1.t": "1. 选择或放置照片",
+  "home.steps.s1.d": "上传单张图片或批量上传最多 10 个 PNG、JPG 或 WEBP 格式的文件。所有内容都会立即加载到您的浏览器工作区中。",
+  "home.steps.s2.t": "2. 自定义和预览",
+  "home.steps.s2.d": "选择您想要的工具 - 无论是剥离背景、应用官方护照颜色、添加水印还是调整尺寸。",
+  "home.steps.s3.t": "3.导出高清结果",
+  "home.steps.s3.d": "单独下载精美的高清照片，或立即获取打包在方便的 ZIP 文件中的所有批量结果。",
   "home.faq.title": "关于 HelpMyIMG Studio 的常见问题 (FAQ)",
   "home.faq.fq1.q": "HelpMyIMG 真正做到 100% 免费且没有付费墙或次数限制吗？",
   "home.faq.fq1.a": "是的！HelpMyIMG 永久完全免费供所有人使用。因为我们利用现代客户端技术 (WebGPU/WASM) 直接在您的网页浏览器内运行高级图像处理模型，因此我们不需要承担昂贵的云端 GPU 机器运维费用。我们将这些节省出来的成本直接回馈给用户——免注册、无积分扣除、导出成果全无水印。",
@@ -1202,7 +1202,7 @@
   "landing.flex.c3.title": "WebAssembly 提供支持",
   "landing.flex.c3.desc": "利用超快速的 WASM 二进制文件，HelpMyIMG 在网络浏览器中实现了原生桌面应用程序的性能。",
   "landing.global.faq.title": "常见问题解答",
-  "landing.global.faq.desc": "关于我们本地处理引擎您需要知道的一切。",
+  "landing.global.faq.desc": "您需要了解的有关我们本地处理引擎的所有信息。",
   "landing.remove.faq3.q": "它处理复杂的头发边缘效果好吗？",
   "landing.remove.faq3.a": "绝对好。WebAssembly AI 模型经过专门训练，可以抠出头发、毛皮和半透明物体等精细细节。",
   "landing.remove.faq4.q": "我可以处理的图像数量有限制吗？",
@@ -1215,7 +1215,7 @@
   "landing.compress.redesign.stepsTag": "工作原理",
   "landing.remove.redesign.whoTag": "适用人群",
   "landing.remove.redesign.stepsTag": "工作原理",
-  "home.steps.tag": "工作原理",
+  "home.steps.tag": "它是如何运作的",
   "landing.color.redesign.heroBadge": "即时色彩工作室",
   "landing.color.redesign.heroTitle": "实时更改背景颜色",
   "landing.color.redesign.heroDesc": "即时应用纯色、渐变或十六进制颜色代码。非常适合产品摄影，完全在您的浏览器中运行。",
@@ -1427,7 +1427,7 @@
   "home.redesign.explore": "探索工作室",
   "home.redesign.ctaTag": "释放创造力",
   "home.redesign.ctaTitle": "改变您的工作流程。",
-  "home.redesign.ctaDesc": "无需安装。终极隐私。直接在您的本地设备上进行专业级图像处理。",
+  "home.redesign.ctaDesc": "无需安装。终极隐私。直接在本地设备上进行专业级图像处理。",
   "home.redesign.ctaBtn": "进入工作室",
   "landing.global.faq.tag": "帮助中心和常见问题解答",
   "landing.geo.matrix.tag": "最好的选择",
@@ -1451,60 +1451,16 @@
   "seo.jsonld.faq2.a": "绝对地。HelpMyIMG 保证 100% 的隐私，因为所有 AI 处理都在您的浏览器本地进行。您的敏感照片永远不会离开您的设备，也永远不会上传到任何远程服务器。",
   "work.action.apply": "应用",
   "crop.radius": "圆角半径",
-  "landing": {
-    "remove": {
-      "faq5": {
-        "q": "HelpMyIMG 是什么？",
-        "a": "HelpMyIMG 是一个客户端 Web 应用程序，它使用 WebAssembly (Wasm) 在本地处理图像背景去除和压缩。这确保了 100% 的数据隐私，无需任何服务器上传。"
-      },
-      "faq6": {
-        "q": "HelpMyIMG 如何确保数据隐私合规？",
-        "a": "与传统的云编辑器不同，我们的 WebAssembly 架构确保传输 0 字节的用户数据。通过严格在客户端设备上执行神经网络，它可以消除拦截风险，确保固有地遵守 GDPR 第 5 条和 CCPA 隐私框架。"
-      }
-    },
-    "global": {
-      "faq": {
-        "tag": "帮助中心和常见问题解答",
-        "title": "常见问题解答",
-        "desc": "您需要了解的有关我们本地处理引擎的所有信息。"
-      }
-    }
-  },
-  "home": {
-    "steps": {
-      "tag": "它是如何运作的",
-      "title": "HelpMyIMG 如何通过 3 个简单步骤运行",
-      "desc": "无需安装软件。直接从您的网络浏览器获得专业结果。",
-      "s1": {
-        "t": "1. 选择或放置照片",
-        "d": "上传单张图片或批量上传最多 10 个 PNG、JPG 或 WEBP 格式的文件。所有内容都会立即加载到您的浏览器工作区中。"
-      },
-      "s2": {
-        "t": "2. 自定义和预览",
-        "d": "选择您想要的工具 - 无论是剥离背景、应用官方护照颜色、添加水印还是调整尺寸。"
-      },
-      "s3": {
-        "t": "3.导出高清结果",
-        "d": "单独下载精美的高清照片，或立即获取打包在方便的 ZIP 文件中的所有批量结果。"
-      }
-    },
-    "geo": {
-      "quote": {
-        "title": "行业认可和隐私标准",
-        "text": "向客户端 WebAssembly 进行图像处理的过渡代表了数据隐私方面的范式转变。通过消除服务器往返，应用程序可以实现 0 毫秒的网络延迟，同时完全消除数据拦截风险。",
-        "author": "陈莎拉博士",
-        "role": "数据隐私研究所首席网络安全研究员"
-      },
-      "fact1": "HelpMyIMG 利用",
-      "fact1_suffix": "技术，实现与本机应用程序的计算对等。这使我们能够在普通消费级硬件上在 2.4 秒内同时处理多达 10 个高分辨率图像 [1]。",
-      "fact2": "此外，通过严格遵守仅限本地的处理架构，HelpMyIMG 本质上符合严格的数据保护框架，包括",
-      "fact2_suffix": "和 CCPA，因为 0 字节的用户数据被传输到外部服务器 [2]。"
-    },
-    "redesign": {
-      "ctaTag": "释放创造力",
-      "ctaTitle": "改变您的工作流程。",
-      "ctaDesc": "无需安装。终极隐私。直接在本地设备上进行专业级图像处理。",
-      "ctaBtn": "进入工作室"
-    }
-  }
+  "home.geo.quote.title": "行业认可和隐私标准",
+  "home.geo.quote.text": "向客户端 WebAssembly 进行图像处理的过渡代表了数据隐私方面的范式转变。通过消除服务器往返，应用程序可以实现 0 毫秒的网络延迟，同时完全消除数据拦截风险。",
+  "home.geo.quote.author": "陈莎拉博士",
+  "home.geo.quote.role": "数据隐私研究所首席网络安全研究员",
+  "home.geo.fact1": "HelpMyIMG 利用",
+  "home.geo.fact1_suffix": "技术，实现与本机应用程序的计算对等。这使我们能够在普通消费级硬件上在 2.4 秒内同时处理多达 10 个高分辨率图像 [1]。",
+  "home.geo.fact2": "此外，通过严格遵守仅限本地的处理架构，HelpMyIMG 本质上符合严格的数据保护框架，包括",
+  "home.geo.fact2_suffix": "和 CCPA，因为 0 字节的用户数据被传输到外部服务器 [2]。",
+  "landing.remove.faq5.q": "HelpMyIMG 是什么？",
+  "landing.remove.faq5.a": "HelpMyIMG 是一个客户端 Web 应用程序，它使用 WebAssembly (Wasm) 在本地处理图像背景去除和压缩。这确保了 100% 的数据隐私，无需任何服务器上传。",
+  "landing.remove.faq6.q": "HelpMyIMG 如何确保数据隐私合规？",
+  "landing.remove.faq6.a": "与传统的云编辑器不同，我们的 WebAssembly 架构确保传输 0 字节的用户数据。通过严格在客户端设备上执行神经网络，它可以消除拦截风险，确保固有地遵守 GDPR 第 5 条和 CCPA 隐私框架。"
 }

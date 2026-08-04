@@ -1103,14 +1103,14 @@
   "home.why.c4.b": "10倍の作業速度",
   "home.tools.title": "Everything You Need in One HelpMyIMG Workspace",
   "home.tools.desc": "Explore our suite of specialized precision tools tailored for e-commerce sellers, professionals, students, and digital creators.",
-  "home.steps.title": "HelpMyIMG が 3 つの簡単なステップで機能する仕組み",
-  "home.steps.desc": "ソフトウェアのインストールは必要ありません。Web ブラウザーから直接、プロフェッショナルな結果を得ることができます。",
-  "home.steps.s1.t": "1. 写真を選択またはドロップ",
-  "home.steps.s1.d": "PNG、JPG、または WEBP 形式の写真を1枚、または最大10枚のバッチでアップロード。すべてブラウザのワークスペースに瞬時に読み込まれます。",
-  "home.steps.s2.t": "2. カスタマイズ＆プレビュー",
-  "home.steps.s2.d": "背景の自動切り抜き、証明写真の背景色変更、透かし文字の追加、サイズの変更など、目的のツールを自由に選択します。",
-  "home.steps.s3.t": "3. 高画質(HD)で保存",
-  "home.steps.s3.d": "綺麗に加工された高画質の写真を個別にダウンロードするか、ワンクリックで一括処理されたすべての結果をZIPファイルで保存します。",
+  "home.steps.title": "3 つの簡単なステップで HelpMyIMG がどのように機能するか",
+  "home.steps.desc": "ソフトウェアのインストールは必要ありません。 Web ブラウザから直接プロフェッショナルな結果を得ることができます。",
+  "home.steps.s1.t": "1. 写真を選択またはドロップします",
+  "home.steps.s1.d": "単一の写真、または PNG、JPG、または WEBP 形式で最大 10 個のファイルをバッチでアップロードします。すべてがブラウザのワークスペースに即座にロードされます。",
+  "home.steps.s2.t": "2. カスタマイズとプレビュー",
+  "home.steps.s2.d": "背景の除去、パスポートの公式カラーの適用、透かしの追加、寸法のサイズ変更など、必要なツールを選択してください。",
+  "home.steps.s3.t": "3. HD 結果のエクスポート",
+  "home.steps.s3.d": "洗練された高解像度の写真を個別にダウンロードするか、便利な ZIP ファイルにまとめられたすべてのバッチ結果を即座に取得します。",
   "home.faq.title": "HelpMyIMG Studio に関するよくある質問 (FAQ)",
   "home.faq.fq1.q": "HelpMyIMG は本当に隠れた課金やクレジット制限のない完全無料ですか？",
   "home.faq.fq1.a": "はい！HelpMyIMG は永久に完全無料でご利用いただけます。最新のクライアントサイド技術 (WebGPU/WASM) を使用してブラウザ内で直接高度な処理を実行するため、高額なクラウド GPU サーバー費用が発生しません。そのため、アカウント登録やクレジット課金、ダウンロード結果への透かし追加なしで、すべての機能を無料で提供しています。",
@@ -1202,7 +1202,7 @@
   "landing.flex.c3.title": "WebAssembly 搭載",
   "landing.flex.c3.desc": "超高速の WASM バイナリを活用することで、HelpMyIMG は Web ブラウザー内でネイティブ デスクトップ アプリケーションのパフォーマンスに匹敵します。",
   "landing.global.faq.title": "よくある質問",
-  "landing.global.faq.desc": "当社のローカル処理エンジンについて知っておくべきことすべて。",
+  "landing.global.faq.desc": "当社のローカル処理エンジンについて知っておくべきすべてのこと。",
   "landing.remove.faq3.q": "複雑な髪の境界でもうまく機能しますか？",
   "landing.remove.faq3.a": "もちろんです。WebAssembly AIモデルは、髪の毛、毛皮、半透明のオブジェクトなどの細かいディテールを切り抜くために特別にトレーニングされています。",
   "landing.remove.faq4.q": "処理できる画像数に制限はありますか？",
@@ -1215,7 +1215,7 @@
   "landing.compress.redesign.stepsTag": "使い方",
   "landing.remove.redesign.whoTag": "対象者",
   "landing.remove.redesign.stepsTag": "使い方",
-  "home.steps.tag": "使い方",
+  "home.steps.tag": "仕組み",
   "landing.color.redesign.heroBadge": "インスタントカラースタジオ",
   "landing.color.redesign.heroTitle": "リアルタイムで背景色を変更",
   "landing.color.redesign.heroDesc": "単色、グラデーション、またはHEXコードを瞬時に適用します。商品写真に最適です。",
@@ -1426,8 +1426,8 @@
   "home.redesign.badge": "次世代AIスタジオ",
   "home.redesign.explore": "スタジオを探索する",
   "home.redesign.ctaTag": "創造性を解き放つ",
-  "home.redesign.ctaTitle": "ワークフローを変革する。",
-  "home.redesign.ctaDesc": "インストール不要。究極のプライバシー。ローカルデバイスで直接プロレベルの画像処理。",
+  "home.redesign.ctaTitle": "ワークフローを変革します。",
+  "home.redesign.ctaDesc": "インストールはありません。究極のプライバシー。ローカルデバイス上で直接プロ級の画像処理を行います。",
   "home.redesign.ctaBtn": "スタジオに入る",
   "landing.global.faq.tag": "ヘルプセンターとよくある質問",
   "landing.geo.matrix.tag": "最良の代替手段",
@@ -1451,60 +1451,16 @@
   "seo.jsonld.faq2.a": "絶対に。HelpMyIMG は、すべての AI 処理がブラウザ内でローカルに行われるため、100% のプライバシーを保証します。機密性の高い写真がデバイスの外に出たり、リモート サーバーにアップロードされたりすることはありません。",
   "work.action.apply": "適用する",
   "crop.radius": "角丸の半径",
-  "landing": {
-    "remove": {
-      "faq5": {
-        "q": "HelpMyIMGとは何ですか?",
-        "a": "HelpMyIMG は、WebAssembly (Wasm) を使用して画像の背景の削除と圧縮をローカルで処理するクライアント側の Web アプリケーションです。これにより、サーバーへのアップロードを必要とせずに、100% のデータ プライバシーが保証されます。"
-      },
-      "faq6": {
-        "q": "HelpMyIMG はどのようにしてデータ プライバシー コンプライアンスを確保しますか?",
-        "a": "従来のクラウド エディターとは異なり、WebAssembly アーキテクチャではユーザー データの送信バイトが 0 バイトであることが保証されます。ニューラル ネットワークをクライアント デバイス上で厳密に実行することで、傍受のリスクを無効化し、GDPR 第 5 条および CCPA プライバシー フレームワークへの本質的な準拠を保証します。"
-      }
-    },
-    "global": {
-      "faq": {
-        "tag": "ヘルプセンターとよくある質問",
-        "title": "よくある質問",
-        "desc": "当社のローカル処理エンジンについて知っておくべきすべてのこと。"
-      }
-    }
-  },
-  "home": {
-    "steps": {
-      "tag": "仕組み",
-      "title": "3 つの簡単なステップで HelpMyIMG がどのように機能するか",
-      "desc": "ソフトウェアのインストールは必要ありません。 Web ブラウザから直接プロフェッショナルな結果を得ることができます。",
-      "s1": {
-        "t": "1. 写真を選択またはドロップします",
-        "d": "単一の写真、または PNG、JPG、または WEBP 形式で最大 10 個のファイルをバッチでアップロードします。すべてがブラウザのワークスペースに即座にロードされます。"
-      },
-      "s2": {
-        "t": "2. カスタマイズとプレビュー",
-        "d": "背景の除去、パスポートの公式カラーの適用、透かしの追加、寸法のサイズ変更など、必要なツールを選択してください。"
-      },
-      "s3": {
-        "t": "3. HD 結果のエクスポート",
-        "d": "洗練された高解像度の写真を個別にダウンロードするか、便利な ZIP ファイルにまとめられたすべてのバッチ結果を即座に取得します。"
-      }
-    },
-    "geo": {
-      "quote": {
-        "title": "業界の認識とプライバシー基準",
-        "text": "画像処理のためのクライアント側 WebAssembly への移行は、データ プライバシーのパラダイム シフトを表しています。サーバーの往復を排除することで、アプリケーションはデータ傍受のリスクを完全に排除しながら、ネットワーク遅延を 0 ミリ秒に抑えます。",
-        "author": "サラ・チェン博士",
-        "role": "DataPrivacy Institute、主任 Web セキュリティ研究員"
-      },
-      "fact1": "HelpMyIMG が利用する",
-      "fact1_suffix": "テクノロジーを利用して、ネイティブ アプリケーションとの計算同等性を実現します。これにより、平均的な民生用ハードウェアで最大 10 枚の高解像度画像を 2.4 秒未満で同時に処理できるようになります [1]。",
-      "fact2": "さらに、HelpMyIMG は、ローカルのみの処理アーキテクチャに厳密に準拠することにより、次のような厳格なデータ保護フレームワークに本質的に準拠しています。",
-      "fact2_suffix": "および CCPA は、0 バイトのユーザー データが外部サーバーに送信されるためです [2]。"
-    },
-    "redesign": {
-      "ctaTag": "創造性を解き放つ",
-      "ctaTitle": "ワークフローを変革します。",
-      "ctaDesc": "インストールはありません。究極のプライバシー。ローカルデバイス上で直接プロ級の画像処理を行います。",
-      "ctaBtn": "スタジオに入る"
-    }
-  }
+  "home.geo.quote.title": "業界の認識とプライバシー基準",
+  "home.geo.quote.text": "画像処理のためのクライアント側 WebAssembly への移行は、データ プライバシーのパラダイム シフトを表しています。サーバーの往復を排除することで、アプリケーションはデータ傍受のリスクを完全に排除しながら、ネットワーク遅延を 0 ミリ秒に抑えます。",
+  "home.geo.quote.author": "サラ・チェン博士",
+  "home.geo.quote.role": "DataPrivacy Institute、主任 Web セキュリティ研究員",
+  "home.geo.fact1": "HelpMyIMG が利用する",
+  "home.geo.fact1_suffix": "テクノロジーを利用して、ネイティブ アプリケーションとの計算同等性を実現します。これにより、平均的な民生用ハードウェアで最大 10 枚の高解像度画像を 2.4 秒未満で同時に処理できるようになります [1]。",
+  "home.geo.fact2": "さらに、HelpMyIMG は、ローカルのみの処理アーキテクチャに厳密に準拠することにより、次のような厳格なデータ保護フレームワークに本質的に準拠しています。",
+  "home.geo.fact2_suffix": "および CCPA は、0 バイトのユーザー データが外部サーバーに送信されるためです [2]。",
+  "landing.remove.faq5.q": "HelpMyIMGとは何ですか?",
+  "landing.remove.faq5.a": "HelpMyIMG は、WebAssembly (Wasm) を使用して画像の背景の削除と圧縮をローカルで処理するクライアント側の Web アプリケーションです。これにより、サーバーへのアップロードを必要とせずに、100% のデータ プライバシーが保証されます。",
+  "landing.remove.faq6.q": "HelpMyIMG はどのようにしてデータ プライバシー コンプライアンスを確保しますか?",
+  "landing.remove.faq6.a": "従来のクラウド エディターとは異なり、WebAssembly アーキテクチャではユーザー データの送信バイトが 0 バイトであることが保証されます。ニューラル ネットワークをクライアント デバイス上で厳密に実行することで、傍受のリスクを無効化し、GDPR 第 5 条および CCPA プライバシー フレームワークへの本質的な準拠を保証します。"
 }

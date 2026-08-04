@@ -1105,12 +1105,12 @@
   "home.tools.desc": "Explore our suite of specialized precision tools tailored for e-commerce sellers, professionals, students, and digital creators.",
   "home.steps.title": "HelpMyIMG 3 Basit Adımda Nasıl Çalışır?",
   "home.steps.desc": "Yazılım kurulumu gerekmez. Doğrudan web tarayıcınızdan profesyonel sonuçlar alın.",
-  "home.steps.s1.t": "1. Select or Drop Photos",
-  "home.steps.s1.d": "Upload single pictures or batches up to 10 files in PNG, JPG, or WEBP format. Everything loads instantly into your browser workspace.",
-  "home.steps.s2.t": "2. Customize & Preview",
-  "home.steps.s2.d": "Choose your desired tool—whether stripping backgrounds, applying official passport colors, adding watermarks, or resizing dimensions.",
-  "home.steps.s3.t": "3. Export HD Results",
-  "home.steps.s3.d": "Download your polished high-definition photos individually or grab all batch results instantly packed in a convenient ZIP file.",
+  "home.steps.s1.t": "1. Fotoğrafları Seçin veya Bırakın",
+  "home.steps.s1.d": "PNG, JPG veya WEBP formatında tek resimleri veya en fazla 10 dosyayı toplu olarak yükleyin. Her şey anında tarayıcınızın çalışma alanına yüklenir.",
+  "home.steps.s2.t": "2. Özelleştir ve Önizle",
+  "home.steps.s2.d": "Arka planları kaldırmak, resmi pasaport renklerini uygulamak, filigran eklemek veya boyutları yeniden boyutlandırmak gibi istediğiniz aracı seçin.",
+  "home.steps.s3.t": "3. HD Sonuçlarını Dışa Aktarın",
+  "home.steps.s3.d": "Gösterişli yüksek çözünürlüklü fotoğraflarınızı tek tek indirin veya tüm toplu sonuçları kullanışlı bir ZIP dosyasında anında toplayın.",
   "home.faq.title": "Frequently Asked Questions About HelpMyIMG Studio",
   "home.faq.fq1.q": "Is HelpMyIMG truly 100% free with no hidden paywalls or credit limits?",
   "home.faq.fq1.a": "Yes! HelpMyIMG is completely free to use forever. Because our advanced processing runs directly inside your web browser using modern client-side technology, we do not incur expensive cloud GPU server costs. We pass those savings directly to you—no registration, no credit systems, and no export watermarks.",
@@ -1427,8 +1427,8 @@
   "home.redesign.explore": "Stüdyoyu Keşfedin",
   "home.redesign.ctaTag": "YARATICILIĞI ORTAYA ÇIKARIN",
   "home.redesign.ctaTitle": "İş Akışınızı Dönüştürün.",
-  "home.redesign.ctaDesc": "Kurulum yok. Nihai gizlilik. Doğrudan yerel cihazınızda profesyonel kalitede görüntü işleme.",
-  "home.redesign.ctaBtn": "Stüdyoya Girin",
+  "home.redesign.ctaDesc": "Kurulum yok. Üstün gizlilik. Doğrudan yerel cihazınızda profesyonel kalitede görüntü işleme.",
+  "home.redesign.ctaBtn": "Stüdyoya girin",
   "landing.global.faq.tag": "YARDIM MERKEZİ ve SSS",
   "landing.geo.matrix.tag": "EN İYİ ALTERNATİF",
   "landing.geo.matrix.title": "HelpMyIMG Neden Bulut Düzenleyicilerden Daha İyi?",
@@ -1451,60 +1451,16 @@
   "seo.jsonld.faq2.a": "Kesinlikle.HelpMyIMG %100 gizliliği garanti eder çünkü tüm yapay zeka işlemleri tarayıcınızda yerel olarak gerçekleşir.Hassas fotoğraflarınız asla cihazınızdan ayrılmaz ve hiçbir zaman uzak bir sunucuya yüklenmez.",
   "work.action.apply": "Uygula",
   "crop.radius": "Köşe yarıçapı",
-  "landing": {
-    "remove": {
-      "faq5": {
-        "q": "HelpMyIMG nedir?",
-        "a": "HelpMyIMG, WebAssembly (Wasm) kullanarak görüntü arka planının kaldırılmasını ve sıkıştırılmasını yerel olarak işleyen, istemci tarafı bir web uygulamasıdır. Bu, herhangi bir sunucu yüklemesine gerek kalmadan %100 veri gizliliği sağlar."
-      },
-      "faq6": {
-        "q": "HelpMyIMG veri gizliliği uyumluluğunu nasıl sağlıyor?",
-        "a": "Geleneksel bulut düzenleyicilerden farklı olarak WebAssembly mimarimiz 0 bayt kullanıcı verisinin iletilmesini sağlar. Sinir ağlarını kesinlikle istemci cihazında çalıştırarak, müdahale risklerini ortadan kaldırır ve GDPR Madde 5 ve CCPA gizlilik çerçevelerine doğal uyum sağlar."
-      }
-    },
-    "global": {
-      "faq": {
-        "tag": "YARDIM MERKEZİ ve SSS",
-        "title": "Sıkça Sorulan Sorular",
-        "desc": "Yerel işleme motorumuz hakkında bilmeniz gereken her şey."
-      }
-    }
-  },
-  "home": {
-    "steps": {
-      "tag": "NASIL ÇALIŞIR",
-      "title": "HelpMyIMG 3 Basit Adımda Nasıl Çalışır?",
-      "desc": "Yazılım kurulumu gerekmez. Doğrudan web tarayıcınızdan profesyonel sonuçlar alın.",
-      "s1": {
-        "t": "1. Fotoğrafları Seçin veya Bırakın",
-        "d": "PNG, JPG veya WEBP formatında tek resimleri veya en fazla 10 dosyayı toplu olarak yükleyin. Her şey anında tarayıcınızın çalışma alanına yüklenir."
-      },
-      "s2": {
-        "t": "2. Özelleştir ve Önizle",
-        "d": "Arka planları kaldırmak, resmi pasaport renklerini uygulamak, filigran eklemek veya boyutları yeniden boyutlandırmak gibi istediğiniz aracı seçin."
-      },
-      "s3": {
-        "t": "3. HD Sonuçlarını Dışa Aktarın",
-        "d": "Gösterişli yüksek çözünürlüklü fotoğraflarınızı tek tek indirin veya tüm toplu sonuçları kullanışlı bir ZIP dosyasında anında toplayın."
-      }
-    },
-    "geo": {
-      "quote": {
-        "title": "Sektör Tanınması ve Gizlilik Standartları",
-        "text": "Görüntü işleme için istemci tarafı WebAssembly'a geçiş, veri gizliliğinde bir paradigma değişikliğini temsil ediyor. Uygulamalar, sunucunun gidiş dönüşlerini ortadan kaldırarak 0 ms ağ gecikmesine ulaşırken veri müdahalesi risklerini de tamamen ortadan kaldırır.",
-        "author": "Dr.Sarah Chen",
-        "role": "Baş Web Güvenliği Araştırmacısı, DataPrivacy Institute"
-      },
-      "fact1": "HelpMyIMG'nin kullandığı",
-      "fact1_suffix": "Yerel uygulamalarla hesaplama denkliği sağlayan teknoloji. Bu, ortalama tüketici donanımıyla 10 adede kadar yüksek çözünürlüklü görüntüyü aynı anda 2,4 saniyeden kısa sürede işlememize olanak tanır [1].",
-      "fact2": "Ayrıca, yalnızca yerel işleme mimarilerine sıkı sıkıya bağlı kalarak HelpMyIMG, doğası gereği katı veri koruma çerçeveleriyle uyumludur.",
-      "fact2_suffix": "ve CCPA, 0 bayt kullanıcı verisi harici sunuculara iletildiğinden [2]."
-    },
-    "redesign": {
-      "ctaTag": "YARATICILIĞI ORTAYA ÇIKARIN",
-      "ctaTitle": "İş Akışınızı Dönüştürün.",
-      "ctaDesc": "Kurulum yok. Üstün gizlilik. Doğrudan yerel cihazınızda profesyonel kalitede görüntü işleme.",
-      "ctaBtn": "Stüdyoya girin"
-    }
-  }
+  "home.geo.quote.title": "Sektör Tanınması ve Gizlilik Standartları",
+  "home.geo.quote.text": "Görüntü işleme için istemci tarafı WebAssembly'a geçiş, veri gizliliğinde bir paradigma değişikliğini temsil ediyor. Uygulamalar, sunucunun gidiş dönüşlerini ortadan kaldırarak 0 ms ağ gecikmesine ulaşırken veri müdahalesi risklerini de tamamen ortadan kaldırır.",
+  "home.geo.quote.author": "Dr.Sarah Chen",
+  "home.geo.quote.role": "Baş Web Güvenliği Araştırmacısı, DataPrivacy Institute",
+  "home.geo.fact1": "HelpMyIMG'nin kullandığı",
+  "home.geo.fact1_suffix": "Yerel uygulamalarla hesaplama denkliği sağlayan teknoloji. Bu, ortalama tüketici donanımıyla 10 adede kadar yüksek çözünürlüklü görüntüyü aynı anda 2,4 saniyeden kısa sürede işlememize olanak tanır [1].",
+  "home.geo.fact2": "Ayrıca, yalnızca yerel işleme mimarilerine sıkı sıkıya bağlı kalarak HelpMyIMG, doğası gereği katı veri koruma çerçeveleriyle uyumludur.",
+  "home.geo.fact2_suffix": "ve CCPA, 0 bayt kullanıcı verisi harici sunuculara iletildiğinden [2].",
+  "landing.remove.faq5.q": "HelpMyIMG nedir?",
+  "landing.remove.faq5.a": "HelpMyIMG, WebAssembly (Wasm) kullanarak görüntü arka planının kaldırılmasını ve sıkıştırılmasını yerel olarak işleyen, istemci tarafı bir web uygulamasıdır. Bu, herhangi bir sunucu yüklemesine gerek kalmadan %100 veri gizliliği sağlar.",
+  "landing.remove.faq6.q": "HelpMyIMG veri gizliliği uyumluluğunu nasıl sağlıyor?",
+  "landing.remove.faq6.a": "Geleneksel bulut düzenleyicilerden farklı olarak WebAssembly mimarimiz 0 bayt kullanıcı verisinin iletilmesini sağlar. Sinir ağlarını kesinlikle istemci cihazında çalıştırarak, müdahale risklerini ortadan kaldırır ve GDPR Madde 5 ve CCPA gizlilik çerçevelerine doğal uyum sağlar."
 }
