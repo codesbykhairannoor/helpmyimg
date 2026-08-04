@@ -1462,5 +1462,16 @@
         "a": "Unlike traditional cloud editors, our WebAssembly architecture ensures 0 bytes of user data are transmitted. By executing neural networks strictly on the client device, it neutralizes interception risks, ensuring inherent compliance with GDPR Article 5 and CCPA privacy frameworks."
       }
     }
+  },
+  "home": {
+    "steps": {
+      "tag": "WIE ES FUNKTIONIERT",
+      "title": "So funktioniert HelpMyIMG in 3 einfachen Schritten",
+      "desc": "Keine Softwareinstallation erforderlich. Erhalten Sie professionelle Ergebnisse direkt über Ihren Webbrowser.",
+      "s1": {
+        "t": "1. Wählen Sie Fotos aus oder legen Sie sie ab",
+        "d": "Laden Sie einzelne Bilder oder Stapel von bis zu 10 Dateien im PNG-, JPG- oder WEBP-Format hoch. Alles wird sofort in Ihren Browser-Arbeitsbereich geladen."
+      }
+    }
   }
 }

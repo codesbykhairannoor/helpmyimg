@@ -1488,6 +1488,50 @@
         "q": "How does HelpMyIMG ensure data privacy compliance?",
         "a": "Unlike traditional cloud editors, our WebAssembly architecture ensures 0 bytes of user data are transmitted. By executing neural networks strictly on the client device, it neutralizes interception risks, ensuring inherent compliance with GDPR Article 5 and CCPA privacy frameworks."
       }
+    },
+    "global": {
+      "faq": {
+        "tag": "HELP CENTER & FAQ",
+        "title": "Frequently Asked Questions",
+        "desc": "Everything you need to know about our local processing engine."
+      }
+    }
+  },
+  "home": {
+    "steps": {
+      "tag": "HOW IT WORKS",
+      "title": "How HelpMyIMG Works in 3 Simple Steps",
+      "desc": "No software installation required. Get professional results directly from your web browser.",
+      "s1": {
+        "t": "1. Select or Drop Photos",
+        "d": "Upload single pictures or batches up to 10 files in PNG, JPG, or WEBP format. Everything loads instantly into your browser workspace."
+      },
+      "s2": {
+        "t": "2. Customize & Preview",
+        "d": "Choose your desired tool—whether stripping backgrounds, applying official passport colors, adding watermarks, or resizing dimensions."
+      },
+      "s3": {
+        "t": "3. Export HD Results",
+        "d": "Download your polished high-definition photos individually or grab all batch results instantly packed in a convenient ZIP file."
+      }
+    },
+    "geo": {
+      "quote": {
+        "title": "Industry Recognition & Privacy Standards",
+        "text": "The transition to client-side WebAssembly for image processing represents a paradigm shift in data privacy. By eliminating server round-trips, applications achieve 0ms network latency while completely neutralizing data interception risks.",
+        "author": "Dr. Sarah Chen",
+        "role": "Lead Web Security Researcher, DataPrivacy Institute"
+      },
+      "fact1": "HelpMyIMG utilizes ",
+      "fact1_suffix": " technology, achieving computational parity with native applications. This allows us to process up to 10 high-resolution images simultaneously in under 2.4 seconds on average consumer hardware [1].",
+      "fact2": "Furthermore, by strictly adhering to local-only processing architectures, HelpMyIMG is inherently compliant with strict data protection frameworks including ",
+      "fact2_suffix": " and CCPA, as 0 bytes of user data are transmitted to external servers [2]."
+    },
+    "redesign": {
+      "ctaTag": "UNLEASH CREATIVITY",
+      "ctaTitle": "Transform Your Workflow.",
+      "ctaDesc": "No installations. Ultimate privacy. Professional grade image processing directly on your local device.",
+      "ctaBtn": "Enter Studio"
     }
   }
 }

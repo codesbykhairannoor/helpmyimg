@@ -1467,13 +1467,57 @@
   "landing": {
     "remove": {
       "faq5": {
-        "q": "What is HelpMyIMG?",
-        "a": "HelpMyIMG is a client-side web application that processes image background removal and compression locally using WebAssembly (Wasm). This ensures 100% data privacy without requiring any server uploads."
+        "q": "Co je HelpMyIMG?",
+        "a": "HelpMyIMG je webová aplikace na straně klienta, která lokálně zpracovává odstranění a kompresi pozadí obrázku pomocí WebAssembly (Wasm). To zajišťuje 100% soukromí dat bez nutnosti nahrávání na server."
       },
       "faq6": {
-        "q": "How does HelpMyIMG ensure data privacy compliance?",
-        "a": "Unlike traditional cloud editors, our WebAssembly architecture ensures 0 bytes of user data are transmitted. By executing neural networks strictly on the client device, it neutralizes interception risks, ensuring inherent compliance with GDPR Article 5 and CCPA privacy frameworks."
+        "q": "Jak HelpMyIMG zajišťuje dodržování ochrany osobních údajů?",
+        "a": "Na rozdíl od tradičních cloudových editorů naše architektura WebAssembly zajišťuje přenos 0 bajtů uživatelských dat. Spuštěním neuronových sítí striktně na klientském zařízení neutralizuje rizika zachycení a zajišťuje vlastní soulad s článkem 5 GDPR a rámcem ochrany osobních údajů CCPA."
       }
+    },
+    "global": {
+      "faq": {
+        "tag": "CENTRUM NÁPOVĚDY & FAQ",
+        "title": "Často kladené otázky",
+        "desc": "Vše, co potřebujete vědět o našem místním zpracovatelském stroji."
+      }
+    }
+  },
+  "home": {
+    "steps": {
+      "tag": "JAK TO FUNGUJE",
+      "title": "Jak HelpMyIMG funguje ve 3 jednoduchých krocích",
+      "desc": "Není nutná žádná instalace softwaru. Získejte profesionální výsledky přímo z vašeho webového prohlížeče.",
+      "s1": {
+        "t": "1. Vyberte nebo přetáhněte fotografie",
+        "d": "Nahrajte jednotlivé obrázky nebo dávky až 10 souborů ve formátu PNG, JPG nebo WEBP. Vše se okamžitě načte do pracovního prostoru vašeho prohlížeče."
+      },
+      "s2": {
+        "t": "2. Přizpůsobit a zobrazit náhled",
+        "d": "Vyberte si požadovaný nástroj – ať už jde o odstranění pozadí, použití oficiálních barev pasu, přidání vodoznaků nebo změnu velikosti rozměrů."
+      },
+      "s3": {
+        "t": "3. Exportujte výsledky HD",
+        "d": "Stáhněte si své vyleštěné fotografie s vysokým rozlišením jednotlivě nebo stáhněte všechny dávkové výsledky okamžitě zabalené do pohodlného souboru ZIP."
+      }
+    },
+    "geo": {
+      "quote": {
+        "title": "Průmyslové uznávání a standardy ochrany soukromí",
+        "text": "Přechod na WebAssembly na straně klienta pro zpracování obrázků představuje změnu paradigmatu v ochraně osobních údajů. Eliminací zpátečních cest serveru dosahují aplikace síťové latence 0 ms a zároveň zcela neutralizují rizika zachycení dat.",
+        "author": "Dr. Sarah Chen",
+        "role": "Vedoucí výzkumník webové bezpečnosti, DataPrivacy Institute"
+      },
+      "fact1": "HelpMyIMG využívá",
+      "fact1_suffix": "technologie, dosažení výpočetní parity s nativními aplikacemi. To nám umožňuje zpracovat až 10 obrázků ve vysokém rozlišení současně za méně než 2,4 sekundy na průměrném spotřebitelském hardwaru [1].",
+      "fact2": "Navíc díky přísnému dodržování pouze lokálních architektur zpracování HelpMyIMG neodmyslitelně vyhovuje přísným rámcům ochrany dat, včetně",
+      "fact2_suffix": "a CCPA, protože 0 bajtů uživatelských dat je přenášeno na externí servery [2]."
+    },
+    "redesign": {
+      "ctaTag": "UVOLNĚTE KREATIVITU",
+      "ctaTitle": "Transformujte svůj pracovní postup.",
+      "ctaDesc": "Žádné instalace. Dokonalé soukromí. Profesionální zpracování obrazu přímo na vašem místním zařízení.",
+      "ctaBtn": "Vstupte do Studia"
     }
   }
 }
