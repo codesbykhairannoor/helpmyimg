@@ -62,6 +62,9 @@ baseHtmlContent = baseHtmlContent.replace(/<!-- Static Hreflang Tags for 30 Lang
 const generateHtml = (lang, urlPath, seoTitle, seoDesc, tool = null) => {
   let html = baseHtmlContent;
 
+  // 0. Remove any existing meta descriptions to avoid duplicates
+  html = html.replace(/<meta name="description"[^>]*>\n?\s*/gi, '');
+
   // 1. Replace <html lang="en">
   html = html.replace(/<html lang="[^"]+">/i, `<html lang="${lang}">`);
 
