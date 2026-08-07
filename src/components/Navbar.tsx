@@ -76,42 +76,38 @@ export const Navbar: React.FC = () => {
         {/* Tengah: Navigation Links (Desktop) */}
         <div className="hidden lg:flex items-center justify-center flex-1 relative group px-4">
           <nav className="flex items-center gap-4 xl:gap-6 text-sm font-medium text-slate-300">
-            <Link to={lang === 'en' ? `/${getLocalizedSlug('remove', lang)}` : `/${lang}/${getLocalizedSlug('remove', lang)}`} onClick={() => (document.activeElement as HTMLElement)?.blur()} className="hover:text-neon-cyan transition-colors font-semibold flex items-center gap-1.5 whitespace-nowrap capitalize">
+            <Link to={lang === 'en' ? `/${getLocalizedSlug('remove', lang)}` : `/${lang}/${getLocalizedSlug('remove', lang)}`} onClick={() => (document.activeElement as HTMLElement)?.blur()} className="hover:text-neon-cyan transition-colors font-bold text-[13px] tracking-wide flex items-center gap-1.5 whitespace-nowrap uppercase">
               {t('nav.removeBg')}
             </Link>
-            <Link to={lang === 'en' ? `/${getLocalizedSlug('compress', lang)}` : `/${lang}/${getLocalizedSlug('compress', lang)}`} onClick={() => (document.activeElement as HTMLElement)?.blur()} className="hover:text-neon-cyan transition-colors font-semibold flex items-center gap-1.5 whitespace-nowrap capitalize">
+            <Link to={lang === 'en' ? `/${getLocalizedSlug('compress', lang)}` : `/${lang}/${getLocalizedSlug('compress', lang)}`} onClick={() => (document.activeElement as HTMLElement)?.blur()} className="hover:text-neon-cyan transition-colors font-bold text-[13px] tracking-wide flex items-center gap-1.5 whitespace-nowrap uppercase">
               {t('nav.compress') || 'Compress'}
             </Link>
-            <Link to={lang === 'en' ? `/${getLocalizedSlug('resize', lang)}` : `/${lang}/${getLocalizedSlug('resize', lang)}`} onClick={() => (document.activeElement as HTMLElement)?.blur()} className="hover:text-neon-cyan transition-colors font-semibold flex items-center gap-1.5 whitespace-nowrap capitalize">
+            <Link to={lang === 'en' ? `/${getLocalizedSlug('resize', lang)}` : `/${lang}/${getLocalizedSlug('resize', lang)}`} onClick={() => (document.activeElement as HTMLElement)?.blur()} className="hover:text-neon-cyan transition-colors font-bold text-[13px] tracking-wide flex items-center gap-1.5 whitespace-nowrap uppercase">
               {t('nav.resize')}
             </Link>
-            <Link to={lang === 'en' ? `/${getLocalizedSlug('convert', lang)}` : `/${lang}/${getLocalizedSlug('convert', lang)}`} onClick={() => (document.activeElement as HTMLElement)?.blur()} className="hover:text-neon-cyan transition-colors font-semibold flex items-center gap-1.5 whitespace-nowrap capitalize">
-              {t('nav.convert') || 'Convert Format'}
-            </Link>
             
-            {/* Menu Dropdown Lainnya */}
+            {/* Menu Dropdown All Tools */}
             <div className="relative group/dropdown">
-              <button className="flex items-center gap-1 text-slate-300 hover:text-neon-cyan transition-colors font-semibold py-2">
-                {t('nav.tools') === 'AI Tools' ? 'All Photo Tools' : (t('nav.tools') || 'All Photo Tools')} <ChevronDown className="w-3.5 h-3.5" />
+              <button className="flex items-center gap-2 bg-dark-800/50 hover:bg-dark-700 border border-dark-500/60 group-hover/dropdown:border-neon-cyan/40 group-hover/dropdown:text-neon-cyan group-hover/dropdown:shadow-[0_0_15px_rgba(5,218,237,0.15)] text-slate-300 px-3.5 py-1.5 rounded-lg transition-all duration-200 font-bold text-[13px] tracking-wide uppercase">
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><rect width="7" height="7" x="3" y="3" rx="1"/><rect width="7" height="7" x="14" y="3" rx="1"/><rect width="7" height="7" x="14" y="14" rx="1"/><rect width="7" height="7" x="3" y="14" rx="1"/></svg>
+                {t('nav.tools') === 'AI Tools' ? 'All Photo Tools' : (t('nav.tools') || 'All Photo Tools')} 
+                <ChevronDown className="w-3.5 h-3.5 group-hover/dropdown:rotate-180 transition-transform duration-200" />
               </button>
               
               {/* Mega Menu Dropdown */}
-              {/* Mega Menu Dropdown */}
-              <div className="fixed left-1/2 -translate-x-1/2 top-[64px] mt-1 w-[880px] max-w-[95vw] bg-white dark:bg-dark-800/95 backdrop-blur-xl border border-slate-200 dark:border-dark-500/80 rounded-3xl shadow-[0_30px_60px_-15px_rgba(0,0,0,0.25)] dark:shadow-2xl opacity-0 invisible group-hover/dropdown:opacity-100 group-hover/dropdown:visible transition-all duration-300 p-6 z-50">
-                <div className="grid grid-cols-5 gap-x-5 gap-y-4 text-left">
+              <div className="fixed left-1/2 -translate-x-1/2 top-[64px] mt-1 w-[880px] max-w-[95vw] bg-white dark:bg-dark-900 backdrop-blur-xl border-t-2 border-neon-cyan border-x border-b border-x-slate-200 border-b-slate-200 dark:border-x-dark-500 dark:border-b-dark-500 rounded-b-2xl shadow-[0_30px_60px_-15px_rgba(0,0,0,0.4)] opacity-0 invisible group-hover/dropdown:opacity-100 group-hover/dropdown:visible transition-all duration-200 p-6 z-50">
+                <div className="grid grid-cols-5 gap-x-6 gap-y-6 text-left">
                   {categories.filter(c => c.id !== 'all').map(cat => {
                     const catTools = tools.filter(t => t.category === cat.id);
                     if (catTools.length === 0) return null;
                     
                     return (
-                      <div key={cat.id} className="space-y-2.5">
-                        <div className="text-[11px] font-mono font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider border-b border-slate-100 dark:border-dark-600/60 pb-2">
+                      <div key={cat.id} className="flex flex-col">
+                        <div className="text-[11px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-widest border-b border-slate-100 dark:border-dark-700 pb-2 mb-3">
                           {t(cat.labelKey)}
                         </div>
-                        <div className="space-y-1.5">
+                        <div className="flex flex-col gap-1">
                           {catTools.map(tool => {
-                            const descWords = t(tool.descKey).split(' ');
-                            const shortDesc = descWords.slice(0, 4).join(' ') + (descWords.length > 4 ? '...' : '');
                             return (
                               <Link 
                                 key={tool.id} 
@@ -119,19 +115,12 @@ export const Navbar: React.FC = () => {
                                 onClick={() => {
                                   (document.activeElement as HTMLElement)?.blur();
                                 }}
-                                className="flex items-start gap-2.5 p-1.5 -mx-1.5 rounded-xl hover:bg-slate-50 dark:hover:bg-dark-700/60 transition-all duration-150 group/item"
+                                className="flex items-center gap-2.5 px-2 py-1.5 -mx-2 rounded-lg hover:bg-slate-100 dark:hover:bg-dark-800 text-slate-700 dark:text-slate-300 hover:text-neon-cyan dark:hover:text-neon-cyan transition-colors group/item"
                               >
-                                <div className="w-7 h-7 rounded-lg bg-slate-100 dark:bg-dark-700 flex items-center justify-center shrink-0 group-hover/item:bg-neon-cyan/15 group-hover/item:text-neon-cyan transition-colors text-slate-500 dark:text-slate-400 mt-0.5 shadow-sm dark:shadow-none group-hover/item:scale-105">
-                                  <tool.icon className="w-3.5 h-3.5" />
-                                </div>
-                                <div className="min-w-0 flex-1 pt-0.5">
-                                  <div className="text-xs font-semibold text-slate-800 dark:text-slate-200 group-hover/item:text-neon-cyan transition-colors truncate">
-                                    {t(tool.titleKey)}
-                                  </div>
-                                  <div className="text-[10px] text-slate-500 dark:text-slate-400 mt-0.5 truncate font-normal leading-tight">
-                                    {shortDesc}
-                                  </div>
-                                </div>
+                                <tool.icon className="w-3.5 h-3.5 flex-shrink-0 group-hover/item:text-neon-cyan transition-colors" />
+                                <span className="text-[13px] font-medium truncate">
+                                  {t(tool.titleKey)}
+                                </span>
                               </Link>
                             );
                           })}
