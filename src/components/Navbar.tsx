@@ -75,7 +75,7 @@ export const Navbar: React.FC = () => {
 
         {/* Tengah: Navigation Links (Desktop) */}
         <div className="hidden lg:flex items-center justify-center flex-1 relative group px-4">
-          <nav className="flex items-center gap-4 xl:gap-6 text-sm font-medium text-slate-300">
+          <nav className="flex items-center gap-4 xl:gap-6 text-sm font-medium text-slate-700 dark:text-slate-300">
             <Link to={lang === 'en' ? `/${getLocalizedSlug('remove', lang)}` : `/${lang}/${getLocalizedSlug('remove', lang)}`} onClick={() => (document.activeElement as HTMLElement)?.blur()} className="hover:text-neon-cyan transition-colors font-bold text-[13px] tracking-wide flex items-center gap-1.5 whitespace-nowrap uppercase">
               {t('nav.removeBg')}
             </Link>
@@ -88,14 +88,14 @@ export const Navbar: React.FC = () => {
             
             {/* Menu Dropdown All Tools */}
             <div className="relative group/dropdown">
-              <button className="flex items-center gap-2 bg-dark-800/50 hover:bg-dark-700 border border-dark-500/60 group-hover/dropdown:border-neon-cyan/40 group-hover/dropdown:text-neon-cyan group-hover/dropdown:shadow-[0_0_15px_rgba(5,218,237,0.15)] text-slate-300 px-3.5 py-1.5 rounded-lg transition-all duration-200 font-bold text-[13px] tracking-wide uppercase">
+              <button className="flex items-center gap-2 bg-neon-cyan/10 hover:bg-neon-cyan/20 border border-neon-cyan/30 text-cyan-800 dark:text-neon-cyan px-3.5 py-1.5 rounded-lg transition-all duration-200 font-bold text-[13px] tracking-wide uppercase">
                 <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><rect width="7" height="7" x="3" y="3" rx="1"/><rect width="7" height="7" x="14" y="3" rx="1"/><rect width="7" height="7" x="14" y="14" rx="1"/><rect width="7" height="7" x="3" y="14" rx="1"/></svg>
                 {t('nav.tools') === 'AI Tools' ? 'All Photo Tools' : (t('nav.tools') || 'All Photo Tools')} 
                 <ChevronDown className="w-3.5 h-3.5 group-hover/dropdown:rotate-180 transition-transform duration-200" />
               </button>
               
               {/* Mega Menu Dropdown */}
-              <div className="fixed left-1/2 -translate-x-1/2 top-[64px] mt-1 w-[880px] max-w-[95vw] bg-white dark:bg-dark-900 backdrop-blur-xl border-t-2 border-neon-cyan border-x border-b border-x-slate-200 border-b-slate-200 dark:border-x-dark-500 dark:border-b-dark-500 rounded-b-2xl shadow-[0_30px_60px_-15px_rgba(0,0,0,0.4)] opacity-0 invisible group-hover/dropdown:opacity-100 group-hover/dropdown:visible transition-all duration-200 p-6 z-50">
+              <div className="fixed left-1/2 -translate-x-1/2 top-[64px] mt-1 w-[880px] max-w-[95vw] bg-white dark:bg-dark-900 backdrop-blur-xl border-t-2 border-neon-cyan border-x border-b border-x-slate-200 border-b-slate-200 dark:border-x-dark-500 dark:border-b-dark-500 rounded-b-2xl shadow-[0_30px_60px_-15px_rgba(0,0,0,0.15)] dark:shadow-[0_30px_60px_-15px_rgba(0,0,0,0.4)] opacity-0 invisible group-hover/dropdown:opacity-100 group-hover/dropdown:visible transition-all duration-200 p-6 z-50">
                 <div className="grid grid-cols-5 gap-x-6 gap-y-6 text-left">
                   {categories.filter(c => c.id !== 'all').map(cat => {
                     const catTools = tools.filter(t => t.category === cat.id);
