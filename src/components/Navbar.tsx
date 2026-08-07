@@ -76,19 +76,19 @@ export const Navbar: React.FC = () => {
         {/* Tengah: Navigation Links (Desktop) */}
         <div className="hidden lg:flex items-center justify-center flex-1 relative group px-4">
           <nav className="flex items-center gap-4 xl:gap-6 text-sm font-medium text-slate-700 dark:text-slate-300">
-            <Link to={lang === 'en' ? `/${getLocalizedSlug('remove', lang)}` : `/${lang}/${getLocalizedSlug('remove', lang)}`} onClick={() => (document.activeElement as HTMLElement)?.blur()} className="hover:text-neon-cyan transition-colors font-bold text-[13px] tracking-wide flex items-center gap-1.5 whitespace-nowrap uppercase">
+            <Link to={lang === 'en' ? `/${getLocalizedSlug('remove', lang)}` : `/${lang}/${getLocalizedSlug('remove', lang)}`} onClick={() => (document.activeElement as HTMLElement)?.blur()} className="hover:text-neon-cyan transition-colors font-bold text-[12px] tracking-wider flex items-center gap-1.5 whitespace-nowrap uppercase">
               {t('nav.removeBg')}
             </Link>
-            <Link to={lang === 'en' ? `/${getLocalizedSlug('compress', lang)}` : `/${lang}/${getLocalizedSlug('compress', lang)}`} onClick={() => (document.activeElement as HTMLElement)?.blur()} className="hover:text-neon-cyan transition-colors font-bold text-[13px] tracking-wide flex items-center gap-1.5 whitespace-nowrap uppercase">
+            <Link to={lang === 'en' ? `/${getLocalizedSlug('compress', lang)}` : `/${lang}/${getLocalizedSlug('compress', lang)}`} onClick={() => (document.activeElement as HTMLElement)?.blur()} className="hover:text-neon-cyan transition-colors font-bold text-[12px] tracking-wider flex items-center gap-1.5 whitespace-nowrap uppercase">
               {t('nav.compress') || 'Compress'}
             </Link>
-            <Link to={lang === 'en' ? `/${getLocalizedSlug('resize', lang)}` : `/${lang}/${getLocalizedSlug('resize', lang)}`} onClick={() => (document.activeElement as HTMLElement)?.blur()} className="hover:text-neon-cyan transition-colors font-bold text-[13px] tracking-wide flex items-center gap-1.5 whitespace-nowrap uppercase">
+            <Link to={lang === 'en' ? `/${getLocalizedSlug('resize', lang)}` : `/${lang}/${getLocalizedSlug('resize', lang)}`} onClick={() => (document.activeElement as HTMLElement)?.blur()} className="hover:text-neon-cyan transition-colors font-bold text-[12px] tracking-wider flex items-center gap-1.5 whitespace-nowrap uppercase">
               {t('nav.resize')}
             </Link>
             
             {/* Menu Dropdown All Tools */}
             <div className="relative group/dropdown">
-              <button className="flex items-center gap-2 bg-neon-cyan/10 hover:bg-neon-cyan/20 border border-neon-cyan/30 text-cyan-800 dark:text-neon-cyan px-3.5 py-1.5 rounded-lg transition-all duration-200 font-bold text-[13px] tracking-wide uppercase">
+              <button className="flex items-center gap-2 bg-neon-cyan/10 hover:bg-neon-cyan/20 border border-neon-cyan/30 text-cyan-800 dark:text-neon-cyan px-3.5 py-1.5 rounded-lg transition-all duration-200 font-bold text-[12px] tracking-wider uppercase">
                 <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><rect width="7" height="7" x="3" y="3" rx="1"/><rect width="7" height="7" x="14" y="3" rx="1"/><rect width="7" height="7" x="14" y="14" rx="1"/><rect width="7" height="7" x="3" y="14" rx="1"/></svg>
                 {t('nav.tools') === 'AI Tools' ? 'All Photo Tools' : (t('nav.tools') || 'All Photo Tools')} 
                 <ChevronDown className="w-3.5 h-3.5 group-hover/dropdown:rotate-180 transition-transform duration-200" />
