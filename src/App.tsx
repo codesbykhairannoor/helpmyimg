@@ -20,9 +20,7 @@ const PrivacyPage = lazy(() => import('./pages/info/PrivacyPage').then(m => ({ d
 const TermsPage = lazy(() => import('./pages/info/TermsPage').then(m => ({ default: m.TermsPage })));
 const FaqPage = lazy(() => import('./pages/info/FaqPage').then(m => ({ default: m.FaqPage })));
 
-// RootGuard dihilangkan atas permintaan untuk tidak menggunakan auto-redirect sama sekali.
 
-import { SeoFooterMatrix } from './components/seo/SeoFooterMatrix';
 
 
 function App() {
@@ -74,7 +72,6 @@ function App() {
                 </div>
               </main>
 
-              <SeoFooterMatrix />
               <Footer />
             </div>
           </BrowserRouter>
