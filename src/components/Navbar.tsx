@@ -118,7 +118,7 @@ export const Navbar: React.FC = () => {
                                 className="flex items-center gap-3 px-2 py-1.5 -mx-2 rounded-lg hover:bg-slate-100 dark:hover:bg-dark-800 text-slate-600 dark:text-slate-300 hover:text-neon-cyan dark:hover:text-neon-cyan transition-colors group/item"
                               >
                                 <tool.icon className="w-[15px] h-[15px] flex-shrink-0 group-hover/item:text-neon-cyan transition-colors" />
-                                <span className="text-[13px] font-normal tracking-normal truncate">
+                                <span className="text-[12px] text-slate-500 dark:text-slate-400 font-medium tracking-wide truncate group-hover/item:text-neon-cyan transition-colors">
                                   {t(tool.titleKey)}
                                 </span>
                               </Link>
