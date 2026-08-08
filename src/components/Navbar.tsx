@@ -106,7 +106,7 @@ export const Navbar: React.FC = () => {
                         <div className="text-[11px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-widest border-b border-slate-100 dark:border-dark-700 pb-2 mb-3">
                           {t(cat.labelKey)}
                         </div>
-                        <div className="flex flex-col gap-1">
+                        <div className="flex flex-col gap-1.5">
                           {catTools.map(tool => {
                             return (
                               <Link 
@@ -115,10 +115,10 @@ export const Navbar: React.FC = () => {
                                 onClick={() => {
                                   (document.activeElement as HTMLElement)?.blur();
                                 }}
-                                className="flex items-center gap-2.5 px-2 py-1.5 -mx-2 rounded-lg hover:bg-slate-100 dark:hover:bg-dark-800 text-slate-700 dark:text-slate-300 hover:text-neon-cyan dark:hover:text-neon-cyan transition-colors group/item"
+                                className="flex items-center gap-3 px-2 py-1.5 -mx-2 rounded-lg hover:bg-slate-100 dark:hover:bg-dark-800 text-slate-600 dark:text-slate-300 hover:text-neon-cyan dark:hover:text-neon-cyan transition-colors group/item"
                               >
-                                <tool.icon className="w-3.5 h-3.5 flex-shrink-0 group-hover/item:text-neon-cyan transition-colors" />
-                                <span className="text-[13px] font-medium truncate">
+                                <tool.icon className="w-[15px] h-[15px] flex-shrink-0 group-hover/item:text-neon-cyan transition-colors" />
+                                <span className="text-[13px] font-normal tracking-normal truncate">
                                   {t(tool.titleKey)}
                                 </span>
                               </Link>
