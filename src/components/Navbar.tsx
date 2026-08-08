@@ -109,7 +109,7 @@ export const Navbar: React.FC = () => {
                     
                     return (
                       <div key={cat.id} className="flex flex-col">
-                        <div className="flex items-center gap-2 text-[13px] font-bold text-cyan-600 dark:text-neon-cyan uppercase tracking-widest border-b border-slate-100 dark:border-dark-700 pb-2 mb-3">
+                        <div className="flex items-center gap-2 text-[11px] font-bold text-cyan-600 dark:text-neon-cyan uppercase tracking-widest border-b border-slate-100 dark:border-dark-700 pb-2 mb-3">
                           {t(cat.labelKey)}
                         </div>
                         <div className="flex flex-col gap-1.5">
