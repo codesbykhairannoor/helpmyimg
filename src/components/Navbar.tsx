@@ -6,7 +6,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { useTranslation } from '../context/LanguageContext';
 import { useTheme } from '../context/ThemeContext';
 import { SUPPORTED_LANGUAGES, type Language } from '../i18n/translations';
-import { Globe, ChevronDown, Sun, Moon, Menu, X, Trash2 } from 'lucide-react';
+import { Globe, ChevronDown, Sun, Moon, Menu, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { getToolFromSlug, getLocalizedSlug } from '../utils/urlMapper';
 import { tools, categories } from '../config/tools';
@@ -143,16 +143,6 @@ export const Navbar: React.FC = () => {
 
         {/* Kanan: Theme Toggle, Language Switcher, Mobile Menu */}
         <div className="flex items-center justify-end gap-2 sm:gap-3 flex-shrink-0">
-
-          {/* Clear Cache / Free RAM Button */}
-          <button
-            onClick={() => window.location.reload()}
-            className="hidden sm:flex items-center justify-center w-9 h-9 bg-red-900/20 hover:bg-red-900/40 border border-red-500/30 rounded-xl text-red-400 transition-all duration-200 shadow-sm"
-            aria-label="Free Memory & Clear Cache"
-            title="Free WebAssembly Memory (Reload)"
-          >
-            <Trash2 className="w-4 h-4 hover:scale-110 transition-transform" />
-          </button>
 
           {/* Theme Toggle Button (Light Mode / Dark Mode) - Hidden on Mobile */}
           <button
