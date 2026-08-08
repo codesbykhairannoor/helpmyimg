@@ -100,26 +100,40 @@ export const Navbar: React.FC = () => {
                 <ChevronDown className="w-3.5 h-3.5 group-hover/dropdown:rotate-180 transition-transform duration-200" />
               </button>
               
-              {/* Compact Dropdown Menu (1-Column List for 10 Tools) */}
-              <div className="absolute left-1/2 -translate-x-1/2 top-[calc(100%+0.5rem)] w-64 bg-white dark:bg-dark-900 backdrop-blur-xl border border-slate-200 dark:border-dark-600 rounded-2xl shadow-xl opacity-0 invisible group-hover/dropdown:opacity-100 group-hover/dropdown:visible transition-all duration-200 p-2 z-50">
-                <div className="flex flex-col gap-1 text-left">
-                  {tools.map(tool => (
-                    <a 
-                      key={tool.id} 
-                      href={lang === 'en' ? `/${getLocalizedSlug(tool.id, lang)}` : `/${lang}/${getLocalizedSlug(tool.id, lang)}`} 
-                      onClick={() => {
-                        (document.activeElement as HTMLElement)?.blur();
-                      }}
-                      className="flex items-center gap-3 py-2.5 px-3 rounded-xl hover:bg-slate-50 dark:hover:bg-dark-800 transition-colors group/item"
-                    >
-                      <div className="w-7 h-7 rounded-lg bg-dark-800/5 dark:bg-dark-900 border border-dark-600/20 flex items-center justify-center shrink-0 group-hover/item:border-neon-cyan/50 group-hover/item:bg-neon-cyan/10 transition-colors">
-                        <tool.icon className="w-3.5 h-3.5 text-slate-600 dark:text-slate-400 group-hover/item:text-neon-cyan transition-colors" />
+              {/* Premium Full-Width Mega Menu (5 Columns) */}
+              <div className="fixed left-0 right-0 top-[64px] bg-white dark:bg-dark-900/95 backdrop-blur-2xl border-b-2 border-neon-cyan shadow-[0_24px_60px_rgba(0,0,0,0.15)] dark:shadow-[0_24px_60px_rgba(0,0,0,0.4)] opacity-0 invisible group-hover/dropdown:opacity-100 group-hover/dropdown:visible transition-all duration-200 py-8 px-4 z-50">
+                <div className="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-x-8 gap-y-8 text-left">
+                  {categories.filter(c => c.id !== 'all').map(cat => {
+                    const catTools = tools.filter(t => t.category === cat.id);
+                    if (catTools.length === 0) return null;
+                    
+                    return (
+                      <div key={cat.id} className="flex flex-col">
+                        <div className="flex items-center gap-2 text-[11px] font-black text-slate-400 dark:text-slate-500 uppercase tracking-widest mb-4">
+                          {t(cat.labelKey)}
+                        </div>
+                        <div className="flex flex-col gap-1.5">
+                          {catTools.map(tool => {
+                            return (
+                              <a 
+                                key={tool.id} 
+                                href={lang === 'en' ? `/${getLocalizedSlug(tool.id, lang)}` : `/${lang}/${getLocalizedSlug(tool.id, lang)}`} 
+                                onClick={() => {
+                                  (document.activeElement as HTMLElement)?.blur();
+                                }}
+                                className="flex items-center gap-3.5 py-2 px-3 -mx-3 rounded-xl hover:bg-slate-50 dark:hover:bg-dark-800 transition-colors group/item"
+                              >
+                                <tool.icon className="w-4 h-4 flex-shrink-0 text-slate-600 dark:text-slate-400 group-hover/item:text-neon-cyan transition-colors" />
+                                <span className="text-sm text-slate-700 dark:text-slate-200 font-bold tracking-tight truncate group-hover/item:text-neon-cyan transition-colors">
+                                  {t(tool.titleKey)}
+                                </span>
+                              </a>
+                            );
+                          })}
+                        </div>
                       </div>
-                      <span className="text-[13px] text-slate-700 dark:text-slate-200 font-semibold tracking-tight truncate group-hover/item:text-neon-cyan transition-colors">
-                        {t(tool.titleKey)}
-                      </span>
-                    </a>
-                  ))}
+                    );
+                  })}
                 </div>
               </div>
             </div>
