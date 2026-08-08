@@ -47,7 +47,7 @@ export const Navbar: React.FC = () => {
         // Informational page, don't translate slug
         const rest = pathParts.slice(toolSlugIndex + 1);
         const newPathParts = newLang === 'en' ? [toolSlug, ...rest] : [newLang, toolSlug, ...rest];
-        navigate('/' + newPathParts.join('/'), { state: { preserveScroll: true } });
+        window.location.href = '/' + newPathParts.join('/');
       } else {
         // Map current localized slug back to internal tool, then map to new localized slug
         const internalTool = getToolFromSlug(toolSlug, oldLang);
@@ -55,11 +55,11 @@ export const Navbar: React.FC = () => {
         
         const rest = pathParts.slice(toolSlugIndex + 1);
         const newPathParts = newLang === 'en' ? [newSlug, ...rest] : [newLang, newSlug, ...rest];
-        navigate('/' + newPathParts.join('/'), { state: { preserveScroll: true } });
+        window.location.href = '/' + newPathParts.join('/');
       }
     } else {
       // At root
-      navigate(newLang === 'en' ? '/' : `/${newLang}`, { state: { preserveScroll: true } });
+      window.location.href = newLang === 'en' ? '/' : `/${newLang}`;
     }
   };
 
@@ -68,7 +68,7 @@ export const Navbar: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
         {/* Kiri: Brand Logo */}
         <div className="flex items-center justify-start flex-shrink-0">
-          <Link to={lang === 'en' ? '/' : `/${lang}`} className="flex items-center gap-2.5 group">
+          <a href={lang === 'en' ? '/' : `/${lang}`} className="flex items-center gap-2.5 group">
             <div className="w-10 h-10 flex-shrink-0 transition-all duration-300 group-hover:scale-105 drop-shadow-glow-cyan">
               <img src="/logobaru.png" alt="HelpMyIMG Logo" width="40" height="40" decoding="async" className="w-full h-full object-contain" />
             </div>
@@ -77,21 +77,21 @@ export const Navbar: React.FC = () => {
                 HelpMyIMG
               </span>
             </div>
-          </Link>
+          </a>
         </div>
 
         {/* Tengah: Navigation Links (Desktop) */}
         <div className="hidden lg:flex items-center justify-center flex-1 relative group px-4">
           <nav className="flex items-center gap-2 xl:gap-4 text-sm font-medium text-slate-700 dark:text-slate-300">
-            <Link to={lang === 'en' ? `/${getLocalizedSlug('remove', lang)}` : `/${lang}/${getLocalizedSlug('remove', lang)}`} onClick={() => (document.activeElement as HTMLElement)?.blur()} className="hover:text-neon-cyan transition-colors font-bold text-[11px] tracking-[0.02em] px-2 py-1.5 flex items-center whitespace-nowrap uppercase rounded-lg hover:bg-slate-50 dark:hover:bg-dark-800/50">
+            <a href={lang === 'en' ? `/${getLocalizedSlug('remove', lang)}` : `/${lang}/${getLocalizedSlug('remove', lang)}`} onClick={() => (document.activeElement as HTMLElement)?.blur()} className="hover:text-neon-cyan transition-colors font-bold text-[11px] tracking-[0.02em] px-2 py-1.5 flex items-center whitespace-nowrap uppercase rounded-lg hover:bg-slate-50 dark:hover:bg-dark-800/50">
               {t('nav.removeBg')}
-            </Link>
-            <Link to={lang === 'en' ? `/${getLocalizedSlug('compress', lang)}` : `/${lang}/${getLocalizedSlug('compress', lang)}`} onClick={() => (document.activeElement as HTMLElement)?.blur()} className="hover:text-neon-cyan transition-colors font-bold text-[11px] tracking-[0.02em] px-2 py-1.5 flex items-center whitespace-nowrap uppercase rounded-lg hover:bg-slate-50 dark:hover:bg-dark-800/50">
+            </a>
+            <a href={lang === 'en' ? `/${getLocalizedSlug('compress', lang)}` : `/${lang}/${getLocalizedSlug('compress', lang)}`} onClick={() => (document.activeElement as HTMLElement)?.blur()} className="hover:text-neon-cyan transition-colors font-bold text-[11px] tracking-[0.02em] px-2 py-1.5 flex items-center whitespace-nowrap uppercase rounded-lg hover:bg-slate-50 dark:hover:bg-dark-800/50">
               {t('nav.compress') || 'Compress'}
-            </Link>
-            <Link to={lang === 'en' ? `/${getLocalizedSlug('resize', lang)}` : `/${lang}/${getLocalizedSlug('resize', lang)}`} onClick={() => (document.activeElement as HTMLElement)?.blur()} className="hover:text-neon-cyan transition-colors font-bold text-[11px] tracking-[0.02em] px-2 py-1.5 flex items-center whitespace-nowrap uppercase rounded-lg hover:bg-slate-50 dark:hover:bg-dark-800/50">
+            </a>
+            <a href={lang === 'en' ? `/${getLocalizedSlug('resize', lang)}` : `/${lang}/${getLocalizedSlug('resize', lang)}`} onClick={() => (document.activeElement as HTMLElement)?.blur()} className="hover:text-neon-cyan transition-colors font-bold text-[11px] tracking-[0.02em] px-2 py-1.5 flex items-center whitespace-nowrap uppercase rounded-lg hover:bg-slate-50 dark:hover:bg-dark-800/50">
               {t('nav.resize')}
-            </Link>
+            </a>
             
             {/* Menu Dropdown All Tools */}
             <div className="relative group/dropdown ml-1">
@@ -117,9 +117,9 @@ export const Navbar: React.FC = () => {
                         <div className="flex flex-col gap-1">
                           {catTools.map(tool => {
                             return (
-                              <Link 
+                              <a 
                                 key={tool.id} 
-                                to={lang === 'en' ? `/${getLocalizedSlug(tool.id, lang)}` : `/${lang}/${getLocalizedSlug(tool.id, lang)}`} 
+                                href={lang === 'en' ? `/${getLocalizedSlug(tool.id, lang)}` : `/${lang}/${getLocalizedSlug(tool.id, lang)}`} 
                                 onClick={() => {
                                   (document.activeElement as HTMLElement)?.blur();
                                 }}
@@ -129,7 +129,7 @@ export const Navbar: React.FC = () => {
                                 <span className="text-[13px] text-slate-800 dark:text-slate-100 font-semibold tracking-tight truncate group-hover/item:text-neon-cyan transition-colors">
                                   {t(tool.titleKey)}
                                 </span>
-                              </Link>
+                              </a>
                             );
                           })}
                         </div>
@@ -304,9 +304,9 @@ export const Navbar: React.FC = () => {
                       </div>
                       <div className="grid grid-cols-2 gap-2">
                         {catTools.map(tool => (
-                          <Link
+                          <a
                             key={tool.id}
-                            to={lang === 'en' ? `/${getLocalizedSlug(tool.id, lang)}` : `/${lang}/${getLocalizedSlug(tool.id, lang)}`}
+                            href={lang === 'en' ? `/${getLocalizedSlug(tool.id, lang)}` : `/${lang}/${getLocalizedSlug(tool.id, lang)}`}
                             onClick={() => setMobileMenuOpen(false)}
                             className="flex items-center gap-2.5 p-2 rounded-xl bg-dark-800 border border-dark-600/50 hover:border-neon-cyan/50 active:bg-dark-700 transition-all group shadow-sm"
                           >
@@ -316,7 +316,7 @@ export const Navbar: React.FC = () => {
                             <div className="flex flex-col justify-center min-w-0 pr-1">
                               <span className="text-[11px] font-bold text-slate-800 dark:text-slate-200 leading-tight line-clamp-2">{t(tool.titleKey)}</span>
                             </div>
-                          </Link>
+                          </a>
                         ))}
                       </div>
                     </div>

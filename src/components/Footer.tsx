@@ -5,6 +5,7 @@
 import React from 'react';
 import { Zap } from 'lucide-react';
 import { useTranslation } from '../context/LanguageContext';
+import { getLocalizedSlug } from '../utils/urlMapper';
 
 export const Footer: React.FC = () => {
   const { t, lang } = useTranslation();
@@ -34,18 +35,18 @@ export const Footer: React.FC = () => {
             <div className="space-y-4">
               <h3 className="font-bold text-slate-900 dark:text-white">{t('nav.tools')}</h3>
               <ul className="space-y-2.5 text-slate-500 dark:text-slate-400">
-                <li><a href={`/${lang}/remove-background`} className="hover:text-cyan-600 dark:hover:text-white transition-colors">{t('nav.removeBg')}</a></li>
-                <li><a href={`/${lang}/change-background`} className="hover:text-cyan-600 dark:hover:text-white transition-colors">{t('nav.colorBg')}</a></li>
-                <li><a href={`/${lang}/compress-image`} className="hover:text-cyan-600 dark:hover:text-white transition-colors">{t('nav.compress') || 'Compress Image'}</a></li>
+                <li><a href={lang === 'en' ? `/${getLocalizedSlug('remove', lang)}` : `/${lang}/${getLocalizedSlug('remove', lang)}`} className="hover:text-cyan-600 dark:hover:text-white transition-colors">{t('nav.removeBg')}</a></li>
+                <li><a href={lang === 'en' ? `/${getLocalizedSlug('color', lang)}` : `/${lang}/${getLocalizedSlug('color', lang)}`} className="hover:text-cyan-600 dark:hover:text-white transition-colors">{t('nav.colorBg')}</a></li>
+                <li><a href={lang === 'en' ? `/${getLocalizedSlug('compress', lang)}` : `/${lang}/${getLocalizedSlug('compress', lang)}`} className="hover:text-cyan-600 dark:hover:text-white transition-colors">{t('nav.compress') || 'Compress Image'}</a></li>
               </ul>
             </div>
             <div className="space-y-4">
               <h3 className="font-bold text-slate-900 dark:text-white">{t('footer.legal')}</h3>
               <ul className="space-y-2.5 text-slate-500 dark:text-slate-400">
-                <li><a href={`/${lang}/about`} className="hover:text-cyan-600 dark:hover:text-white transition-colors">About Us</a></li>
-                <li><a href={`/${lang}/privacy`} className="hover:text-cyan-600 dark:hover:text-white transition-colors">{t('footer.privacy')}</a></li>
-                <li><a href={`/${lang}/terms`} className="hover:text-cyan-600 dark:hover:text-white transition-colors">{t('footer.terms')}</a></li>
-                <li><a href={`/${lang}/faq`} className="hover:text-cyan-600 dark:hover:text-white transition-colors">{t('nav.faq')}</a></li>
+                <li><a href={lang === 'en' ? '/about' : `/${lang}/about`} className="hover:text-cyan-600 dark:hover:text-white transition-colors">About Us</a></li>
+                <li><a href={lang === 'en' ? '/privacy' : `/${lang}/privacy`} className="hover:text-cyan-600 dark:hover:text-white transition-colors">{t('footer.privacy')}</a></li>
+                <li><a href={lang === 'en' ? '/terms' : `/${lang}/terms`} className="hover:text-cyan-600 dark:hover:text-white transition-colors">{t('footer.terms')}</a></li>
+                <li><a href={lang === 'en' ? '/faq' : `/${lang}/faq`} className="hover:text-cyan-600 dark:hover:text-white transition-colors">{t('nav.faq')}</a></li>
               </ul>
             </div>
           </div>
