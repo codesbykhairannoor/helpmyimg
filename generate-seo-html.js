@@ -49,7 +49,7 @@ const getLocalizedSlug = (tool, lang) => {
 };
 
 // Tool identifiers
-const TOOLS = ['remove', 'compress', 'convert', 'resize', 'color', 'watermark'];
+const TOOLS = ['remove', 'compress', 'convert', 'resize', 'color', 'watermark', 'crop', 'rotate', 'upscale', 'blurface'];
 
 // Read the original index.html built by Vite
 const indexHtmlContent = fs.readFileSync(path.join(distDir, 'index.html'), 'utf8');

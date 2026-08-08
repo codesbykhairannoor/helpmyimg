@@ -67,7 +67,7 @@ const resizeUrls = [];
 const colorUrls = [];
 const watermarkUrls = [];
 
-const baseTools = ['remove', 'brush', 'color', 'watermark', 'compress', 'convert', 'resize'];
+const baseTools = ['remove', 'color', 'watermark', 'compress', 'convert', 'resize', 'crop', 'rotate', 'upscale', 'blurface'];
 const infoPages = ['about', 'privacy', 'terms', 'faq'];
 
 // 1. Core Hub URLs & Info Pages across 30 Languages
