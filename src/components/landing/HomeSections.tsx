@@ -12,7 +12,7 @@ import {
   Sparkles,
   ArrowRight
 } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import { getLocalizedSlug } from '../../utils/urlMapper';
 import { CompetitorMatrix } from '../seo/CompetitorMatrix';
 
