@@ -100,41 +100,26 @@ export const Navbar: React.FC = () => {
                 <ChevronDown className="w-3.5 h-3.5 group-hover/dropdown:rotate-180 transition-transform duration-200" />
               </button>
               
-              {/* Mega Menu Dropdown */}
-              <div className="fixed left-1/2 -translate-x-1/2 top-[64px] mt-1 w-[880px] max-w-[95vw] bg-white dark:bg-dark-900 backdrop-blur-xl border-t-2 border-neon-cyan border-x border-b border-x-slate-200 border-b-slate-200 dark:border-x-dark-500 dark:border-b-dark-500 rounded-b-2xl shadow-[0_30px_60px_-15px_rgba(0,0,0,0.15)] dark:shadow-[0_30px_60px_-15px_rgba(0,0,0,0.4)] opacity-0 invisible group-hover/dropdown:opacity-100 group-hover/dropdown:visible transition-all duration-200 p-6 z-50">
-                <div className="grid grid-cols-5 gap-x-6 gap-y-6 text-left">
-                  {categories.filter(c => c.id !== 'all').map(cat => {
-                    const catTools = tools.filter(t => t.category === cat.id);
-                    if (catTools.length === 0) return null;
-                    
-                    return (
-                      <div key={cat.id} className="flex flex-col">
-                        <div className="flex items-center gap-2 text-[11px] font-bold text-cyan-600 dark:text-neon-cyan uppercase tracking-widest border-b border-slate-100 dark:border-dark-700 pb-2 mb-3">
-                          {/* We can add a generic icon or dot here to mimic HandleMyFile's category icons if we wanted, but for now just the colored text */}
-                          {t(cat.labelKey)}
-                        </div>
-                        <div className="flex flex-col gap-1">
-                          {catTools.map(tool => {
-                            return (
-                              <a 
-                                key={tool.id} 
-                                href={lang === 'en' ? `/${getLocalizedSlug(tool.id, lang)}` : `/${lang}/${getLocalizedSlug(tool.id, lang)}`} 
-                                onClick={() => {
-                                  (document.activeElement as HTMLElement)?.blur();
-                                }}
-                                className="flex items-center gap-3.5 py-2 px-3 -mx-3 rounded-lg hover:bg-slate-50 dark:hover:bg-dark-800 transition-colors group/item"
-                              >
-                                <tool.icon className="w-[15px] h-[15px] flex-shrink-0 text-slate-700 dark:text-slate-300 group-hover/item:text-neon-cyan transition-colors" />
-                                <span className="text-[13px] text-slate-800 dark:text-slate-100 font-semibold tracking-tight truncate group-hover/item:text-neon-cyan transition-colors">
-                                  {t(tool.titleKey)}
-                                </span>
-                              </a>
-                            );
-                          })}
-                        </div>
+              {/* Compact Dropdown Menu (1-Column List for 10 Tools) */}
+              <div className="absolute left-1/2 -translate-x-1/2 top-[calc(100%+0.5rem)] w-64 bg-white dark:bg-dark-900 backdrop-blur-xl border border-slate-200 dark:border-dark-600 rounded-2xl shadow-xl opacity-0 invisible group-hover/dropdown:opacity-100 group-hover/dropdown:visible transition-all duration-200 p-2 z-50">
+                <div className="flex flex-col gap-1 text-left">
+                  {tools.map(tool => (
+                    <a 
+                      key={tool.id} 
+                      href={lang === 'en' ? `/${getLocalizedSlug(tool.id, lang)}` : `/${lang}/${getLocalizedSlug(tool.id, lang)}`} 
+                      onClick={() => {
+                        (document.activeElement as HTMLElement)?.blur();
+                      }}
+                      className="flex items-center gap-3 py-2.5 px-3 rounded-xl hover:bg-slate-50 dark:hover:bg-dark-800 transition-colors group/item"
+                    >
+                      <div className="w-7 h-7 rounded-lg bg-dark-800/5 dark:bg-dark-900 border border-dark-600/20 flex items-center justify-center shrink-0 group-hover/item:border-neon-cyan/50 group-hover/item:bg-neon-cyan/10 transition-colors">
+                        <tool.icon className="w-3.5 h-3.5 text-slate-600 dark:text-slate-400 group-hover/item:text-neon-cyan transition-colors" />
                       </div>
-                    );
-                  })}
+                      <span className="text-[13px] text-slate-700 dark:text-slate-200 font-semibold tracking-tight truncate group-hover/item:text-neon-cyan transition-colors">
+                        {t(tool.titleKey)}
+                      </span>
+                    </a>
+                  ))}
                 </div>
               </div>
             </div>
