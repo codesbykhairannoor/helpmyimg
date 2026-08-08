@@ -3,7 +3,7 @@
 // Mengintegrasikan navigasi cepat, indikasi 30 Bahasa Dunia, dan kepatuhan privasi
 
 import React from 'react';
-import { Shield, Zap, Globe, Heart } from 'lucide-react';
+import { Zap } from 'lucide-react';
 import { useTranslation } from '../context/LanguageContext';
 
 export const Footer: React.FC = () => {
