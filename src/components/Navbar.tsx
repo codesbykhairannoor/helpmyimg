@@ -212,9 +212,9 @@ export const Navbar: React.FC = () => {
                         </div>
                       ) : (
                         filteredLangs.map((l) => (
-                          <Link
+                          <a
                             key={l.code}
-                            to={l.code === 'en' ? '/' : `/${l.code}`}
+                            href={l.code === 'en' ? '/' : `/${l.code}`}
                             onClick={(e) => {
                               e.preventDefault();
                               handleLangChange(l.code as Language);
@@ -233,7 +233,7 @@ export const Navbar: React.FC = () => {
                             {lang === l.code && (
                               <span className="w-1.5 h-1.5 rounded-full bg-neon-cyan shadow-glow-cyan" />
                             )}
-                          </Link>
+                          </a>
                         ))
                       )}
                     </div>

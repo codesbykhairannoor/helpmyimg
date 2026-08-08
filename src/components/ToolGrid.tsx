@@ -1,6 +1,6 @@
 // @refresh reset
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+// Removed Link from react-router-dom to use native <a> tags for hard reload
 import { useTranslation } from '../context/LanguageContext';
 import { getLocalizedSlug } from '../utils/urlMapper';
 import { tools, categories } from '../config/tools';
@@ -60,9 +60,9 @@ export const ToolGrid: React.FC = () => {
           }
 
           return (
-            <Link
+            <a
               key={tool.id}
-              to={`/${lang}/${getLocalizedSlug(tool.id, lang)}`}
+              href={lang === 'en' ? `/${getLocalizedSlug(tool.id, lang)}` : `/${lang}/${getLocalizedSlug(tool.id, lang)}`}
               onClick={() => trackEvent('tool_clicked', { tool_id: tool.id, category: tool.category, lang })}
               className={`group relative flex flex-col ${isFeaturedLarge ? 'p-8 md:p-10' : 'p-6 md:p-8'} rounded-[2rem] bg-dark-800/40 backdrop-blur-xl border border-white/5 hover:bg-dark-700/60 hover:border-neon-cyan/40 transition-all duration-500 overflow-hidden shadow-2xl ${colSpan} ${rowSpan}`}
             >
@@ -88,7 +88,7 @@ export const ToolGrid: React.FC = () => {
                   {t(tool.descKey)}
                 </p>
               </div>
-            </Link>
+            </a>
           );
         })}
       </div>
