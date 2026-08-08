@@ -43,13 +43,20 @@ export const Navbar: React.FC = () => {
 
     const toolSlug = pathParts[toolSlugIndex];
     if (toolSlug) {
-      // Map current localized slug back to internal tool, then map to new localized slug
-      const internalTool = getToolFromSlug(toolSlug, oldLang);
-      const newSlug = getLocalizedSlug(internalTool, newLang);
-      
-      const rest = pathParts.slice(toolSlugIndex + 1);
-      const newPathParts = newLang === 'en' ? [newSlug, ...rest] : [newLang, newSlug, ...rest];
-      navigate('/' + newPathParts.join('/'), { state: { preserveScroll: true } });
+      if (['about', 'privacy', 'terms', 'faq'].includes(toolSlug)) {
+        // Informational page, don't translate slug
+        const rest = pathParts.slice(toolSlugIndex + 1);
+        const newPathParts = newLang === 'en' ? [toolSlug, ...rest] : [newLang, toolSlug, ...rest];
+        navigate('/' + newPathParts.join('/'), { state: { preserveScroll: true } });
+      } else {
+        // Map current localized slug back to internal tool, then map to new localized slug
+        const internalTool = getToolFromSlug(toolSlug, oldLang);
+        const newSlug = getLocalizedSlug(internalTool, newLang);
+        
+        const rest = pathParts.slice(toolSlugIndex + 1);
+        const newPathParts = newLang === 'en' ? [newSlug, ...rest] : [newLang, newSlug, ...rest];
+        navigate('/' + newPathParts.join('/'), { state: { preserveScroll: true } });
+      }
     } else {
       // At root
       navigate(newLang === 'en' ? '/' : `/${newLang}`, { state: { preserveScroll: true } });

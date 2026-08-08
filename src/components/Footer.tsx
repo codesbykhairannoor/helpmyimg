@@ -47,7 +47,7 @@ export const Footer: React.FC = () => {
         </div>
 
         {/* Middle Section: Quick Navigation & SEO Matrix */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 py-4 text-sm font-body">
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-8 py-4 text-sm font-body">
           <div className="space-y-3">
             <h3 className="font-heading font-bold text-slate-900 dark:text-white uppercase text-xs tracking-wider text-cyan-600 dark:text-cyan-300">
               {t('nav.tools')}
@@ -62,16 +62,7 @@ export const Footer: React.FC = () => {
             </ul>
           </div>
 
-          <div className="space-y-3">
-            <h3 className="font-heading font-bold text-slate-900 dark:text-white uppercase text-xs tracking-wider text-emerald-600 dark:text-emerald-300">
-              {t('nav.pseo')}
-            </h3>
-            <ul className="space-y-2 text-slate-600 dark:text-slate-300 text-xs">
-              <li><a href={`/${lang}/change-background/ganti-background-merah-cpns-pas-foto`} className="hover:text-cyan-600 dark:hover:text-white transition-colors py-1.5 block">{t('footer.link.cpns')}</a></li>
-              <li><a href={`/${lang}/change-background/ganti-background-biru-ktp-ijazah`} className="hover:text-cyan-600 dark:hover:text-white transition-colors py-1.5 block">{t('footer.link.ktp')}</a></li>
-              <li><a href={`/${lang}/remove-background/hapus-background-transparan-shopee-tokopedia`} className="hover:text-cyan-600 dark:hover:text-white transition-colors py-1.5 block">{t('footer.link.shopee')}</a></li>
-            </ul>
-          </div>
+
 
           <div className="space-y-3">
             <h3 className="font-heading font-bold text-slate-900 dark:text-white uppercase text-xs tracking-wider text-indigo-600 dark:text-indigo-300">
@@ -90,7 +81,7 @@ export const Footer: React.FC = () => {
               {t('footer.legal')}
             </h3>
             <ul className="space-y-2 text-slate-600 dark:text-slate-300 text-xs">
-              <li><a href={`/${lang}/about`} className="hover:text-cyan-600 dark:hover:text-white transition-colors py-1.5 block">{t('about.title') || 'About Us'}</a></li>
+              <li><a href={`/${lang}/about`} className="hover:text-cyan-600 dark:hover:text-white transition-colors py-1.5 block">About Us</a></li>
               <li><a href={`/${lang}/privacy`} className="hover:text-cyan-600 dark:hover:text-white transition-colors py-1.5 block">{t('footer.privacy')}</a></li>
               <li><a href={`/${lang}/terms`} className="hover:text-cyan-600 dark:hover:text-white transition-colors py-1.5 block">{t('footer.terms')}</a></li>
               <li><a href={`/${lang}/faq`} className="hover:text-cyan-600 dark:hover:text-white transition-colors py-1.5 block">{t('nav.faq')}</a></li>
