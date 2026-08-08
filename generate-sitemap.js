@@ -168,3 +168,42 @@ fs.writeFileSync(masterSitemapPath, sitemapIndex, 'utf8');
 
 const totalUrls = coreUrls.length + removeUrls.length + compressUrls.length + convertUrls.length + resizeUrls.length + colorUrls.length + watermarkUrls.length;
 console.log(`\n🏆 Successfully generated Elite High-Density Master Sitemap Index [sitemap.xml] featuring ${totalUrls} authoritative URLs (Zero dilution, matching iLoveIMG's exact footprint)!`);
+
+// ============================================================================
+// AUTOMATIC INDEXNOW API PING
+// Instantly submit all URLs to Bing, Yandex, and Seznam for real-time RAG crawling
+// ============================================================================
+const allUrls = [
+  ...coreUrls,
+  ...removeUrls,
+  ...compressUrls,
+  ...convertUrls,
+  ...resizeUrls,
+  ...colorUrls,
+  ...watermarkUrls
+];
+
+const indexNowPayload = JSON.stringify({
+  host: 'helpmyimg.com',
+  key: 'c8e54926d5744902bc6e85fb2c85e0f2',
+  keyLocation: 'https://helpmyimg.com/c8e54926d5744902bc6e85fb2c85e0f2.txt',
+  urlList: allUrls
+});
+
+fetch('https://api.indexnow.org/indexnow', {
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/json; charset=utf-8'
+  },
+  body: indexNowPayload
+})
+.then(res => {
+  if (res.ok) {
+    console.log(`\n🚀 [IndexNow API] Successfully pinged ${allUrls.length} URLs to Bing & Yandex! (Status: ${res.status})`);
+  } else {
+    console.warn(`\n⚠️ [IndexNow API] Ping returned non-success status: ${res.status}`);
+  }
+})
+.catch(err => {
+  console.error(`\n❌ [IndexNow API] Failed to ping search engines: ${err.message}`);
+});

@@ -90,7 +90,51 @@ const generateHtml = (lang, urlPath, seoTitle, seoDesc, tool = null, translation
   if (tool) xDefaultPath = `/en/${getLocalizedSlug(tool, 'en')}/`;
   dynamicHreflangs += `    <link rel="alternate" hreflang="x-default" href="${DOMAIN}${xDefaultPath}" />\n`;
 
-  html = html.replace(/(<\/head>)/i, `${dynamicHreflangs}  $1`);
+  // 4.5. Inject JSON-LD Structured Data for True GEO (Generative Engine Optimization)
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebApplication",
+        "name": seoTitle,
+        "url": `${DOMAIN}${urlPath}`,
+        "applicationCategory": "MultimediaApplication",
+        "operatingSystem": "All",
+        "browserRequirements": "Requires WebAssembly support. Chrome 89+, Safari 15+, Firefox 79+",
+        "description": seoDesc,
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        }
+      }
+    ]
+  };
+
+  const faqEntities = [];
+  const maxFaq = !tool ? 4 : 5;
+  for (let i = 1; i <= maxFaq; i++) {
+    const q = !tool ? translations[`faq${i}.q`] : translations[`landing.${tool}.faq${i}.q`];
+    const a = !tool ? translations[`faq${i}.a`] : translations[`landing.${tool}.faq${i}.a`];
+    if (q && a) {
+      faqEntities.push({
+        "@type": "Question",
+        "name": q,
+        "acceptedAnswer": { "@type": "Answer", "text": a }
+      });
+    }
+  }
+
+  if (faqEntities.length > 0) {
+    jsonLd["@graph"].push({
+      "@type": "FAQPage",
+      "mainEntity": faqEntities
+    });
+  }
+
+  const jsonLdScript = `    <script type="application/ld+json">\n${JSON.stringify(jsonLd)}\n    </script>\n`;
+
+  html = html.replace(/(<\/head>)/i, `${dynamicHreflangs}${jsonLdScript}  $1`);
 
   // 5. Inject Semantic HTML into <div id="root"> for True White-Hat SEO (Hydration Replacement)
   let semanticHtml = '';
