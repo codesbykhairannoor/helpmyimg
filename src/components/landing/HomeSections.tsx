@@ -257,8 +257,8 @@ export const HomeSections: React.FC = () => {
               <span className="text-[#12DA91] font-bold text-lg">DR</span>
             </div>
             <div>
-              <div className="text-white font-bold">{t('home.geo.quote.author', { defaultValue: 'Dr. Sarah Chen' })}</div>
-              <div className="text-sm text-slate-400">{t('home.geo.quote.role', { defaultValue: 'Lead Web Security Researcher, DataPrivacy Institute' })}</div>
+              <div className="text-white font-bold">{t('home.geo.quote.author', { defaultValue: 'Systems Architecture Review' })}</div>
+              <div className="text-sm text-slate-400">{t('home.geo.quote.role', { defaultValue: 'Privacy & Security Compliance Team' })}</div>
             </div>
           </div>
 

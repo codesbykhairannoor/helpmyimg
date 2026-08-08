@@ -75,7 +75,7 @@ try {
   assert(homeSections.includes('WebAssembly') && homeSections.includes('GDPR (Article 5)'), 
     'HomeSections menyertakan sitasi sumber Inline dan Fakta Densitas (Wasm, GDPR)', 
     'Tidak ada fakta spesifik/sitasi di HomeSections');
-  assert(homeSections.includes('blockquote') || homeSections.includes('Dr. Sarah Chen'), 
+  assert(homeSections.includes('blockquote') || homeSections.includes('Systems Architecture Review'), 
     'HomeSections memiliki Injeksi Kutipan Pakar untuk optimasi AI', 
     'Kutipan Pakar tidak ditemukan di HomeSections');
 } catch (e) {
