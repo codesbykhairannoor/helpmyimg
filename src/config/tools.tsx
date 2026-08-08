@@ -14,7 +14,7 @@ import {
   Palette
 } from 'lucide-react';
 
-export type ToolCategory = 'optimize' | 'modify' | 'convert' | 'security' | 'edit';
+export type ToolCategory = 'optimize' | 'modify' | 'security' | 'edit';
 
 export interface ToolItem {
   id: import('../utils/urlMapper').InternalTool;
@@ -77,7 +77,7 @@ export const tools: ToolItem[] = [
     isNew: true,
   },
 
-  // Optimize Category (2 items)
+  // Optimize Category (3 items)
   {
     id: 'remove',
     category: 'optimize',
@@ -92,6 +92,14 @@ export const tools: ToolItem[] = [
     icon: Minimize2,
     titleKey: 'nav.compress',
     descKey: 'grid.compressDesc',
+  },
+  {
+    id: 'convert',
+    category: 'optimize',
+    icon: ImageIcon,
+    titleKey: 'nav.convert',
+    descKey: 'grid.convertDesc',
+    isNew: true,
   },
 
   // Security Category (2 items)
@@ -109,16 +117,6 @@ export const tools: ToolItem[] = [
     titleKey: 'nav.blurface',
     descKey: 'grid.blurfaceDesc',
     isNew: true,
-  },
-
-  // Convert Category (1 item at the rightmost end)
-  {
-    id: 'convert',
-    category: 'convert',
-    icon: ImageIcon,
-    titleKey: 'nav.convert',
-    descKey: 'grid.convertDesc',
-    isNew: true,
   }
 ];
 
@@ -127,6 +125,5 @@ export const categories = [
   { id: 'modify', labelKey: 'grid.catModify' },
   { id: 'edit', labelKey: 'grid.catEdit' },
   { id: 'optimize', labelKey: 'grid.catOptimize' },
-  { id: 'security', labelKey: 'grid.catSecurity' },
-  { id: 'convert', labelKey: 'grid.catConvert' }
+  { id: 'security', labelKey: 'grid.catSecurity' }
 ];
