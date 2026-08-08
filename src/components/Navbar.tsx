@@ -64,7 +64,7 @@ export const Navbar: React.FC = () => {
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-dark-500/40 bg-dark-900 md:bg-dark-900/80 md:backdrop-blur-xl">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-[60px] flex items-center justify-between">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-14 flex items-center justify-between">
         {/* Kiri: Brand Logo */}
         <div className="flex items-center justify-start flex-shrink-0">
           <a href={lang === 'en' ? '/' : `/${lang}`} className="flex items-center gap-2.5 group">
@@ -82,26 +82,26 @@ export const Navbar: React.FC = () => {
         {/* Tengah: Navigation Links (Desktop) */}
         <div className="hidden lg:flex items-center justify-center flex-1 relative group px-4">
           <nav className="flex items-center gap-2 xl:gap-4 text-sm font-medium text-slate-700 dark:text-slate-300">
-            <a href={lang === 'en' ? `/${getLocalizedSlug('remove', lang)}` : `/${lang}/${getLocalizedSlug('remove', lang)}`} onClick={() => (document.activeElement as HTMLElement)?.blur()} className="hover:text-neon-cyan transition-colors font-bold text-[13px] tracking-normal px-2 py-1.5 flex items-center whitespace-nowrap rounded-lg hover:bg-slate-50 dark:hover:bg-dark-800/50">
+            <a href={lang === 'en' ? `/${getLocalizedSlug('remove', lang)}` : `/${lang}/${getLocalizedSlug('remove', lang)}`} onClick={() => (document.activeElement as HTMLElement)?.blur()} className="hover:text-neon-cyan transition-colors font-bold text-[13px] uppercase tracking-normal px-2 py-1.5 flex items-center whitespace-nowrap rounded-lg hover:bg-slate-50 dark:hover:bg-dark-800/50">
               {t('nav.removeBg')}
             </a>
-            <a href={lang === 'en' ? `/${getLocalizedSlug('compress', lang)}` : `/${lang}/${getLocalizedSlug('compress', lang)}`} onClick={() => (document.activeElement as HTMLElement)?.blur()} className="hover:text-neon-cyan transition-colors font-bold text-[13px] tracking-normal px-2 py-1.5 flex items-center whitespace-nowrap rounded-lg hover:bg-slate-50 dark:hover:bg-dark-800/50">
+            <a href={lang === 'en' ? `/${getLocalizedSlug('compress', lang)}` : `/${lang}/${getLocalizedSlug('compress', lang)}`} onClick={() => (document.activeElement as HTMLElement)?.blur()} className="hover:text-neon-cyan transition-colors font-bold text-[13px] uppercase tracking-normal px-2 py-1.5 flex items-center whitespace-nowrap rounded-lg hover:bg-slate-50 dark:hover:bg-dark-800/50">
               {t('nav.compress') || 'Compress'}
             </a>
-            <a href={lang === 'en' ? `/${getLocalizedSlug('resize', lang)}` : `/${lang}/${getLocalizedSlug('resize', lang)}`} onClick={() => (document.activeElement as HTMLElement)?.blur()} className="hover:text-neon-cyan transition-colors font-bold text-[13px] tracking-normal px-2 py-1.5 flex items-center whitespace-nowrap rounded-lg hover:bg-slate-50 dark:hover:bg-dark-800/50">
+            <a href={lang === 'en' ? `/${getLocalizedSlug('resize', lang)}` : `/${lang}/${getLocalizedSlug('resize', lang)}`} onClick={() => (document.activeElement as HTMLElement)?.blur()} className="hover:text-neon-cyan transition-colors font-bold text-[13px] uppercase tracking-normal px-2 py-1.5 flex items-center whitespace-nowrap rounded-lg hover:bg-slate-50 dark:hover:bg-dark-800/50">
               {t('nav.resize')}
             </a>
             
             {/* Menu Dropdown All Tools */}
             <div className="relative group/dropdown ml-1">
-              <button className="flex items-center gap-2 bg-neon-cyan/10 hover:bg-neon-cyan/20 border border-neon-cyan/30 text-cyan-800 dark:text-neon-cyan px-3.5 py-1.5 rounded-lg transition-all duration-200 font-bold text-[13px] tracking-normal">
+              <button className="flex items-center gap-2 bg-neon-cyan/10 hover:bg-neon-cyan/20 border border-neon-cyan/30 text-cyan-800 dark:text-neon-cyan px-3.5 py-1.5 rounded-lg transition-all duration-200 font-bold text-[13px] uppercase tracking-normal">
                 <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><rect width="7" height="7" x="3" y="3" rx="1"/><rect width="7" height="7" x="14" y="3" rx="1"/><rect width="7" height="7" x="14" y="14" rx="1"/><rect width="7" height="7" x="3" y="14" rx="1"/></svg>
                 {t('nav.tools') === 'AI Tools' ? 'All Photo Tools' : (t('nav.tools') || 'All Photo Tools')} 
                 <ChevronDown className="w-3.5 h-3.5 group-hover/dropdown:rotate-180 transition-transform duration-200" />
               </button>
               
               {/* Premium Full-Width Mega Menu (4 Columns) */}
-              <div className="fixed left-0 right-0 top-[60px] bg-white dark:bg-dark-900/95 backdrop-blur-2xl border-b-2 border-neon-cyan shadow-[0_24px_60px_rgba(0,0,0,0.15)] dark:shadow-[0_24px_60px_rgba(0,0,0,0.4)] opacity-0 invisible group-hover/dropdown:opacity-100 group-hover/dropdown:visible transition-all duration-200 py-8 px-4 z-50">
+              <div className="fixed left-0 right-0 top-[56px] bg-white dark:bg-dark-900/95 backdrop-blur-2xl border-b-2 border-neon-cyan shadow-[0_24px_60px_rgba(0,0,0,0.15)] dark:shadow-[0_24px_60px_rgba(0,0,0,0.4)] opacity-0 invisible group-hover/dropdown:opacity-100 group-hover/dropdown:visible transition-all duration-200 py-8 px-4 z-50">
                 <div className="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-x-8 gap-y-8 text-left">
                   {categories.filter(c => c.id !== 'all').map(cat => {
                     const catTools = tools.filter(t => t.category === cat.id);
@@ -124,7 +124,7 @@ export const Navbar: React.FC = () => {
                                 className="flex items-center gap-3.5 py-2 px-3 -mx-3 rounded-xl hover:bg-slate-50 dark:hover:bg-dark-800 transition-colors group/item"
                               >
                                 <tool.icon strokeWidth={1.5} className="w-5 h-5 flex-shrink-0 text-slate-600 dark:text-slate-400 group-hover/item:text-neon-cyan transition-colors" />
-                                <span className="text-sm text-slate-700 dark:text-slate-200 font-bold tracking-tight truncate group-hover/item:text-neon-cyan transition-colors">
+                                <span className="text-base capitalize text-slate-700 dark:text-slate-200 font-bold tracking-tight truncate group-hover/item:text-neon-cyan transition-colors">
                                   {t(tool.titleKey)}
                                 </span>
                               </a>
