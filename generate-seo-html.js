@@ -94,7 +94,9 @@ const generateHtml = (lang, urlPath, seoTitle, seoDesc, tool = null, translation
 
   // 5. Inject Semantic HTML into <div id="root"> for True White-Hat SEO (Hydration Replacement)
   let semanticHtml = '';
-  const containerStyle = 'padding: 40px 20px; font-family: system-ui, sans-serif; color: #e2e8f0; background: #09090b; min-height: 100vh; max-width: 800px; margin: 0 auto;';
+  // Use standard Screen Reader Only (sr-only) CSS to hide the raw HTML from human eyes (preventing flash) 
+  // while keeping it 100% accessible to Google Bot, LLM Crawlers, and Screen Readers.
+  const containerStyle = 'position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border-width: 0;';
   
   if (!tool) {
     const h1 = translations['hero.title'] || 'HelpMyIMG AI Platform';
