@@ -103,10 +103,11 @@ export const Navbar: React.FC = () => {
                     
                     return (
                       <div key={cat.id} className="flex flex-col">
-                        <div className="text-[11px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-widest border-b border-slate-100 dark:border-dark-700 pb-2 mb-3">
+                        <div className="flex items-center gap-2 text-[12px] font-extrabold text-cyan-600 dark:text-neon-cyan uppercase tracking-widest border-b border-slate-100 dark:border-dark-700 pb-3 mb-4">
+                          {/* We can add a generic icon or dot here to mimic HandleMyFile's category icons if we wanted, but for now just the colored text */}
                           {t(cat.labelKey)}
                         </div>
-                        <div className="flex flex-col gap-1.5">
+                        <div className="flex flex-col gap-3">
                           {catTools.map(tool => {
                             return (
                               <Link 
@@ -115,10 +116,10 @@ export const Navbar: React.FC = () => {
                                 onClick={() => {
                                   (document.activeElement as HTMLElement)?.blur();
                                 }}
-                                className="flex items-center gap-3 px-2 py-1.5 -mx-2 rounded-lg hover:bg-slate-100 dark:hover:bg-dark-800 text-slate-600 dark:text-slate-300 hover:text-neon-cyan dark:hover:text-neon-cyan transition-colors group/item"
+                                className="flex items-center gap-3.5 rounded-lg hover:bg-slate-50 dark:hover:bg-dark-800 transition-colors group/item"
                               >
-                                <tool.icon className="w-[15px] h-[15px] flex-shrink-0 group-hover/item:text-neon-cyan transition-colors" />
-                                <span className="text-[12px] text-slate-500 dark:text-slate-400 font-medium tracking-wide truncate group-hover/item:text-neon-cyan transition-colors">
+                                <tool.icon className="w-[15px] h-[15px] flex-shrink-0 text-slate-700 dark:text-slate-300 group-hover/item:text-neon-cyan transition-colors" />
+                                <span className="text-[13px] text-slate-900 dark:text-white font-bold tracking-tight truncate group-hover/item:text-neon-cyan transition-colors">
                                   {t(tool.titleKey)}
                                 </span>
                               </Link>
