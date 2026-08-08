@@ -59,7 +59,7 @@ let baseHtmlContent = indexHtmlContent.replace(/<link rel="alternate" hreflang="
 baseHtmlContent = baseHtmlContent.replace(/<!-- Static Hreflang Tags for 30 Languages -->\n?\s*/g, '');
 
 // Function to generate the modified HTML
-const generateHtml = (lang, urlPath, seoTitle, seoDesc, tool = null) => {
+const generateHtml = (lang, urlPath, seoTitle, seoDesc, tool = null, translations = {}) => {
   let html = baseHtmlContent;
 
   // 0. Remove any existing meta descriptions to avoid duplicates
@@ -92,6 +92,80 @@ const generateHtml = (lang, urlPath, seoTitle, seoDesc, tool = null) => {
 
   html = html.replace(/(<\/head>)/i, `${dynamicHreflangs}  $1`);
 
+  // 5. Inject Semantic HTML into <div id="root"> for True White-Hat SEO (Hydration Replacement)
+  let semanticHtml = '';
+  const containerStyle = 'padding: 40px 20px; font-family: system-ui, sans-serif; color: #e2e8f0; background: #09090b; min-height: 100vh; max-width: 800px; margin: 0 auto;';
+  
+  if (!tool) {
+    const h1 = translations['hero.title'] || 'HelpMyIMG AI Platform';
+    const p1 = translations['hero.subtitle'] || '';
+    const h2Feat = translations['features.title'] || 'Features';
+    const pFeat = translations['features.desc'] || '';
+    const h2Faq = translations['faq.title'] || 'FAQ';
+    
+    let faqs = '';
+    for (let i = 1; i <= 4; i++) {
+      const q = translations[`faq${i}.q`];
+      const a = translations[`faq${i}.a`];
+      if (q) faqs += `<h3>${q}</h3><p>${a}</p>`;
+    }
+
+    semanticHtml = `
+      <div style="${containerStyle}">
+        <header>
+          <h1>${h1}</h1>
+          <p>${p1}</p>
+        </header>
+        <section>
+          <h2>${h2Feat}</h2>
+          <p>${pFeat}</p>
+        </section>
+        <section>
+          <h2>${h2Faq}</h2>
+          ${faqs}
+        </section>
+      </div>
+    `;
+  } else {
+    const h1 = translations[`landing.${tool}.why.title`] || translations[`seo.jsonld.name.${tool}`] || tool;
+    const p1 = translations[`landing.${tool}.why.desc`] || translations[`seo.jsonld.desc.${tool}`] || '';
+    const h2Work = translations[`landing.${tool}.work.title`] || 'How it Works';
+    const pWork = translations[`landing.${tool}.work.desc`] || '';
+    const h2Who = translations[`landing.${tool}.who.title`] || 'Who is it for?';
+    const pWho = translations[`landing.${tool}.who.desc`] || '';
+    const h2Faq = translations[`landing.${tool}.faqTitle`] || 'FAQ';
+    
+    let faqs = '';
+    for (let i = 1; i <= 5; i++) {
+      const q = translations[`landing.${tool}.faq${i}.q`];
+      const a = translations[`landing.${tool}.faq${i}.a`];
+      if (q) faqs += `<h3>${q}</h3><p>${a}</p>`;
+    }
+
+    semanticHtml = `
+      <div style="${containerStyle}">
+        <header>
+          <h1>${h1}</h1>
+          <p>${p1}</p>
+        </header>
+        <section>
+          <h2>${h2Work}</h2>
+          <p>${pWork}</p>
+        </section>
+        <section>
+          <h2>${h2Who}</h2>
+          <p>${pWho}</p>
+        </section>
+        <section>
+          <h2>${h2Faq}</h2>
+          ${faqs}
+        </section>
+      </div>
+    `;
+  }
+
+  html = html.replace(/<div id="root"><\/div>/, `<div id="root">${semanticHtml}</div>`);
+
   return html;
 };
 
@@ -111,7 +185,7 @@ for (const lang of LANGS) {
   const homeTitle = translations['hero.title'] ? `${translations['hero.title']} - HelpMyIMG` : 'HelpMyIMG - Free AI Image Editor';
   const homeDesc = translations['hero.subtitle'] || translations['seo.jsonld.description'] || 'Free local AI photo editor. Remove backgrounds, compress, resize.';
   
-  const homeHtml = generateHtml(lang, `/${lang}/`, homeTitle, homeDesc);
+  const homeHtml = generateHtml(lang, `/${lang}/`, homeTitle, homeDesc, null, translations);
   const homeDir = path.join(distDir, lang);
   if (!fs.existsSync(homeDir)) fs.mkdirSync(homeDir, { recursive: true });
   fs.writeFileSync(path.join(homeDir, 'index.html'), homeHtml, 'utf8');
@@ -133,7 +207,7 @@ for (const lang of LANGS) {
       toolTitle = `${translations['tab.remove']} - HelpMyIMG`;
     }
 
-    const toolHtml = generateHtml(lang, toolUrl, toolTitle, toolDesc, tool);
+    const toolHtml = generateHtml(lang, toolUrl, toolTitle, toolDesc, tool, translations);
     const toolDir = path.join(distDir, lang, slug);
     if (!fs.existsSync(toolDir)) fs.mkdirSync(toolDir, { recursive: true });
     fs.writeFileSync(path.join(toolDir, 'index.html'), toolHtml, 'utf8');
