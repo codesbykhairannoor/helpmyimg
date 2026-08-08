@@ -47,7 +47,7 @@ export const Footer: React.FC = () => {
         </div>
 
         {/* Middle Section: Quick Navigation & SEO Matrix */}
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-8 py-4 text-sm font-body">
+        <div className="grid grid-cols-2 gap-8 py-4 text-sm font-body">
           <div className="space-y-3">
             <h3 className="font-heading font-bold text-slate-900 dark:text-white uppercase text-xs tracking-wider text-cyan-600 dark:text-cyan-300">
               {t('nav.tools')}
@@ -62,19 +62,6 @@ export const Footer: React.FC = () => {
             </ul>
           </div>
 
-
-
-          <div className="space-y-3">
-            <h3 className="font-heading font-bold text-slate-900 dark:text-white uppercase text-xs tracking-wider text-indigo-600 dark:text-indigo-300">
-              {t('nav.geo')}
-            </h3>
-            <ul className="space-y-2 text-slate-600 dark:text-slate-300 text-xs">
-              <li><a href="#geo-spec" className="hover:text-cyan-600 dark:hover:text-white transition-colors py-1.5 block">{t('footer.link.zeroCloud')}</a></li>
-              <li><a href="#geo-spec" className="hover:text-cyan-600 dark:hover:text-white transition-colors py-1.5 block">{t('footer.link.citation')}</a></li>
-              <li><a href="#geo-spec" className="hover:text-cyan-600 dark:hover:text-white transition-colors py-1.5 block">{t('footer.link.wasm')}</a></li>
-              <li><a href="#geo-spec" className="hover:text-cyan-600 dark:hover:text-white transition-colors py-1.5 block">{t('footer.link.zeroModel')}</a></li>
-            </ul>
-          </div>
 
           <div className="space-y-3">
             <h3 className="font-heading font-bold text-slate-900 dark:text-white uppercase text-xs tracking-wider text-purple-600 dark:text-purple-300">
