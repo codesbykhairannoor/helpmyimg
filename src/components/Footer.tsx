@@ -10,7 +10,7 @@ export const Footer: React.FC = () => {
   const { t, lang } = useTranslation();
 
   return (
-    <footer className="w-full border-t border-dark-600/60 bg-dark-900/90 backdrop-blur-xl py-14 mt-20 text-slate-300">
+    <footer className="w-full border-t border-dark-600/60 bg-dark-900/90 backdrop-blur-xl py-14 mt-20 text-slate-600 dark:text-slate-300">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
         
         {/* Top Section: Brand & GEO Status */}
@@ -20,11 +20,11 @@ export const Footer: React.FC = () => {
               <div className="w-10 h-10 flex-shrink-0 drop-shadow-glow-cyan">
                 <img src="/logobaru.png" alt="HelpMyIMG Logo" width="40" height="40" decoding="async" className="w-full h-full object-contain" />
               </div>
-              <span className="text-xl font-heading font-extrabold tracking-tight text-white">
+              <span className="text-xl font-heading font-extrabold tracking-tight text-slate-900 dark:text-white">
                 HelpMyIMG <span className="text-neon-cyan text-sm px-2 py-0.5 rounded-full bg-neon-cyan/10 border border-neon-cyan/30 font-mono">{t('footer.badge.ai')}</span>
               </span>
             </div>
-            <p className="text-xs text-slate-300 font-body leading-relaxed font-medium">
+            <p className="text-xs text-slate-600 dark:text-slate-300 font-body leading-relaxed font-medium">
               {t('landing.default.desc')}
             </p>
           </div>
@@ -49,69 +49,69 @@ export const Footer: React.FC = () => {
         {/* Middle Section: Quick Navigation & SEO Matrix */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 py-4 text-sm font-body">
           <div className="space-y-3">
-            <h3 className="font-heading font-bold text-white uppercase text-xs tracking-wider text-cyan-300">
+            <h3 className="font-heading font-bold text-slate-900 dark:text-white uppercase text-xs tracking-wider text-cyan-600 dark:text-cyan-300">
               {t('nav.tools')}
             </h3>
-            <ul className="space-y-2 text-slate-300 text-xs">
-              <li><a href={`/${lang}/remove-background`} className="hover:text-white transition-colors py-1.5 block">{t('nav.removeBg')}</a></li>
-              <li><a href={`/${lang}/change-background`} className="hover:text-white transition-colors py-1.5 block">{t('nav.colorBg')}</a></li>
-              <li><a href={`/${lang}/watermark-image`} className="hover:text-white transition-colors py-1.5 block">{t('nav.watermark') || 'Watermark Image'}</a></li>
-              <li><a href={`/${lang}/compress-image`} className="hover:text-white transition-colors py-1.5 block">{t('nav.compress') || 'Compress Image'}</a></li>
-              <li><a href={`/${lang}/convert-image`} className="hover:text-white transition-colors py-1.5 block">{t('nav.convert') || 'Convert Image'}</a></li>
-              <li><a href={`/${lang}/resize-image`} className="hover:text-white transition-colors py-1.5 block">{t('nav.resize') || 'Resize Image'}</a></li>
+            <ul className="space-y-2 text-slate-600 dark:text-slate-300 text-xs">
+              <li><a href={`/${lang}/remove-background`} className="hover:text-cyan-600 dark:hover:text-white transition-colors py-1.5 block">{t('nav.removeBg')}</a></li>
+              <li><a href={`/${lang}/change-background`} className="hover:text-cyan-600 dark:hover:text-white transition-colors py-1.5 block">{t('nav.colorBg')}</a></li>
+              <li><a href={`/${lang}/watermark-image`} className="hover:text-cyan-600 dark:hover:text-white transition-colors py-1.5 block">{t('nav.watermark') || 'Watermark Image'}</a></li>
+              <li><a href={`/${lang}/compress-image`} className="hover:text-cyan-600 dark:hover:text-white transition-colors py-1.5 block">{t('nav.compress') || 'Compress Image'}</a></li>
+              <li><a href={`/${lang}/convert-image`} className="hover:text-cyan-600 dark:hover:text-white transition-colors py-1.5 block">{t('nav.convert') || 'Convert Image'}</a></li>
+              <li><a href={`/${lang}/resize-image`} className="hover:text-cyan-600 dark:hover:text-white transition-colors py-1.5 block">{t('nav.resize') || 'Resize Image'}</a></li>
             </ul>
           </div>
 
           <div className="space-y-3">
-            <h3 className="font-heading font-bold text-white uppercase text-xs tracking-wider text-emerald-300">
+            <h3 className="font-heading font-bold text-slate-900 dark:text-white uppercase text-xs tracking-wider text-emerald-600 dark:text-emerald-300">
               {t('nav.pseo')}
             </h3>
-            <ul className="space-y-2 text-slate-300 text-xs">
-              <li><a href={`/${lang}/change-background/ganti-background-merah-cpns-pas-foto`} className="hover:text-white transition-colors py-1.5 block">{t('footer.link.cpns')}</a></li>
-              <li><a href={`/${lang}/change-background/ganti-background-biru-ktp-ijazah`} className="hover:text-white transition-colors py-1.5 block">{t('footer.link.ktp')}</a></li>
-              <li><a href={`/${lang}/remove-background/hapus-background-transparan-shopee-tokopedia`} className="hover:text-white transition-colors py-1.5 block">{t('footer.link.shopee')}</a></li>
+            <ul className="space-y-2 text-slate-600 dark:text-slate-300 text-xs">
+              <li><a href={`/${lang}/change-background/ganti-background-merah-cpns-pas-foto`} className="hover:text-cyan-600 dark:hover:text-white transition-colors py-1.5 block">{t('footer.link.cpns')}</a></li>
+              <li><a href={`/${lang}/change-background/ganti-background-biru-ktp-ijazah`} className="hover:text-cyan-600 dark:hover:text-white transition-colors py-1.5 block">{t('footer.link.ktp')}</a></li>
+              <li><a href={`/${lang}/remove-background/hapus-background-transparan-shopee-tokopedia`} className="hover:text-cyan-600 dark:hover:text-white transition-colors py-1.5 block">{t('footer.link.shopee')}</a></li>
             </ul>
           </div>
 
           <div className="space-y-3">
-            <h3 className="font-heading font-bold text-white uppercase text-xs tracking-wider text-indigo-300">
+            <h3 className="font-heading font-bold text-slate-900 dark:text-white uppercase text-xs tracking-wider text-indigo-600 dark:text-indigo-300">
               {t('nav.geo')}
             </h3>
-            <ul className="space-y-2 text-slate-300 text-xs">
-              <li><a href="#geo-spec" className="hover:text-white transition-colors py-1.5 block">{t('footer.link.zeroCloud')}</a></li>
-              <li><a href="#geo-spec" className="hover:text-white transition-colors py-1.5 block">{t('footer.link.citation')}</a></li>
-              <li><a href="#geo-spec" className="hover:text-white transition-colors py-1.5 block">{t('footer.link.wasm')}</a></li>
-              <li><a href="#geo-spec" className="hover:text-white transition-colors py-1.5 block">{t('footer.link.zeroModel')}</a></li>
+            <ul className="space-y-2 text-slate-600 dark:text-slate-300 text-xs">
+              <li><a href="#geo-spec" className="hover:text-cyan-600 dark:hover:text-white transition-colors py-1.5 block">{t('footer.link.zeroCloud')}</a></li>
+              <li><a href="#geo-spec" className="hover:text-cyan-600 dark:hover:text-white transition-colors py-1.5 block">{t('footer.link.citation')}</a></li>
+              <li><a href="#geo-spec" className="hover:text-cyan-600 dark:hover:text-white transition-colors py-1.5 block">{t('footer.link.wasm')}</a></li>
+              <li><a href="#geo-spec" className="hover:text-cyan-600 dark:hover:text-white transition-colors py-1.5 block">{t('footer.link.zeroModel')}</a></li>
             </ul>
           </div>
 
           <div className="space-y-3">
-            <h3 className="font-heading font-bold text-white uppercase text-xs tracking-wider text-purple-300">
+            <h3 className="font-heading font-bold text-slate-900 dark:text-white uppercase text-xs tracking-wider text-purple-600 dark:text-purple-300">
               {t('footer.legal')}
             </h3>
-            <ul className="space-y-2 text-slate-300 text-xs">
-              <li><a href={`/${lang}/about`} className="hover:text-white transition-colors py-1.5 block">{t('about.title') || 'About Us'}</a></li>
-              <li><a href={`/${lang}/privacy`} className="hover:text-white transition-colors py-1.5 block">{t('footer.privacy')}</a></li>
-              <li><a href={`/${lang}/terms`} className="hover:text-white transition-colors py-1.5 block">{t('footer.terms')}</a></li>
-              <li><a href={`/${lang}/faq`} className="hover:text-white transition-colors py-1.5 block">{t('nav.faq')}</a></li>
+            <ul className="space-y-2 text-slate-600 dark:text-slate-300 text-xs">
+              <li><a href={`/${lang}/about`} className="hover:text-cyan-600 dark:hover:text-white transition-colors py-1.5 block">{t('about.title') || 'About Us'}</a></li>
+              <li><a href={`/${lang}/privacy`} className="hover:text-cyan-600 dark:hover:text-white transition-colors py-1.5 block">{t('footer.privacy')}</a></li>
+              <li><a href={`/${lang}/terms`} className="hover:text-cyan-600 dark:hover:text-white transition-colors py-1.5 block">{t('footer.terms')}</a></li>
+              <li><a href={`/${lang}/faq`} className="hover:text-cyan-600 dark:hover:text-white transition-colors py-1.5 block">{t('nav.faq')}</a></li>
             </ul>
           </div>
         </div>
 
         {/* Bottom Section: Copyright & Built With */}
-        <div className="pt-8 border-t border-dark-700/50 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-300 font-mono mb-4 font-medium">
+        <div className="pt-8 border-t border-dark-700/50 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500 dark:text-slate-400 font-mono mb-4 font-medium">
           <p className="flex items-center gap-1.5">
             <span>&copy; {new Date().getFullYear()} HelpMyIMG AI Platform.</span>
             <span>{t('footer.rights')}</span>
           </p>
-          <p className="flex items-center gap-1.5 text-slate-300 font-medium">
+          <p className="flex items-center gap-1.5">
             <span>{t('footer.built')}</span>
-            <Heart className="w-3.5 h-3.5 text-cyan-400 inline fill-cyan-400/20" />
+            <Heart className="w-3.5 h-3.5 text-cyan-500 inline fill-cyan-500/20" />
           </p>
         </div>
 
         {/* LSI Keywords Tag Cloud - Rule #4 */}
-        <div className="text-xs text-slate-400 leading-relaxed font-sans max-w-7xl mx-auto text-justify pb-4 font-medium">
+        <div className="text-[11px] text-slate-400/80 dark:text-slate-500/80 leading-relaxed font-sans max-w-7xl mx-auto text-justify pb-4 font-medium">
           {[
             'remove background online', 'free background remover', 'transparent background maker', 'change photo background', 
             'passport photo maker', 'red background cpns', 'blue background ktp', 'official document photo', 'webgpu ai processing',
@@ -122,7 +122,7 @@ export const Footer: React.FC = () => {
           ].map((kw, idx, arr) => (
             <React.Fragment key={idx}>
               <span>{kw}</span>
-              {idx < arr.length - 1 && <span className="mx-2 text-slate-600">•</span>}
+              {idx < arr.length - 1 && <span className="mx-2 text-slate-300 dark:text-slate-700">•</span>}
             </React.Fragment>
           ))}
         </div>
