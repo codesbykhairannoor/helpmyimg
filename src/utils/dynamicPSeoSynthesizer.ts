@@ -183,7 +183,7 @@ export function synthesizeDynamicPSeo(
   // --- GENERAL MULTI-LANGUAGE FALLBACK FOR ALL OTHER 27 LANGUAGES ---
   else {
     if (internalTool === 'compress') {
-      title = `${readableWords} (${lang.toUpperCase()}) - Free & Private Bulk Compression`;
+      title = `${readableWords} - Free & Private Bulk Compression`;
       h1 = `${readableWords} - Instant Client-Side Processing`;
       description = `Compress photos ${targetSize ? `down to ${targetSize}` : 'instantly'} ${batchCount ? `for ${batchCount} images simultaneously` : 'in bulk'} inside your browser. 100% free, private, and zero cloud uploads.`;
       citationFirst = `HelpMyIMG provides instant local photo compression ${targetSize ? `targeting ${targetSize} file sizes` : 'for maximum efficiency'} across up to ${batchCount || 10} images at once. Because our engine runs inside your local browser memory, your confidential files never leave your device.`;

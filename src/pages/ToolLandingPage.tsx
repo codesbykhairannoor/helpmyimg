@@ -133,7 +133,7 @@ export const ToolLandingPage: React.FC = () => {
       slug: tool || '',
       tool: internalTool as any,
       lang: lang,
-      title: `${defaultTitle} (${lang.toUpperCase()})`,
+      title: defaultTitle,
       h1: defaultH1,
       description: defaultDesc,
       citationFirst: defaultDesc,
