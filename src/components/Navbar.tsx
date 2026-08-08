@@ -107,7 +107,7 @@ export const Navbar: React.FC = () => {
                           {/* We can add a generic icon or dot here to mimic HandleMyFile's category icons if we wanted, but for now just the colored text */}
                           {t(cat.labelKey)}
                         </div>
-                        <div className="flex flex-col gap-3">
+                        <div className="flex flex-col gap-1">
                           {catTools.map(tool => {
                             return (
                               <Link 
@@ -116,7 +116,7 @@ export const Navbar: React.FC = () => {
                                 onClick={() => {
                                   (document.activeElement as HTMLElement)?.blur();
                                 }}
-                                className="flex items-center gap-3.5 rounded-lg hover:bg-slate-50 dark:hover:bg-dark-800 transition-colors group/item"
+                                className="flex items-center gap-3.5 py-2 px-3 -mx-3 rounded-lg hover:bg-slate-50 dark:hover:bg-dark-800 transition-colors group/item"
                               >
                                 <tool.icon className="w-[15px] h-[15px] flex-shrink-0 text-slate-700 dark:text-slate-300 group-hover/item:text-neon-cyan transition-colors" />
                                 <span className="text-[13px] text-slate-800 dark:text-slate-100 font-medium tracking-tight truncate group-hover/item:text-neon-cyan transition-colors">
