@@ -2,7 +2,7 @@
 // Navigasi Atas dengan Pemilih 10 Bahasa dan Lencana Kecepatan AI (Subdirectory Router)
 
 import React, { useState } from 'react';
-import { Link, useNavigate, useLocation } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { useTranslation } from '../context/LanguageContext';
 import { useTheme } from '../context/ThemeContext';
 import { SUPPORTED_LANGUAGES, type Language } from '../i18n/translations';
@@ -17,7 +17,6 @@ export const Navbar: React.FC = () => {
   const [langOpen, setLangOpen] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
-  const navigate = useNavigate();
   const location = useLocation();
 
   const currentLang = SUPPORTED_LANGUAGES.find((l) => l.code === lang) || SUPPORTED_LANGUAGES[0];
