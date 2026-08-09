@@ -13,9 +13,7 @@ import { Loader2 } from 'lucide-react';
 
 import { getToolFromSlug } from '../utils/urlMapper';
 import { synthesizeDynamicPSeo } from '../utils/dynamicPSeoSynthesizer';
-import { lazyWithRetry } from '../utils/lazyWithRetry';
-
-const ToolWorkspace = lazyWithRetry(() => import('../components/workspace/ToolWorkspace').then(module => ({ default: module.ToolWorkspace })), 'ToolWorkspace');
+import { ToolWorkspace } from '../components/workspace/ToolWorkspace';
 
 export const ToolLandingPage: React.FC = () => {
   let { lang, tool, keywordSlug } = useParams<{ lang: string; tool: string; keywordSlug: string }>();

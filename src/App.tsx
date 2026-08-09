@@ -13,12 +13,11 @@ import { JsonLd } from './components/seo/JsonLd';
 import ScrollToTop from './components/ScrollToTop';
 
 
-// Lazy loaded routes for extreme performance
-const ToolLandingPage = lazy(() => import('./pages/ToolLandingPage').then(m => ({ default: m.ToolLandingPage })));
-const AboutPage = lazy(() => import('./pages/info/AboutPage').then(m => ({ default: m.AboutPage })));
-const PrivacyPage = lazy(() => import('./pages/info/PrivacyPage').then(m => ({ default: m.PrivacyPage })));
-const TermsPage = lazy(() => import('./pages/info/TermsPage').then(m => ({ default: m.TermsPage })));
-const FaqPage = lazy(() => import('./pages/info/FaqPage').then(m => ({ default: m.FaqPage })));
+import { ToolLandingPage } from './pages/ToolLandingPage';
+import { AboutPage } from './pages/info/AboutPage';
+import { PrivacyPage } from './pages/info/PrivacyPage';
+import { TermsPage } from './pages/info/TermsPage';
+import { FaqPage } from './pages/info/FaqPage';
 
 
 
@@ -26,7 +25,6 @@ const FaqPage = lazy(() => import('./pages/info/FaqPage').then(m => ({ default: 
 function App() {
   return (
     <HelmetProvider>
-      <Suspense fallback={<div className="min-h-screen bg-dark-900 flex items-center justify-center"><div className="w-16 h-16 border-4 border-[#05DAED]/20 border-t-[#05DAED] rounded-full animate-spin"></div></div>}>
         <ThemeProvider>
         <LanguageProvider>
           <BrowserRouter>
@@ -77,7 +75,6 @@ function App() {
           </BrowserRouter>
         </LanguageProvider>
         </ThemeProvider>
-      </Suspense>
     </HelmetProvider>
   );
 }
