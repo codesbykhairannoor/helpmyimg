@@ -1476,9 +1476,150 @@
     "languages": "Desteklenen Diller"
   },
   "info": {
-    "freePromo": "%100 Ücretsiz, 0 Rupiah, Abonelik Yok. Hiçbir gizli ücret veya kredi kartı gerekmez."
+    "freePromo": "%100 Ücretsiz, 0 Rupiah, Abonelik Yok."
   },
   "nav": {
-    "faq": "SSS"
+    "faq": "SSS",
+    "compress": "Görüntüyü Sıkıştır"
+  },
+  "security": {
+    "title": "Verileriniz Cihazınızdan Asla Ayrılmaz.",
+    "subtitle": "Yerel WebAssembly tarafından desteklenen %100 özel yapay zeka görüntü düzenleme deneyimini yaşayın. Fotoğraflarınızı hiçbir zaman sunucularımıza ulaşmadığı için göremiyoruz, saklayamıyoruz veya satamıyoruz.",
+    "badge": "SIFIR GÜVENLİK GÜVENLİK MODELİ",
+    "s2": {
+      "title": "İstemci Tarafında İşleme Yürütme",
+      "desc": "Geleneksel görüntü düzenleyiciler, hassas dosyalarınızı bulut sunucularına yükleyerek onları ihlallere açık hale getirir. HelpMyIMG, AI sinir ağını (Wasm) doğrudan tarayıcınızın belleğine indirerek her şeyi yerel olarak işler.",
+      "graphic": "Bulut Yüklemeleri Dahili Olarak Devre Dışı Bırakıldı"
+    },
+    "s3": {
+      "title": "Küresel Gizlilik Uyumluluğu"
+    },
+    "s4": {
+      "title": "Veri Akışı Karşılaştırması",
+      "old": "Geleneksel Bulut Düzenleyicileri",
+      "new": "HelpMyIMG Yerel Motor"
+    },
+    "s5": {
+      "title": "Giymek\\",
+      "desc": "Sayfayı yükledikten sonra internet bağlantısını kesebilirsiniz; yapay zeka yine de mükemmel şekilde çalışmaya devam edecektir. Bu gizliliğin nihai matematiksel kanıtıdır."
+    },
+    "faq": {
+      "title": "Güvenlik SSS"
+    },
+    "faq1": {
+      "q": "HelpMyIMG gerçekten güvenli mi?",
+      "a": "Evet. Yapay zeka, WebAssembly'ı kullanarak görüntüleri doğrudan yerel cihazınızda işler. Dosyalarınızı asla sunucularımıza almayız."
+    },
+    "faq2": {
+      "q": "İşlenmiş görsellerimi saklıyor musunuz?",
+      "a": "Hayır. Hiçbir şey yüklenmediği için saklayacak bir şeyimiz yok. Her şey tarayıcınızın hafızasında gerçekleşir."
+    },
+    "faq3": {
+      "q": "GDPR ve CCPA ile uyumlu musunuz?",
+      "a": "Evet, doğası gereği. Görüntü işleme hattından sıfır veri topladığımız için en katı izin gerekliliklerini tamamen atlıyoruz."
+    }
+  },
+  "pricing": {
+    "title": "Cloud AI için Ödemeyi Durdurun.",
+    "subtitle": "Kurumsal düzeyde görüntü işleme, tamamen ücretsizdir.",
+    "tierName": "Sınırsız Kenar Planı",
+    "period": "Sonsuza kadar. Kredi kartı gerekmez.",
+    "s3": {
+      "title": "Ne kadar tasarruf edeceksiniz?"
+    },
+    "s4": {
+      "title": "Neden %100 Ücretsiz?",
+      "desc1": "Bulut şirketleri sizden para alıyor çünkü yapay zekayı bulut GPU'larında çalıştırmak inanılmaz derecede pahalı. Bir görüntüyü her yüklediğinizde, bu onların sunucu gücüne mal olur.",
+      "desc2": "HelpMyIMG, yapay zekayı doğrudan tarayıcınızın içinde çalıştırmak için WebAssembly'ı kullanır. Çünkü biz bunu yapmıyoruz",
+      "boxTitle": "Sonsuz Ölçeklenebilirlik",
+      "boxDesc": "Bilgi işlemi cihazınız yaptığı için platformumuz, maliyetlerimizi yavaşlatmadan veya artırmadan milyonlarca kullanıcıyı aynı anda yönetebilir."
+    },
+    "s5": {
+      "title": "Hesap Yok. Kredi Kartı Yok. Saçmalık yok.",
+      "desc": "Sadece web sitesini açın ve işleme başlayın. Zamanınıza ve gizliliğinize saygı duyuyoruz."
+    },
+    "faq": {
+      "title": "Fiyatlandırma SSS"
+    },
+    "faq1": {
+      "q": "Gerçekten gizli bir maliyet yok mu?",
+      "a": "Kesinlikle sıfır. Tüm kurumsal özelliklere, kredi kartı girmeden ücretsiz olarak sahip olursunuz."
+    },
+    "faq2": {
+      "q": "Ücretsizse nasıl para kazanılır?",
+      "a": "Cihazınız bilgi işlemi yaptığı için sunucu maliyetlerimiz fiilen sıfırdır. Işıkları açık tutmak için reklamlara ve isteğe bağlı bağışlara güveniyoruz."
+    },
+    "faq3": {
+      "q": "Hiç şarj olmaya başlayacak mısın?",
+      "a": "Temel yerel işleme özellikleri sonsuza kadar ücretsiz kalacaktır. Yapay zekayla görüntü işlemenin bir lüks değil, temel bir insan hakkı olması gerektiğine inanıyoruz."
+    }
+  },
+  "compare": {
+    "title": "HelpMyIMG ve Geri Kalanlar",
+    "subtitle": "Yapay zeka görüntü işlemeyi yerel olarak çalışacak şekilde sıfırdan yeniden inşa ettik. Bulutun neden eskidiğini görün.",
+    "badge": "BAŞKA KARŞILAŞTIRMA",
+    "s3": {
+      "title": "Ağ Gecikmesi Düşmandır.",
+      "desc": "Bulut editörleri zamanınızın %80'ini dosyaları ileri geri aktararak boşa harcar. Doğrudan donanımınız üzerinde işlem yaparak ağı tamamen ortadan kaldırıyoruz ve bunun sonucunda 5 kata kadar daha yüksek hızlar elde ediyoruz."
+    },
+    "s4": {
+      "title": "İnternet Olmadan Çalışır.",
+      "desc": "Sayfa yüklendikten sonra Wi-Fi bağlantısını kesebilirsiniz. Yapay zeka modelleri tarayıcınız aracılığıyla tamamen yerel olarak çalışır\\"
+    },
+    "s5": {
+      "title": "Kaliteden Ödün Verilmez"
+    },
+    "faq": {
+      "title": "Karşılaştırma SSS"
+    },
+    "faq1": {
+      "q": "HelpMyIMG neden bulut API'lerinden daha hızlıdır?",
+      "a": "Bulut API'leri ağ gecikmesinden (büyük görüntülerin yüklenmesi ve indirilmesi) etkilenir. Yerel cihaz hızlarında çalışan ağı ortadan kaldırıyoruz."
+    },
+    "faq2": {
+      "q": "Yerel işlemler pilimi tüketir mi?",
+      "a": "WebAssembly modellerimiz son derece optimize edilmiştir. CPU kullanmasına rağmen, bir YouTube videosunu izlemekten daha az enerji kullanan, anlık bir işlemdir."
+    },
+    "faq3": {
+      "q": "Çevrimdışı mod nasıl mümkün olabilir?",
+      "a": "Web sitesinin varlıkları yüklendikten sonra, tüm AI matematik mantığı tarayıcı motorunun kendisinde çalışır ve sıfır internet bağlantısı gerektirir."
+    }
+  },
+  "languages": {
+    "title": "Dünya için tasarlandı.",
+    "subtitle": "Güçlü yapay zekanın herkesin her yerde erişilebilir olması gerektiğine inanıyoruz. HelpMyIMG'nin yerel olarak 30 farklı dile yerelleştirilmesinin nedeni budur.",
+    "badge": "KÜRESEL ERİŞİLEBİLİRLİK",
+    "s2": {
+      "title": "Ana Dilinizi Seçin",
+      "desc": "Uygulama arayüzünün tamamını anında değiştirmek için aşağıdaki dillerden herhangi birine tıklayın."
+    },
+    "s3": {
+      "title": "Otomatik Çeviriden Daha Fazlası.",
+      "desc": "Biz\\"
+    },
+    "s4": {
+      "title": "Sıfır Sayfa Yeniden Yükleme.",
+      "desc": "React bağlamı üzerine inşa edilen i18n motorumuz, sayfayı yenilemeden veya çalışmanızı kesintiye uğratmadan 1.500'den fazla çeviri dizesinin tamamını anında değiştirir."
+    },
+    "s5": {
+      "title": "Dilinizi mi özlediniz?",
+      "desc": "Sürekli genişliyoruz. Ana dilinizde HelpMyIMG'ye ihtiyacınız varsa bize bildirin.",
+      "btn": "Çeviri İste"
+    },
+    "faq": {
+      "title": "Yerelleştirme SSS"
+    },
+    "faq1": {
+      "q": "Çeviriler doğru mu?",
+      "a": "Teknik bağlamın ve SEO yapılarının korunmasını sağlamak için gelişmiş sinirsel makine çevirisini insan gözetimiyle birleştiriyoruz."
+    },
+    "faq2": {
+      "q": "Yeni bir dili nasıl talep edebilirim?",
+      "a": "Destek ekibimizle iletişime geçebilir veya genel havuzumuz üzerinden bir konu açabilirsiniz. Mümkün olduğu kadar çok lehçeyi desteklemeyi hedefliyoruz."
+    },
+    "faq3": {
+      "q": "Dili değiştirmek performansı etkiler mi?",
+      "a": "Hiç de bile. React bağlam motorumuz, sözlüğü tam sayfanın yeniden yüklenmesine gerek kalmadan 0 ms içinde değiştirir."
+    }
   }
 }

@@ -1476,9 +1476,150 @@
     "languages": "Ngôn ngữ được hỗ trợ"
   },
   "info": {
-    "freePromo": "Miễn phí 100%, 0 Rupiah, Không đăng ký. Không có phí ẩn hoặc thẻ tín dụng cần thiết."
+    "freePromo": "Miễn phí 100%, 0 Rupiah, Không đăng ký."
   },
   "nav": {
-    "faq": "Câu hỏi thường gặp"
+    "faq": "Câu hỏi thường gặp",
+    "compress": "Nén hình ảnh"
+  },
+  "security": {
+    "title": "Dữ liệu của bạn không bao giờ rời khỏi thiết bị của bạn.",
+    "subtitle": "Trải nghiệm chỉnh sửa hình ảnh AI riêng tư 100% được cung cấp bởi WebAssugging cục bộ. Chúng tôi không thể xem, lưu trữ hoặc bán ảnh của bạn vì chúng không bao giờ đến được máy chủ của chúng tôi.",
+    "badge": "MÔ HÌNH BẢO MẬT ZERO-Trust",
+    "s2": {
+      "title": "Thực thi xử lý phía máy khách",
+      "desc": "Các trình chỉnh sửa hình ảnh truyền thống tải các tệp nhạy cảm của bạn lên máy chủ đám mây của họ, khiến chúng có nguy cơ bị vi phạm. HelpMyIMG tải trực tiếp mạng thần kinh AI (Wasm) xuống bộ nhớ trình duyệt của bạn, xử lý mọi thứ cục bộ.",
+      "graphic": "Tải lên đám mây bị vô hiệu hóa nội bộ"
+    },
+    "s3": {
+      "title": "Tuân thủ quyền riêng tư toàn cầu"
+    },
+    "s4": {
+      "title": "So sánh luồng dữ liệu",
+      "old": "Trình chỉnh sửa đám mây truyền thống",
+      "new": "Trợ giúpCông cụ cục bộMyIMG"
+    },
+    "s5": {
+      "title": "Giảng viên đại học\\",
+      "desc": "Bạn có thể ngắt kết nối Internet sau khi tải trang và AI vẫn hoạt động hoàn hảo. Đó là bằng chứng toán học cuối cùng về quyền riêng tư."
+    },
+    "faq": {
+      "title": "Câu hỏi thường gặp về bảo mật"
+    },
+    "faq1": {
+      "q": "HelpMyIMG có thực sự an toàn không?",
+      "a": "Đúng. Bằng cách sử dụng WebAssugging, AI sẽ xử lý hình ảnh trực tiếp trên thiết bị cục bộ của bạn. Chúng tôi không bao giờ nhận được tệp của bạn trên máy chủ của chúng tôi."
+    },
+    "faq2": {
+      "q": "Bạn có lưu trữ hình ảnh đã xử lý của tôi không?",
+      "a": "Không. Vì không có gì được tải lên nên chúng tôi không có gì để lưu trữ. Mọi thứ diễn ra trong bộ nhớ trình duyệt của bạn."
+    },
+    "faq3": {
+      "q": "Bạn có tuân thủ GDPR và CCPA không?",
+      "a": "Vâng, vốn có. Vì chúng tôi không thu thập dữ liệu nào từ quy trình xử lý hình ảnh nên chúng tôi hoàn toàn bỏ qua hầu hết các yêu cầu về sự đồng ý nghiêm ngặt."
+    }
+  },
+  "pricing": {
+    "title": "Ngừng thanh toán cho Cloud AI.",
+    "subtitle": "Xử lý hình ảnh cấp doanh nghiệp, hoàn toàn miễn phí.",
+    "tierName": "Gói cạnh không giới hạn",
+    "period": "Mãi mãi. Không cần thẻ tín dụng.",
+    "s3": {
+      "title": "Bạn sẽ tiết kiệm được bao nhiêu?"
+    },
+    "s4": {
+      "title": "Tại sao nó miễn phí 100%?",
+      "desc1": "Các công ty đám mây tính phí cho bạn vì việc chạy AI trên GPU đám mây cực kỳ tốn kém. Mỗi khi bạn tải lên một hình ảnh, họ sẽ tiêu tốn năng lượng máy chủ.",
+      "desc2": "HelpMyIMG sử dụng WebAssugging để chạy AI trực tiếp bên trong trình duyệt của bạn. Bởi vì chúng tôi không\\",
+      "boxTitle": "Khả năng mở rộng vô hạn",
+      "boxDesc": "Vì thiết bị của bạn thực hiện tính toán nên nền tảng của chúng tôi có thể xử lý đồng thời hàng triệu người dùng mà không làm chậm hoặc tăng chi phí của chúng tôi."
+    },
+    "s5": {
+      "title": "Không có tài khoản. Không có thẻ tín dụng. Không nhảm nhí.",
+      "desc": "Chỉ cần mở trang web và bắt đầu xử lý. Chúng tôi tôn trọng thời gian và sự riêng tư của bạn."
+    },
+    "faq": {
+      "title": "Câu hỏi thường gặp về giá"
+    },
+    "faq1": {
+      "q": "Có thực sự không có chi phí ẩn?",
+      "a": "Hoàn toàn bằng không. Bạn nhận được tất cả các tính năng dành cho doanh nghiệp miễn phí mà không cần nhập thẻ tín dụng."
+    },
+    "faq2": {
+      "q": "Làm thế nào để bạn kiếm tiền nếu nó miễn phí?",
+      "a": "Chi phí máy chủ của chúng tôi thực sự bằng 0 vì thiết bị của bạn thực hiện tính toán. Chúng tôi dựa vào quảng cáo và các khoản quyên góp tùy chọn để duy trì hoạt động."
+    },
+    "faq3": {
+      "q": "Bạn có bao giờ bắt đầu sạc không?",
+      "a": "Các tính năng xử lý cục bộ cốt lõi sẽ vẫn miễn phí mãi mãi. Chúng tôi tin rằng việc xử lý hình ảnh bằng AI phải là quyền cơ bản của con người chứ không phải là một điều xa xỉ."
+    }
+  },
+  "compare": {
+    "title": "HelpMyIMG vs phần còn lại",
+    "subtitle": "Chúng tôi đã xây dựng lại quy trình xử lý hình ảnh AI từ đầu để chạy cục bộ. Xem tại sao đám mây lại lỗi thời.",
+    "badge": "SO SÁNH TRỰC TIẾP",
+    "s3": {
+      "title": "Độ trễ mạng là kẻ thù.",
+      "desc": "Trình chỉnh sửa đám mây lãng phí 80% thời gian của bạn chỉ để chuyển tệp qua lại. Bằng cách xử lý trực tiếp trên phần cứng của bạn, chúng tôi loại bỏ hoàn toàn mạng, dẫn đến tốc độ nhanh hơn gấp 5 lần."
+    },
+    "s4": {
+      "title": "Hoạt động mà không cần Internet.",
+      "desc": "Sau khi tải trang, bạn có thể ngắt kết nối Wi-Fi. Các mô hình AI chạy hoàn toàn cục bộ thông qua trình duyệt của bạn\\"
+    },
+    "s5": {
+      "title": "Không thỏa hiệp về chất lượng"
+    },
+    "faq": {
+      "title": "Câu hỏi thường gặp về so sánh"
+    },
+    "faq1": {
+      "q": "Tại sao HelpMyIMG nhanh hơn API đám mây?",
+      "a": "API đám mây gặp phải độ trễ mạng (tải lên và tải xuống hình ảnh lớn). Chúng tôi loại bỏ mạng chạy ở tốc độ thiết bị gốc."
+    },
+    "faq2": {
+      "q": "Quá trình xử lý cục bộ có làm tiêu hao pin của tôi không?",
+      "a": "Các mô hình WebAssugging của chúng tôi được tối ưu hóa cao. Mặc dù sử dụng CPU nhưng đây là hoạt động trong tích tắc và sử dụng ít năng lượng hơn so với xem video YouTube."
+    },
+    "faq3": {
+      "q": "Làm thế nào có thể có chế độ ngoại tuyến?",
+      "a": "Sau khi tải nội dung của trang web, tất cả logic toán học AI sẽ chạy trong chính công cụ trình duyệt, không yêu cầu kết nối Internet."
+    }
+  },
+  "languages": {
+    "title": "Được thiết kế cho Thế giới.",
+    "subtitle": "Chúng tôi tin rằng mọi người, ở mọi nơi đều có thể tiếp cận AI mạnh mẽ. Đó là lý do tại sao HelpMyIMG được bản địa hóa thành 30 ngôn ngữ khác nhau.",
+    "badge": "KHẢ NĂNG TIẾP CẬN TOÀN CẦU",
+    "s2": {
+      "title": "Chọn ngôn ngữ mẹ đẻ của bạn",
+      "desc": "Bấm vào ngôn ngữ bất kỳ bên dưới để chuyển ngay toàn bộ giao diện ứng dụng."
+    },
+    "s3": {
+      "title": "Không chỉ tự động dịch.",
+      "desc": "Chúng tôi không\\"
+    },
+    "s4": {
+      "title": "Không tải lại trang.",
+      "desc": "Được xây dựng trên bối cảnh React, công cụ i18n của chúng tôi hoán đổi tất cả hơn 1.500 chuỗi dịch ngay lập tức mà không làm mới trang hoặc làm gián đoạn công việc của bạn."
+    },
+    "s5": {
+      "title": "Thiếu ngôn ngữ của bạn?",
+      "desc": "Chúng tôi không ngừng mở rộng. Hãy cho chúng tôi biết nếu bạn cần HelpMyIMG bằng tiếng mẹ đẻ của bạn.",
+      "btn": "Yêu cầu dịch"
+    },
+    "faq": {
+      "title": "Câu hỏi thường gặp về bản địa hóa"
+    },
+    "faq1": {
+      "q": "Các bản dịch có chính xác không?",
+      "a": "Chúng tôi kết hợp dịch máy thần kinh tiên tiến với sự giám sát của con người để đảm bảo bối cảnh kỹ thuật và cấu trúc SEO được giữ nguyên."
+    },
+    "faq2": {
+      "q": "Làm cách nào để yêu cầu ngôn ngữ mới?",
+      "a": "Bạn có thể liên hệ với nhóm hỗ trợ của chúng tôi hoặc mở một vấn đề trên kho lưu trữ công cộng của chúng tôi. Chúng tôi mong muốn hỗ trợ càng nhiều phương ngữ càng tốt."
+    },
+    "faq3": {
+      "q": "Việc thay đổi ngôn ngữ có ảnh hưởng đến hiệu suất không?",
+      "a": "Không có gì. Công cụ ngữ cảnh React của chúng tôi hoán đổi từ điển trong 0 mili giây mà không yêu cầu tải lại toàn bộ trang."
+    }
   }
 }

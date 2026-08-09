@@ -1476,9 +1476,150 @@
     "security": "Keselamatan & Amanah"
   },
   "info": {
-    "freePromo": "100% Percuma, 0 Rupiah, Tiada Langganan. Tiada yuran tersembunyi atau kad kredit diperlukan."
+    "freePromo": "100% Percuma, 0 Rupiah, Tiada Langganan."
   },
   "nav": {
-    "faq": "Soalan Lazim"
+    "faq": "Soalan Lazim",
+    "compress": "Memampatkan Imej"
+  },
+  "security": {
+    "title": "Data Anda Tidak Pernah Meninggalkan Peranti Anda.",
+    "subtitle": "Alami 100% pengeditan imej AI peribadi yang dikuasakan oleh WebAssembly tempatan. Kami tidak dapat melihat, menyimpan atau menjual foto anda kerana ia tidak pernah sampai ke pelayan kami.",
+    "badge": "MODEL KESELAMATAN TANPA AMANAH",
+    "s2": {
+      "title": "Perlaksanaan Pemprosesan Sebelah Pelanggan",
+      "desc": "Editor imej tradisional memuat naik fail sensitif anda ke pelayan awan mereka, mendedahkannya kepada pelanggaran. HelpMyIMG memuat turun rangkaian neural AI (Wasm) terus ke memori penyemak imbas anda, memproses semuanya secara setempat.",
+      "graphic": "Muat Naik Awan Dilumpuhkan Secara Dalaman"
+    },
+    "s3": {
+      "title": "Pematuhan Privasi Global"
+    },
+    "s4": {
+      "title": "Perbandingan Aliran Data",
+      "old": "Editor Awan Tradisional",
+      "new": "HelpMyIMG Enjin Tempatan"
+    },
+    "s5": {
+      "title": "Don\\",
+      "desc": "Anda boleh memutuskan sambungan daripada internet selepas memuatkan halaman, dan AI masih akan berfungsi dengan sempurna. Itulah bukti matematik muktamad tentang privasi."
+    },
+    "faq": {
+      "title": "Soalan Lazim Keselamatan"
+    },
+    "faq1": {
+      "q": "Adakah HelpMyIMG benar-benar selamat?",
+      "a": "ya. Dengan menggunakan WebAssembly, AI memproses imej terus pada peranti tempatan anda. Kami tidak pernah menerima fail anda pada pelayan kami."
+    },
+    "faq2": {
+      "q": "Adakah anda menyimpan imej saya yang diproses?",
+      "a": "Tidak. Memandangkan tiada apa-apa yang dimuat naik, tiada apa-apa untuk kami simpan. Semuanya berlaku dalam ingatan penyemak imbas anda."
+    },
+    "faq3": {
+      "q": "Adakah anda mematuhi GDPR dan CCPA?",
+      "a": "Ya, secara semula jadi. Oleh kerana kami mengumpul sifar data daripada saluran paip pemprosesan imej, kami memintas keperluan persetujuan yang paling ketat sepenuhnya."
+    }
+  },
+  "pricing": {
+    "title": "Berhenti Membayar untuk Cloud AI.",
+    "subtitle": "Pemprosesan imej gred perusahaan, benar-benar percuma.",
+    "tierName": "Pelan Edge Tanpa Had",
+    "period": "Selamanya. Tiada kad kredit diperlukan.",
+    "s3": {
+      "title": "Berapa banyak yang anda akan simpan?"
+    },
+    "s4": {
+      "title": "Mengapa ia 100% Percuma?",
+      "desc1": "Syarikat awan mengenakan bayaran kepada anda kerana menjalankan AI pada GPU awan adalah sangat mahal. Setiap kali anda memuat naik imej, ia memerlukan kuasa pelayan.",
+      "desc2": "HelpMyIMG menggunakan WebAssembly untuk menjalankan AI terus di dalam penyemak imbas anda. Kerana kami tidak",
+      "boxTitle": "Kebolehskalaan Tak Terhingga",
+      "boxDesc": "Memandangkan peranti anda melakukan pengkomputeran, platform kami boleh mengendalikan berjuta-juta pengguna secara serentak tanpa memperlahankan atau meningkatkan kos kami."
+    },
+    "s5": {
+      "title": "Tiada Akaun. Tiada Kad Kredit. Tiada omong kosong.",
+      "desc": "Hanya buka laman web dan mula memproses. Kami menghormati masa dan privasi anda."
+    },
+    "faq": {
+      "title": "Soalan Lazim Harga"
+    },
+    "faq1": {
+      "q": "Adakah benar-benar tiada kos tersembunyi?",
+      "a": "Sifar sama sekali. Anda mendapat semua ciri perusahaan secara percuma tanpa perlu memasukkan kad kredit."
+    },
+    "faq2": {
+      "q": "Macam mana nak buat duit kalau percuma?",
+      "a": "Kos pelayan kami secara efektif adalah sifar kerana peranti anda melakukan pengkomputeran. Kami bergantung pada iklan dan derma pilihan untuk memastikan lampu menyala."
+    },
+    "faq3": {
+      "q": "Adakah anda akan mula mengecas?",
+      "a": "Ciri pemprosesan tempatan teras akan kekal percuma selama-lamanya. Kami percaya pemprosesan imej AI harus menjadi hak asasi manusia, bukan kemewahan."
+    }
+  },
+  "compare": {
+    "title": "HelpMyIMG vs The Rest",
+    "subtitle": "Kami membina semula pemprosesan imej AI dari bawah ke atas untuk dijalankan secara tempatan. Lihat sebab awan itu usang.",
+    "badge": "PERBANDINGAN HEAD-TO-HEAD",
+    "s3": {
+      "title": "Kependaman Rangkaian ialah Musuh.",
+      "desc": "Editor awan membuang 80% masa anda hanya untuk memindahkan fail ke sana ke mari. Dengan memproses terus pada perkakasan anda, kami menghapuskan rangkaian sepenuhnya, menghasilkan kelajuan sehingga 5x lebih pantas."
+    },
+    "s4": {
+      "title": "Berfungsi Tanpa Internet.",
+      "desc": "Setelah halaman dimuatkan, anda boleh memutuskan sambungan daripada Wi-Fi. Model AI dijalankan sepenuhnya secara setempat melalui penyemak imbas anda\\"
+    },
+    "s5": {
+      "title": "Tiada Kompromi terhadap Kualiti"
+    },
+    "faq": {
+      "title": "Soalan Lazim Perbandingan"
+    },
+    "faq1": {
+      "q": "Mengapa HelpMyIMG lebih pantas daripada API awan?",
+      "a": "Cloud API mengalami kependaman rangkaian (memuat naik dan memuat turun imej besar). Kami menghapuskan rangkaian, berjalan pada kelajuan peranti asli."
+    },
+    "faq2": {
+      "q": "Adakah pemprosesan tempatan menghabiskan bateri saya?",
+      "a": "Model WebAssembly kami sangat dioptimumkan. Walaupun menggunakan CPU, ia merupakan operasi separa saat yang menggunakan kurang tenaga berbanding menonton video YouTube."
+    },
+    "faq3": {
+      "q": "Bagaimanakah mod luar talian boleh dilakukan?",
+      "a": "Setelah aset tapak web dimuatkan, semua logik matematik AI berjalan dalam enjin penyemak imbas itu sendiri, memerlukan sambungan internet sifar."
+    }
+  },
+  "languages": {
+    "title": "Direka untuk Dunia.",
+    "subtitle": "Kami percaya AI yang berkuasa harus boleh diakses oleh semua orang, di mana-mana sahaja. Itulah sebabnya HelpMyIMG disetempatkan secara asli ke dalam 30 bahasa yang berbeza.",
+    "badge": "KETERAMPILAN GLOBAL",
+    "s2": {
+      "title": "Pilih Bahasa Ibunda Anda",
+      "desc": "Klik pada mana-mana bahasa di bawah untuk menukar seluruh antara muka aplikasi dengan serta-merta."
+    },
+    "s3": {
+      "title": "Lebih Daripada Sekadar Autoterjemah.",
+      "desc": "Kami tidak"
+    },
+    "s4": {
+      "title": "Muat Semula Halaman Sifar.",
+      "desc": "Dibina pada konteks React, enjin i18n kami menukar semua 1,500+ rentetan terjemahan serta-merta tanpa memuat semula halaman atau mengganggu kerja anda."
+    },
+    "s5": {
+      "title": "Rindu Bahasa Anda?",
+      "desc": "Kami sentiasa berkembang. Beritahu kami jika anda memerlukan HelpMyIMG dalam bahasa ibunda anda.",
+      "btn": "Minta Terjemahan"
+    },
+    "faq": {
+      "title": "Soalan Lazim Penyetempatan"
+    },
+    "faq1": {
+      "q": "Adakah terjemahan itu tepat?",
+      "a": "Kami menggabungkan terjemahan mesin saraf lanjutan dengan pengawasan manusia untuk memastikan konteks teknikal dan struktur SEO dipelihara."
+    },
+    "faq2": {
+      "q": "Bagaimanakah saya meminta bahasa baharu?",
+      "a": "Anda boleh menghubungi pasukan sokongan kami atau membuka isu pada repositori awam kami. Kami berhasrat untuk menyokong sebanyak mungkin dialek."
+    },
+    "faq3": {
+      "q": "Adakah perubahan bahasa menjejaskan prestasi?",
+      "a": "Tidak sama sekali. Enjin konteks React kami menukar kamus dalam 0ms tanpa memerlukan muat semula halaman penuh."
+    }
   }
 }
