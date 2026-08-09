@@ -10,7 +10,6 @@ import JSZip from 'jszip';
 import { motion, AnimatePresence } from 'framer-motion';
 import { trackEvent } from '../../utils/analytics';
 
-import { lazyWithRetry } from '../../utils/lazyWithRetry';
 import { RemoveBgControl } from './tools/RemoveBgControl';
 
 import { ColorBgControl } from './tools/ColorBgControl';

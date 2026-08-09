@@ -17,7 +17,7 @@ export const Navbar: React.FC = () => {
   const [langOpen, setLangOpen] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
-  const { navigate, navigatePath } = useRouter();
+  const { navigatePath } = useRouter();
 
   const currentLang = SUPPORTED_LANGUAGES.find((l) => l.code === lang) || SUPPORTED_LANGUAGES[0];
 
