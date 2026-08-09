@@ -4,7 +4,7 @@
   "nav.pseo": "Litrato sa Passport",
   "nav.widget": "Widget Generator",
   "nav.geo": "Teknolohiyang AI",
-  "nav.faq": "Mga Tanong",
+  "nav.faq": "FAQ",
   "hero.title": "Propesyonal na Photo Studio at Bulk Toolkit",
   "hero.titleHighlight": "Agad-agad",
   "hero.subtitle": "Ang tunay na lokal na powerhouse sa pag-edit ng larawan. Alisin ang mga background na may katumpakan sa gilid ng buhok, bumuo ng mga opisyal na larawan ng pasaporte na may mga custom na kulay, ilapat ang studio bokeh blur, i-compress, i-convert, at i-resize ang hanggang 10 larawan sa loob ng ilang segundo. 100% libre, pribado, at direktang pinapagana ng iyong browser—walang kinakailangang pag-upload.",
@@ -343,7 +343,7 @@
   "landing.watermark.faq1.a": "Oo! Pinapadali ng aming batch processing ang paglalagay ng watermark sa daan-daang larawan.",
   "landing.watermark.faq2.q": "Ligtas ba ang aking mga orihinal na larawan?",
   "landing.watermark.faq2.a": "Oo, ang proseso ay 100% pribado at lokal.",
-  "nav.compress": "Image Compress",
+  "nav.compress": "I-compress ang Imahe",
   "landing.default.title.compress": "Libreng Image Compressor - I-compress ang Sukat ng Imahe sa Lokal | Zero Upload",
   "landing.default.desc.compress": "Bawasan ang laki ng file ng iyong mga larawan nang hanggang 90% kaagad. 100% lokal na pagpoproseso ng browser para sa maximum na privacy.",
   "landing.compress.faqTitle": "FAQ",
@@ -1465,161 +1465,83 @@
   "landing.remove.faq6.a": "Hindi tulad ng mga tradisyunal na cloud editor, tinitiyak ng aming WebAssembly architecture na 0 byte ng data ng user ang naipapadala. Sa pamamagitan ng mahigpit na pagpapatupad ng mga neural network sa device ng kliyente, nine-neutralize nito ang mga panganib sa interception, na tinitiyak ang likas na pagsunod sa GDPR Article 5 at CCPA privacy frameworks.",
   "hero.subtitle.short": "Pagsamahin, hatiin, i-compress, i-convert, at iproseso ang mga larawan nang direkta sa iyong browser. 100% offline sa pamamagitan ng WebAssembly. Libre, walang limitasyon, at lubos na secure.",
   "hero.search.placeholder": "Mga tool sa paghahanap (Alisin ang BG, I-compress, I-edit)...",
-  "footer": {
-    "about": "Tungkol sa Amin",
-    "terms": "Mga Tuntunin ng Serbisyo",
-    "resources": "Mga mapagkukunan",
-    "compare": "Ikumpara",
-    "privacy": "Patakaran sa Privacy",
-    "pricing": "Pagpepresyo",
-    "languages": "Mga Sinusuportahang Wika",
-    "security": "Seguridad at Tiwala"
-  },
-  "info": {
-    "freePromo": "100% Libre, 0 Rupiah, Walang Subscription."
-  },
-  "nav": {
-    "faq": "FAQ",
-    "compress": "I-compress ang Imahe"
-  },
-  "security": {
-    "title": "Ang Iyong Data ay Hindi Umaalis sa Iyong Device.",
-    "subtitle": "Damhin ang 100% pribadong AI image editing na pinapagana ng lokal na WebAssembly. Hindi namin makita, maiimbak, o maibenta ang iyong mga larawan dahil hinding-hindi ito makakarating sa aming mga server.",
-    "badge": "ZERO-TRUST SECURITY MODEL",
-    "s2": {
-      "title": "Pagpapatupad ng Pagproseso sa Side ng Kliyente",
-      "desc": "Ina-upload ng mga tradisyonal na editor ng larawan ang iyong mga sensitibong file sa kanilang mga cloud server, na naglalantad sa kanila sa mga paglabag. Dina-download ng HelpMyIMG ang AI neural network (Wasm) nang direkta sa memorya ng iyong browser, lokal na pinoproseso ang lahat.",
-      "graphic": "Panloob na Naka-disable ang Cloud Uploads"
-    },
-    "s3": {
-      "title": "Pandaigdigang Pagsunod sa Privacy"
-    },
-    "s4": {
-      "title": "Paghahambing ng Daloy ng Data",
-      "old": "Mga Tradisyunal na Cloud Editor",
-      "new": "HelpMyIMG Local Engine"
-    },
-    "s5": {
-      "title": "Don\\",
-      "desc": "Maaari kang magdiskonekta mula sa internet pagkatapos i-load ang pahina, at gagana pa rin nang perpekto ang AI. Iyon ay ang tunay na mathematical na patunay ng privacy."
-    },
-    "faq": {
-      "title": "FAQ sa Seguridad"
-    },
-    "faq1": {
-      "q": "Talaga bang ligtas ang HelpMyIMG?",
-      "a": "Oo. Sa pamamagitan ng paggamit ng WebAssembly, direktang pinoproseso ng AI ang mga larawan sa iyong lokal na device. Hindi namin natatanggap ang iyong mga file sa aming mga server."
-    },
-    "faq2": {
-      "q": "Iniimbak mo ba ang aking mga naprosesong larawan?",
-      "a": "Hindi. Dahil walang na-upload, wala kaming maiimbak. Nangyayari ang lahat sa memorya ng iyong browser."
-    },
-    "faq3": {
-      "q": "Sumusunod ka ba sa GDPR at CCPA?",
-      "a": "Oo, likas. Dahil wala kaming kinokolektang data mula sa pipeline ng pagpoproseso ng imahe, ganap naming nilalampasan ang pinakamahigpit na kinakailangan sa pahintulot."
-    }
-  },
-  "pricing": {
-    "title": "Ihinto ang Pagbabayad para sa Cloud AI.",
-    "subtitle": "Enterprise-grade image processing, ganap na libre.",
-    "tierName": "Walang limitasyong Edge Plan",
-    "period": "Magpakailanman. Walang kinakailangang credit card.",
-    "s3": {
-      "title": "Magkano ang matitipid mo?"
-    },
-    "s4": {
-      "title": "Bakit ito 100% Libre?",
-      "desc1": "Sinisingil ka ng mga kumpanya ng cloud ng pera dahil ang pagpapatakbo ng AI sa mga cloud GPU ay hindi kapani-paniwalang mahal. Sa tuwing mag-a-upload ka ng isang imahe, nagkakahalaga ito ng kapangyarihan ng server.",
-      "desc2": "Ang HelpMyIMG ay gumagamit ng WebAssembly upang patakbuhin ang AI nang direkta sa loob ng iyong browser. Dahil hindi namin",
-      "boxTitle": "Walang katapusang Scalability",
-      "boxDesc": "Dahil ang iyong device ang gumagawa ng pag-compute, ang aming platform ay maaaring pangasiwaan ang milyun-milyong user nang sabay-sabay nang hindi nagpapabagal o nagtataas ng aming mga gastos."
-    },
-    "s5": {
-      "title": "Walang Accounts. Walang Credit Card. Walang Bullshit.",
-      "desc": "Buksan lamang ang website at simulan ang pagproseso. Iginagalang namin ang iyong oras at ang iyong privacy."
-    },
-    "faq": {
-      "title": "FAQ sa pagpepresyo"
-    },
-    "faq1": {
-      "q": "Wala ba talagang hidden cost?",
-      "a": "Talagang zero. Makukuha mo ang lahat ng feature ng enterprise nang libre nang hindi naglalagay ng credit card."
-    },
-    "faq2": {
-      "q": "Paano ka kikita kung libre?",
-      "a": "Ang aming mga gastos sa server ay epektibong zero dahil ang iyong device ang gumagawa ng pag-compute. Umaasa kami sa mga ad at opsyonal na donasyon para panatilihing bukas ang mga ilaw."
-    },
-    "faq3": {
-      "q": "Magsisimula ka na bang mag-charge?",
-      "a": "Ang mga pangunahing tampok na lokal na pagproseso ay mananatiling libre magpakailanman. Naniniwala kami na ang pagpoproseso ng imahe ng AI ay dapat na isang pangunahing karapatan ng tao, hindi isang luho."
-    }
-  },
-  "compare": {
-    "title": "HelpMyIMG vs The Rest",
-    "subtitle": "Binuo namin muli ang pagpoproseso ng imahe ng AI mula sa simula upang gumana nang lokal. Tingnan kung bakit lipas na ang ulap.",
-    "badge": "HEAD-TO-HEAD COMPARISON",
-    "s3": {
-      "title": "Ang Latency ng Network ay ang Kaaway.",
-      "desc": "Ang mga cloud editor ay nagsasayang ng 80% ng iyong oras sa paglilipat lamang ng mga file pabalik-balik. Sa pamamagitan ng direktang pagproseso sa iyong hardware, ganap naming inalis ang network, na nagreresulta sa mga bilis ng hanggang 5x na mas mabilis."
-    },
-    "s4": {
-      "title": "Gumagana Nang Walang Internet.",
-      "desc": "Kapag nag-load na ang page, maaari kang magdiskonekta sa Wi-Fi. Ang mga modelo ng AI ay ganap na tumatakbo nang lokal sa pamamagitan ng iyong browser\\"
-    },
-    "s5": {
-      "title": "Walang Kompromiso sa Kalidad"
-    },
-    "faq": {
-      "title": "FAQ sa Paghahambing"
-    },
-    "faq1": {
-      "q": "Bakit mas mabilis ang HelpMyIMG kaysa sa mga cloud API?",
-      "a": "Ang mga Cloud API ay dumaranas ng latency ng network (pag-upload at pag-download ng malalaking larawan). Inaalis namin ang network, tumatakbo sa bilis ng native na device."
-    },
-    "faq2": {
-      "q": "Nauubos ba ng lokal na pagproseso ang aking baterya?",
-      "a": "Ang aming mga modelo sa WebAssembly ay lubos na na-optimize. Habang gumagamit ito ng CPU, ito ay isang split-second na operasyon na gumagamit ng mas kaunting enerhiya kaysa sa panonood ng isang video sa YouTube."
-    },
-    "faq3": {
-      "q": "Paano posible ang offline mode?",
-      "a": "Kapag nag-load na ang mga asset ng website, lahat ng AI math logic ay tumatakbo sa loob mismo ng browser engine, na nangangailangan ng zero na koneksyon sa internet."
-    }
-  },
-  "languages": {
-    "title": "Idinisenyo para sa Mundo.",
-    "subtitle": "Naniniwala kami na ang makapangyarihang AI ay dapat ma-access ng lahat, kahit saan. Kaya naman ang HelpMyIMG ay katutubong na-localize sa 30 iba't ibang wika.",
-    "badge": "GLOBAL ACCESSIBILITY",
-    "s2": {
-      "title": "Piliin ang Iyong Katutubong Wika",
-      "desc": "Mag-click sa anumang wika sa ibaba upang agad na ilipat ang buong interface ng application."
-    },
-    "s3": {
-      "title": "Higit pa sa Auto-Translate.",
-      "desc": "hindi namin"
-    },
-    "s4": {
-      "title": "Zero Page Reloads.",
-      "desc": "Binuo sa konteksto ng React, pinapalitan kaagad ng aming i18n engine ang lahat ng 1,500+ string ng pagsasalin nang hindi nire-refresh ang page o nakakaabala sa iyong trabaho."
-    },
-    "s5": {
-      "title": "Nawawala ang Iyong Wika?",
-      "desc": "Kami ay patuloy na lumalawak. Ipaalam sa amin kung kailangan mo ng HelpMyIMG sa iyong sariling wika.",
-      "btn": "Humiling ng Pagsasalin"
-    },
-    "faq": {
-      "title": "FAQ ng lokalisasyon"
-    },
-    "faq1": {
-      "q": "Tumpak ba ang mga pagsasalin?",
-      "a": "Pinagsasama namin ang advanced na neural machine na pagsasalin sa pangangasiwa ng tao upang matiyak na mapangalagaan ang teknikal na konteksto at mga istruktura ng SEO."
-    },
-    "faq2": {
-      "q": "Paano ako hihingi ng bagong wika?",
-      "a": "Maaari kang makipag-ugnayan sa aming team ng suporta o magbukas ng isyu sa aming pampublikong imbakan. Layunin naming suportahan ang pinakamaraming diyalekto hangga't maaari."
-    },
-    "faq3": {
-      "q": "Nakakaapekto ba sa pagganap ang pagbabago ng wika?",
-      "a": "Hindi naman. Pinapalitan ng aming engine ng konteksto ng React ang diksyunaryo sa 0ms nang hindi nangangailangan ng buong pag-reload ng pahina."
-    }
-  }
+  "footer.about": "Tungkol sa Amin",
+  "footer.resources": "Mga mapagkukunan",
+  "footer.compare": "Ikumpara",
+  "footer.pricing": "Pagpepresyo",
+  "footer.languages": "Mga Sinusuportahang Wika",
+  "footer.security": "Seguridad at Tiwala",
+  "info.freePromo": "100% Libre, 0 Rupiah, Walang Subscription.",
+  "security.title": "Ang Iyong Data ay Hindi Umaalis sa Iyong Device.",
+  "security.subtitle": "Damhin ang 100% pribadong AI image editing na pinapagana ng lokal na WebAssembly. Hindi namin makita, maiimbak, o maibenta ang iyong mga larawan dahil hinding-hindi ito makakarating sa aming mga server.",
+  "security.badge": "ZERO-TRUST SECURITY MODEL",
+  "security.s2.title": "Pagpapatupad ng Pagproseso sa Side ng Kliyente",
+  "security.s2.desc": "Ina-upload ng mga tradisyonal na editor ng larawan ang iyong mga sensitibong file sa kanilang mga cloud server, na naglalantad sa kanila sa mga paglabag. Dina-download ng HelpMyIMG ang AI neural network (Wasm) nang direkta sa memorya ng iyong browser, lokal na pinoproseso ang lahat.",
+  "security.s2.graphic": "Panloob na Naka-disable ang Cloud Uploads",
+  "security.s3.title": "Pandaigdigang Pagsunod sa Privacy",
+  "security.s4.title": "Paghahambing ng Daloy ng Data",
+  "security.s4.old": "Mga Tradisyunal na Cloud Editor",
+  "security.s4.new": "HelpMyIMG Local Engine",
+  "security.s5.title": "Don\\",
+  "security.s5.desc": "Maaari kang magdiskonekta mula sa internet pagkatapos i-load ang pahina, at gagana pa rin nang perpekto ang AI. Iyon ay ang tunay na mathematical na patunay ng privacy.",
+  "security.faq.title": "FAQ sa Seguridad",
+  "security.faq1.q": "Talaga bang ligtas ang HelpMyIMG?",
+  "security.faq1.a": "Oo. Sa pamamagitan ng paggamit ng WebAssembly, direktang pinoproseso ng AI ang mga larawan sa iyong lokal na device. Hindi namin natatanggap ang iyong mga file sa aming mga server.",
+  "security.faq2.q": "Iniimbak mo ba ang aking mga naprosesong larawan?",
+  "security.faq2.a": "Hindi. Dahil walang na-upload, wala kaming maiimbak. Nangyayari ang lahat sa memorya ng iyong browser.",
+  "security.faq3.q": "Sumusunod ka ba sa GDPR at CCPA?",
+  "security.faq3.a": "Oo, likas. Dahil wala kaming kinokolektang data mula sa pipeline ng pagpoproseso ng imahe, ganap naming nilalampasan ang pinakamahigpit na kinakailangan sa pahintulot.",
+  "pricing.title": "Ihinto ang Pagbabayad para sa Cloud AI.",
+  "pricing.subtitle": "Enterprise-grade image processing, ganap na libre.",
+  "pricing.tierName": "Walang limitasyong Edge Plan",
+  "pricing.period": "Magpakailanman. Walang kinakailangang credit card.",
+  "pricing.s3.title": "Magkano ang matitipid mo?",
+  "pricing.s4.title": "Bakit ito 100% Libre?",
+  "pricing.s4.desc1": "Sinisingil ka ng mga kumpanya ng cloud ng pera dahil ang pagpapatakbo ng AI sa mga cloud GPU ay hindi kapani-paniwalang mahal. Sa tuwing mag-a-upload ka ng isang imahe, nagkakahalaga ito ng kapangyarihan ng server.",
+  "pricing.s4.desc2": "Ang HelpMyIMG ay gumagamit ng WebAssembly upang patakbuhin ang AI nang direkta sa loob ng iyong browser. Dahil hindi namin",
+  "pricing.s4.boxTitle": "Walang katapusang Scalability",
+  "pricing.s4.boxDesc": "Dahil ang iyong device ang gumagawa ng pag-compute, ang aming platform ay maaaring pangasiwaan ang milyun-milyong user nang sabay-sabay nang hindi nagpapabagal o nagtataas ng aming mga gastos.",
+  "pricing.s5.title": "Walang Accounts. Walang Credit Card. Walang Bullshit.",
+  "pricing.s5.desc": "Buksan lamang ang website at simulan ang pagproseso. Iginagalang namin ang iyong oras at ang iyong privacy.",
+  "pricing.faq.title": "FAQ sa pagpepresyo",
+  "pricing.faq1.q": "Wala ba talagang hidden cost?",
+  "pricing.faq1.a": "Talagang zero. Makukuha mo ang lahat ng feature ng enterprise nang libre nang hindi naglalagay ng credit card.",
+  "pricing.faq2.q": "Paano ka kikita kung libre?",
+  "pricing.faq2.a": "Ang aming mga gastos sa server ay epektibong zero dahil ang iyong device ang gumagawa ng pag-compute. Umaasa kami sa mga ad at opsyonal na donasyon para panatilihing bukas ang mga ilaw.",
+  "pricing.faq3.q": "Magsisimula ka na bang mag-charge?",
+  "pricing.faq3.a": "Ang mga pangunahing tampok na lokal na pagproseso ay mananatiling libre magpakailanman. Naniniwala kami na ang pagpoproseso ng imahe ng AI ay dapat na isang pangunahing karapatan ng tao, hindi isang luho.",
+  "compare.title": "HelpMyIMG vs The Rest",
+  "compare.subtitle": "Binuo namin muli ang pagpoproseso ng imahe ng AI mula sa simula upang gumana nang lokal. Tingnan kung bakit lipas na ang ulap.",
+  "compare.badge": "HEAD-TO-HEAD COMPARISON",
+  "compare.s3.title": "Ang Latency ng Network ay ang Kaaway.",
+  "compare.s3.desc": "Ang mga cloud editor ay nagsasayang ng 80% ng iyong oras sa paglilipat lamang ng mga file pabalik-balik. Sa pamamagitan ng direktang pagproseso sa iyong hardware, ganap naming inalis ang network, na nagreresulta sa mga bilis ng hanggang 5x na mas mabilis.",
+  "compare.s4.title": "Gumagana Nang Walang Internet.",
+  "compare.s4.desc": "Kapag nag-load na ang page, maaari kang magdiskonekta sa Wi-Fi. Ang mga modelo ng AI ay ganap na tumatakbo nang lokal sa pamamagitan ng iyong browser\\",
+  "compare.s5.title": "Walang Kompromiso sa Kalidad",
+  "compare.faq.title": "FAQ sa Paghahambing",
+  "compare.faq1.q": "Bakit mas mabilis ang HelpMyIMG kaysa sa mga cloud API?",
+  "compare.faq1.a": "Ang mga Cloud API ay dumaranas ng latency ng network (pag-upload at pag-download ng malalaking larawan). Inaalis namin ang network, tumatakbo sa bilis ng native na device.",
+  "compare.faq2.q": "Nauubos ba ng lokal na pagproseso ang aking baterya?",
+  "compare.faq2.a": "Ang aming mga modelo sa WebAssembly ay lubos na na-optimize. Habang gumagamit ito ng CPU, ito ay isang split-second na operasyon na gumagamit ng mas kaunting enerhiya kaysa sa panonood ng isang video sa YouTube.",
+  "compare.faq3.q": "Paano posible ang offline mode?",
+  "compare.faq3.a": "Kapag nag-load na ang mga asset ng website, lahat ng AI math logic ay tumatakbo sa loob mismo ng browser engine, na nangangailangan ng zero na koneksyon sa internet.",
+  "languages.title": "Idinisenyo para sa Mundo.",
+  "languages.subtitle": "Naniniwala kami na ang makapangyarihang AI ay dapat ma-access ng lahat, kahit saan. Kaya naman ang HelpMyIMG ay katutubong na-localize sa 30 iba't ibang wika.",
+  "languages.badge": "GLOBAL ACCESSIBILITY",
+  "languages.s2.title": "Piliin ang Iyong Katutubong Wika",
+  "languages.s2.desc": "Mag-click sa anumang wika sa ibaba upang agad na ilipat ang buong interface ng application.",
+  "languages.s3.title": "Higit pa sa Auto-Translate.",
+  "languages.s3.desc": "hindi namin",
+  "languages.s4.title": "Zero Page Reloads.",
+  "languages.s4.desc": "Binuo sa konteksto ng React, pinapalitan kaagad ng aming i18n engine ang lahat ng 1,500+ string ng pagsasalin nang hindi nire-refresh ang page o nakakaabala sa iyong trabaho.",
+  "languages.s5.title": "Nawawala ang Iyong Wika?",
+  "languages.s5.desc": "Kami ay patuloy na lumalawak. Ipaalam sa amin kung kailangan mo ng HelpMyIMG sa iyong sariling wika.",
+  "languages.s5.btn": "Humiling ng Pagsasalin",
+  "languages.faq.title": "FAQ ng lokalisasyon",
+  "languages.faq1.q": "Tumpak ba ang mga pagsasalin?",
+  "languages.faq1.a": "Pinagsasama namin ang advanced na neural machine na pagsasalin sa pangangasiwa ng tao upang matiyak na mapangalagaan ang teknikal na konteksto at mga istruktura ng SEO.",
+  "languages.faq2.q": "Paano ako hihingi ng bagong wika?",
+  "languages.faq2.a": "Maaari kang makipag-ugnayan sa aming team ng suporta o magbukas ng isyu sa aming pampublikong imbakan. Layunin naming suportahan ang pinakamaraming diyalekto hangga't maaari.",
+  "languages.faq3.q": "Nakakaapekto ba sa pagganap ang pagbabago ng wika?",
+  "languages.faq3.a": "Hindi naman. Pinapalitan ng aming engine ng konteksto ng React ang diksyunaryo sa 0ms nang hindi nangangailangan ng buong pag-reload ng pahina."
 }

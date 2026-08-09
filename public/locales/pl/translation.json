@@ -4,7 +4,7 @@
   "nav.pseo": "Zdjęcia do Dokumentów",
   "nav.widget": "Widżet dla strony",
   "nav.geo": "Technologia AI",
-  "nav.faq": "Częste pytania",
+  "nav.faq": "Często zadawane pytania",
   "hero.title": "Profesjonalne studio fotograficzne i zestaw narzędzi zbiorczych",
   "hero.titleHighlight": "Błyskawicznie",
   "hero.subtitle": "Najlepsza lokalna aplikacja do edycji zdjęć. Usuwaj tła z niezwykłą precyzją, generuj oficjalne zdjęcia paszportowe w niestandardowych kolorach, stosuj studyjne rozmycie bokeh, kompresuj, konwertuj i zmieniaj rozmiar do 10 obrazów w ciągu kilku sekund. W 100% darmowe, prywatne i obsługiwane bezpośrednio przez Twoją przeglądarkę — nie jest wymagane przesyłanie plików.",
@@ -368,7 +368,7 @@
   "landing.watermark.faq1.a": "Tak! Przetwarzanie wsadowe umożliwia szybkie dodawanie znaków wodnych do setek zdjęć.",
   "landing.watermark.faq2.q": "Czy moje oryginalne zdjęcia są bezpieczne?",
   "landing.watermark.faq2.a": "Tak, proces jest w 100% prywatny i lokalny.",
-  "nav.compress": "Kompresja obrazu",
+  "nav.compress": "Kompresuj obraz",
   "landing.default.title.compress": "Darmowy kompresor obrazu - kompresuj rozmiar obrazu lokalnie | Przesyłanie zerowe",
   "landing.default.desc.compress": "Natychmiast zmniejsz rozmiar pliku zdjęć nawet o 90%. 100% przetwarzanie lokalne przez przeglądarkę dla maksymalnej prywatności.",
   "landing.compress.faqTitle": "Często zadawane pytania",
@@ -1470,161 +1470,83 @@
   "landing.remove.faq6.a": "W przeciwieństwie do tradycyjnych edytorów w chmurze, nasza architektura WebAssembly zapewnia transmisję 0 bajtów danych użytkownika. Wykonując sieci neuronowe wyłącznie na urządzeniu klienckim, neutralizuje ryzyko przechwycenia, zapewniając nieodłączną zgodność z art. 5 RODO i ramami prywatności CCPA.",
   "hero.subtitle.short": "Łącz, dziel, kompresuj, konwertuj i przetwarzaj zdjęcia bezpośrednio w przeglądarce. 100% offline poprzez WebAssembly. Bezpłatny, nieograniczony i wysoce bezpieczny.",
   "hero.search.placeholder": "Narzędzia wyszukiwania (Usuń BG, Kompresuj, Edytuj)...",
-  "footer": {
-    "about": "O nas",
-    "resources": "Zasoby",
-    "pricing": "Wycena",
-    "terms": "Warunki świadczenia usług",
-    "privacy": "Polityka prywatności",
-    "languages": "Obsługiwane języki",
-    "compare": "Porównywać",
-    "security": "Bezpieczeństwo i zaufanie"
-  },
-  "info": {
-    "freePromo": "100% za darmo, 0 rupii, bez subskrypcji."
-  },
-  "nav": {
-    "faq": "Często zadawane pytania",
-    "compress": "Kompresuj obraz"
-  },
-  "security": {
-    "title": "Twoje dane nigdy nie opuszczają Twojego urządzenia.",
-    "subtitle": "Doświadcz w 100% prywatnej edycji obrazów AI obsługiwanej przez lokalny zestaw WebAssembly. Nie możemy oglądać, przechowywać ani sprzedawać Twoich zdjęć, ponieważ nigdy nie docierają one na nasze serwery.",
-    "badge": "MODEL BEZPIECZEŃSTWA ZEROWEGO ZAUFANIA",
-    "s2": {
-      "title": "Wykonanie przetwarzania po stronie klienta",
-      "desc": "Tradycyjni edytorzy obrazów przesyłają wrażliwe pliki na swoje serwery w chmurze, narażając je na naruszenia. HelpMyIMG pobiera sieć neuronową AI (Wasm) bezpośrednio do pamięci przeglądarki, przetwarzając wszystko lokalnie.",
-      "graphic": "Przesyłanie do chmury wyłączone wewnętrznie"
-    },
-    "s3": {
-      "title": "Globalna zgodność z przepisami dotyczącymi prywatności"
-    },
-    "s4": {
-      "title": "Porównanie przepływu danych",
-      "old": "Tradycyjne edytory w chmurze",
-      "new": "Lokalny silnik HelpMyIMG"
-    },
-    "s5": {
-      "title": "Przywdziewać\\",
-      "desc": "Możesz odłączyć się od Internetu po załadowaniu strony, a sztuczna inteligencja nadal będzie działać idealnie. To ostateczny matematyczny dowód prywatności."
-    },
-    "faq": {
-      "title": "Często zadawane pytania dotyczące bezpieczeństwa"
-    },
-    "faq1": {
-      "q": "Czy HelpMyIMG jest naprawdę bezpieczny?",
-      "a": "Tak. Korzystając z WebAssembly, sztuczna inteligencja przetwarza obrazy bezpośrednio na Twoim urządzeniu lokalnym. Nigdy nie otrzymujemy Twoich plików na naszych serwerach."
-    },
-    "faq2": {
-      "q": "Czy przechowujecie moje przetworzone obrazy?",
-      "a": "Nie. Ponieważ nic nie jest przesyłane, nie mamy nic do przechowywania. Wszystko dzieje się w pamięci Twojej przeglądarki."
-    },
-    "faq3": {
-      "q": "Czy jesteś zgodny z RODO i CCPA?",
-      "a": "Tak, z natury. Ponieważ nie zbieramy żadnych danych z procesu przetwarzania obrazu, całkowicie omijamy najbardziej rygorystyczne wymagania dotyczące zgody."
-    }
-  },
-  "pricing": {
-    "title": "Przestań płacić za chmurę AI.",
-    "subtitle": "Przetwarzanie obrazu klasy korporacyjnej, całkowicie bezpłatnie.",
-    "tierName": "Nieograniczony plan brzegowy",
-    "period": "Na zawsze. Nie jest wymagana karta kredytowa.",
-    "s3": {
-      "title": "Ile zaoszczędzisz?"
-    },
-    "s4": {
-      "title": "Dlaczego jest w 100% darmowy?",
-      "desc1": "Firmy zajmujące się chmurą pobierają opłaty, ponieważ uruchamianie sztucznej inteligencji na procesorach graficznych w chmurze jest niezwykle kosztowne. Za każdym razem, gdy przesyłasz obraz, kosztuje to moc serwera.",
-      "desc2": "HelpMyIMG wykorzystuje WebAssembly do uruchamiania sztucznej inteligencji bezpośrednio w przeglądarce. Ponieważ nie\\",
-      "boxTitle": "Nieskończona skalowalność",
-      "boxDesc": "Ponieważ Twoje urządzenie wykonuje obliczenia, nasza platforma może obsłużyć miliony użytkowników jednocześnie, nie spowalniając ani nie zwiększając naszych kosztów."
-    },
-    "s5": {
-      "title": "Brak kont. Żadnych kart kredytowych. Żadnych bzdur.",
-      "desc": "Wystarczy otworzyć stronę internetową i rozpocząć przetwarzanie. Szanujemy Twój czas i Twoją prywatność."
-    },
-    "faq": {
-      "title": "Często zadawane pytania dotyczące cen"
-    },
-    "faq1": {
-      "q": "Czy naprawdę nie ma ukrytych kosztów?",
-      "a": "Absolutnie zerowe. Wszystkie funkcje dla przedsiębiorstw otrzymujesz bezpłatnie, bez podawania karty kredytowej."
-    },
-    "faq2": {
-      "q": "Jak zarabiać pieniądze, jeśli jest to darmowe?",
-      "a": "Koszty naszych serwerów są praktycznie zerowe, ponieważ Twoje urządzenie wykonuje obliczenia. Polegamy na reklamach i opcjonalnych darowiznach, aby utrzymać włączone światła."
-    },
-    "faq3": {
-      "q": "Czy zaczniesz kiedyś ładować?",
-      "a": "Podstawowe funkcje przetwarzania lokalnego pozostaną bezpłatne na zawsze. Wierzymy, że przetwarzanie obrazów AI powinno być podstawowym prawem człowieka, a nie luksusem."
-    }
-  },
-  "compare": {
-    "title": "HelpMyIMG kontra reszta",
-    "subtitle": "Przebudowaliśmy przetwarzanie obrazu AI od podstaw, aby działało lokalnie. Zobacz, dlaczego chmura jest przestarzała.",
-    "badge": "BEZPOŚREDNIE PORÓWNANIE",
-    "s3": {
-      "title": "Opóźnienie sieci jest wrogiem.",
-      "desc": "Redaktorzy w chmurze marnują 80% Twojego czasu na samo przesyłanie plików tam i z powrotem. Przetwarzając bezpośrednio na Twoim sprzęcie, całkowicie eliminujemy sieć, co skutkuje szybkością do 5 razy większą."
-    },
-    "s4": {
-      "title": "Działa bez Internetu.",
-      "desc": "Po załadowaniu strony możesz rozłączyć się z Wi-Fi. Modele AI działają całkowicie lokalnie za pośrednictwem przeglądarki\\"
-    },
-    "s5": {
-      "title": "Żadnych kompromisów w zakresie jakości"
-    },
-    "faq": {
-      "title": "Często zadawane pytania dotyczące porównania"
-    },
-    "faq1": {
-      "q": "Dlaczego HelpMyIMG jest szybszy niż interfejsy API w chmurze?",
-      "a": "Interfejsy Cloud API charakteryzują się opóźnieniami w sieci (przesyłanie i pobieranie dużych obrazów). Eliminujemy sieć działającą z natywnymi prędkościami urządzenia."
-    },
-    "faq2": {
-      "q": "Czy przetwarzanie lokalne wyczerpuje moją baterię?",
-      "a": "Nasze modele WebAssembly są wysoce zoptymalizowane. Chociaż wykorzystuje procesor, jest to operacja trwająca ułamek sekundy i zużywająca mniej energii niż oglądanie filmu na YouTube."
-    },
-    "faq3": {
-      "q": "Jak możliwy jest tryb offline?",
-      "a": "Po załadowaniu zasobów witryny cała logika matematyczna sztucznej inteligencji działa w samym silniku przeglądarki, nie wymagając żadnego połączenia z Internetem."
-    }
-  },
-  "languages": {
-    "title": "Zaprojektowany dla świata.",
-    "subtitle": "Wierzymy, że potężna sztuczna inteligencja powinna być dostępna dla każdego i wszędzie. Dlatego HelpMyIMG jest natywnie zlokalizowany w 30 różnych językach.",
-    "badge": "GLOBALNA DOSTĘPNOŚĆ",
-    "s2": {
-      "title": "Wybierz swój język ojczysty",
-      "desc": "Kliknij dowolny język poniżej, aby natychmiast przełączyć cały interfejs aplikacji."
-    },
-    "s3": {
-      "title": "Więcej niż tylko automatyczne tłumaczenie.",
-      "desc": "Nie\\"
-    },
-    "s4": {
-      "title": "Zero przeładowań stron.",
-      "desc": "Zbudowany w oparciu o kontekst React, nasz silnik i18n natychmiast zamienia wszystkie ponad 1500 ciągów tłumaczeniowych, bez konieczności odświeżania strony lub przerywania pracy."
-    },
-    "s5": {
-      "title": "Brakuje Ci języka?",
-      "desc": "Stale się rozwijamy. Daj nam znać, jeśli potrzebujesz HelpMyIMG w swoim ojczystym języku.",
-      "btn": "Poproś o tłumaczenie"
-    },
-    "faq": {
-      "title": "Często zadawane pytania dotyczące lokalizacji"
-    },
-    "faq1": {
-      "q": "Czy tłumaczenia są dokładne?",
-      "a": "Łączymy zaawansowane neuronowe tłumaczenie maszynowe z nadzorem człowieka, aby zapewnić zachowanie kontekstu technicznego i struktur SEO."
-    },
-    "faq2": {
-      "q": "Jak poprosić o nowy język?",
-      "a": "Możesz skontaktować się z naszym zespołem pomocy technicznej lub otworzyć problem w naszym publicznym repozytorium. Naszym celem jest wspieranie jak największej liczby dialektów."
-    },
-    "faq3": {
-      "q": "Czy zmiana języka wpływa na wydajność?",
-      "a": "Zupełnie nie. Nasz silnik kontekstowy React zamienia słownik w ciągu 0 ms bez konieczności ponownego ładowania całej strony."
-    }
-  }
+  "footer.about": "O nas",
+  "footer.resources": "Zasoby",
+  "footer.pricing": "Wycena",
+  "footer.languages": "Obsługiwane języki",
+  "footer.compare": "Porównywać",
+  "footer.security": "Bezpieczeństwo i zaufanie",
+  "info.freePromo": "100% za darmo, 0 rupii, bez subskrypcji.",
+  "security.title": "Twoje dane nigdy nie opuszczają Twojego urządzenia.",
+  "security.subtitle": "Doświadcz w 100% prywatnej edycji obrazów AI obsługiwanej przez lokalny zestaw WebAssembly. Nie możemy oglądać, przechowywać ani sprzedawać Twoich zdjęć, ponieważ nigdy nie docierają one na nasze serwery.",
+  "security.badge": "MODEL BEZPIECZEŃSTWA ZEROWEGO ZAUFANIA",
+  "security.s2.title": "Wykonanie przetwarzania po stronie klienta",
+  "security.s2.desc": "Tradycyjni edytorzy obrazów przesyłają wrażliwe pliki na swoje serwery w chmurze, narażając je na naruszenia. HelpMyIMG pobiera sieć neuronową AI (Wasm) bezpośrednio do pamięci przeglądarki, przetwarzając wszystko lokalnie.",
+  "security.s2.graphic": "Przesyłanie do chmury wyłączone wewnętrznie",
+  "security.s3.title": "Globalna zgodność z przepisami dotyczącymi prywatności",
+  "security.s4.title": "Porównanie przepływu danych",
+  "security.s4.old": "Tradycyjne edytory w chmurze",
+  "security.s4.new": "Lokalny silnik HelpMyIMG",
+  "security.s5.title": "Przywdziewać\\",
+  "security.s5.desc": "Możesz odłączyć się od Internetu po załadowaniu strony, a sztuczna inteligencja nadal będzie działać idealnie. To ostateczny matematyczny dowód prywatności.",
+  "security.faq.title": "Często zadawane pytania dotyczące bezpieczeństwa",
+  "security.faq1.q": "Czy HelpMyIMG jest naprawdę bezpieczny?",
+  "security.faq1.a": "Tak. Korzystając z WebAssembly, sztuczna inteligencja przetwarza obrazy bezpośrednio na Twoim urządzeniu lokalnym. Nigdy nie otrzymujemy Twoich plików na naszych serwerach.",
+  "security.faq2.q": "Czy przechowujecie moje przetworzone obrazy?",
+  "security.faq2.a": "Nie. Ponieważ nic nie jest przesyłane, nie mamy nic do przechowywania. Wszystko dzieje się w pamięci Twojej przeglądarki.",
+  "security.faq3.q": "Czy jesteś zgodny z RODO i CCPA?",
+  "security.faq3.a": "Tak, z natury. Ponieważ nie zbieramy żadnych danych z procesu przetwarzania obrazu, całkowicie omijamy najbardziej rygorystyczne wymagania dotyczące zgody.",
+  "pricing.title": "Przestań płacić za chmurę AI.",
+  "pricing.subtitle": "Przetwarzanie obrazu klasy korporacyjnej, całkowicie bezpłatnie.",
+  "pricing.tierName": "Nieograniczony plan brzegowy",
+  "pricing.period": "Na zawsze. Nie jest wymagana karta kredytowa.",
+  "pricing.s3.title": "Ile zaoszczędzisz?",
+  "pricing.s4.title": "Dlaczego jest w 100% darmowy?",
+  "pricing.s4.desc1": "Firmy zajmujące się chmurą pobierają opłaty, ponieważ uruchamianie sztucznej inteligencji na procesorach graficznych w chmurze jest niezwykle kosztowne. Za każdym razem, gdy przesyłasz obraz, kosztuje to moc serwera.",
+  "pricing.s4.desc2": "HelpMyIMG wykorzystuje WebAssembly do uruchamiania sztucznej inteligencji bezpośrednio w przeglądarce. Ponieważ nie\\",
+  "pricing.s4.boxTitle": "Nieskończona skalowalność",
+  "pricing.s4.boxDesc": "Ponieważ Twoje urządzenie wykonuje obliczenia, nasza platforma może obsłużyć miliony użytkowników jednocześnie, nie spowalniając ani nie zwiększając naszych kosztów.",
+  "pricing.s5.title": "Brak kont. Żadnych kart kredytowych. Żadnych bzdur.",
+  "pricing.s5.desc": "Wystarczy otworzyć stronę internetową i rozpocząć przetwarzanie. Szanujemy Twój czas i Twoją prywatność.",
+  "pricing.faq.title": "Często zadawane pytania dotyczące cen",
+  "pricing.faq1.q": "Czy naprawdę nie ma ukrytych kosztów?",
+  "pricing.faq1.a": "Absolutnie zerowe. Wszystkie funkcje dla przedsiębiorstw otrzymujesz bezpłatnie, bez podawania karty kredytowej.",
+  "pricing.faq2.q": "Jak zarabiać pieniądze, jeśli jest to darmowe?",
+  "pricing.faq2.a": "Koszty naszych serwerów są praktycznie zerowe, ponieważ Twoje urządzenie wykonuje obliczenia. Polegamy na reklamach i opcjonalnych darowiznach, aby utrzymać włączone światła.",
+  "pricing.faq3.q": "Czy zaczniesz kiedyś ładować?",
+  "pricing.faq3.a": "Podstawowe funkcje przetwarzania lokalnego pozostaną bezpłatne na zawsze. Wierzymy, że przetwarzanie obrazów AI powinno być podstawowym prawem człowieka, a nie luksusem.",
+  "compare.title": "HelpMyIMG kontra reszta",
+  "compare.subtitle": "Przebudowaliśmy przetwarzanie obrazu AI od podstaw, aby działało lokalnie. Zobacz, dlaczego chmura jest przestarzała.",
+  "compare.badge": "BEZPOŚREDNIE PORÓWNANIE",
+  "compare.s3.title": "Opóźnienie sieci jest wrogiem.",
+  "compare.s3.desc": "Redaktorzy w chmurze marnują 80% Twojego czasu na samo przesyłanie plików tam i z powrotem. Przetwarzając bezpośrednio na Twoim sprzęcie, całkowicie eliminujemy sieć, co skutkuje szybkością do 5 razy większą.",
+  "compare.s4.title": "Działa bez Internetu.",
+  "compare.s4.desc": "Po załadowaniu strony możesz rozłączyć się z Wi-Fi. Modele AI działają całkowicie lokalnie za pośrednictwem przeglądarki\\",
+  "compare.s5.title": "Żadnych kompromisów w zakresie jakości",
+  "compare.faq.title": "Często zadawane pytania dotyczące porównania",
+  "compare.faq1.q": "Dlaczego HelpMyIMG jest szybszy niż interfejsy API w chmurze?",
+  "compare.faq1.a": "Interfejsy Cloud API charakteryzują się opóźnieniami w sieci (przesyłanie i pobieranie dużych obrazów). Eliminujemy sieć działającą z natywnymi prędkościami urządzenia.",
+  "compare.faq2.q": "Czy przetwarzanie lokalne wyczerpuje moją baterię?",
+  "compare.faq2.a": "Nasze modele WebAssembly są wysoce zoptymalizowane. Chociaż wykorzystuje procesor, jest to operacja trwająca ułamek sekundy i zużywająca mniej energii niż oglądanie filmu na YouTube.",
+  "compare.faq3.q": "Jak możliwy jest tryb offline?",
+  "compare.faq3.a": "Po załadowaniu zasobów witryny cała logika matematyczna sztucznej inteligencji działa w samym silniku przeglądarki, nie wymagając żadnego połączenia z Internetem.",
+  "languages.title": "Zaprojektowany dla świata.",
+  "languages.subtitle": "Wierzymy, że potężna sztuczna inteligencja powinna być dostępna dla każdego i wszędzie. Dlatego HelpMyIMG jest natywnie zlokalizowany w 30 różnych językach.",
+  "languages.badge": "GLOBALNA DOSTĘPNOŚĆ",
+  "languages.s2.title": "Wybierz swój język ojczysty",
+  "languages.s2.desc": "Kliknij dowolny język poniżej, aby natychmiast przełączyć cały interfejs aplikacji.",
+  "languages.s3.title": "Więcej niż tylko automatyczne tłumaczenie.",
+  "languages.s3.desc": "Nie\\",
+  "languages.s4.title": "Zero przeładowań stron.",
+  "languages.s4.desc": "Zbudowany w oparciu o kontekst React, nasz silnik i18n natychmiast zamienia wszystkie ponad 1500 ciągów tłumaczeniowych, bez konieczności odświeżania strony lub przerywania pracy.",
+  "languages.s5.title": "Brakuje Ci języka?",
+  "languages.s5.desc": "Stale się rozwijamy. Daj nam znać, jeśli potrzebujesz HelpMyIMG w swoim ojczystym języku.",
+  "languages.s5.btn": "Poproś o tłumaczenie",
+  "languages.faq.title": "Często zadawane pytania dotyczące lokalizacji",
+  "languages.faq1.q": "Czy tłumaczenia są dokładne?",
+  "languages.faq1.a": "Łączymy zaawansowane neuronowe tłumaczenie maszynowe z nadzorem człowieka, aby zapewnić zachowanie kontekstu technicznego i struktur SEO.",
+  "languages.faq2.q": "Jak poprosić o nowy język?",
+  "languages.faq2.a": "Możesz skontaktować się z naszym zespołem pomocy technicznej lub otworzyć problem w naszym publicznym repozytorium. Naszym celem jest wspieranie jak największej liczby dialektów.",
+  "languages.faq3.q": "Czy zmiana języka wpływa na wydajność?",
+  "languages.faq3.a": "Zupełnie nie. Nasz silnik kontekstowy React zamienia słownik w ciągu 0 ms bez konieczności ponownego ładowania całej strony."
 }

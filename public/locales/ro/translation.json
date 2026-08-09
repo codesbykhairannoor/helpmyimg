@@ -4,7 +4,7 @@
   "nav.pseo": "Poze Pașaport / Buletin",
   "nav.widget": "Widget Website",
   "nav.geo": "Specificații AI",
-  "nav.faq": "Întrebări Frecvente",
+  "nav.faq": "FAQ",
   "hero.title": "Studio foto profesional și set de instrumente în vrac",
   "hero.titleHighlight": "Instantaneu",
   "hero.subtitle": "Cea mai puternică putere locală de editare foto. Îndepărtați fundalurile cu precizie la marginea părului, generați fotografii oficiale de pașaport cu culori personalizate, aplicați estompare bokeh de studio, comprimați, convertiți și redimensionați până la 10 imagini în secunde. 100% gratuit, privat și alimentat direct de browserul dvs. - nu sunt necesare încărcări.",
@@ -357,7 +357,7 @@
   "landing.watermark.faq1.a": "Da! Procesarea în loturi face rapidă și ușoară adăugarea filigranelor pe sute de fotografii.",
   "landing.watermark.faq2.q": "Sunt fotografiile mele originale în siguranță?",
   "landing.watermark.faq2.a": "Da, procesul este 100% privat și local.",
-  "nav.compress": "Comprimarea imaginii",
+  "nav.compress": "Comprimați imaginea",
   "landing.default.title.compress": "Free Image Compressor - Comprimați dimensiunea imaginii local | Încărcare zero",
   "landing.default.desc.compress": "Reduceți dimensiunea fișierului imaginilor dvs. cu până la 90% instantaneu. Procesare 100% locală prin browser pentru confidențialitate maximă.",
   "landing.compress.faqTitle": "Întrebări frecvente",
@@ -1465,161 +1465,83 @@
   "landing.remove.faq6.a": "Spre deosebire de editorii cloud tradiționali, arhitectura noastră WebAssembly asigură transmiterea a 0 octeți de date utilizator. Prin executarea rețelelor neuronale strict pe dispozitivul client, neutralizează riscurile de interceptare, asigurând conformitatea inerentă cu articolul 5 GDPR și cadrele de confidențialitate CCPA.",
   "hero.subtitle.short": "Combinați, împărțiți, comprimați, convertiți și procesați fotografiile direct în browser. 100% offline prin WebAssembly. Gratuit, nelimitat și foarte sigur.",
   "hero.search.placeholder": "Instrumente de căutare (Eliminare BG, Comprimare, Editare)...",
-  "footer": {
-    "about": "Despre noi",
-    "privacy": "Politica de confidențialitate",
-    "pricing": "Prețuri",
-    "languages": "Limbi acceptate",
-    "resources": "Resurse",
-    "compare": "Comparaţie",
-    "terms": "Termeni și condiții",
-    "security": "Securitate și încredere"
-  },
-  "info": {
-    "freePromo": "100% gratuit, 0 rupie, fără abonamente."
-  },
-  "nav": {
-    "faq": "FAQ",
-    "compress": "Comprimați imaginea"
-  },
-  "security": {
-    "title": "Datele dvs. nu părăsesc niciodată dispozitivul dvs.",
-    "subtitle": "Experimentați editarea imaginilor 100% AI privată, alimentată de WebAssembly local. Nu putem vedea, stoca sau vinde fotografiile tale, deoarece acestea nu ajung niciodată la serverele noastre.",
-    "badge": "MODEL DE SECURITATE DE ÎNCREDERE ZERO",
-    "s2": {
-      "title": "Execuție de procesare pe partea clientului",
-      "desc": "Editorii tradiționali de imagine vă încarcă fișierele sensibile pe serverele lor cloud, expunându-le la încălcări. HelpMyIMG descarcă rețeaua neuronală AI (Wasm) direct în memoria browserului dvs., procesând totul local.",
-      "graphic": "Încărcări în cloud sunt dezactivate intern"
-    },
-    "s3": {
-      "title": "Conformitatea globală a confidențialității"
-    },
-    "s4": {
-      "title": "Compararea fluxului de date",
-      "old": "Editori cloud tradiționali",
-      "new": "HelpMyIMG Local Engine"
-    },
-    "s5": {
-      "title": "Don\\",
-      "desc": "Vă puteți deconecta de la internet după încărcarea paginii, iar AI-ul va funcționa în continuare perfect. Aceasta este dovada matematică supremă a intimității."
-    },
-    "faq": {
-      "title": "Întrebări frecvente privind securitatea"
-    },
-    "faq1": {
-      "q": "Este HelpMyIMG cu adevărat sigur?",
-      "a": "Da. Folosind WebAssembly, AI procesează imaginile direct pe dispozitivul local. Nu primim niciodată fișierele dvs. pe serverele noastre."
-    },
-    "faq2": {
-      "q": "Stocați imaginile mele procesate?",
-      "a": "Nu. Deoarece nu este încărcat nimic, nu avem nimic de stocat. Totul se întâmplă în memoria browserului tău."
-    },
-    "faq3": {
-      "q": "Sunteți în conformitate cu GDPR și CCPA?",
-      "a": "Da, în mod inerent. Deoarece colectăm date zero din conducta de procesare a imaginilor, ocolim în totalitate cele mai stricte cerințe de consimțământ."
-    }
-  },
-  "pricing": {
-    "title": "Nu mai plătiți pentru Cloud AI.",
-    "subtitle": "Procesare de imagine la nivel de întreprindere, absolut gratuită.",
-    "tierName": "Plan Edge nelimitat",
-    "period": "Pentru totdeauna. Nu este necesar un card de credit.",
-    "s3": {
-      "title": "Cât vei economisi?"
-    },
-    "s4": {
-      "title": "De ce este 100% gratuit?",
-      "desc1": "Companiile de cloud vă percepe bani pentru că rularea AI pe GPU-uri cloud este incredibil de costisitoare. De fiecare dată când încărcați o imagine, îi costă puterea serverului.",
-      "desc2": "HelpMyIMG folosește WebAssembly pentru a rula AI direct în browser. Pentru că noi nu",
-      "boxTitle": "Scalabilitate infinită",
-      "boxDesc": "Deoarece dispozitivul dvs. face calculul, platforma noastră poate gestiona milioane de utilizatori simultan fără a încetini sau crește costurile."
-    },
-    "s5": {
-      "title": "Fără Conturi. Fără carduri de credit. Fără prostii.",
-      "desc": "Doar deschideți site-ul și începeți procesarea. Vă respectăm timpul și confidențialitatea."
-    },
-    "faq": {
-      "title": "Întrebări frecvente privind prețurile"
-    },
-    "faq1": {
-      "q": "Chiar nu există cost ascuns?",
-      "a": "Absolut zero. Obțineți gratuit toate funcțiile pentru întreprinderi, fără a introduce vreodată un card de credit."
-    },
-    "faq2": {
-      "q": "Cum faci bani dacă sunt gratis?",
-      "a": "Costurile serverului nostru sunt efectiv zero, deoarece dispozitivul dumneavoastră face calculul. Ne bazăm pe reclame și pe donații opționale pentru a menține luminile aprinse."
-    },
-    "faq3": {
-      "q": "Veți începe vreodată să încărcați?",
-      "a": "Caracteristicile de bază de procesare locală vor rămâne gratuite pentru totdeauna. Credem că procesarea imaginilor AI ar trebui să fie un drept uman de bază, nu un lux."
-    }
-  },
-  "compare": {
-    "title": "HelpMyIMG vs The Rest",
-    "subtitle": "Am reconstruit procesarea imaginii AI de la zero pentru a rula local. Vedeți de ce cloud-ul este învechit.",
-    "badge": "COMPARAȚIE CAP LA CAP",
-    "s3": {
-      "title": "Latența rețelei este inamicul.",
-      "desc": "Editorii cloud vă pierd 80% din timp doar transferând fișiere înainte și înapoi. Prin procesarea directă pe hardware-ul dvs., eliminăm complet rețeaua, rezultând viteze de până la 5 ori mai rapide."
-    },
-    "s4": {
-      "title": "Funcționează fără internet.",
-      "desc": "Odată ce pagina se încarcă, vă puteți deconecta de la Wi-Fi. Modelele AI rulează complet local prin browserul dvs.\\"
-    },
-    "s5": {
-      "title": "Nici un compromis cu privire la calitate"
-    },
-    "faq": {
-      "title": "Întrebări frecvente despre comparație"
-    },
-    "faq1": {
-      "q": "De ce este HelpMyIMG mai rapid decât API-urile cloud?",
-      "a": "API-urile cloud suferă de latența rețelei (încărcarea și descărcarea de imagini mari). Eliminăm rețeaua, rulând la viteze native ale dispozitivului."
-    },
-    "faq2": {
-      "q": "Procesarea locală îmi consumă bateria?",
-      "a": "Modelele noastre WebAssembly sunt foarte optimizate. În timp ce folosește procesorul, este o operațiune de o fracțiune de secundă care utilizează mai puțină energie decât vizionarea unui videoclip YouTube."
-    },
-    "faq3": {
-      "q": "Cum este posibil modul offline?",
-      "a": "Odată ce activele site-ului web se încarcă, toată logica matematică AI rulează în propriul motor de browser, necesitând conexiune la internet zero."
-    }
-  },
-  "languages": {
-    "title": "Proiectat pentru lume.",
-    "subtitle": "Credem că IA puternică ar trebui să fie accesibilă tuturor, oriunde. De aceea, HelpMyIMG este localizat nativ în 30 de limbi diferite.",
-    "badge": "ACCESIBILITATE GLOBALĂ",
-    "s2": {
-      "title": "Selectați limba maternă",
-      "desc": "Faceți clic pe orice limbă de mai jos pentru a comuta instantaneu întreaga interfață a aplicației."
-    },
-    "s3": {
-      "title": "Mai mult decât traducere automată.",
-      "desc": "noi nu\\"
-    },
-    "s4": {
-      "title": "Nicio reîncărcare a paginii.",
-      "desc": "Construit pe contextul React, motorul nostru i18n schimbă toate cele peste 1.500 de șiruri de traducere instantaneu fără a reîmprospăta pagina sau a vă întrerupe munca."
-    },
-    "s5": {
-      "title": "Îți este dor de limba?",
-      "desc": "Ne extindem constant. Spune-ne dacă ai nevoie de HelpMyIMG în limba ta maternă.",
-      "btn": "Solicitați traducere"
-    },
-    "faq": {
-      "title": "Întrebări frecvente despre localizare"
-    },
-    "faq1": {
-      "q": "Sunt traducerile corecte?",
-      "a": "Combinăm traducerea automată neuronală avansată cu supravegherea umană pentru a ne asigura că contextul tehnic și structurile SEO sunt păstrate."
-    },
-    "faq2": {
-      "q": "Cum solicit o nouă limbă?",
-      "a": "Puteți contacta echipa noastră de asistență sau puteți deschide o problemă în depozitul nostru public. Ne propunem să sprijinim cât mai multe dialecte."
-    },
-    "faq3": {
-      "q": "Schimbarea limbii afectează performanța?",
-      "a": "Deloc. Motorul nostru de context React schimbă dicționarul în 0 ms fără a necesita o reîncărcare completă a paginii."
-    }
-  }
+  "footer.about": "Despre noi",
+  "footer.pricing": "Prețuri",
+  "footer.languages": "Limbi acceptate",
+  "footer.resources": "Resurse",
+  "footer.compare": "Comparaţie",
+  "footer.security": "Securitate și încredere",
+  "info.freePromo": "100% gratuit, 0 rupie, fără abonamente.",
+  "security.title": "Datele dvs. nu părăsesc niciodată dispozitivul dvs.",
+  "security.subtitle": "Experimentați editarea imaginilor 100% AI privată, alimentată de WebAssembly local. Nu putem vedea, stoca sau vinde fotografiile tale, deoarece acestea nu ajung niciodată la serverele noastre.",
+  "security.badge": "MODEL DE SECURITATE DE ÎNCREDERE ZERO",
+  "security.s2.title": "Execuție de procesare pe partea clientului",
+  "security.s2.desc": "Editorii tradiționali de imagine vă încarcă fișierele sensibile pe serverele lor cloud, expunându-le la încălcări. HelpMyIMG descarcă rețeaua neuronală AI (Wasm) direct în memoria browserului dvs., procesând totul local.",
+  "security.s2.graphic": "Încărcări în cloud sunt dezactivate intern",
+  "security.s3.title": "Conformitatea globală a confidențialității",
+  "security.s4.title": "Compararea fluxului de date",
+  "security.s4.old": "Editori cloud tradiționali",
+  "security.s4.new": "HelpMyIMG Local Engine",
+  "security.s5.title": "Don\\",
+  "security.s5.desc": "Vă puteți deconecta de la internet după încărcarea paginii, iar AI-ul va funcționa în continuare perfect. Aceasta este dovada matematică supremă a intimității.",
+  "security.faq.title": "Întrebări frecvente privind securitatea",
+  "security.faq1.q": "Este HelpMyIMG cu adevărat sigur?",
+  "security.faq1.a": "Da. Folosind WebAssembly, AI procesează imaginile direct pe dispozitivul local. Nu primim niciodată fișierele dvs. pe serverele noastre.",
+  "security.faq2.q": "Stocați imaginile mele procesate?",
+  "security.faq2.a": "Nu. Deoarece nu este încărcat nimic, nu avem nimic de stocat. Totul se întâmplă în memoria browserului tău.",
+  "security.faq3.q": "Sunteți în conformitate cu GDPR și CCPA?",
+  "security.faq3.a": "Da, în mod inerent. Deoarece colectăm date zero din conducta de procesare a imaginilor, ocolim în totalitate cele mai stricte cerințe de consimțământ.",
+  "pricing.title": "Nu mai plătiți pentru Cloud AI.",
+  "pricing.subtitle": "Procesare de imagine la nivel de întreprindere, absolut gratuită.",
+  "pricing.tierName": "Plan Edge nelimitat",
+  "pricing.period": "Pentru totdeauna. Nu este necesar un card de credit.",
+  "pricing.s3.title": "Cât vei economisi?",
+  "pricing.s4.title": "De ce este 100% gratuit?",
+  "pricing.s4.desc1": "Companiile de cloud vă percepe bani pentru că rularea AI pe GPU-uri cloud este incredibil de costisitoare. De fiecare dată când încărcați o imagine, îi costă puterea serverului.",
+  "pricing.s4.desc2": "HelpMyIMG folosește WebAssembly pentru a rula AI direct în browser. Pentru că noi nu",
+  "pricing.s4.boxTitle": "Scalabilitate infinită",
+  "pricing.s4.boxDesc": "Deoarece dispozitivul dvs. face calculul, platforma noastră poate gestiona milioane de utilizatori simultan fără a încetini sau crește costurile.",
+  "pricing.s5.title": "Fără Conturi. Fără carduri de credit. Fără prostii.",
+  "pricing.s5.desc": "Doar deschideți site-ul și începeți procesarea. Vă respectăm timpul și confidențialitatea.",
+  "pricing.faq.title": "Întrebări frecvente privind prețurile",
+  "pricing.faq1.q": "Chiar nu există cost ascuns?",
+  "pricing.faq1.a": "Absolut zero. Obțineți gratuit toate funcțiile pentru întreprinderi, fără a introduce vreodată un card de credit.",
+  "pricing.faq2.q": "Cum faci bani dacă sunt gratis?",
+  "pricing.faq2.a": "Costurile serverului nostru sunt efectiv zero, deoarece dispozitivul dumneavoastră face calculul. Ne bazăm pe reclame și pe donații opționale pentru a menține luminile aprinse.",
+  "pricing.faq3.q": "Veți începe vreodată să încărcați?",
+  "pricing.faq3.a": "Caracteristicile de bază de procesare locală vor rămâne gratuite pentru totdeauna. Credem că procesarea imaginilor AI ar trebui să fie un drept uman de bază, nu un lux.",
+  "compare.title": "HelpMyIMG vs The Rest",
+  "compare.subtitle": "Am reconstruit procesarea imaginii AI de la zero pentru a rula local. Vedeți de ce cloud-ul este învechit.",
+  "compare.badge": "COMPARAȚIE CAP LA CAP",
+  "compare.s3.title": "Latența rețelei este inamicul.",
+  "compare.s3.desc": "Editorii cloud vă pierd 80% din timp doar transferând fișiere înainte și înapoi. Prin procesarea directă pe hardware-ul dvs., eliminăm complet rețeaua, rezultând viteze de până la 5 ori mai rapide.",
+  "compare.s4.title": "Funcționează fără internet.",
+  "compare.s4.desc": "Odată ce pagina se încarcă, vă puteți deconecta de la Wi-Fi. Modelele AI rulează complet local prin browserul dvs.\\",
+  "compare.s5.title": "Nici un compromis cu privire la calitate",
+  "compare.faq.title": "Întrebări frecvente despre comparație",
+  "compare.faq1.q": "De ce este HelpMyIMG mai rapid decât API-urile cloud?",
+  "compare.faq1.a": "API-urile cloud suferă de latența rețelei (încărcarea și descărcarea de imagini mari). Eliminăm rețeaua, rulând la viteze native ale dispozitivului.",
+  "compare.faq2.q": "Procesarea locală îmi consumă bateria?",
+  "compare.faq2.a": "Modelele noastre WebAssembly sunt foarte optimizate. În timp ce folosește procesorul, este o operațiune de o fracțiune de secundă care utilizează mai puțină energie decât vizionarea unui videoclip YouTube.",
+  "compare.faq3.q": "Cum este posibil modul offline?",
+  "compare.faq3.a": "Odată ce activele site-ului web se încarcă, toată logica matematică AI rulează în propriul motor de browser, necesitând conexiune la internet zero.",
+  "languages.title": "Proiectat pentru lume.",
+  "languages.subtitle": "Credem că IA puternică ar trebui să fie accesibilă tuturor, oriunde. De aceea, HelpMyIMG este localizat nativ în 30 de limbi diferite.",
+  "languages.badge": "ACCESIBILITATE GLOBALĂ",
+  "languages.s2.title": "Selectați limba maternă",
+  "languages.s2.desc": "Faceți clic pe orice limbă de mai jos pentru a comuta instantaneu întreaga interfață a aplicației.",
+  "languages.s3.title": "Mai mult decât traducere automată.",
+  "languages.s3.desc": "noi nu\\",
+  "languages.s4.title": "Nicio reîncărcare a paginii.",
+  "languages.s4.desc": "Construit pe contextul React, motorul nostru i18n schimbă toate cele peste 1.500 de șiruri de traducere instantaneu fără a reîmprospăta pagina sau a vă întrerupe munca.",
+  "languages.s5.title": "Îți este dor de limba?",
+  "languages.s5.desc": "Ne extindem constant. Spune-ne dacă ai nevoie de HelpMyIMG în limba ta maternă.",
+  "languages.s5.btn": "Solicitați traducere",
+  "languages.faq.title": "Întrebări frecvente despre localizare",
+  "languages.faq1.q": "Sunt traducerile corecte?",
+  "languages.faq1.a": "Combinăm traducerea automată neuronală avansată cu supravegherea umană pentru a ne asigura că contextul tehnic și structurile SEO sunt păstrate.",
+  "languages.faq2.q": "Cum solicit o nouă limbă?",
+  "languages.faq2.a": "Puteți contacta echipa noastră de asistență sau puteți deschide o problemă în depozitul nostru public. Ne propunem să sprijinim cât mai multe dialecte.",
+  "languages.faq3.q": "Schimbarea limbii afectează performanța?",
+  "languages.faq3.a": "Deloc. Motorul nostru de context React schimbă dicționarul în 0 ms fără a necesita o reîncărcare completă a paginii."
 }

@@ -4,7 +4,7 @@
   "nav.pseo": "Igazolványkép Készítő",
   "nav.widget": "Widget Beágyazás",
   "nav.geo": "AI Technológia",
-  "nav.faq": "Gyakori Kérdések",
+  "nav.faq": "GYIK",
   "hero.title": "Professzionális fotóstúdió és tömeges eszközkészlet",
   "hero.titleHighlight": "Azonnal",
   "hero.subtitle": "A legjobb helyi képszerkesztő erőmű. Távolítsa el a háttereket hajszálpontos precizitással, készítsen hivatalos igazolványképeket egyedi színekkel, alkalmazzon stúdió bokeh elmosódást, tömörítse, konvertálja és méretezze át akár 10 képet másodpercek alatt. 100%-ban ingyenes, privát, és közvetlenül a böngészőből működik – nincs szükség feltöltésre.",
@@ -1465,161 +1465,83 @@
   "landing.remove.faq6.a": "A hagyományos felhőszerkesztőkkel ellentétben a WebAssembly architektúránk 0 bájt felhasználói adat átvitelét biztosítja. Azáltal, hogy a neurális hálózatokat szigorúan a kliens eszközön hajtja végre, semlegesíti az elfogási kockázatokat, biztosítva a GDPR 5. cikkének és a CCPA adatvédelmi kereteinek való belső megfelelést.",
   "hero.subtitle.short": "Kombinálja, osztja fel, tömörítse, konvertálja és dolgozza fel a fényképeket közvetlenül a böngészőben. 100%-ban offline a WebAssembly segítségével. Ingyenes, korlátlan és rendkívül biztonságos.",
   "hero.search.placeholder": "Keresőeszközök (BG eltávolítása, tömörítés, szerkesztés)...",
-  "footer": {
-    "about": "Rólunk",
-    "resources": "Erőforrás",
-    "security": "Biztonság és bizalom",
-    "pricing": "Árképzés",
-    "compare": "Hasonlítsa össze",
-    "languages": "Támogatott nyelvek",
-    "privacy": "Adatvédelmi szabályzat",
-    "terms": "Szolgáltatási feltételek"
-  },
-  "info": {
-    "freePromo": "100% ingyenes, 0 rúpia, előfizetés nélkül."
-  },
-  "security": {
-    "title": "Adatai soha nem hagyják el a készüléket.",
-    "subtitle": "Tapasztalja meg a 100%-ban privát mesterséges intelligencia képszerkesztést a helyi WebAssembly segítségével. Nem láthatjuk, tárolhatjuk vagy értékesíthetjük fotóit, mert azok soha nem jutnak el szervereinkre.",
-    "badge": "ZERO-TRUST BIZTONSÁGI MODELL",
-    "s2": {
-      "title": "Ügyféloldali feldolgozás végrehajtása",
-      "desc": "A hagyományos képszerkesztők feltöltik az érzékeny fájlokat felhőszervereikre, így kitéve a jogsértéseknek. A HelpMyIMG közvetlenül a böngésző memóriájába tölti le az AI neurális hálózatot (Wasm), mindent helyileg feldolgozva.",
-      "graphic": "Felhőfeltöltés belsőleg letiltva"
-    },
-    "s3": {
-      "title": "Globális adatvédelmi megfelelőség"
-    },
-    "s4": {
-      "title": "Adatfolyam összehasonlítása",
-      "old": "Hagyományos felhőszerkesztők",
-      "new": "HelpMyIMG Local Engine"
-    },
-    "s5": {
-      "title": "Don\\",
-      "desc": "Az oldal betöltése után lekapcsolhatod az internetről, és az AI továbbra is tökéletesen fog működni. Ez a magánélet végső matematikai bizonyítéka."
-    },
-    "faq": {
-      "title": "Biztonsági GYIK"
-    },
-    "faq1": {
-      "q": "Valóban biztonságos a HelpMyIMG?",
-      "a": "Igen. A WebAssembly használatával az AI közvetlenül a helyi eszközön dolgozza fel a képeket. Soha nem kapjuk meg a fájljait a szervereinken."
-    },
-    "faq2": {
-      "q": "Tárolja a feldolgozott képeimet?",
-      "a": "Nem. Mivel semmi nincs feltöltve, nincs mit tárolnunk. Minden a böngésző memóriájában történik."
-    },
-    "faq3": {
-      "q": "Megfelel a GDPR-nak és a CCPA-nak?",
-      "a": "Igen, eredendően. Mivel nulla adatot gyűjtünk a képfeldolgozási folyamatból, a legtöbb szigorú hozzájárulási követelményt teljesen megkerüljük."
-    }
-  },
-  "pricing": {
-    "title": "Ne fizessen többé a Cloud AI-ért.",
-    "subtitle": "Vállalati szintű képfeldolgozás, teljesen ingyenes.",
-    "tierName": "Korlátlan él terv",
-    "period": "Örökre. Hitelkártya nem szükséges.",
-    "s3": {
-      "title": "Mennyit fogsz megtakarítani?"
-    },
-    "s4": {
-      "title": "Miért 100% ingyenes?",
-      "desc1": "A felhőszolgáltató cégek pénzt számolnak fel, mert az AI felhő GPU-kon való futtatása hihetetlenül drága. Minden alkalommal, amikor feltölt egy képet, a szerver teljesítményébe kerül.",
-      "desc2": "A HelpMyIMG a WebAssembly segítségével futtatja az AI-t közvetlenül a böngészőben. mert mi nem\\",
-      "boxTitle": "Végtelen skálázhatóság",
-      "boxDesc": "Mivel az Ön eszköze végzi a számítást, platformunk több millió felhasználót tud egyszerre kezelni anélkül, hogy lelassítaná vagy növelné költségeinket."
-    },
-    "s5": {
-      "title": "Nincsenek fiókok. Nincs hitelkártya. Nem baromság.",
-      "desc": "Csak nyissa meg a webhelyet, és kezdje el a feldolgozást. Tiszteletben tartjuk az idejét és a magánéletét."
-    },
-    "faq": {
-      "title": "Árképzési GYIK"
-    },
-    "faq1": {
-      "q": "Tényleg nincs rejtett költség?",
-      "a": "Abszolút nulla. Az összes vállalati funkciót ingyen kapja meg, hitelkártya megadása nélkül."
-    },
-    "faq2": {
-      "q": "Hogyan lehet pénzt keresni, ha ingyenes?",
-      "a": "Szerverünk költsége gyakorlatilag nulla, mivel az Ön eszköze végzi a számítást. Hirdetésekre és opcionális adományokra támaszkodunk a lámpák égve tartásához."
-    },
-    "faq3": {
-      "q": "Elkezded valaha tölteni?",
-      "a": "Az alapvető helyi feldolgozási funkciók örökre ingyenesek maradnak. Úgy gondoljuk, hogy az AI képfeldolgozás alapvető emberi jog, nem luxus."
-    }
-  },
-  "compare": {
-    "title": "HelpMyIMG vs The Rest",
-    "subtitle": "Az AI képfeldolgozást az alapoktól kezdve újraépítettük, hogy helyben működjön. Nézze meg, miért elavult a felhő.",
-    "badge": "FEJ-FEJ ÖSSZEHASONLÍTÁS",
-    "s3": {
-      "title": "A hálózati késleltetés az ellenség.",
-      "desc": "A felhőszerkesztők az idő 80%-át csak a fájlok oda-vissza átvitelére pazarolják. A közvetlenül a hardveren történő feldolgozással teljesen megszüntetjük a hálózatot, ami akár 5x gyorsabb sebességet eredményez."
-    },
-    "s4": {
-      "title": "Internet nélkül működik.",
-      "desc": "Az oldal betöltése után lekapcsolhatja a Wi-Fi-t. Az AI modellek teljesen helyileg futnak a böngészőn keresztül\\"
-    },
-    "s5": {
-      "title": "Nincs kompromisszum a minőség terén"
-    },
-    "faq": {
-      "title": "Összehasonlítás GYIK"
-    },
-    "faq1": {
-      "q": "Miért gyorsabb a HelpMyIMG, mint a felhő API-k?",
-      "a": "A felhő API-k hálózati késleltetésben szenvednek (nagy képek feltöltése és letöltése). Kiküszöböljük a hálózatot, amely natív eszközsebességgel fut."
-    },
-    "faq2": {
-      "q": "A helyi feldolgozás lemeríti az akkumulátoromat?",
-      "a": "WebAssembly modelljeink nagymértékben optimalizáltak. Noha CPU-t használ, ez egy másodperc töredéke alatti művelet, amely kevesebb energiát fogyaszt, mint egy YouTube-videó megtekintése."
-    },
-    "faq3": {
-      "q": "Hogyan lehetséges az offline mód?",
-      "a": "A webhely eszközeinek betöltése után az AI matematikai logikája magában a böngészőmotorban fut, és nincs szükség internetkapcsolatra."
-    }
-  },
-  "languages": {
-    "title": "A világ számára tervezve.",
-    "subtitle": "Hiszünk abban, hogy a hatékony mesterséges intelligencia mindenki számára elérhető legyen, mindenhol. Ez az oka annak, hogy a HelpMyIMG natívan 30 különböző nyelvre van lokalizálva.",
-    "badge": "GLOBÁLIS ELÉRHETŐSÉG",
-    "s2": {
-      "title": "Válassza ki az anyanyelvét",
-      "desc": "Kattintson az alábbi nyelvekre, hogy azonnal váltson a teljes alkalmazásfelületre."
-    },
-    "s3": {
-      "title": "Több, mint automatikus fordítás.",
-      "desc": "mi nem\\"
-    },
-    "s4": {
-      "title": "Nulla oldal újratöltés.",
-      "desc": "A React kontextusra épített i18n motorunk azonnal felcseréli mind az 1500+ fordítási karakterláncot anélkül, hogy frissítené az oldalt vagy megszakítaná a munkáját."
-    },
-    "s5": {
-      "title": "Hiányzik a nyelved?",
-      "desc": "Folyamatosan bővülünk. Tudassa velünk, ha szüksége van a HelpMyIMG-re az anyanyelvén.",
-      "btn": "Fordítás kérése"
-    },
-    "faq": {
-      "title": "Lokalizációs GYIK"
-    },
-    "faq1": {
-      "q": "Pontosak a fordítások?",
-      "a": "A fejlett neurális gépi fordítást emberi felügyelettel kombináljuk, hogy biztosítsuk a műszaki kontextus és a SEO struktúrák megőrzését."
-    },
-    "faq2": {
-      "q": "Hogyan kérhetek új nyelvet?",
-      "a": "Felveheti a kapcsolatot ügyfélszolgálati csapatunkkal, vagy megnyithat egy problémát a nyilvános adattárunkban. Célunk, hogy a lehető legtöbb nyelvjárást támogassuk."
-    },
-    "faq3": {
-      "q": "A nyelvváltás befolyásolja a teljesítményt?",
-      "a": "Egyáltalán nem. A React kontextusmotorunk 0 ms alatt kicseréli a szótárt anélkül, hogy teljes oldal újratöltést igényelne."
-    }
-  },
-  "nav": {
-    "compress": "Kép tömörítése",
-    "faq": "GYIK"
-  }
+  "footer.about": "Rólunk",
+  "footer.resources": "Erőforrás",
+  "footer.security": "Biztonság és bizalom",
+  "footer.pricing": "Árképzés",
+  "footer.compare": "Hasonlítsa össze",
+  "footer.languages": "Támogatott nyelvek",
+  "info.freePromo": "100% ingyenes, 0 rúpia, előfizetés nélkül.",
+  "security.title": "Adatai soha nem hagyják el a készüléket.",
+  "security.subtitle": "Tapasztalja meg a 100%-ban privát mesterséges intelligencia képszerkesztést a helyi WebAssembly segítségével. Nem láthatjuk, tárolhatjuk vagy értékesíthetjük fotóit, mert azok soha nem jutnak el szervereinkre.",
+  "security.badge": "ZERO-TRUST BIZTONSÁGI MODELL",
+  "security.s2.title": "Ügyféloldali feldolgozás végrehajtása",
+  "security.s2.desc": "A hagyományos képszerkesztők feltöltik az érzékeny fájlokat felhőszervereikre, így kitéve a jogsértéseknek. A HelpMyIMG közvetlenül a böngésző memóriájába tölti le az AI neurális hálózatot (Wasm), mindent helyileg feldolgozva.",
+  "security.s2.graphic": "Felhőfeltöltés belsőleg letiltva",
+  "security.s3.title": "Globális adatvédelmi megfelelőség",
+  "security.s4.title": "Adatfolyam összehasonlítása",
+  "security.s4.old": "Hagyományos felhőszerkesztők",
+  "security.s4.new": "HelpMyIMG Local Engine",
+  "security.s5.title": "Don\\",
+  "security.s5.desc": "Az oldal betöltése után lekapcsolhatod az internetről, és az AI továbbra is tökéletesen fog működni. Ez a magánélet végső matematikai bizonyítéka.",
+  "security.faq.title": "Biztonsági GYIK",
+  "security.faq1.q": "Valóban biztonságos a HelpMyIMG?",
+  "security.faq1.a": "Igen. A WebAssembly használatával az AI közvetlenül a helyi eszközön dolgozza fel a képeket. Soha nem kapjuk meg a fájljait a szervereinken.",
+  "security.faq2.q": "Tárolja a feldolgozott képeimet?",
+  "security.faq2.a": "Nem. Mivel semmi nincs feltöltve, nincs mit tárolnunk. Minden a böngésző memóriájában történik.",
+  "security.faq3.q": "Megfelel a GDPR-nak és a CCPA-nak?",
+  "security.faq3.a": "Igen, eredendően. Mivel nulla adatot gyűjtünk a képfeldolgozási folyamatból, a legtöbb szigorú hozzájárulási követelményt teljesen megkerüljük.",
+  "pricing.title": "Ne fizessen többé a Cloud AI-ért.",
+  "pricing.subtitle": "Vállalati szintű képfeldolgozás, teljesen ingyenes.",
+  "pricing.tierName": "Korlátlan él terv",
+  "pricing.period": "Örökre. Hitelkártya nem szükséges.",
+  "pricing.s3.title": "Mennyit fogsz megtakarítani?",
+  "pricing.s4.title": "Miért 100% ingyenes?",
+  "pricing.s4.desc1": "A felhőszolgáltató cégek pénzt számolnak fel, mert az AI felhő GPU-kon való futtatása hihetetlenül drága. Minden alkalommal, amikor feltölt egy képet, a szerver teljesítményébe kerül.",
+  "pricing.s4.desc2": "A HelpMyIMG a WebAssembly segítségével futtatja az AI-t közvetlenül a böngészőben. mert mi nem\\",
+  "pricing.s4.boxTitle": "Végtelen skálázhatóság",
+  "pricing.s4.boxDesc": "Mivel az Ön eszköze végzi a számítást, platformunk több millió felhasználót tud egyszerre kezelni anélkül, hogy lelassítaná vagy növelné költségeinket.",
+  "pricing.s5.title": "Nincsenek fiókok. Nincs hitelkártya. Nem baromság.",
+  "pricing.s5.desc": "Csak nyissa meg a webhelyet, és kezdje el a feldolgozást. Tiszteletben tartjuk az idejét és a magánéletét.",
+  "pricing.faq.title": "Árképzési GYIK",
+  "pricing.faq1.q": "Tényleg nincs rejtett költség?",
+  "pricing.faq1.a": "Abszolút nulla. Az összes vállalati funkciót ingyen kapja meg, hitelkártya megadása nélkül.",
+  "pricing.faq2.q": "Hogyan lehet pénzt keresni, ha ingyenes?",
+  "pricing.faq2.a": "Szerverünk költsége gyakorlatilag nulla, mivel az Ön eszköze végzi a számítást. Hirdetésekre és opcionális adományokra támaszkodunk a lámpák égve tartásához.",
+  "pricing.faq3.q": "Elkezded valaha tölteni?",
+  "pricing.faq3.a": "Az alapvető helyi feldolgozási funkciók örökre ingyenesek maradnak. Úgy gondoljuk, hogy az AI képfeldolgozás alapvető emberi jog, nem luxus.",
+  "compare.title": "HelpMyIMG vs The Rest",
+  "compare.subtitle": "Az AI képfeldolgozást az alapoktól kezdve újraépítettük, hogy helyben működjön. Nézze meg, miért elavult a felhő.",
+  "compare.badge": "FEJ-FEJ ÖSSZEHASONLÍTÁS",
+  "compare.s3.title": "A hálózati késleltetés az ellenség.",
+  "compare.s3.desc": "A felhőszerkesztők az idő 80%-át csak a fájlok oda-vissza átvitelére pazarolják. A közvetlenül a hardveren történő feldolgozással teljesen megszüntetjük a hálózatot, ami akár 5x gyorsabb sebességet eredményez.",
+  "compare.s4.title": "Internet nélkül működik.",
+  "compare.s4.desc": "Az oldal betöltése után lekapcsolhatja a Wi-Fi-t. Az AI modellek teljesen helyileg futnak a böngészőn keresztül\\",
+  "compare.s5.title": "Nincs kompromisszum a minőség terén",
+  "compare.faq.title": "Összehasonlítás GYIK",
+  "compare.faq1.q": "Miért gyorsabb a HelpMyIMG, mint a felhő API-k?",
+  "compare.faq1.a": "A felhő API-k hálózati késleltetésben szenvednek (nagy képek feltöltése és letöltése). Kiküszöböljük a hálózatot, amely natív eszközsebességgel fut.",
+  "compare.faq2.q": "A helyi feldolgozás lemeríti az akkumulátoromat?",
+  "compare.faq2.a": "WebAssembly modelljeink nagymértékben optimalizáltak. Noha CPU-t használ, ez egy másodperc töredéke alatti művelet, amely kevesebb energiát fogyaszt, mint egy YouTube-videó megtekintése.",
+  "compare.faq3.q": "Hogyan lehetséges az offline mód?",
+  "compare.faq3.a": "A webhely eszközeinek betöltése után az AI matematikai logikája magában a böngészőmotorban fut, és nincs szükség internetkapcsolatra.",
+  "languages.title": "A világ számára tervezve.",
+  "languages.subtitle": "Hiszünk abban, hogy a hatékony mesterséges intelligencia mindenki számára elérhető legyen, mindenhol. Ez az oka annak, hogy a HelpMyIMG natívan 30 különböző nyelvre van lokalizálva.",
+  "languages.badge": "GLOBÁLIS ELÉRHETŐSÉG",
+  "languages.s2.title": "Válassza ki az anyanyelvét",
+  "languages.s2.desc": "Kattintson az alábbi nyelvekre, hogy azonnal váltson a teljes alkalmazásfelületre.",
+  "languages.s3.title": "Több, mint automatikus fordítás.",
+  "languages.s3.desc": "mi nem\\",
+  "languages.s4.title": "Nulla oldal újratöltés.",
+  "languages.s4.desc": "A React kontextusra épített i18n motorunk azonnal felcseréli mind az 1500+ fordítási karakterláncot anélkül, hogy frissítené az oldalt vagy megszakítaná a munkáját.",
+  "languages.s5.title": "Hiányzik a nyelved?",
+  "languages.s5.desc": "Folyamatosan bővülünk. Tudassa velünk, ha szüksége van a HelpMyIMG-re az anyanyelvén.",
+  "languages.s5.btn": "Fordítás kérése",
+  "languages.faq.title": "Lokalizációs GYIK",
+  "languages.faq1.q": "Pontosak a fordítások?",
+  "languages.faq1.a": "A fejlett neurális gépi fordítást emberi felügyelettel kombináljuk, hogy biztosítsuk a műszaki kontextus és a SEO struktúrák megőrzését.",
+  "languages.faq2.q": "Hogyan kérhetek új nyelvet?",
+  "languages.faq2.a": "Felveheti a kapcsolatot ügyfélszolgálati csapatunkkal, vagy megnyithat egy problémát a nyilvános adattárunkban. Célunk, hogy a lehető legtöbb nyelvjárást támogassuk.",
+  "languages.faq3.q": "A nyelvváltás befolyásolja a teljesítményt?",
+  "languages.faq3.a": "Egyáltalán nem. A React kontextusmotorunk 0 ms alatt kicseréli a szótárt anélkül, hogy teljes oldal újratöltést igényelne."
 }

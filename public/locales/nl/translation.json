@@ -4,7 +4,7 @@
   "nav.pseo": "Pasfoto’s Maken",
   "nav.widget": "Widget Insluiten",
   "nav.geo": "AI-Techniek",
-  "nav.faq": "Veelgestelde Vragen",
+  "nav.faq": "Veelgestelde vragen",
   "hero.title": "Professionele fotostudio en bulktoolkit",
   "hero.titleHighlight": "Direct",
   "hero.subtitle": "De ultieme krachtpatser voor lokale fotobewerking. Verwijder achtergronden met uiterste precisie, genereer officiële pasfoto's met aangepaste kleuren, pas studio-bokehvervaging toe, comprimeer, converteer en wijzig het formaat van maximaal 10 afbeeldingen in seconden. 100% gratis, privé en rechtstreeks mogelijk via uw browser – geen uploads vereist.",
@@ -362,7 +362,7 @@
   "landing.watermark.faq1.a": "Ja! Onze batchverwerking maakt het snel en eenvoudig om honderden foto's tegelijk te watermerken.",
   "landing.watermark.faq2.q": "Zijn mijn originele foto's veilig?",
   "landing.watermark.faq2.a": "Ja, het proces is 100% privé en lokaal. We slaan nooit afbeeldingen op.",
-  "nav.compress": "Afbeelding comprimeren",
+  "nav.compress": "Comprimeer afbeelding",
   "landing.default.title.compress": "Gratis afbeeldingscompressor - Afbeeldingsgrootte lokaal comprimeren | Nul uploaden",
   "landing.default.desc.compress": "Verklein de bestandsgrootte van uw afbeeldingen onmiddellijk tot 90%. 100% lokale browserverwerking voor maximale privacy.",
   "landing.compress.faqTitle": "Veelgestelde vragen",
@@ -1465,161 +1465,83 @@
   "landing.remove.faq6.a": "In tegenstelling tot traditionele cloudeditors zorgt onze WebAssembly-architectuur ervoor dat er 0 bytes aan gebruikersgegevens worden verzonden. Door neurale netwerken strikt op het clientapparaat uit te voeren, worden de risico's van onderschepping geneutraliseerd, waardoor inherente naleving van AVG-artikel 5 en CCPA-privacykaders wordt gegarandeerd.",
   "hero.subtitle.short": "Combineer, splits, comprimeer, converteer en verwerk foto's rechtstreeks in uw browser. 100% offline via WebAssembly. Gratis, onbeperkt en zeer veilig.",
   "hero.search.placeholder": "Zoekhulpmiddelen (BG verwijderen, comprimeren, bewerken)...",
-  "footer": {
-    "about": "Over ons",
-    "resources": "Bronnen",
-    "pricing": "Prijzen",
-    "privacy": "Privacybeleid",
-    "terms": "Servicevoorwaarden",
-    "compare": "Vergelijken",
-    "security": "Veiligheid en vertrouwen",
-    "languages": "Ondersteunde talen"
-  },
-  "info": {
-    "freePromo": "100% gratis, 0 roepia, geen abonnementen."
-  },
-  "nav": {
-    "faq": "Veelgestelde vragen",
-    "compress": "Comprimeer afbeelding"
-  },
-  "security": {
-    "title": "Uw gegevens verlaten nooit uw apparaat.",
-    "subtitle": "Ervaar 100% privé AI-beeldbewerking, mogelijk gemaakt door lokale WebAssembly. We kunnen uw foto's niet zien, opslaan of verkopen omdat ze onze servers nooit bereiken.",
-    "badge": "ZERO-TRUST-BEVEILIGINGSMODEL",
-    "s2": {
-      "title": "Uitvoering van verwerking aan de clientzijde",
-      "desc": "Traditionele afbeeldingseditors uploaden uw gevoelige bestanden naar hun cloudservers, waardoor ze worden blootgesteld aan inbreuken. HelpMyIMG downloadt het AI-neurale netwerk (Wasm) rechtstreeks naar uw browsergeheugen en verwerkt alles lokaal.",
-      "graphic": "Clouduploads zijn intern uitgeschakeld"
-    },
-    "s3": {
-      "title": "Wereldwijde privacynaleving"
-    },
-    "s4": {
-      "title": "Vergelijking van gegevensstromen",
-      "old": "Traditionele cloud-editors",
-      "new": "HelpMijnIMG Lokale Engine"
-    },
-    "s5": {
-      "title": "Maffiabaas\\",
-      "desc": "Nadat je de pagina hebt geladen, kun je de verbinding met het internet verbreken en functioneert de AI nog steeds perfect. Dat is het ultieme wiskundige bewijs van privacy."
-    },
-    "faq": {
-      "title": "Veelgestelde vragen over beveiliging"
-    },
-    "faq1": {
-      "q": "Is HelpMyIMG echt veilig?",
-      "a": "Ja. Door WebAssembly te gebruiken, verwerkt de AI afbeeldingen rechtstreeks op uw lokale apparaat. Wij ontvangen uw bestanden nooit op onze servers."
-    },
-    "faq2": {
-      "q": "Bewaart u mijn verwerkte afbeeldingen?",
-      "a": "Nee. Omdat er niets wordt geüpload, kunnen we niets opslaan. Alles gebeurt in het geheugen van uw browser."
-    },
-    "faq3": {
-      "q": "Voldoet u aan de AVG en CCPA?",
-      "a": "Ja, inherent. Omdat we geen gegevens verzamelen uit de beeldverwerkingspijplijn, omzeilen we de strengste toestemmingsvereisten volledig."
-    }
-  },
-  "pricing": {
-    "title": "Stop met betalen voor Cloud AI.",
-    "subtitle": "Beeldverwerking op bedrijfsniveau, helemaal gratis.",
-    "tierName": "Onbeperkt Edge-abonnement",
-    "period": "Voor altijd. Geen creditcard vereist.",
-    "s3": {
-      "title": "Hoeveel ga je besparen?"
-    },
-    "s4": {
-      "title": "Waarom is het 100% gratis?",
-      "desc1": "Cloudbedrijven brengen u geld in rekening omdat het uitvoeren van AI op cloud-GPU's ongelooflijk duur is. Elke keer dat u een afbeelding uploadt, kost dit serverkracht.",
-      "desc2": "HelpMyIMG gebruikt WebAssembly om de AI rechtstreeks in uw browser uit te voeren. Omdat we niet\\",
-      "boxTitle": "Oneindige schaalbaarheid",
-      "boxDesc": "Omdat uw apparaat het computerwerk doet, kan ons platform miljoenen gebruikers tegelijkertijd verwerken zonder onze kosten te vertragen of te verhogen."
-    },
-    "s5": {
-      "title": "Geen accounts. Geen creditcards. Geen onzin.",
-      "desc": "Open gewoon de website en begin met verwerken. Wij respecteren uw tijd en uw privacy."
-    },
-    "faq": {
-      "title": "Veelgestelde vragen over prijzen"
-    },
-    "faq1": {
-      "q": "Zijn er echt geen verborgen kosten?",
-      "a": "Absoluut nul. U krijgt alle zakelijke functies gratis zonder ooit een creditcard in te voeren."
-    },
-    "faq2": {
-      "q": "Hoe verdien je geld als het gratis is?",
-      "a": "Onze serverkosten zijn feitelijk nul, aangezien uw apparaat het computerwerk doet. We zijn afhankelijk van advertenties en optionele donaties om het licht aan te houden."
-    },
-    "faq3": {
-      "q": "Ga jij ooit beginnen met opladen?",
-      "a": "De kernfuncties voor lokale verwerking blijven voor altijd gratis. Wij zijn van mening dat AI-beeldverwerking een fundamenteel mensenrecht moet zijn, en geen luxe."
-    }
-  },
-  "compare": {
-    "title": "HelpMyIMG versus de rest",
-    "subtitle": "We hebben de AI-beeldverwerking vanaf de basis opnieuw opgebouwd om lokaal te kunnen draaien. Ontdek waarom de cloud verouderd is.",
-    "badge": "VERGELIJKING VAN HOOFD TOT HOOFD",
-    "s3": {
-      "title": "Netwerklatentie is de vijand.",
-      "desc": "Cloudeditors verspillen 80% van uw tijd met het heen en weer overbrengen van bestanden. Door rechtstreeks op uw hardware te verwerken, elimineren we het netwerk volledig, wat resulteert in snelheden die tot 5x hoger zijn."
-    },
-    "s4": {
-      "title": "Werkt zonder internet.",
-      "desc": "Zodra de pagina is geladen, kunt u de verbinding met wifi verbreken. De AI-modellen draaien volledig lokaal via uw browser\\"
-    },
-    "s5": {
-      "title": "Geen compromis op het gebied van kwaliteit"
-    },
-    "faq": {
-      "title": "Veelgestelde vragen over vergelijking"
-    },
-    "faq1": {
-      "q": "Waarom is HelpMyIMG sneller dan cloud-API's?",
-      "a": "Cloud API's hebben last van netwerklatentie (het uploaden en downloaden van grote afbeeldingen). We elimineren het netwerk en draaien op native apparaatsnelheden."
-    },
-    "faq2": {
-      "q": "Zorgt lokale verwerking ervoor dat mijn batterij leegraakt?",
-      "a": "Onze WebAssembly-modellen zijn sterk geoptimaliseerd. Hoewel het CPU gebruikt, is het een bewerking van een fractie van een seconde die minder energie verbruikt dan het kijken naar een YouTube-video."
-    },
-    "faq3": {
-      "q": "Hoe is de offline modus mogelijk?",
-      "a": "Zodra de activa van de website zijn geladen, draait alle AI-wiskundelogica binnen de browserengine zelf, waardoor er geen internetverbinding nodig is."
-    }
-  },
-  "languages": {
-    "title": "Ontworpen voor de wereld.",
-    "subtitle": "Wij zijn van mening dat krachtige AI voor iedereen en overal toegankelijk moet zijn. Daarom is HelpMyIMG native gelokaliseerd in 30 verschillende talen.",
-    "badge": "WERELDWIJDE TOEGANKELIJKHEID",
-    "s2": {
-      "title": "Selecteer uw moedertaal",
-      "desc": "Klik op een van de onderstaande talen om direct de volledige applicatie-interface te wijzigen."
-    },
-    "s3": {
-      "title": "Meer dan alleen automatisch vertalen.",
-      "desc": "Wij don\\"
-    },
-    "s4": {
-      "title": "Geen paginaherladingen.",
-      "desc": "Onze i18n-engine is gebouwd op React-context en wisselt alle meer dan 1.500 vertaalreeksen onmiddellijk om zonder de pagina te vernieuwen of uw werk te onderbreken."
-    },
-    "s5": {
-      "title": "Ontbreekt uw taal?",
-      "desc": "Wij breiden voortdurend uit. Laat het ons weten als u HelpMyIMG in uw moedertaal nodig heeft.",
-      "btn": "Vertaling aanvragen"
-    },
-    "faq": {
-      "title": "Veelgestelde vragen over lokalisatie"
-    },
-    "faq1": {
-      "q": "Zijn de vertalingen accuraat?",
-      "a": "We combineren geavanceerde neurale machinevertaling met menselijk toezicht om ervoor te zorgen dat de technische context en SEO-structuren behouden blijven."
-    },
-    "faq2": {
-      "q": "Hoe vraag ik een nieuwe taal aan?",
-      "a": "U kunt contact opnemen met ons ondersteuningsteam of een probleem openen in onze openbare repository. Wij streven ernaar om zoveel mogelijk dialecten te ondersteunen."
-    },
-    "faq3": {
-      "q": "Heeft het veranderen van taal invloed op de prestaties?",
-      "a": "Helemaal niet. Onze React-contextengine verwisselt het woordenboek in 0 ms zonder dat de volledige pagina opnieuw hoeft te worden geladen."
-    }
-  }
+  "footer.about": "Over ons",
+  "footer.resources": "Bronnen",
+  "footer.pricing": "Prijzen",
+  "footer.compare": "Vergelijken",
+  "footer.security": "Veiligheid en vertrouwen",
+  "footer.languages": "Ondersteunde talen",
+  "info.freePromo": "100% gratis, 0 roepia, geen abonnementen.",
+  "security.title": "Uw gegevens verlaten nooit uw apparaat.",
+  "security.subtitle": "Ervaar 100% privé AI-beeldbewerking, mogelijk gemaakt door lokale WebAssembly. We kunnen uw foto's niet zien, opslaan of verkopen omdat ze onze servers nooit bereiken.",
+  "security.badge": "ZERO-TRUST-BEVEILIGINGSMODEL",
+  "security.s2.title": "Uitvoering van verwerking aan de clientzijde",
+  "security.s2.desc": "Traditionele afbeeldingseditors uploaden uw gevoelige bestanden naar hun cloudservers, waardoor ze worden blootgesteld aan inbreuken. HelpMyIMG downloadt het AI-neurale netwerk (Wasm) rechtstreeks naar uw browsergeheugen en verwerkt alles lokaal.",
+  "security.s2.graphic": "Clouduploads zijn intern uitgeschakeld",
+  "security.s3.title": "Wereldwijde privacynaleving",
+  "security.s4.title": "Vergelijking van gegevensstromen",
+  "security.s4.old": "Traditionele cloud-editors",
+  "security.s4.new": "HelpMijnIMG Lokale Engine",
+  "security.s5.title": "Maffiabaas\\",
+  "security.s5.desc": "Nadat je de pagina hebt geladen, kun je de verbinding met het internet verbreken en functioneert de AI nog steeds perfect. Dat is het ultieme wiskundige bewijs van privacy.",
+  "security.faq.title": "Veelgestelde vragen over beveiliging",
+  "security.faq1.q": "Is HelpMyIMG echt veilig?",
+  "security.faq1.a": "Ja. Door WebAssembly te gebruiken, verwerkt de AI afbeeldingen rechtstreeks op uw lokale apparaat. Wij ontvangen uw bestanden nooit op onze servers.",
+  "security.faq2.q": "Bewaart u mijn verwerkte afbeeldingen?",
+  "security.faq2.a": "Nee. Omdat er niets wordt geüpload, kunnen we niets opslaan. Alles gebeurt in het geheugen van uw browser.",
+  "security.faq3.q": "Voldoet u aan de AVG en CCPA?",
+  "security.faq3.a": "Ja, inherent. Omdat we geen gegevens verzamelen uit de beeldverwerkingspijplijn, omzeilen we de strengste toestemmingsvereisten volledig.",
+  "pricing.title": "Stop met betalen voor Cloud AI.",
+  "pricing.subtitle": "Beeldverwerking op bedrijfsniveau, helemaal gratis.",
+  "pricing.tierName": "Onbeperkt Edge-abonnement",
+  "pricing.period": "Voor altijd. Geen creditcard vereist.",
+  "pricing.s3.title": "Hoeveel ga je besparen?",
+  "pricing.s4.title": "Waarom is het 100% gratis?",
+  "pricing.s4.desc1": "Cloudbedrijven brengen u geld in rekening omdat het uitvoeren van AI op cloud-GPU's ongelooflijk duur is. Elke keer dat u een afbeelding uploadt, kost dit serverkracht.",
+  "pricing.s4.desc2": "HelpMyIMG gebruikt WebAssembly om de AI rechtstreeks in uw browser uit te voeren. Omdat we niet\\",
+  "pricing.s4.boxTitle": "Oneindige schaalbaarheid",
+  "pricing.s4.boxDesc": "Omdat uw apparaat het computerwerk doet, kan ons platform miljoenen gebruikers tegelijkertijd verwerken zonder onze kosten te vertragen of te verhogen.",
+  "pricing.s5.title": "Geen accounts. Geen creditcards. Geen onzin.",
+  "pricing.s5.desc": "Open gewoon de website en begin met verwerken. Wij respecteren uw tijd en uw privacy.",
+  "pricing.faq.title": "Veelgestelde vragen over prijzen",
+  "pricing.faq1.q": "Zijn er echt geen verborgen kosten?",
+  "pricing.faq1.a": "Absoluut nul. U krijgt alle zakelijke functies gratis zonder ooit een creditcard in te voeren.",
+  "pricing.faq2.q": "Hoe verdien je geld als het gratis is?",
+  "pricing.faq2.a": "Onze serverkosten zijn feitelijk nul, aangezien uw apparaat het computerwerk doet. We zijn afhankelijk van advertenties en optionele donaties om het licht aan te houden.",
+  "pricing.faq3.q": "Ga jij ooit beginnen met opladen?",
+  "pricing.faq3.a": "De kernfuncties voor lokale verwerking blijven voor altijd gratis. Wij zijn van mening dat AI-beeldverwerking een fundamenteel mensenrecht moet zijn, en geen luxe.",
+  "compare.title": "HelpMyIMG versus de rest",
+  "compare.subtitle": "We hebben de AI-beeldverwerking vanaf de basis opnieuw opgebouwd om lokaal te kunnen draaien. Ontdek waarom de cloud verouderd is.",
+  "compare.badge": "VERGELIJKING VAN HOOFD TOT HOOFD",
+  "compare.s3.title": "Netwerklatentie is de vijand.",
+  "compare.s3.desc": "Cloudeditors verspillen 80% van uw tijd met het heen en weer overbrengen van bestanden. Door rechtstreeks op uw hardware te verwerken, elimineren we het netwerk volledig, wat resulteert in snelheden die tot 5x hoger zijn.",
+  "compare.s4.title": "Werkt zonder internet.",
+  "compare.s4.desc": "Zodra de pagina is geladen, kunt u de verbinding met wifi verbreken. De AI-modellen draaien volledig lokaal via uw browser\\",
+  "compare.s5.title": "Geen compromis op het gebied van kwaliteit",
+  "compare.faq.title": "Veelgestelde vragen over vergelijking",
+  "compare.faq1.q": "Waarom is HelpMyIMG sneller dan cloud-API's?",
+  "compare.faq1.a": "Cloud API's hebben last van netwerklatentie (het uploaden en downloaden van grote afbeeldingen). We elimineren het netwerk en draaien op native apparaatsnelheden.",
+  "compare.faq2.q": "Zorgt lokale verwerking ervoor dat mijn batterij leegraakt?",
+  "compare.faq2.a": "Onze WebAssembly-modellen zijn sterk geoptimaliseerd. Hoewel het CPU gebruikt, is het een bewerking van een fractie van een seconde die minder energie verbruikt dan het kijken naar een YouTube-video.",
+  "compare.faq3.q": "Hoe is de offline modus mogelijk?",
+  "compare.faq3.a": "Zodra de activa van de website zijn geladen, draait alle AI-wiskundelogica binnen de browserengine zelf, waardoor er geen internetverbinding nodig is.",
+  "languages.title": "Ontworpen voor de wereld.",
+  "languages.subtitle": "Wij zijn van mening dat krachtige AI voor iedereen en overal toegankelijk moet zijn. Daarom is HelpMyIMG native gelokaliseerd in 30 verschillende talen.",
+  "languages.badge": "WERELDWIJDE TOEGANKELIJKHEID",
+  "languages.s2.title": "Selecteer uw moedertaal",
+  "languages.s2.desc": "Klik op een van de onderstaande talen om direct de volledige applicatie-interface te wijzigen.",
+  "languages.s3.title": "Meer dan alleen automatisch vertalen.",
+  "languages.s3.desc": "Wij don\\",
+  "languages.s4.title": "Geen paginaherladingen.",
+  "languages.s4.desc": "Onze i18n-engine is gebouwd op React-context en wisselt alle meer dan 1.500 vertaalreeksen onmiddellijk om zonder de pagina te vernieuwen of uw werk te onderbreken.",
+  "languages.s5.title": "Ontbreekt uw taal?",
+  "languages.s5.desc": "Wij breiden voortdurend uit. Laat het ons weten als u HelpMyIMG in uw moedertaal nodig heeft.",
+  "languages.s5.btn": "Vertaling aanvragen",
+  "languages.faq.title": "Veelgestelde vragen over lokalisatie",
+  "languages.faq1.q": "Zijn de vertalingen accuraat?",
+  "languages.faq1.a": "We combineren geavanceerde neurale machinevertaling met menselijk toezicht om ervoor te zorgen dat de technische context en SEO-structuren behouden blijven.",
+  "languages.faq2.q": "Hoe vraag ik een nieuwe taal aan?",
+  "languages.faq2.a": "U kunt contact opnemen met ons ondersteuningsteam of een probleem openen in onze openbare repository. Wij streven ernaar om zoveel mogelijk dialecten te ondersteunen.",
+  "languages.faq3.q": "Heeft het veranderen van taal invloed op de prestaties?",
+  "languages.faq3.a": "Helemaal niet. Onze React-contextengine verwisselt het woordenboek in 0 ms zonder dat de volledige pagina opnieuw hoeft te worden geladen."
 }

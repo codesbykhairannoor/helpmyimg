@@ -4,7 +4,7 @@
   "nav.pseo": "Passfoto & ID",
   "nav.widget": "Widget / Bädda in",
   "nav.geo": "AI-Teknik",
-  "nav.faq": "Vanliga Frågor",
+  "nav.faq": "FAQ",
   "hero.title": "Professionell fotostudio & Bulk Toolkit",
   "hero.titleHighlight": "Direkt",
   "hero.subtitle": "Det ultimata kraftpaketet för lokala fotoredigering. Ta bort bakgrunder med precision i hårkanten, generera officiella passfoton med anpassade färger, applicera studiobokeh-oskärpa, komprimera, konvertera och ändra storlek på upp till 10 bilder på några sekunder. 100 % gratis, privat och drivs direkt av din webbläsare – inga uppladdningar krävs.",
@@ -358,7 +358,7 @@
   "landing.watermark.faq1.a": "Ja! Vår satsvisa bearbetning gör det enkelt att hantera hundratals foton.",
   "landing.watermark.faq2.q": "Är mina originalfoton säkra?",
   "landing.watermark.faq2.a": "Ja, processen är 100% privat och lokal.",
-  "nav.compress": "Bildkomprimera",
+  "nav.compress": "Komprimera bild",
   "landing.default.title.compress": "Gratis bildkompressor - komprimera bildstorlek lokalt | Noll uppladdning",
   "landing.default.desc.compress": "Minska filstorleken på dina bilder upp till 90 % direkt. 100 % lokal webbläsarbearbetning för maximal sekretess.",
   "landing.compress.faqTitle": "FAQ",
@@ -1465,161 +1465,83 @@
   "landing.remove.faq6.a": "Till skillnad från traditionella molnredigerare säkerställer vår WebAssembly-arkitektur att 0 byte med användardata överförs. Genom att exekvera neurala nätverk strikt på klientenheten neutraliserar det avlyssningsrisker, vilket säkerställer en inneboende överensstämmelse med GDPR Artikel 5 och CCPA:s sekretessramverk.",
   "hero.subtitle.short": "Kombinera, dela, komprimera, konvertera och bearbeta foton direkt i din webbläsare. 100 % offline via WebAssembly. Gratis, obegränsad och mycket säker.",
   "hero.search.placeholder": "Sökverktyg (Ta bort BG, Komprimera, Redigera)...",
-  "footer": {
-    "about": "Om oss",
-    "resources": "Resurser",
-    "privacy": "Sekretesspolicy",
-    "compare": "Jämföra",
-    "terms": "Användarvillkor",
-    "pricing": "Prissättning",
-    "languages": "Språk som stöds",
-    "security": "Säkerhet & tillit"
-  },
-  "info": {
-    "freePromo": "100 % gratis, 0 rupier, inga prenumerationer."
-  },
-  "nav": {
-    "faq": "FAQ",
-    "compress": "Komprimera bild"
-  },
-  "security": {
-    "title": "Dina data lämnar aldrig din enhet.",
-    "subtitle": "Upplev 100 % privat AI-bildredigering som drivs av lokal WebAssembly. Vi kan inte se, lagra eller sälja dina foton eftersom de aldrig når våra servrar.",
-    "badge": "ZERO-TRUST SECURITY MODELL",
-    "s2": {
-      "title": "Bearbetning på klientsidan",
-      "desc": "Traditionella bildredigerare laddar upp dina känsliga filer till sina molnservrar och utsätter dem för intrång. HelpMyIMG laddar ner AI-neurala nätverket (Wasm) direkt till ditt webbläsarminne och bearbetar allt lokalt.",
-      "graphic": "Molnuppladdningar inaktiverade internt"
-    },
-    "s3": {
-      "title": "Global Privacy Compliance"
-    },
-    "s4": {
-      "title": "Dataflödesjämförelse",
-      "old": "Traditionella molnredigerare",
-      "new": "HelpMyIMG Local Engine"
-    },
-    "s5": {
-      "title": "Don\\",
-      "desc": "Du kan koppla från internet efter att du har laddat sidan, och AI kommer fortfarande att fungera perfekt. Det är det ultimata matematiska beviset på integritet."
-    },
-    "faq": {
-      "title": "Säkerhetsfrågor"
-    },
-    "faq1": {
-      "q": "Är HelpMyIMG verkligen säkert?",
-      "a": "Ja. Genom att använda WebAssembly bearbetar AI bilder direkt på din lokala enhet. Vi tar aldrig emot dina filer på våra servrar."
-    },
-    "faq2": {
-      "q": "Lagrar du mina bearbetade bilder?",
-      "a": "Nej. Eftersom ingenting laddas upp finns det inget för oss att lagra. Allt händer i din webbläsares minne."
-    },
-    "faq3": {
-      "q": "Är du GDPR och CCPA-kompatibel?",
-      "a": "Ja, till sin natur. Eftersom vi samlar in noll data från bildbehandlingspipelinen, kringgår vi de flesta strikta samtyckeskraven helt."
-    }
-  },
-  "pricing": {
-    "title": "Sluta betala för Cloud AI.",
-    "subtitle": "Bildbehandling i företagsklass, helt gratis.",
-    "tierName": "Obegränsad Edge Plan",
-    "period": "Evigt. Inget kreditkort krävs.",
-    "s3": {
-      "title": "Hur mycket kommer du att spara?"
-    },
-    "s4": {
-      "title": "Varför är det 100 % gratis?",
-      "desc1": "Molnföretag debiterar dig pengar eftersom det är otroligt dyrt att köra AI på moln-GPU:er. Varje gång du laddar upp en bild kostar det dem serverkraft.",
-      "desc2": "HelpMyIMG använder WebAssembly för att köra AI direkt i din webbläsare. eftersom vi inte\\",
-      "boxTitle": "Oändlig skalbarhet",
-      "boxDesc": "Eftersom din enhet gör beräkningen kan vår plattform hantera miljontals användare samtidigt utan att sakta ner eller öka våra kostnader."
-    },
-    "s5": {
-      "title": "Inga konton. Inga kreditkort. Inget skitsnack.",
-      "desc": "Öppna bara webbplatsen och börja bearbeta. Vi respekterar din tid och din integritet."
-    },
-    "faq": {
-      "title": "Vanliga frågor om prissättning"
-    },
-    "faq1": {
-      "q": "Finns det verkligen ingen dold kostnad?",
-      "a": "Absolut noll. Du får alla företagsfunktioner gratis utan att behöva ange ett kreditkort."
-    },
-    "faq2": {
-      "q": "Hur tjänar du pengar om det är gratis?",
-      "a": "Våra serverkostnader är i praktiken noll eftersom din enhet gör datorn. Vi litar på annonser och valfria donationer för att hålla lamporna tända."
-    },
-    "faq3": {
-      "q": "Kommer du någonsin att börja ladda?",
-      "a": "De centrala funktionerna för lokal bearbetning kommer att förbli gratis för alltid. Vi anser att AI-bildbehandling bör vara en grundläggande mänsklig rättighet, inte en lyx."
-    }
-  },
-  "compare": {
-    "title": "HelpMyIMG vs The Rest",
-    "subtitle": "Vi byggde om AI-bildbehandling från grunden för att köras lokalt. Se varför molnet är föråldrat.",
-    "badge": "HEAD-TO-HEAD JÄMFÖRELSE",
-    "s3": {
-      "title": "Nätverkslatens är fienden.",
-      "desc": "Molnredigerare slösar bort 80 % av din tid på att bara överföra filer fram och tillbaka. Genom att bearbeta direkt på din hårdvara eliminerar vi nätverket helt, vilket resulterar i hastigheter upp till 5 gånger snabbare."
-    },
-    "s4": {
-      "title": "Fungerar utan internet.",
-      "desc": "När sidan har laddats kan du koppla från Wi-Fi. AI-modellerna körs helt lokalt via din webbläsare\\"
-    },
-    "s5": {
-      "title": "Ingen kompromiss med kvalitet"
-    },
-    "faq": {
-      "title": "Jämförelse FAQ"
-    },
-    "faq1": {
-      "q": "Varför är HelpMyIMG snabbare än moln-API:er?",
-      "a": "Cloud API:er lider av nätverkslatens (uppladdning och nedladdning av stora bilder). Vi eliminerar nätverket och kör med inbyggda enhetshastigheter."
-    },
-    "faq2": {
-      "q": "Tömmer lokal bearbetning mitt batteri?",
-      "a": "Våra WebAssembly-modeller är mycket optimerade. Även om den använder CPU, är det en operation på en del av en sekund som använder mindre energi än att titta på en YouTube-video."
-    },
-    "faq3": {
-      "q": "Hur är offlineläge möjligt?",
-      "a": "När webbplatsens tillgångar laddas körs all AI-matematisk logik i själva webbläsarmotorn, vilket kräver noll internetanslutning."
-    }
-  },
-  "languages": {
-    "title": "Designad för världen.",
-    "subtitle": "Vi tror att kraftfull AI ska vara tillgänglig för alla, överallt. Det är därför HelpMyIMG är lokaliserat till 30 olika språk.",
-    "badge": "GLOBAL TILLGÄNGLIGHET",
-    "s2": {
-      "title": "Välj ditt modersmål",
-      "desc": "Klicka på valfritt språk nedan för att omedelbart byta hela applikationsgränssnittet."
-    },
-    "s3": {
-      "title": "Mer än bara automatisk översättning.",
-      "desc": "vi inte\\"
-    },
-    "s4": {
-      "title": "Noll sida omladdningar.",
-      "desc": "Byggd på React-kontext, byter vår i18n-motor alla 1 500+ översättningssträngar direkt utan att uppdatera sidan eller avbryta ditt arbete."
-    },
-    "s5": {
-      "title": "Saknar du ditt språk?",
-      "desc": "Vi expanderar hela tiden. Låt oss veta om du behöver HelpMyIMG på ditt modersmål.",
-      "btn": "Begär översättning"
-    },
-    "faq": {
-      "title": "Vanliga frågor om lokalisering"
-    },
-    "faq1": {
-      "q": "Är översättningarna korrekta?",
-      "a": "Vi kombinerar avancerad neural maskinöversättning med mänsklig tillsyn för att säkerställa att tekniska sammanhang och SEO-strukturer bevaras."
-    },
-    "faq2": {
-      "q": "Hur begär jag ett nytt språk?",
-      "a": "Du kan kontakta vårt supportteam eller öppna ett problem på vårt offentliga arkiv. Vi strävar efter att stödja så många dialekter som möjligt."
-    },
-    "faq3": {
-      "q": "Påverkar språkbyte prestanda?",
-      "a": "Inte alls. Vår React-kontextmotor byter ut ordboken på 0ms utan att behöva ladda om en hel sida."
-    }
-  }
+  "footer.about": "Om oss",
+  "footer.resources": "Resurser",
+  "footer.compare": "Jämföra",
+  "footer.pricing": "Prissättning",
+  "footer.languages": "Språk som stöds",
+  "footer.security": "Säkerhet & tillit",
+  "info.freePromo": "100 % gratis, 0 rupier, inga prenumerationer.",
+  "security.title": "Dina data lämnar aldrig din enhet.",
+  "security.subtitle": "Upplev 100 % privat AI-bildredigering som drivs av lokal WebAssembly. Vi kan inte se, lagra eller sälja dina foton eftersom de aldrig når våra servrar.",
+  "security.badge": "ZERO-TRUST SECURITY MODELL",
+  "security.s2.title": "Bearbetning på klientsidan",
+  "security.s2.desc": "Traditionella bildredigerare laddar upp dina känsliga filer till sina molnservrar och utsätter dem för intrång. HelpMyIMG laddar ner AI-neurala nätverket (Wasm) direkt till ditt webbläsarminne och bearbetar allt lokalt.",
+  "security.s2.graphic": "Molnuppladdningar inaktiverade internt",
+  "security.s3.title": "Global Privacy Compliance",
+  "security.s4.title": "Dataflödesjämförelse",
+  "security.s4.old": "Traditionella molnredigerare",
+  "security.s4.new": "HelpMyIMG Local Engine",
+  "security.s5.title": "Don\\",
+  "security.s5.desc": "Du kan koppla från internet efter att du har laddat sidan, och AI kommer fortfarande att fungera perfekt. Det är det ultimata matematiska beviset på integritet.",
+  "security.faq.title": "Säkerhetsfrågor",
+  "security.faq1.q": "Är HelpMyIMG verkligen säkert?",
+  "security.faq1.a": "Ja. Genom att använda WebAssembly bearbetar AI bilder direkt på din lokala enhet. Vi tar aldrig emot dina filer på våra servrar.",
+  "security.faq2.q": "Lagrar du mina bearbetade bilder?",
+  "security.faq2.a": "Nej. Eftersom ingenting laddas upp finns det inget för oss att lagra. Allt händer i din webbläsares minne.",
+  "security.faq3.q": "Är du GDPR och CCPA-kompatibel?",
+  "security.faq3.a": "Ja, till sin natur. Eftersom vi samlar in noll data från bildbehandlingspipelinen, kringgår vi de flesta strikta samtyckeskraven helt.",
+  "pricing.title": "Sluta betala för Cloud AI.",
+  "pricing.subtitle": "Bildbehandling i företagsklass, helt gratis.",
+  "pricing.tierName": "Obegränsad Edge Plan",
+  "pricing.period": "Evigt. Inget kreditkort krävs.",
+  "pricing.s3.title": "Hur mycket kommer du att spara?",
+  "pricing.s4.title": "Varför är det 100 % gratis?",
+  "pricing.s4.desc1": "Molnföretag debiterar dig pengar eftersom det är otroligt dyrt att köra AI på moln-GPU:er. Varje gång du laddar upp en bild kostar det dem serverkraft.",
+  "pricing.s4.desc2": "HelpMyIMG använder WebAssembly för att köra AI direkt i din webbläsare. eftersom vi inte\\",
+  "pricing.s4.boxTitle": "Oändlig skalbarhet",
+  "pricing.s4.boxDesc": "Eftersom din enhet gör beräkningen kan vår plattform hantera miljontals användare samtidigt utan att sakta ner eller öka våra kostnader.",
+  "pricing.s5.title": "Inga konton. Inga kreditkort. Inget skitsnack.",
+  "pricing.s5.desc": "Öppna bara webbplatsen och börja bearbeta. Vi respekterar din tid och din integritet.",
+  "pricing.faq.title": "Vanliga frågor om prissättning",
+  "pricing.faq1.q": "Finns det verkligen ingen dold kostnad?",
+  "pricing.faq1.a": "Absolut noll. Du får alla företagsfunktioner gratis utan att behöva ange ett kreditkort.",
+  "pricing.faq2.q": "Hur tjänar du pengar om det är gratis?",
+  "pricing.faq2.a": "Våra serverkostnader är i praktiken noll eftersom din enhet gör datorn. Vi litar på annonser och valfria donationer för att hålla lamporna tända.",
+  "pricing.faq3.q": "Kommer du någonsin att börja ladda?",
+  "pricing.faq3.a": "De centrala funktionerna för lokal bearbetning kommer att förbli gratis för alltid. Vi anser att AI-bildbehandling bör vara en grundläggande mänsklig rättighet, inte en lyx.",
+  "compare.title": "HelpMyIMG vs The Rest",
+  "compare.subtitle": "Vi byggde om AI-bildbehandling från grunden för att köras lokalt. Se varför molnet är föråldrat.",
+  "compare.badge": "HEAD-TO-HEAD JÄMFÖRELSE",
+  "compare.s3.title": "Nätverkslatens är fienden.",
+  "compare.s3.desc": "Molnredigerare slösar bort 80 % av din tid på att bara överföra filer fram och tillbaka. Genom att bearbeta direkt på din hårdvara eliminerar vi nätverket helt, vilket resulterar i hastigheter upp till 5 gånger snabbare.",
+  "compare.s4.title": "Fungerar utan internet.",
+  "compare.s4.desc": "När sidan har laddats kan du koppla från Wi-Fi. AI-modellerna körs helt lokalt via din webbläsare\\",
+  "compare.s5.title": "Ingen kompromiss med kvalitet",
+  "compare.faq.title": "Jämförelse FAQ",
+  "compare.faq1.q": "Varför är HelpMyIMG snabbare än moln-API:er?",
+  "compare.faq1.a": "Cloud API:er lider av nätverkslatens (uppladdning och nedladdning av stora bilder). Vi eliminerar nätverket och kör med inbyggda enhetshastigheter.",
+  "compare.faq2.q": "Tömmer lokal bearbetning mitt batteri?",
+  "compare.faq2.a": "Våra WebAssembly-modeller är mycket optimerade. Även om den använder CPU, är det en operation på en del av en sekund som använder mindre energi än att titta på en YouTube-video.",
+  "compare.faq3.q": "Hur är offlineläge möjligt?",
+  "compare.faq3.a": "När webbplatsens tillgångar laddas körs all AI-matematisk logik i själva webbläsarmotorn, vilket kräver noll internetanslutning.",
+  "languages.title": "Designad för världen.",
+  "languages.subtitle": "Vi tror att kraftfull AI ska vara tillgänglig för alla, överallt. Det är därför HelpMyIMG är lokaliserat till 30 olika språk.",
+  "languages.badge": "GLOBAL TILLGÄNGLIGHET",
+  "languages.s2.title": "Välj ditt modersmål",
+  "languages.s2.desc": "Klicka på valfritt språk nedan för att omedelbart byta hela applikationsgränssnittet.",
+  "languages.s3.title": "Mer än bara automatisk översättning.",
+  "languages.s3.desc": "vi inte\\",
+  "languages.s4.title": "Noll sida omladdningar.",
+  "languages.s4.desc": "Byggd på React-kontext, byter vår i18n-motor alla 1 500+ översättningssträngar direkt utan att uppdatera sidan eller avbryta ditt arbete.",
+  "languages.s5.title": "Saknar du ditt språk?",
+  "languages.s5.desc": "Vi expanderar hela tiden. Låt oss veta om du behöver HelpMyIMG på ditt modersmål.",
+  "languages.s5.btn": "Begär översättning",
+  "languages.faq.title": "Vanliga frågor om lokalisering",
+  "languages.faq1.q": "Är översättningarna korrekta?",
+  "languages.faq1.a": "Vi kombinerar avancerad neural maskinöversättning med mänsklig tillsyn för att säkerställa att tekniska sammanhang och SEO-strukturer bevaras.",
+  "languages.faq2.q": "Hur begär jag ett nytt språk?",
+  "languages.faq2.a": "Du kan kontakta vårt supportteam eller öppna ett problem på vårt offentliga arkiv. Vi strävar efter att stödja så många dialekter som möjligt.",
+  "languages.faq3.q": "Påverkar språkbyte prestanda?",
+  "languages.faq3.a": "Inte alls. Vår React-kontextmotor byter ut ordboken på 0ms utan att behöva ladda om en hel sida."
 }

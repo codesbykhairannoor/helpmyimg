@@ -1485,10 +1485,25 @@
     "s2": {
       "title": "Ejecución del procesamiento del lado del cliente",
       "desc": "Los editores de imágenes tradicionales cargan sus archivos confidenciales en sus servidores en la nube, exponiéndolos a infracciones. HelpMyIMG descarga la red neuronal de IA (Wasm) directamente a la memoria de su navegador y procesa todo localmente.",
-      "graphic": "Cargas en la nube deshabilitadas internamente"
+      "graphic": "OBSTRUIDO",
+      "bullet1": "Artículo 5 del RGPD",
+      "bullet2": "CCPA",
+      "bullet3": "HIPAA"
     },
     "s3": {
-      "title": "Cumplimiento de privacidad global"
+      "title": "Cumplimiento de privacidad global",
+      "b1": {
+        "title": "Procesamiento de RAM local",
+        "desc": "Las imágenes se decodifican y procesan completamente dentro de la memoria volátil de su dispositivo. Nunca escribimos en el disco."
+      },
+      "b2": {
+        "title": "Sin servidores backend",
+        "desc": "La lógica de la IA está completamente separada de la nube. Está utilizando el software, no alquilando un servicio."
+      },
+      "b3": {
+        "title": "Lógica transparente",
+        "desc": "Inspeccione nuestra pestaña de red. Verás 0 solicitudes de imágenes salientes. Lo que sucede en su dispositivo, permanece en su dispositivo."
+      }
     },
     "s4": {
       "title": "Comparación de flujo de datos",
@@ -1521,7 +1536,16 @@
     "tierName": "Plan de borde ilimitado",
     "period": "Para siempre. No se requiere tarjeta de crédito.",
     "s3": {
-      "title": "¿Cuánto ahorrarás?"
+      "title": "¿Cuánto ahorrarás?",
+      "c1": {
+        "name": "API de nube genéricas"
+      },
+      "c2": {
+        "name": "Aplicaciones de suscripción"
+      },
+      "c3": {
+        "name": "Software empresarial"
+      }
     },
     "s4": {
       "title": "¿Por qué es 100% gratis?",
@@ -1548,7 +1572,13 @@
     "faq3": {
       "q": "¿Alguna vez empezarás a cargar?",
       "a": "Las funciones principales de procesamiento local seguirán siendo gratuitas para siempre. Creemos que el procesamiento de imágenes mediante IA debería ser un derecho humano básico, no un lujo."
-    }
+    },
+    "f1": "Eliminación ilimitada de antecedentes de IA",
+    "f2": "Procesamiento por lotes ilimitado",
+    "f3": "Compresiones de imágenes ilimitadas",
+    "f4": "Cargas de servidor cero (100% privado)",
+    "f5": "Exportaciones de alta definición completa",
+    "f6": "Sin marcas de agua en los resultados"
   },
   "compare": {
     "title": "HelpMyIMG frente al resto",
@@ -1579,6 +1609,36 @@
     "faq3": {
       "q": "¿Cómo es posible el modo fuera de línea?",
       "a": "Una vez que se cargan los activos del sitio web, toda la lógica matemática de la IA se ejecuta dentro del propio motor del navegador, sin necesidad de conexión a Internet."
+    },
+    "row1": {
+      "label": "Latencia / Velocidad",
+      "ours": "0 ms (instantáneo)",
+      "t1": "500 ms+",
+      "t2": "800 ms+"
+    },
+    "row2": {
+      "label": "Privacidad",
+      "ours": "100% local (confianza cero)",
+      "t1": "Datos cargados",
+      "t2": "Datos almacenados"
+    },
+    "row3": {
+      "label": "Modo sin conexión",
+      "ours": "Totalmente compatible",
+      "t1": "falla completamente",
+      "t2": "falla completamente"
+    },
+    "row4": {
+      "label": "Precios",
+      "ours": "0 IDR / Gratis para siempre",
+      "t1": "Pago por llamada API",
+      "t2": "Suscripciones mensuales"
+    },
+    "row5": {
+      "label": "Procesamiento por lotes",
+      "ours": "Hasta 10 paralelos",
+      "t1": "Basado en cola",
+      "t2": "límite 1 por 1"
     }
   },
   "languages": {
@@ -1591,7 +1651,10 @@
     },
     "s3": {
       "title": "Más que una simple traducción automática.",
-      "desc": "Nosotros no\\"
+      "desc": "Nosotros no\\",
+      "l1": "URL localizadas para un mejor SEO",
+      "l2": "Compatibilidad con derecha a izquierda (RTL) (próximamente)",
+      "l3": "Modismos y ejemplos adaptados culturalmente"
     },
     "s4": {
       "title": "Recargas de página cero.",

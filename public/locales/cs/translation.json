@@ -4,7 +4,7 @@
   "nav.pseo": "Průkazové Foto",
   "nav.widget": "Widget pro web",
   "nav.geo": "AI Technologie",
-  "nav.faq": "Časté dotazy",
+  "nav.faq": "FAQ",
   "hero.title": "Profesionální fotografické studio a sada nástrojů pro hromadné zpracování",
   "hero.titleHighlight": "Okamžitě",
   "hero.subtitle": "Špičková místní síla na úpravu fotografií. Odstraňte pozadí s přesností na vlasy, generujte oficiální pasové fotografie s vlastními barvami, použijte studiové rozostření bokeh, komprimujte, převádějte a změňte velikost až 10 obrázků během několika sekund. 100% zdarma, soukromé a poháněné přímo vaším prohlížečem – není potřeba žádné nahrávání.",
@@ -353,7 +353,7 @@
   "landing.watermark.faq1.a": "Ano! Hromadné zpracování umožňuje rychle a snadno přidat vodoznak ke stovkám fotografií.",
   "landing.watermark.faq2.q": "Jsou mé původní fotografie v bezpečí?",
   "landing.watermark.faq2.a": "Ano, proces je 100% soukromý a lokální.",
-  "nav.compress": "Komprese obrazu",
+  "nav.compress": "Komprimovat obrázek",
   "landing.default.title.compress": "Kompresor obrázků zdarma - Komprimujte velikost obrázku lokálně | Nulové nahrávání",
   "landing.default.desc.compress": "Okamžitě zmenšete velikost souborů svých obrázků až o 90 %. 100% zpracování místního prohlížeče pro maximální soukromí.",
   "landing.compress.faqTitle": "FAQ",
@@ -1476,161 +1476,124 @@
   "landing.remove.faq5.a": "HelpMyIMG je webová aplikace na straně klienta, která lokálně zpracovává odstranění a kompresi pozadí obrázku pomocí WebAssembly (Wasm). To zajišťuje 100% soukromí dat bez nutnosti nahrávání na server.",
   "landing.remove.faq6.q": "Jak HelpMyIMG zajišťuje dodržování ochrany osobních údajů?",
   "landing.remove.faq6.a": "Na rozdíl od tradičních cloudových editorů naše architektura WebAssembly zajišťuje přenos 0 bajtů uživatelských dat. Spuštěním neuronových sítí striktně na klientském zařízení neutralizuje rizika zachycení a zajišťuje vlastní soulad s článkem 5 GDPR a rámcem ochrany osobních údajů CCPA.",
-  "footer": {
-    "about": "O nás",
-    "resources": "Zdroje",
-    "security": "Bezpečnost a důvěra",
-    "pricing": "Ceny",
-    "compare": "Porovnejte",
-    "languages": "Podporované jazyky",
-    "terms": "Podmínky služby",
-    "privacy": "Zásady ochrany osobních údajů"
-  },
-  "info": {
-    "freePromo": "100 % zdarma, 0 rupií, žádné předplatné."
-  },
-  "security": {
-    "title": "Vaše data nikdy neopustí vaše zařízení.",
-    "subtitle": "Vyzkoušejte 100% soukromou úpravu obrázků AI poháněnou místním WebAssembly. Vaše fotografie nemůžeme vidět, ukládat ani prodávat, protože se nikdy nedostanou na naše servery.",
-    "badge": "MODEL ZABEZPEČENÍ NULOVÉ DŮVĚRY",
-    "s2": {
-      "title": "Provádění zpracování na straně klienta",
-      "desc": "Tradiční editory obrázků nahrávají vaše citlivé soubory na své cloudové servery, čímž je vystavují narušení. HelpMyIMG stáhne AI neuronovou síť (Wasm) přímo do paměti vašeho prohlížeče a vše zpracuje lokálně.",
-      "graphic": "Nahrávání do cloudu je interně zakázáno"
-    },
-    "s3": {
-      "title": "Global Privacy Compliance"
-    },
-    "s4": {
-      "title": "Porovnání datových toků",
-      "old": "Tradiční cloudové editory",
-      "new": "HelpMyIMG Local Engine"
-    },
-    "s5": {
-      "title": "Don\\",
-      "desc": "Po načtení stránky se můžete odpojit od internetu a AI bude stále perfektně fungovat. To je konečný matematický důkaz soukromí."
-    },
-    "faq": {
-      "title": "Nejčastější dotazy týkající se zabezpečení"
-    },
-    "faq1": {
-      "q": "Je HelpMyIMG skutečně bezpečný?",
-      "a": "Ano. Pomocí WebAssembly zpracovává AI obrázky přímo na vašem místním zařízení. Vaše soubory nikdy neobdržíme na naše servery."
-    },
-    "faq2": {
-      "q": "Ukládáte mé zpracované snímky?",
-      "a": "Ne. Protože se nic nenahrává, nemáme co ukládat. Vše se děje v paměti vašeho prohlížeče."
-    },
-    "faq3": {
-      "q": "Jste v souladu s GDPR a CCPA?",
-      "a": "Ano, inherentně. Vzhledem k tomu, že neshromažďujeme žádná data z procesu zpracování obrazu, zcela obcházíme nejpřísnější požadavky na souhlas."
-    }
-  },
-  "pricing": {
-    "title": "Přestaňte platit za cloudovou AI.",
-    "subtitle": "Zpracování obrazu na podnikové úrovni, zcela zdarma.",
-    "tierName": "Neomezený plán hran",
-    "period": "Navždy. Není vyžadována žádná kreditní karta.",
-    "s3": {
-      "title": "Kolik ušetříte?"
-    },
-    "s4": {
-      "title": "Proč je 100% zdarma?",
-      "desc1": "Cloudové společnosti vám účtují peníze, protože provozování AI na cloudových GPU je neuvěřitelně drahé. Pokaždé, když nahrajete obrázek, stojí to výkon serveru.",
-      "desc2": "HelpMyIMG používá WebAssembly ke spuštění AI přímo ve vašem prohlížeči. Protože my ne\\",
-      "boxTitle": "Nekonečná škálovatelnost",
-      "boxDesc": "Vzhledem k tomu, že vaše zařízení pracuje s počítačem, naše platforma zvládne miliony uživatelů současně, aniž by zpomalila nebo zvýšila naše náklady."
-    },
-    "s5": {
-      "title": "Žádné účty. Žádné kreditní karty. Žádné kecy.",
-      "desc": "Stačí otevřít web a začít zpracovávat. Respektujeme váš čas a vaše soukromí."
-    },
-    "faq": {
-      "title": "Časté dotazy k cenám"
-    },
-    "faq1": {
-      "q": "Opravdu neexistují žádné skryté náklady?",
-      "a": "Absolutně nulová. Všechny podnikové funkce získáte zdarma, aniž byste museli zadávat kreditní kartu."
-    },
-    "faq2": {
-      "q": "Jak vyděláte peníze, když je to zdarma?",
-      "a": "Naše náklady na server jsou prakticky nulové, protože vaše zařízení provádí výpočetní techniku. Spoléháme na reklamy a volitelné dary, abychom udrželi světla rozsvícená."
-    },
-    "faq3": {
-      "q": "Začnete někdy nabíjet?",
-      "a": "Základní funkce místního zpracování zůstanou navždy zdarma. Věříme, že zpracování obrazu AI by mělo být základním lidským právem, nikoli luxusem."
-    }
-  },
-  "compare": {
-    "title": "HelpMyIMG vs The Rest",
-    "subtitle": "Od základu jsme přestavěli zpracování obrazu AI tak, aby fungovalo lokálně. Podívejte se, proč je cloud zastaralý.",
-    "badge": "HLAVNÍ SROVNÁNÍ",
-    "s3": {
-      "title": "Latence sítě je nepřítel.",
-      "desc": "Cloudové editory ztrácejí 80 % vašeho času pouhým přenášením souborů tam a zpět. Zpracováním přímo na vašem hardwaru zcela eliminujeme síť, což má za následek až 5x vyšší rychlost."
-    },
-    "s4": {
-      "title": "Funguje bez internetu.",
-      "desc": "Jakmile se stránka načte, můžete se odpojit od Wi-Fi. Modely AI běží zcela lokálně prostřednictvím vašeho prohlížeče\\"
-    },
-    "s5": {
-      "title": "Bez kompromisů v kvalitě"
-    },
-    "faq": {
-      "title": "Srovnání FAQ"
-    },
-    "faq1": {
-      "q": "Proč je HelpMyIMG rychlejší než cloudová API?",
-      "a": "Cloudová API trpí latencí sítě (nahrávání a stahování velkých obrázků). Eliminujeme síť a běží při nativní rychlosti zařízení."
-    },
-    "faq2": {
-      "q": "Vybíjí mi místní zpracování baterii?",
-      "a": "Naše modely WebAssembly jsou vysoce optimalizované. I když využívá CPU, je to operace ve zlomku sekundy, která spotřebuje méně energie než sledování videa na YouTube."
-    },
-    "faq3": {
-      "q": "Jak je možný offline režim?",
-      "a": "Jakmile se načte aktiva webové stránky, veškerá matematická logika AI běží v samotném enginu prohlížeče, což nevyžaduje žádné připojení k internetu."
-    }
-  },
-  "languages": {
-    "title": "Navrženo pro svět.",
-    "subtitle": "Věříme, že výkonná umělá inteligence by měla být dostupná všem a všude. Proto je HelpMyIMG nativně lokalizován do 30 různých jazyků.",
-    "badge": "GLOBÁLNÍ DOSTUPNOST",
-    "s2": {
-      "title": "Vyberte svůj rodný jazyk",
-      "desc": "Kliknutím na libovolný jazyk níže okamžitě přepnete celé rozhraní aplikace."
-    },
-    "s3": {
-      "title": "Více než jen automatický překlad.",
-      "desc": "my ne\\"
-    },
-    "s4": {
-      "title": "Zero Page Reloads.",
-      "desc": "Náš i18n engine, postavený na kontextu React, okamžitě zamění všech 1500+ překladových řetězců, aniž by obnovoval stránku nebo přerušoval vaši práci."
-    },
-    "s5": {
-      "title": "Chybí vám váš jazyk?",
-      "desc": "Neustále se rozšiřujeme. Dejte nám vědět, pokud potřebujete HelpMyIMG ve svém rodném jazyce.",
-      "btn": "Žádost o překlad"
-    },
-    "faq": {
-      "title": "Nejčastější dotazy k lokalizaci"
-    },
-    "faq1": {
-      "q": "Jsou překlady přesné?",
-      "a": "Kombinujeme pokročilý neurální strojový překlad s lidským dohledem, abychom zajistili zachování technického kontextu a SEO struktur."
-    },
-    "faq2": {
-      "q": "Jak požádám o nový jazyk?",
-      "a": "Můžete kontaktovat náš tým podpory nebo otevřít problém v našem veřejném úložišti. Naším cílem je podporovat co nejvíce dialektů."
-    },
-    "faq3": {
-      "q": "Má změna jazyka vliv na výkon?",
-      "a": "vůbec ne. Náš kontextový modul React vymění slovník za 0 ms, aniž by vyžadoval opětovné načtení celé stránky."
-    }
-  },
-  "nav": {
-    "compress": "Komprimovat obrázek",
-    "faq": "FAQ"
-  }
+  "footer.about": "O nás",
+  "footer.resources": "Zdroje",
+  "footer.security": "Bezpečnost a důvěra",
+  "footer.pricing": "Ceny",
+  "footer.compare": "Porovnejte",
+  "footer.languages": "Podporované jazyky",
+  "info.freePromo": "100 % zdarma, 0 rupií, žádné předplatné.",
+  "security.title": "Vaše data nikdy neopustí vaše zařízení.",
+  "security.subtitle": "Vyzkoušejte 100% soukromou úpravu obrázků AI poháněnou místním WebAssembly. Vaše fotografie nemůžeme vidět, ukládat ani prodávat, protože se nikdy nedostanou na naše servery.",
+  "security.badge": "MODEL ZABEZPEČENÍ NULOVÉ DŮVĚRY",
+  "security.s2.title": "Provádění zpracování na straně klienta",
+  "security.s2.desc": "Tradiční editory obrázků nahrávají vaše citlivé soubory na své cloudové servery, čímž je vystavují narušení. HelpMyIMG stáhne AI neuronovou síť (Wasm) přímo do paměti vašeho prohlížeče a vše zpracuje lokálně.",
+  "security.s2.graphic": "BLOKOVÁNO",
+  "security.s2.bullet1": "Článek 5 GDPR",
+  "security.s2.bullet2": "CCPA",
+  "security.s2.bullet3": "HIPAA",
+  "security.s3.title": "Global Privacy Compliance",
+  "security.s3.b1.title": "Místní zpracování RAM",
+  "security.s3.b1.desc": "Obrázky jsou dekódovány a zpracovávány výhradně v energeticky závislé paměti vašeho zařízení. Nikdy nezapisujeme na disk.",
+  "security.s3.b2.title": "Žádné backendové servery",
+  "security.s3.b2.desc": "Logika umělé inteligence je zcela oddělena od cloudu. Používáte software, ne pronajímáte službu.",
+  "security.s3.b3.title": "Transparentní logika",
+  "security.s3.b3.desc": "Prohlédněte si naši kartu sítě. Uvidíte 0 odchozích požadavků na obrázek. Co se stane na vašem zařízení, zůstane na vašem zařízení.",
+  "security.s4.title": "Porovnání datových toků",
+  "security.s4.old": "Tradiční cloudové editory",
+  "security.s4.new": "HelpMyIMG Local Engine",
+  "security.s5.title": "Don\\",
+  "security.s5.desc": "Po načtení stránky se můžete odpojit od internetu a AI bude stále perfektně fungovat. To je konečný matematický důkaz soukromí.",
+  "security.faq.title": "Nejčastější dotazy týkající se zabezpečení",
+  "security.faq1.q": "Je HelpMyIMG skutečně bezpečný?",
+  "security.faq1.a": "Ano. Pomocí WebAssembly zpracovává AI obrázky přímo na vašem místním zařízení. Vaše soubory nikdy neobdržíme na naše servery.",
+  "security.faq2.q": "Ukládáte mé zpracované snímky?",
+  "security.faq2.a": "Ne. Protože se nic nenahrává, nemáme co ukládat. Vše se děje v paměti vašeho prohlížeče.",
+  "security.faq3.q": "Jste v souladu s GDPR a CCPA?",
+  "security.faq3.a": "Ano, inherentně. Vzhledem k tomu, že neshromažďujeme žádná data z procesu zpracování obrazu, zcela obcházíme nejpřísnější požadavky na souhlas.",
+  "pricing.title": "Přestaňte platit za cloudovou AI.",
+  "pricing.subtitle": "Zpracování obrazu na podnikové úrovni, zcela zdarma.",
+  "pricing.tierName": "Neomezený plán hran",
+  "pricing.period": "Navždy. Není vyžadována žádná kreditní karta.",
+  "pricing.s3.title": "Kolik ušetříte?",
+  "pricing.s3.c1.name": "Obecná cloudová API",
+  "pricing.s3.c2.name": "Předplacené aplikace",
+  "pricing.s3.c3.name": "Podnikový software",
+  "pricing.s4.title": "Proč je 100% zdarma?",
+  "pricing.s4.desc1": "Cloudové společnosti vám účtují peníze, protože provozování AI na cloudových GPU je neuvěřitelně drahé. Pokaždé, když nahrajete obrázek, stojí to výkon serveru.",
+  "pricing.s4.desc2": "HelpMyIMG používá WebAssembly ke spuštění AI přímo ve vašem prohlížeči. Protože my ne\\",
+  "pricing.s4.boxTitle": "Nekonečná škálovatelnost",
+  "pricing.s4.boxDesc": "Vzhledem k tomu, že vaše zařízení pracuje s počítačem, naše platforma zvládne miliony uživatelů současně, aniž by zpomalila nebo zvýšila naše náklady.",
+  "pricing.s5.title": "Žádné účty. Žádné kreditní karty. Žádné kecy.",
+  "pricing.s5.desc": "Stačí otevřít web a začít zpracovávat. Respektujeme váš čas a vaše soukromí.",
+  "pricing.faq.title": "Časté dotazy k cenám",
+  "pricing.faq1.q": "Opravdu neexistují žádné skryté náklady?",
+  "pricing.faq1.a": "Absolutně nulová. Všechny podnikové funkce získáte zdarma, aniž byste museli zadávat kreditní kartu.",
+  "pricing.faq2.q": "Jak vyděláte peníze, když je to zdarma?",
+  "pricing.faq2.a": "Naše náklady na server jsou prakticky nulové, protože vaše zařízení provádí výpočetní techniku. Spoléháme na reklamy a volitelné dary, abychom udrželi světla rozsvícená.",
+  "pricing.faq3.q": "Začnete někdy nabíjet?",
+  "pricing.faq3.a": "Základní funkce místního zpracování zůstanou navždy zdarma. Věříme, že zpracování obrazu AI by mělo být základním lidským právem, nikoli luxusem.",
+  "pricing.f1": "Neomezené odstranění pozadí AI",
+  "pricing.f2": "Neomezené dávkové zpracování",
+  "pricing.f3": "Neomezené komprese obrázků",
+  "pricing.f4": "Nulové nahrávání na server (100 % soukromé)",
+  "pricing.f5": "Úplný export ve vysokém rozlišení",
+  "pricing.f6": "Žádné vodoznaky ve výsledcích",
+  "compare.title": "HelpMyIMG vs The Rest",
+  "compare.subtitle": "Od základu jsme přestavěli zpracování obrazu AI tak, aby fungovalo lokálně. Podívejte se, proč je cloud zastaralý.",
+  "compare.badge": "HLAVNÍ SROVNÁNÍ",
+  "compare.s3.title": "Latence sítě je nepřítel.",
+  "compare.s3.desc": "Cloudové editory ztrácejí 80 % vašeho času pouhým přenášením souborů tam a zpět. Zpracováním přímo na vašem hardwaru zcela eliminujeme síť, což má za následek až 5x vyšší rychlost.",
+  "compare.s4.title": "Funguje bez internetu.",
+  "compare.s4.desc": "Jakmile se stránka načte, můžete se odpojit od Wi-Fi. Modely AI běží zcela lokálně prostřednictvím vašeho prohlížeče\\",
+  "compare.s5.title": "Bez kompromisů v kvalitě",
+  "compare.faq.title": "Srovnání FAQ",
+  "compare.faq1.q": "Proč je HelpMyIMG rychlejší než cloudová API?",
+  "compare.faq1.a": "Cloudová API trpí latencí sítě (nahrávání a stahování velkých obrázků). Eliminujeme síť a běží při nativní rychlosti zařízení.",
+  "compare.faq2.q": "Vybíjí mi místní zpracování baterii?",
+  "compare.faq2.a": "Naše modely WebAssembly jsou vysoce optimalizované. I když využívá CPU, je to operace ve zlomku sekundy, která spotřebuje méně energie než sledování videa na YouTube.",
+  "compare.faq3.q": "Jak je možný offline režim?",
+  "compare.faq3.a": "Jakmile se načte aktiva webové stránky, veškerá matematická logika AI běží v samotném enginu prohlížeče, což nevyžaduje žádné připojení k internetu.",
+  "compare.row1.label": "Latence / Rychlost",
+  "compare.row1.ours": "0 ms (okamžité)",
+  "compare.row1.t1": "500 ms+",
+  "compare.row1.t2": "800 ms+",
+  "compare.row2.label": "Soukromí",
+  "compare.row2.ours": "100% místní (nulová důvěra)",
+  "compare.row2.t1": "Data nahrána",
+  "compare.row2.t2": "Data uložena",
+  "compare.row3.label": "Režim offline",
+  "compare.row3.ours": "Plně podporováno",
+  "compare.row3.t1": "Zcela selže",
+  "compare.row3.t2": "Zcela selže",
+  "compare.row4.label": "Ceny",
+  "compare.row4.ours": "0 IDR / navždy zdarma",
+  "compare.row4.t1": "Platba za volání API",
+  "compare.row4.t2": "Měsíční odb",
+  "compare.row5.label": "Dávkové zpracování",
+  "compare.row5.ours": "Až 10 paralelních",
+  "compare.row5.t1": "Na základě fronty",
+  "compare.row5.t2": "limit 1x1",
+  "languages.title": "Navrženo pro svět.",
+  "languages.subtitle": "Věříme, že výkonná umělá inteligence by měla být dostupná všem a všude. Proto je HelpMyIMG nativně lokalizován do 30 různých jazyků.",
+  "languages.badge": "GLOBÁLNÍ DOSTUPNOST",
+  "languages.s2.title": "Vyberte svůj rodný jazyk",
+  "languages.s2.desc": "Kliknutím na libovolný jazyk níže okamžitě přepnete celé rozhraní aplikace.",
+  "languages.s3.title": "Více než jen automatický překlad.",
+  "languages.s3.desc": "my ne\\",
+  "languages.s3.l1": "Lokalizované adresy URL pro lepší SEO",
+  "languages.s3.l2": "Podpora zprava doleva (RTL) (již brzy)",
+  "languages.s3.l3": "Kulturně přizpůsobené idiomy a příklady",
+  "languages.s4.title": "Zero Page Reloads.",
+  "languages.s4.desc": "Náš i18n engine, postavený na kontextu React, okamžitě zamění všech 1500+ překladových řetězců, aniž by obnovoval stránku nebo přerušoval vaši práci.",
+  "languages.s5.title": "Chybí vám váš jazyk?",
+  "languages.s5.desc": "Neustále se rozšiřujeme. Dejte nám vědět, pokud potřebujete HelpMyIMG ve svém rodném jazyce.",
+  "languages.s5.btn": "Žádost o překlad",
+  "languages.faq.title": "Nejčastější dotazy k lokalizaci",
+  "languages.faq1.q": "Jsou překlady přesné?",
+  "languages.faq1.a": "Kombinujeme pokročilý neurální strojový překlad s lidským dohledem, abychom zajistili zachování technického kontextu a SEO struktur.",
+  "languages.faq2.q": "Jak požádám o nový jazyk?",
+  "languages.faq2.a": "Můžete kontaktovat náš tým podpory nebo otevřít problém v našem veřejném úložišti. Naším cílem je podporovat co nejvíce dialektů.",
+  "languages.faq3.q": "Má změna jazyka vliv na výkon?",
+  "languages.faq3.a": "vůbec ne. Náš kontextový modul React vymění slovník za 0 ms, aniž by vyžadoval opětovné načtení celé stránky."
 }
