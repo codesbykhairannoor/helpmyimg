@@ -31,9 +31,12 @@ export const AboutPage: React.FC = () => {
           <h1 className="text-5xl md:text-7xl font-heading font-black text-white mb-8 tracking-tight leading-tight">
             {t('about.title')}
           </h1>
-          <p className="text-xl md:text-2xl text-slate-300 max-w-4xl mx-auto leading-relaxed">
+          <p className="text-xl md:text-2xl text-slate-300 max-w-4xl mx-auto leading-relaxed mb-6">
             {t('about.subtitle')}
           </p>
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-neon-emerald/10 border border-neon-emerald/20 text-neon-emerald text-sm md:text-base font-bold max-w-2xl mx-auto text-center">
+            {t('info.freePromo') || '100% Free, 0 Rupiah, No Subscriptions.'}
+          </div>
         </motion.div>
 
         {/* MISSION & VISION */}

@@ -1464,5 +1464,11 @@
   "landing.remove.faq6.q": "Comment HelpMyIMG garantit-il le respect de la confidentialité des données ?",
   "landing.remove.faq6.a": "Contrairement aux éditeurs cloud traditionnels, notre architecture WebAssembly garantit la transmission de 0 octet de données utilisateur. En exécutant les réseaux de neurones strictement sur l'appareil client, il neutralise les risques d'interception, garantissant ainsi la conformité inhérente à l'article 5 du RGPD et aux cadres de confidentialité du CCPA.",
   "hero.subtitle.short": "Combinez, divisez, compressez, convertissez et traitez des photos directement dans votre navigateur. 100% hors ligne via WebAssembly. Gratuit, illimité et hautement sécurisé.",
-  "hero.search.placeholder": "Outils de recherche (Supprimer BG, Compresser, Modifier)..."
+  "hero.search.placeholder": "Outils de recherche (Supprimer BG, Compresser, Modifier)...",
+  "footer": {
+    "about": "À propos de nous"
+  },
+  "info": {
+    "freePromo": "100% gratuit, 0 Rupiah, aucun abonnement. Aucun frais caché ni carte de crédit requis."
+  }
 }

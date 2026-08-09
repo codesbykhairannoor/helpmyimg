@@ -1538,5 +1538,11 @@
   "landing.remove.faq6.q": "Bagaimana HelpMyIMG memastikan kepatuhan privasi data?",
   "landing.remove.faq6.a": "Tidak seperti editor cloud tradisional, arsitektur WebAssembly kami memastikan 0 byte data pengguna dikirimkan. Dengan menjalankan jaringan saraf secara ketat pada perangkat klien, hal ini menetralisir risiko intersepsi, memastikan kepatuhan yang melekat terhadap Pasal 5 GDPR dan kerangka privasi CCPA.",
   "hero.subtitle.short": "Gabungkan, pisahkan, kompres, konversi, dan proses foto langsung di browser Anda. 100% offline melalui WebAssembly. Gratis, tidak terbatas, dan sangat aman.",
-  "hero.search.placeholder": "Alat pencarian (Hapus BG, Kompres, Edit)..."
+  "hero.search.placeholder": "Alat pencarian (Hapus BG, Kompres, Edit)...",
+  "footer": {
+    "about": "Tentang Kami"
+  },
+  "info": {
+    "freePromo": "100% Gratis, 0 Rupiah, Tanpa Berlangganan. Tidak diperlukan biaya tersembunyi atau kartu kredit."
+  }
 }

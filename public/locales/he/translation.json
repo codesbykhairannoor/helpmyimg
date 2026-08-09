@@ -1445,5 +1445,11 @@
   "landing.remove.faq6.q": "כיצד HelpMyIMG מבטיח תאימות לפרטיות נתונים?",
   "landing.remove.faq6.a": "שלא כמו עורכי ענן מסורתיים, ארכיטקטורת ה-WebAssembly שלנו מבטיחה שידור של 0 בתים של נתוני משתמש. By executing neural networks strictly on the client device, it neutralizes interception risks, ensuring inherent compliance with GDPR Article 5 and CCPA privacy frameworks.",
   "hero.subtitle.short": "שלב, פצל, דחס, המר ועבד תמונות ישירות בדפדפן שלך. 100% לא מקוון באמצעות WebAssembly. חינם, ללא הגבלה, ומאובטח מאוד.",
-  "hero.search.placeholder": "כלי חיפוש (הסר BG, דחיסה, עריכה)..."
+  "hero.search.placeholder": "כלי חיפוש (הסר BG, דחיסה, עריכה)...",
+  "footer": {
+    "about": "אודותינו"
+  },
+  "info": {
+    "freePromo": "100% חינם, 0 רופי, ללא מנויים. אין צורך בעמלות נסתרות או בכרטיסי אשראי."
+  }
 }

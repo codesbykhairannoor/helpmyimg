@@ -1475,5 +1475,11 @@
   "landing.remove.faq5.q": "Co je HelpMyIMG?",
   "landing.remove.faq5.a": "HelpMyIMG je webová aplikace na straně klienta, která lokálně zpracovává odstranění a kompresi pozadí obrázku pomocí WebAssembly (Wasm). To zajišťuje 100% soukromí dat bez nutnosti nahrávání na server.",
   "landing.remove.faq6.q": "Jak HelpMyIMG zajišťuje dodržování ochrany osobních údajů?",
-  "landing.remove.faq6.a": "Na rozdíl od tradičních cloudových editorů naše architektura WebAssembly zajišťuje přenos 0 bajtů uživatelských dat. Spuštěním neuronových sítí striktně na klientském zařízení neutralizuje rizika zachycení a zajišťuje vlastní soulad s článkem 5 GDPR a rámcem ochrany osobních údajů CCPA."
+  "landing.remove.faq6.a": "Na rozdíl od tradičních cloudových editorů naše architektura WebAssembly zajišťuje přenos 0 bajtů uživatelských dat. Spuštěním neuronových sítí striktně na klientském zařízení neutralizuje rizika zachycení a zajišťuje vlastní soulad s článkem 5 GDPR a rámcem ochrany osobních údajů CCPA.",
+  "footer": {
+    "about": "O nás"
+  },
+  "info": {
+    "freePromo": "100 % zdarma, 0 rupií, žádné předplatné. Nevyžadují se žádné skryté poplatky ani kreditní karty."
+  }
 }

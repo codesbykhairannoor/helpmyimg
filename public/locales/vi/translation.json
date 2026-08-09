@@ -1464,5 +1464,11 @@
   "landing.remove.faq6.q": "HelpMyIMG đảm bảo tuân thủ quyền riêng tư dữ liệu như thế nào?",
   "landing.remove.faq6.a": "Không giống như các trình chỉnh sửa đám mây truyền thống, kiến ​​trúc WebAssugging của chúng tôi đảm bảo truyền 0 byte dữ liệu người dùng. Bằng cách thực thi nghiêm ngặt các mạng thần kinh trên thiết bị khách, nó sẽ vô hiệu hóa các rủi ro bị chặn, đảm bảo tuân thủ Điều 5 GDPR và khuôn khổ quyền riêng tư của CCPA.",
   "hero.subtitle.short": "Kết hợp, tách, nén, chuyển đổi và xử lý ảnh trực tiếp trong trình duyệt của bạn. Ngoại tuyến 100% qua WebAssugging. Miễn phí, không giới hạn và có tính bảo mật cao.",
-  "hero.search.placeholder": "Công cụ tìm kiếm (Xóa BG, Nén, Chỉnh sửa)..."
+  "hero.search.placeholder": "Công cụ tìm kiếm (Xóa BG, Nén, Chỉnh sửa)...",
+  "footer": {
+    "about": "Về chúng tôi"
+  },
+  "info": {
+    "freePromo": "Miễn phí 100%, 0 Rupiah, Không đăng ký. Không có phí ẩn hoặc thẻ tín dụng cần thiết."
+  }
 }

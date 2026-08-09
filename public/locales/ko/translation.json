@@ -1464,5 +1464,11 @@
   "landing.remove.faq6.q": "HelpMyIMG는 데이터 개인 정보 보호 규정 준수를 어떻게 보장합니까?",
   "landing.remove.faq6.a": "기존 클라우드 편집기와 달리 WebAssembly 아키텍처는 0바이트의 사용자 데이터 전송을 보장합니다. 클라이언트 장치에서 신경망을 엄격하게 실행함으로써 가로채기 위험을 무력화하고 GDPR 5조 및 CCPA 개인 정보 보호 프레임워크를 기본적으로 준수합니다.",
   "hero.subtitle.short": "브라우저에서 직접 사진을 결합, 분할, 압축, 변환 및 처리합니다. WebAssembly를 통해 100% 오프라인. 무료이며 무제한이며 매우 안전합니다.",
-  "hero.search.placeholder": "검색 도구(BG 제거, 압축, 편집)..."
+  "hero.search.placeholder": "검색 도구(BG 제거, 압축, 편집)...",
+  "footer": {
+    "about": "회사 소개"
+  },
+  "info": {
+    "freePromo": "100% 무료, 0 루피아, 구독 없음. 숨겨진 수수료나 신용카드가 필요하지 않습니다."
+  }
 }

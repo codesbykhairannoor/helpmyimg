@@ -33,9 +33,12 @@ export const TermsPage: React.FC = () => {
           <p className="text-lg text-slate-500 font-mono tracking-widest uppercase mb-12">
             {t('terms.lastUpdated') || 'Effective Date: July 11, 2026'}
           </p>
-          <p className="text-xl md:text-2xl text-slate-300 max-w-4xl mx-auto leading-relaxed border-l-4 border-neon-purple/50 pl-6 py-4 bg-dark-800/30 rounded-r-2xl text-left">
+          <p className="text-xl md:text-2xl text-slate-300 max-w-4xl mx-auto leading-relaxed border-l-4 border-neon-purple/50 pl-6 py-4 bg-dark-800/30 rounded-r-2xl text-left mb-6">
             {t('terms.intro')}
           </p>
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-neon-emerald/10 border border-neon-emerald/20 text-neon-emerald text-sm md:text-base font-bold max-w-2xl mx-auto text-center">
+            {t('info.freePromo') || '100% Free, 0 Rupiah, No Subscriptions.'}
+          </div>
         </motion.div>
 
         <div className="grid lg:grid-cols-12 gap-12 items-start">

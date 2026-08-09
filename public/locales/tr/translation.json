@@ -1464,5 +1464,11 @@
   "landing.remove.faq6.q": "HelpMyIMG veri gizliliği uyumluluğunu nasıl sağlıyor?",
   "landing.remove.faq6.a": "Geleneksel bulut düzenleyicilerden farklı olarak WebAssembly mimarimiz 0 bayt kullanıcı verisinin iletilmesini sağlar. Sinir ağlarını kesinlikle istemci cihazında çalıştırarak, müdahale risklerini ortadan kaldırır ve GDPR Madde 5 ve CCPA gizlilik çerçevelerine doğal uyum sağlar.",
   "hero.subtitle.short": "Fotoğrafları doğrudan tarayıcınızda birleştirin, bölün, sıkıştırın, dönüştürün ve işleyin. WebAssembly aracılığıyla %100 çevrimdışı. Ücretsiz, sınırsız ve son derece güvenli.",
-  "hero.search.placeholder": "Arama araçları (BG'yi Kaldır, Sıkıştır, Düzenle)..."
+  "hero.search.placeholder": "Arama araçları (BG'yi Kaldır, Sıkıştır, Düzenle)...",
+  "footer": {
+    "about": "Hakkımızda"
+  },
+  "info": {
+    "freePromo": "%100 Ücretsiz, 0 Rupiah, Abonelik Yok. Hiçbir gizli ücret veya kredi kartı gerekmez."
+  }
 }

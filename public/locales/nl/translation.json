@@ -1464,5 +1464,11 @@
   "landing.remove.faq6.q": "Hoe zorgt HelpMyIMG ervoor dat de privacy van gegevens wordt nageleefd?",
   "landing.remove.faq6.a": "In tegenstelling tot traditionele cloudeditors zorgt onze WebAssembly-architectuur ervoor dat er 0 bytes aan gebruikersgegevens worden verzonden. Door neurale netwerken strikt op het clientapparaat uit te voeren, worden de risico's van onderschepping geneutraliseerd, waardoor inherente naleving van AVG-artikel 5 en CCPA-privacykaders wordt gegarandeerd.",
   "hero.subtitle.short": "Combineer, splits, comprimeer, converteer en verwerk foto's rechtstreeks in uw browser. 100% offline via WebAssembly. Gratis, onbeperkt en zeer veilig.",
-  "hero.search.placeholder": "Zoekhulpmiddelen (BG verwijderen, comprimeren, bewerken)..."
+  "hero.search.placeholder": "Zoekhulpmiddelen (BG verwijderen, comprimeren, bewerken)...",
+  "footer": {
+    "about": "Over ons"
+  },
+  "info": {
+    "freePromo": "100% gratis, 0 roepia, geen abonnementen. Geen verborgen kosten of creditcards vereist."
+  }
 }

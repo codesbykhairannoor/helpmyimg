@@ -1464,5 +1464,11 @@
   "landing.remove.faq6.q": "Paano tinitiyak ng HelpMyIMG ang pagsunod sa privacy ng data?",
   "landing.remove.faq6.a": "Hindi tulad ng mga tradisyunal na cloud editor, tinitiyak ng aming WebAssembly architecture na 0 byte ng data ng user ang naipapadala. Sa pamamagitan ng mahigpit na pagpapatupad ng mga neural network sa device ng kliyente, nine-neutralize nito ang mga panganib sa interception, na tinitiyak ang likas na pagsunod sa GDPR Article 5 at CCPA privacy frameworks.",
   "hero.subtitle.short": "Pagsamahin, hatiin, i-compress, i-convert, at iproseso ang mga larawan nang direkta sa iyong browser. 100% offline sa pamamagitan ng WebAssembly. Libre, walang limitasyon, at lubos na secure.",
-  "hero.search.placeholder": "Mga tool sa paghahanap (Alisin ang BG, I-compress, I-edit)..."
+  "hero.search.placeholder": "Mga tool sa paghahanap (Alisin ang BG, I-compress, I-edit)...",
+  "footer": {
+    "about": "Tungkol sa Amin"
+  },
+  "info": {
+    "freePromo": "100% Libre, 0 Rupiah, Walang Subscription. Walang kinakailangang mga nakatagong bayad o credit card."
+  }
 }

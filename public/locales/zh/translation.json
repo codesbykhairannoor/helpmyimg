@@ -1464,5 +1464,11 @@
   "landing.remove.faq6.q": "HelpMyIMG 如何确保数据隐私合规？",
   "landing.remove.faq6.a": "与传统的云编辑器不同，我们的 WebAssembly 架构确保传输 0 字节的用户数据。通过严格在客户端设备上执行神经网络，它可以消除拦截风险，确保固有地遵守 GDPR 第 5 条和 CCPA 隐私框架。",
   "hero.subtitle.short": "直接在浏览器中组合、分割、压缩、转换和处理照片。通过 WebAssembly 100% 离线。免费、无限制且高度安全。",
-  "hero.search.placeholder": "搜索工具（删除背景、压缩、编辑）..."
+  "hero.search.placeholder": "搜索工具（删除背景、压缩、编辑）...",
+  "footer": {
+    "about": "关于我们"
+  },
+  "info": {
+    "freePromo": "100% 免费，0 卢比，无需订阅。无需隐藏费用或信用卡。"
+  }
 }

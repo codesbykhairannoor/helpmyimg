@@ -1456,5 +1456,11 @@
   "landing.remove.faq6.q": "How does HelpMyIMG ensure data privacy compliance?",
   "landing.remove.faq6.a": "Unlike traditional cloud editors, our WebAssembly architecture ensures 0 bytes of user data are transmitted. By executing neural networks strictly on the client device, it neutralizes interception risks, ensuring inherent compliance with GDPR Article 5 and CCPA privacy frameworks.",
   "hero.subtitle.short": "Kombinieren, teilen, komprimieren, konvertieren und verarbeiten Sie Fotos direkt in Ihrem Browser. 100 % offline über WebAssembly. Kostenlos, unbegrenzt und äußerst sicher.",
-  "hero.search.placeholder": "Suchwerkzeuge (BG entfernen, Komprimieren, Bearbeiten) ..."
+  "hero.search.placeholder": "Suchwerkzeuge (BG entfernen, Komprimieren, Bearbeiten) ...",
+  "footer": {
+    "about": "Über uns"
+  },
+  "info": {
+    "freePromo": "100 % kostenlos, 0 Rupiah, keine Abonnements. Keine versteckten Gebühren oder Kreditkarten erforderlich."
+  }
 }

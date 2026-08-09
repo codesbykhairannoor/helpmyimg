@@ -30,9 +30,12 @@ export const PrivacyPage: React.FC = () => {
           <h1 className="text-5xl md:text-7xl font-heading font-black text-white mb-6 tracking-tight leading-tight">
             {t('privacy.title')}
           </h1>
-          <p className="text-lg text-slate-500 font-mono tracking-widest uppercase">
+          <p className="text-lg text-slate-500 font-mono tracking-widest uppercase mb-6">
             {t('privacy.lastUpdated') || 'Effective Date: July 11, 2026'}
           </p>
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-neon-emerald/10 border border-neon-emerald/20 text-neon-emerald text-sm md:text-base font-bold max-w-2xl mx-auto text-center">
+            {t('info.freePromo') || '100% Free, 0 Rupiah, No Subscriptions.'}
+          </div>
         </motion.div>
 
         {/* TL;DR HIGHLIGHT BOX */}

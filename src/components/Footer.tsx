@@ -45,7 +45,7 @@ export const Footer: React.FC = () => {
             <div className="space-y-4">
               <h3 className="font-bold text-slate-900 dark:text-white">{t('footer.legal')}</h3>
               <ul className="space-y-2.5 text-slate-500 dark:text-slate-400">
-                <li><a href={lang === 'en' ? '/about' : `/${lang}/about`} onClick={(e) => { e.preventDefault(); navigatePath(lang === 'en' ? '/about' : `/${lang}/about`); }} className="hover:text-cyan-600 dark:hover:text-white transition-colors">About Us</a></li>
+                <li><a href={lang === 'en' ? '/about' : `/${lang}/about`} onClick={(e) => { e.preventDefault(); navigatePath(lang === 'en' ? '/about' : `/${lang}/about`); }} className="hover:text-cyan-600 dark:hover:text-white transition-colors">{t('footer.about') || 'About Us'}</a></li>
                 <li><a href={lang === 'en' ? '/privacy' : `/${lang}/privacy`} onClick={(e) => { e.preventDefault(); navigatePath(lang === 'en' ? '/privacy' : `/${lang}/privacy`); }} className="hover:text-cyan-600 dark:hover:text-white transition-colors">{t('footer.privacy')}</a></li>
                 <li><a href={lang === 'en' ? '/terms' : `/${lang}/terms`} onClick={(e) => { e.preventDefault(); navigatePath(lang === 'en' ? '/terms' : `/${lang}/terms`); }} className="hover:text-cyan-600 dark:hover:text-white transition-colors">{t('footer.terms')}</a></li>
                 <li><a href={lang === 'en' ? '/faq' : `/${lang}/faq`} onClick={(e) => { e.preventDefault(); navigatePath(lang === 'en' ? '/faq' : `/${lang}/faq`); }} className="hover:text-cyan-600 dark:hover:text-white transition-colors">{t('nav.faq')}</a></li>

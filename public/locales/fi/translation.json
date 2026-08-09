@@ -1464,5 +1464,11 @@
   "landing.remove.faq6.q": "Kuinka HelpMyIMG varmistaa tietosuojan noudattamisen?",
   "landing.remove.faq6.a": "Toisin kuin perinteiset pilvieditorit, WebAssembly-arkkitehtuurimme varmistaa, että käyttäjätietoja siirretään 0 tavua. Suorittamalla hermoverkkoja tiukasti asiakaslaitteella, se neutraloi sieppausriskit ja varmistaa GDPR-artikla 5:n ja CCPA:n tietosuojakehysten luontaisen noudattamisen.",
   "hero.subtitle.short": "Yhdistä, jaa, pakkaa, muunna ja käsittele valokuvia suoraan selaimessasi. 100 % offline-tilassa WebAssemblyn kautta. Ilmainen, rajoittamaton ja erittäin turvallinen.",
-  "hero.search.placeholder": "Hakutyökalut (poista BG, pakkaa, muokkaa)..."
+  "hero.search.placeholder": "Hakutyökalut (poista BG, pakkaa, muokkaa)...",
+  "footer": {
+    "about": "Tietoja meistä"
+  },
+  "info": {
+    "freePromo": "100 % ilmainen, 0 rupiaa, ei tilauksia. Piilotettuja maksuja tai luottokortteja ei vaadita."
+  }
 }

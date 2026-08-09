@@ -1464,5 +1464,11 @@
   "landing.remove.faq6.q": "Hvordan sikrer HelpMyIMG overholdelse af databeskyttelse?",
   "landing.remove.faq6.a": "I modsætning til traditionelle cloud-editorer sikrer vores WebAssembly-arkitektur, at 0 bytes brugerdata overføres. Ved at eksekvere neurale netværk strengt på klientenheden, neutraliserer det aflytningsrisici, hvilket sikrer iboende overholdelse af GDPR Artikel 5 og CCPA-privatlivsrammer.",
   "hero.subtitle.short": "Kombiner, opdel, komprimer, konverter og bearbejd billeder direkte i din browser. 100 % offline via WebAssembly. Gratis, ubegrænset og meget sikker.",
-  "hero.search.placeholder": "Søgeværktøjer (Fjern BG, Komprimer, Rediger)..."
+  "hero.search.placeholder": "Søgeværktøjer (Fjern BG, Komprimer, Rediger)...",
+  "footer": {
+    "about": "Om os"
+  },
+  "info": {
+    "freePromo": "100 % gratis, 0 Rupiah, ingen abonnementer. Ingen skjulte gebyrer eller kreditkort påkrævet."
+  }
 }

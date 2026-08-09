@@ -50,9 +50,12 @@ export const FaqPage: React.FC = () => {
           <h1 className="text-5xl md:text-6xl font-heading font-black text-white mb-6 tracking-tight leading-tight">
             {t('faq.title')}
           </h1>
-          <p className="text-xl text-slate-400 max-w-2xl mx-auto leading-relaxed">
+          <p className="text-xl text-slate-400 max-w-2xl mx-auto leading-relaxed mb-6">
             {t('faq.subtitle')}
           </p>
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-neon-emerald/10 border border-neon-emerald/20 text-neon-emerald text-sm md:text-base font-bold max-w-2xl mx-auto text-center">
+            {t('info.freePromo') || '100% Free, 0 Rupiah, No Subscriptions.'}
+          </div>
         </motion.div>
 
         {/* CATEGORY SELECTOR */}
