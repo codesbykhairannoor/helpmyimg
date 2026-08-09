@@ -72,13 +72,13 @@ export const RouterProvider: React.FC<{ children: React.ReactNode }> = ({ childr
 
     // Hanya ubah state jika URL benar-benar berbeda
     if (window.location.pathname !== newPath) {
+      const oldRoute = route;
       window.history.pushState({}, '', newPath);
-      setRoute(parseUrl());
+      const newRoute = parseUrl();
+      setRoute(newRoute);
       
       // Jika tool berubah atau halaman berubah, baru scroll ke atas instan
-      const coreCurrent = getCorePath(window.location.pathname);
-      const coreNew = getCorePath(newPath);
-      if (coreCurrent !== coreNew) {
+      if (oldRoute.page !== newRoute.page || oldRoute.tool !== newRoute.tool) {
         window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
       }
     } else {
@@ -88,25 +88,16 @@ export const RouterProvider: React.FC<{ children: React.ReactNode }> = ({ childr
 
   const navigatePath = (path: string) => {
     if (window.location.pathname !== path) {
-      const coreCurrent = getCorePath(window.location.pathname);
-      const coreNew = getCorePath(path);
-      
+      const oldRoute = route;
       window.history.pushState({}, '', path);
-      setRoute(parseUrl());
+      const newRoute = parseUrl();
+      setRoute(newRoute);
       
-      if (coreCurrent !== coreNew) {
+      if (oldRoute.page !== newRoute.page || oldRoute.tool !== newRoute.tool) {
         window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
       }
     }
   };
-
-  function getCorePath(path: string) {
-    const parts = path.split('/').filter(Boolean);
-    if (parts.length > 0 && parts[0].length === 2) {
-      return parts.slice(1).join('/');
-    }
-    return parts.join('/');
-  }
 
   return (
     <RouterContext.Provider value={{ route, navigate, navigatePath }}>

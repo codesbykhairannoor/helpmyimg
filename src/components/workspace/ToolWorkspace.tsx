@@ -66,18 +66,6 @@ interface ToolWorkspaceProps {
 
 export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({ initialTab = 'remove' }) => {
   const { t } = useTranslation();
-  const [activeTab, setActiveTab] = useState<TabType>(initialTab);
-  const [prevInitialTab, setPrevInitialTab] = useState<TabType>(initialTab);
-
-  if (initialTab !== prevInitialTab) {
-    setPrevInitialTab(initialTab);
-    setActiveTab(initialTab);
-  }
-
-  useEffect(() => {
-    setActiveTab(initialTab);
-    setPrevInitialTab(initialTab);
-  }, [initialTab]);
 
   const { route } = useRouter();
   const { keywordSlug } = route;
@@ -848,7 +836,7 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({ initialTab = 'remo
                             }}
                           />
                         )}
-                        {activeTab === 'blurface' && (
+                        {initialTab === 'blurface' && (
                           <BlurBoxOverlay
                             imageElement={imageElement}
                             boxes={blurBoxes}
@@ -860,7 +848,7 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({ initialTab = 'remo
                     )
                   )}
 
-                  {activeTab === 'design' && currentItem?.originalUrl && (
+                  {initialTab === 'design' && currentItem?.originalUrl && (
                     <DesignEditorControl
                       imageUrl={currentItem.processedUrl || currentItem.originalUrl}
                       onDownload={(dataUrl) => {
@@ -938,16 +926,16 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({ initialTab = 'remo
                   <span>{t('editor.settings')}</span>
                 </h3>
                 <span className="text-xs px-2.5 py-1 rounded-lg bg-neon-cyan/15 text-neon-cyan font-mono font-bold border border-neon-cyan/30">
-                  {activeTab === 'remove' && t('work.badge.remove')}
-                  {activeTab === 'color' && t('work.badge.color')}
-                  {activeTab === 'brush' && t('work.badge.brush')}
-                  {activeTab === 'watermark' && t('work.badge.watermark')}
-                  {activeTab === 'compress' && t('work.badge.compress')}
-                  {activeTab === 'convert' && t('work.badge.convert')}
-                  {activeTab === 'resize' && t('work.badge.resize')}
-                  {activeTab === 'crop' && t('work.badge.crop')}
-                  {activeTab === 'rotate' && t('work.badge.rotate')}
-                  {activeTab === 'picker' && t('work.badge.picker')}
+                  {initialTab === 'remove' && t('work.badge.remove')}
+                  {initialTab === 'color' && t('work.badge.color')}
+                  {initialTab === 'brush' && t('work.badge.brush')}
+                  {initialTab === 'watermark' && t('work.badge.watermark')}
+                  {initialTab === 'compress' && t('work.badge.compress')}
+                  {initialTab === 'convert' && t('work.badge.convert')}
+                  {initialTab === 'resize' && t('work.badge.resize')}
+                  {initialTab === 'crop' && t('work.badge.crop')}
+                  {initialTab === 'rotate' && t('work.badge.rotate')}
+                  {initialTab === 'picker' && t('work.badge.picker')}
                 </span>
               </div>
             </div>
@@ -958,7 +946,7 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({ initialTab = 'remo
                   <Loader2 className="w-8 h-8 text-neon-cyan animate-spin" />
                 </div>
               }>
-                {activeTab === 'remove' && (
+                {initialTab === 'remove' && (
                   <RemoveBgControl
                     currentTransparentUrl={currentItem?.processedUrl || null}
                     currentFileName={currentItem?.name}
@@ -989,7 +977,7 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({ initialTab = 'remo
                   />
                 )}
 
-                {activeTab === 'color' && (
+                {initialTab === 'color' && (
                   <ColorBgControl
                     selectedColor={selectedColor}
                     setSelectedColor={setSelectedColor}
@@ -1010,7 +998,7 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({ initialTab = 'remo
                   />
                 )}
 
-                {activeTab === 'brush' && (
+                {initialTab === 'brush' && (
                   <BrushControl
                     brushMode={brushMode}
                     setBrushMode={setBrushMode}
@@ -1041,7 +1029,7 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({ initialTab = 'remo
                   />
                 )}
 
-                {activeTab === 'watermark' && (
+                {initialTab === 'watermark' && (
                   <WatermarkControl
                     watermarkType={watermarkType}
                     setWatermarkType={setWatermarkType}
@@ -1103,7 +1091,7 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({ initialTab = 'remo
                   />
                 )}
 
-                {activeTab === 'compress' && (
+                {initialTab === 'compress' && (
                   <CompressControl
                     quality={compressQuality}
                     setQuality={setCompressQuality}
@@ -1190,7 +1178,7 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({ initialTab = 'remo
                   />
                 )}
 
-                {activeTab === 'convert' && (
+                {initialTab === 'convert' && (
                   <ConvertControl
                     format={convertFormat}
                     setFormat={setConvertFormat}
@@ -1244,7 +1232,7 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({ initialTab = 'remo
                   />
                 )}
 
-                {activeTab === 'resize' && (
+                {initialTab === 'resize' && (
                   <ResizeControl
                     originalWidth={originalDimensions.width}
                     originalHeight={originalDimensions.height}
@@ -1326,7 +1314,7 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({ initialTab = 'remo
                   />
                 )}
 
-                {activeTab === 'crop' && (
+                {initialTab === 'crop' && (
                   <CropControl
                     originalWidth={originalDimensions.width}
                     originalHeight={originalDimensions.height}
@@ -1386,7 +1374,7 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({ initialTab = 'remo
                   />
                 )}
 
-                {activeTab === 'rotate' && (
+                {initialTab === 'rotate' && (
                   <RotateControl
                     rotation={rotationDeg}
                     setRotation={setRotationDeg}
@@ -1445,7 +1433,7 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({ initialTab = 'remo
                   />
                 )}
 
-                {activeTab === 'picker' && (
+                {initialTab === 'picker' && (
                   <ColorPickerControl
                     pickedColor={pickedColor}
                     dominantColors={dominantColors}
