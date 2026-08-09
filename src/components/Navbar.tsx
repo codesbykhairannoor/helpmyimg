@@ -2,7 +2,7 @@
 // Navigasi Atas dengan Pemilih 10 Bahasa dan Lencana Kecepatan AI (Subdirectory Router)
 
 import React, { useState } from 'react';
-import { useLocation, useNavigate, Link } from 'react-router-dom';
+import { useRouter } from '../context/RouterContext';
 import { useTranslation } from '../context/LanguageContext';
 import { useTheme } from '../context/ThemeContext';
 import { SUPPORTED_LANGUAGES, type Language } from '../i18n/translations';
