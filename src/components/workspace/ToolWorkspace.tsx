@@ -2,7 +2,7 @@
 // Ruang Kerja Utama: Drag-and-Drop Batch Upload, Canvas Viewport, Navigasi Tab Utilitas & Engine Selector
 
 import React, { useState, useRef, useEffect, useCallback, Suspense } from 'react';
-import { useParams } from 'react-router-dom';
+import { useRouter } from '../../context/RouterContext';
 import { useTranslation } from '../../context/LanguageContext';
 import { aiService } from '../../services/aiService';
 import { Upload, Download, Loader2, Sparkles, Archive, Trash2, Settings2, ChevronDown } from 'lucide-react';
@@ -79,7 +79,8 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({ initialTab = 'remo
     setPrevInitialTab(initialTab);
   }, [initialTab]);
 
-  const { keywordSlug } = useParams<{ keywordSlug?: string }>();
+  const { route } = useRouter();
+  const { keywordSlug } = route;
 
   useEffect(() => {
     if (keywordSlug) {
