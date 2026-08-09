@@ -365,7 +365,7 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({ initialTab = 'remo
       const nextItem = batchItems.find(
         (i) =>
           i.status === 'queued' &&
-          !['watermark', 'compress', 'convert', 'resize', 'crop', 'rotate', 'picker', 'blurface', 'design'].includes(activeTab)
+          !['watermark', 'compress', 'convert', 'resize', 'crop', 'rotate', 'picker', 'blurface', 'design'].includes(initialTab)
       );
 
       if (nextItem) {
@@ -378,11 +378,11 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({ initialTab = 'remo
     };
     
     processQueue();
-  }, [batchItems, activeTab, processSingleItem]);
+  }, [batchItems, initialTab, processSingleItem]);
 
   // Otomatis hapus background jika masuk ke tab color/remove/brush tapi item belum transparan
   useEffect(() => {
-    if (['remove', 'color', 'brush'].includes(activeTab)) {
+    if (['remove', 'color', 'brush'].includes(initialTab)) {
       setBatchItems((prev) =>
         prev.map((item) => {
           if ((!item.transparentUrl || item.transparentUrl === item.originalUrl || item.status === 'idle') && item.status !== 'processing' && item.status !== 'queued' && item.status !== 'error') {
@@ -396,7 +396,7 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({ initialTab = 'remo
         })
       );
     }
-  }, [activeTab, batchItems.length]);
+  }, [initialTab, batchItems.length]);
 
   // Menerapkan perubahan efek pada gambar terpilih
   const applyCurrentEffect = async () => {
