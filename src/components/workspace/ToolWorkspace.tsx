@@ -301,9 +301,9 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({ initialTab = 'remo
         initialFile: f,
         initialOriginalUrl: url,
         modelType: 'rmbg',
-        status: ['remove', 'color', 'brush'].includes(activeTab) ? 'queued' : 'idle',
+        status: ['remove', 'color', 'brush'].includes(initialTab) ? 'queued' : 'idle',
         progress: 0,
-        progressStep: ['remove', 'color', 'brush'].includes(activeTab) ? t('work.startAi', { defaultValue: 'Memulai AI...' }) : t('work.waiting'),
+        progressStep: ['remove', 'color', 'brush'].includes(initialTab) ? t('work.startAi', { defaultValue: 'Memulai AI...' }) : t('work.waiting'),
       };
     });
 
@@ -311,7 +311,7 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({ initialTab = 'remo
       const merged = [...prev, ...newItems];
       
       // Bypass AI instantly for some tools, otherwise leave as idle or queued
-      if (['watermark', 'compress', 'convert', 'resize', 'crop', 'rotate', 'picker', 'blurface', 'design'].includes(activeTab)) {
+      if (['watermark', 'compress', 'convert', 'resize', 'crop', 'rotate', 'picker', 'blurface', 'design'].includes(initialTab)) {
         return merged.map(i => 
           newItems.some(n => n.id === i.id) 
             ? { ...i, status: 'done', transparentUrl: i.originalUrl, processedUrl: i.originalUrl, progress: 100, progressStep: 'Instan' }
@@ -417,7 +417,7 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({ initialTab = 'remo
     };
 
     try {
-      const transSrc = (activeTab === 'rotate' && currentItem.rotateBaseUrl)
+      const transSrc = (initialTab === 'rotate' && currentItem.rotateBaseUrl)
         ? currentItem.rotateBaseUrl
         : (currentItem.transparentUrl || currentItem.originalUrl);
       await Promise.all([
@@ -432,15 +432,15 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({ initialTab = 'remo
     let resultCanvas: HTMLCanvasElement | null = null;
     let refinedTransImg: HTMLImageElement | HTMLCanvasElement = transImg;
 
-    if (activeTab === 'remove' || activeTab === 'brush') {
+    if (initialTab === 'remove' || initialTab === 'brush') {
       resultCanvas = document.createElement('canvas');
       resultCanvas.width = refinedTransImg.width;
       resultCanvas.height = refinedTransImg.height;
       const ctx = resultCanvas.getContext('2d')!;
       ctx.drawImage(refinedTransImg, 0, 0);
-    } else if (activeTab === 'color') {
+    } else if (initialTab === 'color') {
       resultCanvas = aiService.applyColorBackground(refinedTransImg, selectedColor);
-    } else if (activeTab === 'watermark') {
+    } else if (initialTab === 'watermark') {
       // Watermark applied to the original image!
       resultCanvas = aiService.applyWatermark(
         origImg, 
@@ -453,7 +453,7 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({ initialTab = 'remo
         watermarkScale,
         watermarkRotation
       );
-    } else if (activeTab === 'resize' && resizeWidth > 0 && resizeHeight > 0) {
+    } else if (initialTab === 'resize' && resizeWidth > 0 && resizeHeight > 0) {
       const currentSeq = ++effectSequenceRef.current;
       try {
         let sourceBlob = currentItem.file;
@@ -533,7 +533,7 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({ initialTab = 'remo
 
   useEffect(() => {
     if (debounceTimerRef.current) clearTimeout(debounceTimerRef.current);
-    const delay = activeTab === 'resize' ? 500 : 50;
+    const delay = initialTab === 'resize' ? 500 : 50;
     debounceTimerRef.current = setTimeout(() => {
       applyCurrentEffect();
     }, delay);
@@ -542,7 +542,7 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({ initialTab = 'remo
       if (debounceTimerRef.current) clearTimeout(debounceTimerRef.current);
     };
   }, [
-    activeTab,
+    initialTab,
     selectedColor,
     brushMode,
     watermarkType,
@@ -569,17 +569,17 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({ initialTab = 'remo
 
   // Handle menggambar kuas pada canvas di mode Brush
   const handleCanvasMouseDown = (e: React.MouseEvent<HTMLCanvasElement>) => {
-    if (activeTab === 'picker') {
+    if (initialTab === 'picker') {
       handleCanvasClick(e);
       return;
     }
-    if (activeTab !== 'brush' || !canvasRef.current || !currentItem?.processedUrl) return;
+    if (initialTab !== 'brush' || !canvasRef.current || !currentItem?.processedUrl) return;
     isDrawingRef.current = true;
     drawBrush(e);
   };
 
   const handleCanvasClick = (e: React.MouseEvent<HTMLCanvasElement>) => {
-    if (activeTab !== 'picker' || !canvasRef.current || !currentItem) return;
+    if (initialTab !== 'picker' || !canvasRef.current || !currentItem) return;
     const canvas = canvasRef.current;
     const ctx = canvas.getContext('2d');
     if (!ctx) return;
@@ -659,7 +659,7 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({ initialTab = 'remo
 
   // Render Canvas untuk mode Brush / Picker
   useEffect(() => {
-    if ((activeTab === 'brush' || activeTab === 'picker') && currentItem?.processedUrl && canvasRef.current) {
+    if ((initialTab === 'brush' || initialTab === 'picker') && currentItem?.processedUrl && canvasRef.current) {
       const img = new Image();
       img.src = currentItem.processedUrl;
       img.onload = () => {
@@ -670,14 +670,14 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({ initialTab = 'remo
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         ctx.drawImage(img, 0, 0);
 
-        if (activeTab === 'picker') {
+        if (initialTab === 'picker') {
           // Extract dominant colors on load
           const colors = extractDominantColors(canvas, 8);
           setDominantColors(colors);
         }
       };
     }
-  }, [activeTab, currentItem?.processedUrl]);
+  }, [initialTab, currentItem?.processedUrl]);
 
   const handleUploadOther = useCallback(() => {
     setBatchItems([]);
@@ -755,7 +755,7 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({ initialTab = 'remo
               /* Viewport Gambar Terpilih */
               <div className="space-y-4 lg:static">
                 <div className={`w-full rounded-3xl border border-dark-500/80 bg-dark-900/90 shadow-glass overflow-hidden relative flex items-center justify-center checkerboard-bg transition-all duration-150 ${
-                  activeTab === 'design' ? 'h-[75vh] md:h-auto md:aspect-[4/3]' : 'h-[420px] sm:h-[480px] md:h-[540px] lg:h-auto lg:aspect-[4/3]'
+                  initialTab === 'design' ? 'h-[75vh] md:h-auto md:aspect-[4/3]' : 'h-[420px] sm:h-[480px] md:h-[540px] lg:h-auto lg:aspect-[4/3]'
                 }`}>
                   {currentItem?.status === 'processing' && (
                     <div className="absolute inset-0 bg-dark-900 md:bg-dark-900/80 md:backdrop-blur-md flex flex-col items-center justify-center z-20 space-y-4 p-6 text-center">
@@ -777,7 +777,7 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({ initialTab = 'remo
                     </div>
                   )}
 
-                  {activeTab === 'brush' || activeTab === 'picker' ? (
+                  {initialTab === 'brush' || initialTab === 'picker' ? (
                     <canvas
                       ref={canvasRef}
                       onMouseDown={handleCanvasMouseDown}
@@ -785,13 +785,13 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({ initialTab = 'remo
                       onMouseUp={handleCanvasMouseUp}
                       onMouseLeave={handleCanvasMouseUp}
                       className={`max-h-full max-w-full object-contain shadow-2xl rounded-lg ${
-                        activeTab === 'picker' ? 'cursor-picker' : 'cursor-brush'
+                        initialTab === 'picker' ? 'cursor-picker' : 'cursor-brush'
                       }`}
                     />
                   ) : (
                     (currentItem?.processedUrl || currentItem?.originalUrl) && (
                       <>
-                        {activeTab === 'compress' && currentItem?.compressBlob && currentItem?.compressUrl ? (
+                        {initialTab === 'compress' && currentItem?.compressBlob && currentItem?.compressUrl ? (
                           <ImageCompareSlider
                             beforeImage={currentItem.transparentUrl || currentItem.originalUrl}
                             afterImage={currentItem.compressUrl}
@@ -805,20 +805,20 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({ initialTab = 'remo
                             initial={{ opacity: 0, scale: 0.95 }}
                             animate={{
                               opacity: 1,
-                              scale: activeTab === 'rotate' && Math.abs(rotationDeg % 180) === 90 && originalDimensions.width > originalDimensions.height && originalDimensions.height > 0
+                              scale: initialTab === 'rotate' && Math.abs(rotationDeg % 180) === 90 && originalDimensions.width > originalDimensions.height && originalDimensions.height > 0
                                 ? Math.min(1, originalDimensions.height / originalDimensions.width)
                                 : 1,
-                              rotate: activeTab === 'rotate' ? rotationDeg : 0,
-                              scaleX: activeTab === 'rotate' ? (flipH ? -1 : 1) : 1,
-                              scaleY: activeTab === 'rotate' ? (flipV ? -1 : 1) : 1,
+                              rotate: initialTab === 'rotate' ? rotationDeg : 0,
+                              scaleX: initialTab === 'rotate' ? (flipH ? -1 : 1) : 1,
+                              scaleY: initialTab === 'rotate' ? (flipV ? -1 : 1) : 1,
                             }}
                             transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
-                            src={activeTab === 'blurface' ? currentItem.originalUrl : (currentItem.processedUrl || currentItem.originalUrl)}
+                            src={initialTab === 'blurface' ? currentItem.originalUrl : (currentItem.processedUrl || currentItem.originalUrl)}
                             alt="Image"
                             className="max-h-full max-w-full shadow-2xl rounded-lg object-contain"
                           />
                         )}
-                        {activeTab === 'crop' && (
+                        {initialTab === 'crop' && (
                           <InteractiveCropOverlay
                             imageElement={imageElement}
                             originalWidth={originalDimensions.width}
@@ -1445,7 +1445,7 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({ initialTab = 'remo
                   />
                 )}
 
-                {activeTab === 'blurface' && (
+                {initialTab === 'blurface' && (
                   <BlurFaceControl
                     imageElement={imageElement}
                     boxes={blurBoxes}
@@ -1511,7 +1511,7 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({ initialTab = 'remo
                   />
                 )}
 
-                {activeTab === 'design' && (
+                {initialTab === 'design' && (
                   <div className="flex flex-col bg-dark-900 rounded-2xl border border-dark-600 overflow-hidden shrink-0">
                     <div className="p-4 border-b border-dark-600 bg-dark-800">
                       <h3 className="text-base font-heading font-bold text-white mb-0.5">{t('design.settings')}</h3>
@@ -1547,7 +1547,7 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({ initialTab = 'remo
               </Suspense>
               
               {/* Sidebar Batch Download UI & Rename */}
-              {batchItems.length > 0 && activeTab !== 'picker' && (
+              {batchItems.length > 0 && initialTab !== 'picker' && (
                 <div className="mt-6 pt-6 border-t border-dark-600/60 shrink-0 flex flex-col gap-4">
                   <div className="flex items-center justify-between">
                     <div className="text-[10px] font-bold text-slate-500 uppercase tracking-wider">{t('work.exportSettingsTitle', { defaultValue: 'Export & Download Options' })}</div>
@@ -1652,7 +1652,7 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({ initialTab = 'remo
                             showToast(t('work.emptyFileNameAlert', { defaultValue: 'Nama file tidak boleh kosong! / File name cannot be empty!' }));
                             return;
                           }
-                          trackEvent('file_downloaded', { count: batchItems.length, type: 'zip', tool: activeTab });
+                          trackEvent('file_downloaded', { count: batchItems.length, type: 'zip', tool: initialTab });
                           handleZipDownload();
                         }}
                         disabled={isZipping || batchItems.some(i => i.status !== 'done')}
@@ -1670,7 +1670,7 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({ initialTab = 'remo
                             return;
                           }
                           if (!item) return;
-                          trackEvent('file_downloaded', { count: 1, type: 'single', tool: activeTab });
+                          trackEvent('file_downloaded', { count: 1, type: 'single', tool: initialTab });
 
                           // For single resize, the auto-save (debounce) has already updated processedUrl.
                           // We just download it directly like any other effect.
