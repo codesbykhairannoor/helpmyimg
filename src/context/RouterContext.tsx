@@ -88,19 +88,25 @@ export const RouterProvider: React.FC<{ children: React.ReactNode }> = ({ childr
 
   const navigatePath = (path: string) => {
     if (window.location.pathname !== path) {
+      const coreCurrent = getCorePath(window.location.pathname);
+      const coreNew = getCorePath(path);
+      
       window.history.pushState({}, '', path);
       setRoute(parseUrl());
-      window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
+      
+      if (coreCurrent !== coreNew) {
+        window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
+      }
     }
   };
 
-  const getCorePath = (path: string) => {
+  function getCorePath(path: string) {
     const parts = path.split('/').filter(Boolean);
     if (parts.length > 0 && parts[0].length === 2) {
       return parts.slice(1).join('/');
     }
     return parts.join('/');
-  };
+  }
 
   return (
     <RouterContext.Provider value={{ route, navigate, navigatePath }}>
