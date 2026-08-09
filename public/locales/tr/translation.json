@@ -1466,9 +1466,19 @@
   "hero.subtitle.short": "Fotoğrafları doğrudan tarayıcınızda birleştirin, bölün, sıkıştırın, dönüştürün ve işleyin. WebAssembly aracılığıyla %100 çevrimdışı. Ücretsiz, sınırsız ve son derece güvenli.",
   "hero.search.placeholder": "Arama araçları (BG'yi Kaldır, Sıkıştır, Düzenle)...",
   "footer": {
-    "about": "Hakkımızda"
+    "about": "Hakkımızda",
+    "resources": "Kaynaklar",
+    "terms": "Hizmet Şartları",
+    "pricing": "Fiyatlandırma",
+    "privacy": "Gizlilik Politikası",
+    "compare": "Karşılaştırmak",
+    "security": "Güvenlik ve Güven",
+    "languages": "Desteklenen Diller"
   },
   "info": {
     "freePromo": "%100 Ücretsiz, 0 Rupiah, Abonelik Yok. Hiçbir gizli ücret veya kredi kartı gerekmez."
+  },
+  "nav": {
+    "faq": "SSS"
   }
 }

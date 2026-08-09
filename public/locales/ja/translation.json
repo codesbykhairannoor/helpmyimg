@@ -1466,9 +1466,19 @@
   "hero.subtitle.short": "ブラウザ内で写真を直接結合、分割、圧縮、変換、処理できます。 WebAssembly 経由で 100% オフライン。無料、無制限、そして非常に安全です。",
   "hero.search.placeholder": "検索ツール (BG の削除、圧縮、編集)...",
   "footer": {
-    "about": "私たちについて"
+    "about": "私たちについて",
+    "terms": "利用規約",
+    "privacy": "プライバシーポリシー",
+    "resources": "リソース",
+    "compare": "比較する",
+    "pricing": "価格設定",
+    "languages": "サポートされている言語",
+    "security": "セキュリティと信頼"
   },
   "info": {
     "freePromo": "完全無料、0 ルピア、サブスクリプションなし。隠れた料金やクレジットカードは必要ありません。"
+  },
+  "nav": {
+    "faq": "よくある質問"
   }
 }

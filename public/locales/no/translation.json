@@ -1466,9 +1466,19 @@
   "hero.subtitle.short": "Kombiner, del, komprimer, konverter og bearbeid bilder direkte i nettleseren din. 100 % offline via WebAssembly. Gratis, ubegrenset og svært sikker.",
   "hero.search.placeholder": "Søkeverktøy (Fjern BG, Komprimer, Rediger)...",
   "footer": {
-    "about": "Om oss"
+    "about": "Om oss",
+    "privacy": "Personvernerklæring",
+    "terms": "Vilkår for bruk",
+    "pricing": "Prissetting",
+    "compare": "Sammenligne",
+    "resources": "Ressurser",
+    "languages": "Støttede språk",
+    "security": "Sikkerhet og tillit"
   },
   "info": {
     "freePromo": "100 % gratis, 0 rupiah, ingen abonnementer. Ingen skjulte gebyrer eller kredittkort kreves."
+  },
+  "nav": {
+    "faq": "FAQ"
   }
 }

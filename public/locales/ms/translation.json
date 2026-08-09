@@ -1466,9 +1466,19 @@
   "hero.subtitle.short": "Gabungkan, belah, mampatkan, tukar dan proses foto terus dalam penyemak imbas anda. 100% di luar talian melalui WebAssembly. Percuma, tidak terhad dan sangat selamat.",
   "hero.search.placeholder": "Alat carian (Alih Keluar BG, Mampat, Edit)...",
   "footer": {
-    "about": "Tentang Kami"
+    "about": "Tentang Kami",
+    "terms": "Syarat Perkhidmatan",
+    "resources": "Sumber",
+    "privacy": "Dasar Privasi",
+    "pricing": "penetapan harga",
+    "compare": "Bandingkan",
+    "languages": "Bahasa yang Disokong",
+    "security": "Keselamatan & Amanah"
   },
   "info": {
     "freePromo": "100% Percuma, 0 Rupiah, Tiada Langganan. Tiada yuran tersembunyi atau kad kredit diperlukan."
+  },
+  "nav": {
+    "faq": "Soalan Lazim"
   }
 }

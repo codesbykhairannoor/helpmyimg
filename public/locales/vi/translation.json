@@ -1466,9 +1466,19 @@
   "hero.subtitle.short": "Kết hợp, tách, nén, chuyển đổi và xử lý ảnh trực tiếp trong trình duyệt của bạn. Ngoại tuyến 100% qua WebAssugging. Miễn phí, không giới hạn và có tính bảo mật cao.",
   "hero.search.placeholder": "Công cụ tìm kiếm (Xóa BG, Nén, Chỉnh sửa)...",
   "footer": {
-    "about": "Về chúng tôi"
+    "about": "Về chúng tôi",
+    "pricing": "Định giá",
+    "compare": "So sánh",
+    "terms": "Điều khoản dịch vụ",
+    "security": "Bảo mật & Tin cậy",
+    "privacy": "Chính sách bảo mật",
+    "resources": "Tài nguyên",
+    "languages": "Ngôn ngữ được hỗ trợ"
   },
   "info": {
     "freePromo": "Miễn phí 100%, 0 Rupiah, Không đăng ký. Không có phí ẩn hoặc thẻ tín dụng cần thiết."
+  },
+  "nav": {
+    "faq": "Câu hỏi thường gặp"
   }
 }

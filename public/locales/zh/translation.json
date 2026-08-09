@@ -1466,9 +1466,19 @@
   "hero.subtitle.short": "直接在浏览器中组合、分割、压缩、转换和处理照片。通过 WebAssembly 100% 离线。免费、无限制且高度安全。",
   "hero.search.placeholder": "搜索工具（删除背景、压缩、编辑）...",
   "footer": {
-    "about": "关于我们"
+    "about": "关于我们",
+    "privacy": "隐私政策",
+    "compare": "比较",
+    "pricing": "定价",
+    "resources": "资源",
+    "security": "安全与信任",
+    "terms": "服务条款",
+    "languages": "支持的语言"
   },
   "info": {
     "freePromo": "100% 免费，0 卢比，无需订阅。无需隐藏费用或信用卡。"
+  },
+  "nav": {
+    "faq": "常问问题"
   }
 }

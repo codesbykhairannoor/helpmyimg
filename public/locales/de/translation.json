@@ -1458,9 +1458,160 @@
   "hero.subtitle.short": "Kombinieren, teilen, komprimieren, konvertieren und verarbeiten Sie Fotos direkt in Ihrem Browser. 100 % offline über WebAssembly. Kostenlos, unbegrenzt und äußerst sicher.",
   "hero.search.placeholder": "Suchwerkzeuge (BG entfernen, Komprimieren, Bearbeiten) ...",
   "footer": {
-    "about": "Über uns"
+    "about": "Über uns",
+    "resources": "Ressourcen",
+    "security": "Sicherheit und Vertrauen",
+    "pricing": "Preise",
+    "compare": "Vergleichen",
+    "languages": "Unterstützte Sprachen",
+    "terms": "Nutzungsbedingungen",
+    "privacy": "Datenschutzrichtlinie"
   },
   "info": {
-    "freePromo": "100 % kostenlos, 0 Rupiah, keine Abonnements. Keine versteckten Gebühren oder Kreditkarten erforderlich."
+    "freePromo": "100 % kostenlos, 0 Rupiah, keine Abonnements."
+  },
+  "security": {
+    "title": "Ihre Daten verlassen niemals Ihr Gerät.",
+    "subtitle": "Erleben Sie 100 % private KI-Bildbearbeitung mit lokaler WebAssembly. Wir können Ihre Fotos nicht sehen, speichern oder verkaufen, da sie niemals unsere Server erreichen.",
+    "badge": "ZERO-TRUST-SICHERHEITSMODELL",
+    "s2": {
+      "title": "Clientseitige Verarbeitungsausführung",
+      "desc": "Herkömmliche Bildbearbeitungsprogramme laden Ihre sensiblen Dateien auf ihre Cloud-Server hoch und setzen sie so der Gefahr von Sicherheitsverletzungen aus. HelpMyIMG lädt das KI-Neuronale Netzwerk (Wasm) direkt in den Speicher Ihres Browsers herunter und verarbeitet alles lokal.",
+      "graphic": "Cloud-Uploads intern deaktiviert"
+    },
+    "s3": {
+      "title": "Globale Datenschutz-Compliance"
+    },
+    "s4": {
+      "title": "Datenflussvergleich",
+      "old": "Traditionelle Cloud-Editoren",
+      "new": "HelpMyIMG Local Engine"
+    },
+    "s5": {
+      "title": "Don\\",
+      "desc": "Nach dem Laden der Seite können Sie die Verbindung zum Internet trennen und die KI funktioniert weiterhin einwandfrei. Das ist der ultimative mathematische Beweis für Privatsphäre."
+    },
+    "faq": {
+      "title": "Sicherheits-FAQ"
+    },
+    "faq1": {
+      "q": "Ist HelpMyIMG wirklich sicher?",
+      "a": "Ja. Durch die Verwendung von WebAssembly verarbeitet die KI Bilder direkt auf Ihrem lokalen Gerät. Wir empfangen Ihre Dateien niemals auf unseren Servern."
+    },
+    "faq2": {
+      "q": "Speichern Sie meine verarbeiteten Bilder?",
+      "a": "Nein. Da nichts hochgeladen wird, müssen wir auch nichts speichern. Alles geschieht im Speicher Ihres Browsers."
+    },
+    "faq3": {
+      "q": "Sind Sie DSGVO- und CCPA-konform?",
+      "a": "Ja, von Natur aus. Da wir keine Daten aus der Bildverarbeitungspipeline erfassen, umgehen wir die strengsten Einwilligungsanforderungen vollständig."
+    }
+  },
+  "pricing": {
+    "title": "Hören Sie auf, für Cloud AI zu bezahlen.",
+    "subtitle": "Bildverarbeitung auf Unternehmensniveau, absolut kostenlos.",
+    "tierName": "Unbegrenzter Edge-Plan",
+    "period": "Für immer. Keine Kreditkarte erforderlich.",
+    "s3": {
+      "title": "Wie viel sparen Sie?"
+    },
+    "s4": {
+      "title": "Warum ist es 100 % kostenlos?",
+      "desc1": "Cloud-Unternehmen verlangen Geld, weil die Ausführung von KI auf Cloud-GPUs unglaublich teuer ist. Jedes Mal, wenn Sie ein Bild hochladen, kostet es Serverleistung.",
+      "desc2": "HelpMyIMG verwendet WebAssembly, um die KI direkt in Ihrem Browser auszuführen. Weil wir es nicht tun",
+      "boxTitle": "Unendliche Skalierbarkeit",
+      "boxDesc": "Da Ihr Gerät die Rechenleistung übernimmt, kann unsere Plattform Millionen von Benutzern gleichzeitig bedienen, ohne dass dies zu einer Verlangsamung oder Erhöhung unserer Kosten führt."
+    },
+    "s5": {
+      "title": "Keine Konten. Keine Kreditkarten. Kein Blödsinn.",
+      "desc": "Öffnen Sie einfach die Website und beginnen Sie mit der Verarbeitung. Wir respektieren Ihre Zeit und Ihre Privatsphäre."
+    },
+    "faq": {
+      "title": "Häufig gestellte Fragen zur Preisgestaltung"
+    },
+    "faq1": {
+      "q": "Gibt es wirklich keine versteckten Kosten?",
+      "a": "Absolut Null. Sie erhalten alle Enterprise-Funktionen kostenlos, ohne jemals eine Kreditkarte angeben zu müssen."
+    },
+    "faq2": {
+      "q": "Wie verdient man Geld, wenn es kostenlos ist?",
+      "a": "Unsere Serverkosten liegen praktisch bei null, da Ihr Gerät die Rechenleistung übernimmt. Wir sind auf Anzeigen und optionale Spenden angewiesen, um das Licht am Laufen zu halten."
+    },
+    "faq3": {
+      "q": "Werden Sie jemals mit dem Aufladen beginnen?",
+      "a": "Die Kernfunktionen der lokalen Verarbeitung bleiben für immer kostenlos. Wir glauben, dass KI-Bildverarbeitung ein grundlegendes Menschenrecht und kein Luxus sein sollte."
+    }
+  },
+  "compare": {
+    "title": "HelpMyIMG vs. The Rest",
+    "subtitle": "Wir haben die KI-Bildverarbeitung von Grund auf neu entwickelt, um sie lokal ausführen zu können. Erfahren Sie, warum die Cloud veraltet ist.",
+    "badge": "KOPF-AN-KOPF-VERGLEICH",
+    "s3": {
+      "title": "Netzwerklatenz ist der Feind.",
+      "desc": "Cloud-Editoren verschwenden 80 % Ihrer Zeit damit, Dateien hin und her zu übertragen. Durch die Verarbeitung direkt auf Ihrer Hardware eliminieren wir das Netzwerk vollständig, was zu bis zu 5-mal schnelleren Geschwindigkeiten führt."
+    },
+    "s4": {
+      "title": "Funktioniert ohne Internet.",
+      "desc": "Sobald die Seite geladen ist, können Sie die Verbindung zum WLAN trennen. Die KI-Modelle laufen komplett lokal über Ihren Browser\\"
+    },
+    "s5": {
+      "title": "Keine Kompromisse bei der Qualität"
+    },
+    "faq": {
+      "title": "Vergleichs-FAQ"
+    },
+    "faq1": {
+      "q": "Warum ist HelpMyIMG schneller als Cloud-APIs?",
+      "a": "Cloud-APIs leiden unter Netzwerklatenz (Hochladen und Herunterladen großer Bilder). Wir eliminieren das Netzwerk und laufen mit nativer Gerätegeschwindigkeit."
+    },
+    "faq2": {
+      "q": "Entlädt die lokale Verarbeitung meinen Akku?",
+      "a": "Unsere WebAssembly-Modelle sind hochoptimiert. Es verbraucht zwar CPU, ist aber ein Sekundenbruchteil, der weniger Energie verbraucht als das Ansehen eines YouTube-Videos."
+    },
+    "faq3": {
+      "q": "Wie ist der Offline-Modus möglich?",
+      "a": "Sobald die Assets der Website geladen sind, läuft die gesamte KI-Mathematiklogik innerhalb der Browser-Engine selbst und erfordert keine Internetverbindung."
+    }
+  },
+  "languages": {
+    "title": "Entworfen für die Welt.",
+    "subtitle": "Wir glauben, dass leistungsstarke KI für jeden und überall zugänglich sein sollte. Aus diesem Grund ist HelpMyIMG nativ in 30 verschiedene Sprachen lokalisiert.",
+    "badge": "GLOBALE ZUGÄNGLICHKEIT",
+    "s2": {
+      "title": "Wählen Sie Ihre Muttersprache",
+      "desc": "Klicken Sie unten auf eine beliebige Sprache, um sofort die gesamte Anwendungsoberfläche zu wechseln."
+    },
+    "s3": {
+      "title": "Mehr als nur automatische Übersetzung.",
+      "desc": "Wir nicht"
+    },
+    "s4": {
+      "title": "Kein Neuladen der Seite.",
+      "desc": "Unsere i18n-Engine basiert auf dem React-Kontext und tauscht alle über 1.500 Übersetzungszeichenfolgen sofort aus, ohne die Seite zu aktualisieren oder Ihre Arbeit zu unterbrechen."
+    },
+    "s5": {
+      "title": "Vermissen Sie Ihre Sprache?",
+      "desc": "Wir expandieren ständig. Teilen Sie uns mit, wenn Sie HelpMyIMG in Ihrer Muttersprache benötigen.",
+      "btn": "Übersetzung anfordern"
+    },
+    "faq": {
+      "title": "Häufig gestellte Fragen zur Lokalisierung"
+    },
+    "faq1": {
+      "q": "Sind die Übersetzungen korrekt?",
+      "a": "Wir kombinieren fortschrittliche neuronale maschinelle Übersetzung mit menschlicher Aufsicht, um sicherzustellen, dass der technische Kontext und die SEO-Strukturen erhalten bleiben."
+    },
+    "faq2": {
+      "q": "Wie beantrage ich eine neue Sprache?",
+      "a": "Sie können sich an unser Support-Team wenden oder ein Problem in unserem öffentlichen Repository eröffnen. Unser Ziel ist es, so viele Dialekte wie möglich zu unterstützen."
+    },
+    "faq3": {
+      "q": "Beeinträchtigt ein Sprachwechsel die Leistung?",
+      "a": "Gar nicht. Unsere React-Kontext-Engine tauscht das Wörterbuch in 0 ms aus, ohne dass ein vollständiges Neuladen der Seite erforderlich ist."
+    }
+  },
+  "nav": {
+    "compress": "Bild komprimieren",
+    "faq": "FAQ"
   }
 }

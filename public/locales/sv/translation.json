@@ -1466,9 +1466,19 @@
   "hero.subtitle.short": "Kombinera, dela, komprimera, konvertera och bearbeta foton direkt i din webbläsare. 100 % offline via WebAssembly. Gratis, obegränsad och mycket säker.",
   "hero.search.placeholder": "Sökverktyg (Ta bort BG, Komprimera, Redigera)...",
   "footer": {
-    "about": "Om oss"
+    "about": "Om oss",
+    "resources": "Resurser",
+    "privacy": "Sekretesspolicy",
+    "compare": "Jämföra",
+    "terms": "Användarvillkor",
+    "pricing": "Prissättning",
+    "languages": "Språk som stöds",
+    "security": "Säkerhet & tillit"
   },
   "info": {
     "freePromo": "100 % gratis, 0 rupier, inga prenumerationer. Inga dolda avgifter eller kreditkort krävs."
+  },
+  "nav": {
+    "faq": "FAQ"
   }
 }

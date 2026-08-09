@@ -1493,9 +1493,160 @@
   "hero.subtitle.short": "Combine, split, compress, convert, and process photos directly in your browser. 100% offline via WebAssembly. Free, unlimited, and highly secure.",
   "hero.search.placeholder": "Search tools (Remove BG, Compress, Edit)...",
   "footer": {
-    "about": "About Us"
+    "about": "About Us",
+    "resources": "Resources",
+    "security": "Security & Trust",
+    "pricing": "Pricing",
+    "compare": "Compare",
+    "languages": "Supported Languages",
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Service"
   },
   "info": {
-    "freePromo": "100% Free, 0 Rupiah, No Subscriptions. No hidden fees or credit cards required."
+    "freePromo": "100% Free, 0 Rupiah, No Subscriptions."
+  },
+  "security": {
+    "title": "Your Data Never Leaves Your Device.",
+    "subtitle": "Experience 100% private AI image editing powered by local WebAssembly. We cannot see, store, or sell your photos because they never reach our servers.",
+    "badge": "ZERO-TRUST SECURITY MODEL",
+    "s2": {
+      "title": "Client-Side Processing Execution",
+      "desc": "Traditional image editors upload your sensitive files to their cloud servers, exposing them to breaches. HelpMyIMG downloads the AI neural network (Wasm) directly to your browser memory, processing everything locally.",
+      "graphic": "Cloud Uploads Disabled Internally"
+    },
+    "s3": {
+      "title": "Global Privacy Compliance"
+    },
+    "s4": {
+      "title": "Data Flow Comparison",
+      "old": "Traditional Cloud Editors",
+      "new": "HelpMyIMG Local Engine"
+    },
+    "s5": {
+      "title": "Don\\",
+      "desc": "You can disconnect from the internet after loading the page, and the AI will still function perfectly. That is the ultimate mathematical proof of privacy."
+    },
+    "faq": {
+      "title": "Security FAQ"
+    },
+    "faq1": {
+      "q": "Is HelpMyIMG really secure?",
+      "a": "Yes. By using WebAssembly, the AI processes images directly on your local device. We never receive your files on our servers."
+    },
+    "faq2": {
+      "q": "Do you store my processed images?",
+      "a": "No. Since nothing is uploaded, there is nothing for us to store. Everything happens in your browser's memory."
+    },
+    "faq3": {
+      "q": "Are you GDPR and CCPA compliant?",
+      "a": "Yes, inherently. Because we collect zero data from the image processing pipeline, we bypass most strict consent requirements entirely."
+    }
+  },
+  "pricing": {
+    "title": "Stop Paying for Cloud AI.",
+    "subtitle": "Enterprise-grade image processing, absolutely free.",
+    "tierName": "Unlimited Edge Plan",
+    "period": "Forever. No credit card required.",
+    "s3": {
+      "title": "How much will you save?"
+    },
+    "s4": {
+      "title": "Why is it 100% Free?",
+      "desc1": "Cloud companies charge you money because running AI on cloud GPUs is incredibly expensive. Every time you upload an image, it costs them server power.",
+      "desc2": "HelpMyIMG uses WebAssembly to run the AI directly inside your browser. Because we don\\",
+      "boxTitle": "Infinite Scalability",
+      "boxDesc": "Since your device does the computing, our platform can handle millions of users simultaneously without slowing down or increasing our costs."
+    },
+    "s5": {
+      "title": "No Accounts. No Credit Cards. No Bullshit.",
+      "desc": "Just open the website and start processing. We respect your time and your privacy."
+    },
+    "faq": {
+      "title": "Pricing FAQ"
+    },
+    "faq1": {
+      "q": "Is there really no hidden cost?",
+      "a": "Absolutely zero. You get all enterprise features for free without ever entering a credit card."
+    },
+    "faq2": {
+      "q": "How do you make money if it's free?",
+      "a": "Our server costs are effectively zero since your device does the computing. We rely on ads and optional donations to keep the lights on."
+    },
+    "faq3": {
+      "q": "Will you ever start charging?",
+      "a": "The core local-processing features will remain free forever. We believe AI image processing should be a basic human right, not a luxury."
+    }
+  },
+  "compare": {
+    "title": "HelpMyIMG vs The Rest",
+    "subtitle": "We rebuilt AI image processing from the ground up to run locally. See why the cloud is obsolete.",
+    "badge": "HEAD-TO-HEAD COMPARISON",
+    "s3": {
+      "title": "Network Latency is the Enemy.",
+      "desc": "Cloud editors waste 80% of your time just transferring files back and forth. By processing directly on your hardware, we eliminate the network entirely, resulting in speeds up to 5x faster."
+    },
+    "s4": {
+      "title": "Works Without Internet.",
+      "desc": "Once the page loads, you can disconnect from Wi-Fi. The AI models run completely locally via your browser\\"
+    },
+    "s5": {
+      "title": "No Compromise on Quality"
+    },
+    "faq": {
+      "title": "Comparison FAQ"
+    },
+    "faq1": {
+      "q": "Why is HelpMyIMG faster than cloud APIs?",
+      "a": "Cloud APIs suffer from network latency (uploading and downloading large images). We eliminate the network, running at native device speeds."
+    },
+    "faq2": {
+      "q": "Does local processing drain my battery?",
+      "a": "Our WebAssembly models are highly optimized. While it uses CPU, it's a split-second operation that uses less energy than watching a YouTube video."
+    },
+    "faq3": {
+      "q": "How is offline mode possible?",
+      "a": "Once the website's assets load, all the AI math logic runs within the browser engine itself, requiring zero internet connection."
+    }
+  },
+  "languages": {
+    "title": "Designed for the World.",
+    "subtitle": "We believe powerful AI should be accessible to everyone, everywhere. That is why HelpMyIMG is natively localized into 30 different languages.",
+    "badge": "GLOBAL ACCESSIBILITY",
+    "s2": {
+      "title": "Select Your Native Language",
+      "desc": "Click on any language below to instantly switch the entire application interface."
+    },
+    "s3": {
+      "title": "More Than Just Auto-Translate.",
+      "desc": "We don\\"
+    },
+    "s4": {
+      "title": "Zero Page Reloads.",
+      "desc": "Built on React context, our i18n engine swaps all 1,500+ translation strings instantly without refreshing the page or interrupting your work."
+    },
+    "s5": {
+      "title": "Missing Your Language?",
+      "desc": "We are constantly expanding. Let us know if you need HelpMyIMG in your native tongue.",
+      "btn": "Request Translation"
+    },
+    "faq": {
+      "title": "Localization FAQ"
+    },
+    "faq1": {
+      "q": "Are the translations accurate?",
+      "a": "We combine advanced neural machine translation with human oversight to ensure technical context and SEO structures are preserved."
+    },
+    "faq2": {
+      "q": "How do I request a new language?",
+      "a": "You can contact our support team or open an issue on our public repository. We aim to support as many dialects as possible."
+    },
+    "faq3": {
+      "q": "Does changing language affect performance?",
+      "a": "Not at all. Our React context engine swaps out the dictionary in 0ms without requiring a full page reload."
+    }
+  },
+  "nav": {
+    "compress": "Compress Image",
+    "faq": "FAQ"
   }
 }

@@ -1466,9 +1466,19 @@
   "hero.subtitle.short": "Pagsamahin, hatiin, i-compress, i-convert, at iproseso ang mga larawan nang direkta sa iyong browser. 100% offline sa pamamagitan ng WebAssembly. Libre, walang limitasyon, at lubos na secure.",
   "hero.search.placeholder": "Mga tool sa paghahanap (Alisin ang BG, I-compress, I-edit)...",
   "footer": {
-    "about": "Tungkol sa Amin"
+    "about": "Tungkol sa Amin",
+    "terms": "Mga Tuntunin ng Serbisyo",
+    "resources": "Mga mapagkukunan",
+    "compare": "Ikumpara",
+    "privacy": "Patakaran sa Privacy",
+    "pricing": "Pagpepresyo",
+    "languages": "Mga Sinusuportahang Wika",
+    "security": "Seguridad at Tiwala"
   },
   "info": {
     "freePromo": "100% Libre, 0 Rupiah, Walang Subscription. Walang kinakailangang mga nakatagong bayad o credit card."
+  },
+  "nav": {
+    "faq": "FAQ"
   }
 }

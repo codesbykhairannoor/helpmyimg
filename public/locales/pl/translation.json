@@ -1471,9 +1471,19 @@
   "hero.subtitle.short": "Łącz, dziel, kompresuj, konwertuj i przetwarzaj zdjęcia bezpośrednio w przeglądarce. 100% offline poprzez WebAssembly. Bezpłatny, nieograniczony i wysoce bezpieczny.",
   "hero.search.placeholder": "Narzędzia wyszukiwania (Usuń BG, Kompresuj, Edytuj)...",
   "footer": {
-    "about": "O nas"
+    "about": "O nas",
+    "resources": "Zasoby",
+    "pricing": "Wycena",
+    "terms": "Warunki świadczenia usług",
+    "privacy": "Polityka prywatności",
+    "languages": "Obsługiwane języki",
+    "compare": "Porównywać",
+    "security": "Bezpieczeństwo i zaufanie"
   },
   "info": {
     "freePromo": "100% za darmo, 0 rupii, bez subskrypcji. Nie są wymagane żadne ukryte opłaty ani karty kredytowe."
+  },
+  "nav": {
+    "faq": "Często zadawane pytania"
   }
 }

@@ -1466,9 +1466,19 @@
   "hero.subtitle.short": "브라우저에서 직접 사진을 결합, 분할, 압축, 변환 및 처리합니다. WebAssembly를 통해 100% 오프라인. 무료이며 무제한이며 매우 안전합니다.",
   "hero.search.placeholder": "검색 도구(BG 제거, 압축, 편집)...",
   "footer": {
-    "about": "회사 소개"
+    "about": "회사 소개",
+    "resources": "자원",
+    "privacy": "개인 정보 보호 정책",
+    "terms": "서비스 약관",
+    "pricing": "가격",
+    "compare": "비교하다",
+    "security": "보안 및 신뢰",
+    "languages": "지원되는 언어"
   },
   "info": {
     "freePromo": "100% 무료, 0 루피아, 구독 없음. 숨겨진 수수료나 신용카드가 필요하지 않습니다."
+  },
+  "nav": {
+    "faq": "FAQ"
   }
 }

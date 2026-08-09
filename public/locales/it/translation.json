@@ -1466,9 +1466,19 @@
   "hero.subtitle.short": "Combina, dividi, comprimi, converti ed elabora le foto direttamente nel tuo browser. 100% offline tramite WebAssembly. Gratuito, illimitato e altamente sicuro.",
   "hero.search.placeholder": "Strumenti di ricerca (Rimuovi BG, Comprimi, Modifica)...",
   "footer": {
-    "about": "Chi siamo"
+    "about": "Chi siamo",
+    "terms": "Termini di servizio",
+    "pricing": "Prezzi",
+    "privacy": "politica sulla riservatezza",
+    "resources": "Risorse",
+    "compare": "Confrontare",
+    "languages": "Lingue supportate",
+    "security": "Sicurezza e fiducia"
   },
   "info": {
     "freePromo": "100% gratuito, 0 rupie, nessun abbonamento. Non sono richieste commissioni nascoste o carte di credito."
+  },
+  "nav": {
+    "faq": "Domande frequenti"
   }
 }

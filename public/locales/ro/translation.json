@@ -1466,9 +1466,19 @@
   "hero.subtitle.short": "Combinați, împărțiți, comprimați, convertiți și procesați fotografiile direct în browser. 100% offline prin WebAssembly. Gratuit, nelimitat și foarte sigur.",
   "hero.search.placeholder": "Instrumente de căutare (Eliminare BG, Comprimare, Editare)...",
   "footer": {
-    "about": "Despre noi"
+    "about": "Despre noi",
+    "privacy": "Politica de confidențialitate",
+    "pricing": "Prețuri",
+    "languages": "Limbi acceptate",
+    "resources": "Resurse",
+    "compare": "Comparaţie",
+    "terms": "Termeni și condiții",
+    "security": "Securitate și încredere"
   },
   "info": {
     "freePromo": "100% gratuit, 0 rupie, fără abonamente. Nu sunt necesare taxe ascunse sau carduri de credit."
+  },
+  "nav": {
+    "faq": "FAQ"
   }
 }

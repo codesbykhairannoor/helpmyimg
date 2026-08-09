@@ -1466,9 +1466,157 @@
   "hero.subtitle.short": "Yhdistä, jaa, pakkaa, muunna ja käsittele valokuvia suoraan selaimessasi. 100 % offline-tilassa WebAssemblyn kautta. Ilmainen, rajoittamaton ja erittäin turvallinen.",
   "hero.search.placeholder": "Hakutyökalut (poista BG, pakkaa, muokkaa)...",
   "footer": {
-    "about": "Tietoja meistä"
+    "about": "Tietoja meistä",
+    "resources": "Resurssit",
+    "security": "Turvallisuus ja luottamus",
+    "pricing": "Hinnoittelu",
+    "compare": "Vertaa",
+    "languages": "Tuetut kielet",
+    "terms": "Palveluehdot",
+    "privacy": "Tietosuojakäytäntö"
   },
   "info": {
-    "freePromo": "100 % ilmainen, 0 rupiaa, ei tilauksia. Piilotettuja maksuja tai luottokortteja ei vaadita."
+    "freePromo": "100 % ilmainen, 0 rupiaa, ei tilauksia."
+  },
+  "security": {
+    "title": "Tietosi eivät koskaan poistu laitteestasi.",
+    "subtitle": "Koe 100 % yksityinen tekoälykuvankäsittely paikallisen WebAssemblyn avulla. Emme voi nähdä, tallentaa tai myydä valokuviasi, koska ne eivät koskaan pääse palvelimillemme.",
+    "badge": "ZERO-TRUST TURVALLISUUSMALLI",
+    "s2": {
+      "title": "Asiakaspuolen käsittelyn suoritus",
+      "desc": "Perinteiset kuvankäsittelyohjelmat lataavat arkaluontoiset tiedostosi pilvipalvelimilleen altistaen ne tietomurroille. HelpMyIMG lataa tekoälyn hermoverkon (Wasm) suoraan selaimesi muistiin ja käsittelee kaiken paikallisesti.",
+      "graphic": "Pilvilataukset poistettu käytöstä sisäisesti"
+    },
+    "s3": {
+      "title": "Global Privacy Compliance"
+    },
+    "s4": {
+      "title": "Tietovirran vertailu",
+      "old": "Perinteiset pilvieditorit",
+      "new": "HelpMyIMG Local Engine"
+    },
+    "s5": {
+      "title": "Don\\",
+      "desc": "Voit katkaista yhteyden Internetiin sivun lataamisen jälkeen, ja tekoäly toimii edelleen täydellisesti. Se on perimmäinen matemaattinen todiste yksityisyydestä."
+    },
+    "faq": {
+      "title": "Turvallisuus UKK"
+    },
+    "faq1": {
+      "q": "Onko HelpMyIMG todella turvallinen?",
+      "a": "Kyllä. WebAssemblyn avulla tekoäly käsittelee kuvia suoraan paikallisella laitteellasi. Emme koskaan saa tiedostojasi palvelimillemme."
+    },
+    "faq2": {
+      "q": "Tallennatko käsitellyt kuvani?",
+      "a": "Ei. Koska mitään ei ole ladattu, meillä ei ole mitään tallennettavaa. Kaikki tapahtuu selaimesi muistissa."
+    },
+    "faq3": {
+      "q": "Oletko GDPR- ja CCPA-yhteensopiva?",
+      "a": "Kyllä, luonnostaan. Koska keräämme nolladataa kuvankäsittelyputkesta, ohitamme useimmat tiukat suostumusvaatimukset kokonaan."
+    }
+  },
+  "pricing": {
+    "title": "Lopeta Cloud AI:n maksaminen.",
+    "subtitle": "Yritystason kuvankäsittely, täysin ilmainen.",
+    "tierName": "Rajoittamaton reunasuunnitelma",
+    "period": "Ikuisesti. Luottokorttia ei vaadita.",
+    "s4": {
+      "title": "Miksi se on 100% ilmainen?",
+      "desc1": "Pilviyritykset veloittavat sinulta rahaa, koska tekoälyn käyttäminen pilvigrafiikkasuorittimilla on uskomattoman kallista. Joka kerta kun lataat kuvan, se maksaa heille palvelimen tehon.",
+      "desc2": "HelpMyIMG käyttää WebAssemblya AI:n suorittamiseen suoraan selaimessasi. koska emme\\",
+      "boxTitle": "Rajaton skaalautuvuus",
+      "boxDesc": "Koska laitteesi suorittaa tietojenkäsittelyn, alustamme voi käsitellä miljoonia käyttäjiä samanaikaisesti hidastamatta tai nostamatta kustannuksia."
+    },
+    "s5": {
+      "title": "Ei tilejä. Ei luottokortteja. Ei paskaa.",
+      "desc": "Avaa vain verkkosivusto ja aloita käsittely. Kunnioitamme aikaasi ja yksityisyyttäsi."
+    },
+    "faq": {
+      "title": "Hinnoittelun UKK"
+    },
+    "faq1": {
+      "q": "Eikö todellakaan ole piilokuluja?",
+      "a": "Ehdottomasti nolla. Saat kaikki yritysominaisuudet ilmaiseksi ilman luottokorttia."
+    },
+    "faq2": {
+      "q": "Miten ansaitset rahaa, jos se on ilmaista?",
+      "a": "Palvelimemme kustannukset ovat käytännössä nolla, koska laitteesi suorittaa laskennan. Luotamme mainoksiin ja valinnaisiin lahjoituksiin pitääksemme valot päällä."
+    },
+    "faq3": {
+      "q": "Aloitatko koskaan lataamisen?",
+      "a": "Paikallisen käsittelyn ydinominaisuudet pysyvät ilmaisina ikuisesti. Uskomme, että tekoälyn kuvankäsittelyn pitäisi olla perusihmisoikeus, ei ylellisyyttä."
+    }
+  },
+  "compare": {
+    "title": "HelpMyIMG vs The Rest",
+    "subtitle": "Rakensimme tekoälyn kuvankäsittelyn alusta alkaen toimimaan paikallisesti. Katso, miksi pilvi on vanhentunut.",
+    "badge": "HEAD TO HEAD VERTAILU",
+    "s3": {
+      "title": "Verkkoviive on vihollinen.",
+      "desc": "Pilvieditorit tuhlaavat 80 % ajasta vain tiedostojen siirtämiseen edestakaisin. Prosessoimalla suoraan laitteistollasi poistamme verkon kokonaan, jolloin nopeudet ovat jopa 5x nopeampia."
+    },
+    "s4": {
+      "title": "Toimii ilman Internetiä.",
+      "desc": "Kun sivu on latautunut, voit katkaista yhteyden Wi-Fi-verkkoon. AI-mallit toimivat täysin paikallisesti selaimesi kautta\\"
+    },
+    "s5": {
+      "title": "Ei kompromisseja laadusta"
+    },
+    "faq": {
+      "title": "Vertailu FAQ"
+    },
+    "faq1": {
+      "q": "Miksi HelpMyIMG on nopeampi kuin pilvisovellusliittymät?",
+      "a": "Pilvisovellusliittymät kärsivät verkon latenssista (suurten kuvien lataaminen ja lataaminen). Poistamme verkon, joka toimii alkuperäisillä laitteen nopeuksilla."
+    },
+    "faq2": {
+      "q": "Tyhjentääkö paikallinen käsittely akkuani?",
+      "a": "WebAssembly-mallimme ovat erittäin optimoituja. Vaikka se käyttää prosessoria, se on sekunnin murto-osa, joka kuluttaa vähemmän energiaa kuin YouTube-videon katsominen."
+    },
+    "faq3": {
+      "q": "Miten offline-tila on mahdollista?",
+      "a": "Kun verkkosivuston resurssit latautuvat, kaikki tekoälyn matemaattinen logiikka toimii itse selainmoottorissa, mikä ei vaadi Internet-yhteyttä."
+    }
+  },
+  "languages": {
+    "title": "Suunniteltu maailmalle.",
+    "subtitle": "Uskomme, että tehokkaan tekoälyn pitäisi olla kaikkien saatavilla kaikkialla. Tästä syystä HelpMyIMG on lokalisoitu natiivisti 30 eri kielelle.",
+    "badge": "GLOBAALINEN SAATAVUUS",
+    "s2": {
+      "title": "Valitse äidinkielesi",
+      "desc": "Napsauta mitä tahansa alla olevaa kieltä vaihtaaksesi välittömästi koko sovelluksen käyttöliittymän."
+    },
+    "s3": {
+      "title": "Enemmän kuin pelkkä automaattinen käännös.",
+      "desc": "emme\\"
+    },
+    "s4": {
+      "title": "Nolla sivun uudelleenlatausta.",
+      "desc": "React-kontekstiin rakennettu i18n-moottorimme vaihtaa kaikki yli 1500 käännösmerkkijonoa välittömästi päivittämättä sivua tai keskeyttämättä työtäsi."
+    },
+    "s5": {
+      "title": "Kaipaatko kieltäsi?",
+      "desc": "Laajennamme jatkuvasti. Kerro meille, jos tarvitset HelpMyIMG:tä äidinkielelläsi.",
+      "btn": "Pyydä käännöstä"
+    },
+    "faq": {
+      "title": "Lokalisoinnin UKK"
+    },
+    "faq1": {
+      "q": "Ovatko käännökset tarkkoja?",
+      "a": "Yhdistämme kehittyneen hermoston konekäännöksen ihmisen valvontaan varmistaaksemme teknisen kontekstin ja hakukoneoptimoinnin rakenteiden säilymisen."
+    },
+    "faq2": {
+      "q": "Kuinka voin pyytää uutta kieltä?",
+      "a": "Voit ottaa yhteyttä tukitiimiimme tai avata ongelman julkisessa arkistossamme. Pyrimme tukemaan mahdollisimman monia murteita."
+    },
+    "faq3": {
+      "q": "Vaikuttaako kielen vaihtaminen suorituskykyyn?",
+      "a": "Ei ollenkaan. React-kontekstimoottorimme vaihtaa sanakirjan 0 ms:ssa ilman koko sivun uudelleenlatausta."
+    }
+  },
+  "nav": {
+    "compress": "Pakkaa kuva",
+    "faq": "FAQ"
   }
 }

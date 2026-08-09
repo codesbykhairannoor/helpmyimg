@@ -1540,9 +1540,160 @@
   "hero.subtitle.short": "Gabungkan, pisahkan, kompres, konversi, dan proses foto langsung di browser Anda. 100% offline melalui WebAssembly. Gratis, tidak terbatas, dan sangat aman.",
   "hero.search.placeholder": "Alat pencarian (Hapus BG, Kompres, Edit)...",
   "footer": {
-    "about": "Tentang Kami"
+    "about": "Tentang Kami",
+    "resources": "Sumber daya",
+    "security": "Keamanan & Kepercayaan",
+    "pricing": "Harga",
+    "compare": "Membandingkan",
+    "languages": "Bahasa yang Didukung",
+    "privacy": "Kebijakan Privasi",
+    "terms": "Ketentuan Layanan"
   },
   "info": {
-    "freePromo": "100% Gratis, 0 Rupiah, Tanpa Berlangganan. Tidak diperlukan biaya tersembunyi atau kartu kredit."
+    "freePromo": "100% Gratis, 0 Rupiah, Tanpa Berlangganan."
+  },
+  "security": {
+    "title": "Data Anda Tidak Pernah Meninggalkan Perangkat Anda.",
+    "subtitle": "Nikmati 100% pengeditan gambar AI pribadi yang didukung oleh WebAssembly lokal. Kami tidak dapat melihat, menyimpan, atau menjual foto Anda karena foto tersebut tidak pernah sampai ke server kami.",
+    "badge": "MODEL KEAMANAN NOL KEPERCAYAAN",
+    "s2": {
+      "title": "Eksekusi Pemrosesan Sisi Klien",
+      "desc": "Editor gambar tradisional mengunggah file sensitif Anda ke server cloud mereka, sehingga rentan terhadap pelanggaran. HelpMyIMG mengunduh jaringan saraf AI (Wasm) langsung ke memori browser Anda, memproses semuanya secara lokal.",
+      "graphic": "Unggahan Cloud Dinonaktifkan Secara Internal"
+    },
+    "s3": {
+      "title": "Kepatuhan Privasi Global"
+    },
+    "s4": {
+      "title": "Perbandingan Aliran Data",
+      "old": "Editor Cloud Tradisional",
+      "new": "Mesin Lokal HelpMyIMG"
+    },
+    "s5": {
+      "title": "Mengenakan\\",
+      "desc": "Anda dapat memutuskan sambungan dari internet setelah memuat halaman, dan AI akan tetap berfungsi dengan sempurna. Itu adalah bukti matematis utama dari privasi."
+    },
+    "faq": {
+      "title": "Pertanyaan Umum Keamanan"
+    },
+    "faq1": {
+      "q": "Apakah HelpMyIMG benar-benar aman?",
+      "a": "Ya. Dengan menggunakan WebAssembly, AI memproses gambar langsung di perangkat lokal Anda. Kami tidak pernah menerima file Anda di server kami."
+    },
+    "faq2": {
+      "q": "Apakah Anda menyimpan gambar olahan saya?",
+      "a": "Tidak. Karena tidak ada yang diunggah, tidak ada yang bisa kami simpan. Semuanya terjadi di memori browser Anda."
+    },
+    "faq3": {
+      "q": "Apakah Anda mematuhi GDPR dan CCPA?",
+      "a": "Ya, secara inheren. Karena kami tidak mengumpulkan data apa pun dari jalur pemrosesan gambar, kami sepenuhnya mengabaikan sebagian besar persyaratan izin yang ketat."
+    }
+  },
+  "pricing": {
+    "title": "Berhenti Membayar untuk Cloud AI.",
+    "subtitle": "Pemrosesan gambar tingkat perusahaan, benar-benar gratis.",
+    "tierName": "Paket Edge Tanpa Batas",
+    "period": "Selamanya. Tidak diperlukan kartu kredit.",
+    "s3": {
+      "title": "Berapa banyak yang akan Anda hemat?"
+    },
+    "s4": {
+      "title": "Mengapa 100% Gratis?",
+      "desc1": "Perusahaan cloud membebankan biaya kepada Anda karena menjalankan AI pada GPU cloud sangatlah mahal. Setiap kali Anda mengunggah gambar, daya servernya akan terkuras.",
+      "desc2": "HelpMyIMG menggunakan WebAssembly untuk menjalankan AI langsung di dalam browser Anda. Karena kami tidak\\",
+      "boxTitle": "Skalabilitas Tak Terbatas",
+      "boxDesc": "Karena perangkat Anda melakukan komputasi, platform kami dapat menangani jutaan pengguna secara bersamaan tanpa memperlambat atau meningkatkan biaya kami."
+    },
+    "s5": {
+      "title": "Tidak Ada Akun. Tidak Ada Kartu Kredit. Tidak ada omong kosong.",
+      "desc": "Buka saja situs webnya dan mulai memproses. Kami menghormati waktu dan privasi Anda."
+    },
+    "faq": {
+      "title": "FAQ Harga"
+    },
+    "faq1": {
+      "q": "Apakah memang tidak ada biaya tersembunyi?",
+      "a": "Benar-benar nol. Anda mendapatkan semua fitur perusahaan secara gratis tanpa harus memasukkan kartu kredit."
+    },
+    "faq2": {
+      "q": "Bagaimana cara menghasilkan uang jika gratis?",
+      "a": "Biaya server kami secara efektif nol karena perangkat Anda melakukan komputasi. Kami mengandalkan iklan dan donasi opsional agar lampu tetap menyala."
+    },
+    "faq3": {
+      "q": "Apakah Anda akan mulai mengisi daya?",
+      "a": "Fitur inti pemrosesan lokal akan tetap gratis selamanya. Kami percaya pemrosesan gambar AI harus menjadi hak asasi manusia, bukan sebuah kemewahan."
+    }
+  },
+  "compare": {
+    "title": "HelpMyIMG vs Yang Lainnya",
+    "subtitle": "Kami membangun kembali pemrosesan gambar AI dari awal agar dapat dijalankan secara lokal. Lihat mengapa cloud sudah ketinggalan zaman.",
+    "badge": "PERBANDINGAN KEPALA KE KEPALA",
+    "s3": {
+      "title": "Latensi Jaringan adalah Musuh.",
+      "desc": "Editor cloud membuang 80% waktu Anda hanya dengan mentransfer file bolak-balik. Dengan memproses langsung di perangkat keras Anda, kami menghilangkan jaringan sepenuhnya, sehingga menghasilkan kecepatan hingga 5x lebih cepat."
+    },
+    "s4": {
+      "title": "Bekerja Tanpa Internet.",
+      "desc": "Setelah halaman dimuat, Anda dapat memutuskan sambungan dari Wi-Fi. Model AI berjalan sepenuhnya secara lokal melalui browser Anda\\"
+    },
+    "s5": {
+      "title": "Tidak Ada Kompromi pada Kualitas"
+    },
+    "faq": {
+      "title": "FAQ Perbandingan"
+    },
+    "faq1": {
+      "q": "Mengapa HelpMyIMG lebih cepat dibandingkan API cloud?",
+      "a": "Cloud API mengalami latensi jaringan (mengunggah dan mengunduh gambar berukuran besar). Kami menghilangkan jaringan, berjalan pada kecepatan perangkat asli."
+    },
+    "faq2": {
+      "q": "Apakah pemrosesan lokal menguras baterai saya?",
+      "a": "Model WebAssembly kami sangat optimal. Meskipun menggunakan CPU, ini adalah operasi sepersekian detik yang menggunakan lebih sedikit energi dibandingkan menonton video YouTube."
+    },
+    "faq3": {
+      "q": "Bagaimana mode offline bisa dilakukan?",
+      "a": "Setelah aset situs web dimuat, semua logika matematika AI berjalan di dalam mesin browser itu sendiri, sehingga tidak memerlukan koneksi internet."
+    }
+  },
+  "languages": {
+    "title": "Dirancang untuk Dunia.",
+    "subtitle": "Kami percaya AI yang kuat harus dapat diakses oleh semua orang, di mana saja. Itulah sebabnya HelpMyIMG secara asli dilokalkan ke dalam 30 bahasa berbeda.",
+    "badge": "AKSESIBILITAS GLOBAL",
+    "s2": {
+      "title": "Pilih Bahasa Asli Anda",
+      "desc": "Klik bahasa apa pun di bawah ini untuk langsung beralih ke seluruh antarmuka aplikasi."
+    },
+    "s3": {
+      "title": "Lebih dari Sekadar Terjemahan Otomatis.",
+      "desc": "Kami tidak\\"
+    },
+    "s4": {
+      "title": "Nol Halaman Muat Ulang.",
+      "desc": "Dibangun berdasarkan konteks React, mesin i18n kami menukar 1.500+ string terjemahan secara instan tanpa menyegarkan halaman atau mengganggu pekerjaan Anda."
+    },
+    "s5": {
+      "title": "Hilang Bahasa Anda?",
+      "desc": "Kami terus berkembang. Beri tahu kami jika Anda memerlukan HelpMyIMG dalam bahasa ibu Anda.",
+      "btn": "Minta Terjemahan"
+    },
+    "faq": {
+      "title": "FAQ Pelokalan"
+    },
+    "faq1": {
+      "q": "Apakah terjemahannya akurat?",
+      "a": "Kami menggabungkan terjemahan mesin saraf tingkat lanjut dengan pengawasan manusia untuk memastikan konteks teknis dan struktur SEO tetap terjaga."
+    },
+    "faq2": {
+      "q": "Bagaimana cara meminta bahasa baru?",
+      "a": "Anda dapat menghubungi tim dukungan kami atau membuka masalah di repositori publik kami. Kami bertujuan untuk mendukung sebanyak mungkin dialek."
+    },
+    "faq3": {
+      "q": "Apakah perubahan bahasa mempengaruhi kinerja?",
+      "a": "Sama sekali tidak. Mesin konteks React kami menukar kamus dalam 0 ms tanpa perlu memuat ulang satu halaman penuh."
+    }
+  },
+  "nav": {
+    "compress": "Kompres Gambar",
+    "faq": "Pertanyaan Umum"
   }
 }
