@@ -51,6 +51,9 @@ const getLocalizedSlug = (tool, lang) => {
 // Tool identifiers
 const TOOLS = ['remove', 'compress', 'convert', 'resize', 'color', 'watermark', 'crop', 'rotate', 'upscale', 'blurface'];
 
+// Info page identifiers
+const INFO_PAGES = ['about', 'privacy', 'terms', 'faq', 'security', 'pricing', 'compare', 'languages'];
+
 // Read the original index.html built by Vite
 const indexHtmlContent = fs.readFileSync(path.join(distDir, 'index.html'), 'utf8');
 
@@ -257,6 +260,23 @@ for (const lang of LANGS) {
     const toolDir = path.join(distDir, lang, slug);
     if (!fs.existsSync(toolDir)) fs.mkdirSync(toolDir, { recursive: true });
     fs.writeFileSync(path.join(toolDir, 'index.html'), toolHtml, 'utf8');
+    generatedCount++;
+  }
+
+  // Generate Info Pages (/lang/info-page/)
+  for (const page of INFO_PAGES) {
+    const pageUrl = `/${lang}/${page}/`;
+    
+    // Info pages have localized titles in their respective namespaces
+    let pageTitle = translations[`${page}.title`] || page;
+    pageTitle = `${pageTitle} - HelpMyIMG`;
+    
+    let pageDesc = translations[`${page}.subtitle`] || translations[`${page}.intro`] || homeDesc;
+    
+    const pageHtml = generateHtml(lang, pageUrl, pageTitle, pageDesc, null, translations);
+    const pageDir = path.join(distDir, lang, page);
+    if (!fs.existsSync(pageDir)) fs.mkdirSync(pageDir, { recursive: true });
+    fs.writeFileSync(path.join(pageDir, 'index.html'), pageHtml, 'utf8');
     generatedCount++;
   }
 }
