@@ -71,8 +71,8 @@ export const Navbar: React.FC = () => {
               <img src="/logobaru.png" alt="HelpMyIMG Logo" width="40" height="40" decoding="async" className="w-full h-full object-contain" />
             </div>
             <div className="flex flex-col">
-              <span className="text-xl font-heading font-extrabold tracking-tight text-white flex items-center gap-1">
-                HelpMyIMG
+              <span className="text-xl font-heading font-extrabold tracking-tight text-white">
+                HelpMy<span className="text-transparent bg-clip-text bg-gradient-to-r from-neon-cyan to-neon-emerald">IMG</span>
               </span>
             </div>
           </a>
