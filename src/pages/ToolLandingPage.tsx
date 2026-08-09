@@ -167,14 +167,7 @@ export const ToolLandingPage: React.FC = () => {
         {!tool ? (
           <ToolGrid />
         ) : (
-          <React.Suspense fallback={
-            <div className="w-full max-w-7xl mx-auto h-[600px] glass-panel rounded-3xl flex flex-col items-center justify-center">
-              <Loader2 className="w-12 h-12 text-neon-cyan animate-spin mb-4" />
-              <p className="text-slate-400 font-medium">Memuat Workspace...</p>
-            </div>
-          }>
-            <ToolWorkspace key={displayConfig.tool} initialTab={displayConfig.tool} />
-          </React.Suspense>
+          <ToolWorkspace initialTab={displayConfig.tool as any} />
         )}
       </div>
       

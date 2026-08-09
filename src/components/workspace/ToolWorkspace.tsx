@@ -13,15 +13,15 @@ import { trackEvent } from '../../utils/analytics';
 import { lazyWithRetry } from '../../utils/lazyWithRetry';
 import { RemoveBgControl } from './tools/RemoveBgControl';
 
-const ColorBgControl = lazyWithRetry(() => import('./tools/ColorBgControl').then(m => ({ default: m.ColorBgControl })), 'ColorBgControl');
-const BrushControl = lazyWithRetry(() => import('./tools/BrushControl').then(m => ({ default: m.BrushControl })), 'BrushControl');
-const WatermarkControl = lazyWithRetry(() => import('./tools/WatermarkControl').then(m => ({ default: m.WatermarkControl })), 'WatermarkControl');
-const CompressControl = lazyWithRetry(() => import('./tools/CompressControl').then(m => ({ default: m.CompressControl })), 'CompressControl');
-const ConvertControl = lazyWithRetry(() => import('./tools/ConvertControl').then(m => ({ default: m.ConvertControl })), 'ConvertControl');
-const ResizeControl = lazyWithRetry(() => import('./tools/ResizeControl').then(m => ({ default: m.ResizeControl })), 'ResizeControl');
-const CropControl = lazyWithRetry(() => import('./tools/CropControl').then(m => ({ default: m.CropControl })), 'CropControl');
-const RotateControl = lazyWithRetry(() => import('./tools/RotateControl').then(m => ({ default: m.RotateControl })), 'RotateControl');
-const ColorPickerControl = lazyWithRetry(() => import('./tools/ColorPickerControl').then(m => ({ default: m.ColorPickerControl })), 'ColorPickerControl');
+import { ColorBgControl } from './tools/ColorBgControl';
+import { BrushControl } from './tools/BrushControl';
+import { WatermarkControl } from './tools/WatermarkControl';
+import { CompressControl } from './tools/CompressControl';
+import { ConvertControl } from './tools/ConvertControl';
+import { ResizeControl } from './tools/ResizeControl';
+import { CropControl } from './tools/CropControl';
+import { RotateControl } from './tools/RotateControl';
+import { ColorPickerControl } from './tools/ColorPickerControl';
 import { InteractiveCropOverlay } from './tools/InteractiveCropOverlay';
 import { ImageCompareSlider } from './tools/ImageCompareSlider';
 
