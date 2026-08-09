@@ -116,9 +116,9 @@ export const Navbar: React.FC = () => {
                         <div className="flex flex-col gap-1.5">
                           {catTools.map(tool => {
                             return (
-                              <a 
+                              <Link 
                                 key={tool.id} 
-                                href={lang === 'en' ? `/${getLocalizedSlug(tool.id, lang)}` : `/${lang}/${getLocalizedSlug(tool.id, lang)}`} 
+                                to={lang === 'en' ? `/${getLocalizedSlug(tool.id, lang)}` : `/${lang}/${getLocalizedSlug(tool.id, lang)}`} 
                                 onClick={() => {
                                   (document.activeElement as HTMLElement)?.blur();
                                 }}
@@ -293,9 +293,9 @@ export const Navbar: React.FC = () => {
                       </div>
                       <div className="grid grid-cols-2 gap-2">
                         {catTools.map(tool => (
-                          <a
+                          <Link
                             key={tool.id}
-                            href={lang === 'en' ? `/${getLocalizedSlug(tool.id, lang)}` : `/${lang}/${getLocalizedSlug(tool.id, lang)}`}
+                            to={lang === 'en' ? `/${getLocalizedSlug(tool.id, lang)}` : `/${lang}/${getLocalizedSlug(tool.id, lang)}`}
                             onClick={() => setMobileMenuOpen(false)}
                             className="flex items-center gap-2.5 p-2 rounded-xl bg-dark-800 border border-dark-600/50 hover:border-neon-cyan/50 active:bg-dark-700 transition-all group shadow-sm"
                           >
