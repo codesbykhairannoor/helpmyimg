@@ -67,7 +67,7 @@ export const Navbar: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-14 flex items-center justify-between">
         {/* Kiri: Brand Logo */}
         <div className="flex items-center justify-start flex-shrink-0">
-          <a href={lang === 'en' ? '/' : `/${lang} onClick={(e) => { e.preventDefault(); const target = lang === 'en' ? '/' : `/${lang; if (typeof target === "string") { const newLang = target.split("/").filter(Boolean)[0] || "en"; const newTool = target.split("/").filter(Boolean)[1]; navigate(newLang, newTool); } }}`} className="flex items-center gap-2.5 group">
+          <a href={lang === 'en' ? '/' : `/${lang}`} onClick={(e) => { e.preventDefault(); navigatePath(lang === 'en' ? '/' : `/${lang}`); }} className="flex items-center gap-2.5 group">
             <div className="w-10 h-10 flex-shrink-0 transition-all duration-300 group-hover:scale-105 drop-shadow-glow-cyan">
               <img src="/logobaru.png" alt="HelpMyIMG Logo" width="40" height="40" decoding="async" className="w-full h-full object-contain" />
             </div>
@@ -117,8 +117,10 @@ export const Navbar: React.FC = () => {
                             return (
                               <a 
                                 key={tool.id} 
-                                href={lang === 'en' ? `/${getLocalizedSlug(tool.id, lang)} onClick={(e) => { e.preventDefault(); const target = lang === 'en' ? `/${getLocalizedSlug(tool.id, lang); if (typeof target === "string") { const newLang = target.split("/").filter(Boolean)[0] || "en"; const newTool = target.split("/").filter(Boolean)[1]; navigate(newLang, newTool); } }}` : `/${lang}/${getLocalizedSlug(tool.id, lang)}`} 
-                                onClick={() => {
+                                href={lang === 'en' ? `/${getLocalizedSlug(tool.id, lang)}` : `/${lang}/${getLocalizedSlug(tool.id, lang)}`} 
+                                onClick={(e) => {
+                                  e.preventDefault();
+                                  navigatePath(lang === 'en' ? `/${getLocalizedSlug(tool.id, lang)}` : `/${lang}/${getLocalizedSlug(tool.id, lang)}`);
                                   (document.activeElement as HTMLElement)?.blur();
                                 }}
                                 className="flex items-center gap-3.5 py-2 px-3 -mx-3 rounded-xl hover:bg-slate-50 dark:hover:bg-dark-800 transition-colors group/item"
@@ -294,8 +296,12 @@ export const Navbar: React.FC = () => {
                         {catTools.map(tool => (
                           <a
                             key={tool.id}
-                            href={lang === 'en' ? `/${getLocalizedSlug(tool.id, lang)} onClick={(e) => { e.preventDefault(); const target = lang === 'en' ? `/${getLocalizedSlug(tool.id, lang); if (typeof target === "string") { const newLang = target.split("/").filter(Boolean)[0] || "en"; const newTool = target.split("/").filter(Boolean)[1]; navigate(newLang, newTool); } }}` : `/${lang}/${getLocalizedSlug(tool.id, lang)}`}
-                            onClick={() => setMobileMenuOpen(false)}
+                            href={lang === 'en' ? `/${getLocalizedSlug(tool.id, lang)}` : `/${lang}/${getLocalizedSlug(tool.id, lang)}`}
+                            onClick={(e) => {
+                              e.preventDefault();
+                              navigatePath(lang === 'en' ? `/${getLocalizedSlug(tool.id, lang)}` : `/${lang}/${getLocalizedSlug(tool.id, lang)}`);
+                              setMobileMenuOpen(false);
+                            }}
                             className="flex items-center gap-2.5 p-2 rounded-xl bg-dark-800 border border-dark-600/50 hover:border-neon-cyan/50 active:bg-dark-700 transition-all group shadow-sm"
                           >
                             <div className="w-8 h-8 rounded-lg bg-dark-900 flex items-center justify-center shrink-0 group-active:scale-95 transition-transform border border-dark-600/50 group-hover:border-neon-cyan/30">
