@@ -27,8 +27,8 @@ export const ToolLandingPage: React.FC = () => {
     }
   }, [lang, currentLang, setLang]);
 
-  // Translate localized URL slug back to internal tool ID
-  const internalTool = tool ? getToolFromSlug(tool, lang) : 'remove';
+  // The route.tool is already parsed as the internal tool by RouterContext
+  const internalTool = tool || 'remove';
 
   // Cari konfigurasi SEO dari matriks
   const config: PSeoKeywordConfig | undefined = keywordSlug ? getPSeoConfigBySlug(keywordSlug) : undefined;
