@@ -2,7 +2,7 @@
 // Navigasi Atas dengan Pemilih 10 Bahasa dan Lencana Kecepatan AI (Subdirectory Router)
 
 import React, { useState } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate, Link } from 'react-router-dom';
 import { useTranslation } from '../context/LanguageContext';
 import { useTheme } from '../context/ThemeContext';
 import { SUPPORTED_LANGUAGES, type Language } from '../i18n/translations';
@@ -18,6 +18,7 @@ export const Navbar: React.FC = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
   const location = useLocation();
+  const navigate = useNavigate();
 
   const currentLang = SUPPORTED_LANGUAGES.find((l) => l.code === lang) || SUPPORTED_LANGUAGES[0];
 
@@ -46,7 +47,7 @@ export const Navbar: React.FC = () => {
         // Informational page, don't translate slug
         const rest = pathParts.slice(toolSlugIndex + 1);
         const newPathParts = newLang === 'en' ? [toolSlug, ...rest] : [newLang, toolSlug, ...rest];
-        window.location.href = '/' + newPathParts.join('/');
+        navigate('/' + newPathParts.join('/'));
       } else {
         // Map current localized slug back to internal tool, then map to new localized slug
         const internalTool = getToolFromSlug(toolSlug, oldLang);
@@ -54,11 +55,11 @@ export const Navbar: React.FC = () => {
         
         const rest = pathParts.slice(toolSlugIndex + 1);
         const newPathParts = newLang === 'en' ? [newSlug, ...rest] : [newLang, newSlug, ...rest];
-        window.location.href = '/' + newPathParts.join('/');
+        navigate('/' + newPathParts.join('/'));
       }
     } else {
       // At root
-      window.location.href = newLang === 'en' ? '/' : `/${newLang}`;
+      navigate(newLang === 'en' ? '/' : `/${newLang}`);
     }
   };
 
@@ -67,7 +68,7 @@ export const Navbar: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-14 flex items-center justify-between">
         {/* Kiri: Brand Logo */}
         <div className="flex items-center justify-start flex-shrink-0">
-          <a href={lang === 'en' ? '/' : `/${lang}`} className="flex items-center gap-2.5 group">
+          <Link to={lang === 'en' ? '/' : `/${lang}`} className="flex items-center gap-2.5 group">
             <div className="w-10 h-10 flex-shrink-0 transition-all duration-300 group-hover:scale-105 drop-shadow-glow-cyan">
               <img src="/logobaru.png" alt="HelpMyIMG Logo" width="40" height="40" decoding="async" className="w-full h-full object-contain" />
             </div>
@@ -76,7 +77,7 @@ export const Navbar: React.FC = () => {
                 HelpMyIMG
               </span>
             </div>
-          </a>
+          </Link>
         </div>
 
         {/* Tengah: Navigation Links (Desktop) */}
@@ -127,7 +128,7 @@ export const Navbar: React.FC = () => {
                                 <span className="text-base capitalize text-slate-700 dark:text-slate-200 font-bold tracking-tight truncate group-hover/item:text-neon-cyan transition-colors">
                                   {t(tool.titleKey)}
                                 </span>
-                              </a>
+                              </Link>
                             );
                           })}
                         </div>
@@ -303,8 +304,8 @@ export const Navbar: React.FC = () => {
                             </div>
                             <div className="flex flex-col justify-center min-w-0 pr-1">
                               <span className="text-[11px] font-bold text-slate-800 dark:text-slate-200 leading-tight line-clamp-2">{t(tool.titleKey)}</span>
-                            </div>
-                          </a>
+            </div>
+          </Link>
                         ))}
                       </div>
                     </div>
