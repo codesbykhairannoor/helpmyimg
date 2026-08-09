@@ -1,7 +1,7 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import { useTranslation } from '../../context/LanguageContext';
-import { Sparkles, Check, Infinity, Zap, ChevronDown, CheckCircle2 } from 'lucide-react';
+import { Sparkles, Check, Infinity, Zap, ChevronDown } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 export const PricingPage: React.FC = () => {

@@ -6,7 +6,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { SUPPORTED_LANGUAGES } from '../../i18n/translations';
 
 export const LanguagesPage: React.FC = () => {
-  const { t, lang, setLanguage } = useTranslation();
+  const { t, lang, setLang } = useTranslation();
   const [openFaq, setOpenFaq] = React.useState<number | null>(null);
 
   const toggleFaq = (index: number) => {
@@ -58,7 +58,7 @@ export const LanguagesPage: React.FC = () => {
             {SUPPORTED_LANGUAGES.map((l) => (
               <button
                 key={l.code}
-                onClick={() => setLanguage(l.code)}
+                onClick={() => setLang(l.code as any)}
                 className={`p-4 rounded-2xl border text-center transition-all ${
                   lang === l.code 
                     ? 'bg-neon-indigo/20 border-neon-indigo text-white shadow-[0_0_20px_rgba(79,70,229,0.2)]' 

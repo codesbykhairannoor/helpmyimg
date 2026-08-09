@@ -1,7 +1,7 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import { useTranslation } from '../../context/LanguageContext';
-import { Scale, Zap, ShieldCheck, Coins, Timer, WifiOff, ChevronDown, CheckCircle2, XCircle } from 'lucide-react';
+import { Scale, Zap, WifiOff, ChevronDown, CheckCircle2, XCircle } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 export const ComparePage: React.FC = () => {

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import { useTranslation } from '../../context/LanguageContext';
-import { Shield, Lock, ServerOff, Database, CheckCircle2, ChevronDown, HelpCircle, EyeOff, Activity, FileLock2 } from 'lucide-react';
+import { Shield, Lock, ServerOff, Database, CheckCircle2, ChevronDown, EyeOff, FileLock2 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 export const SecurityPage: React.FC = () => {
