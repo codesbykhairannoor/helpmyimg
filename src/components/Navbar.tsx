@@ -57,8 +57,7 @@ export const Navbar: React.FC = () => {
         navigatePath('/' + newPathParts.join('/'));
       }
     } else {
-      // At root
-      navigate(newLang === 'en' ? '/' : `/${newLang}`);
+      navigatePath(newLang === 'en' ? '/' : `/${newLang}`);
     }
   };
 

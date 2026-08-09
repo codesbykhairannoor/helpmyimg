@@ -8,10 +8,7 @@ import { HomeSections } from '../components/landing/HomeSections';
 import { ToolFaqSection } from '../components/landing/ToolFaqSection';
 import { ToolGrid } from '../components/ToolGrid';
 import { useTranslation } from '../context/LanguageContext';
-import { type Language, SUPPORTED_LANGUAGES } from '../i18n/translations';
-import { Loader2 } from 'lucide-react';
-
-import { getToolFromSlug } from '../utils/urlMapper';
+import { type Language } from '../i18n/translations';
 import { synthesizeDynamicPSeo } from '../utils/dynamicPSeoSynthesizer';
 import { ToolWorkspace } from '../components/workspace/ToolWorkspace';
 
@@ -142,7 +139,7 @@ export const ToolLandingPage: React.FC = () => {
         citationFirst={displayConfig.citationFirst}
         quantitativeProof={displayConfig.quantitativeProof}
         internalTool={internalTool}
-        keywordSlug={keywordSlug}
+        keywordSlug={keywordSlug || undefined}
       />
 
       {/* Hero Section */}

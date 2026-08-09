@@ -66,7 +66,7 @@ export const RouterProvider: React.FC<{ children: React.ReactNode }> = ({ childr
     if (newPage !== 'home' && newPage !== 'tool') {
       newPath = newLang === 'en' ? `/${newPage}` : `/${newLang}/${newPage}`;
     } else if (newTool) {
-      const localizedToolSlug = getLocalizedSlug(newTool, newLang);
+      const localizedToolSlug = getLocalizedSlug(newTool as any, newLang);
       newPath = newLang === 'en' ? `/${localizedToolSlug}` : `/${newLang}/${localizedToolSlug}`;
     }
 
