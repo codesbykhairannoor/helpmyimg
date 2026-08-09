@@ -17,8 +17,7 @@ export const Navbar: React.FC = () => {
   const [langOpen, setLangOpen] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
-  const location = useLocation();
-  const navigate = useNavigate();
+  const { navigate, navigatePath } = useRouter();
 
   const currentLang = SUPPORTED_LANGUAGES.find((l) => l.code === lang) || SUPPORTED_LANGUAGES[0];
 
@@ -31,7 +30,7 @@ export const Navbar: React.FC = () => {
     setLang(newLang);
     setLangOpen(false);
     
-    const currentPath = location.pathname;
+    const currentPath = window.location.pathname;
     const pathParts = currentPath.split('/').filter(Boolean);
     let oldLang = 'en';
     let toolSlugIndex = 0;
@@ -47,7 +46,7 @@ export const Navbar: React.FC = () => {
         // Informational page, don't translate slug
         const rest = pathParts.slice(toolSlugIndex + 1);
         const newPathParts = newLang === 'en' ? [toolSlug, ...rest] : [newLang, toolSlug, ...rest];
-        navigate('/' + newPathParts.join('/'));
+        navigatePath('/' + newPathParts.join('/'));
       } else {
         // Map current localized slug back to internal tool, then map to new localized slug
         const internalTool = getToolFromSlug(toolSlug, oldLang);
@@ -55,7 +54,7 @@ export const Navbar: React.FC = () => {
         
         const rest = pathParts.slice(toolSlugIndex + 1);
         const newPathParts = newLang === 'en' ? [newSlug, ...rest] : [newLang, newSlug, ...rest];
-        navigate('/' + newPathParts.join('/'));
+        navigatePath('/' + newPathParts.join('/'));
       }
     } else {
       // At root
@@ -68,7 +67,7 @@ export const Navbar: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-14 flex items-center justify-between">
         {/* Kiri: Brand Logo */}
         <div className="flex items-center justify-start flex-shrink-0">
-          <Link to={lang === 'en' ? '/' : `/${lang}`} className="flex items-center gap-2.5 group">
+          <a href={lang === 'en' ? '/' : `/${lang} onClick={(e) => { e.preventDefault(); const target = lang === 'en' ? '/' : `/${lang; if (typeof target === "string") { const newLang = target.split("/").filter(Boolean)[0] || "en"; const newTool = target.split("/").filter(Boolean)[1]; navigate(newLang, newTool); } }}`} className="flex items-center gap-2.5 group">
             <div className="w-10 h-10 flex-shrink-0 transition-all duration-300 group-hover:scale-105 drop-shadow-glow-cyan">
               <img src="/logobaru.png" alt="HelpMyIMG Logo" width="40" height="40" decoding="async" className="w-full h-full object-contain" />
             </div>
@@ -77,7 +76,7 @@ export const Navbar: React.FC = () => {
                 HelpMyIMG
               </span>
             </div>
-          </Link>
+          </a>
         </div>
 
         {/* Tengah: Navigation Links (Desktop) */}
@@ -116,9 +115,9 @@ export const Navbar: React.FC = () => {
                         <div className="flex flex-col gap-1.5">
                           {catTools.map(tool => {
                             return (
-                              <Link 
+                              <a 
                                 key={tool.id} 
-                                to={lang === 'en' ? `/${getLocalizedSlug(tool.id, lang)}` : `/${lang}/${getLocalizedSlug(tool.id, lang)}`} 
+                                href={lang === 'en' ? `/${getLocalizedSlug(tool.id, lang)} onClick={(e) => { e.preventDefault(); const target = lang === 'en' ? `/${getLocalizedSlug(tool.id, lang); if (typeof target === "string") { const newLang = target.split("/").filter(Boolean)[0] || "en"; const newTool = target.split("/").filter(Boolean)[1]; navigate(newLang, newTool); } }}` : `/${lang}/${getLocalizedSlug(tool.id, lang)}`} 
                                 onClick={() => {
                                   (document.activeElement as HTMLElement)?.blur();
                                 }}
@@ -128,7 +127,7 @@ export const Navbar: React.FC = () => {
                                 <span className="text-base capitalize text-slate-700 dark:text-slate-200 font-bold tracking-tight truncate group-hover/item:text-neon-cyan transition-colors">
                                   {t(tool.titleKey)}
                                 </span>
-                              </Link>
+                              </a>
                             );
                           })}
                         </div>
@@ -293,9 +292,9 @@ export const Navbar: React.FC = () => {
                       </div>
                       <div className="grid grid-cols-2 gap-2">
                         {catTools.map(tool => (
-                          <Link
+                          <a
                             key={tool.id}
-                            to={lang === 'en' ? `/${getLocalizedSlug(tool.id, lang)}` : `/${lang}/${getLocalizedSlug(tool.id, lang)}`}
+                            href={lang === 'en' ? `/${getLocalizedSlug(tool.id, lang)} onClick={(e) => { e.preventDefault(); const target = lang === 'en' ? `/${getLocalizedSlug(tool.id, lang); if (typeof target === "string") { const newLang = target.split("/").filter(Boolean)[0] || "en"; const newTool = target.split("/").filter(Boolean)[1]; navigate(newLang, newTool); } }}` : `/${lang}/${getLocalizedSlug(tool.id, lang)}`}
                             onClick={() => setMobileMenuOpen(false)}
                             className="flex items-center gap-2.5 p-2 rounded-xl bg-dark-800 border border-dark-600/50 hover:border-neon-cyan/50 active:bg-dark-700 transition-all group shadow-sm"
                           >
@@ -305,7 +304,7 @@ export const Navbar: React.FC = () => {
                             <div className="flex flex-col justify-center min-w-0 pr-1">
                               <span className="text-[11px] font-bold text-slate-800 dark:text-slate-200 leading-tight line-clamp-2">{t(tool.titleKey)}</span>
             </div>
-          </Link>
+          </a>
                         ))}
                       </div>
                     </div>

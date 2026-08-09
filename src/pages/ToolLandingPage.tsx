@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useRouter } from '../context/RouterContext';
 import { getPSeoConfigBySlug, type PSeoKeywordConfig } from '../data/pseoKeywords';
 import { SeoHead } from '../components/seo/SeoHead';
 import { Hero } from '../components/Hero';
@@ -16,19 +16,9 @@ import { synthesizeDynamicPSeo } from '../utils/dynamicPSeoSynthesizer';
 import { ToolWorkspace } from '../components/workspace/ToolWorkspace';
 
 export const ToolLandingPage: React.FC = () => {
-  let { lang, tool, keywordSlug } = useParams<{ lang: string; tool: string; keywordSlug: string }>();
   const { setLang, lang: currentLang, t } = useTranslation();
-
-  // If lang is not a valid language code (e.g. /remove-background), it means it's an English route.
-  // Shift the params accordingly.
-  const isLangValid = lang && SUPPORTED_LANGUAGES.some(l => l.code === lang);
-  if (!isLangValid && lang) {
-    keywordSlug = tool;
-    tool = lang;
-    lang = 'en';
-  } else if (!lang) {
-    lang = 'en';
-  }
+  const { route } = useRouter();
+  let { lang, tool, keywordSlug } = route;
 
   // Sync language dari URL ke context
   useEffect(() => {

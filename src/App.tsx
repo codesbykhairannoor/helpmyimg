@@ -1,17 +1,14 @@
 // src/App.tsx
-// Perakitan Komponen Utama HelpMyIMG Super AI Platform V2 (Multi-Page Subdirectory SEO Router)
+// Perakitan Komponen Utama HelpMyIMG Super AI Platform V2 (Zero-Latency State Routing)
 
-import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { HelmetProvider } from 'react-helmet-async';
-import { lazy, Suspense } from 'react';
 import './i18n/i18n';
 import { LanguageProvider } from './context/LanguageContext';
 import { ThemeProvider } from './context/ThemeContext';
+import { RouterProvider, useRouter } from './context/RouterContext';
 import { Navbar } from './components/Navbar';
 import { Footer } from './components/Footer';
 import { JsonLd } from './components/seo/JsonLd';
-import ScrollToTop from './components/ScrollToTop';
-
 
 import { ToolLandingPage } from './pages/ToolLandingPage';
 import { AboutPage } from './pages/info/AboutPage';
@@ -19,62 +16,57 @@ import { PrivacyPage } from './pages/info/PrivacyPage';
 import { TermsPage } from './pages/info/TermsPage';
 import { FaqPage } from './pages/info/FaqPage';
 
+// Main Content Dispatcher
+const MainContent = () => {
+  const { route } = useRouter();
 
+  let content = null;
+  switch (route.page) {
+    case 'about':
+      content = <AboutPage />;
+      break;
+    case 'privacy':
+      content = <PrivacyPage />;
+      break;
+    case 'terms':
+      content = <TermsPage />;
+      break;
+    case 'faq':
+      content = <FaqPage />;
+      break;
+    case 'home':
+    case 'tool':
+    default:
+      content = <ToolLandingPage />;
+      break;
+  }
 
+  return (
+    <main className="flex-1 w-full flex flex-col gap-8 md:gap-16 pt-8 sm:pt-10 md:pt-14 pb-16 min-h-screen">
+      <div className="relative">
+        <div className="fixed top-1/2 left-0 w-[500px] h-[500px] -translate-x-1/2 -translate-y-1/2 bg-[radial-gradient(circle_at_center,rgba(5,218,237,0.12)_0%,transparent_60%)] rounded-full pointer-events-none -z-10" />
+        <div className="fixed top-1/3 right-0 w-[600px] h-[600px] translate-x-1/3 -translate-y-1/2 bg-[radial-gradient(circle_at_center,rgba(79,70,229,0.1)_0%,transparent_60%)] rounded-full pointer-events-none -z-10" />
+        {content}
+      </div>
+    </main>
+  );
+};
 
 function App() {
   return (
     <HelmetProvider>
-        <ThemeProvider>
+      <ThemeProvider>
         <LanguageProvider>
-          <BrowserRouter>
-            <ScrollToTop />
+          <RouterProvider>
             <div className="min-h-screen bg-dark-900 text-slate-900 dark:text-slate-100 font-body flex flex-col transition-colors duration-300 selection:bg-[#05DAED]/30 selection:text-[#05DAED]">
               <JsonLd />
               <Navbar />
-              
-              <main className="flex-1 w-full flex flex-col gap-8 md:gap-16 pt-8 sm:pt-10 md:pt-14 pb-16 min-h-screen">
-                <div className="relative">
-                  {/* Dekorasi Cahaya Latar Belakang - Optimized: Removed heavy blur-[120px] and used pre-rendered radial gradients to eliminate scroll GPU lag */}
-                  <div className="fixed top-1/2 left-0 w-[500px] h-[500px] -translate-x-1/2 -translate-y-1/2 bg-[radial-gradient(circle_at_center,rgba(5,218,237,0.12)_0%,transparent_60%)] rounded-full pointer-events-none -z-10" />
-                  <div className="fixed top-1/3 right-0 w-[600px] h-[600px] translate-x-1/3 -translate-y-1/2 bg-[radial-gradient(circle_at_center,rgba(79,70,229,0.1)_0%,transparent_60%)] rounded-full pointer-events-none -z-10" />
-                  
-                  <Routes>
-                    {/* Root Route -> English Default without Geo-Redirect */}
-                    <Route path="/" element={<ToolLandingPage />} />
-                    
-                    {/* English SEO Info Pages */}
-                    <Route path="/about" element={<AboutPage />} />
-                    <Route path="/privacy" element={<PrivacyPage />} />
-                    <Route path="/terms" element={<TermsPage />} />
-                    <Route path="/faq" element={<FaqPage />} />
-
-                    {/* 1. Language Root Route (/id, /es, dll) or English Tool Route (/remove-background) */}
-                    <Route path="/:lang" element={<ToolLandingPage />} />
-                    
-                    {/* Localized SEO Info Pages */}
-                    <Route path="/:lang/about" element={<AboutPage />} />
-                    <Route path="/:lang/privacy" element={<PrivacyPage />} />
-                    <Route path="/:lang/terms" element={<TermsPage />} />
-                    <Route path="/:lang/faq" element={<FaqPage />} />
-                    
-                    {/* 2. Tool Hub Route (/id/remove-background) or English pSEO (/remove-background/keyword) */}
-                    <Route path="/:lang/:tool" element={<ToolLandingPage />} />
-                    
-                    {/* 3. pSEO Thousands Keyword Matrix Route (/id/change-background/merah-cpns-pas-foto) */}
-                    <Route path="/:lang/:tool/:keywordSlug" element={<ToolLandingPage />} />
-
-                    {/* Fallback untuk SEO */}
-                    <Route path="*" element={<Navigate to="/" replace />} />
-                  </Routes>
-                </div>
-              </main>
-
+              <MainContent />
               <Footer />
             </div>
-          </BrowserRouter>
+          </RouterProvider>
         </LanguageProvider>
-        </ThemeProvider>
+      </ThemeProvider>
     </HelmetProvider>
   );
 }

@@ -3,12 +3,13 @@
 // Mengintegrasikan navigasi cepat, indikasi 30 Bahasa Dunia, dan kepatuhan privasi
 
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { useRouter } from '../context/RouterContext';
 import { Zap } from 'lucide-react';
 import { useTranslation } from '../context/LanguageContext';
 import { getLocalizedSlug } from '../utils/urlMapper';
 
 export const Footer: React.FC = () => {
+  const { navigatePath } = useRouter();
   const { t, lang } = useTranslation();
 
   return (
