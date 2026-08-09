@@ -51,6 +51,15 @@ export const Footer: React.FC = () => {
                 <li><a href={lang === 'en' ? '/faq' : `/${lang}/faq`} onClick={(e) => { e.preventDefault(); navigatePath(lang === 'en' ? '/faq' : `/${lang}/faq`); }} className="hover:text-cyan-600 dark:hover:text-white transition-colors">{t('nav.faq')}</a></li>
               </ul>
             </div>
+            <div className="space-y-4">
+              <h3 className="font-bold text-slate-900 dark:text-white">{t('footer.resources') || 'Resources'}</h3>
+              <ul className="space-y-2.5 text-slate-500 dark:text-slate-400">
+                <li><a href={lang === 'en' ? '/security' : `/${lang}/security`} onClick={(e) => { e.preventDefault(); navigatePath(lang === 'en' ? '/security' : `/${lang}/security`); }} className="hover:text-cyan-600 dark:hover:text-white transition-colors">{t('footer.security') || 'Security & Trust'}</a></li>
+                <li><a href={lang === 'en' ? '/pricing' : `/${lang}/pricing`} onClick={(e) => { e.preventDefault(); navigatePath(lang === 'en' ? '/pricing' : `/${lang}/pricing`); }} className="hover:text-cyan-600 dark:hover:text-white transition-colors">{t('footer.pricing') || 'Pricing'}</a></li>
+                <li><a href={lang === 'en' ? '/compare' : `/${lang}/compare`} onClick={(e) => { e.preventDefault(); navigatePath(lang === 'en' ? '/compare' : `/${lang}/compare`); }} className="hover:text-cyan-600 dark:hover:text-white transition-colors">{t('footer.compare') || 'Compare'}</a></li>
+                <li><a href={lang === 'en' ? '/languages' : `/${lang}/languages`} onClick={(e) => { e.preventDefault(); navigatePath(lang === 'en' ? '/languages' : `/${lang}/languages`); }} className="hover:text-cyan-600 dark:hover:text-white transition-colors">{t('footer.languages') || 'Supported Languages'}</a></li>
+              </ul>
+            </div>
           </div>
 
         </div>

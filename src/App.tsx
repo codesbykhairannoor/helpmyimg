@@ -15,6 +15,10 @@ import { AboutPage } from './pages/info/AboutPage';
 import { PrivacyPage } from './pages/info/PrivacyPage';
 import { TermsPage } from './pages/info/TermsPage';
 import { FaqPage } from './pages/info/FaqPage';
+import { SecurityPage } from './pages/info/SecurityPage';
+import { PricingPage } from './pages/info/PricingPage';
+import { ComparePage } from './pages/info/ComparePage';
+import { LanguagesPage } from './pages/info/LanguagesPage';
 
 // Main Content Dispatcher
 const MainContent = () => {
@@ -33,6 +37,18 @@ const MainContent = () => {
       break;
     case 'faq':
       content = <FaqPage />;
+      break;
+    case 'security':
+      content = <SecurityPage />;
+      break;
+    case 'pricing':
+      content = <PricingPage />;
+      break;
+    case 'compare':
+      content = <ComparePage />;
+      break;
+    case 'languages':
+      content = <LanguagesPage />;
       break;
     case 'home':
     case 'tool':

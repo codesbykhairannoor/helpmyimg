@@ -6,7 +6,7 @@ export interface RouteState {
   lang: Language;
   tool: string | null;
   keywordSlug: string | null;
-  page: 'tool' | 'about' | 'privacy' | 'terms' | 'faq' | 'home';
+  page: 'tool' | 'about' | 'privacy' | 'terms' | 'faq' | 'home' | 'security' | 'pricing' | 'compare' | 'languages';
 }
 
 interface RouterContextType {
@@ -39,7 +39,7 @@ export const RouterProvider: React.FC<{ children: React.ReactNode }> = ({ childr
     let tool: string | null = null;
 
     if (toolSlug) {
-      if (['about', 'privacy', 'terms', 'faq'].includes(toolSlug)) {
+      if (['about', 'privacy', 'terms', 'faq', 'security', 'pricing', 'compare', 'languages'].includes(toolSlug)) {
         page = toolSlug as any;
       } else {
         page = 'tool';
