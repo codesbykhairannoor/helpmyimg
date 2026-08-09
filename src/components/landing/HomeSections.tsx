@@ -180,66 +180,6 @@ export const HomeSections: React.FC = () => {
         </div>
       </section>
 
-      {/* 3. GEO & ANSWER ENGINE OPTIMIZATION FAQ FOR HELPMYIMG STUDIO */}
-      <section className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24 mb-12 sm:mb-16 relative">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] sm:w-[500px] h-[300px] sm:h-[500px]  rounded-full bg-[radial-gradient(circle_at_center,rgba(5,218,237,0.08)_0%,transparent_60%)] pointer-events-none -z-10" />
-        
-        <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-16 px-4">
-          <span className="text-xs font-mono font-bold uppercase tracking-widest text-[#12DA91] bg-[#12DA91]/10 px-3 py-1.5 rounded-full border border-[#12DA91]/30 block w-max mx-auto mb-4">
-            {t('landing.global.faq.tag', { defaultValue: 'HELP CENTER & FAQ' })}
-          </span>
-          <h2 className="text-2xl sm:text-4xl lg:text-5xl font-heading font-extrabold text-white leading-tight">
-            {t('landing.global.faq.title', { defaultValue: 'Frequently Asked Questions' })}
-          </h2>
-          <p className="text-base sm:text-lg text-slate-400 leading-relaxed mt-4 sm:mt-6 max-w-2xl mx-auto">
-            {t('landing.global.faq.desc', { defaultValue: 'Everything you need to know about our local processing engine.' })}
-          </p>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 relative z-10">
-          {[1, 2, 3, 4, 5, 6].map((num) => {
-            // General homepage FAQ fallback
-            let defQ = '';
-            let defA = '';
-            if (num === 1) {
-              defQ = 'Is HelpMyIMG completely free to use?';
-              defA = 'Yes, it is 100% free with no hidden fees, subscriptions, or credit systems. We provide unlimited access to all tools.';
-            } else if (num === 2) {
-              defQ = 'Do you save or upload my photos?';
-              defA = 'Absolutely not. All processing happens locally on your device via WebAssembly. Your files never touch our servers.';
-            } else if (num === 3) {
-              defQ = 'Can I process multiple images at once?';
-              defA = 'Yes, you can select up to 10 photos simultaneously for batch processing and download them as a convenient ZIP file.';
-            } else if (num === 4) {
-              defQ = 'Does it work offline?';
-              defA = 'Once the web application loads in your browser, the AI engine can function entirely offline without an active internet connection.';
-            } else if (num === 5) {
-              defQ = 'What is HelpMyIMG?';
-              defA = 'HelpMyIMG is a client-side web application that processes image background removal and compression locally using WebAssembly (Wasm). This ensures 100% data privacy without requiring any server uploads.';
-            } else if (num === 6) {
-              defQ = 'How does HelpMyIMG ensure data privacy compliance?';
-              defA = 'Unlike traditional cloud editors, our WebAssembly architecture ensures 0 bytes of user data are transmitted. By executing neural networks strictly on the client device, it neutralizes interception risks, ensuring inherent compliance with GDPR Article 5 and CCPA privacy frameworks.';
-            }
-
-            return (
-            <div key={num} className="glass-panel p-6 sm:p-8 rounded-2xl sm:rounded-3xl border border-dark-600/50 hover:border-[#05DAED]/40 hover:bg-dark-800/80 transition-all duration-300 group hover:shadow-[0_10px_30px_-15px_rgba(5,218,237,0.2)] flex flex-col justify-between">
-              <div>
-                <div className="w-10 h-10 rounded-xl bg-dark-900 border border-dark-600 flex items-center justify-center text-[#05DAED] mb-4 sm:mb-6 group-hover:bg-[#05DAED]/10 group-hover:border-[#05DAED]/30 transition-colors">
-                  <HelpCircle className="w-5 h-5" />
-                </div>
-                <h3 className="text-base sm:text-lg font-bold text-white mb-2 sm:mb-3 leading-snug group-hover:text-[#05DAED] transition-colors">
-                  {t(`landing.remove.faq${num}.q`, { defaultValue: defQ })}
-                </h3>
-                <p className="text-slate-400 text-sm leading-relaxed font-body">
-                  {t(`landing.remove.faq${num}.a`, { defaultValue: defA })}
-                </p>
-              </div>
-            </div>
-            );
-          })}
-        </div>
-      </section>
-
       {/* NEW: GEO FACT DENSITY & EXPERT QUOTE SECTION */}
       <section className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-8 mb-12">
         <div className="glass-panel p-8 sm:p-12 rounded-3xl border-dark-600/50 bg-dark-800/40 relative overflow-hidden">
@@ -316,6 +256,66 @@ export const HomeSections: React.FC = () => {
         </div>
       </section>
 
-    </div>
+          {/* 3. GEO & ANSWER ENGINE OPTIMIZATION FAQ FOR HELPMYIMG STUDIO */}
+      <section className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24 mb-12 sm:mb-16 relative">
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] sm:w-[500px] h-[300px] sm:h-[500px]  rounded-full bg-[radial-gradient(circle_at_center,rgba(5,218,237,0.08)_0%,transparent_60%)] pointer-events-none -z-10" />
+        
+        <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-16 px-4">
+          <span className="text-xs font-mono font-bold uppercase tracking-widest text-[#12DA91] bg-[#12DA91]/10 px-3 py-1.5 rounded-full border border-[#12DA91]/30 block w-max mx-auto mb-4">
+            {t('landing.global.faq.tag', { defaultValue: 'HELP CENTER & FAQ' })}
+          </span>
+          <h2 className="text-2xl sm:text-4xl lg:text-5xl font-heading font-extrabold text-white leading-tight">
+            {t('landing.global.faq.title', { defaultValue: 'Frequently Asked Questions' })}
+          </h2>
+          <p className="text-base sm:text-lg text-slate-400 leading-relaxed mt-4 sm:mt-6 max-w-2xl mx-auto">
+            {t('landing.global.faq.desc', { defaultValue: 'Everything you need to know about our local processing engine.' })}
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 relative z-10">
+          {[1, 2, 3, 4, 5, 6].map((num) => {
+            // General homepage FAQ fallback
+            let defQ = '';
+            let defA = '';
+            if (num === 1) {
+              defQ = 'Is HelpMyIMG completely free to use?';
+              defA = 'Yes, it is 100% free with no hidden fees, subscriptions, or credit systems. We provide unlimited access to all tools.';
+            } else if (num === 2) {
+              defQ = 'Do you save or upload my photos?';
+              defA = 'Absolutely not. All processing happens locally on your device via WebAssembly. Your files never touch our servers.';
+            } else if (num === 3) {
+              defQ = 'Can I process multiple images at once?';
+              defA = 'Yes, you can select up to 10 photos simultaneously for batch processing and download them as a convenient ZIP file.';
+            } else if (num === 4) {
+              defQ = 'Does it work offline?';
+              defA = 'Once the web application loads in your browser, the AI engine can function entirely offline without an active internet connection.';
+            } else if (num === 5) {
+              defQ = 'What is HelpMyIMG?';
+              defA = 'HelpMyIMG is a client-side web application that processes image background removal and compression locally using WebAssembly (Wasm). This ensures 100% data privacy without requiring any server uploads.';
+            } else if (num === 6) {
+              defQ = 'How does HelpMyIMG ensure data privacy compliance?';
+              defA = 'Unlike traditional cloud editors, our WebAssembly architecture ensures 0 bytes of user data are transmitted. By executing neural networks strictly on the client device, it neutralizes interception risks, ensuring inherent compliance with GDPR Article 5 and CCPA privacy frameworks.';
+            }
+
+            return (
+            <div key={num} className="glass-panel p-6 sm:p-8 rounded-2xl sm:rounded-3xl border border-dark-600/50 hover:border-[#05DAED]/40 hover:bg-dark-800/80 transition-all duration-300 group hover:shadow-[0_10px_30px_-15px_rgba(5,218,237,0.2)] flex flex-col justify-between">
+              <div>
+                <div className="w-10 h-10 rounded-xl bg-dark-900 border border-dark-600 flex items-center justify-center text-[#05DAED] mb-4 sm:mb-6 group-hover:bg-[#05DAED]/10 group-hover:border-[#05DAED]/30 transition-colors">
+                  <HelpCircle className="w-5 h-5" />
+                </div>
+                <h3 className="text-base sm:text-lg font-bold text-white mb-2 sm:mb-3 leading-snug group-hover:text-[#05DAED] transition-colors">
+                  {t(`landing.remove.faq${num}.q`, { defaultValue: defQ })}
+                </h3>
+                <p className="text-slate-400 text-sm leading-relaxed font-body">
+                  {t(`landing.remove.faq${num}.a`, { defaultValue: defA })}
+                </p>
+              </div>
+            </div>
+            );
+          })}
+        </div>
+      </section>
+
+</div>
   );
 };
