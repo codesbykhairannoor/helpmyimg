@@ -1,6 +1,6 @@
 // @refresh reset
 import React, { useState } from 'react';
-// Removed Link from react-router-dom to use native <a> tags for hard reload
+import { useRouter } from '../context/RouterContext';
 import { useTranslation } from '../context/LanguageContext';
 import { getLocalizedSlug } from '../utils/urlMapper';
 import { tools, categories } from '../config/tools';
@@ -9,6 +9,7 @@ import { trackEvent } from '../utils/analytics';
 
 export const ToolGrid: React.FC = () => {
   const { t, lang } = useTranslation();
+  const { navigatePath } = useRouter();
   const [activeFilter, setActiveFilter] = useState<ToolCategory | 'all'>('all');
 
   const filteredTools = activeFilter === 'all' 
@@ -63,7 +64,11 @@ export const ToolGrid: React.FC = () => {
             <a
               key={tool.id}
               href={lang === 'en' ? `/${getLocalizedSlug(tool.id, lang)}` : `/${lang}/${getLocalizedSlug(tool.id, lang)}`}
-              onClick={() => trackEvent('tool_clicked', { tool_id: tool.id, category: tool.category, lang })}
+              onClick={(e) => {
+                e.preventDefault();
+                trackEvent('tool_clicked', { tool_id: tool.id, category: tool.category, lang });
+                navigatePath(lang === 'en' ? `/${getLocalizedSlug(tool.id, lang)}` : `/${lang}/${getLocalizedSlug(tool.id, lang)}`);
+              }}
               className={`group relative flex flex-col ${isFeaturedLarge ? 'p-8 md:p-10' : 'p-6 md:p-8'} rounded-[2rem] bg-dark-800/40 backdrop-blur-xl border border-white/5 hover:bg-dark-700/60 hover:border-neon-cyan/40 transition-all duration-500 overflow-hidden shadow-2xl ${colSpan} ${rowSpan}`}
             >
               {/* Premium Background Glow Effect on Hover */}
