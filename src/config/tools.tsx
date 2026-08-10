@@ -5,14 +5,14 @@ import {
   Minimize2, 
   Maximize2, 
   Image as ImageIcon, 
-   Stamp,
-   Crop,
+  Stamp,
+  Crop,
   RotateCw,
-  Pipette,
   ScanFace,
   Wand2,
   Palette,
-  Brush
+  Eraser,
+  Pipette
 } from 'lucide-react';
 
 export type ToolCategory = 'optimize' | 'modify' | 'security' | 'edit';
@@ -27,65 +27,6 @@ export interface ToolItem {
 }
 
 export const tools: ToolItem[] = [
-  // Modify Category (3 items)
-  {
-    id: 'color',
-    category: 'modify',
-    icon: Palette,
-    titleKey: 'nav.color',
-    descKey: 'grid.colorDesc',
-    isNew: true,
-  },
-  {
-    id: 'resize',
-    category: 'modify',
-    icon: Maximize2,
-    titleKey: 'nav.resize',
-    descKey: 'grid.resizeDesc',
-  },
-  {
-    id: 'crop',
-    category: 'modify',
-    icon: Crop,
-    titleKey: 'nav.crop',
-    descKey: 'grid.cropDesc',
-    isNew: true,
-  },
-
-  // Edit Category (3 items)
-  {
-    id: 'design',
-    category: 'edit',
-    icon: Wand2,
-    titleKey: 'nav.design',
-    descKey: 'grid.designDesc',
-    isNew: true,
-  },
-  {
-    id: 'rotate',
-    category: 'edit',
-    icon: RotateCw,
-    titleKey: 'nav.rotate',
-    descKey: 'grid.rotateDesc',
-    isNew: true,
-  },
-  {
-    id: 'picker',
-    category: 'edit',
-    icon: Pipette,
-    titleKey: 'nav.picker',
-    descKey: 'grid.pickerDesc',
-    isNew: true,
-  },
-  {
-    id: 'brush',
-    category: 'edit',
-    icon: Brush,
-    titleKey: 'tab.brush',
-    descKey: 'brush.desc',
-    isNew: true,
-  },
-
   // Optimize Category (3 items)
   {
     id: 'remove',
@@ -111,7 +52,58 @@ export const tools: ToolItem[] = [
     isNew: true,
   },
 
-  // Security Category (2 items)
+  // Modify Category (3 items)
+  {
+    id: 'resize',
+    category: 'modify',
+    icon: Maximize2,
+    titleKey: 'nav.resize',
+    descKey: 'grid.resizeDesc',
+  },
+  {
+    id: 'crop',
+    category: 'modify',
+    icon: Crop,
+    titleKey: 'nav.crop',
+    descKey: 'grid.cropDesc',
+    isNew: true,
+  },
+  {
+    id: 'rotate',
+    category: 'modify',
+    icon: RotateCw,
+    titleKey: 'nav.rotate',
+    descKey: 'grid.rotateDesc',
+    isNew: true,
+  },
+
+  // Edit Category (3 items)
+  {
+    id: 'color',
+    category: 'edit',
+    icon: Palette,
+    titleKey: 'nav.color',
+    descKey: 'grid.colorDesc',
+    isNew: true,
+  },
+  {
+    id: 'design',
+    category: 'edit',
+    icon: Wand2,
+    titleKey: 'nav.design',
+    descKey: 'grid.designDesc',
+    isNew: true,
+  },
+  {
+    id: 'picker',
+    category: 'edit',
+    icon: Pipette,
+    titleKey: 'nav.picker',
+    descKey: 'grid.pickerDesc',
+    isNew: true,
+  },
+
+  // Security Category (3 items)
   {
     id: 'watermark',
     category: 'security',
@@ -125,6 +117,14 @@ export const tools: ToolItem[] = [
     icon: ScanFace,
     titleKey: 'nav.blurface',
     descKey: 'grid.blurfaceDesc',
+    isNew: true,
+  },
+  {
+    id: 'brush',
+    category: 'security',
+    icon: Eraser,
+    titleKey: 'tab.brush',
+    descKey: 'brush.desc',
     isNew: true,
   }
 ];

@@ -7,7 +7,7 @@ import React from 'react';
 import { SECTION_REGISTRY } from './registry';
 
 interface LandingSectionsProps {
-  tool: 'remove' | 'color' | 'watermark' | 'compress' | 'convert' | 'resize' | 'crop' | 'rotate' | 'picker' | 'design' | 'blurface';
+  tool: 'remove' | 'color' | 'watermark' | 'compress' | 'convert' | 'resize' | 'crop' | 'rotate' | 'picker' | 'design' | 'blurface' | 'brush';
 }
 
 export const LandingSections: React.FC<LandingSectionsProps> = ({ tool }) => {

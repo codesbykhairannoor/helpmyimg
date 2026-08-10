@@ -13,6 +13,7 @@ import { PickerSections } from './tools/PickerSections';
 import { WatermarkSections } from './tools/WatermarkSections';
 import { BlurFaceSections } from './tools/BlurFaceSections';
 import { ConvertSections } from './tools/ConvertSections';
+import { BrushSections } from './tools/BrushSections';
 
 export const SECTION_REGISTRY: Record<string, React.FC> = {
   'remove': RemoveBgSections,
@@ -26,4 +27,5 @@ export const SECTION_REGISTRY: Record<string, React.FC> = {
   'watermark': WatermarkSections,
   'blurface': BlurFaceSections,
   'convert': ConvertSections,
+  'brush': BrushSections,
 };

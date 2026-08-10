@@ -170,7 +170,7 @@ export const ToolLandingPage: React.FC = () => {
           <HomeSections />
         ) : (
           <>
-            <LandingSections tool={(displayConfig.tool === 'brush' ? 'remove' : displayConfig.tool) as any} />
+            <LandingSections tool={displayConfig.tool as any} />
           
           {/* Tool Specific FAQ Section - Unified 4 Questions Redesign */}
           {/* Tool Specific FAQ Section - Dynamic Variants */}
@@ -186,6 +186,7 @@ export const ToolLandingPage: React.FC = () => {
               toolMapName === 'watermark' ? 'split' :
               toolMapName === 'design' ? 'grid' :
               toolMapName === 'picker' ? 'cards' :
+              toolMapName === 'brush' ? 'accordion' :
               toolMapName === 'blurface' ? 'accordion' :
               toolMapName === 'convert' ? 'split' : 'grid'
             } 
