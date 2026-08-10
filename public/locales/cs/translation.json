@@ -1597,5 +1597,6 @@
   "languages.faq3.q": "Má změna jazyka vliv na výkon?",
   "languages.faq3.a": "vůbec ne. Náš kontextový modul React vymění slovník za 0 ms, aniž by vyžadoval opětovné načtení celé stránky.",
   "home.hero.titleHighlight": "Všechny nástroje",
-  "home.hero.titleSolid": "pro obrázky na jednom místě"
+  "home.hero.titleSolid": "pro obrázky na jednom místě",
+  "home.tab.title": "HelpMyIMG | Všechny nástroje pro obrázky na jednom místě"
 }

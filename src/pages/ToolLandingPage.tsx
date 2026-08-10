@@ -31,7 +31,7 @@ export const ToolLandingPage: React.FC = () => {
   const config: PSeoKeywordConfig | undefined = keywordSlug ? getPSeoConfigBySlug(keywordSlug) : undefined;
 
   const defaultTitle = !tool 
-    ? t('landing.default.title.home', { defaultValue: "Every AI tool you need to edit images in bulk" })
+    ? t('home.tab.title', { defaultValue: "HelpMyIMG | All Image Tools in One Place" })
     : internalTool === 'color' 
     ? t('landing.default.title.color') 
     : internalTool === 'watermark'

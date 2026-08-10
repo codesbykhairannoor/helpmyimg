@@ -1611,5 +1611,6 @@
   "languages.faq3.q": "هل تغيير اللغة يؤثر على الأداء؟",
   "languages.faq3.a": "مُطْلَقاً. يقوم محرك سياق React الخاص بنا بتبديل القاموس خلال 0 مللي ثانية دون الحاجة إلى إعادة تحميل الصفحة بالكامل.",
   "home.hero.titleHighlight": "كل أدوات",
-  "home.hero.titleSolid": "الصور في مكان واحد"
+  "home.hero.titleSolid": "الصور في مكان واحد",
+  "home.tab.title": "HelpMyIMG | كل أدوات الصور في مكان واحد"
 }

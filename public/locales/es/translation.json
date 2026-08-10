@@ -1586,5 +1586,6 @@
   "languages.faq3.q": "¿El cambio de idioma afecta el rendimiento?",
   "languages.faq3.a": "De nada. Nuestro motor de contexto React cambia el diccionario en 0 ms sin necesidad de recargar la página completa.",
   "home.hero.titleHighlight": "Todas las herramientas",
-  "home.hero.titleSolid": "de imagen en un lugar"
+  "home.hero.titleSolid": "de imagen en un lugar",
+  "home.tab.title": "HelpMyIMG | Todas las herramientas de imagen en un lugar"
 }

@@ -1578,5 +1578,6 @@
   "languages.faq3.q": "Beeinträchtigt ein Sprachwechsel die Leistung?",
   "languages.faq3.a": "Gar nicht. Unsere React-Kontext-Engine tauscht das Wörterbuch in 0 ms aus, ohne dass ein vollständiges Neuladen der Seite erforderlich ist.",
   "home.hero.titleHighlight": "Alle Bild-Tools",
-  "home.hero.titleSolid": "an einem Ort"
+  "home.hero.titleSolid": "an einem Ort",
+  "home.tab.title": "HelpMyIMG | Alle Bild-Tools an einem Ort"
 }

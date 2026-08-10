@@ -1607,5 +1607,6 @@
   "languages.faq3.q": "Does changing language affect performance?",
   "languages.faq3.a": "Not at all. Our React context engine swaps out the dictionary in 0ms without requiring a full page reload.",
   "home.hero.titleHighlight": "All Image",
-  "home.hero.titleSolid": "Tools in One Place"
+  "home.hero.titleSolid": "Tools in One Place",
+  "home.tab.title": "HelpMyIMG | All Image Tools in One Place"
 }

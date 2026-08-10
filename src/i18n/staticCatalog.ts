@@ -1615,7 +1615,8 @@ export const staticCatalog: Record<string, any> = {
     "languages.faq3.q": "هل تغيير اللغة يؤثر على الأداء؟",
     "languages.faq3.a": "مُطْلَقاً. يقوم محرك سياق React الخاص بنا بتبديل القاموس خلال 0 مللي ثانية دون الحاجة إلى إعادة تحميل الصفحة بالكامل.",
     "home.hero.titleHighlight": "كل أدوات",
-    "home.hero.titleSolid": "الصور في مكان واحد"
+    "home.hero.titleSolid": "الصور في مكان واحد",
+    "home.tab.title": "HelpMyIMG | كل أدوات الصور في مكان واحد"
   },
   "cs": {
     "nav.badge": "✨ 100% Zdarma a Soukromé",
@@ -3216,7 +3217,8 @@ export const staticCatalog: Record<string, any> = {
     "languages.faq3.q": "Má změna jazyka vliv na výkon?",
     "languages.faq3.a": "vůbec ne. Náš kontextový modul React vymění slovník za 0 ms, aniž by vyžadoval opětovné načtení celé stránky.",
     "home.hero.titleHighlight": "Všechny nástroje",
-    "home.hero.titleSolid": "pro obrázky na jednom místě"
+    "home.hero.titleSolid": "pro obrázky na jednom místě",
+    "home.tab.title": "HelpMyIMG | Všechny nástroje pro obrázky na jednom místě"
   },
   "da": {
     "nav.badge": "✨ 100% Gratis & Privat",
@@ -4806,7 +4808,8 @@ export const staticCatalog: Record<string, any> = {
     "languages.faq3.q": "Påvirker ændring af sprog præstationer?",
     "languages.faq3.a": "Slet ikke. Vores React-kontekstmotor udskifter ordbogen på 0ms uden at kræve en genindlæsning af en hel side.",
     "home.hero.titleHighlight": "Alle billedværktøjer",
-    "home.hero.titleSolid": "på ét sted"
+    "home.hero.titleSolid": "på ét sted",
+    "home.tab.title": "HelpMyIMG | Alle billedværktøjer på ét sted"
   },
   "de": {
     "nav.badge": "✨ 100% Kostenlos & Privat",
@@ -6388,7 +6391,8 @@ export const staticCatalog: Record<string, any> = {
     "languages.faq3.q": "Beeinträchtigt ein Sprachwechsel die Leistung?",
     "languages.faq3.a": "Gar nicht. Unsere React-Kontext-Engine tauscht das Wörterbuch in 0 ms aus, ohne dass ein vollständiges Neuladen der Seite erforderlich ist.",
     "home.hero.titleHighlight": "Alle Bild-Tools",
-    "home.hero.titleSolid": "an einem Ort"
+    "home.hero.titleSolid": "an einem Ort",
+    "home.tab.title": "HelpMyIMG | Alle Bild-Tools an einem Ort"
   },
   "el": {
     "nav.badge": "✨ 100% Δωρεάν & Ιδιωτικό",
@@ -7978,7 +7982,8 @@ export const staticCatalog: Record<string, any> = {
     "languages.faq3.q": "Η αλλαγή γλώσσας επηρεάζει την απόδοση;",
     "languages.faq3.a": "Καθόλου. Η μηχανή περιβάλλοντος React που διαθέτουμε ανταλλάσσει το λεξικό σε 0ms χωρίς να απαιτείται επαναφόρτωση πλήρους σελίδας.",
     "home.hero.titleHighlight": "Όλα τα εργαλεία",
-    "home.hero.titleSolid": "εικόνας σε ένα μέρος"
+    "home.hero.titleSolid": "εικόνας σε ένα μέρος",
+    "home.tab.title": "HelpMyIMG | Όλα τα εργαλεία εικόνας σε ένα μέρος"
   },
   "en": {
     "nav.badge": "✨ 100% Free & Private",
@@ -9589,7 +9594,8 @@ export const staticCatalog: Record<string, any> = {
     "languages.faq3.q": "Does changing language affect performance?",
     "languages.faq3.a": "Not at all. Our React context engine swaps out the dictionary in 0ms without requiring a full page reload.",
     "home.hero.titleHighlight": "All Image",
-    "home.hero.titleSolid": "Tools in One Place"
+    "home.hero.titleSolid": "Tools in One Place",
+    "home.tab.title": "HelpMyIMG | All Image Tools in One Place"
   },
   "es": {
     "nav.badge": "✨ 100% Gratis y Privado",
@@ -11179,7 +11185,8 @@ export const staticCatalog: Record<string, any> = {
     "languages.faq3.q": "¿El cambio de idioma afecta el rendimiento?",
     "languages.faq3.a": "De nada. Nuestro motor de contexto React cambia el diccionario en 0 ms sin necesidad de recargar la página completa.",
     "home.hero.titleHighlight": "Todas las herramientas",
-    "home.hero.titleSolid": "de imagen en un lugar"
+    "home.hero.titleSolid": "de imagen en un lugar",
+    "home.tab.title": "HelpMyIMG | Todas las herramientas de imagen en un lugar"
   },
   "fi": {
     "nav.badge": "✨ 100% Ilmainen & Yksityinen",
@@ -12768,7 +12775,8 @@ export const staticCatalog: Record<string, any> = {
     "languages.s3.l2": "Oikealta vasemmalle (RTL) tuki (tulossa pian)",
     "languages.s3.l3": "Kulttuurisesti mukautettuja idioomeja ja esimerkkejä",
     "home.hero.titleHighlight": "Kaikki kuvatyökalut",
-    "home.hero.titleSolid": "yhdessä paikassa"
+    "home.hero.titleSolid": "yhdessä paikassa",
+    "home.tab.title": "HelpMyIMG | Kaikki kuvatyökalut yhdessä paikassa"
   },
   "fr": {
     "nav.badge": "✨ 100% Gratuit et Privé",
@@ -14358,7 +14366,8 @@ export const staticCatalog: Record<string, any> = {
     "languages.s3.l2": "Prise en charge de droite à gauche (RTL) (à venir)",
     "languages.s3.l3": "Expressions et exemples culturellement adaptés",
     "home.hero.titleHighlight": "Tous les outils image",
-    "home.hero.titleSolid": "en un seul endroit"
+    "home.hero.titleSolid": "en un seul endroit",
+    "home.tab.title": "HelpMyIMG | Tous les outils image en un seul endroit"
   },
   "he": {
     "nav.badge": "✨ 100% חינם ופרטי",
@@ -15929,7 +15938,8 @@ export const staticCatalog: Record<string, any> = {
     "languages.s3.l2": "תמיכה מימין לשמאל (RTL) (בקרוב)",
     "languages.s3.l3": "ניבים ודוגמאות מותאמים לתרבות",
     "home.hero.titleHighlight": "כל כלי התמונות",
-    "home.hero.titleSolid": "במקום אחד"
+    "home.hero.titleSolid": "במקום אחד",
+    "home.tab.title": "HelpMyIMG | כל כלי התמונות במקום אחד"
   },
   "hi": {
     "nav.badge": "✨ 100% मुफ़्त और निजी",
@@ -17519,7 +17529,8 @@ export const staticCatalog: Record<string, any> = {
     "languages.s3.l2": "दाएं से बाएं (आरटीएल) समर्थन (जल्द ही आ रहा है)",
     "languages.s3.l3": "सांस्कृतिक रूप से अनुकूलित मुहावरे और उदाहरण",
     "home.hero.titleHighlight": "सभी इमेज टूल्स",
-    "home.hero.titleSolid": "एक जगह पर"
+    "home.hero.titleSolid": "एक जगह पर",
+    "home.tab.title": "HelpMyIMG | सभी इमेज टूल्स एक जगह पर"
   },
   "hu": {
     "nav.badge": "✨ 100% Ingyenes & Privát",
@@ -19109,7 +19120,8 @@ export const staticCatalog: Record<string, any> = {
     "languages.s3.l2": "Jobbról balra (RTL) támogatás (hamarosan)",
     "languages.s3.l3": "Kulturálisan adaptált idiómák és példák",
     "home.hero.titleHighlight": "Minden képeszköz",
-    "home.hero.titleSolid": "egy helyen"
+    "home.hero.titleSolid": "egy helyen",
+    "home.tab.title": "HelpMyIMG | Minden képeszköz egy helyen"
   },
   "id": {
     "nav.badge": "✨ 100% Gratis & Privat",
@@ -20773,7 +20785,8 @@ export const staticCatalog: Record<string, any> = {
     "languages.s3.l2": "Dukungan Kanan ke Kiri (RTL) (segera hadir)",
     "languages.s3.l3": "Idiom dan contoh yang diadaptasi secara budaya",
     "home.hero.titleHighlight": "Semua Alat",
-    "home.hero.titleSolid": "Gambar dalam Satu Tempat"
+    "home.hero.titleSolid": "Gambar dalam Satu Tempat",
+    "home.tab.title": "HelpMyIMG | Semua Alat Gambar dalam Satu Tempat"
   },
   "it": {
     "nav.badge": "✨ 100% Gratis e Privato",
@@ -22363,7 +22376,8 @@ export const staticCatalog: Record<string, any> = {
     "languages.s3.l2": "Supporto da destra a sinistra (RTL) (disponibile a breve)",
     "languages.s3.l3": "Idiomi ed esempi culturalmente adattati",
     "home.hero.titleHighlight": "Tutti gli strumenti immagine",
-    "home.hero.titleSolid": "in un unico posto"
+    "home.hero.titleSolid": "in un unico posto",
+    "home.tab.title": "HelpMyIMG | Tutti gli strumenti immagine in un unico posto"
   },
   "ja": {
     "nav.badge": "✨ 100% 無料＆プライバシー保護",
@@ -23953,7 +23967,8 @@ export const staticCatalog: Record<string, any> = {
     "languages.s3.l2": "右から左へ (RTL) のサポート (近日公開予定)",
     "languages.s3.l3": "文化的に適応されたイディオムと例",
     "home.hero.titleHighlight": "画像ツールが全部",
-    "home.hero.titleSolid": "一か所に集結"
+    "home.hero.titleSolid": "一か所に集結",
+    "home.tab.title": "HelpMyIMG | 画像ツールが全部一か所に"
   },
   "ko": {
     "nav.badge": "✨ 100% 무료 & 개인정보 보호",
@@ -25543,7 +25558,8 @@ export const staticCatalog: Record<string, any> = {
     "languages.s3.l2": "RTL(오른쪽에서 왼쪽으로) 지원(곧 제공 예정)",
     "languages.s3.l3": "문화에 적합한 관용구 및 예",
     "home.hero.titleHighlight": "모든 이미지 도구",
-    "home.hero.titleSolid": "한 곳에서"
+    "home.hero.titleSolid": "한 곳에서",
+    "home.tab.title": "HelpMyIMG | 모든 이미지 도구 한 곳에서"
   },
   "ms": {
     "nav.badge": "✨ 100% Percuma & Privasi",
@@ -27133,7 +27149,8 @@ export const staticCatalog: Record<string, any> = {
     "languages.s3.l2": "Sokongan Kanan-ke-Kiri (RTL) (akan datang)",
     "languages.s3.l3": "simpulan bahasa dan contoh yang disesuaikan secara budaya",
     "home.hero.titleHighlight": "Semua Alat Imej",
-    "home.hero.titleSolid": "dalam Satu Tempat"
+    "home.hero.titleSolid": "dalam Satu Tempat",
+    "home.tab.title": "HelpMyIMG | Semua Alat Imej dalam Satu Tempat"
   },
   "nl": {
     "nav.badge": "✨ 100% Gratis & Privé",
@@ -28723,7 +28740,8 @@ export const staticCatalog: Record<string, any> = {
     "languages.s3.l2": "Ondersteuning van rechts naar links (RTL) (binnenkort beschikbaar)",
     "languages.s3.l3": "Cultureel aangepaste idiomen en voorbeelden",
     "home.hero.titleHighlight": "Alle afbeeldingstools",
-    "home.hero.titleSolid": "op één plek"
+    "home.hero.titleSolid": "op één plek",
+    "home.tab.title": "HelpMyIMG | Alle afbeeldingstools op één plek"
   },
   "no": {
     "nav.badge": "✨ 100% Gratis & Privat",
@@ -30313,7 +30331,8 @@ export const staticCatalog: Record<string, any> = {
     "languages.s3.l2": "Høyre-til-venstre-støtte (RTL) (kommer snart)",
     "languages.s3.l3": "Kulturtilpassede idiomer og eksempler",
     "home.hero.titleHighlight": "Alle bildeverktøy",
-    "home.hero.titleSolid": "på ett sted"
+    "home.hero.titleSolid": "på ett sted",
+    "home.tab.title": "HelpMyIMG | Alle bildeverktøy på ett sted"
   },
   "pl": {
     "nav.badge": "✨ 100% Darmowe i Prywatne",
@@ -31908,7 +31927,8 @@ export const staticCatalog: Record<string, any> = {
     "languages.s3.l2": "Obsługa od prawej do lewej (RTL) (wkrótce)",
     "languages.s3.l3": "Idiomy i przykłady zaadaptowane kulturowo",
     "home.hero.titleHighlight": "Wszystkie narzędzia do zdjęć",
-    "home.hero.titleSolid": "w jednym miejscu"
+    "home.hero.titleSolid": "w jednym miejscu",
+    "home.tab.title": "HelpMyIMG | Wszystkie narzędzia do zdjęć w jednym miejscu"
   },
   "pt": {
     "nav.badge": "✨ 100% Grátis e Privado",
@@ -33498,7 +33518,8 @@ export const staticCatalog: Record<string, any> = {
     "languages.s3.l2": "Suporte da direita para a esquerda (RTL) (em breve)",
     "languages.s3.l3": "Idiomas e exemplos culturalmente adaptados",
     "home.hero.titleHighlight": "Todas as ferramentas",
-    "home.hero.titleSolid": "de imagem em um só lugar"
+    "home.hero.titleSolid": "de imagem em um só lugar",
+    "home.tab.title": "HelpMyIMG | Todas as ferramentas de imagem em um só lugar"
   },
   "ro": {
     "nav.badge": "✨ 100% Gratuit & Privat",
@@ -35088,7 +35109,8 @@ export const staticCatalog: Record<string, any> = {
     "languages.s3.l2": "Suport de la dreapta la stânga (RTL) (în curând)",
     "languages.s3.l3": "Expresii și exemple adaptate cultural",
     "home.hero.titleHighlight": "Toate instrumentele",
-    "home.hero.titleSolid": "pentru imagini într-un singur loc"
+    "home.hero.titleSolid": "pentru imagini într-un singur loc",
+    "home.tab.title": "HelpMyIMG | Toate instrumentele pentru imagini într-un singur loc"
   },
   "ru": {
     "nav.badge": "✨ 100% Бесплатно и Приватно",
@@ -36678,7 +36700,8 @@ export const staticCatalog: Record<string, any> = {
     "languages.s3.l2": "Поддержка письма справа налево (RTL) (скоро)",
     "languages.s3.l3": "Культурно адаптированные идиомы и примеры",
     "home.hero.titleHighlight": "Все инструменты",
-    "home.hero.titleSolid": "для изображений в одном месте"
+    "home.hero.titleSolid": "для изображений в одном месте",
+    "home.tab.title": "HelpMyIMG | Все инструменты для изображений в одном месте"
   },
   "sv": {
     "nav.badge": "✨ 100% Gratis & Privat",
@@ -38268,7 +38291,8 @@ export const staticCatalog: Record<string, any> = {
     "languages.s3.l2": "Höger-till-vänster-stöd (RTL) (kommer snart)",
     "languages.s3.l3": "Kulturanpassade idiom och exempel",
     "home.hero.titleHighlight": "Alla bildverktyg",
-    "home.hero.titleSolid": "på ett ställe"
+    "home.hero.titleSolid": "på ett ställe",
+    "home.tab.title": "HelpMyIMG | Alla bildverktyg på ett ställe"
   },
   "th": {
     "nav.badge": "✨ ฟรีและเป็นส่วนตัว 100%",
@@ -39858,7 +39882,8 @@ export const staticCatalog: Record<string, any> = {
     "languages.s3.l2": "การสนับสนุนจากขวาไปซ้าย (RTL) (เร็วๆ นี้)",
     "languages.s3.l3": "สำนวนและตัวอย่างที่ดัดแปลงตามวัฒนธรรม",
     "home.hero.titleHighlight": "เครื่องมือรูปภาพทั้งหมด",
-    "home.hero.titleSolid": "ในที่เดียว"
+    "home.hero.titleSolid": "ในที่เดียว",
+    "home.tab.title": "HelpMyIMG | เครื่องมือรูปภาพทั้งหมดในที่เดียว"
   },
   "tl": {
     "nav.badge": "✨ 100% Libre at Pribado",
@@ -41448,7 +41473,8 @@ export const staticCatalog: Record<string, any> = {
     "languages.s3.l2": "Right-to-Left (RTL) na suporta (paparating na)",
     "languages.s3.l3": "Mga idyoma at halimbawa na inangkop sa kultura",
     "home.hero.titleHighlight": "Lahat ng Tool sa Imahe",
-    "home.hero.titleSolid": "sa Isang Lugar"
+    "home.hero.titleSolid": "sa Isang Lugar",
+    "home.tab.title": "HelpMyIMG | Lahat ng Tool sa Imahe sa Isang Lugar"
   },
   "tr": {
     "nav.badge": "✨ 100% Ücretsiz ve Gizli",
@@ -43038,7 +43064,8 @@ export const staticCatalog: Record<string, any> = {
     "languages.s3.l2": "Sağdan Sola (RTL) desteği (çok yakında)",
     "languages.s3.l3": "Kültürel olarak uyarlanmış deyimler ve örnekler",
     "home.hero.titleHighlight": "Tüm görüntü araçları",
-    "home.hero.titleSolid": "tek bir yerde"
+    "home.hero.titleSolid": "tek bir yerde",
+    "home.tab.title": "HelpMyIMG | Tüm görüntü araçları tek bir yerde"
   },
   "uk": {
     "nav.badge": "✨ 100% Безкоштовно та Приватно",
@@ -44628,7 +44655,8 @@ export const staticCatalog: Record<string, any> = {
     "languages.s3.l2": "Підтримка справа наліво (RTL) (незабаром)",
     "languages.s3.l3": "Культурно адаптовані ідіоми та приклади",
     "home.hero.titleHighlight": "Усі інструменти",
-    "home.hero.titleSolid": "для зображень в одному місці"
+    "home.hero.titleSolid": "для зображень в одному місці",
+    "home.tab.title": "HelpMyIMG | Усі інструменти для зображень в одному місці"
   },
   "vi": {
     "nav.badge": "✨ 100% Miễn Phí & Bảo Mật",
@@ -46218,7 +46246,8 @@ export const staticCatalog: Record<string, any> = {
     "languages.s3.l2": "Hỗ trợ từ phải sang trái (RTL) (sắp ra mắt)",
     "languages.s3.l3": "Thành ngữ và ví dụ phù hợp với văn hóa",
     "home.hero.titleHighlight": "Tất cả công cụ hình ảnh",
-    "home.hero.titleSolid": "tại một nơi"
+    "home.hero.titleSolid": "tại một nơi",
+    "home.tab.title": "HelpMyIMG | Tất cả công cụ hình ảnh tại một nơi"
   },
   "zh": {
     "nav.badge": "✨ 100% 免费隐私保护",
@@ -47808,6 +47837,7 @@ export const staticCatalog: Record<string, any> = {
     "languages.s3.l2": "从右到左 (RTL) 支持（即将推出）",
     "languages.s3.l3": "适应文化的习语和例子",
     "home.hero.titleHighlight": "所有图像工具",
-    "home.hero.titleSolid": "尽在一处"
+    "home.hero.titleSolid": "尽在一处",
+    "home.tab.title": "HelpMyIMG | 所有图像工具尽在一处"
   }
 };

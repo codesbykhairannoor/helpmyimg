@@ -1586,5 +1586,6 @@
   "languages.faq3.q": "Påvirker ændring af sprog præstationer?",
   "languages.faq3.a": "Slet ikke. Vores React-kontekstmotor udskifter ordbogen på 0ms uden at kræve en genindlæsning af en hel side.",
   "home.hero.titleHighlight": "Alle billedværktøjer",
-  "home.hero.titleSolid": "på ét sted"
+  "home.hero.titleSolid": "på ét sted",
+  "home.tab.title": "HelpMyIMG | Alle billedværktøjer på ét sted"
 }
