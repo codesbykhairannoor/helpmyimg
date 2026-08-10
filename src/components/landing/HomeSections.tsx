@@ -23,7 +23,7 @@ export const HomeSections: React.FC = () => {
     <div className="space-y-32 sm:space-y-40 py-16 text-slate-100 relative z-10">
       
       {/* 1. WHY HELPMYIMG - KEUNGGULAN MUTLAK vs KOMPETITOR CLOUD */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="max-w-7xl mx-auto w-full" style={{ padding: '80px 24px', marginBottom: '80px' }}>
         <div className="text-center max-w-3xl mx-auto mb-16 px-4">
           <span className="text-xs font-mono font-bold uppercase tracking-widest text-[#12DA91] bg-[#12DA91]/10 px-3 py-1.5 rounded-full border border-[#12DA91]/30 block w-max mx-auto mb-4">
             {t('home.why.tag', { defaultValue: 'WHY HELPMYIMG' })}
@@ -113,7 +113,7 @@ export const HomeSections: React.FC = () => {
       </section>
 
       {/* 2. HOW IT WORKS IN 3 STEPS (Timeline on Mobile, Side-by-side Desktop) */}
-      <section className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="max-w-7xl mx-auto w-full" style={{ padding: '80px 24px', marginBottom: '80px' }}>
         <div className="glass-panel p-6 sm:p-14 md:rounded-[3rem] border-dark-500/30 relative overflow-hidden bg-dark-900/40">
           <div className="absolute top-0 right-0 w-[500px] h-[500px]  rounded-full bg-[radial-gradient(circle_at_center,rgba(5,218,237,0.08)_0%,transparent_60%)] pointer-events-none" />
           
@@ -194,14 +194,21 @@ export const HomeSections: React.FC = () => {
       </section>
 
       {/* NEW: GEO FACT DENSITY & EXPERT QUOTE SECTION */}
-      <section className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-8 mb-12">
-        <div className="glass-panel p-8 sm:p-12 rounded-3xl border-dark-600/50 bg-dark-800/40 relative overflow-hidden">
+      <section className="max-w-7xl mx-auto w-full" style={{ padding: '80px 24px', marginBottom: '80px' }}>
+        <div className="glass-panel p-8 sm:p-12 rounded-3xl border-dark-600/50 bg-dark-800/40 relative overflow-hidden max-w-5xl mx-auto">
           <div className="absolute top-0 left-0 w-2 h-full bg-gradient-to-b from-[#05DAED] to-[#12DA91]" />
-          <h3 className="text-xl sm:text-2xl font-heading font-bold text-white mb-6">
+          <h2 
+            className="font-heading font-extrabold text-white mb-6"
+            style={{
+              fontSize: 'clamp(1.8rem, 4vw, 2.5rem)',
+              fontWeight: 800,
+              lineHeight: 1.2
+            }}
+          >
             {t('home.geo.quote.title', { defaultValue: 'Industry Recognition & Privacy Standards' })}
-          </h3>
+          </h2>
           
-          <blockquote className="border-l-4 border-dark-600 pl-6 my-6 italic text-slate-300 text-lg sm:text-xl font-body">
+          <blockquote className="border-l-4 border-dark-600 pl-6 my-6 italic text-slate-300 font-body" style={{ fontSize: '1.15rem', lineHeight: 1.8 }}>
             "{t('home.geo.quote.text', { defaultValue: 'The transition to client-side WebAssembly for image processing represents a paradigm shift in data privacy. By eliminating server round-trips, applications achieve 0ms network latency while completely neutralizing data interception risks.' })}"
           </blockquote>
           
@@ -234,8 +241,8 @@ export const HomeSections: React.FC = () => {
       <CompetitorMatrix />
 
       {/* 4. CALL TO ACTION BANNER (Luxurious) */}
-      <section className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 mb-20">
-        <div className="p-8 sm:p-10 md:p-20 rounded-3xl sm:rounded-[2rem] md:rounded-[4rem] bg-dark-900 border border-white/10 text-center relative overflow-hidden shadow-[0_30px_100px_-20px_rgba(0,0,0,0.7)] group">
+      <section className="max-w-7xl mx-auto w-full" style={{ padding: '80px 24px', marginBottom: '80px' }}>
+        <div className="p-8 sm:p-10 md:p-20 rounded-3xl sm:rounded-[2rem] md:rounded-[4rem] bg-dark-900 border border-white/10 text-center relative overflow-hidden shadow-[0_30px_100px_-20px_rgba(0,0,0,0.7)] group max-w-6xl mx-auto">
           
           {/* Intense Gradient Backgrounds */}
           <div className="absolute inset-0 bg-gradient-to-b from-transparent via-dark-800/50 to-dark-800 opacity-80 z-0" />
@@ -247,13 +254,26 @@ export const HomeSections: React.FC = () => {
               {t('home.redesign.ctaTag', { defaultValue: 'UNLEASH CREATIVITY' })}
             </span>
             
-            <h3 className="text-2xl sm:text-5xl md:text-7xl font-heading font-black text-slate-900 dark:text-white mb-4 sm:mb-6 md:mb-8 tracking-tighter leading-tight max-w-4xl mx-auto">
+            <h2 
+              className="font-heading font-extrabold text-white mb-6"
+              style={{
+                fontSize: 'clamp(1.8rem, 4vw, 2.5rem)',
+                fontWeight: 800,
+                lineHeight: 1.2
+              }}
+            >
               <span className="bg-gradient-to-br from-slate-900 via-slate-700 to-slate-500 dark:from-white dark:via-slate-200 dark:to-slate-400 bg-clip-text text-transparent drop-shadow-sm">
                 {t('home.redesign.ctaTitle', { defaultValue: 'Transform Your Workflow.' })}
               </span>
-            </h3>
+            </h2>
             
-            <p className="text-base sm:text-lg md:text-2xl text-slate-600 dark:text-slate-300 max-w-2xl mx-auto mb-10 md:mb-14 leading-relaxed font-light">
+            <p 
+              className="text-slate-400 max-w-2xl mx-auto mb-10 md:mb-14"
+              style={{
+                fontSize: '1.15rem',
+                lineHeight: 1.8
+              }}
+            >
               {t('home.redesign.ctaDesc', { defaultValue: 'No installations. Ultimate privacy. Professional grade image processing directly on your local device.' })}
             </p>
             
@@ -270,7 +290,7 @@ export const HomeSections: React.FC = () => {
       </section>
 
           {/* 3. GEO & ANSWER ENGINE OPTIMIZATION FAQ FOR HELPMYIMG STUDIO */}
-      <section className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24 mb-12 sm:mb-16 relative">
+      <section className="max-w-7xl mx-auto w-full relative" style={{ padding: '80px 24px', marginBottom: '80px' }}>
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] sm:w-[500px] h-[300px] sm:h-[500px]  rounded-full bg-[radial-gradient(circle_at_center,rgba(5,218,237,0.08)_0%,transparent_60%)] pointer-events-none -z-10" />
         
         <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-16 px-4">
