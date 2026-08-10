@@ -22,7 +22,8 @@ export const Hero: React.FC<HeroProps> = ({ title, description }) => {
     // For tool specific titles, fall back to simple word splitting
     const cleanTitle = title.split(' - ')[0].trim();
     const words = cleanTitle.split(' ');
-    const splitIndex = Math.min(2, Math.max(1, Math.floor(words.length * 0.4))); 
+    // Highlight first 2 words if there are 3 or more words, otherwise just the first word
+    const splitIndex = words.length >= 3 ? 2 : 1; 
     gradientPart = words.slice(0, splitIndex).join(' ');
     solidPart = words.slice(splitIndex).join(' ');
   } else {
