@@ -40,11 +40,11 @@ export const Hero: React.FC<HeroProps> = ({ title, description }) => {
   const shortDesc = description || t('hero.subtitle.short', { defaultValue: "Combine, split, compress, convert, and process images directly in your browser. 100% offline via WebAssembly. Free, unlimited, and highly secure." });
 
   return (
-    <section className="relative pt-2 md:pt-6 pb-8 md:pb-12 overflow-hidden flex flex-col items-center justify-center text-center">
+    <section className="relative pt-2 md:pt-6 pb-2 overflow-hidden flex flex-col items-center justify-center text-center">
       {/* Very subtle background light/dark aware */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[500px] bg-gradient-to-b from-slate-100 dark:from-dark-800 to-transparent opacity-50 pointer-events-none -z-10" />
 
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 animate-in fade-in slide-in-from-bottom-8 duration-700 w-full">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 animate-in fade-in slide-in-from-bottom-8 duration-700 w-full">
         
         {/* Title: Gradient + Solid, Centered, Huge */}
         <h1 
