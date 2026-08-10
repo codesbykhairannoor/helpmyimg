@@ -52,7 +52,7 @@ const getLocalizedSlug = (tool, lang) => {
 const TOOLS = ['remove', 'compress', 'convert', 'resize', 'color', 'watermark', 'crop', 'rotate', 'upscale', 'blurface'];
 
 // Info page identifiers
-const INFO_PAGES = ['about', 'privacy', 'terms', 'faq', 'security', 'pricing', 'compare', 'languages'];
+const INFO_PAGES = ['about', 'privacy', 'terms', 'faq', 'security', 'pricing', 'compare', 'languages', 'contact', 'cookies'];
 
 // Read the original index.html built by Vite
 const indexHtmlContent = fs.readFileSync(path.join(distDir, 'index.html'), 'utf8');
@@ -261,6 +261,14 @@ for (const lang of LANGS) {
     if (!fs.existsSync(toolDir)) fs.mkdirSync(toolDir, { recursive: true });
     fs.writeFileSync(path.join(toolDir, 'index.html'), toolHtml, 'utf8');
     generatedCount++;
+
+    // For English, also duplicate to the root level for SEO
+    if (lang === 'en') {
+      const rootToolDir = path.join(distDir, slug);
+      if (!fs.existsSync(rootToolDir)) fs.mkdirSync(rootToolDir, { recursive: true });
+      fs.writeFileSync(path.join(rootToolDir, 'index.html'), toolHtml, 'utf8');
+      generatedCount++;
+    }
   }
 
   // Generate Info Pages (/lang/info-page/)
@@ -281,6 +289,14 @@ for (const lang of LANGS) {
     if (!fs.existsSync(pageDir)) fs.mkdirSync(pageDir, { recursive: true });
     fs.writeFileSync(path.join(pageDir, 'index.html'), pageHtml, 'utf8');
     generatedCount++;
+
+    // For English info pages, also duplicate to the root level for SEO
+    if (lang === 'en') {
+      const rootPageDir = path.join(distDir, page);
+      if (!fs.existsSync(rootPageDir)) fs.mkdirSync(rootPageDir, { recursive: true });
+      fs.writeFileSync(path.join(rootPageDir, 'index.html'), pageHtml, 'utf8');
+      generatedCount++;
+    }
   }
 }
 
