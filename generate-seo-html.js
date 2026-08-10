@@ -49,7 +49,7 @@ const getLocalizedSlug = (tool, lang) => {
 };
 
 // Tool identifiers
-const TOOLS = ['remove', 'compress', 'convert', 'resize', 'color', 'watermark', 'crop', 'rotate', 'upscale', 'blurface'];
+const TOOLS = ['remove', 'color', 'watermark', 'compress', 'convert', 'resize', 'crop', 'rotate', 'picker', 'blurface', 'design', 'brush'];
 
 // Info page identifiers
 const INFO_PAGES = ['about', 'privacy', 'terms', 'faq', 'security', 'pricing', 'compare', 'languages'];
