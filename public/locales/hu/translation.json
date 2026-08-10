@@ -1584,5 +1584,7 @@
   "compare.row5.t2": "1:1 korlát",
   "languages.s3.l1": "Lokalizált URL-ek a jobb SEO érdekében",
   "languages.s3.l2": "Jobbról balra (RTL) támogatás (hamarosan)",
-  "languages.s3.l3": "Kulturálisan adaptált idiómák és példák"
+  "languages.s3.l3": "Kulturálisan adaptált idiómák és példák",
+  "home.hero.titleHighlight": "Minden képeszköz",
+  "home.hero.titleSolid": "egy helyen"
 }

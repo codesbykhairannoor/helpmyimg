@@ -1583,5 +1583,7 @@
   "compare.row5.t2": "1 x 1 raja",
   "languages.s3.l1": "Lokalisoidut URL-osoitteet parempaa hakukoneoptimointia varten",
   "languages.s3.l2": "Oikealta vasemmalle (RTL) tuki (tulossa pian)",
-  "languages.s3.l3": "Kulttuurisesti mukautettuja idioomeja ja esimerkkejä"
+  "languages.s3.l3": "Kulttuurisesti mukautettuja idioomeja ja esimerkkejä",
+  "home.hero.titleHighlight": "Kaikki kuvatyökalut",
+  "home.hero.titleSolid": "yhdessä paikassa"
 }

@@ -1584,5 +1584,7 @@
   "languages.faq2.q": "Hvordan anmoder jeg om et nyt sprog?",
   "languages.faq2.a": "Du kan kontakte vores supportteam eller åbne et problem på vores offentlige lager. Vi bestræber os på at støtte så mange dialekter som muligt.",
   "languages.faq3.q": "Påvirker ændring af sprog præstationer?",
-  "languages.faq3.a": "Slet ikke. Vores React-kontekstmotor udskifter ordbogen på 0ms uden at kræve en genindlæsning af en hel side."
+  "languages.faq3.a": "Slet ikke. Vores React-kontekstmotor udskifter ordbogen på 0ms uden at kræve en genindlæsning af en hel side.",
+  "home.hero.titleHighlight": "Alle billedværktøjer",
+  "home.hero.titleSolid": "på ét sted"
 }

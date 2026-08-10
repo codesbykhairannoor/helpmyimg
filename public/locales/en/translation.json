@@ -1605,5 +1605,7 @@
   "languages.faq2.q": "How do I request a new language?",
   "languages.faq2.a": "You can contact our support team or open an issue on our public repository. We aim to support as many dialects as possible.",
   "languages.faq3.q": "Does changing language affect performance?",
-  "languages.faq3.a": "Not at all. Our React context engine swaps out the dictionary in 0ms without requiring a full page reload."
+  "languages.faq3.a": "Not at all. Our React context engine swaps out the dictionary in 0ms without requiring a full page reload.",
+  "home.hero.titleHighlight": "All Image",
+  "home.hero.titleSolid": "Tools in One Place"
 }

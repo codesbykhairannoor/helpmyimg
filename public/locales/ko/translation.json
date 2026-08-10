@@ -1584,5 +1584,7 @@
   "compare.row5.t2": "1:1 제한",
   "languages.s3.l1": "더 나은 SEO를 위한 현지화된 URL",
   "languages.s3.l2": "RTL(오른쪽에서 왼쪽으로) 지원(곧 제공 예정)",
-  "languages.s3.l3": "문화에 적합한 관용구 및 예"
+  "languages.s3.l3": "문화에 적합한 관용구 및 예",
+  "home.hero.titleHighlight": "모든 이미지 도구",
+  "home.hero.titleSolid": "한 곳에서"
 }

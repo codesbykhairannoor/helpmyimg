@@ -1584,5 +1584,7 @@
   "compare.row5.t2": "1 gånger 1 gräns",
   "languages.s3.l1": "Lokaliserade webbadresser för bättre SEO",
   "languages.s3.l2": "Höger-till-vänster-stöd (RTL) (kommer snart)",
-  "languages.s3.l3": "Kulturanpassade idiom och exempel"
+  "languages.s3.l3": "Kulturanpassade idiom och exempel",
+  "home.hero.titleHighlight": "Alla bildverktyg",
+  "home.hero.titleSolid": "på ett ställe"
 }

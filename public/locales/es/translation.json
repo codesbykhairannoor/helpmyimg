@@ -1584,5 +1584,7 @@
   "languages.faq2.q": "¿Cómo solicito un nuevo idioma?",
   "languages.faq2.a": "Puede ponerse en contacto con nuestro equipo de soporte o abrir un problema en nuestro repositorio público. Nuestro objetivo es admitir tantos dialectos como sea posible.",
   "languages.faq3.q": "¿El cambio de idioma afecta el rendimiento?",
-  "languages.faq3.a": "De nada. Nuestro motor de contexto React cambia el diccionario en 0 ms sin necesidad de recargar la página completa."
+  "languages.faq3.a": "De nada. Nuestro motor de contexto React cambia el diccionario en 0 ms sin necesidad de recargar la página completa.",
+  "home.hero.titleHighlight": "Todas las herramientas",
+  "home.hero.titleSolid": "de imagen en un lugar"
 }

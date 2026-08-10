@@ -1595,5 +1595,7 @@
   "languages.faq2.q": "Jak požádám o nový jazyk?",
   "languages.faq2.a": "Můžete kontaktovat náš tým podpory nebo otevřít problém v našem veřejném úložišti. Naším cílem je podporovat co nejvíce dialektů.",
   "languages.faq3.q": "Má změna jazyka vliv na výkon?",
-  "languages.faq3.a": "vůbec ne. Náš kontextový modul React vymění slovník za 0 ms, aniž by vyžadoval opětovné načtení celé stránky."
+  "languages.faq3.a": "vůbec ne. Náš kontextový modul React vymění slovník za 0 ms, aniž by vyžadoval opětovné načtení celé stránky.",
+  "home.hero.titleHighlight": "Všechny nástroje",
+  "home.hero.titleSolid": "pro obrázky na jednom místě"
 }

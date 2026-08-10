@@ -1584,5 +1584,7 @@
   "compare.row5.t2": "1'e 1 sınırı",
   "languages.s3.l1": "Daha iyi SEO için yerelleştirilmiş URL'ler",
   "languages.s3.l2": "Sağdan Sola (RTL) desteği (çok yakında)",
-  "languages.s3.l3": "Kültürel olarak uyarlanmış deyimler ve örnekler"
+  "languages.s3.l3": "Kültürel olarak uyarlanmış deyimler ve örnekler",
+  "home.hero.titleHighlight": "Tüm görüntü araçları",
+  "home.hero.titleSolid": "tek bir yerde"
 }

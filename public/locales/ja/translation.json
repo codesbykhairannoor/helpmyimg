@@ -1584,5 +1584,7 @@
   "compare.row5.t2": "1×1制限",
   "languages.s3.l1": "ローカライズされた URL による SEO の向上",
   "languages.s3.l2": "右から左へ (RTL) のサポート (近日公開予定)",
-  "languages.s3.l3": "文化的に適応されたイディオムと例"
+  "languages.s3.l3": "文化的に適応されたイディオムと例",
+  "home.hero.titleHighlight": "画像ツールが全部",
+  "home.hero.titleSolid": "一か所に集結"
 }

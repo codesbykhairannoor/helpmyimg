@@ -1584,5 +1584,7 @@
   "compare.row5.t2": "1×1限制",
   "languages.s3.l1": "本地化 URL 以实现更好的 SEO",
   "languages.s3.l2": "从右到左 (RTL) 支持（即将推出）",
-  "languages.s3.l3": "适应文化的习语和例子"
+  "languages.s3.l3": "适应文化的习语和例子",
+  "home.hero.titleHighlight": "所有图像工具",
+  "home.hero.titleSolid": "尽在一处"
 }

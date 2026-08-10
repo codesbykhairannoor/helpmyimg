@@ -1576,5 +1576,7 @@
   "languages.faq2.q": "Wie beantrage ich eine neue Sprache?",
   "languages.faq2.a": "Sie können sich an unser Support-Team wenden oder ein Problem in unserem öffentlichen Repository eröffnen. Unser Ziel ist es, so viele Dialekte wie möglich zu unterstützen.",
   "languages.faq3.q": "Beeinträchtigt ein Sprachwechsel die Leistung?",
-  "languages.faq3.a": "Gar nicht. Unsere React-Kontext-Engine tauscht das Wörterbuch in 0 ms aus, ohne dass ein vollständiges Neuladen der Seite erforderlich ist."
+  "languages.faq3.a": "Gar nicht. Unsere React-Kontext-Engine tauscht das Wörterbuch in 0 ms aus, ohne dass ein vollständiges Neuladen der Seite erforderlich ist.",
+  "home.hero.titleHighlight": "Alle Bild-Tools",
+  "home.hero.titleSolid": "an einem Ort"
 }

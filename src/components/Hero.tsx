@@ -48,7 +48,7 @@ export const Hero: React.FC<HeroProps> = ({ title, description }) => {
         
         {/* Title: Gradient + Solid, Centered, Huge */}
         <h1 
-          className="font-heading font-black mb-6 whitespace-nowrap flex items-center justify-center gap-3"
+          className="font-heading font-black mb-6 flex flex-wrap items-center justify-center gap-x-3 gap-y-1"
           style={{ 
             fontSize: 'clamp(1.8rem, 4.5vw, 4.5rem)', 
             fontWeight: 900, 
