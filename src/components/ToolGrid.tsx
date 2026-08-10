@@ -6,7 +6,7 @@ import { getLocalizedSlug } from '../utils/urlMapper';
 import { tools, categories } from '../config/tools';
 import type { ToolCategory } from '../config/tools';
 import { trackEvent } from '../utils/analytics';
-import { ArrowRight } from 'lucide-react';
+
 
 export const ToolGrid: React.FC = () => {
   const { t, lang } = useTranslation();
