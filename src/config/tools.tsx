@@ -11,7 +11,8 @@ import {
   Pipette,
   ScanFace,
   Wand2,
-  Palette
+  Palette,
+  Brush
 } from 'lucide-react';
 
 export type ToolCategory = 'optimize' | 'modify' | 'security' | 'edit';
@@ -74,6 +75,14 @@ export const tools: ToolItem[] = [
     icon: Pipette,
     titleKey: 'nav.picker',
     descKey: 'grid.pickerDesc',
+    isNew: true,
+  },
+  {
+    id: 'brush',
+    category: 'edit',
+    icon: Brush,
+    titleKey: 'tab.brush',
+    descKey: 'brush.desc',
     isNew: true,
   },
 

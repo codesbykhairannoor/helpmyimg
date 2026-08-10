@@ -52,6 +52,8 @@ export const ToolLandingPage: React.FC = () => {
     ? t('landing.default.title.blurface')
     : internalTool === 'design'
     ? t('landing.default.title.design')
+    : internalTool === 'brush'
+    ? t('brush.title')
     : t('landing.default.title.remove');
 
   const defaultH1 = !tool
@@ -76,6 +78,8 @@ export const ToolLandingPage: React.FC = () => {
     ? t('landing.default.title.blurface')
     : internalTool === 'design'
     ? t('landing.default.title.design')
+    : internalTool === 'brush'
+    ? t('brush.title')
     : t('landing.default.title.remove');
 
   const defaultDesc = !tool
@@ -97,7 +101,7 @@ export const ToolLandingPage: React.FC = () => {
     : internalTool === 'picker'
     ? t('landing.default.desc.picker')
     : internalTool === 'brush'
-    ? t('landing.default.desc.blur')
+    ? t('brush.desc')
     : internalTool === 'blurface'
     ? t('landing.default.desc.blurface')
     : internalTool === 'design'
