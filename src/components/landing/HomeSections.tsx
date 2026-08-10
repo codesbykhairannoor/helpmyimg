@@ -20,10 +20,10 @@ export const HomeSections: React.FC = () => {
   const { t, lang } = useTranslation();
 
   return (
-    <div className="space-y-32 sm:space-y-40 py-16 text-slate-100 relative z-10">
+    <div className="py-16 text-slate-100 relative z-10" style={{ display: 'flex', flexDirection: 'column', gap: '80px' }}>
       
       {/* 1. WHY HELPMYIMG - KEUNGGULAN MUTLAK vs KOMPETITOR CLOUD */}
-      <section className="max-w-7xl mx-auto w-full" style={{ padding: '80px 24px', marginBottom: '80px' }}>
+      <section className="max-w-7xl mx-auto w-full" style={{ padding: '80px 24px' }}>
         <div className="text-center max-w-3xl mx-auto mb-16 px-4">
           <span className="text-xs font-mono font-bold uppercase tracking-widest text-[#12DA91] bg-[#12DA91]/10 px-3 py-1.5 rounded-full border border-[#12DA91]/30 block w-max mx-auto mb-4">
             {t('home.why.tag', { defaultValue: 'WHY HELPMYIMG' })}
@@ -113,7 +113,7 @@ export const HomeSections: React.FC = () => {
       </section>
 
       {/* 2. HOW IT WORKS IN 3 STEPS (Timeline on Mobile, Side-by-side Desktop) */}
-      <section className="max-w-7xl mx-auto w-full" style={{ padding: '80px 24px', marginBottom: '80px' }}>
+      <section className="max-w-7xl mx-auto w-full" style={{ padding: '80px 24px' }}>
         <div className="glass-panel p-6 sm:p-14 md:rounded-[3rem] border-dark-500/30 relative overflow-hidden bg-dark-900/40">
           <div className="absolute top-0 right-0 w-[500px] h-[500px]  rounded-full bg-[radial-gradient(circle_at_center,rgba(5,218,237,0.08)_0%,transparent_60%)] pointer-events-none" />
           
@@ -194,7 +194,7 @@ export const HomeSections: React.FC = () => {
       </section>
 
       {/* NEW: GEO FACT DENSITY & EXPERT QUOTE SECTION */}
-      <section className="max-w-7xl mx-auto w-full" style={{ padding: '80px 24px', marginBottom: '80px' }}>
+      <section className="max-w-7xl mx-auto w-full" style={{ padding: '80px 24px' }}>
         <div className="glass-panel p-8 sm:p-12 rounded-3xl border-dark-600/50 bg-dark-800/40 relative overflow-hidden max-w-5xl mx-auto">
           <div className="absolute top-0 left-0 w-2 h-full bg-gradient-to-b from-[#05DAED] to-[#12DA91]" />
           <h2 
@@ -241,7 +241,7 @@ export const HomeSections: React.FC = () => {
       <CompetitorMatrix />
 
       {/* 4. CALL TO ACTION BANNER (Luxurious) */}
-      <section className="max-w-7xl mx-auto w-full" style={{ padding: '80px 24px', marginBottom: '80px' }}>
+      <section className="max-w-7xl mx-auto w-full" style={{ padding: '80px 24px' }}>
         <div className="p-8 sm:p-10 md:p-20 rounded-3xl sm:rounded-[2rem] md:rounded-[4rem] bg-dark-900 border border-white/10 text-center relative overflow-hidden shadow-[0_30px_100px_-20px_rgba(0,0,0,0.7)] group max-w-6xl mx-auto">
           
           {/* Intense Gradient Backgrounds */}
@@ -290,7 +290,7 @@ export const HomeSections: React.FC = () => {
       </section>
 
           {/* 3. GEO & ANSWER ENGINE OPTIMIZATION FAQ FOR HELPMYIMG STUDIO */}
-      <section className="max-w-7xl mx-auto w-full relative" style={{ padding: '80px 24px', marginBottom: '80px' }}>
+      <section className="max-w-7xl mx-auto w-full relative" style={{ padding: '80px 24px' }}>
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] sm:w-[500px] h-[300px] sm:h-[500px]  rounded-full bg-[radial-gradient(circle_at_center,rgba(5,218,237,0.08)_0%,transparent_60%)] pointer-events-none -z-10" />
         
         <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-16 px-4">
