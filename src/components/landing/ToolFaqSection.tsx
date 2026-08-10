@@ -35,17 +35,23 @@ export const ToolFaqSection: React.FC<ToolFaqSectionProps> = ({ toolMapName, var
 
   if (variant === 'accordion') {
     return (
-      <section className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24 mb-12 sm:mb-16 relative">
+      <section className="max-w-4xl mx-auto w-full relative" style={{ padding: '80px 24px', marginBottom: '80px' }}>
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] sm:w-[500px] h-[300px] sm:h-[500px] rounded-full bg-[radial-gradient(circle_at_center,rgba(5,218,237,0.1)_0%,transparent_70%)] pointer-events-none -z-10" />
         
         <div className="text-center mb-10 sm:mb-16">
           <span className="text-xs font-mono font-bold uppercase tracking-widest text-[#12DA91] bg-[#12DA91]/10 px-3 py-1.5 rounded-full border border-[#12DA91]/30 inline-block">
             {tag}
           </span>
-          <h2 className="text-2xl sm:text-4xl lg:text-5xl font-heading font-extrabold text-white mt-4 sm:mt-6 tracking-tight">
+          <h2 
+            className="font-heading font-extrabold text-white mt-4 sm:mt-6 tracking-tight"
+            style={{ fontSize: 'clamp(1.8rem, 4vw, 2.5rem)', fontWeight: 800, lineHeight: 1.2 }}
+          >
             {title}
           </h2>
-          <p className="text-slate-400 text-base sm:text-lg mt-4 max-w-2xl mx-auto font-body">
+          <p 
+            className="text-slate-400 mt-4 max-w-2xl mx-auto font-body"
+            style={{ fontSize: '1.15rem', lineHeight: 1.8 }}
+          >
             {desc}
           </p>
         </div>
@@ -80,16 +86,22 @@ export const ToolFaqSection: React.FC<ToolFaqSectionProps> = ({ toolMapName, var
 
   if (variant === 'split') {
     return (
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24 mb-12 sm:mb-16 relative">
+      <section className="max-w-7xl mx-auto w-full relative" style={{ padding: '80px 24px', marginBottom: '80px' }}>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-start">
           <div className="lg:sticky lg:top-32 mb-8 lg:mb-0">
             <span className="text-xs font-mono font-bold uppercase tracking-widest text-neon-violet bg-neon-violet/10 px-3 py-1.5 rounded-full border border-neon-violet/30 inline-block">
               {tag}
             </span>
-            <h2 className="text-2xl sm:text-4xl lg:text-5xl font-heading font-extrabold text-white mt-4 sm:mt-6 tracking-tight">
+            <h2 
+              className="font-heading font-extrabold text-white mt-4 sm:mt-6 tracking-tight"
+              style={{ fontSize: 'clamp(1.8rem, 4vw, 2.5rem)', fontWeight: 800, lineHeight: 1.2 }}
+            >
               {title}
             </h2>
-            <p className="text-slate-400 text-base sm:text-lg mt-4 max-w-xl font-body">
+            <p 
+              className="text-slate-400 mt-4 max-w-xl font-body"
+              style={{ fontSize: '1.15rem', lineHeight: 1.8 }}
+            >
               {desc}
             </p>
           </div>
@@ -113,15 +125,21 @@ export const ToolFaqSection: React.FC<ToolFaqSectionProps> = ({ toolMapName, var
 
   if (variant === 'cards') {
     return (
-      <section className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24 mb-12 sm:mb-16 relative">
+      <section className="max-w-6xl mx-auto w-full relative" style={{ padding: '80px 24px', marginBottom: '80px' }}>
         <div className="text-center mb-10 sm:mb-16">
           <span className="text-xs font-mono font-bold uppercase tracking-widest text-[#05DAED] bg-[#05DAED]/10 px-3 py-1.5 rounded-full border border-[#05DAED]/30 inline-block">
             {tag}
           </span>
-          <h2 className="text-2xl sm:text-4xl lg:text-5xl font-heading font-extrabold text-white mt-4 sm:mt-6 tracking-tight">
+          <h2 
+            className="font-heading font-extrabold text-white mt-4 sm:mt-6 tracking-tight"
+            style={{ fontSize: 'clamp(1.8rem, 4vw, 2.5rem)', fontWeight: 800, lineHeight: 1.2 }}
+          >
             {title}
           </h2>
-          <p className="text-slate-400 text-base sm:text-lg mt-4 max-w-2xl mx-auto font-body">
+          <p 
+            className="text-slate-400 mt-4 max-w-2xl mx-auto font-body"
+            style={{ fontSize: '1.15rem', lineHeight: 1.8 }}
+          >
             {desc}
           </p>
         </div>
@@ -140,17 +158,23 @@ export const ToolFaqSection: React.FC<ToolFaqSectionProps> = ({ toolMapName, var
 
   // Default variant === 'grid'
   return (
-    <section className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24 mb-12 sm:mb-16 relative">
+    <section className="max-w-5xl mx-auto w-full relative" style={{ padding: '80px 24px', marginBottom: '80px' }}>
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] sm:w-[500px] h-[300px] sm:h-[500px] rounded-full bg-[radial-gradient(circle_at_center,rgba(5,218,237,0.1)_0%,transparent_70%)] pointer-events-none -z-10" />
       
       <div className="text-center mb-10 sm:mb-16">
         <span className="text-xs font-mono font-bold uppercase tracking-widest text-neon-cyan bg-neon-cyan/10 px-3 py-1.5 rounded-full border border-neon-cyan/30 inline-block">
           {tag}
         </span>
-        <h2 className="text-2xl sm:text-4xl lg:text-5xl font-heading font-extrabold text-white mt-4 sm:mt-6 tracking-tight">
+        <h2 
+          className="font-heading font-extrabold text-white mt-4 sm:mt-6 tracking-tight"
+          style={{ fontSize: 'clamp(1.8rem, 4vw, 2.5rem)', fontWeight: 800, lineHeight: 1.2 }}
+        >
           {title}
         </h2>
-        <p className="text-slate-400 text-base sm:text-lg mt-4 max-w-2xl mx-auto font-body">
+        <p 
+          className="text-slate-400 mt-4 max-w-2xl mx-auto font-body"
+          style={{ fontSize: '1.15rem', lineHeight: 1.8 }}
+        >
           {desc}
         </p>
       </div>
@@ -175,3 +199,4 @@ export const ToolFaqSection: React.FC<ToolFaqSectionProps> = ({ toolMapName, var
     </section>
   );
 };
+
