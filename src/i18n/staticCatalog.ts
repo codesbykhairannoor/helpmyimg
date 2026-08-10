@@ -1641,7 +1641,8 @@ export const staticCatalog: Record<string, any> = {
     "faq.brush.q3": "Can I change the size of the brush?",
     "faq.brush.a3": "Yes, you can adjust the brush size using the slider in the tool panel. A smaller brush is perfect for fine details like hair, while a larger brush is great for quickly erasing big chunks of background.",
     "faq.brush.q4": "Is the Magic Brush completely free?",
-    "faq.brush.a4": "Yes! All features on HelpMyIMG, including the AI background remover and the manual Magic Brush refinement tools, are completely free with no usage limits."},
+    "faq.brush.a4": "Yes! All features on HelpMyIMG, including the AI background remover and the manual Magic Brush refinement tools, are completely free with no usage limits.",
+    "brush.resetMask": "Reset Edits"},
   "cs": {
     "nav.badge": "✨ 100% Zdarma a Soukromé",
     "nav.tools": "AI Nástroje",
@@ -3267,7 +3268,8 @@ export const staticCatalog: Record<string, any> = {
     "faq.brush.q3": "Can I change the size of the brush?",
     "faq.brush.a3": "Yes, you can adjust the brush size using the slider in the tool panel. A smaller brush is perfect for fine details like hair, while a larger brush is great for quickly erasing big chunks of background.",
     "faq.brush.q4": "Is the Magic Brush completely free?",
-    "faq.brush.a4": "Yes! All features on HelpMyIMG, including the AI background remover and the manual Magic Brush refinement tools, are completely free with no usage limits."},
+    "faq.brush.a4": "Yes! All features on HelpMyIMG, including the AI background remover and the manual Magic Brush refinement tools, are completely free with no usage limits.",
+    "brush.resetMask": "Reset Edits"},
   "da": {
     "nav.badge": "✨ 100% Gratis & Privat",
     "nav.tools": "AI-værktøjer",
@@ -4882,7 +4884,8 @@ export const staticCatalog: Record<string, any> = {
     "faq.brush.q3": "Can I change the size of the brush?",
     "faq.brush.a3": "Yes, you can adjust the brush size using the slider in the tool panel. A smaller brush is perfect for fine details like hair, while a larger brush is great for quickly erasing big chunks of background.",
     "faq.brush.q4": "Is the Magic Brush completely free?",
-    "faq.brush.a4": "Yes! All features on HelpMyIMG, including the AI background remover and the manual Magic Brush refinement tools, are completely free with no usage limits."},
+    "faq.brush.a4": "Yes! All features on HelpMyIMG, including the AI background remover and the manual Magic Brush refinement tools, are completely free with no usage limits.",
+    "brush.resetMask": "Reset Edits"},
   "de": {
     "nav.badge": "✨ 100% Kostenlos & Privat",
     "nav.tools": "KI-Tools",
@@ -6489,7 +6492,8 @@ export const staticCatalog: Record<string, any> = {
     "faq.brush.q3": "Can I change the size of the brush?",
     "faq.brush.a3": "Yes, you can adjust the brush size using the slider in the tool panel. A smaller brush is perfect for fine details like hair, while a larger brush is great for quickly erasing big chunks of background.",
     "faq.brush.q4": "Is the Magic Brush completely free?",
-    "faq.brush.a4": "Yes! All features on HelpMyIMG, including the AI background remover and the manual Magic Brush refinement tools, are completely free with no usage limits."},
+    "faq.brush.a4": "Yes! All features on HelpMyIMG, including the AI background remover and the manual Magic Brush refinement tools, are completely free with no usage limits.",
+    "brush.resetMask": "Reset Edits"},
   "el": {
     "nav.badge": "✨ 100% Δωρεάν & Ιδιωτικό",
     "nav.tools": "Εργαλεία AI",
@@ -8104,7 +8108,8 @@ export const staticCatalog: Record<string, any> = {
     "faq.brush.q3": "Can I change the size of the brush?",
     "faq.brush.a3": "Yes, you can adjust the brush size using the slider in the tool panel. A smaller brush is perfect for fine details like hair, while a larger brush is great for quickly erasing big chunks of background.",
     "faq.brush.q4": "Is the Magic Brush completely free?",
-    "faq.brush.a4": "Yes! All features on HelpMyIMG, including the AI background remover and the manual Magic Brush refinement tools, are completely free with no usage limits."},
+    "faq.brush.a4": "Yes! All features on HelpMyIMG, including the AI background remover and the manual Magic Brush refinement tools, are completely free with no usage limits.",
+    "brush.resetMask": "Reset Edits"},
   "en": {
     "nav.badge": "✨ 100% Free & Private",
     "nav.tools": "AI Tools",
@@ -9740,7 +9745,8 @@ export const staticCatalog: Record<string, any> = {
     "faq.brush.q3": "Can I change the size of the brush?",
     "faq.brush.a3": "Yes, you can adjust the brush size using the slider in the tool panel. A smaller brush is perfect for fine details like hair, while a larger brush is great for quickly erasing big chunks of background.",
     "faq.brush.q4": "Is the Magic Brush completely free?",
-    "faq.brush.a4": "Yes! All features on HelpMyIMG, including the AI background remover and the manual Magic Brush refinement tools, are completely free with no usage limits."},
+    "faq.brush.a4": "Yes! All features on HelpMyIMG, including the AI background remover and the manual Magic Brush refinement tools, are completely free with no usage limits.",
+    "brush.resetMask": "Reset Edits"},
   "es": {
     "nav.badge": "✨ 100% Gratis y Privado",
     "nav.tools": "Herramientas AI",
@@ -11355,7 +11361,8 @@ export const staticCatalog: Record<string, any> = {
     "faq.brush.q3": "Can I change the size of the brush?",
     "faq.brush.a3": "Yes, you can adjust the brush size using the slider in the tool panel. A smaller brush is perfect for fine details like hair, while a larger brush is great for quickly erasing big chunks of background.",
     "faq.brush.q4": "Is the Magic Brush completely free?",
-    "faq.brush.a4": "Yes! All features on HelpMyIMG, including the AI background remover and the manual Magic Brush refinement tools, are completely free with no usage limits."},
+    "faq.brush.a4": "Yes! All features on HelpMyIMG, including the AI background remover and the manual Magic Brush refinement tools, are completely free with no usage limits.",
+    "brush.resetMask": "Reset Edits"},
   "fi": {
     "nav.badge": "✨ 100% Ilmainen & Yksityinen",
     "nav.tools": "AI-työkalut",
@@ -12969,7 +12976,8 @@ export const staticCatalog: Record<string, any> = {
     "faq.brush.q3": "Can I change the size of the brush?",
     "faq.brush.a3": "Yes, you can adjust the brush size using the slider in the tool panel. A smaller brush is perfect for fine details like hair, while a larger brush is great for quickly erasing big chunks of background.",
     "faq.brush.q4": "Is the Magic Brush completely free?",
-    "faq.brush.a4": "Yes! All features on HelpMyIMG, including the AI background remover and the manual Magic Brush refinement tools, are completely free with no usage limits."},
+    "faq.brush.a4": "Yes! All features on HelpMyIMG, including the AI background remover and the manual Magic Brush refinement tools, are completely free with no usage limits.",
+    "brush.resetMask": "Reset Edits"},
   "fr": {
     "nav.badge": "✨ 100% Gratuit et Privé",
     "nav.tools": "Outils IA",
@@ -14584,7 +14592,8 @@ export const staticCatalog: Record<string, any> = {
     "faq.brush.q3": "Can I change the size of the brush?",
     "faq.brush.a3": "Yes, you can adjust the brush size using the slider in the tool panel. A smaller brush is perfect for fine details like hair, while a larger brush is great for quickly erasing big chunks of background.",
     "faq.brush.q4": "Is the Magic Brush completely free?",
-    "faq.brush.a4": "Yes! All features on HelpMyIMG, including the AI background remover and the manual Magic Brush refinement tools, are completely free with no usage limits."},
+    "faq.brush.a4": "Yes! All features on HelpMyIMG, including the AI background remover and the manual Magic Brush refinement tools, are completely free with no usage limits.",
+    "brush.resetMask": "Reset Edits"},
   "he": {
     "nav.badge": "✨ 100% חינם ופרטי",
     "nav.tools": "כלי בינה מלאכותית",
@@ -16180,7 +16189,8 @@ export const staticCatalog: Record<string, any> = {
     "faq.brush.q3": "Can I change the size of the brush?",
     "faq.brush.a3": "Yes, you can adjust the brush size using the slider in the tool panel. A smaller brush is perfect for fine details like hair, while a larger brush is great for quickly erasing big chunks of background.",
     "faq.brush.q4": "Is the Magic Brush completely free?",
-    "faq.brush.a4": "Yes! All features on HelpMyIMG, including the AI background remover and the manual Magic Brush refinement tools, are completely free with no usage limits."},
+    "faq.brush.a4": "Yes! All features on HelpMyIMG, including the AI background remover and the manual Magic Brush refinement tools, are completely free with no usage limits.",
+    "brush.resetMask": "Reset Edits"},
   "hi": {
     "nav.badge": "✨ 100% मुफ़्त और निजी",
     "nav.tools": "AI उपकरण",
@@ -17795,7 +17805,8 @@ export const staticCatalog: Record<string, any> = {
     "faq.brush.q3": "Can I change the size of the brush?",
     "faq.brush.a3": "Yes, you can adjust the brush size using the slider in the tool panel. A smaller brush is perfect for fine details like hair, while a larger brush is great for quickly erasing big chunks of background.",
     "faq.brush.q4": "Is the Magic Brush completely free?",
-    "faq.brush.a4": "Yes! All features on HelpMyIMG, including the AI background remover and the manual Magic Brush refinement tools, are completely free with no usage limits."},
+    "faq.brush.a4": "Yes! All features on HelpMyIMG, including the AI background remover and the manual Magic Brush refinement tools, are completely free with no usage limits.",
+    "brush.resetMask": "Reset Edits"},
   "hu": {
     "nav.badge": "✨ 100% Ingyenes & Privát",
     "nav.tools": "AI Eszközök",
@@ -19410,7 +19421,8 @@ export const staticCatalog: Record<string, any> = {
     "faq.brush.q3": "Can I change the size of the brush?",
     "faq.brush.a3": "Yes, you can adjust the brush size using the slider in the tool panel. A smaller brush is perfect for fine details like hair, while a larger brush is great for quickly erasing big chunks of background.",
     "faq.brush.q4": "Is the Magic Brush completely free?",
-    "faq.brush.a4": "Yes! All features on HelpMyIMG, including the AI background remover and the manual Magic Brush refinement tools, are completely free with no usage limits."},
+    "faq.brush.a4": "Yes! All features on HelpMyIMG, including the AI background remover and the manual Magic Brush refinement tools, are completely free with no usage limits.",
+    "brush.resetMask": "Reset Edits"},
   "id": {
     "nav.badge": "✨ 100% Gratis & Privat",
     "nav.tools": "Alat AI",
@@ -22714,7 +22726,8 @@ export const staticCatalog: Record<string, any> = {
     "faq.brush.q3": "Can I change the size of the brush?",
     "faq.brush.a3": "Yes, you can adjust the brush size using the slider in the tool panel. A smaller brush is perfect for fine details like hair, while a larger brush is great for quickly erasing big chunks of background.",
     "faq.brush.q4": "Is the Magic Brush completely free?",
-    "faq.brush.a4": "Yes! All features on HelpMyIMG, including the AI background remover and the manual Magic Brush refinement tools, are completely free with no usage limits."},
+    "faq.brush.a4": "Yes! All features on HelpMyIMG, including the AI background remover and the manual Magic Brush refinement tools, are completely free with no usage limits.",
+    "brush.resetMask": "Reset Edits"},
   "ja": {
     "nav.badge": "✨ 100% 無料＆プライバシー保護",
     "nav.tools": "AIツール",
@@ -24329,7 +24342,8 @@ export const staticCatalog: Record<string, any> = {
     "faq.brush.q3": "Can I change the size of the brush?",
     "faq.brush.a3": "Yes, you can adjust the brush size using the slider in the tool panel. A smaller brush is perfect for fine details like hair, while a larger brush is great for quickly erasing big chunks of background.",
     "faq.brush.q4": "Is the Magic Brush completely free?",
-    "faq.brush.a4": "Yes! All features on HelpMyIMG, including the AI background remover and the manual Magic Brush refinement tools, are completely free with no usage limits."},
+    "faq.brush.a4": "Yes! All features on HelpMyIMG, including the AI background remover and the manual Magic Brush refinement tools, are completely free with no usage limits.",
+    "brush.resetMask": "Reset Edits"},
   "ko": {
     "nav.badge": "✨ 100% 무료 & 개인정보 보호",
     "nav.tools": "AI 도구",
@@ -25944,7 +25958,8 @@ export const staticCatalog: Record<string, any> = {
     "faq.brush.q3": "Can I change the size of the brush?",
     "faq.brush.a3": "Yes, you can adjust the brush size using the slider in the tool panel. A smaller brush is perfect for fine details like hair, while a larger brush is great for quickly erasing big chunks of background.",
     "faq.brush.q4": "Is the Magic Brush completely free?",
-    "faq.brush.a4": "Yes! All features on HelpMyIMG, including the AI background remover and the manual Magic Brush refinement tools, are completely free with no usage limits."},
+    "faq.brush.a4": "Yes! All features on HelpMyIMG, including the AI background remover and the manual Magic Brush refinement tools, are completely free with no usage limits.",
+    "brush.resetMask": "Reset Edits"},
   "ms": {
     "nav.badge": "✨ 100% Percuma & Privasi",
     "nav.tools": "Alatan AI",
@@ -27559,7 +27574,8 @@ export const staticCatalog: Record<string, any> = {
     "faq.brush.q3": "Can I change the size of the brush?",
     "faq.brush.a3": "Yes, you can adjust the brush size using the slider in the tool panel. A smaller brush is perfect for fine details like hair, while a larger brush is great for quickly erasing big chunks of background.",
     "faq.brush.q4": "Is the Magic Brush completely free?",
-    "faq.brush.a4": "Yes! All features on HelpMyIMG, including the AI background remover and the manual Magic Brush refinement tools, are completely free with no usage limits."},
+    "faq.brush.a4": "Yes! All features on HelpMyIMG, including the AI background remover and the manual Magic Brush refinement tools, are completely free with no usage limits.",
+    "brush.resetMask": "Reset Edits"},
   "nl": {
     "nav.badge": "✨ 100% Gratis & Privé",
     "nav.tools": "AI-tools",
@@ -29174,7 +29190,8 @@ export const staticCatalog: Record<string, any> = {
     "faq.brush.q3": "Can I change the size of the brush?",
     "faq.brush.a3": "Yes, you can adjust the brush size using the slider in the tool panel. A smaller brush is perfect for fine details like hair, while a larger brush is great for quickly erasing big chunks of background.",
     "faq.brush.q4": "Is the Magic Brush completely free?",
-    "faq.brush.a4": "Yes! All features on HelpMyIMG, including the AI background remover and the manual Magic Brush refinement tools, are completely free with no usage limits."},
+    "faq.brush.a4": "Yes! All features on HelpMyIMG, including the AI background remover and the manual Magic Brush refinement tools, are completely free with no usage limits.",
+    "brush.resetMask": "Reset Edits"},
   "no": {
     "nav.badge": "✨ 100% Gratis & Privat",
     "nav.tools": "AI-verktøy",
@@ -30789,7 +30806,8 @@ export const staticCatalog: Record<string, any> = {
     "faq.brush.q3": "Can I change the size of the brush?",
     "faq.brush.a3": "Yes, you can adjust the brush size using the slider in the tool panel. A smaller brush is perfect for fine details like hair, while a larger brush is great for quickly erasing big chunks of background.",
     "faq.brush.q4": "Is the Magic Brush completely free?",
-    "faq.brush.a4": "Yes! All features on HelpMyIMG, including the AI background remover and the manual Magic Brush refinement tools, are completely free with no usage limits."},
+    "faq.brush.a4": "Yes! All features on HelpMyIMG, including the AI background remover and the manual Magic Brush refinement tools, are completely free with no usage limits.",
+    "brush.resetMask": "Reset Edits"},
   "pl": {
     "nav.badge": "✨ 100% Darmowe i Prywatne",
     "nav.tools": "Narzędzia AI",
@@ -32409,7 +32427,8 @@ export const staticCatalog: Record<string, any> = {
     "faq.brush.q3": "Can I change the size of the brush?",
     "faq.brush.a3": "Yes, you can adjust the brush size using the slider in the tool panel. A smaller brush is perfect for fine details like hair, while a larger brush is great for quickly erasing big chunks of background.",
     "faq.brush.q4": "Is the Magic Brush completely free?",
-    "faq.brush.a4": "Yes! All features on HelpMyIMG, including the AI background remover and the manual Magic Brush refinement tools, are completely free with no usage limits."},
+    "faq.brush.a4": "Yes! All features on HelpMyIMG, including the AI background remover and the manual Magic Brush refinement tools, are completely free with no usage limits.",
+    "brush.resetMask": "Reset Edits"},
   "pt": {
     "nav.badge": "✨ 100% Grátis e Privado",
     "nav.tools": "Ferramentas IA",
@@ -34024,7 +34043,8 @@ export const staticCatalog: Record<string, any> = {
     "faq.brush.q3": "Can I change the size of the brush?",
     "faq.brush.a3": "Yes, you can adjust the brush size using the slider in the tool panel. A smaller brush is perfect for fine details like hair, while a larger brush is great for quickly erasing big chunks of background.",
     "faq.brush.q4": "Is the Magic Brush completely free?",
-    "faq.brush.a4": "Yes! All features on HelpMyIMG, including the AI background remover and the manual Magic Brush refinement tools, are completely free with no usage limits."},
+    "faq.brush.a4": "Yes! All features on HelpMyIMG, including the AI background remover and the manual Magic Brush refinement tools, are completely free with no usage limits.",
+    "brush.resetMask": "Reset Edits"},
   "ro": {
     "nav.badge": "✨ 100% Gratuit & Privat",
     "nav.tools": "Instrumente AI",
@@ -35639,7 +35659,8 @@ export const staticCatalog: Record<string, any> = {
     "faq.brush.q3": "Can I change the size of the brush?",
     "faq.brush.a3": "Yes, you can adjust the brush size using the slider in the tool panel. A smaller brush is perfect for fine details like hair, while a larger brush is great for quickly erasing big chunks of background.",
     "faq.brush.q4": "Is the Magic Brush completely free?",
-    "faq.brush.a4": "Yes! All features on HelpMyIMG, including the AI background remover and the manual Magic Brush refinement tools, are completely free with no usage limits."},
+    "faq.brush.a4": "Yes! All features on HelpMyIMG, including the AI background remover and the manual Magic Brush refinement tools, are completely free with no usage limits.",
+    "brush.resetMask": "Reset Edits"},
   "ru": {
     "nav.badge": "✨ 100% Бесплатно и Приватно",
     "nav.tools": "ИИ Инструменты",
@@ -37254,7 +37275,8 @@ export const staticCatalog: Record<string, any> = {
     "faq.brush.q3": "Can I change the size of the brush?",
     "faq.brush.a3": "Yes, you can adjust the brush size using the slider in the tool panel. A smaller brush is perfect for fine details like hair, while a larger brush is great for quickly erasing big chunks of background.",
     "faq.brush.q4": "Is the Magic Brush completely free?",
-    "faq.brush.a4": "Yes! All features on HelpMyIMG, including the AI background remover and the manual Magic Brush refinement tools, are completely free with no usage limits."},
+    "faq.brush.a4": "Yes! All features on HelpMyIMG, including the AI background remover and the manual Magic Brush refinement tools, are completely free with no usage limits.",
+    "brush.resetMask": "Reset Edits"},
   "sv": {
     "nav.badge": "✨ 100% Gratis & Privat",
     "nav.tools": "AI-verktyg",
@@ -38869,7 +38891,8 @@ export const staticCatalog: Record<string, any> = {
     "faq.brush.q3": "Can I change the size of the brush?",
     "faq.brush.a3": "Yes, you can adjust the brush size using the slider in the tool panel. A smaller brush is perfect for fine details like hair, while a larger brush is great for quickly erasing big chunks of background.",
     "faq.brush.q4": "Is the Magic Brush completely free?",
-    "faq.brush.a4": "Yes! All features on HelpMyIMG, including the AI background remover and the manual Magic Brush refinement tools, are completely free with no usage limits."},
+    "faq.brush.a4": "Yes! All features on HelpMyIMG, including the AI background remover and the manual Magic Brush refinement tools, are completely free with no usage limits.",
+    "brush.resetMask": "Reset Edits"},
   "th": {
     "nav.badge": "✨ ฟรีและเป็นส่วนตัว 100%",
     "nav.tools": "เครื่องมือ AI",
@@ -40484,7 +40507,8 @@ export const staticCatalog: Record<string, any> = {
     "faq.brush.q3": "Can I change the size of the brush?",
     "faq.brush.a3": "Yes, you can adjust the brush size using the slider in the tool panel. A smaller brush is perfect for fine details like hair, while a larger brush is great for quickly erasing big chunks of background.",
     "faq.brush.q4": "Is the Magic Brush completely free?",
-    "faq.brush.a4": "Yes! All features on HelpMyIMG, including the AI background remover and the manual Magic Brush refinement tools, are completely free with no usage limits."},
+    "faq.brush.a4": "Yes! All features on HelpMyIMG, including the AI background remover and the manual Magic Brush refinement tools, are completely free with no usage limits.",
+    "brush.resetMask": "Reset Edits"},
   "tl": {
     "nav.badge": "✨ 100% Libre at Pribado",
     "nav.tools": "Mga Tool sa AI",
@@ -42099,7 +42123,8 @@ export const staticCatalog: Record<string, any> = {
     "faq.brush.q3": "Can I change the size of the brush?",
     "faq.brush.a3": "Yes, you can adjust the brush size using the slider in the tool panel. A smaller brush is perfect for fine details like hair, while a larger brush is great for quickly erasing big chunks of background.",
     "faq.brush.q4": "Is the Magic Brush completely free?",
-    "faq.brush.a4": "Yes! All features on HelpMyIMG, including the AI background remover and the manual Magic Brush refinement tools, are completely free with no usage limits."},
+    "faq.brush.a4": "Yes! All features on HelpMyIMG, including the AI background remover and the manual Magic Brush refinement tools, are completely free with no usage limits.",
+    "brush.resetMask": "Reset Edits"},
   "tr": {
     "nav.badge": "✨ 100% Ücretsiz ve Gizli",
     "nav.tools": "Yapay Zeka Araçları",
@@ -43714,7 +43739,8 @@ export const staticCatalog: Record<string, any> = {
     "faq.brush.q3": "Can I change the size of the brush?",
     "faq.brush.a3": "Yes, you can adjust the brush size using the slider in the tool panel. A smaller brush is perfect for fine details like hair, while a larger brush is great for quickly erasing big chunks of background.",
     "faq.brush.q4": "Is the Magic Brush completely free?",
-    "faq.brush.a4": "Yes! All features on HelpMyIMG, including the AI background remover and the manual Magic Brush refinement tools, are completely free with no usage limits."},
+    "faq.brush.a4": "Yes! All features on HelpMyIMG, including the AI background remover and the manual Magic Brush refinement tools, are completely free with no usage limits.",
+    "brush.resetMask": "Reset Edits"},
   "uk": {
     "nav.badge": "✨ 100% Безкоштовно та Приватно",
     "nav.tools": "ІІ Інструменти",
@@ -45329,7 +45355,8 @@ export const staticCatalog: Record<string, any> = {
     "faq.brush.q3": "Can I change the size of the brush?",
     "faq.brush.a3": "Yes, you can adjust the brush size using the slider in the tool panel. A smaller brush is perfect for fine details like hair, while a larger brush is great for quickly erasing big chunks of background.",
     "faq.brush.q4": "Is the Magic Brush completely free?",
-    "faq.brush.a4": "Yes! All features on HelpMyIMG, including the AI background remover and the manual Magic Brush refinement tools, are completely free with no usage limits."},
+    "faq.brush.a4": "Yes! All features on HelpMyIMG, including the AI background remover and the manual Magic Brush refinement tools, are completely free with no usage limits.",
+    "brush.resetMask": "Reset Edits"},
   "vi": {
     "nav.badge": "✨ 100% Miễn Phí & Bảo Mật",
     "nav.tools": "Công cụ AI",
@@ -46944,7 +46971,8 @@ export const staticCatalog: Record<string, any> = {
     "faq.brush.q3": "Can I change the size of the brush?",
     "faq.brush.a3": "Yes, you can adjust the brush size using the slider in the tool panel. A smaller brush is perfect for fine details like hair, while a larger brush is great for quickly erasing big chunks of background.",
     "faq.brush.q4": "Is the Magic Brush completely free?",
-    "faq.brush.a4": "Yes! All features on HelpMyIMG, including the AI background remover and the manual Magic Brush refinement tools, are completely free with no usage limits."},
+    "faq.brush.a4": "Yes! All features on HelpMyIMG, including the AI background remover and the manual Magic Brush refinement tools, are completely free with no usage limits.",
+    "brush.resetMask": "Reset Edits"},
   "zh": {
     "nav.badge": "✨ 100% 免费隐私保护",
     "nav.tools": "AI 工具",
