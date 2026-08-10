@@ -267,8 +267,11 @@ for (const lang of LANGS) {
   for (const page of INFO_PAGES) {
     const pageUrl = `/${lang}/${page}/`;
     
-    // Info pages have localized titles in their respective namespaces
-    let pageTitle = translations[`${page}.title`] || page;
+    // Info pages have localized titles in their respective namespaces (using footer/nav keys for conciseness)
+    let pageTitleKey = `footer.${page}`;
+    if (page === 'faq') pageTitleKey = 'nav.faq';
+    
+    let pageTitle = translations[pageTitleKey] || page;
     pageTitle = `${pageTitle} - HelpMyIMG`;
     
     let pageDesc = translations[`${page}.subtitle`] || translations[`${page}.intro`] || homeDesc;

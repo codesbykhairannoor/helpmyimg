@@ -15,7 +15,7 @@ export const SecurityPage: React.FC = () => {
   return (
     <>
       <Helmet>
-        <title>{t('security.title') || 'Security & Trust'} | HelpMyIMG</title>
+        <title>{t('footer.security')} | HelpMyIMG</title>
         <meta name="description" content={t('security.subtitle') || 'Learn how our Zero-Cloud architecture protects your privacy.'} />
         <link rel="canonical" href={`https://helpmyimg.com/${lang}/security`} />
       </Helmet>

@@ -15,7 +15,7 @@ export const PricingPage: React.FC = () => {
   return (
     <>
       <Helmet>
-        <title>{t('pricing.title') || 'Pricing'} | HelpMyIMG</title>
+        <title>{t('footer.pricing')} | HelpMyIMG</title>
         <meta name="description" content={t('pricing.subtitle') || 'Stop paying for cloud AI. HelpMyIMG is 100% free.'} />
         <link rel="canonical" href={`https://helpmyimg.com/${lang}/pricing`} />
       </Helmet>

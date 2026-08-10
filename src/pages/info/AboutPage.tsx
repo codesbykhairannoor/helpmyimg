@@ -10,7 +10,7 @@ export const AboutPage: React.FC = () => {
   return (
     <>
       <Helmet>
-        <title>{t('about.title')} | HelpMyIMG</title>
+        <title>{t('footer.about')} | HelpMyIMG</title>
         <meta name="description" content={t('about.subtitle')} />
         <meta name="keywords" content="HelpMyIMG, AI offline, privacy first image editor, webassembly ai, client side machine learning, free image background remover" />
         <link rel="canonical" href={`https://helpmyimg.com/${lang}/about`} />

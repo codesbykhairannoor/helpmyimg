@@ -10,7 +10,7 @@ export const PrivacyPage: React.FC = () => {
   return (
     <>
       <Helmet>
-        <title>{t('privacy.title')} | HelpMyIMG</title>
+        <title>{t('footer.privacy')} | HelpMyIMG</title>
         <meta name="description" content={t('privacy.intro')} />
         <meta name="keywords" content="HelpMyIMG privacy policy, offline image editing privacy, GDPR compliant image editor, zero data collection AI" />
         <link rel="canonical" href={`https://helpmyimg.com/${lang}/privacy`} />

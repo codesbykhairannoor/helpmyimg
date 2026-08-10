@@ -29,7 +29,7 @@ export const FaqPage: React.FC = () => {
   return (
     <>
       <Helmet>
-        <title>{t('faq.title')} | HelpMyIMG</title>
+        <title>{t('nav.faq')} | HelpMyIMG</title>
         <meta name="description" content={t('faq.subtitle')} />
         <meta name="keywords" content="HelpMyIMG FAQ, help center, offline AI questions, image background remover help" />
         <link rel="canonical" href={`https://helpmyimg.com/${lang}/faq`} />
