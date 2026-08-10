@@ -147,10 +147,12 @@ export const ToolLandingPage: React.FC = () => {
       />
 
       {/* Hero Section */}
-      <Hero 
-        title={!tool ? undefined : displayConfig.h1} 
-        description={!tool ? undefined : displayConfig.description} 
-      />
+      {internalTool !== 'brush' && (
+        <Hero 
+          title={!tool ? undefined : displayConfig.h1} 
+          description={!tool ? undefined : displayConfig.description} 
+        />
+      )}
 
 
       {/* CORE TOOL WORKSPACE ATAU HOMEPAGE GRID */}
