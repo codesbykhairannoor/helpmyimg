@@ -231,8 +231,9 @@ for (const lang of LANGS) {
   }
 
   // Generate Home Page (/lang/)
-  const homeTitle = translations['hero.title'] ? `${translations['hero.title']} - HelpMyIMG` : 'HelpMyIMG - Free AI Image Editor';
-  const homeDesc = translations['hero.subtitle'] || translations['seo.jsonld.description'] || 'Free local AI photo editor. Remove backgrounds, compress, resize.';
+  // Use home.tab.title to EXACTLY match what the React app renders in the browser tab
+  const homeTitle = translations['home.tab.title'] || (translations['hero.title'] ? `${translations['hero.title']} - HelpMyIMG` : 'HelpMyIMG | All Image Tools in One Place');
+  const homeDesc = translations['hero.subtitle.short'] || translations['hero.subtitle'] || translations['seo.jsonld.description'] || 'Free local AI photo editor. Remove backgrounds, compress, resize.';
   
   const homeHtml = generateHtml(lang, `/${lang}/`, homeTitle, homeDesc, null, translations);
   const homeDir = path.join(distDir, lang);
