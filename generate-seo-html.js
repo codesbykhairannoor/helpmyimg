@@ -240,6 +240,12 @@ for (const lang of LANGS) {
   fs.writeFileSync(path.join(homeDir, 'index.html'), homeHtml, 'utf8');
   generatedCount++;
 
+  // For English, also overwrite the base root index.html for root domain SEO
+  if (lang === 'en') {
+    fs.writeFileSync(path.join(distDir, 'index.html'), homeHtml, 'utf8');
+    generatedCount++;
+  }
+
   // Generate Tool Pages (/lang/slug/)
   for (const tool of TOOLS) {
     const slug = getLocalizedSlug(tool, lang);
