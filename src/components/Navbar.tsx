@@ -42,7 +42,7 @@ export const Navbar: React.FC = () => {
 
     const toolSlug = pathParts[toolSlugIndex];
     if (toolSlug) {
-      if (['about', 'privacy', 'terms', 'faq'].includes(toolSlug)) {
+      if (['about', 'privacy', 'terms', 'faq', 'security', 'pricing', 'compare', 'languages'].includes(toolSlug)) {
         // Informational page, don't translate slug
         const rest = pathParts.slice(toolSlugIndex + 1);
         const newPathParts = newLang === 'en' ? [toolSlug, ...rest] : [newLang, toolSlug, ...rest];
