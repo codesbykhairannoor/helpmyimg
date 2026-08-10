@@ -1,6 +1,5 @@
 // src/components/landing/tools/RemoveBgSections.tsx
 import React from 'react';
-import { SystemArchitecture } from '../SystemArchitecture';
 import { useTranslation } from '../../../context/LanguageContext';
 import { Wand2, Image as ImageIcon, Sparkles, Scissors, Lock, Focus, ShoppingBag, Palette, Download } from 'lucide-react';
 
@@ -165,7 +164,6 @@ export const RemoveBgSections: React.FC = () => {
       </section>
 
     
-      <SystemArchitecture variant="split" />
-    </div>
+          </div>
   );
 };

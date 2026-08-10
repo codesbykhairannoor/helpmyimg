@@ -1,5 +1,4 @@
 import React from 'react';
-import { SystemArchitecture } from '../SystemArchitecture';
 import { useTranslation } from '../../../context/LanguageContext';
 import { ArrowRightLeft, Image as ImageIcon, Zap, Upload, LayoutGrid, FileType2, Download } from 'lucide-react';
 
@@ -174,7 +173,6 @@ export const ConvertSections: React.FC = () => {
       </section>
 
     
-      <SystemArchitecture variant="minimal" />
-    </div>
+          </div>
   );
 };

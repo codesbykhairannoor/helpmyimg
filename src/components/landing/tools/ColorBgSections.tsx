@@ -1,5 +1,4 @@
 import React from 'react';
-import { SystemArchitecture } from '../SystemArchitecture';
 import { useTranslation } from '../../../context/LanguageContext';
 import { Palette, Wand2, Image as ImageIcon, Focus, Monitor, LayoutGrid, Droplet, Download, Lock } from 'lucide-react';
 
@@ -189,7 +188,6 @@ export const ColorBgSections: React.FC = () => {
       </section>
 
     
-      <SystemArchitecture variant="split" />
-    </div>
+          </div>
   );
 };

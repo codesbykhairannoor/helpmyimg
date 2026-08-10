@@ -1,5 +1,4 @@
 import React from 'react';
-import { SystemArchitecture } from '../SystemArchitecture';
 import { useTranslation } from '../../../context/LanguageContext';
 import { Wand2, Type, Square, Layers, Download, Move, Palette } from 'lucide-react';
 
@@ -160,7 +159,6 @@ export const DesignSections: React.FC = () => {
       </section>
 
     
-      <SystemArchitecture variant="list" />
-    </div>
+          </div>
   );
 };

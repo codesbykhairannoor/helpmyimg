@@ -2,7 +2,6 @@
 import React from 'react';
 import { useTranslation } from '../../../context/LanguageContext';
 import { Brush, Eraser, Undo2, Focus, Palette, Target, MousePointer2, Layers } from 'lucide-react';
-import { SystemArchitecture } from '../SystemArchitecture';
 
 export const BrushSections: React.FC = () => {
   const { t } = useTranslation();
@@ -158,7 +157,6 @@ export const BrushSections: React.FC = () => {
 
       </section>
 
-      <SystemArchitecture />
-    </div>
+          </div>
   );
 };

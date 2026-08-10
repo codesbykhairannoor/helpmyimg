@@ -1,5 +1,4 @@
 import React from 'react';
-import { SystemArchitecture } from '../SystemArchitecture';
 import { useTranslation } from '../../../context/LanguageContext';
 import { Pipette, Search, Palette, Code2, Copy, Crosshair, Image as ImageIcon } from 'lucide-react';
 
@@ -164,7 +163,6 @@ export const PickerSections: React.FC = () => {
       </section>
 
     
-      <SystemArchitecture variant="bento" />
-    </div>
+          </div>
   );
 };

@@ -1,5 +1,4 @@
 import React from 'react';
-import { SystemArchitecture } from '../SystemArchitecture';
 import { useTranslation } from '../../../context/LanguageContext';
 import { ShieldAlert, Layers, SlidersHorizontal, Grid, Fingerprint, Upload, Save } from 'lucide-react';
 
@@ -163,7 +162,6 @@ export const WatermarkSections: React.FC = () => {
       </section>
 
     
-      <SystemArchitecture variant="cards" />
-    </div>
+          </div>
   );
 };
