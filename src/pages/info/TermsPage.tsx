@@ -7,6 +7,12 @@ import { motion } from 'framer-motion';
 export const TermsPage: React.FC = () => {
   const { t, lang } = useTranslation();
 
+  const rawTitle = t('terms.title') || 'Terms of Service';
+  const titleWords = rawTitle.split(' ');
+  const splitIndex = Math.min(2, Math.max(1, Math.floor(titleWords.length * 0.4)));
+  const gradientPart = titleWords.slice(0, splitIndex).join(' ');
+  const solidPart = titleWords.slice(splitIndex).join(' ');
+
   return (
     <>
       <Helmet>
@@ -27,8 +33,16 @@ export const TermsPage: React.FC = () => {
             <FileText className="w-4 h-4" />
             {t('terms.badge') || 'TERMS OF SERVICE'}
           </div>
-          <h1 className="text-5xl md:text-7xl font-heading font-black text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-orange-500 mb-6 tracking-tight leading-tight">
-            {t('terms.title')}
+          <h1 
+            className="font-heading font-black mb-6"
+            style={{ fontSize: 'clamp(2.5rem, 6vw, 4.5rem)', fontWeight: 900, letterSpacing: '-0.03em', lineHeight: 1.15 }}
+          >
+            <span className="bg-gradient-to-r from-neon-cyan via-neon-emerald to-neon-indigo bg-clip-text text-transparent drop-shadow-sm">
+              {gradientPart}
+            </span>{' '}
+            <span className="text-slate-800 dark:text-white">
+              {solidPart}
+            </span>
           </h1>
           <p className="text-lg text-slate-500 font-mono tracking-widest uppercase mb-12">
             {t('terms.lastUpdated') || 'Effective Date: July 11, 2026'}

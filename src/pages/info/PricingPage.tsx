@@ -12,6 +12,12 @@ export const PricingPage: React.FC = () => {
     setOpenFaq(openFaq === index ? null : index);
   };
 
+  const rawTitle = t('pricing.title') || 'Stop Paying for Cloud AI.';
+  const titleWords = rawTitle.split(' ');
+  const splitIndex = Math.min(2, Math.max(1, Math.floor(titleWords.length * 0.4)));
+  const gradientPart = titleWords.slice(0, splitIndex).join(' ');
+  const solidPart = titleWords.slice(splitIndex).join(' ');
+
   return (
     <>
       <Helmet>
@@ -28,8 +34,16 @@ export const PricingPage: React.FC = () => {
           className="text-center mb-12 relative"
         >
           <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[400px] bg-neon-cyan/20 blur-[150px] rounded-full pointer-events-none -z-10" />
-          <h1 className="text-5xl md:text-7xl font-heading font-black text-transparent bg-clip-text bg-gradient-to-r from-pink-400 to-rose-500 mb-8 tracking-tight leading-tight">
-            {t('pricing.title') || 'Stop Paying for Cloud AI.'}
+          <h1 
+            className="font-heading font-black mb-8"
+            style={{ fontSize: 'clamp(2.5rem, 6vw, 4.5rem)', fontWeight: 900, letterSpacing: '-0.03em', lineHeight: 1.15 }}
+          >
+            <span className="bg-gradient-to-r from-neon-cyan via-neon-emerald to-neon-indigo bg-clip-text text-transparent drop-shadow-sm">
+              {gradientPart}
+            </span>{' '}
+            <span className="text-slate-800 dark:text-white">
+              {solidPart}
+            </span>
           </h1>
           <p className="text-2xl md:text-3xl text-neon-cyan font-bold max-w-4xl mx-auto leading-relaxed mb-6">
             {t('pricing.subtitle') || 'Enterprise-grade image processing, absolutely free.'}

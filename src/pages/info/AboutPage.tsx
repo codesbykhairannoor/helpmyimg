@@ -7,6 +7,12 @@ import { motion } from 'framer-motion';
 export const AboutPage: React.FC = () => {
   const { t, lang } = useTranslation();
 
+  const rawTitle = t('about.title') || 'About Us';
+  const titleWords = rawTitle.split(' ');
+  const splitIndex = Math.min(2, Math.max(1, Math.floor(titleWords.length * 0.4)));
+  const gradientPart = titleWords.slice(0, splitIndex).join(' ');
+  const solidPart = titleWords.slice(splitIndex).join(' ');
+
   return (
     <>
       <Helmet>
@@ -28,8 +34,16 @@ export const AboutPage: React.FC = () => {
             <Sparkles className="w-4 h-4" />
             {t('about.badge') || 'ABOUT US: THE HELPMYIMG STORY'}
           </div>
-          <h1 className="text-5xl md:text-7xl font-heading font-black text-transparent bg-clip-text bg-gradient-to-r from-neon-cyan to-neon-emerald mb-8 tracking-tight leading-tight">
-            {t('about.title')}
+          <h1 
+            className="font-heading font-black mb-8"
+            style={{ fontSize: 'clamp(2.5rem, 6vw, 4.5rem)', fontWeight: 900, letterSpacing: '-0.03em', lineHeight: 1.15 }}
+          >
+            <span className="bg-gradient-to-r from-neon-cyan via-neon-emerald to-neon-indigo bg-clip-text text-transparent drop-shadow-sm">
+              {gradientPart}
+            </span>{' '}
+            <span className="text-slate-800 dark:text-white">
+              {solidPart}
+            </span>
           </h1>
           <p className="text-xl md:text-2xl text-slate-300 max-w-4xl mx-auto leading-relaxed mb-6">
             {t('about.subtitle')}

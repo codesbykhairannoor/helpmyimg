@@ -26,6 +26,12 @@ export const FaqPage: React.FC = () => {
 
   const currentFaqs = faqCategories[activeCategory];
 
+  const rawTitle = t('faq.title') || 'Frequently Asked Questions';
+  const titleWords = rawTitle.split(' ');
+  const splitIndex = Math.min(2, Math.max(1, Math.floor(titleWords.length * 0.4)));
+  const gradientPart = titleWords.slice(0, splitIndex).join(' ');
+  const solidPart = titleWords.slice(splitIndex).join(' ');
+
   return (
     <>
       <Helmet>
@@ -47,8 +53,16 @@ export const FaqPage: React.FC = () => {
             <HelpCircle className="w-4 h-4" />
             {t('faq.badge') || 'HELP CENTER & FAQ'}
           </div>
-          <h1 className="text-5xl md:text-6xl font-heading font-black text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400 mb-6 tracking-tight leading-tight">
-            {t('faq.title')}
+          <h1 
+            className="font-heading font-black mb-6"
+            style={{ fontSize: 'clamp(2.5rem, 6vw, 4.5rem)', fontWeight: 900, letterSpacing: '-0.03em', lineHeight: 1.15 }}
+          >
+            <span className="bg-gradient-to-r from-neon-cyan via-neon-emerald to-neon-indigo bg-clip-text text-transparent drop-shadow-sm">
+              {gradientPart}
+            </span>{' '}
+            <span className="text-slate-800 dark:text-white">
+              {solidPart}
+            </span>
           </h1>
           <p className="text-xl text-slate-400 max-w-2xl mx-auto leading-relaxed mb-6">
             {t('faq.subtitle')}
