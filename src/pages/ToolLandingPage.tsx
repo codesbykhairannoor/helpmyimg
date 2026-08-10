@@ -109,7 +109,7 @@ export const ToolLandingPage: React.FC = () => {
     : t('landing.default.desc.remove');
 
   // Resolve tool string for i18n keys
-  const toolMapName = ['remove', 'color', 'watermark', 'compress', 'convert', 'resize', 'crop', 'rotate', 'picker'].includes(internalTool) ? internalTool : 'remove';
+  const toolMapName = ['remove', 'color', 'watermark', 'compress', 'convert', 'resize', 'crop', 'rotate', 'picker', 'brush', 'blurface', 'design'].includes(internalTool) ? internalTool : 'remove';
 
   let displayConfig: PSeoKeywordConfig;
   if (config) {
