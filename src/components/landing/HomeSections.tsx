@@ -121,10 +121,23 @@ export const HomeSections: React.FC = () => {
           <span className="text-[10px] md:text-xs font-mono font-bold uppercase tracking-[0.2em] text-[#05DAED] bg-[#05DAED]/10 px-4 py-2 rounded-full border border-[#05DAED]/30 block w-max md:mx-auto mb-6">
             {t('home.steps.tag', { defaultValue: 'HOW IT WORKS' })}
           </span>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-heading font-black text-white leading-tight mb-6">
+            <h2 
+              className="font-heading font-black text-white mb-6"
+              style={{
+                fontSize: 'clamp(1.8rem, 4vw, 2.5rem)',
+                fontWeight: 800,
+                lineHeight: 1.2
+              }}
+            >
               {t('home.steps.title', { defaultValue: 'How HelpMyIMG Works in 3 Simple Steps' })}
             </h2>
-            <p className="text-base md:text-xl text-slate-400 leading-relaxed max-w-2xl md:mx-auto font-light">
+            <p 
+              className="text-slate-400 max-w-2xl md:mx-auto"
+              style={{
+                fontSize: '1.15rem',
+                lineHeight: 1.8
+              }}
+            >
               {t('home.steps.desc', { defaultValue: 'No software installation required. Get professional results directly from your web browser.' })}
             </p>
           </div>
@@ -264,15 +277,28 @@ export const HomeSections: React.FC = () => {
           <span className="text-xs font-mono font-bold uppercase tracking-widest text-[#12DA91] bg-[#12DA91]/10 px-3 py-1.5 rounded-full border border-[#12DA91]/30 block w-max mx-auto mb-4">
             {t('landing.global.faq.tag', { defaultValue: 'HELP CENTER & FAQ' })}
           </span>
-          <h2 className="text-2xl sm:text-4xl lg:text-5xl font-heading font-extrabold text-white leading-tight">
+          <h2 
+            className="font-heading font-extrabold text-white"
+            style={{
+              fontSize: 'clamp(1.8rem, 4vw, 2.5rem)',
+              fontWeight: 800,
+              lineHeight: 1.2
+            }}
+          >
             {t('landing.global.faq.title', { defaultValue: 'Frequently Asked Questions' })}
           </h2>
-          <p className="text-base sm:text-lg text-slate-400 leading-relaxed mt-4 sm:mt-6 max-w-2xl mx-auto">
+          <p 
+            className="text-slate-400 mt-4 sm:mt-6 max-w-2xl mx-auto"
+            style={{
+              fontSize: '1.15rem',
+              lineHeight: 1.8
+            }}
+          >
             {t('landing.global.faq.desc', { defaultValue: 'Everything you need to know about our local processing engine.' })}
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 relative z-10">
+        <div className="flex flex-col gap-6 max-w-4xl mx-auto relative z-10">
           {[1, 2, 3, 4, 5].map((num) => {
             // General homepage FAQ fallback
             let defQ = '';
