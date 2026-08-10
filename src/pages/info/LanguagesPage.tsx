@@ -16,7 +16,7 @@ export const LanguagesPage: React.FC = () => {
   return (
     <>
       <Helmet>
-        <title>{t('footer.languages')} | HelpMyIMG</title>
+        <title>{${t('')} | HelpMyIMG}</title>
         <meta name="description" content={t('languages.subtitle') || 'HelpMyIMG is natively translated into 30 global languages.'} />
         <link rel="canonical" href={`https://helpmyimg.com/${lang}/languages`} />
       </Helmet>
