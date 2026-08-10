@@ -16,18 +16,18 @@ export const TermsPage: React.FC = () => {
         <link rel="canonical" href={`https://helpmyimg.com/${lang}/terms`} />
       </Helmet>
 
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 md:pt-12 pb-16">
         {/* HEADER SECTION */}
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="text-center mb-20"
+          className="text-center mb-12"
         >
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-neon-purple/10 border border-neon-purple/20 text-neon-purple text-sm font-mono font-bold mb-8">
             <FileText className="w-4 h-4" />
             {t('terms.badge') || 'TERMS OF SERVICE'}
           </div>
-          <h1 className="text-5xl md:text-7xl font-heading font-black text-white mb-6 tracking-tight leading-tight">
+          <h1 className="text-5xl md:text-7xl font-heading font-black text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-orange-500 mb-6 tracking-tight leading-tight">
             {t('terms.title')}
           </h1>
           <p className="text-lg text-slate-500 font-mono tracking-widest uppercase mb-12">

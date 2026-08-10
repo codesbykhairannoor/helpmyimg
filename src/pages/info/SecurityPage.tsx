@@ -20,19 +20,19 @@ export const SecurityPage: React.FC = () => {
         <link rel="canonical" href={`https://helpmyimg.com/${lang}/security`} />
       </Helmet>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 md:pt-12 pb-16">
         {/* SECTION 1: HERO */}
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="text-center mb-24 relative"
+          className="text-center mb-12 relative"
         >
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-neon-emerald/20 blur-[120px] rounded-full pointer-events-none -z-10" />
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-neon-emerald/10 border border-neon-emerald/20 text-neon-emerald text-sm font-mono font-bold mb-8">
             <Shield className="w-4 h-4" />
             {t('security.badge') || 'ZERO-TRUST SECURITY MODEL'}
           </div>
-          <h1 className="text-5xl md:text-7xl font-heading font-black text-white mb-8 tracking-tight leading-tight">
+          <h1 className="text-5xl md:text-7xl font-heading font-black text-transparent bg-clip-text bg-gradient-to-r from-neon-emerald to-teal-400 mb-8 tracking-tight leading-tight">
             {t('security.title') || 'Your Data Never Leaves Your Device.'}
           </h1>
           <p className="text-xl md:text-2xl text-slate-300 max-w-4xl mx-auto leading-relaxed mb-8">
@@ -121,19 +121,19 @@ export const SecurityPage: React.FC = () => {
             <div className="bg-dark-900 p-8 rounded-3xl border border-red-500/20">
               <h3 className="text-red-400 font-bold mb-6">{t('security.s4.old') || 'Traditional Cloud Editors'}</h3>
               <ul className="space-y-4 text-slate-400 text-sm">
-                <li className="flex gap-3"><EyeOff className="w-5 h-5 text-red-500 shrink-0" /> You upload a photo to their server.</li>
-                <li className="flex gap-3"><EyeOff className="w-5 h-5 text-red-500 shrink-0" /> AI processes it on their GPU.</li>
-                <li className="flex gap-3"><EyeOff className="w-5 h-5 text-red-500 shrink-0" /> They store the original and result.</li>
-                <li className="flex gap-3"><EyeOff className="w-5 h-5 text-red-500 shrink-0" /> Risk of intercept or data breach.</li>
+                <li className="flex gap-3"><EyeOff className="w-5 h-5 text-red-500 shrink-0" /> {t('security.s4.old.1') || 'You upload a photo to their server.'}</li>
+                <li className="flex gap-3"><EyeOff className="w-5 h-5 text-red-500 shrink-0" /> {t('security.s4.old.2') || 'AI processes it on their GPU.'}</li>
+                <li className="flex gap-3"><EyeOff className="w-5 h-5 text-red-500 shrink-0" /> {t('security.s4.old.3') || 'They store the original and result.'}</li>
+                <li className="flex gap-3"><EyeOff className="w-5 h-5 text-red-500 shrink-0" /> {t('security.s4.old.4') || 'Risk of intercept or data breach.'}</li>
               </ul>
             </div>
             <div className="bg-dark-900 p-8 rounded-3xl border border-neon-emerald/30 shadow-[0_0_40px_rgba(16,185,129,0.1)]">
               <h3 className="text-neon-emerald font-bold mb-6">{t('security.s4.new') || 'HelpMyIMG Local Engine'}</h3>
               <ul className="space-y-4 text-slate-300 text-sm">
-                <li className="flex gap-3"><CheckCircle2 className="w-5 h-5 text-neon-emerald shrink-0" /> You open the web page.</li>
-                <li className="flex gap-3"><CheckCircle2 className="w-5 h-5 text-neon-emerald shrink-0" /> WebAssembly engine loads into RAM.</li>
-                <li className="flex gap-3"><CheckCircle2 className="w-5 h-5 text-neon-emerald shrink-0" /> Photo is processed by your own CPU.</li>
-                <li className="flex gap-3"><CheckCircle2 className="w-5 h-5 text-neon-emerald shrink-0" /> 0 bytes transmitted. Absolute privacy.</li>
+                <li className="flex gap-3"><CheckCircle2 className="w-5 h-5 text-neon-emerald shrink-0" /> {t('security.s4.new.1') || 'You open the web page.'}</li>
+                <li className="flex gap-3"><CheckCircle2 className="w-5 h-5 text-neon-emerald shrink-0" /> {t('security.s4.new.2') || 'WebAssembly engine loads into RAM.'}</li>
+                <li className="flex gap-3"><CheckCircle2 className="w-5 h-5 text-neon-emerald shrink-0" /> {t('security.s4.new.3') || 'Photo is processed by your own CPU.'}</li>
+                <li className="flex gap-3"><CheckCircle2 className="w-5 h-5 text-neon-emerald shrink-0" /> {t('security.s4.new.4') || '0 bytes transmitted. Absolute privacy.'}</li>
               </ul>
             </div>
           </div>

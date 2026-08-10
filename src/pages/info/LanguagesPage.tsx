@@ -21,19 +21,19 @@ export const LanguagesPage: React.FC = () => {
         <link rel="canonical" href={`https://helpmyimg.com/${lang}/languages`} />
       </Helmet>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 md:pt-12 pb-16">
         {/* SECTION 1: HERO */}
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="text-center mb-24 relative"
+          className="text-center mb-12 relative"
         >
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-neon-indigo/20 blur-[150px] rounded-full pointer-events-none -z-10" />
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-neon-indigo/10 border border-neon-indigo/20 text-neon-indigo text-sm font-mono font-bold mb-8">
             <Globe2 className="w-4 h-4" />
             {t('languages.badge') || 'GLOBAL ACCESSIBILITY'}
           </div>
-          <h1 className="text-5xl md:text-7xl font-heading font-black text-white mb-8 tracking-tight leading-tight">
+          <h1 className="text-5xl md:text-7xl font-heading font-black text-transparent bg-clip-text bg-gradient-to-r from-neon-indigo to-neon-cyan mb-8 tracking-tight leading-tight">
             {t('languages.title') || 'Designed for the World.'}
           </h1>
           <p className="text-xl md:text-2xl text-slate-300 max-w-4xl mx-auto leading-relaxed mb-8">

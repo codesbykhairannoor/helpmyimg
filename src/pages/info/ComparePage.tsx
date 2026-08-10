@@ -20,19 +20,19 @@ export const ComparePage: React.FC = () => {
         <link rel="canonical" href={`https://helpmyimg.com/${lang}/compare`} />
       </Helmet>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 md:pt-12 pb-16">
         {/* SECTION 1: HERO */}
         <motion.div 
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          className="text-center mb-24 relative"
+          className="text-center mb-12 relative"
         >
           <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-3xl h-[400px] bg-neon-purple/20 blur-[150px] rounded-full pointer-events-none -z-10" />
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-neon-purple/10 border border-neon-purple/20 text-neon-purple text-sm font-mono font-bold mb-8">
             <Scale className="w-4 h-4" />
             {t('compare.badge') || 'HEAD-TO-HEAD COMPARISON'}
           </div>
-          <h1 className="text-5xl md:text-7xl font-heading font-black text-white mb-8 tracking-tight leading-tight">
+          <h1 className="text-5xl md:text-7xl font-heading font-black text-transparent bg-clip-text bg-gradient-to-r from-violet-400 to-fuchsia-500 mb-8 tracking-tight leading-tight">
             {t('compare.title') || 'HelpMyIMG vs The Rest'}
           </h1>
           <p className="text-xl md:text-2xl text-slate-300 max-w-4xl mx-auto leading-relaxed mb-8">
@@ -151,15 +151,15 @@ export const ComparePage: React.FC = () => {
           </h2>
           <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
             <div className="bg-dark-900 p-8 rounded-3xl border border-dark-700">
-              <h3 className="text-xl font-bold text-white mb-4">Competitors</h3>
+              <h3 className="text-xl font-bold text-white mb-4">{t('compare.s5.t1') || 'Competitors'}</h3>
               <p className="text-slate-400 text-lg leading-relaxed mb-6">
-                Downscale large images to save server bandwidth, resulting in blurry edges.
+                {t('compare.s5.c1') || 'Downscale large images to save server bandwidth, resulting in blurry edges.'}
               </p>
             </div>
             <div className="bg-neon-purple/10 p-8 rounded-3xl border border-neon-purple/30">
-              <h3 className="text-xl font-bold text-neon-purple mb-4">HelpMyIMG</h3>
+              <h3 className="text-xl font-bold text-neon-purple mb-4">{t('compare.s5.t2') || 'HelpMyIMG'}</h3>
               <p className="text-neon-purple/80 text-lg leading-relaxed mb-6">
-                Processes native resolutions directly in RAM, maintaining pixel-perfect HD precision.
+                {t('compare.s5.c2') || 'Processes native resolutions directly in RAM, maintaining pixel-perfect HD precision.'}
               </p>
             </div>
           </div>

@@ -24,7 +24,7 @@ export const Footer: React.FC = () => {
                 <img src="/logobaru.png" alt="HelpMyIMG Logo" width="36" height="36" className="w-full h-full object-contain" />
               </div>
               <span className="text-xl font-heading font-extrabold tracking-tight text-slate-900 dark:text-white">
-                HelpMyIMG
+                HelpMy<span className="text-transparent bg-clip-text bg-gradient-to-r from-neon-cyan to-neon-emerald">IMG</span>
               </span>
             </div>
             <p className="text-[12px] text-slate-500 leading-relaxed font-body font-medium">

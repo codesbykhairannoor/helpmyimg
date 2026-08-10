@@ -20,15 +20,15 @@ export const PricingPage: React.FC = () => {
         <link rel="canonical" href={`https://helpmyimg.com/${lang}/pricing`} />
       </Helmet>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 md:pt-12 pb-16">
         {/* SECTION 1: HERO */}
         <motion.div 
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
-          className="text-center mb-24 relative"
+          className="text-center mb-12 relative"
         >
           <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[400px] bg-neon-cyan/20 blur-[150px] rounded-full pointer-events-none -z-10" />
-          <h1 className="text-5xl md:text-8xl font-heading font-black text-white mb-8 tracking-tight leading-none uppercase">
+          <h1 className="text-5xl md:text-7xl font-heading font-black text-transparent bg-clip-text bg-gradient-to-r from-pink-400 to-rose-500 mb-8 tracking-tight leading-tight">
             {t('pricing.title') || 'Stop Paying for Cloud AI.'}
           </h1>
           <p className="text-2xl md:text-3xl text-neon-cyan font-bold max-w-4xl mx-auto leading-relaxed mb-6">
@@ -89,7 +89,7 @@ export const PricingPage: React.FC = () => {
               ].map((item, i) => (
                 <div key={i} className="bg-dark-900 p-6 rounded-2xl border border-dark-700">
                   <div className="text-slate-400 mb-2">{t(`pricing.s3.c${i+1}.name`) || item.name}</div>
-                  <div className="text-red-400 font-bold line-through text-xl mb-4">{item.cost}</div>
+                  <div className="text-red-400 font-bold line-through text-xl mb-4">{t(`pricing.s3.c${i+1}.cost`) || item.cost}</div>
                   <div className="text-neon-emerald font-black text-3xl">{t('pricing.s3.ours') || item.ours}</div>
                 </div>
               ))}
