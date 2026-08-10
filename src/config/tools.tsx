@@ -130,7 +130,6 @@ export const tools: ToolItem[] = [
 ];
 
 export const categories = [
-  { id: 'all', labelKey: 'grid.catAll' },
   { id: 'modify', labelKey: 'grid.catModify' },
   { id: 'edit', labelKey: 'grid.catEdit' },
   { id: 'optimize', labelKey: 'grid.catOptimize' },
