@@ -48,7 +48,7 @@ export const Hero: React.FC<HeroProps> = ({ title, description }) => {
         
         {/* Title: Gradient + Solid, Centered, Huge */}
         <h1 
-          className="font-heading font-black mb-6 flex flex-wrap items-center justify-center gap-x-3 gap-y-1"
+          className="font-heading font-black mb-6 text-center"
           style={{ 
             fontSize: 'clamp(1.8rem, 4.5vw, 4.5rem)', 
             fontWeight: 900, 
@@ -58,19 +58,21 @@ export const Hero: React.FC<HeroProps> = ({ title, description }) => {
         >
           {gradientFirst ? (
             <>
-              <span className="bg-gradient-to-r from-neon-cyan via-neon-emerald to-neon-indigo bg-clip-text text-transparent drop-shadow-sm">
+              <span className="bg-gradient-to-r from-neon-cyan via-neon-emerald to-neon-indigo bg-clip-text text-transparent drop-shadow-sm inline">
                 {gradientPart}
               </span>
-              <span className="text-slate-800 dark:text-slate-100">
+              {' '}
+              <span className="text-slate-800 dark:text-slate-100 inline">
                 {solidPart}
               </span>
             </>
           ) : (
             <>
-              <span className="text-slate-800 dark:text-slate-100">
+              <span className="text-slate-800 dark:text-slate-100 inline">
                 {solidPart}
               </span>
-              <span className="bg-gradient-to-r from-neon-cyan via-neon-emerald to-neon-indigo bg-clip-text text-transparent drop-shadow-sm">
+              {' '}
+              <span className="bg-gradient-to-r from-neon-cyan via-neon-emerald to-neon-indigo bg-clip-text text-transparent drop-shadow-sm inline">
                 {gradientPart}
               </span>
             </>
@@ -91,7 +93,7 @@ export const Hero: React.FC<HeroProps> = ({ title, description }) => {
 
         {/* Search Bar matching the image layout */}
         {!title && (
-          <div className="relative max-w-2xl mx-auto mb-8 shadow-xl shadow-slate-200/20 dark:shadow-none rounded-full group">
+          <div className="relative max-w-2xl mx-auto mb-4 shadow-xl shadow-slate-200/20 dark:shadow-none rounded-full group">
             <div className="absolute inset-y-0 left-0 pl-5 flex items-center pointer-events-none">
               <Search className="h-5 w-5 text-slate-400 group-focus-within:text-neon-cyan transition-colors" />
             </div>
