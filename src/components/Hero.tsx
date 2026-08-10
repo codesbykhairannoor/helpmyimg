@@ -12,16 +12,24 @@ export const Hero: React.FC<HeroProps> = ({ title, description }) => {
   const { t } = useTranslation();
   const [searchQuery, setSearchQuery] = useState('');
 
-  const rawTitle = title || t('hero.title', { defaultValue: t('landing.default.title.home', { defaultValue: "Professional Photo Studio & Bulk Toolkit" }) });
+
   
-  // Remove long SEO suffixes like " - Change Size" for the UI display
-  const cleanTitle = rawTitle.split(' - ')[0].trim();
+  // Highlight only the core keywords using the translation keys if available
+  let gradientPart = '';
+  let solidPart = '';
   
-  // Highlight only the core keywords (max 2 words) for a "genius" look
-  const words = cleanTitle.split(' ');
-  const splitIndex = Math.min(2, Math.max(1, Math.floor(words.length * 0.4))); 
-  const gradientPart = words.slice(0, splitIndex).join(' ');
-  const solidPart = words.slice(splitIndex).join(' ');
+  if (title) {
+    // For tool specific titles, fall back to simple word splitting
+    const cleanTitle = title.split(' - ')[0].trim();
+    const words = cleanTitle.split(' ');
+    const splitIndex = Math.min(2, Math.max(1, Math.floor(words.length * 0.4))); 
+    gradientPart = words.slice(0, splitIndex).join(' ');
+    solidPart = words.slice(splitIndex).join(' ');
+  } else {
+    // For home page, use explicitly translated highlighted and solid parts
+    gradientPart = t('hero.titleHighlight', { defaultValue: 'All Image' });
+    solidPart = t('hero.titleSolid', { defaultValue: 'Tools in One Place' });
+  }
 
   // Keep description short as requested
   const shortDesc = description || t('hero.subtitle.short', { defaultValue: "Combine, split, compress, convert, and process photos directly in your browser. 100% offline via WebAssembly. Free, unlimited, and highly secure." });
@@ -35,17 +43,17 @@ export const Hero: React.FC<HeroProps> = ({ title, description }) => {
         
         {/* Title: Gradient + Solid, Centered, Huge */}
         <h1 
-          className="font-heading font-black mb-6"
+          className="font-heading font-black mb-6 whitespace-nowrap"
           style={{ 
-            fontSize: 'clamp(2.5rem, 6vw, 4.5rem)', 
+            fontSize: 'clamp(1.8rem, 4.5vw, 4.5rem)', 
             fontWeight: 900, 
             letterSpacing: '-0.03em', 
             lineHeight: 1.15 
           }}
         >
-          <span className="bg-gradient-to-r from-neon-cyan via-neon-emerald to-neon-indigo bg-clip-text text-transparent drop-shadow-sm">
+          <span className="bg-gradient-to-r from-neon-cyan via-neon-emerald to-neon-indigo bg-clip-text text-transparent drop-shadow-sm pr-2">
             {gradientPart}
-          </span>{' '}
+          </span>
           <span className="text-slate-800 dark:text-slate-100">
             {solidPart}
           </span>
