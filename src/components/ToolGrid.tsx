@@ -1,115 +1,171 @@
 // @refresh reset
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import { useRouter } from '../context/RouterContext';
 import { useTranslation } from '../context/LanguageContext';
 import { getLocalizedSlug } from '../utils/urlMapper';
 import { tools, categories } from '../config/tools';
 import type { ToolCategory } from '../config/tools';
 import { trackEvent } from '../utils/analytics';
-import { ChevronRight } from 'lucide-react';
+import { ArrowRight, Search } from 'lucide-react';
 
 export const ToolGrid: React.FC = () => {
   const { t, lang } = useTranslation();
   const { navigatePath } = useRouter();
   const [activeFilter, setActiveFilter] = useState<ToolCategory | 'all'>('all');
+  const [searchQuery, setSearchQuery] = useState('');
 
-  const filteredTools = activeFilter === 'all' 
-    ? tools 
-    : tools.filter(tool => tool.category === activeFilter);
+  // Derived title mapping for category display
+  const getCategoryTitle = () => {
+    if (activeFilter === 'all') return t('landing.tools.cat.all', { defaultValue: 'All Tools' });
+    const cat = categories.find(c => c.id === activeFilter);
+    return cat ? t(cat.labelKey) : 'Tools';
+  };
+
+  const filteredTools = useMemo(() => {
+    let result = tools;
+    
+    if (activeFilter !== 'all') {
+      result = result.filter(tool => tool.category === activeFilter);
+    }
+    
+    if (searchQuery.trim() !== '') {
+      const query = searchQuery.toLowerCase();
+      result = result.filter(tool => {
+        const title = t(tool.titleKey).toLowerCase();
+        const desc = t(tool.descKey).toLowerCase();
+        return title.includes(query) || desc.includes(query);
+      });
+    }
+    
+    return result;
+  }, [activeFilter, searchQuery, t]);
 
   return (
     <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 relative z-10" id="tools-section">
-      <div className="flex flex-col lg:flex-row gap-10 lg:gap-12">
-        
-        {/* Sidebar Categories (HelpMyFile style) */}
-        <div className="w-full lg:w-64 shrink-0">
-          <div className="sticky top-24 flex flex-row lg:flex-col gap-2 overflow-x-auto lg:overflow-x-visible pb-4 lg:pb-0 scrollbar-hide">
-            <button
-              onClick={() => {
-                setActiveFilter('all');
-                trackEvent('filter_clicked', { filter_id: 'all', lang });
-              }}
-              className={`flex items-center justify-between px-5 py-4 rounded-2xl font-bold transition-all whitespace-nowrap lg:whitespace-normal shrink-0 ${
-                activeFilter === 'all'
-                  ? 'bg-gradient-to-r from-[#05DAED] to-[#12DA91] text-dark-900 shadow-lg shadow-[#05DAED]/20'
-                  : 'bg-dark-800/40 text-slate-400 hover:bg-dark-700 hover:text-white border border-dark-600/30'
-              }`}
-            >
-              <span>{t('landing.tools.cat.all', { defaultValue: 'All Tools' })}</span>
-              {activeFilter === 'all' && <ChevronRight className="w-5 h-5 hidden lg:block" />}
-            </button>
-            
-            {categories.map(cat => (
-              <button
-                key={cat.id}
-                onClick={() => {
-                  setActiveFilter(cat.id as ToolCategory);
-                  trackEvent('filter_clicked', { filter_id: cat.id, lang });
-                }}
-                className={`flex items-center justify-between px-5 py-4 rounded-2xl font-bold transition-all whitespace-nowrap lg:whitespace-normal shrink-0 ${
-                  activeFilter === cat.id
-                    ? 'bg-gradient-to-r from-[#05DAED] to-[#12DA91] text-dark-900 shadow-lg shadow-[#05DAED]/20'
-                    : 'bg-dark-800/40 text-slate-400 hover:bg-dark-700 hover:text-white border border-dark-600/30'
-                }`}
-              >
-                <span>{t(cat.labelKey)}</span>
-                {activeFilter === cat.id && <ChevronRight className="w-5 h-5 hidden lg:block" />}
-              </button>
-            ))}
+      
+      {/* Search Bar (Like HelpMyFile) */}
+      <div className="flex justify-center mb-10">
+        <div className="relative w-full max-w-2xl group">
+          <div className="absolute inset-y-0 left-0 pl-6 flex items-center pointer-events-none">
+            <Search className="h-5 w-5 text-slate-400 group-focus-within:text-[#05DAED] transition-colors" />
           </div>
+          <input
+            type="text"
+            className="block w-full pl-14 pr-6 py-4 rounded-full bg-dark-800/80 border border-dark-600 focus:border-[#05DAED]/50 focus:ring-4 focus:ring-[#05DAED]/10 text-white placeholder-slate-500 transition-all shadow-lg"
+            placeholder={t('landing.tools.search', { defaultValue: 'Search image tools (Remove Background, Compress, Convert...)' })}
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+          />
         </div>
+      </div>
 
-        {/* Tools Grid Area */}
-        <div className="flex-1">
-          <div className="mb-8">
-            <h2 className="text-3xl sm:text-4xl font-heading font-extrabold text-white mb-2">
-              {t('landing.tools.title', { defaultValue: 'AI Image & Photo Studio Tools' })}
-            </h2>
-            <p className="text-slate-400 text-lg">
-              {t('landing.tools.subtitle', { defaultValue: 'Professional grade processing right in your browser.' })}
-            </p>
-          </div>
-          
-          <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-5 sm:gap-6">
-            {filteredTools.map((tool) => {
-              const Icon = tool.icon;
-              
-              return (
-                <a
-                  key={tool.id}
-                  href={lang === 'en' ? `/${getLocalizedSlug(tool.id, lang)}` : `/${lang}/${getLocalizedSlug(tool.id, lang)}`}
-                  onClick={(e) => {
-                    e.preventDefault();
-                    trackEvent('tool_clicked', { tool_id: tool.id, category: tool.category, lang });
-                    navigatePath(lang === 'en' ? `/${getLocalizedSlug(tool.id, lang)}` : `/${lang}/${getLocalizedSlug(tool.id, lang)}`);
-                  }}
-                  className="group relative flex flex-col p-6 rounded-[2rem] bg-dark-800/60 border border-dark-600 hover:border-[#05DAED]/50 transition-all duration-300 overflow-hidden hover:-translate-y-1 hover:shadow-xl hover:shadow-[#05DAED]/10"
-                >
-                  <div className="absolute inset-0 bg-gradient-to-br from-[#05DAED]/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+      {/* Horizontal Pill Categories (Like HelpMyFile) */}
+      <div className="flex flex-wrap items-center justify-center gap-3 mb-16">
+        <button
+          onClick={() => {
+            setActiveFilter('all');
+            trackEvent('filter_clicked', { filter_id: 'all', lang });
+          }}
+          className={`px-6 py-2.5 rounded-full text-sm font-bold transition-all duration-300 ${
+            activeFilter === 'all'
+              ? 'bg-gradient-to-r from-rose-500 to-pink-500 text-white shadow-[0_0_20px_rgba(244,63,94,0.4)] border-transparent'
+              : 'bg-dark-800 border border-dark-600 text-slate-300 hover:bg-dark-700 hover:text-white'
+          }`}
+        >
+          {t('landing.tools.cat.all', { defaultValue: 'All Tools' })}
+        </button>
+        
+        {categories.map(cat => (
+          <button
+            key={cat.id}
+            onClick={() => {
+              setActiveFilter(cat.id as ToolCategory);
+              trackEvent('filter_clicked', { filter_id: cat.id, lang });
+            }}
+            className={`px-6 py-2.5 rounded-full text-sm font-bold transition-all duration-300 ${
+              activeFilter === cat.id
+                ? 'bg-gradient-to-r from-rose-500 to-pink-500 text-white shadow-[0_0_20px_rgba(244,63,94,0.4)] border-transparent'
+                : 'bg-dark-800 border border-dark-600 text-slate-300 hover:bg-dark-700 hover:text-white'
+            }`}
+          >
+            {t(cat.labelKey)}
+          </button>
+        ))}
+      </div>
+
+      {/* Section Header */}
+      <div className="flex items-end gap-3 mb-10">
+        <h2 className="text-3xl sm:text-4xl font-heading font-extrabold text-white tracking-tight">
+          {getCategoryTitle()}
+        </h2>
+        <span className="text-xl sm:text-2xl text-slate-500 font-medium pb-0.5">
+          ({filteredTools.length})
+        </span>
+      </div>
+      
+      {/* Grid of Tools */}
+      {filteredTools.length > 0 ? (
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+          {filteredTools.map((tool) => {
+            const Icon = tool.icon;
+            
+            return (
+              <a
+                key={tool.id}
+                href={lang === 'en' ? `/${getLocalizedSlug(tool.id, lang)}` : `/${lang}/${getLocalizedSlug(tool.id, lang)}`}
+                onClick={(e) => {
+                  e.preventDefault();
+                  trackEvent('tool_clicked', { tool_id: tool.id, category: tool.category, lang });
+                  navigatePath(lang === 'en' ? `/${getLocalizedSlug(tool.id, lang)}` : `/${lang}/${getLocalizedSlug(tool.id, lang)}`);
+                }}
+                className="group relative flex flex-col p-8 sm:p-10 rounded-[2.5rem] bg-dark-900/80 border border-dark-600 hover:border-rose-500/30 hover:bg-dark-800 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_20px_40px_-15px_rgba(244,63,94,0.1)] min-h-[340px]"
+              >
+                {/* Top Row: Icon and Badge */}
+                <div className="flex justify-between items-start mb-8 relative z-10">
+                  <div className="w-14 h-14 rounded-[1.25rem] bg-dark-800 border border-dark-600 flex items-center justify-center group-hover:bg-rose-500/10 group-hover:border-rose-500/30 transition-colors duration-300 shadow-sm">
+                    <Icon className="w-6 h-6 text-slate-300 group-hover:text-rose-500 transition-colors" />
+                  </div>
                   
-                  {tool.isNew && (
-                    <span className="absolute top-4 right-4 text-[10px] uppercase font-black tracking-widest px-2.5 py-1 rounded-full bg-[#12DA91]/20 text-[#12DA91] border border-[#12DA91]/30">
+                  {tool.isNew ? (
+                    <span className="text-[10px] font-bold tracking-widest px-3 py-1.5 rounded-full bg-rose-500/10 text-rose-400 border border-rose-500/20 uppercase">
                       {t('common.new', { defaultValue: 'New!' })}
                     </span>
+                  ) : (
+                    <span className="text-[10px] font-bold tracking-widest px-3 py-1.5 rounded-full bg-dark-800 text-slate-500 border border-dark-600 uppercase">
+                      IMG
+                    </span>
                   )}
-                  
-                  <div className="w-14 h-14 rounded-2xl bg-dark-900 border border-dark-600 flex items-center justify-center mb-6 group-hover:border-[#05DAED]/30 group-hover:bg-[#05DAED]/10 transition-colors duration-300">
-                    <Icon className="w-7 h-7 text-slate-300 group-hover:text-[#05DAED] transition-colors" />
-                  </div>
+                </div>
 
-                  <h3 className="text-xl font-bold font-heading text-white mb-3 group-hover:text-[#05DAED] transition-colors">
+                {/* Body Content */}
+                <div className="relative z-10 flex-1">
+                  <h3 className="text-xl sm:text-2xl font-bold font-heading text-white mb-4 group-hover:text-rose-400 transition-colors leading-tight">
                     {t(tool.titleKey)}
                   </h3>
                   
-                  <p className="text-slate-400 text-sm leading-relaxed mt-auto">
+                  <p className="text-slate-400 text-base leading-relaxed line-clamp-3">
                     {t(tool.descKey)}
                   </p>
-                </a>
-              );
-            })}
-          </div>
+                </div>
+
+                {/* Bottom Try Now Row */}
+                <div className="mt-8 pt-6 border-t border-dark-700 flex justify-between items-center text-slate-500 group-hover:text-rose-500 transition-colors relative z-10">
+                  <span className="font-bold text-sm uppercase tracking-wider">
+                    {t('landing.tools.tryNow', { defaultValue: 'Try Now' })}
+                  </span>
+                  <ArrowRight className="w-5 h-5 transform group-hover:translate-x-1 transition-transform" />
+                </div>
+              </a>
+            );
+          })}
         </div>
-      </div>
+      ) : (
+        <div className="text-center py-20 bg-dark-900/50 rounded-[2.5rem] border border-dark-600">
+          <p className="text-xl text-slate-400">
+            {t('landing.tools.noResults', { defaultValue: 'No tools found matching your search.' })}
+          </p>
+        </div>
+      )}
     </div>
   );
 };
