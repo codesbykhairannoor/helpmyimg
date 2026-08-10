@@ -17,19 +17,23 @@ export const Hero: React.FC<HeroProps> = ({ title, description }) => {
   // Highlight only the core keywords using the translation keys if available
   let gradientPart = '';
   let solidPart = '';
+  let gradientFirst = true;
   
   if (title) {
-    // For tool specific titles, fall back to simple word splitting
+    // For tool specific titles (e.g. 'Free Image Compressor')
+    // We want 'Free' to be solid, and 'Image Compressor' to be highlighted
     const cleanTitle = title.split(' - ')[0].trim();
     const words = cleanTitle.split(' ');
-    // Highlight first 2 words if there are 3 or more words, otherwise just the first word
-    const splitIndex = words.length >= 3 ? 2 : 1; 
-    gradientPart = words.slice(0, splitIndex).join(' ');
-    solidPart = words.slice(splitIndex).join(' ');
+    
+    // Default: first word is solid, the rest is gradient
+    solidPart = words.slice(0, 1).join(' ');
+    gradientPart = words.slice(1).join(' ');
+    gradientFirst = false;
   } else {
     // For home page, use explicitly translated highlighted and solid parts
     gradientPart = t('home.hero.titleHighlight', { defaultValue: 'All Image' });
     solidPart = t('home.hero.titleSolid', { defaultValue: 'Tools in One Place' });
+    gradientFirst = true;
   }
 
   // Keep description short as requested
@@ -44,7 +48,7 @@ export const Hero: React.FC<HeroProps> = ({ title, description }) => {
         
         {/* Title: Gradient + Solid, Centered, Huge */}
         <h1 
-          className="font-heading font-black mb-6 whitespace-nowrap"
+          className="font-heading font-black mb-6 whitespace-nowrap flex items-center justify-center gap-3"
           style={{ 
             fontSize: 'clamp(1.8rem, 4.5vw, 4.5rem)', 
             fontWeight: 900, 
@@ -52,13 +56,25 @@ export const Hero: React.FC<HeroProps> = ({ title, description }) => {
             lineHeight: 1.15 
           }}
         >
-          <span className="bg-gradient-to-r from-neon-cyan via-neon-emerald to-neon-indigo bg-clip-text text-transparent drop-shadow-sm pr-2">
-            {gradientPart}
-          </span>
-          {' '}
-          <span className="text-slate-800 dark:text-slate-100">
-            {solidPart}
-          </span>
+          {gradientFirst ? (
+            <>
+              <span className="bg-gradient-to-r from-neon-cyan via-neon-emerald to-neon-indigo bg-clip-text text-transparent drop-shadow-sm">
+                {gradientPart}
+              </span>
+              <span className="text-slate-800 dark:text-slate-100">
+                {solidPart}
+              </span>
+            </>
+          ) : (
+            <>
+              <span className="text-slate-800 dark:text-slate-100">
+                {solidPart}
+              </span>
+              <span className="bg-gradient-to-r from-neon-cyan via-neon-emerald to-neon-indigo bg-clip-text text-transparent drop-shadow-sm">
+                {gradientPart}
+              </span>
+            </>
+          )}
         </h1>
 
         {/* Short Description */}

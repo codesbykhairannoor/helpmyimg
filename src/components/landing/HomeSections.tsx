@@ -273,7 +273,7 @@ export const HomeSections: React.FC = () => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 relative z-10">
-          {[1, 2, 3, 4, 5, 6].map((num) => {
+          {[1, 2, 3, 4, 5].map((num) => {
             // General homepage FAQ fallback
             let defQ = '';
             let defA = '';
@@ -281,20 +281,17 @@ export const HomeSections: React.FC = () => {
               defQ = 'Is HelpMyIMG completely free to use?';
               defA = 'Yes, it is 100% free with no hidden fees, subscriptions, or credit systems. We provide unlimited access to all tools.';
             } else if (num === 2) {
-              defQ = 'Do you save or upload my photos?';
-              defA = 'Absolutely not. All processing happens locally on your device via WebAssembly. Your files never touch our servers.';
+              defQ = 'Why does HelpMyIMG process images faster than traditional online photo editors?';
+              defA = 'Traditional online editors force you to upload large image files over the internet to their remote servers, wait in processing queues, and download the results back. HelpMyIMG eliminates this entire bottleneck by running the computational engine locally inside your browser memory. Processing begins the exact millisecond you select your photos.';
             } else if (num === 3) {
-              defQ = 'Can I process multiple images at once?';
-              defA = 'Yes, you can select up to 10 photos simultaneously for batch processing and download them as a convenient ZIP file.';
+              defQ = 'How does HelpMyIMG guarantee 100% privacy for my confidential photos?';
+              defA = 'Your privacy is guaranteed by architectural design. When you drag photos into HelpMyIMG, your files are never transmitted across the internet to any external server. All pixel modifications occur exclusively within the secure sandbox of your local device (Local Web Engine). Once you close the tab, all temporary data evaporates instantly.';
             } else if (num === 4) {
-              defQ = 'Does it work offline?';
-              defA = 'Once the web application loads in your browser, the AI engine can function entirely offline without an active internet connection.';
+              defQ = 'Can I process multiple images at once?';
+              defA = 'Absolutely! HelpMyIMG supports batch processing of up to 10 photos simultaneously across our core tools, including background removal, compression, and format conversion. You can apply uniform settings to all items and download the entire batch cleanly packaged in a single ZIP file with one click.';
             } else if (num === 5) {
-              defQ = 'What is HelpMyIMG?';
-              defA = 'HelpMyIMG is a client-side web application that processes image background removal and compression locally using WebAssembly (Wasm). This ensures 100% data privacy without requiring any server uploads.';
-            } else if (num === 6) {
-              defQ = 'How does HelpMyIMG ensure data privacy compliance?';
-              defA = 'Unlike traditional cloud editors, our WebAssembly architecture ensures 0 bytes of user data are transmitted. By executing neural networks strictly on the client device, it neutralizes interception risks, ensuring inherent compliance with GDPR Article 5 and CCPA privacy frameworks.';
+              defQ = 'What devices and browsers are supported?';
+              defA = 'HelpMyIMG runs entirely in your web browser. It is fully compatible with modern desktop and mobile browsers including Google Chrome, Mozilla Firefox, Apple Safari, and Microsoft Edge. There is no need to install any application or extension on your device.';
             }
 
             return (
@@ -304,10 +301,10 @@ export const HomeSections: React.FC = () => {
                   <HelpCircle className="w-5 h-5" />
                 </div>
                 <h3 className="text-base sm:text-lg font-bold text-white mb-2 sm:mb-3 leading-snug group-hover:text-[#05DAED] transition-colors">
-                  {t(`landing.remove.faq${num}.q`, { defaultValue: defQ })}
+                  {t(`home.faq.fq${num}.q`, { defaultValue: defQ })}
                 </h3>
                 <p className="text-slate-400 text-sm leading-relaxed font-body">
-                  {t(`landing.remove.faq${num}.a`, { defaultValue: defA })}
+                  {t(`home.faq.fq${num}.a`, { defaultValue: defA })}
                 </p>
               </div>
             </div>
