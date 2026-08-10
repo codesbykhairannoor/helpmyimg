@@ -15,7 +15,7 @@ export const ComparePage: React.FC = () => {
   return (
     <>
       <Helmet>
-        <title>{${t('')} | HelpMyIMG}</title>
+        <title>{`${t('footer.compare')} | HelpMyIMG`}</title>
         <meta name="description" content={t('compare.subtitle') || 'See how our local WebAssembly engine crushes cloud-based competitors.'} />
         <link rel="canonical" href={`https://helpmyimg.com/${lang}/compare`} />
       </Helmet>
