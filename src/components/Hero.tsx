@@ -27,12 +27,12 @@ export const Hero: React.FC<HeroProps> = ({ title, description }) => {
     solidPart = words.slice(splitIndex).join(' ');
   } else {
     // For home page, use explicitly translated highlighted and solid parts
-    gradientPart = t('hero.titleHighlight', { defaultValue: 'All Image' });
-    solidPart = t('hero.titleSolid', { defaultValue: 'Tools in One Place' });
+    gradientPart = t('home.hero.titleHighlight', { defaultValue: 'All Image' });
+    solidPart = t('home.hero.titleSolid', { defaultValue: 'Tools in One Place' });
   }
 
   // Keep description short as requested
-  const shortDesc = description || t('hero.subtitle.short', { defaultValue: "Combine, split, compress, convert, and process photos directly in your browser. 100% offline via WebAssembly. Free, unlimited, and highly secure." });
+  const shortDesc = description || t('hero.subtitle.short', { defaultValue: "Combine, split, compress, convert, and process images directly in your browser. 100% offline via WebAssembly. Free, unlimited, and highly secure." });
 
   return (
     <section className="relative pt-2 md:pt-6 pb-8 md:pb-12 overflow-hidden flex flex-col items-center justify-center text-center">
@@ -54,6 +54,7 @@ export const Hero: React.FC<HeroProps> = ({ title, description }) => {
           <span className="bg-gradient-to-r from-neon-cyan via-neon-emerald to-neon-indigo bg-clip-text text-transparent drop-shadow-sm pr-2">
             {gradientPart}
           </span>
+          {' '}
           <span className="text-slate-800 dark:text-slate-100">
             {solidPart}
           </span>
