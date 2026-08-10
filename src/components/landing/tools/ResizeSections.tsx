@@ -10,7 +10,7 @@ export const ResizeSections: React.FC = () => {
     <div className="space-y-16 lg:space-y-24 py-16 text-slate-100 overflow-hidden">
       
       {/* HERO / PRECISION THEME */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+      <section className="max-w-7xl mx-auto w-full relative" style={{ padding: '80px 24px', marginBottom: '80px' }}>
         {/* Technical grid background */}
         <div className="absolute inset-0 bg-[linear-gradient(rgba(5,218,237,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(5,218,237,0.03)_1px,transparent_1px)] bg-[size:40px_40px] -z-10 [mask-image:radial-gradient(ellipse_50%_50%_at_50%_50%,black,transparent)]" />
         
@@ -24,10 +24,10 @@ export const ResizeSections: React.FC = () => {
                 {tr('heroBadge', 'PIXEL-PERFECT SCALING')}
               </span>
             </div>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl sm:lg:font-heading font-black leading-tight">
+            <h2 className="font-heading font-extrabold text-white mt-4 sm:mt-6 tracking-tight" style={{ fontSize: 'clamp(1.8rem, 4vw, 2.5rem)', fontWeight: 800, lineHeight: 1.2 }}>
               {tr('heroTitle', 'Resize Images with Absolute Precision')}
             </h2>
-            <p className="text-lg sm:text-xl text-slate-400 leading-relaxed max-w-2xl mx-auto lg:mx-0">
+            <p className="text-slate-400 mt-4 max-w-2xl mx-auto lg:mx-0 font-body" style={{ fontSize: '1.15rem', lineHeight: 1.8 }}>
               {tr('heroDesc', 'Scale your photos by exact pixel dimensions or percentages. Perfect for social media, websites, and printing without compromising quality.')}
             </p>
           </div>
@@ -55,7 +55,7 @@ export const ResizeSections: React.FC = () => {
       </section>
 
       {/* ZIG ZAG FEATURES */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-24">
+      <section className="max-w-7xl mx-auto w-full relative" style={{ padding: '80px 24px', marginBottom: '80px' }}>
         {/* Block 1 */}
         <div className="flex flex-col md:flex-row items-center gap-12 group">
           <div className="flex-1 order-2 md:order-1">
@@ -112,13 +112,13 @@ export const ResizeSections: React.FC = () => {
       </section>
 
       {/* PLATFORM READY SECTION */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+      <section className="max-w-7xl mx-auto w-full relative" style={{ padding: '80px 24px', marginBottom: '80px' }}>
         <div className="glass-panel p-10 sm:p-14 rounded-[3rem] border-dark-600/30">
           <div className="text-center max-w-3xl mx-auto mb-16">
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl sm:lg:font-heading font-black text-white">
+            <h2 className="font-heading font-extrabold text-white mt-4 sm:mt-6 tracking-tight" style={{ fontSize: 'clamp(1.8rem, 4vw, 2.5rem)', fontWeight: 800, lineHeight: 1.2 }}>
               {tr('socialTitle', 'Perfect for Every Platform')}
             </h2>
-            <p className="text-lg sm:text-xl text-slate-400 mt-4">{tr('socialDesc', 'Meet strict upload requirements for social media without hassle.')}</p>
+            <p className="text-slate-400 mt-4 font-body" style={{ fontSize: '1.15rem', lineHeight: 1.8 }}>{tr('socialDesc', 'Meet strict upload requirements for social media without hassle.')}</p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -142,12 +142,12 @@ export const ResizeSections: React.FC = () => {
       </section>
 
       {/* HOW IT WORKS */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="max-w-7xl mx-auto w-full relative" style={{ padding: '80px 24px', marginBottom: '80px' }}>
         <div className="text-center max-w-3xl mx-auto mb-16">
           <span className="text-xs font-mono font-bold uppercase tracking-widest text-[#12DA91] bg-[#12DA91]/10 px-3 py-1.5 rounded-full border border-[#12DA91]/30 block w-max mx-auto mb-4">
             {tr('stepsTag', 'HOW IT WORKS')}
           </span>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl sm:lg:font-heading font-black text-white">
+          <h2 className="font-heading font-extrabold text-white mt-4 sm:mt-6 tracking-tight" style={{ fontSize: 'clamp(1.8rem, 4vw, 2.5rem)', fontWeight: 800, lineHeight: 1.2 }}>
             {tr('stepsTitle', 'Resize in 3 Steps')}
           </h2>
         </div>

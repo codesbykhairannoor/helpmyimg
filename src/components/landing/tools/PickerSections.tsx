@@ -10,7 +10,7 @@ export const PickerSections: React.FC = () => {
     <div className="space-y-16 lg:space-y-24 py-16 text-slate-100 overflow-hidden">
       
       {/* HERO / PIXEL EXTRACTION THEME */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+      <section className="max-w-7xl mx-auto w-full relative" style={{ padding: '80px 24px', marginBottom: '80px' }}>
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full max-w-2xl bg-[radial-gradient(circle_at_center,rgba(5,218,237,0.1)_0%,transparent_70%)] -z-10" />
         
         <div className="flex flex-col lg:flex-row items-center gap-16">
@@ -23,11 +23,11 @@ export const PickerSections: React.FC = () => {
                 {tr('heroBadge', 'PIXEL PRECISION')}
               </span>
             </div>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl sm:lg:font-heading font-black leading-tight">
+            <h2 className="font-heading font-extrabold text-white mt-4 sm:mt-6 tracking-tight" style={{ fontSize: 'clamp(1.8rem, 4vw, 2.5rem)', fontWeight: 800, lineHeight: 1.2 }}>
               {tr('heroTitle', 'Extract Perfect Colors.')}<br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-slate-300 to-[#05DAED]">{tr('heroTitle2', 'Build Stunning Palettes.')}</span>
             </h2>
-            <p className="text-lg sm:text-xl text-slate-400 leading-relaxed max-w-2xl mx-auto lg:mx-0">
+            <p className="text-slate-400 mt-4 max-w-2xl mx-auto lg:mx-0 font-body" style={{ fontSize: '1.15rem', lineHeight: 1.8 }}>
               {tr('heroDesc', 'Upload an image and hover to pinpoint the exact HEX, RGB, and HSL codes of any pixel. Instantly generate harmonious color palettes for your next design project.')}
             </p>
           </div>
@@ -52,7 +52,7 @@ export const PickerSections: React.FC = () => {
       </section>
 
       {/* EXTRACT & EXPORT GRID */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
+      <section className="max-w-7xl mx-auto w-full relative space-y-6" style={{ padding: '80px 24px', marginBottom: '80px' }}>
         
         {/* Top Split */}
         <div className="flex flex-col md:flex-row gap-6">
@@ -121,12 +121,12 @@ export const PickerSections: React.FC = () => {
       </section>
 
       {/* HOW IT WORKS */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+      <section className="max-w-7xl mx-auto w-full relative" style={{ padding: '80px 24px', marginBottom: '80px' }}>
         <div className="text-center max-w-3xl mx-auto mb-16">
           <span className="text-xs font-mono font-bold uppercase tracking-widest text-[#05DAED] bg-[#05DAED]/10 px-3 py-1.5 rounded-full border border-[#05DAED]/30 block w-max mx-auto mb-4">
             {tr('stepsTag', 'WORKFLOW')}
           </span>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl sm:lg:font-heading font-black text-white">
+          <h2 className="font-heading font-extrabold text-white mt-4 sm:mt-6 tracking-tight" style={{ fontSize: 'clamp(1.8rem, 4vw, 2.5rem)', fontWeight: 800, lineHeight: 1.2 }}>
             {tr('stepsTitle', 'Extract in 3 Steps')}
           </h2>
         </div>

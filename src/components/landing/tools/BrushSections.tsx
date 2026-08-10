@@ -11,7 +11,7 @@ export const BrushSections: React.FC = () => {
     <div className="space-y-24 lg:space-y-32 py-16 text-slate-900 dark:text-slate-100 overflow-hidden">
       
       {/* 1. CINEMATIC CENTERED HERO */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative pt-12 pb-20">
+      <section className="max-w-7xl mx-auto w-full relative" style={{ padding: '80px 24px', marginBottom: '80px' }}>
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-fuchsia-500/10 rounded-full blur-[120px] -z-10 animate-pulse" />
         
         <div className="text-center max-w-4xl mx-auto space-y-8 z-10 relative">
@@ -20,11 +20,11 @@ export const BrushSections: React.FC = () => {
             {tr('heroBadge', 'PIXEL-PERFECT CONTROL')}
           </div>
           
-          <h2 className="text-4xl sm:text-5xl lg:text-7xl font-extrabold leading-[1.1] tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-slate-900 via-fuchsia-800 to-fuchsia-600 dark:from-white dark:via-fuchsia-100 dark:to-fuchsia-400">
+          <h2 className="font-heading font-extrabold text-white mt-4 sm:mt-6 tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-slate-900 via-fuchsia-800 to-fuchsia-600 dark:from-white dark:via-fuchsia-100 dark:to-fuchsia-400" style={{ fontSize: 'clamp(1.8rem, 4vw, 2.5rem)', fontWeight: 800, lineHeight: 1.2 }}>
             {tr('heroTitle', 'Master Your Edges with the Magic Refinement Brush')}
           </h2>
           
-          <p className="text-xl text-slate-600 dark:text-slate-400 leading-relaxed max-w-3xl mx-auto font-light">
+          <p className="text-slate-400 mt-4 max-w-3xl mx-auto font-body" style={{ fontSize: '1.15rem', lineHeight: 1.8 }}>
             {tr('heroDesc', 'AI gets it right 99% of the time. For that remaining 1%, use our manual Erase and Restore brushes to craft flawless cutouts directly in your browser.')}
           </p>
 
@@ -68,10 +68,10 @@ export const BrushSections: React.FC = () => {
       </section>
 
       {/* 2. BENTO BOX FEATURES GRID */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="max-w-7xl mx-auto w-full relative" style={{ padding: '80px 24px', marginBottom: '80px' }}>
          <div className="text-center mb-16">
-            <h3 className="text-3xl font-bold font-heading mb-4 text-slate-900 dark:text-white">Precision at your Fingertips</h3>
-            <p className="text-slate-600 dark:text-slate-400">Everything you need to manually perfect your images.</p>
+            <h2 className="font-heading font-extrabold text-white mt-4 sm:mt-6 tracking-tight" style={{ fontSize: 'clamp(1.8rem, 4vw, 2.5rem)', fontWeight: 800, lineHeight: 1.2 }}>Precision at your Fingertips</h2>
+            <p className="text-slate-400 mt-4 font-body" style={{ fontSize: '1.15rem', lineHeight: 1.8 }}>Everything you need to manually perfect your images.</p>
          </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 auto-rows-[300px]">
@@ -115,7 +115,7 @@ export const BrushSections: React.FC = () => {
       </section>
 
       {/* 3. ZIG-ZAG ALTERNATING USE CASES */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+      <section className="max-w-7xl mx-auto w-full relative" style={{ padding: '80px 24px', marginBottom: '80px' }}>
          
          {/* Row 1 */}
          <div className="flex flex-col lg:flex-row items-center gap-16 mb-24">

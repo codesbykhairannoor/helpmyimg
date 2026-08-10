@@ -11,7 +11,7 @@ export const RemoveBgSections: React.FC = () => {
     <div className="space-y-16 lg:space-y-24 py-16 text-slate-100 overflow-hidden">
       
       {/* HERO / WHY SECTION - MAGIC THEME */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+      <section className="max-w-7xl mx-auto w-full relative" style={{ padding: '80px 24px', marginBottom: '80px' }}>
         <div className="absolute top-0 right-0 w-96 h-96 bg-[#05DAED]/10 rounded-full  -z-10 animate-pulse" />
         <div className="absolute bottom-0 left-0 w-96 h-96 bg-[#12DA91]/10 rounded-full  -z-10 animate-pulse" style={{ animationDelay: '2s' }} />
 
@@ -21,10 +21,10 @@ export const RemoveBgSections: React.FC = () => {
               <Sparkles className="w-4 h-4" />
               {tr('heroBadge', 'AI POWERED CUTOUT')}
             </div>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl sm:lg:font-heading font-extrabold leading-tight">
+            <h2 className="font-heading font-extrabold text-white mt-4 sm:mt-6 tracking-tight" style={{ fontSize: 'clamp(1.8rem, 4vw, 2.5rem)', fontWeight: 800, lineHeight: 1.2 }}>
               {tr('heroTitle', 'Remove Background in 1 Second with Flawless Precision')}
             </h2>
-            <p className="text-lg text-slate-400 leading-relaxed mt-6 max-w-2xl mx-auto lg:mx-0">
+            <p className="text-slate-400 mt-4 max-w-2xl mx-auto lg:mx-0 font-body" style={{ fontSize: '1.15rem', lineHeight: 1.8 }}>
               {tr('heroDesc', 'Powered by advanced WebAssembly AI, get perfect hair cutouts and smooth edges without ever uploading your photos to a server.')}
             </p>
           </div>
@@ -48,7 +48,7 @@ export const RemoveBgSections: React.FC = () => {
       </section>
 
       {/* FEATURES - GRID LIST */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="max-w-7xl mx-auto w-full relative" style={{ padding: '80px 24px', marginBottom: '80px' }}>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div className="glass-panel p-10 rounded-[2rem] border-dark-600/30 hover:border-[#05DAED]/50 transition-all duration-300 hover:shadow-[0_0_20px_rgba(5,218,237,0.15)]">
             <div className="w-16 h-16 rounded-2xl bg-dark-800 border border-[#05DAED]/30 flex items-center justify-center text-[#05DAED] mb-6">
@@ -80,15 +80,15 @@ export const RemoveBgSections: React.FC = () => {
       </section>
 
       {/* WHO IS IT FOR - SPLIT CARDS */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 bg-dark-900/50 py-24 rounded-[3rem] border border-dark-700/50 relative">
+      <section className="max-w-7xl mx-auto w-full bg-dark-900/50 rounded-[3rem] border border-dark-700/50 relative" style={{ padding: '80px 24px', marginBottom: '80px' }}>
         <div className="text-center max-w-3xl mx-auto mb-16 px-4">
           <span className="text-xs font-mono font-bold uppercase tracking-widest text-[#05DAED] bg-[#05DAED]/10 px-3 py-1.5 rounded-full border border-[#05DAED]/30 block w-max mx-auto mb-4">
             {tr('whoTag', 'WHO IS IT FOR')}
           </span>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl sm:lg:font-heading font-extrabold leading-tight">
+          <h2 className="font-heading font-extrabold text-white mt-4 sm:mt-6 tracking-tight" style={{ fontSize: 'clamp(1.8rem, 4vw, 2.5rem)', fontWeight: 800, lineHeight: 1.2 }}>
             {tr('whoTitle', 'Perfect for Every Creative Needs')}
           </h2>
-          <p className="text-lg text-slate-400 leading-relaxed mt-6 max-w-2xl mx-auto">
+          <p className="text-slate-400 mt-4 max-w-2xl mx-auto font-body" style={{ fontSize: '1.15rem', lineHeight: 1.8 }}>
             {tr('whoDesc', 'Whether you are selling cars, designing posters, or creating official documents.')}
           </p>
         </div>
@@ -123,12 +123,12 @@ export const RemoveBgSections: React.FC = () => {
       </section>
 
       {/* HOW IT WORKS - HORIZONTAL TIMELINE */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="max-w-7xl mx-auto w-full relative" style={{ padding: '80px 24px', marginBottom: '80px' }}>
         <div className="text-center max-w-3xl mx-auto mb-16 px-4">
           <span className="text-xs font-mono font-bold uppercase tracking-widest text-[#12DA91] bg-[#12DA91]/10 px-3 py-1.5 rounded-full border border-[#12DA91]/30 block w-max mx-auto mb-4">
             {tr('stepsTag', 'HOW IT WORKS')}
           </span>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl sm:lg:font-heading font-extrabold leading-tight">
+          <h2 className="font-heading font-extrabold text-white mt-4 sm:mt-6 tracking-tight" style={{ fontSize: 'clamp(1.8rem, 4vw, 2.5rem)', fontWeight: 800, lineHeight: 1.2 }}>
             {tr('stepsTitle', '3 Steps to Transparent Backgrounds')}
           </h2>
         </div>

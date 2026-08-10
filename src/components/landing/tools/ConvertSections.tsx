@@ -11,7 +11,7 @@ export const ConvertSections: React.FC = () => {
     <div className="space-y-16 lg:space-y-24 py-16 text-slate-100 overflow-hidden">
       
       {/* HERO / PIPELINE LAYOUT */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+      <section className="max-w-7xl mx-auto w-full relative" style={{ padding: '80px 24px', marginBottom: '80px' }}>
         <div className="absolute top-0 right-1/4 w-[500px] h-[500px] bg-[#06B6D4]/10 rounded-full blur-[120px] -z-10 animate-pulse" />
         <div className="absolute bottom-0 left-1/4 w-[400px] h-[400px] bg-[#EC4899]/10 rounded-full blur-[100px] -z-10 animate-pulse" style={{ animationDelay: '2s' }} />
 
@@ -26,14 +26,14 @@ export const ConvertSections: React.FC = () => {
               </span>
             </div>
 
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl sm:lg:font-heading font-black leading-[1.1]">
+            <h2 className="font-heading font-extrabold text-white mt-4 sm:mt-6 tracking-tight" style={{ fontSize: 'clamp(1.8rem, 4vw, 2.5rem)', fontWeight: 800, lineHeight: 1.2 }}>
               <span className="block">{tr('heroTitle', 'Format Transformer.')}</span>
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#06B6D4] to-[#EC4899] block mt-2">
                 {tr('heroTitle2', 'Zero Quality Loss.')}
               </span>
             </h2>
 
-            <p className="text-lg sm:text-xl text-slate-400 leading-relaxed max-w-2xl mx-auto lg:mx-0">
+            <p className="text-slate-400 mt-4 max-w-2xl mx-auto lg:mx-0 font-body" style={{ fontSize: '1.15rem', lineHeight: 1.8 }}>
               {tr('heroDesc', 'Seamlessly convert between WebP, PNG, JPG, and AVIF. Extremely fast bulk processing running entirely on your local machine.')}
             </p>
           </div>
@@ -95,7 +95,7 @@ export const ConvertSections: React.FC = () => {
       </section>
 
       {/* FEATURE CARDS */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="max-w-7xl mx-auto w-full relative" style={{ padding: '80px 24px', marginBottom: '80px' }}>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           <div className="bg-dark-900 border border-dark-600 p-10 rounded-[2rem] hover:border-[#06B6D4]/50 transition-colors group relative overflow-hidden">
             <div className="absolute top-0 right-0 w-32 h-32 bg-[#06B6D4]/5 rounded-bl-full -z-10 group-hover:scale-150 transition-transform duration-500" />
@@ -127,7 +127,7 @@ export const ConvertSections: React.FC = () => {
       </section>
 
       {/* WORKFLOW */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="max-w-7xl mx-auto w-full relative" style={{ padding: '80px 24px', marginBottom: '80px' }}>
         <div className="glass-panel rounded-[3rem] p-10 md:p-16 border-[#06B6D4]/20 bg-dark-900/80 relative overflow-hidden">
           <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[800px] h-[300px] bg-[#06B6D4]/10 rounded-full blur-[100px] pointer-events-none" />
           
@@ -135,7 +135,7 @@ export const ConvertSections: React.FC = () => {
             <span className="text-xs font-mono font-bold uppercase tracking-widest text-[#06B6D4] bg-[#06B6D4]/10 px-3 py-1.5 rounded-full border border-[#06B6D4]/30 block w-max mx-auto mb-4">
               {tr('stepsTag', 'WORKFLOW')}
             </span>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl sm:lg:font-heading font-black text-white">
+            <h2 className="font-heading font-extrabold text-white mt-4 sm:mt-6 tracking-tight" style={{ fontSize: 'clamp(1.8rem, 4vw, 2.5rem)', fontWeight: 800, lineHeight: 1.2 }}>
               {tr('stepsTitle', 'Convert in 3 Steps')}
             </h2>
           </div>

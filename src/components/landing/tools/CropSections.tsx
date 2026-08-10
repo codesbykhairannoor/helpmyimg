@@ -10,7 +10,7 @@ export const CropSections: React.FC = () => {
     <div className="space-y-16 lg:space-y-24 py-16 text-slate-100 overflow-hidden">
       
       {/* HERO / FOCUS THEME (CENTERED) */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+      <section className="max-w-7xl mx-auto w-full relative" style={{ padding: '80px 24px', marginBottom: '80px' }}>
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full max-w-3xl flex items-center justify-center -z-10 opacity-30">
           <div className="w-full aspect-video border-[1px] border-dark-600 rounded-3xl relative">
             <div className="absolute top-1/3 left-0 w-full h-[1px] bg-dark-600" />
@@ -31,18 +31,18 @@ export const CropSections: React.FC = () => {
               {tr('heroBadge', 'SMART COMPOSITION')}
             </span>
           </div>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl sm:lg:font-heading font-black leading-[1.1]">
+          <h2 className="font-heading font-extrabold text-white mt-4 sm:mt-6 tracking-tight" style={{ fontSize: 'clamp(1.8rem, 4vw, 2.5rem)', fontWeight: 800, lineHeight: 1.2 }}>
             {tr('heroTitle', 'Crop Out the Noise.')}<br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#12DA91] to-[#05DAED]">{tr('heroTitle2', 'Focus on What Matters.')}</span>
           </h2>
-          <p className="text-lg sm:text-xl text-slate-400 leading-relaxed max-w-2xl mx-auto">
+          <p className="text-slate-400 mt-4 max-w-2xl mx-auto font-body" style={{ fontSize: '1.15rem', lineHeight: 1.8 }}>
             {tr('heroDesc', 'Frame your photos perfectly with freeform or fixed-ratio cropping. Cut out unwanted elements and improve image composition in seconds.')}
           </p>
         </div>
       </section>
 
       {/* 3 VERTICAL CARDS */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="max-w-7xl mx-auto w-full relative" style={{ padding: '80px 24px', marginBottom: '80px' }}>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
           <div className="glass-panel p-8 sm:p-10 rounded-t-[3rem] rounded-b-3xl border-dark-600/30 hover:border-[#05DAED]/50 transition-colors h-full flex flex-col group relative overflow-hidden">
             <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-[#05DAED]/20 to-transparent blur-2xl rounded-full" />
@@ -74,12 +74,12 @@ export const CropSections: React.FC = () => {
       </section>
 
       {/* HOW IT WORKS */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="max-w-7xl mx-auto w-full relative" style={{ padding: '80px 24px', marginBottom: '80px' }}>
         <div className="text-center max-w-3xl mx-auto mb-16 relative z-10">
           <span className="text-xs font-mono font-bold uppercase tracking-widest text-[#12DA91] bg-[#12DA91]/10 px-3 py-1.5 rounded-full border border-[#12DA91]/30 block w-max mx-auto mb-4">
             {tr('stepsTag', 'HOW TO CROP')}
           </span>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl sm:lg:font-heading font-black text-white">
+          <h2 className="font-heading font-extrabold text-white mt-4 sm:mt-6 tracking-tight" style={{ fontSize: 'clamp(1.8rem, 4vw, 2.5rem)', fontWeight: 800, lineHeight: 1.2 }}>
             {tr('stepsTitle', 'Perfect Framing in Seconds')}
           </h2>
         </div>

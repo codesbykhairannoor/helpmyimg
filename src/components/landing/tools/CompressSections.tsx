@@ -11,7 +11,7 @@ export const CompressSections: React.FC = () => {
     <div className="space-y-16 lg:space-y-24 py-16 text-slate-100 overflow-hidden bg-dark-900">
       
       {/* HERO / WHY SECTION - SPEED & SIZE REDUCTION THEME */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+      <section className="max-w-7xl mx-auto w-full relative" style={{ padding: '80px 24px', marginBottom: '80px' }}>
         <div className="flex flex-col-reverse lg:flex-row items-center gap-16">
           
           <div className="flex-1 w-full relative z-10">
@@ -63,10 +63,10 @@ export const CompressSections: React.FC = () => {
               <Gauge className="w-4 h-4" />
               {tr('heroBadge', 'SMART COMPRESSION')}
             </div>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl sm:lg:font-heading font-extrabold leading-tight">
+            <h2 className="font-heading font-extrabold text-white mt-4 sm:mt-6 tracking-tight" style={{ fontSize: 'clamp(1.8rem, 4vw, 2.5rem)', fontWeight: 800, lineHeight: 1.2 }}>
               {tr('heroTitle', 'Shrink Image File Size up to 90% Instantly')}
             </h2>
-            <p className="text-lg text-slate-400 leading-relaxed mt-6 max-w-2xl mx-auto lg:mx-0">
+            <p className="text-slate-400 mt-4 max-w-2xl mx-auto lg:mx-0 font-body" style={{ fontSize: '1.15rem', lineHeight: 1.8 }}>
               {tr('heroDesc', 'Reduce the size of your photos without losing visual quality. Perfect for websites, emails, and strict upload limits.')}
             </p>
           </div>
@@ -74,7 +74,7 @@ export const CompressSections: React.FC = () => {
       </section>
 
       {/* COMPRESSION SPECS - LIST LAYOUT */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="max-w-7xl mx-auto w-full relative" style={{ padding: '80px 24px', marginBottom: '80px' }}>
         <div className="bg-dark-800 border border-dark-600 rounded-[2rem] overflow-hidden">
           <div className="grid grid-cols-1 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-dark-600">
             
@@ -104,16 +104,16 @@ export const CompressSections: React.FC = () => {
       </section>
 
       {/* WHO IS IT FOR - INFO BLOCKS */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
+      <section className="max-w-7xl mx-auto w-full relative" style={{ padding: '80px 24px', marginBottom: '80px' }}>
         <div className="flex flex-col md:flex-row items-center gap-12">
           <div className="flex-1 space-y-6">
             <span className="text-xs font-mono font-bold uppercase tracking-widest text-[#05DAED] bg-[#05DAED]/10 px-3 py-1.5 rounded-full border border-[#05DAED]/30 block w-max mb-4">
               {tr('whoTag', 'WHO IS IT FOR')}
             </span>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl sm:lg:font-heading font-extrabold leading-tight">
+            <h2 className="font-heading font-extrabold text-white mt-4 sm:mt-6 tracking-tight" style={{ fontSize: 'clamp(1.8rem, 4vw, 2.5rem)', fontWeight: 800, lineHeight: 1.2 }}>
               {tr('whoTitle', 'Built for Web & Media')}
             </h2>
-            <p className="text-lg text-slate-400 leading-relaxed max-w-2xl">
+            <p className="text-slate-400 mt-4 max-w-2xl font-body" style={{ fontSize: '1.15rem', lineHeight: 1.8 }}>
               {tr('whoDesc', 'Perfect for developers, designers, and social media managers who need highly optimized images.')}
             </p>
           </div>
@@ -139,12 +139,12 @@ export const CompressSections: React.FC = () => {
       </section>
 
       {/* HOW IT WORKS - VERTICAL STEPS (Different from Remove BG) */}
-      <section className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="max-w-5xl mx-auto w-full relative" style={{ padding: '80px 24px', marginBottom: '80px' }}>
         <div className="text-center max-w-3xl mx-auto mb-16 px-4">
           <span className="text-xs font-mono font-bold uppercase tracking-widest text-[#12DA91] bg-[#12DA91]/10 px-3 py-1.5 rounded-full border border-[#12DA91]/30 block w-max mx-auto mb-4">
             {tr('stepsTag', 'HOW IT WORKS')}
           </span>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl sm:lg:font-heading font-extrabold leading-tight">
+          <h2 className="font-heading font-extrabold text-white mt-4 sm:mt-6 tracking-tight" style={{ fontSize: 'clamp(1.8rem, 4vw, 2.5rem)', fontWeight: 800, lineHeight: 1.2 }}>
             {tr('stepsTitle', '3 Steps to Optimize')}
           </h2>
         </div>
