@@ -52,7 +52,7 @@ const getLocalizedSlug = (tool, lang) => {
 const TOOLS = ['remove', 'compress', 'convert', 'resize', 'color', 'watermark', 'crop', 'rotate', 'upscale', 'blurface'];
 
 // Info page identifiers
-const INFO_PAGES = ['about', 'privacy', 'terms', 'faq', 'security', 'pricing', 'compare', 'languages', 'contact', 'cookies'];
+const INFO_PAGES = ['about', 'privacy', 'terms', 'faq', 'security', 'pricing', 'compare', 'languages'];
 
 // Read the original index.html built by Vite
 const indexHtmlContent = fs.readFileSync(path.join(distDir, 'index.html'), 'utf8');
