@@ -33,15 +33,7 @@ export const BrushControl: React.FC<BrushControlProps> = ({
 
   return (
     <div className="space-y-6">
-      <div className="p-4 rounded-xl bg-dark-900/60 border border-dark-600/50">
-        <div className="flex items-center gap-2 text-neon-pink font-semibold mb-2">
-          <Brush className="w-5 h-5 text-neon-pink" />
-          <span>{t('brush.title')}</span>
-        </div>
-        <p className="text-xs text-slate-300 leading-relaxed">
-          {t('brush.desc')}
-        </p>
-      </div>
+
 
       {/* Toggle Restore / Erase */}
       <div className="space-y-2.5">
