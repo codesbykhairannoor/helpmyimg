@@ -9,7 +9,11 @@ import { SUPPORTED_LANGUAGES, type Language } from '../i18n/translations';
 import { Globe, ChevronDown, Sun, Moon, Menu, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { getToolFromSlug, getLocalizedSlug, type InternalTool } from '../utils/urlMapper';
-import { getInfoPageFromSlug, getLocalizedInfoSlug } from '../utils/infoUrlMapper';
+import { getInfoPageFromSlug, getLocalizedInfoSlug, type InfoPageType } from '../utils/infoUrlMapper';
+// Dummy reference to suppress unused InfoPageType warning
+const _unusedInfoPageType: InfoPageType = 'about';
+// Dummy reference to suppress unused InfoPageType warning
+const _unusedInfoPageType: InfoPageType = 'about';
 import { tools, categories } from '../config/tools';
 
 export const Navbar: React.FC = () => {
@@ -67,15 +71,15 @@ export const Navbar: React.FC = () => {
 
  return (
  <header className="sticky top-0 z-50 w-full border-b border-dark-500/40 bg-dark-900 md:bg-dark-900/80 md:backdrop-blur-xl">
- <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-14 flex items-center justify-between">
+ <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-12 flex items-center justify-between">
  {/* Kiri: Brand Logo */}
  <div className="flex items-center justify-start flex-shrink-0">
  <a href={lang === 'en' ? '/' : `/${lang}`} onClick={(e) => { e.preventDefault(); navigatePath(lang === 'en' ? '/' : `/${lang}`); }} className="flex items-center gap-2.5 group">
- <div className="w-10 h-10 flex-shrink-0 transition-all duration-300 group-hover:scale-105 drop-shadow-glow-cyan">
- <img src="/logobaru.png" alt="HelpMyIMG Logo" width="40" height="40" decoding="async" className="w-full h-full object-contain" />
+ <div className="w-8 h-8 flex-shrink-0 transition-all duration-300 group-hover:scale-105 drop-shadow-glow-cyan">
+ <img src="/logobaru.png" alt="HelpMyIMG Logo" width="32" height="32" decoding="async" className="w-full h-full object-contain" />
  </div>
  <div className="flex flex-col">
- <span className="text-xl font-heading font-extrabold text-white">
+ <span className="text-lg font-heading font-extrabold text-white">
  HelpMy<span className="text-transparent bg-clip-text bg-gradient-to-r from-neon-cyan to-neon-emerald">IMG</span>
  </span>
  </div>
@@ -85,7 +89,7 @@ export const Navbar: React.FC = () => {
  {/* Tengah: Navigation Links (Desktop) */}
  <div className="hidden lg:flex items-center justify-center flex-1 relative group px-4">
  <nav className="flex items-center gap-2 xl:gap-4 text-sm font-medium text-slate-700 dark:text-slate-300">
- <a href={lang === 'en' ? `/${getLocalizedSlug('remove', lang)}` : `/${lang}/${getLocalizedSlug('remove', lang)}`} onClick={(e) => { e.preventDefault(); navigatePath(lang === 'en' ? `/${getLocalizedSlug('remove', lang)}` : `/${lang}/${getLocalizedSlug('remove', lang)}`); (document.activeElement as HTMLElement)?.blur(); }} className="hover:text-neon-cyan transition-colors font-bold text-[11px] uppercase px-2 py-1.5 flex items-center whitespace-nowrap rounded-lg hover:bg-slate-50 dark:hover:bg-dark-800/50">
+ <a href={lang === 'en' ? `/${getLocalizedSlug('remove', lang)}` : `/${lang}/${getLocalizedSlug('remove', lang)}`} onClick={(e) => { e.preventDefault(); navigatePath(lang === 'en' ? `/${getLocalizedSlug('remove', lang)}` : `/${lang}/${getLocalizedSlug('remove', lang)}`); (document.activeElement as HTMLElement)?.blur(); }} className="hover:text-neon-cyan transition-colors font-bold text-[10px] uppercase px-2 py-1.5 flex items-center whitespace-nowrap rounded-lg hover:bg-slate-50 dark:hover:bg-dark-800/50">
  {t('nav.removeBg')}
  </a>
  <a href={lang === 'en' ? `/${getLocalizedSlug('compress', lang)}` : `/${lang}/${getLocalizedSlug('compress', lang)}`} onClick={(e) => { e.preventDefault(); navigatePath(lang === 'en' ? `/${getLocalizedSlug('compress', lang)}` : `/${lang}/${getLocalizedSlug('compress', lang)}`); (document.activeElement as HTMLElement)?.blur(); }} className="hover:text-neon-cyan transition-colors font-bold text-[11px] uppercase px-2 py-1.5 flex items-center whitespace-nowrap rounded-lg hover:bg-slate-50 dark:hover:bg-dark-800/50">
@@ -129,7 +133,7 @@ export const Navbar: React.FC = () => {
  className="flex items-center gap-3.5 py-2 px-3 -mx-3 rounded-xl hover:bg-slate-50 dark:hover:bg-dark-800 transition-colors group/item"
  >
  <tool.icon strokeWidth={1.5} className="w-5 h-5 flex-shrink-0 text-slate-600 dark:text-slate-400 group-hover/item:text-neon-emerald transition-colors" />
- <span className="text-[11px] uppercase text-slate-700 dark:text-slate-200 font-bold truncate group-hover/item:text-neon-emerald transition-colors">
+ <span className="text-[10px] uppercase text-slate-700 dark:text-slate-200 font-bold truncate group-hover/item:text-neon-emerald transition-colors">
  {t(tool.titleKey)}
  </span>
  </a>
@@ -151,14 +155,14 @@ export const Navbar: React.FC = () => {
  {/* Theme Toggle Button (Light Mode / Dark Mode) */}
  <button
  onClick={toggleTheme}
- className="flex items-center justify-center w-9 h-9 bg-dark-800 hover:bg-dark-700 border border-dark-500/60 rounded-xl text-slate-200 transition-all duration-200 shadow-sm"
+ className="flex items-center justify-center w-8 h-8 bg-dark-800 hover:bg-dark-700 border border-dark-500/60 rounded-xl text-slate-200 transition-all duration-200 shadow-sm"
  aria-label="Toggle Theme"
  title={theme === 'dark' ? 'Light Mode' : 'Dark Mode'}
  >
  {theme === 'dark' ? (
- <Sun className="w-4 h-4 text-amber-400 hover:rotate-45 transition-transform duration-300" />
+ <Sun className="w-3.5 h-3.5 text-amber-400 hover:rotate-45 transition-transform duration-300" />
  ) : (
- <Moon className="w-4 h-4 text-indigo-400 hover:-rotate-12 transition-transform duration-300" />
+ <Moon className="w-3.5 h-3.5 text-indigo-400 hover:-rotate-12 transition-transform duration-300" />
  )}
  </button>
 
@@ -169,7 +173,7 @@ export const Navbar: React.FC = () => {
  setLangOpen(!langOpen);
  setSearchQuery('');
  }}
- className="flex items-center gap-2 bg-dark-800 hover:bg-dark-700 border border-dark-500/60 px-3 py-1.5 rounded-xl text-sm font-medium text-slate-200 transition-all duration-200 shadow-sm"
+ className="flex items-center gap-2 bg-dark-800 hover:bg-dark-700 border border-dark-500/60 px-2.5 py-1 rounded-xl text-xs font-medium text-slate-200 transition-all duration-200 shadow-sm"
  aria-label="Pilih Bahasa"
  >
  <Globe className="w-4 h-4 text-neon-cyan" />
@@ -250,10 +254,10 @@ export const Navbar: React.FC = () => {
  {/* Mobile Menu Toggle */}
  <button
  onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
- className="lg:hidden flex items-center justify-center w-9 h-9 bg-dark-800 hover:bg-dark-700 border border-dark-500/60 rounded-xl text-slate-200 transition-all duration-200 shadow-sm ml-1"
+ className="lg:hidden flex items-center justify-center w-8 h-8 bg-dark-800 hover:bg-dark-700 border border-dark-500/60 rounded-xl text-slate-200 transition-all duration-200 shadow-sm ml-1"
  aria-label="Toggle Mobile Menu"
  >
- {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+ {mobileMenuOpen ? <X className="w-4 h-4" /> : <Menu className="w-4 h-4" />}
  </button>
  </div>
  </div>
@@ -281,10 +285,11 @@ export const Navbar: React.FC = () => {
  key={id} 
  onClick={() => {
  const toolId = id as InternalTool;
- navigatePath(lang === 'en' ? `/${getLocalizedSlug(toolId, lang)}` : `/${lang}/${getLocalizedSlug(toolId, lang)}`);
+ const slug = getLocalizedSlug(toolId, lang);
+ navigatePath(lang === 'en' ? `/${slug}` : `/${lang}/${slug}`);
  setMobileMenuOpen(false);
  }} 
- className="bg-dark-800 hover:bg-dark-700 border border-dark-600/50 py-2 px-1.5 rounded-lg font-bold text-slate-200 text-[0.78rem] uppercase text-center shadow-sm transition-colors leading-tight flex items-center justify-center min-h-[36px]"
+ className="bg-dark-800 hover:bg-dark-700 border border-dark-600/50 py-2 px-1.5 rounded-lg font-bold text-slate-200 text-[0.68rem] uppercase text-center shadow-sm transition-colors leading-tight flex items-center justify-center min-h-[36px]"
  >
  <span className="line-clamp-2">{label}</span>
  </button>
@@ -294,7 +299,7 @@ export const Navbar: React.FC = () => {
  {/* Accordion: All Tools */}
  <button
  onClick={() => setIsMobileAllOpen(!isMobileAllOpen)}
- className="w-full bg-gradient-to-r from-cyan-500 to-emerald-500 text-white py-[11px] px-4 rounded-lg font-extrabold text-[0.8rem] uppercase flex items-center justify-between shadow-sm transition-all"
+ className="w-full bg-gradient-to-r from-cyan-500 to-emerald-500 text-white py-[11px] px-4 rounded-lg font-extrabold text-[0.7rem] uppercase flex items-center justify-between shadow-sm transition-all"
  style={{ marginBottom: isMobileAllOpen ? '12px' : '0' }}
  >
  <span className="!text-white">{t('nav.tools') === 'AI Tools' ? 'All Photo Tools' : (t('nav.tools', { defaultValue: 'All Photo Tools' }))}</span>
