@@ -161,19 +161,19 @@ export const ComparePage: React.FC = () => {
         {/* SECTION 5: THE QUALITY PROOF */}
         <div className="mb-32 text-center">
           <h2 className="text-3xl font-heading font-black text-white mb-16">
-            {t('compare.s5.title') || 'No Compromise on Quality'}
+            {t('compare.s5.title', { defaultValue: 'No Compromise on Quality' })}
           </h2>
           <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
             <div className="bg-dark-900 p-8 rounded-3xl border border-dark-700">
-              <h3 className="text-xl font-bold text-white mb-4">{t('compare.s5.t1') || 'Competitors'}</h3>
+              <h3 className="text-xl font-bold text-white mb-4">{t('compare.s5.t1', { defaultValue: 'Competitors' })}</h3>
               <p className="text-slate-400 text-lg leading-relaxed mb-6">
-                {t('compare.s5.c1') || 'Downscale large images to save server bandwidth, resulting in blurry edges.'}
+                {t('compare.s5.c1', { defaultValue: 'Downscale large images to save server bandwidth, resulting in blurry edges.' })}
               </p>
             </div>
             <div className="bg-neon-purple/10 p-8 rounded-3xl border border-neon-purple/30">
-              <h3 className="text-xl font-bold text-neon-purple mb-4">{t('compare.s5.t2') || 'HelpMyIMG'}</h3>
+              <h3 className="text-xl font-bold text-neon-purple mb-4">{t('compare.s5.t2', { defaultValue: 'HelpMyIMG' })}</h3>
               <p className="text-neon-purple/80 text-lg leading-relaxed mb-6">
-                {t('compare.s5.c2') || 'Processes native resolutions directly in RAM, maintaining pixel-perfect HD precision.'}
+                {t('compare.s5.c2', { defaultValue: 'Processes native resolutions directly in RAM, maintaining pixel-perfect HD precision.' })}
               </p>
             </div>
           </div>

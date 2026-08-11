@@ -102,9 +102,9 @@ export const PricingPage: React.FC = () => {
                 { name: 'Enterprise Software', cost: '$300+ / year', ours: '$0.00' }
               ].map((item, i) => (
                 <div key={i} className="bg-dark-900 p-6 rounded-2xl border border-dark-700">
-                  <div className="text-slate-400 mb-2">{t(`pricing.s3.c${i+1}.name`) || item.name}</div>
-                  <div className="text-red-400 font-bold line-through text-xl mb-4">{t(`pricing.s3.c${i+1}.cost`) || item.cost}</div>
-                  <div className="text-neon-emerald font-black text-3xl">{t('pricing.s3.ours') || item.ours}</div>
+                  <div className="text-slate-400 mb-2">{t(`pricing.s3.c${i+1}.name`, { defaultValue: item.name })}</div>
+                  <div className="text-red-400 font-bold line-through text-xl mb-4">{t(`pricing.s3.c${i+1}.cost`, { defaultValue: item.cost })}</div>
+                  <div className="text-neon-emerald font-black text-3xl">{t('pricing.s3.ours', { defaultValue: item.ours })}</div>
                 </div>
               ))}
             </div>

@@ -129,25 +129,25 @@ export const SecurityPage: React.FC = () => {
         {/* SECTION 4: DATA FLOW */}
         <div className="mb-32 bg-dark-800/50 rounded-[40px] p-8 md:p-16 border border-dark-600">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-white mb-4">{t('security.s4.title') || 'Data Flow Comparison'}</h2>
+            <h2 className="text-3xl font-bold text-white mb-4">{t('security.s4.title', { defaultValue: 'Data Flow Comparison' })}</h2>
           </div>
           <div className="grid md:grid-cols-2 gap-8">
             <div className="bg-dark-900 p-8 rounded-3xl border border-red-500/20">
-              <h3 className="text-red-400 font-bold mb-6">{t('security.s4.old') || 'Traditional Cloud Editors'}</h3>
+              <h3 className="text-red-400 font-bold mb-6">{t('security.s4.old', { defaultValue: 'Traditional Cloud Editors' })}</h3>
               <ul className="space-y-4 text-slate-400 text-sm">
-                <li className="flex gap-3"><EyeOff className="w-5 h-5 text-red-500 shrink-0" /> {t('security.s4.old.1') || 'You upload a photo to their server.'}</li>
-                <li className="flex gap-3"><EyeOff className="w-5 h-5 text-red-500 shrink-0" /> {t('security.s4.old.2') || 'AI processes it on their GPU.'}</li>
-                <li className="flex gap-3"><EyeOff className="w-5 h-5 text-red-500 shrink-0" /> {t('security.s4.old.3') || 'They store the original and result.'}</li>
-                <li className="flex gap-3"><EyeOff className="w-5 h-5 text-red-500 shrink-0" /> {t('security.s4.old.4') || 'Risk of intercept or data breach.'}</li>
+                <li className="flex gap-3"><EyeOff className="w-5 h-5 text-red-500 shrink-0" /> {t('security.s4.old.1', { defaultValue: 'You upload a photo to their server.' })}</li>
+                <li className="flex gap-3"><EyeOff className="w-5 h-5 text-red-500 shrink-0" /> {t('security.s4.old.2', { defaultValue: 'AI processes it on their GPU.' })}</li>
+                <li className="flex gap-3"><EyeOff className="w-5 h-5 text-red-500 shrink-0" /> {t('security.s4.old.3', { defaultValue: 'They store the original and result.' })}</li>
+                <li className="flex gap-3"><EyeOff className="w-5 h-5 text-red-500 shrink-0" /> {t('security.s4.old.4', { defaultValue: 'Risk of intercept or data breach.' })}</li>
               </ul>
             </div>
             <div className="bg-dark-900 p-8 rounded-3xl border border-neon-emerald/30 shadow-[0_0_40px_rgba(16,185,129,0.1)]">
-              <h3 className="text-neon-emerald font-bold mb-6">{t('security.s4.new') || 'HelpMyIMG Local Engine'}</h3>
+              <h3 className="text-neon-emerald font-bold mb-6">{t('security.s4.new', { defaultValue: 'HelpMyIMG Local Engine' })}</h3>
               <ul className="space-y-4 text-slate-300 text-sm">
-                <li className="flex gap-3"><CheckCircle2 className="w-5 h-5 text-neon-emerald shrink-0" /> {t('security.s4.new.1') || 'You open the web page.'}</li>
-                <li className="flex gap-3"><CheckCircle2 className="w-5 h-5 text-neon-emerald shrink-0" /> {t('security.s4.new.2') || 'WebAssembly engine loads into RAM.'}</li>
-                <li className="flex gap-3"><CheckCircle2 className="w-5 h-5 text-neon-emerald shrink-0" /> {t('security.s4.new.3') || 'Photo is processed by your own CPU.'}</li>
-                <li className="flex gap-3"><CheckCircle2 className="w-5 h-5 text-neon-emerald shrink-0" /> {t('security.s4.new.4') || '0 bytes transmitted. Absolute privacy.'}</li>
+                <li className="flex gap-3"><CheckCircle2 className="w-5 h-5 text-neon-emerald shrink-0" /> {t('security.s4.new.1', { defaultValue: 'You open the web page.' })}</li>
+                <li className="flex gap-3"><CheckCircle2 className="w-5 h-5 text-neon-emerald shrink-0" /> {t('security.s4.new.2', { defaultValue: 'WebAssembly engine loads into RAM.' })}</li>
+                <li className="flex gap-3"><CheckCircle2 className="w-5 h-5 text-neon-emerald shrink-0" /> {t('security.s4.new.3', { defaultValue: 'Photo is processed by your own CPU.' })}</li>
+                <li className="flex gap-3"><CheckCircle2 className="w-5 h-5 text-neon-emerald shrink-0" /> {t('security.s4.new.4', { defaultValue: '0 bytes transmitted. Absolute privacy.' })}</li>
               </ul>
             </div>
           </div>
@@ -157,10 +157,10 @@ export const SecurityPage: React.FC = () => {
         <div className="mb-32 text-center">
           <Lock className="w-16 h-16 text-neon-indigo mx-auto mb-8" />
           <h2 className="text-3xl md:text-5xl font-heading font-black text-white mb-8">
-            {t('security.s5.title') || 'Don\'t Trust Us. Trust the Code.'}
+            {t('security.s5.title', { defaultValue: "Don't Trust Us. Trust the Code." })}
           </h2>
           <p className="text-xl text-slate-400 max-w-3xl mx-auto leading-relaxed">
-            {t('security.s5.desc') || 'You can disconnect from the internet after loading the page, and the AI will still function perfectly. That is the ultimate mathematical proof of privacy.'}
+            {t('security.s5.desc', { defaultValue: 'You can disconnect from the internet after loading the page, and the AI will still function perfectly. That is the ultimate mathematical proof of privacy.' })}
           </p>
         </div>
 
