@@ -7,10 +7,16 @@ import { useRouter } from '../context/RouterContext';
 import { Zap } from 'lucide-react';
 import { useTranslation } from '../context/LanguageContext';
 import { getLocalizedSlug } from '../utils/urlMapper';
+import { getLocalizedInfoSlug, type InfoPageType } from '../utils/infoUrlMapper';
 
 export const Footer: React.FC = () => {
   const { navigatePath } = useRouter();
   const { t, lang } = useTranslation();
+
+  const getInfoLink = (page: InfoPageType) => {
+    const slug = getLocalizedInfoSlug(page, lang);
+    return lang === 'en' ? `/${slug}` : `/${lang}/${slug}`;
+  };
 
   return (
     <footer className="w-full border-t border-dark-600/60 bg-dark-900/90 backdrop-blur-xl py-12 mt-20 text-slate-600 dark:text-slate-300">
@@ -45,19 +51,19 @@ export const Footer: React.FC = () => {
             <div className="space-y-4">
               <h3 className="font-bold text-slate-900 dark:text-white">{t('footer.legal')}</h3>
               <ul className="space-y-2.5 text-slate-500 dark:text-slate-400">
-                <li><a href={lang === 'en' ? '/about' : `/${lang}/about`} onClick={(e) => { e.preventDefault(); navigatePath(lang === 'en' ? '/about' : `/${lang}/about`); }} className="hover:text-cyan-600 dark:hover:text-white transition-colors">{t('footer.about') || 'About Us'}</a></li>
-                <li><a href={lang === 'en' ? '/privacy' : `/${lang}/privacy`} onClick={(e) => { e.preventDefault(); navigatePath(lang === 'en' ? '/privacy' : `/${lang}/privacy`); }} className="hover:text-cyan-600 dark:hover:text-white transition-colors">{t('footer.privacy')}</a></li>
-                <li><a href={lang === 'en' ? '/terms' : `/${lang}/terms`} onClick={(e) => { e.preventDefault(); navigatePath(lang === 'en' ? '/terms' : `/${lang}/terms`); }} className="hover:text-cyan-600 dark:hover:text-white transition-colors">{t('footer.terms')}</a></li>
-                <li><a href={lang === 'en' ? '/faq' : `/${lang}/faq`} onClick={(e) => { e.preventDefault(); navigatePath(lang === 'en' ? '/faq' : `/${lang}/faq`); }} className="hover:text-cyan-600 dark:hover:text-white transition-colors">{t('nav.faq')}</a></li>
+                <li><a href={getInfoLink('about')} onClick={(e) => { e.preventDefault(); navigatePath(getInfoLink('about')); }} className="hover:text-cyan-600 dark:hover:text-white transition-colors">{t('footer.about') || 'About Us'}</a></li>
+                <li><a href={getInfoLink('privacy')} onClick={(e) => { e.preventDefault(); navigatePath(getInfoLink('privacy')); }} className="hover:text-cyan-600 dark:hover:text-white transition-colors">{t('footer.privacy')}</a></li>
+                <li><a href={getInfoLink('terms')} onClick={(e) => { e.preventDefault(); navigatePath(getInfoLink('terms')); }} className="hover:text-cyan-600 dark:hover:text-white transition-colors">{t('footer.terms')}</a></li>
+                <li><a href={getInfoLink('faq')} onClick={(e) => { e.preventDefault(); navigatePath(getInfoLink('faq')); }} className="hover:text-cyan-600 dark:hover:text-white transition-colors">{t('nav.faq')}</a></li>
               </ul>
             </div>
             <div className="space-y-4">
               <h3 className="font-bold text-slate-900 dark:text-white">{t('footer.resources') || 'Resources'}</h3>
               <ul className="space-y-2.5 text-slate-500 dark:text-slate-400">
-                <li><a href={lang === 'en' ? '/security' : `/${lang}/security`} onClick={(e) => { e.preventDefault(); navigatePath(lang === 'en' ? '/security' : `/${lang}/security`); }} className="hover:text-cyan-600 dark:hover:text-white transition-colors">{t('footer.security') || 'Security & Trust'}</a></li>
-                <li><a href={lang === 'en' ? '/pricing' : `/${lang}/pricing`} onClick={(e) => { e.preventDefault(); navigatePath(lang === 'en' ? '/pricing' : `/${lang}/pricing`); }} className="hover:text-cyan-600 dark:hover:text-white transition-colors">{t('footer.pricing') || 'Pricing'}</a></li>
-                <li><a href={lang === 'en' ? '/compare' : `/${lang}/compare`} onClick={(e) => { e.preventDefault(); navigatePath(lang === 'en' ? '/compare' : `/${lang}/compare`); }} className="hover:text-cyan-600 dark:hover:text-white transition-colors">{t('footer.compare') || 'Compare'}</a></li>
-                <li><a href={lang === 'en' ? '/languages' : `/${lang}/languages`} onClick={(e) => { e.preventDefault(); navigatePath(lang === 'en' ? '/languages' : `/${lang}/languages`); }} className="hover:text-cyan-600 dark:hover:text-white transition-colors">{t('footer.languages') || 'Supported Languages'}</a></li>
+                <li><a href={getInfoLink('security')} onClick={(e) => { e.preventDefault(); navigatePath(getInfoLink('security')); }} className="hover:text-cyan-600 dark:hover:text-white transition-colors">{t('footer.security') || 'Security & Trust'}</a></li>
+                <li><a href={getInfoLink('pricing')} onClick={(e) => { e.preventDefault(); navigatePath(getInfoLink('pricing')); }} className="hover:text-cyan-600 dark:hover:text-white transition-colors">{t('footer.pricing') || 'Pricing'}</a></li>
+                <li><a href={getInfoLink('compare')} onClick={(e) => { e.preventDefault(); navigatePath(getInfoLink('compare')); }} className="hover:text-cyan-600 dark:hover:text-white transition-colors">{t('footer.compare') || 'Compare'}</a></li>
+                <li><a href={getInfoLink('languages')} onClick={(e) => { e.preventDefault(); navigatePath(getInfoLink('languages')); }} className="hover:text-cyan-600 dark:hover:text-white transition-colors">{t('footer.languages') || 'Supported Languages'}</a></li>
               </ul>
             </div>
           </div>

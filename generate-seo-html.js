@@ -48,6 +48,23 @@ const getLocalizedSlug = (tool, lang) => {
   return fallbacks[tool] || tool;
 };
 
+let infoSlugMap = {};
+try {
+  const infoUrlMapperContent = fs.readFileSync(path.join(__dirname, 'src', 'utils', 'infoUrlMapper.ts'), 'utf8');
+  const infoSlugMapRegex = /export const INFO_SLUG_MAP[\s\S]*?=\s*({[\s\S]*?});/;
+  const match = infoSlugMapRegex.exec(infoUrlMapperContent);
+  if (match) {
+    infoSlugMap = eval('(' + match[1] + ')');
+  }
+} catch (error) {
+  console.warn('Warning: Could not parse infoUrlMapper.ts', error);
+}
+
+const getLocalizedInfoSlug = (page, lang) => {
+  if (infoSlugMap[lang] && infoSlugMap[lang][page]) return infoSlugMap[lang][page];
+  return page; // EN fallback is the same as the page id
+};
+
 // Tool identifiers
 const TOOLS = ['remove', 'color', 'watermark', 'compress', 'convert', 'resize', 'crop', 'rotate', 'picker', 'blurface', 'design', 'brush'];
 
@@ -280,7 +297,8 @@ for (const lang of LANGS) {
 
   // Generate Info Pages (/lang/info-page/)
   for (const page of INFO_PAGES) {
-    const pageUrl = `/${lang}/${page}/`;
+    const slug = getLocalizedInfoSlug(page, lang);
+    const pageUrl = `/${lang}/${slug}/`;
     
     // Info pages have localized titles in their respective namespaces (using footer/nav keys for conciseness)
     let pageTitleKey = `footer.${page}`;
@@ -292,14 +310,14 @@ for (const lang of LANGS) {
     let pageDesc = translations[`${page}.subtitle`] || translations[`${page}.intro`] || homeDesc;
     
     const pageHtml = generateHtml(lang, pageUrl, pageTitle, pageDesc, null, translations);
-    const pageDir = path.join(distDir, lang, page);
+    const pageDir = path.join(distDir, lang, slug);
     if (!fs.existsSync(pageDir)) fs.mkdirSync(pageDir, { recursive: true });
     fs.writeFileSync(path.join(pageDir, 'index.html'), pageHtml, 'utf8');
     generatedCount++;
 
     // For English info pages, also duplicate to the root level for SEO
     if (lang === 'en') {
-      const rootPageDir = path.join(distDir, page);
+      const rootPageDir = path.join(distDir, slug);
       if (!fs.existsSync(rootPageDir)) fs.mkdirSync(rootPageDir, { recursive: true });
       fs.writeFileSync(path.join(rootPageDir, 'index.html'), pageHtml, 'utf8');
       generatedCount++;

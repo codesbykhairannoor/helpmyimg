@@ -1,6 +1,7 @@
 import React, { createContext, useContext, useEffect, useState } from 'react';
 import { SUPPORTED_LANGUAGES, type Language } from '../i18n/translations';
 import { getToolFromSlug, getLocalizedSlug } from '../utils/urlMapper';
+import { getInfoPageFromSlug, getLocalizedInfoSlug, type InfoPageType } from '../utils/infoUrlMapper';
 
 export interface RouteState {
   lang: Language;
@@ -39,8 +40,9 @@ export const RouterProvider: React.FC<{ children: React.ReactNode }> = ({ childr
     let tool: string | null = null;
 
     if (toolSlug) {
-      if (['about', 'privacy', 'terms', 'faq', 'security', 'pricing', 'compare', 'languages'].includes(toolSlug)) {
-        page = toolSlug as any;
+      const infoPage = getInfoPageFromSlug(toolSlug);
+      if (infoPage) {
+        page = infoPage as any;
       } else {
         page = 'tool';
         tool = getToolFromSlug(toolSlug, detectedLang);
@@ -64,7 +66,8 @@ export const RouterProvider: React.FC<{ children: React.ReactNode }> = ({ childr
     let newPath = newLang === 'en' ? '/' : `/${newLang}`;
     
     if (newPage !== 'home' && newPage !== 'tool') {
-      newPath = newLang === 'en' ? `/${newPage}` : `/${newLang}/${newPage}`;
+      const localizedInfoSlug = getLocalizedInfoSlug(newPage as InfoPageType, newLang);
+      newPath = newLang === 'en' ? `/${localizedInfoSlug}` : `/${newLang}/${localizedInfoSlug}`;
     } else if (newTool) {
       const localizedToolSlug = getLocalizedSlug(newTool as any, newLang);
       newPath = newLang === 'en' ? `/${localizedToolSlug}` : `/${newLang}/${localizedToolSlug}`;

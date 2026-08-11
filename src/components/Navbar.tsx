@@ -9,6 +9,7 @@ import { SUPPORTED_LANGUAGES, type Language } from '../i18n/translations';
 import { Globe, ChevronDown, Sun, Moon, Menu, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { getToolFromSlug, getLocalizedSlug } from '../utils/urlMapper';
+import { getInfoPageFromSlug, getLocalizedInfoSlug, type InfoPageType } from '../utils/infoUrlMapper';
 import { tools, categories } from '../config/tools';
 
 export const Navbar: React.FC = () => {
@@ -43,10 +44,12 @@ export const Navbar: React.FC = () => {
 
     const toolSlug = pathParts[toolSlugIndex];
     if (toolSlug) {
-      if (['about', 'privacy', 'terms', 'faq', 'security', 'pricing', 'compare', 'languages'].includes(toolSlug)) {
-        // Informational page, don't translate slug
+      const infoPage = getInfoPageFromSlug(toolSlug);
+      if (infoPage) {
+        // Informational page, translate its slug
+        const newSlug = getLocalizedInfoSlug(infoPage, newLang);
         const rest = pathParts.slice(toolSlugIndex + 1);
-        const newPathParts = newLang === 'en' ? [toolSlug, ...rest] : [newLang, toolSlug, ...rest];
+        const newPathParts = newLang === 'en' ? [newSlug, ...rest] : [newLang, newSlug, ...rest];
         navigatePath('/' + newPathParts.join('/'));
       } else {
         // Map current localized slug back to internal tool, then map to new localized slug
