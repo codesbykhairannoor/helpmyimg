@@ -270,9 +270,9 @@ export const Navbar: React.FC = () => {
  animate={{ opacity: 1 }}
  exit={{ opacity: 0 }}
  transition={{ duration: 0.15, ease: 'easeInOut' }}
- className="lg:hidden absolute inset-x-0 top-12 z-50 bg-white dark:bg-dark-900 border-t border-b border-slate-200 dark:border-dark-500/40 shadow-2xl overflow-y-auto max-h-[calc(100vh-48px)]"
+ className="lg:hidden absolute inset-x-0 top-12 z-50 bg-slate-50 dark:bg-dark-900 border-t border-b border-slate-200 dark:border-dark-500/40 shadow-2xl overflow-y-auto max-h-[calc(100vh-48px)]"
  >
- <div className="flex flex-col px-4 pt-4 pb-6 space-y-5">
+ <div className="flex flex-col px-4 pt-4 pb-7 gap-3">
  
  {/* Quick 3 buttons */}
  <div className="grid grid-cols-3 gap-2">
@@ -299,7 +299,7 @@ export const Navbar: React.FC = () => {
  {/* Accordion: All Tools */}
  <button
  onClick={() => setIsMobileAllOpen(!isMobileAllOpen)}
- className="w-full bg-gradient-to-r from-cyan-500 to-emerald-500 text-white py-[11px] px-4 rounded-lg font-extrabold text-[0.7rem] uppercase flex items-center justify-between shadow-sm transition-all"
+ className="w-full bg-gradient-to-r from-cyan-500 to-emerald-500 text-white py-[11px] px-4 rounded-lg font-extrabold text-[0.85rem] uppercase flex items-center justify-between shadow-sm transition-all"
  style={{ marginBottom: isMobileAllOpen ? '12px' : '0' }}
  >
  <span className="!text-white">{t('nav.tools') === 'AI Tools' ? 'All Photo Tools' : (t('nav.tools', { defaultValue: 'All Photo Tools' }))}</span>
@@ -307,14 +307,14 @@ export const Navbar: React.FC = () => {
  </button>
 
  {isMobileAllOpen && (
- <nav className="flex flex-col space-y-4">
+ <nav className="flex flex-col gap-4">
  {categories.filter(c => c.id !== 'all').map(cat => {
  const catTools = tools.filter(t => t.category === cat.id);
  if (catTools.length === 0) return null;
 
  return (
  <div key={cat.id} className="space-y-0">
- <div className="text-[0.65rem] font-extrabold text-cyan-600 dark:text-neon-cyan mt-2 mb-2 pb-1.5 border-b border-dashed border-slate-200 dark:border-dark-600 uppercase">
+ <div className="text-[0.65rem] font-extrabold text-cyan-600 dark:text-neon-cyan mb-2 pb-1.5 border-b border-dashed border-slate-200 dark:border-dark-600 uppercase">
  {t(cat.labelKey)}
  </div>
  <div className="grid grid-cols-2 gap-1.5">
