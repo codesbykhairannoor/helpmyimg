@@ -182,7 +182,7 @@ export const Navbar: React.FC = () => {
               {langOpen && (
                 <>
                   <div
-                    className="fixed inset-0 z-40"
+                    className="fixed inset-0 z-[55]"
                     onClick={() => setLangOpen(false)}
                   />
                   <motion.div
@@ -190,7 +190,7 @@ export const Navbar: React.FC = () => {
                     animate={{ opacity: 1, y: 0, scale: 1 }}
                     exit={{ opacity: 0, y: -10, scale: 0.95 }}
                     transition={{ duration: 0.15 }}
-                    className="absolute right-0 mt-2 w-64 sm:w-72 bg-dark-800 border border-dark-500/80 rounded-2xl shadow-2xl py-2 z-50 max-h-96 flex flex-col overflow-hidden"
+                    className="absolute right-0 mt-2 w-64 sm:w-72 bg-dark-800 border border-dark-500/80 rounded-2xl shadow-2xl py-2 z-[60] max-h-96 flex flex-col overflow-hidden"
                   >
                     <div className="px-3 py-1.5 text-xs font-semibold text-slate-400 uppercase tracking-wider border-b border-dark-600/50 mb-1 flex items-center justify-between">
                       <span>{t('nav.selectLang', { defaultValue: 'Select Language / Locale' })}</span>
@@ -266,7 +266,7 @@ export const Navbar: React.FC = () => {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.15, ease: 'easeInOut' }}
-            className="lg:hidden fixed inset-x-0 top-16 bottom-0 z-50 bg-dark-900/95 backdrop-blur-xl border-t border-dark-500/40 overflow-y-auto"
+            className="lg:hidden absolute inset-x-0 top-14 z-50 bg-dark-900/95 backdrop-blur-xl border-t border-b border-dark-500/40 shadow-2xl overflow-y-auto max-h-[calc(100vh-56px)]"
           >
             <div className="flex flex-col px-4 pt-4 pb-12 space-y-5">
               
@@ -294,24 +294,24 @@ export const Navbar: React.FC = () => {
               {/* Accordion: All Tools */}
               <button
                 onClick={() => setIsMobileAllOpen(!isMobileAllOpen)}
-                className="w-full bg-gradient-to-r from-neon-cyan/20 to-neon-indigo/20 border border-neon-cyan/30 text-white p-3 rounded-xl font-extrabold text-sm flex items-center justify-between shadow-sm transition-all"
-                style={{ marginBottom: isMobileAllOpen ? '8px' : '0' }}
+                className="w-full bg-gradient-to-r from-cyan-500 to-emerald-500 text-white py-[11px] px-4 rounded-lg font-extrabold text-[0.9rem] flex items-center justify-between shadow-sm transition-all"
+                style={{ marginBottom: isMobileAllOpen ? '12px' : '0' }}
               >
                 <span>{t('nav.tools') === 'AI Tools' ? 'All Photo Tools' : (t('nav.tools', { defaultValue: 'All Photo Tools' }))}</span>
-                {isMobileAllOpen ? <ChevronDown className="w-5 h-5 rotate-180 transition-transform" /> : <ChevronDown className="w-5 h-5 transition-transform" />}
+                {isMobileAllOpen ? <ChevronDown className="w-4 h-4 rotate-180 transition-transform" /> : <ChevronDown className="w-4 h-4 transition-transform" />}
               </button>
 
-              <nav className="flex flex-col space-y-5">
+              <nav className="flex flex-col space-y-4">
                 {isMobileAllOpen && categories.filter(c => c.id !== 'all').map(cat => {
                   const catTools = tools.filter(t => t.category === cat.id);
                   if (catTools.length === 0) return null;
 
                   return (
-                    <div key={cat.id} className="space-y-2">
-                      <div className="text-[10px] font-mono font-bold text-slate-500 dark:text-slate-400 uppercase tracking-widest px-1">
+                    <div key={cat.id} className="space-y-0">
+                      <div className="text-[0.7rem] font-extrabold text-cyan-600 dark:text-neon-cyan tracking-widest mt-2 mb-2 pb-1.5 border-b border-dashed border-slate-200 dark:border-dark-600 uppercase">
                         {t(cat.labelKey)}
                       </div>
-                      <div className="grid grid-cols-2 gap-2">
+                      <div className="grid grid-cols-2 gap-1.5">
                         {catTools.map(tool => (
                           <a
                             key={tool.id}
@@ -321,15 +321,11 @@ export const Navbar: React.FC = () => {
                               navigatePath(lang === 'en' ? `/${getLocalizedSlug(tool.id, lang)}` : `/${lang}/${getLocalizedSlug(tool.id, lang)}`);
                               setMobileMenuOpen(false);
                             }}
-                            className="flex items-center gap-2.5 p-2 rounded-xl bg-dark-800 border border-dark-600/50 hover:border-neon-cyan/50 active:bg-dark-700 transition-all group shadow-sm"
+                            className="flex items-center gap-2 bg-white dark:bg-dark-800 border border-slate-200 dark:border-dark-600/50 px-[11px] py-[9px] rounded-lg font-semibold text-slate-700 dark:text-slate-200 text-[0.78rem] text-left hover:border-cyan-500 dark:hover:border-neon-cyan transition-colors"
                           >
-                            <div className="w-8 h-8 rounded-lg bg-dark-900 flex items-center justify-center shrink-0 group-active:scale-95 transition-transform border border-dark-600/50 group-hover:border-neon-cyan/30">
-                              <tool.icon className="w-4 h-4 text-neon-cyan" />
-                            </div>
-                            <div className="flex flex-col justify-center min-w-0 pr-1">
-                              <span className="text-[11px] font-bold text-slate-800 dark:text-slate-200 leading-tight line-clamp-2">{t(tool.titleKey)}</span>
-            </div>
-          </a>
+                            <tool.icon className="w-[13px] h-[13px] text-cyan-600 dark:text-neon-cyan shrink-0" strokeWidth={2.5} />
+                            <span className="truncate uppercase">{t(tool.titleKey)}</span>
+                          </a>
                         ))}
                       </div>
                     </div>
