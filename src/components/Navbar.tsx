@@ -8,8 +8,8 @@ import { useTheme } from '../context/ThemeContext';
 import { SUPPORTED_LANGUAGES, type Language } from '../i18n/translations';
 import { Globe, ChevronDown, Sun, Moon, Menu, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { getToolFromSlug, getLocalizedSlug } from '../utils/urlMapper';
-import { getInfoPageFromSlug, getLocalizedInfoSlug, type InfoPageType } from '../utils/infoUrlMapper';
+import { getToolFromSlug, getLocalizedSlug, type InternalTool } from '../utils/urlMapper';
+import { getInfoPageFromSlug, getLocalizedInfoSlug } from '../utils/infoUrlMapper';
 import { tools, categories } from '../config/tools';
 
 export const Navbar: React.FC = () => {
@@ -295,7 +295,8 @@ export const Navbar: React.FC = () => {
                   <button 
                     key={id} 
                     onClick={() => {
-                      navigatePath(lang === 'en' ? `/${getLocalizedSlug(id, lang)}` : `/${lang}/${getLocalizedSlug(id, lang)}`);
+                      const toolId = id as InternalTool;
+                      navigatePath(lang === 'en' ? `/${getLocalizedSlug(toolId, lang)}` : `/${lang}/${getLocalizedSlug(toolId, lang)}`);
                       setMobileMenuOpen(false);
                     }} 
                     className="bg-dark-800 hover:bg-dark-700 border border-dark-600/50 p-2.5 rounded-xl font-bold text-slate-200 text-xs sm:text-sm text-center shadow-sm transition-colors"
