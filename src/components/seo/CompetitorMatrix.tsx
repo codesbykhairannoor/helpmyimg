@@ -21,8 +21,8 @@ export const CompetitorMatrix: React.FC = () => {
         </p>
       </div>
 
-      <div className="overflow-x-auto pb-8 -mx-4 px-4 sm:mx-0 sm:px-0">
-        <div className="min-w-[600px] md:min-w-[800px] w-full glass-panel rounded-2xl md:rounded-3xl border border-dark-600/50 overflow-hidden shadow-2xl">
+      <div className="w-full max-w-[100vw] overflow-x-auto pb-8 sm:px-0 hide-scrollbar">
+        <div className="min-w-[650px] md:min-w-[800px] w-full glass-panel rounded-2xl md:rounded-3xl border border-dark-600/50 overflow-hidden shadow-2xl">
           <table className="w-full text-left border-collapse">
             <thead>
               <tr className="bg-dark-800/80 border-b border-dark-600">

@@ -128,8 +128,8 @@ export const Navbar: React.FC = () => {
                                 }}
                                 className="flex items-center gap-3.5 py-2 px-3 -mx-3 rounded-xl hover:bg-slate-50 dark:hover:bg-dark-800 transition-colors group/item"
                               >
-                                <tool.icon strokeWidth={1.5} className="w-5 h-5 flex-shrink-0 text-slate-600 dark:text-slate-400 group-hover/item:text-neon-cyan transition-colors" />
-                                <span className="text-[11px] uppercase text-slate-700 dark:text-slate-200 font-bold tracking-widest truncate group-hover/item:text-neon-cyan transition-colors">
+                                <tool.icon strokeWidth={1.5} className="w-5 h-5 flex-shrink-0 text-slate-600 dark:text-slate-400 group-hover/item:text-neon-emerald transition-colors" />
+                                <span className="text-[11px] uppercase text-slate-700 dark:text-slate-200 font-bold tracking-widest truncate group-hover/item:text-neon-emerald transition-colors">
                                   {t(tool.titleKey)}
                                 </span>
                               </a>
@@ -297,7 +297,7 @@ export const Navbar: React.FC = () => {
                 className="w-full bg-gradient-to-r from-cyan-500 to-emerald-500 text-white py-[11px] px-4 rounded-lg font-extrabold text-[0.8rem] uppercase tracking-widest flex items-center justify-between shadow-sm transition-all"
                 style={{ marginBottom: isMobileAllOpen ? '12px' : '0' }}
               >
-                <span>{t('nav.tools') === 'AI Tools' ? 'All Photo Tools' : (t('nav.tools', { defaultValue: 'All Photo Tools' }))}</span>
+                <span className="!text-white">{t('nav.tools') === 'AI Tools' ? 'All Photo Tools' : (t('nav.tools', { defaultValue: 'All Photo Tools' }))}</span>
                 {isMobileAllOpen ? <ChevronDown className="w-4 h-4 rotate-180 transition-transform" /> : <ChevronDown className="w-4 h-4 transition-transform" />}
               </button>
 
