@@ -1661,5 +1661,17 @@
   "languages.s3.l3": "Idiom dan contoh yang diadaptasi secara budaya",
   "home.hero.titleHighlight": "Semua Alat",
   "home.hero.titleSolid": "Gambar dalam Satu Tempat",
-  "home.tab.title": "HelpMyIMG | Semua Alat Gambar dalam Satu Tempat"
+  "home.tab.title": "HelpMyIMG | Semua Alat Gambar dalam Satu Tempat",
+  "compare.s5.t1": "Pesaing",
+  "compare.s5.c1": "Turunkan gambar berukuran besar untuk menghemat bandwidth server, sehingga menghasilkan tepian yang buram.",
+  "compare.s5.t2": "BantuanMyIMG",
+  "compare.s5.c2": "Memproses resolusi asli secara langsung di RAM, menjaga presisi HD sesempurna piksel.",
+  "security.s4.old.1": "Anda mengunggah foto ke server mereka.",
+  "security.s4.old.2": "AI memprosesnya di GPU mereka.",
+  "security.s4.old.3": "Mereka menyimpan yang asli dan hasilnya.",
+  "security.s4.old.4": "Risiko intersepsi atau pelanggaran data.",
+  "security.s4.new.1": "Anda membuka halaman web.",
+  "security.s4.new.2": "Mesin WebAssembly dimuat ke dalam RAM.",
+  "security.s4.new.3": "Foto diproses oleh CPU Anda sendiri.",
+  "security.s4.new.4": "0 byte dikirimkan. Privasi mutlak."
 }

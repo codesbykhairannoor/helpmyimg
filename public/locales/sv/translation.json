@@ -1587,5 +1587,17 @@
   "languages.s3.l3": "Kulturanpassade idiom och exempel",
   "home.hero.titleHighlight": "Alla bildverktyg",
   "home.hero.titleSolid": "på ett ställe",
-  "home.tab.title": "HelpMyIMG | Alla bildverktyg på ett ställe"
+  "home.tab.title": "HelpMyIMG | Alla bildverktyg på ett ställe",
+  "compare.s5.t1": "Konkurrenter",
+  "compare.s5.c1": "Nedskala stora bilder för att spara serverbandbredd, vilket resulterar i suddiga kanter.",
+  "compare.s5.t2": "HjälpMyIMG",
+  "compare.s5.c2": "Bearbetar inbyggda upplösningar direkt i RAM, och bibehåller pixelperfekt HD-precision.",
+  "security.s4.old.1": "Du laddar upp ett foto till deras server.",
+  "security.s4.old.2": "AI bearbetar det på deras GPU.",
+  "security.s4.old.3": "De lagrar originalet och resultatet.",
+  "security.s4.old.4": "Risk för avlyssning eller dataintrång.",
+  "security.s4.new.1": "Du öppnar webbsidan.",
+  "security.s4.new.2": "WebAssembly-motorn laddas in i RAM-minnet.",
+  "security.s4.new.3": "Fotot bearbetas av din egen CPU.",
+  "security.s4.new.4": "0 byte överförda. Absolut integritet."
 }

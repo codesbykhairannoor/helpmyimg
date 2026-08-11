@@ -1587,5 +1587,17 @@
   "languages.s3.l3": "文化的に適応されたイディオムと例",
   "home.hero.titleHighlight": "画像ツールが全部",
   "home.hero.titleSolid": "一か所に集結",
-  "home.tab.title": "HelpMyIMG | 画像ツールが全部一か所に"
+  "home.tab.title": "HelpMyIMG | 画像ツールが全部一か所に",
+  "compare.s5.t1": "競合他社",
+  "compare.s5.c1": "サーバーの帯域幅を節約するために大きな画像を縮小すると、エッジがぼやけてしまいます。",
+  "compare.s5.t2": "ヘルプMyIMG",
+  "compare.s5.c2": "ネイティブ解像度を RAM で直接処理し、ピクセルパーフェクトな HD 精度を維持します。",
+  "security.s4.old.1": "写真をサーバーにアップロードします。",
+  "security.s4.old.2": "AI はそれを GPU で処理します。",
+  "security.s4.old.3": "オリジナルと結果を保存します。",
+  "security.s4.old.4": "傍受またはデータ侵害のリスク。",
+  "security.s4.new.1": "Web ページを開きます。",
+  "security.s4.new.2": "WebAssembly エンジンは RAM にロードされます。",
+  "security.s4.new.3": "写真は独自のCPUで処理されます。",
+  "security.s4.new.4": "0バイトが送信されました。絶対的なプライバシー。"
 }

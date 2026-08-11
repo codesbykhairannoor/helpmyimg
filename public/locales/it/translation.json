@@ -1587,5 +1587,17 @@
   "languages.s3.l3": "Idiomi ed esempi culturalmente adattati",
   "home.hero.titleHighlight": "Tutti gli strumenti immagine",
   "home.hero.titleSolid": "in un unico posto",
-  "home.tab.title": "HelpMyIMG | Tutti gli strumenti immagine in un unico posto"
+  "home.tab.title": "HelpMyIMG | Tutti gli strumenti immagine in un unico posto",
+  "compare.s5.t1": "Concorrenti",
+  "compare.s5.c1": "Ridimensiona le immagini di grandi dimensioni per risparmiare larghezza di banda del server, con conseguenti bordi sfocati.",
+  "compare.s5.t2": "AiutoMyIMG",
+  "compare.s5.c2": "Elabora le risoluzioni native direttamente nella RAM, mantenendo una precisione HD perfetta per i pixel.",
+  "security.s4.old.1": "Carichi una foto sul loro server.",
+  "security.s4.old.2": "L'intelligenza artificiale lo elabora sulla propria GPU.",
+  "security.s4.old.3": "Memorizzano l'originale e il risultato.",
+  "security.s4.old.4": "Rischio di intercettazione o violazione dei dati.",
+  "security.s4.new.1": "Apri la pagina web.",
+  "security.s4.new.2": "Il motore WebAssembly viene caricato nella RAM.",
+  "security.s4.new.3": "La foto viene elaborata dalla tua CPU.",
+  "security.s4.new.4": "0 byte trasmessi. Privacy assoluta."
 }

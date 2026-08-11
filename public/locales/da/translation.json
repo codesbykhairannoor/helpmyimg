@@ -1587,5 +1587,17 @@
   "languages.faq3.a": "Slet ikke. Vores React-kontekstmotor udskifter ordbogen på 0ms uden at kræve en genindlæsning af en hel side.",
   "home.hero.titleHighlight": "Alle billedværktøjer",
   "home.hero.titleSolid": "på ét sted",
-  "home.tab.title": "HelpMyIMG | Alle billedværktøjer på ét sted"
+  "home.tab.title": "HelpMyIMG | Alle billedværktøjer på ét sted",
+  "compare.s5.t1": "Konkurrenter",
+  "compare.s5.c1": "Nedskaler store billeder for at spare serverbåndbredde, hvilket resulterer i slørede kanter.",
+  "compare.s5.t2": "HjælpMyIMG",
+  "compare.s5.c2": "Behandler native opløsninger direkte i RAM og bevarer pixel-perfekt HD-præcision.",
+  "security.s4.old.1": "Du uploader et billede til deres server.",
+  "security.s4.old.2": "AI behandler det på deres GPU.",
+  "security.s4.old.3": "De gemmer originalen og resultatet.",
+  "security.s4.old.4": "Risiko for aflytning eller databrud.",
+  "security.s4.new.1": "Du åbner websiden.",
+  "security.s4.new.2": "WebAssembly-motor indlæses i RAM.",
+  "security.s4.new.3": "Billedet behandles af din egen CPU.",
+  "security.s4.new.4": "0 bytes transmitteret. Absolut privatliv."
 }

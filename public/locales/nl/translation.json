@@ -1587,5 +1587,17 @@
   "languages.s3.l3": "Cultureel aangepaste idiomen en voorbeelden",
   "home.hero.titleHighlight": "Alle afbeeldingstools",
   "home.hero.titleSolid": "op één plek",
-  "home.tab.title": "HelpMyIMG | Alle afbeeldingstools op één plek"
+  "home.tab.title": "HelpMyIMG | Alle afbeeldingstools op één plek",
+  "compare.s5.t1": "Concurrenten",
+  "compare.s5.c1": "Schaal grote afbeeldingen terug om serverbandbreedte te besparen, wat resulteert in wazige randen.",
+  "compare.s5.t2": "HelpMijnIMG",
+  "compare.s5.c2": "Verwerkt native resoluties rechtstreeks in het RAM, met behoud van pixel-perfecte HD-precisie.",
+  "security.s4.old.1": "Je uploadt een foto naar hun server.",
+  "security.s4.old.2": "AI verwerkt het op hun GPU.",
+  "security.s4.old.3": "Ze slaan het origineel en het resultaat op.",
+  "security.s4.old.4": "Risico op onderschepping of datalek.",
+  "security.s4.new.1": "U opent de webpagina.",
+  "security.s4.new.2": "WebAssembly-engine wordt in RAM geladen.",
+  "security.s4.new.3": "Foto wordt verwerkt door uw eigen CPU.",
+  "security.s4.new.4": "0 bytes verzonden. Absolute privacy."
 }

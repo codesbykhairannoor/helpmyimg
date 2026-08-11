@@ -1587,5 +1587,17 @@
   "languages.s3.l3": "문화에 적합한 관용구 및 예",
   "home.hero.titleHighlight": "모든 이미지 도구",
   "home.hero.titleSolid": "한 곳에서",
-  "home.tab.title": "HelpMyIMG | 모든 이미지 도구 한 곳에서"
+  "home.tab.title": "HelpMyIMG | 모든 이미지 도구 한 곳에서",
+  "compare.s5.t1": "경쟁사",
+  "compare.s5.c1": "서버 대역폭을 절약하기 위해 큰 이미지를 축소하면 가장자리가 흐릿해집니다.",
+  "compare.s5.t2": "도움말MyIMG",
+  "compare.s5.c2": "픽셀 단위의 완벽한 HD 정밀도를 유지하면서 RAM에서 직접 기본 해상도를 처리합니다.",
+  "security.s4.old.1": "서버에 사진을 업로드합니다.",
+  "security.s4.old.2": "AI는 이를 GPU에서 처리합니다.",
+  "security.s4.old.3": "원본과 결과를 저장합니다.",
+  "security.s4.old.4": "가로채기 또는 데이터 침해의 위험이 있습니다.",
+  "security.s4.new.1": "웹 페이지를 엽니다.",
+  "security.s4.new.2": "WebAssembly 엔진이 RAM에 로드됩니다.",
+  "security.s4.new.3": "사진은 자신의 CPU에 의해 처리됩니다.",
+  "security.s4.new.4": "0바이트가 전송되었습니다. 절대적인 프라이버시."
 }

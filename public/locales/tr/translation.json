@@ -1587,5 +1587,17 @@
   "languages.s3.l3": "Kültürel olarak uyarlanmış deyimler ve örnekler",
   "home.hero.titleHighlight": "Tüm görüntü araçları",
   "home.hero.titleSolid": "tek bir yerde",
-  "home.tab.title": "HelpMyIMG | Tüm görüntü araçları tek bir yerde"
+  "home.tab.title": "HelpMyIMG | Tüm görüntü araçları tek bir yerde",
+  "compare.s5.t1": "Rakipler",
+  "compare.s5.c1": "Sunucu bant genişliğinden tasarruf etmek için büyük görüntülerin ölçeğini küçültün, bu da kenarların bulanık olmasına neden olur.",
+  "compare.s5.t2": "HelpMyIMG",
+  "compare.s5.c2": "Yerel çözünürlükleri doğrudan RAM'de işleyerek piksel mükemmelliğinde HD hassasiyetini korur.",
+  "security.s4.old.1": "Sunucularına bir fotoğraf yüklüyorsunuz.",
+  "security.s4.old.2": "Yapay zeka bunu GPU'larında işler.",
+  "security.s4.old.3": "Orijinali ve sonucu saklarlar.",
+  "security.s4.old.4": "Müdahale veya veri ihlali riski.",
+  "security.s4.new.1": "Web sayfasını açıyorsunuz.",
+  "security.s4.new.2": "WebAssembly motoru RAM'e yüklenir.",
+  "security.s4.new.3": "Fotoğraf kendi CPU'nuz tarafından işlenir.",
+  "security.s4.new.4": "0 bayt aktarıldı. Mutlak gizlilik."
 }

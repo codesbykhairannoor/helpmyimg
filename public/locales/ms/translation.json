@@ -1587,5 +1587,17 @@
   "languages.s3.l3": "simpulan bahasa dan contoh yang disesuaikan secara budaya",
   "home.hero.titleHighlight": "Semua Alat Imej",
   "home.hero.titleSolid": "dalam Satu Tempat",
-  "home.tab.title": "HelpMyIMG | Semua Alat Imej dalam Satu Tempat"
+  "home.tab.title": "HelpMyIMG | Semua Alat Imej dalam Satu Tempat",
+  "compare.s5.t1": "Pesaing",
+  "compare.s5.c1": "Turunkan skala imej besar untuk menjimatkan lebar jalur pelayan, mengakibatkan tepi kabur.",
+  "compare.s5.t2": "HelpMyIMG",
+  "compare.s5.c2": "Memproses resolusi asli secara langsung dalam RAM, mengekalkan ketepatan HD sempurna piksel.",
+  "security.s4.old.1": "Anda memuat naik foto ke pelayan mereka.",
+  "security.s4.old.2": "AI memprosesnya pada GPU mereka.",
+  "security.s4.old.3": "Mereka menyimpan yang asal dan hasilnya.",
+  "security.s4.old.4": "Risiko pintasan atau pelanggaran data.",
+  "security.s4.new.1": "Anda membuka halaman web.",
+  "security.s4.new.2": "Enjin WebAssembly dimuatkan ke dalam RAM.",
+  "security.s4.new.3": "Foto diproses oleh CPU anda sendiri.",
+  "security.s4.new.4": "0 bait dihantar. Privasi mutlak."
 }

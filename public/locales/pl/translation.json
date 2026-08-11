@@ -1592,5 +1592,17 @@
   "languages.s3.l3": "Idiomy i przykłady zaadaptowane kulturowo",
   "home.hero.titleHighlight": "Wszystkie narzędzia do zdjęć",
   "home.hero.titleSolid": "w jednym miejscu",
-  "home.tab.title": "HelpMyIMG | Wszystkie narzędzia do zdjęć w jednym miejscu"
+  "home.tab.title": "HelpMyIMG | Wszystkie narzędzia do zdjęć w jednym miejscu",
+  "compare.s5.t1": "Zawodnicy",
+  "compare.s5.c1": "Zmniejsz duże obrazy, aby zaoszczędzić przepustowość serwera, co spowoduje rozmycie krawędzi.",
+  "compare.s5.t2": "PomocMójIMG",
+  "compare.s5.c2": "Przetwarza natywne rozdzielczości bezpośrednio w pamięci RAM, zachowując doskonałą precyzję HD w pikselach.",
+  "security.s4.old.1": "Przesyłasz zdjęcie na ich serwer.",
+  "security.s4.old.2": "AI przetwarza to na swoim GPU.",
+  "security.s4.old.3": "Przechowują oryginał i wynik.",
+  "security.s4.old.4": "Ryzyko przechwycenia lub naruszenia danych.",
+  "security.s4.new.1": "Otwierasz stronę internetową.",
+  "security.s4.new.2": "Silnik WebAssembly ładuje się do pamięci RAM.",
+  "security.s4.new.3": "Zdjęcie przetwarzane jest przez Twój własny procesor.",
+  "security.s4.new.4": "Przesłano 0 bajtów. Absolutna prywatność."
 }

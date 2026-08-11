@@ -1587,5 +1587,17 @@
   "languages.s3.l3": "Expresii și exemple adaptate cultural",
   "home.hero.titleHighlight": "Toate instrumentele",
   "home.hero.titleSolid": "pentru imagini într-un singur loc",
-  "home.tab.title": "HelpMyIMG | Toate instrumentele pentru imagini într-un singur loc"
+  "home.tab.title": "HelpMyIMG | Toate instrumentele pentru imagini într-un singur loc",
+  "compare.s5.t1": "Concurenți",
+  "compare.s5.c1": "Reduceți imaginile mari pentru a economisi lățimea de bandă a serverului, rezultând margini neclare.",
+  "compare.s5.t2": "HelpMyIMG",
+  "compare.s5.c2": "Procesează rezoluțiile native direct în RAM, menținând precizia HD perfectă a pixelilor.",
+  "security.s4.old.1": "Încarci o fotografie pe serverul lor.",
+  "security.s4.old.2": "AI îl procesează pe GPU-ul lor.",
+  "security.s4.old.3": "Ele stochează originalul și rezultatul.",
+  "security.s4.old.4": "Risc de interceptare sau de încălcare a datelor.",
+  "security.s4.new.1": "Deschizi pagina web.",
+  "security.s4.new.2": "Motorul WebAssembly se încarcă în RAM.",
+  "security.s4.new.3": "Fotografia este procesată de propriul procesor.",
+  "security.s4.new.4": "0 octeți transmis. Intimitate absolută."
 }

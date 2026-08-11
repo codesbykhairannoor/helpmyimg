@@ -1608,5 +1608,17 @@
   "languages.faq3.a": "Not at all. Our React context engine swaps out the dictionary in 0ms without requiring a full page reload.",
   "home.hero.titleHighlight": "All Image",
   "home.hero.titleSolid": "Tools in One Place",
-  "home.tab.title": "HelpMyIMG | All Image Tools in One Place"
+  "home.tab.title": "HelpMyIMG | All Image Tools in One Place",
+  "compare.s5.t1": "Competitors",
+  "compare.s5.c1": "Downscale large images to save server bandwidth, resulting in blurry edges.",
+  "compare.s5.t2": "HelpMyIMG",
+  "compare.s5.c2": "Processes native resolutions directly in RAM, maintaining pixel-perfect HD precision.",
+  "security.s4.old.1": "You upload a photo to their server.",
+  "security.s4.old.2": "AI processes it on their GPU.",
+  "security.s4.old.3": "They store the original and result.",
+  "security.s4.old.4": "Risk of intercept or data breach.",
+  "security.s4.new.1": "You open the web page.",
+  "security.s4.new.2": "WebAssembly engine loads into RAM.",
+  "security.s4.new.3": "Photo is processed by your own CPU.",
+  "security.s4.new.4": "0 bytes transmitted. Absolute privacy."
 }

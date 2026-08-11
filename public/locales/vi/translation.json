@@ -1587,5 +1587,17 @@
   "languages.s3.l3": "Thành ngữ và ví dụ phù hợp với văn hóa",
   "home.hero.titleHighlight": "Tất cả công cụ hình ảnh",
   "home.hero.titleSolid": "tại một nơi",
-  "home.tab.title": "HelpMyIMG | Tất cả công cụ hình ảnh tại một nơi"
+  "home.tab.title": "HelpMyIMG | Tất cả công cụ hình ảnh tại một nơi",
+  "compare.s5.t1": "Đối thủ",
+  "compare.s5.c1": "Giảm tỷ lệ hình ảnh lớn để tiết kiệm băng thông máy chủ, dẫn đến các cạnh bị mờ.",
+  "compare.s5.t2": "Trợ giúpMyIMG",
+  "compare.s5.c2": "Xử lý độ phân giải gốc trực tiếp trong RAM, duy trì độ chính xác HD hoàn hảo đến từng pixel.",
+  "security.s4.old.1": "Bạn tải ảnh lên máy chủ của họ.",
+  "security.s4.old.2": "AI xử lý nó trên GPU của họ.",
+  "security.s4.old.3": "Họ lưu trữ bản gốc và kết quả.",
+  "security.s4.old.4": "Nguy cơ bị chặn hoặc vi phạm dữ liệu.",
+  "security.s4.new.1": "Bạn mở trang web.",
+  "security.s4.new.2": "Công cụ WebAssugging tải vào RAM.",
+  "security.s4.new.3": "Ảnh được xử lý bởi CPU của chính bạn.",
+  "security.s4.new.4": "0 byte được truyền đi. Sự riêng tư tuyệt đối."
 }

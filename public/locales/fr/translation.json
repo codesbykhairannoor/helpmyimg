@@ -1587,5 +1587,17 @@
   "languages.s3.l3": "Expressions et exemples culturellement adaptés",
   "home.hero.titleHighlight": "Tous les outils image",
   "home.hero.titleSolid": "en un seul endroit",
-  "home.tab.title": "HelpMyIMG | Tous les outils image en un seul endroit"
+  "home.tab.title": "HelpMyIMG | Tous les outils image en un seul endroit",
+  "compare.s5.t1": "Concurrents",
+  "compare.s5.c1": "Réduisez la taille des images volumineuses pour économiser la bande passante du serveur, ce qui entraîne des bords flous.",
+  "compare.s5.t2": "AideMonIMG",
+  "compare.s5.c2": "Traite les résolutions natives directement dans la RAM, en conservant une précision HD parfaite au pixel près.",
+  "security.s4.old.1": "Vous téléchargez une photo sur leur serveur.",
+  "security.s4.old.2": "L'IA le traite sur son GPU.",
+  "security.s4.old.3": "Ils stockent l'original et le résultat.",
+  "security.s4.old.4": "Risque d’interception ou de violation de données.",
+  "security.s4.new.1": "Vous ouvrez la page Web.",
+  "security.s4.new.2": "Le moteur WebAssembly se charge dans la RAM.",
+  "security.s4.new.3": "La photo est traitée par votre propre processeur.",
+  "security.s4.new.4": "0 octet transmis. Intimité absolue."
 }

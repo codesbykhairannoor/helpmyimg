@@ -1587,5 +1587,17 @@
   "languages.s3.l3": "Mga idyoma at halimbawa na inangkop sa kultura",
   "home.hero.titleHighlight": "Lahat ng Tool sa Imahe",
   "home.hero.titleSolid": "sa Isang Lugar",
-  "home.tab.title": "HelpMyIMG | Lahat ng Tool sa Imahe sa Isang Lugar"
+  "home.tab.title": "HelpMyIMG | Lahat ng Tool sa Imahe sa Isang Lugar",
+  "compare.s5.t1": "Mga kakumpitensya",
+  "compare.s5.c1": "I-downscale ang malalaking larawan upang makatipid ng bandwidth ng server, na nagreresulta sa malabong mga gilid.",
+  "compare.s5.t2": "HelpMyIMG",
+  "compare.s5.c2": "Pinoproseso ang mga native na resolution nang direkta sa RAM, pinapanatili ang pixel-perfect HD precision.",
+  "security.s4.old.1": "Mag-upload ka ng larawan sa kanilang server.",
+  "security.s4.old.2": "Pinoproseso ito ng AI sa kanilang GPU.",
+  "security.s4.old.3": "Iniimbak nila ang orihinal at resulta.",
+  "security.s4.old.4": "Panganib ng intercept o data breach.",
+  "security.s4.new.1": "Buksan mo ang web page.",
+  "security.s4.new.2": "Ang WebAssembly engine ay naglo-load sa RAM.",
+  "security.s4.new.3": "Pinoproseso ng iyong sariling CPU ang larawan.",
+  "security.s4.new.4": "0 byte ang ipinadala. Ganap na privacy."
 }

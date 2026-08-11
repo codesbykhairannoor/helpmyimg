@@ -1587,5 +1587,17 @@
   "languages.faq3.a": "De nada. Nuestro motor de contexto React cambia el diccionario en 0 ms sin necesidad de recargar la página completa.",
   "home.hero.titleHighlight": "Todas las herramientas",
   "home.hero.titleSolid": "de imagen en un lugar",
-  "home.tab.title": "HelpMyIMG | Todas las herramientas de imagen en un lugar"
+  "home.tab.title": "HelpMyIMG | Todas las herramientas de imagen en un lugar",
+  "compare.s5.t1": "Competidores",
+  "compare.s5.c1": "Reduzca la escala de imágenes grandes para ahorrar ancho de banda del servidor, lo que resulta en bordes borrosos.",
+  "compare.s5.t2": "AyudaMiIMG",
+  "compare.s5.c2": "Procesa resoluciones nativas directamente en la RAM, manteniendo una precisión HD de píxeles perfectos.",
+  "security.s4.old.1": "Subes una foto a su servidor.",
+  "security.s4.old.2": "La IA lo procesa en su GPU.",
+  "security.s4.old.3": "Almacenan el original y el resultado.",
+  "security.s4.old.4": "Riesgo de interceptación o violación de datos.",
+  "security.s4.new.1": "Abres la página web.",
+  "security.s4.new.2": "El motor WebAssembly se carga en la RAM.",
+  "security.s4.new.3": "La foto es procesada por su propia CPU.",
+  "security.s4.new.4": "0 bytes transmitidos. Privacidad absoluta."
 }

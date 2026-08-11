@@ -1579,5 +1579,17 @@
   "languages.faq3.a": "Gar nicht. Unsere React-Kontext-Engine tauscht das Wörterbuch in 0 ms aus, ohne dass ein vollständiges Neuladen der Seite erforderlich ist.",
   "home.hero.titleHighlight": "Alle Bild-Tools",
   "home.hero.titleSolid": "an einem Ort",
-  "home.tab.title": "HelpMyIMG | Alle Bild-Tools an einem Ort"
+  "home.tab.title": "HelpMyIMG | Alle Bild-Tools an einem Ort",
+  "compare.s5.t1": "Konkurrenten",
+  "compare.s5.c1": "Verkleinern Sie große Bilder, um Serverbandbreite zu sparen, was zu unscharfen Kanten führt.",
+  "compare.s5.t2": "HelpMyIMG",
+  "compare.s5.c2": "Verarbeitet native Auflösungen direkt im RAM und sorgt so für pixelgenaue HD-Präzision.",
+  "security.s4.old.1": "Sie laden ein Foto auf ihren Server hoch.",
+  "security.s4.old.2": "AI verarbeitet es auf ihrer GPU.",
+  "security.s4.old.3": "Sie speichern das Original und das Ergebnis.",
+  "security.s4.old.4": "Es besteht die Gefahr eines Abfangens oder einer Datenpanne.",
+  "security.s4.new.1": "Sie öffnen die Webseite.",
+  "security.s4.new.2": "Die WebAssembly-Engine wird in den RAM geladen.",
+  "security.s4.new.3": "Das Foto wird von Ihrer eigenen CPU verarbeitet.",
+  "security.s4.new.4": "0 Bytes übertragen. Absolute Privatsphäre."
 }

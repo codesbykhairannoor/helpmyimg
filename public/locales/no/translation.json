@@ -1587,5 +1587,17 @@
   "languages.s3.l3": "Kulturtilpassede idiomer og eksempler",
   "home.hero.titleHighlight": "Alle bildeverktøy",
   "home.hero.titleSolid": "på ett sted",
-  "home.tab.title": "HelpMyIMG | Alle bildeverktøy på ett sted"
+  "home.tab.title": "HelpMyIMG | Alle bildeverktøy på ett sted",
+  "compare.s5.t1": "Konkurrenter",
+  "compare.s5.c1": "Nedskaler store bilder for å spare serverbåndbredde, noe som resulterer i uskarpe kanter.",
+  "compare.s5.t2": "HelpMyIMG",
+  "compare.s5.c2": "Behandler opprinnelige oppløsninger direkte i RAM, og opprettholder pikselperfekt HD-presisjon.",
+  "security.s4.old.1": "Du laster opp et bilde til serveren deres.",
+  "security.s4.old.2": "AI behandler det på deres GPU.",
+  "security.s4.old.3": "De lagrer originalen og resultatet.",
+  "security.s4.old.4": "Risiko for avskjæring eller datainnbrudd.",
+  "security.s4.new.1": "Du åpner nettsiden.",
+  "security.s4.new.2": "WebAssembly-motoren lastes inn i RAM.",
+  "security.s4.new.3": "Bildet behandles av din egen CPU.",
+  "security.s4.new.4": "0 byte overført. Absolutt privatliv."
 }

@@ -1586,5 +1586,18 @@
   "languages.s3.l3": "Kulttuurisesti mukautettuja idioomeja ja esimerkkejä",
   "home.hero.titleHighlight": "Kaikki kuvatyökalut",
   "home.hero.titleSolid": "yhdessä paikassa",
-  "home.tab.title": "HelpMyIMG | Kaikki kuvatyökalut yhdessä paikassa"
+  "home.tab.title": "HelpMyIMG | Kaikki kuvatyökalut yhdessä paikassa",
+  "compare.s5.t1": "Kilpailijat",
+  "compare.s5.c1": "Pienennä suuria kuvia säästääksesi palvelimen kaistanleveyttä, mikä johtaa epäselviin reunoihin.",
+  "compare.s5.t2": "HelpMyIMG",
+  "compare.s5.c2": "Käsittelee alkuperäiset resoluutiot suoraan RAM-muistissa säilyttäen pikselin täydellisen HD-tarkkuuden.",
+  "pricing.s3.title": "Kuinka paljon säästät?",
+  "security.s4.old.1": "Lataat kuvan heidän palvelimelleen.",
+  "security.s4.old.2": "Tekoäly käsittelee sen GPU:llaan.",
+  "security.s4.old.3": "Ne tallentavat alkuperäisen ja tuloksen.",
+  "security.s4.old.4": "Sieppauksen tai tietomurron riski.",
+  "security.s4.new.1": "Avaat verkkosivun.",
+  "security.s4.new.2": "WebAssembly-moottori latautuu RAM-muistiin.",
+  "security.s4.new.3": "Valokuva käsitellään omalla CPU:llasi.",
+  "security.s4.new.4": "0 tavua lähetetty. Ehdoton yksityisyys."
 }

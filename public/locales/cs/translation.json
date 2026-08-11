@@ -1598,5 +1598,17 @@
   "languages.faq3.a": "vůbec ne. Náš kontextový modul React vymění slovník za 0 ms, aniž by vyžadoval opětovné načtení celé stránky.",
   "home.hero.titleHighlight": "Všechny nástroje",
   "home.hero.titleSolid": "pro obrázky na jednom místě",
-  "home.tab.title": "HelpMyIMG | Všechny nástroje pro obrázky na jednom místě"
+  "home.tab.title": "HelpMyIMG | Všechny nástroje pro obrázky na jednom místě",
+  "compare.s5.t1": "Soutěžící",
+  "compare.s5.c1": "Zmenšete velikost velkých obrázků, abyste ušetřili šířku pásma serveru, což má za následek rozmazané okraje.",
+  "compare.s5.t2": "HelpMyIMG",
+  "compare.s5.c2": "Zpracovává nativní rozlišení přímo v paměti RAM, zachovává pixelově dokonalou HD přesnost.",
+  "security.s4.old.1": "Nahrajete fotku na jejich server.",
+  "security.s4.old.2": "AI to zpracovává na jejich GPU.",
+  "security.s4.old.3": "Ukládají originál a výsledek.",
+  "security.s4.old.4": "Riziko zachycení nebo porušení dat.",
+  "security.s4.new.1": "Otevřete webovou stránku.",
+  "security.s4.new.2": "Modul WebAssembly se načte do paměti RAM.",
+  "security.s4.new.3": "Fotografie je zpracována vlastním procesorem.",
+  "security.s4.new.4": "0 bajtů přeneseno. Absolutní soukromí."
 }
