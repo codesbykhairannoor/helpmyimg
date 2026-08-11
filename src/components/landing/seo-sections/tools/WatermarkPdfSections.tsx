@@ -58,7 +58,7 @@ export const WatermarkHowToSection: React.FC<SectionProps> = ({ section, badges,
           </div>
           <div style={{ flex: 1 }}>
              <h3 style={{ fontSize: '1.6rem', fontWeight: 800, marginBottom: 12, color: 'var(--text-main)' }}>{step.title}</h3>
-             <p style={{ color: 'var(--text-muted)', lineHeight: 1.7, fontSize: '1.1rem' }}>{step.description}</p>
+             <p style={{ color: 'var(--text-muted)', lineHeight: 1.7, fontSize: 'clamp(0.95rem, 3vw, 1.1rem)' }}>{step.description}</p>
           </div>
         </div>
       ))}
@@ -77,7 +77,7 @@ export const WatermarkGeoSection: React.FC<SectionProps> = ({ section, badges, s
          <div style={{ width: '100%', maxWidth: 400, padding: 48, borderRadius: 32, background: 'rgba(255,255,255,0.1)', backdropFilter: 'blur(10px)', border: '1px solid rgba(255,255,255,0.2)', position: 'relative' }} className="hover-lift">
             <ImageIcon size={48} color="white" style={{ marginBottom: 24 }} />
             <h3 style={{ fontSize: '1.8rem', fontWeight: 800, marginBottom: 16 }}>Logo Support</h3>
-            <p style={{ fontSize: '1.1rem', opacity: 0.9, lineHeight: 1.7 }}>Upload your company PNG and we will stamp it transparently on every page.</p>
+            <p style={{ fontSize: 'clamp(0.95rem, 3vw, 1.1rem)', opacity: 0.9, lineHeight: 1.7 }}>Upload your company PNG and we will stamp it transparently on every page.</p>
          </div>
       </div>
     </div>
@@ -115,7 +115,7 @@ export const WatermarkPerformanceSection: React.FC<SectionProps> = ({ section, b
           {(badges || ['Adjust Opacity', 'Rotate Text', 'Page Selection']).map((item, i) => (
              <div key={i} style={{ display: 'flex', alignItems: 'center', gap: 12, padding: '16px 20px', background: 'var(--bg-app)', borderRadius: 16, border: '1px solid var(--border-color)' }}>
                 <CheckCircle2 color="var(--brand-primary)" size={20} style={{ flexShrink: 0 }} />
-                <span style={{ fontSize: '1.1rem', fontWeight: 700, color: 'var(--text-main)' }}>{item}</span>
+                <span style={{ fontSize: 'clamp(0.95rem, 3vw, 1.1rem)', fontWeight: 700, color: 'var(--text-main)' }}>{item}</span>
              </div>
           ))}
         </div>

@@ -31,11 +31,11 @@ export const CropSections: React.FC = () => {
               {tr('heroBadge', 'SMART COMPOSITION')}
             </span>
           </div>
-          <h2 className="font-heading font-extrabold text-white mt-4 sm:mt-6 tracking-tight" style={{ fontSize: 'clamp(1.5rem, 4vw, 2.5rem)', fontWeight: 800, lineHeight: 1.2 }}>
+          <h2 className="font-heading font-extrabold text-white mt-4 sm:mt-6 tracking-tight" style={{ fontSize: 'clamp(1.35rem, 4vw, 2.5rem)', fontWeight: 800, lineHeight: 1.2 }}>
             {tr('heroTitle', 'Crop Out the Noise.')}<br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#12DA91] to-[#05DAED]">{tr('heroTitle2', 'Focus on What Matters.')}</span>
           </h2>
-          <p className="text-slate-400 mt-4 max-w-2xl mx-auto font-body" style={{ fontSize: '1.15rem', lineHeight: 1.8 }}>
+          <p className="text-slate-400 mt-4 max-w-2xl mx-auto font-body" style={{ fontSize: 'clamp(0.95rem, 3vw, 1.15rem)', lineHeight: 1.8 }}>
             {tr('heroDesc', 'Frame your photos perfectly with freeform or fixed-ratio cropping. Cut out unwanted elements and improve image composition in seconds.')}
           </p>
         </div>
@@ -79,7 +79,7 @@ export const CropSections: React.FC = () => {
           <span className="text-xs font-mono font-bold uppercase tracking-widest text-[#12DA91] bg-[#12DA91]/10 px-3 py-1.5 rounded-full border border-[#12DA91]/30 block w-max mx-auto mb-4">
             {tr('stepsTag', 'HOW TO CROP')}
           </span>
-          <h2 className="font-heading font-extrabold text-white mt-4 sm:mt-6 tracking-tight" style={{ fontSize: 'clamp(1.5rem, 4vw, 2.5rem)', fontWeight: 800, lineHeight: 1.2 }}>
+          <h2 className="font-heading font-extrabold text-white mt-4 sm:mt-6 tracking-tight" style={{ fontSize: 'clamp(1.35rem, 4vw, 2.5rem)', fontWeight: 800, lineHeight: 1.2 }}>
             {tr('stepsTitle', 'Perfect Framing in Seconds')}
           </h2>
         </div>

@@ -68,7 +68,7 @@ export const RedactHowToSection: React.FC<SectionProps> = ({ section, badges, st
           </div>
           <div>
              <h3 style={{ fontSize: '1.6rem', fontWeight: 800, marginBottom: 12, color: 'var(--text-main)' }}>{step.title}</h3>
-             <p style={{ color: 'var(--text-muted)', lineHeight: 1.7, fontSize: '1.1rem' }}>{step.description}</p>
+             <p style={{ color: 'var(--text-muted)', lineHeight: 1.7, fontSize: 'clamp(0.95rem, 3vw, 1.1rem)' }}>{step.description}</p>
           </div>
         </div>
       ))}
@@ -100,7 +100,7 @@ export const RedactPrivacySection: React.FC<SectionProps> = ({ section, badges, 
          <div style={{ width: '100%', maxWidth: 400, padding: 48, borderRadius: 32, background: 'var(--brand-primary)', color: 'white', position: 'relative', boxShadow: '0 30px 60px rgba(225, 29, 72, 0.3)' }} className="hover-lift">
             <Fingerprint size={64} color="white" style={{ marginBottom: 24 }} />
             <h3 style={{ fontSize: '1.8rem', fontWeight: 800, marginBottom: 16 }}>PDF Object Deletion</h3>
-            <p style={{ fontSize: '1.1rem', opacity: 0.9, lineHeight: 1.7 }}>We don't just put a black box over your text. We surgically remove the text data from the PDF's internal structure.</p>
+            <p style={{ fontSize: 'clamp(0.95rem, 3vw, 1.1rem)', opacity: 0.9, lineHeight: 1.7 }}>We don't just put a black box over your text. We surgically remove the text data from the PDF's internal structure.</p>
          </div>
       </div>
       <div style={{ flex: '1 1 500px' }}>

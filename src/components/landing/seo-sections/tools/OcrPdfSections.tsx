@@ -11,7 +11,7 @@ export const OcrHeroSection: React.FC<SectionProps> = ({ section, badges, stats,
           <ScanText size={16} /> Advanced AI Recognition
         </div>
         <h2 style={{ fontSize: 'clamp(2.2rem, 5vw, 3.5rem)', fontWeight: 900, marginBottom: 24, color: 'var(--text-main)', letterSpacing: '-0.03em', lineHeight: 1.05 }}>{section.title}</h2>
-        <p style={{ fontSize: 'clamp(1.05rem, 2vw, 1.25rem)', color: 'var(--text-muted)', lineHeight: 1.8 }}>{section.content}</p>
+        <p style={{ fontSize: 'clamp(0.9rem, 2vw, 1.25rem)', color: 'var(--text-muted)', lineHeight: 1.8 }}>{section.content}</p>
       </div>
       
       <div style={{ flex: '1 1 500px', display: 'flex', justifyContent: 'center', position: 'relative' }}>
@@ -58,7 +58,7 @@ export const OcrHowToSection: React.FC<SectionProps> = ({ section, badges, stats
              <h3 style={{ fontSize: 'clamp(1.25rem, 3vw, 1.5rem)', fontWeight: 800, marginBottom: 12, color: 'var(--text-main)', letterSpacing: '-0.02em' }}>
                {step.title}
              </h3>
-             <p style={{ color: 'var(--text-muted)', lineHeight: 1.7, fontSize: 'clamp(1.05rem, 2vw, 1.25rem)' }}>{step.description}</p>
+             <p style={{ color: 'var(--text-muted)', lineHeight: 1.7, fontSize: 'clamp(0.9rem, 2vw, 1.25rem)' }}>{step.description}</p>
           </div>
         </div>
       ))}
@@ -73,7 +73,7 @@ export const OcrGeoSection: React.FC<SectionProps> = ({ section, badges, stats, 
          <div style={{ width: '100%', maxWidth: 400, padding: 48, borderRadius: 32, background: 'var(--bg-app)', border: '1px solid var(--border-color)', position: 'relative' }} className="hover-lift">
             <MapPin size={48} color="var(--brand-primary)" style={{ marginBottom: 24 }} />
             <h3 style={{ fontSize: 'clamp(1.25rem, 3vw, 1.5rem)', fontWeight: 800, marginBottom: 16, color: 'var(--text-main)' }}>Local AI Processing</h3>
-            <p style={{ fontSize: 'clamp(1.05rem, 2vw, 1.25rem)', color: 'var(--text-muted)', lineHeight: 1.7 }}>Tesseract OCR runs entirely in your browser using WebAssembly. Your scanned documents never touch the cloud.</p>
+            <p style={{ fontSize: 'clamp(0.9rem, 2vw, 1.25rem)', color: 'var(--text-muted)', lineHeight: 1.7 }}>Tesseract OCR runs entirely in your browser using WebAssembly. Your scanned documents never touch the cloud.</p>
          </div>
       </div>
       <div style={{ flex: '1 1 500px' }}>
@@ -81,7 +81,7 @@ export const OcrGeoSection: React.FC<SectionProps> = ({ section, badges, stats, 
           <MapPin size={14} /> {section.badgeText || 'Local Processing'}
         </div>
         <h2 style={{ fontSize: 'clamp(2.2rem, 5vw, 3.5rem)', fontWeight: 900, marginBottom: 32, color: 'var(--text-main)', letterSpacing: '-0.03em', lineHeight: 1.05 }}>{section.title}</h2>
-        <p style={{ fontSize: 'clamp(1.05rem, 2vw, 1.25rem)', color: 'var(--text-muted)', fontWeight: 500, lineHeight: 1.7 }}>{section.content}</p>
+        <p style={{ fontSize: 'clamp(0.9rem, 2vw, 1.25rem)', color: 'var(--text-muted)', fontWeight: 500, lineHeight: 1.7 }}>{section.content}</p>
       </div>
     </div>
   </section>
@@ -94,7 +94,7 @@ export const OcrPrivacySection: React.FC<SectionProps> = ({ section, badges, sta
         <Shield size={48} color="var(--brand-primary)" />
       </div>
       <h2 style={{ fontSize: 'clamp(2.2rem, 5vw, 3.5rem)', fontWeight: 900, marginBottom: 32, color: 'var(--text-main)', letterSpacing: '-0.03em', lineHeight: 1.05 }}>{section.title}</h2>
-      <p style={{ fontSize: 'clamp(1.05rem, 2vw, 1.25rem)', color: 'var(--text-muted)', fontWeight: 500, lineHeight: 1.7, maxWidth: 800, margin: '0 auto' }}>{section.content}</p>
+      <p style={{ fontSize: 'clamp(0.9rem, 2vw, 1.25rem)', color: 'var(--text-muted)', fontWeight: 500, lineHeight: 1.7, maxWidth: 800, margin: '0 auto' }}>{section.content}</p>
     </div>
   </section>
 );
@@ -107,7 +107,7 @@ export const OcrPerformanceSection: React.FC<SectionProps> = ({ section, badges,
           <Zap size={14} /> {section.badgeText || 'Lightning Fast'}
         </div>
         <h2 style={{ fontSize: 'clamp(2.2rem, 5vw, 3.5rem)', fontWeight: 900, marginBottom: 32, color: 'var(--text-main)', letterSpacing: '-0.03em', lineHeight: 1.05 }}>{section.title}</h2>
-        <p style={{ fontSize: 'clamp(1.05rem, 2vw, 1.25rem)', color: 'var(--text-muted)', fontWeight: 500, lineHeight: 1.7, opacity: 0.8, marginBottom: 40 }}>{section.content}</p>
+        <p style={{ fontSize: 'clamp(0.9rem, 2vw, 1.25rem)', color: 'var(--text-muted)', fontWeight: 500, lineHeight: 1.7, opacity: 0.8, marginBottom: 40 }}>{section.content}</p>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: 16 }}>
           {(badges || ['Tesseract WASM engine', 'Multi-language support', 'High accuracy output']).map((item, i) => (
             <div key={i} style={{ display: 'flex', alignItems: 'center', gap: 12, padding: '16px 20px', background: 'var(--bg-app)', borderRadius: 16, border: '1px solid var(--border-color)' }}>

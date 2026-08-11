@@ -19,7 +19,7 @@ export const SplitHeroSection: React.FC<SectionProps> = ({ section, badges, stat
           <Scissors size={32} />
         </div>
         <h2 style={{ fontSize: 'clamp(2.2rem, 5vw, 3.5rem)', fontWeight: 900, marginBottom: 24, color: 'var(--text-main)', letterSpacing: '-0.03em', lineHeight: 1.05 }}>{section.title}</h2>
-        <p style={{ fontSize: 'clamp(1.05rem, 2vw, 1.25rem)', color: 'var(--text-muted)', lineHeight: 1.8, maxWidth: 600 }}>{section.content}</p>
+        <p style={{ fontSize: 'clamp(0.9rem, 2vw, 1.25rem)', color: 'var(--text-muted)', lineHeight: 1.8, maxWidth: 600 }}>{section.content}</p>
       </div>
       <div style={{ flex: '1 1 400px', display: 'flex', justifyContent: 'center', position: 'relative', height: 400 }}>
         {/* Fractured Graphic representing a split PDF */}
@@ -60,7 +60,7 @@ export const SplitHowToSection: React.FC<SectionProps> = ({ section, badges, sta
               <h3 style={{ fontSize: 'clamp(1.25rem, 3vw, 1.5rem)', fontWeight: 800, marginBottom: 12, color: 'var(--text-main)', letterSpacing: '-0.02em' }}>
                 {step.title}
               </h3>
-              <p style={{ color: 'var(--text-muted)', lineHeight: 1.7, fontSize: 'clamp(1.05rem, 2vw, 1.25rem)' }}>{step.description}</p>
+              <p style={{ color: 'var(--text-muted)', lineHeight: 1.7, fontSize: 'clamp(0.9rem, 2vw, 1.25rem)' }}>{step.description}</p>
             </div>
           </div>
         ))}
@@ -77,7 +77,7 @@ export const SplitGeoSection: React.FC<SectionProps> = ({ section, badges, stats
           <MapPin size={14} /> {section.badgeText || 'Local Processing'}
         </div>
         <h2 style={{ fontSize: 'clamp(2.2rem, 5vw, 3.5rem)', fontWeight: 900, marginBottom: 32, color: 'var(--text-main)', letterSpacing: '-0.03em', lineHeight: 1.05, maxWidth: 600 }}>{section.title}</h2>
-        <p style={{ fontSize: 'clamp(1.05rem, 2vw, 1.25rem)', color: 'var(--text-muted)', fontWeight: 500, lineHeight: 1.7, maxWidth: 600 }}>{section.content}</p>
+        <p style={{ fontSize: 'clamp(0.9rem, 2vw, 1.25rem)', color: 'var(--text-muted)', fontWeight: 500, lineHeight: 1.7, maxWidth: 600 }}>{section.content}</p>
       </div>
       {/* Massive Faded Icon bleeding off right side */}
       <div className="hidden-mobile" style={{ position: 'absolute', right: '-10%', top: '50%', transform: 'translateY(-50%)', opacity: 0.05, pointerEvents: 'none' }}>
@@ -94,7 +94,7 @@ export const SplitPrivacySection: React.FC<SectionProps> = ({ section, badges, s
          <div style={{ width: '100%', maxWidth: 400, padding: 40, borderRadius: 32, background: 'var(--bg-card)', border: '1px solid var(--border-color)', boxShadow: '0 20px 50px rgba(0,0,0,0.03)' }} className="hover-lift">
             <Shield size={64} color="var(--brand-primary)" style={{ marginBottom: 32 }} />
             <h3 style={{ fontSize: 'clamp(1.25rem, 3vw, 1.5rem)', fontWeight: 800, marginBottom: 16, color: 'var(--text-main)' }}>Offline Splitting</h3>
-            <p style={{ fontSize: 'clamp(1.05rem, 2vw, 1.25rem)', color: 'var(--text-muted)', lineHeight: 1.7 }}>Files never touch external servers. Pages are extracted directly within your browser memory.</p>
+            <p style={{ fontSize: 'clamp(0.9rem, 2vw, 1.25rem)', color: 'var(--text-muted)', lineHeight: 1.7 }}>Files never touch external servers. Pages are extracted directly within your browser memory.</p>
          </div>
       </div>
       <div style={{ flex: '1 1 500px' }}>
@@ -102,7 +102,7 @@ export const SplitPrivacySection: React.FC<SectionProps> = ({ section, badges, s
           <Shield size={14} /> {section.badgeText || 'Security First'}
         </div>
         <h2 style={{ fontSize: 'clamp(2.2rem, 5vw, 3.5rem)', fontWeight: 900, marginBottom: 32, color: 'var(--text-main)', letterSpacing: '-0.03em', lineHeight: 1.05 }}>{section.title}</h2>
-        <p style={{ fontSize: 'clamp(1.05rem, 2vw, 1.25rem)', color: 'var(--text-muted)', fontWeight: 500, lineHeight: 1.7, opacity: 0.8 }}>{section.content}</p>
+        <p style={{ fontSize: 'clamp(0.9rem, 2vw, 1.25rem)', color: 'var(--text-muted)', fontWeight: 500, lineHeight: 1.7, opacity: 0.8 }}>{section.content}</p>
       </div>
     </div>
   </section>
@@ -115,7 +115,7 @@ export const SplitPerformanceSection: React.FC<SectionProps> = ({ section, badge
         <Zap size={14} /> {section.badgeText || 'Lightning Fast'}
       </div>
       <h2 style={{ fontSize: 'clamp(2.2rem, 5vw, 3.5rem)', fontWeight: 900, marginBottom: 32, color: 'var(--text-main)', letterSpacing: '-0.03em', lineHeight: 1.05 }}>{section.title}</h2>
-      <p style={{ fontSize: 'clamp(1.05rem, 2vw, 1.25rem)', color: 'var(--text-muted)', fontWeight: 500, lineHeight: 1.7, opacity: 0.8, maxWidth: 800, margin: '0 auto 64px' }}>{section.content}</p>
+      <p style={{ fontSize: 'clamp(0.9rem, 2vw, 1.25rem)', color: 'var(--text-muted)', fontWeight: 500, lineHeight: 1.7, opacity: 0.8, maxWidth: 800, margin: '0 auto 64px' }}>{section.content}</p>
       
       <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: 24 }}>
         {(badges || ['Zero server latency', 'No upload bandwidth', 'Instant processing']).map((item, i) => (

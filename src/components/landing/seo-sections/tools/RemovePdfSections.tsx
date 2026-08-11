@@ -19,7 +19,7 @@ export const RemoveHeroSection: React.FC<SectionProps> = ({ section, badges, sta
           <Trash2 size={32} />
         </div>
         <h2 style={{ fontSize: 'clamp(2.2rem, 5vw, 3.5rem)', fontWeight: 900, marginBottom: 24, color: 'var(--text-main)', letterSpacing: '-0.03em', lineHeight: 1.05 }}>{section.title}</h2>
-        <p style={{ fontSize: 'clamp(1.05rem, 2vw, 1.25rem)', color: 'var(--text-muted)', lineHeight: 1.8, maxWidth: 600 }}>{section.content}</p>
+        <p style={{ fontSize: 'clamp(0.9rem, 2vw, 1.25rem)', color: 'var(--text-muted)', lineHeight: 1.8, maxWidth: 600 }}>{section.content}</p>
       </div>
       <div style={{ flex: '1 1 400px', display: 'flex', justifyContent: 'center', position: 'relative', height: 400 }}>
         {/* Deletion Graphic: 3 Documents, middle one is red and crossed out */}
@@ -58,7 +58,7 @@ export const RemoveHowToSection: React.FC<SectionProps> = ({ section, badges, st
               <h3 style={{ fontSize: 'clamp(1.25rem, 3vw, 1.5rem)', fontWeight: 800, marginBottom: 16, color: 'var(--text-main)', letterSpacing: '-0.02em' }}>
                 {step.title}
               </h3>
-              <p style={{ color: 'var(--text-muted)', lineHeight: 1.7, fontSize: 'clamp(1.05rem, 2vw, 1.25rem)' }}>{step.description}</p>
+              <p style={{ color: 'var(--text-muted)', lineHeight: 1.7, fontSize: 'clamp(0.9rem, 2vw, 1.25rem)' }}>{step.description}</p>
             </div>
           </div>
         ))}
@@ -80,7 +80,7 @@ export const RemoveGeoSection: React.FC<SectionProps> = ({ section, badges, stat
           <MapPin size={14} /> {section.badgeText || 'Local Processing'}
         </div>
         <h2 style={{ fontSize: 'clamp(2.2rem, 5vw, 3.5rem)', fontWeight: 900, marginBottom: 32, color: 'var(--text-main)', letterSpacing: '-0.03em', lineHeight: 1.05 }}>{section.title}</h2>
-        <p style={{ fontSize: 'clamp(1.05rem, 2vw, 1.25rem)', color: 'var(--text-muted)', fontWeight: 500, lineHeight: 1.7, display: 'inline-block' }}>{section.content}</p>
+        <p style={{ fontSize: 'clamp(0.9rem, 2vw, 1.25rem)', color: 'var(--text-muted)', fontWeight: 500, lineHeight: 1.7, display: 'inline-block' }}>{section.content}</p>
       </div>
     </div>
   </section>
@@ -102,7 +102,7 @@ export const RemovePrivacySection: React.FC<SectionProps> = ({ section, badges, 
           <Shield size={14} /> {section.badgeText || 'Security First'}
         </div>
         <h2 style={{ fontSize: 'clamp(2.2rem, 5vw, 3.5rem)', fontWeight: 900, marginBottom: 32, color: 'var(--text-main)', letterSpacing: '-0.03em', lineHeight: 1.05 }}>{section.title}</h2>
-        <p style={{ fontSize: 'clamp(1.05rem, 2vw, 1.25rem)', color: 'var(--text-muted)', fontWeight: 500, lineHeight: 1.7, opacity: 0.8 }}>{section.content}</p>
+        <p style={{ fontSize: 'clamp(0.9rem, 2vw, 1.25rem)', color: 'var(--text-muted)', fontWeight: 500, lineHeight: 1.7, opacity: 0.8 }}>{section.content}</p>
       </div>
     </div>
   </section>
@@ -115,7 +115,7 @@ export const RemovePerformanceSection: React.FC<SectionProps> = ({ section, badg
         <Zap size={14} /> {section.badgeText || 'Lightning Fast'}
       </div>
       <h2 style={{ fontSize: 'clamp(2.2rem, 5vw, 3.5rem)', fontWeight: 900, marginBottom: 32, color: 'var(--text-main)', letterSpacing: '-0.03em', lineHeight: 1.05 }}>{section.title}</h2>
-      <p style={{ fontSize: 'clamp(1.05rem, 2vw, 1.25rem)', color: 'var(--text-muted)', fontWeight: 500, lineHeight: 1.7, opacity: 0.8, maxWidth: 800, margin: '0 auto 64px' }}>{section.content}</p>
+      <p style={{ fontSize: 'clamp(0.9rem, 2vw, 1.25rem)', color: 'var(--text-muted)', fontWeight: 500, lineHeight: 1.7, opacity: 0.8, maxWidth: 800, margin: '0 auto 64px' }}>{section.content}</p>
       
       <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: 24 }}>
         {(badges || ['Zero server latency', 'No upload bandwidth', 'Instant processing']).map((item, i) => (

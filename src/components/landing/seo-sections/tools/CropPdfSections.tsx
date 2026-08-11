@@ -25,7 +25,7 @@ export const CropHeroSection: React.FC<SectionProps> = ({ section, badges, stats
       </div>
       
       <h2 style={{ fontSize: 'clamp(2.2rem, 5vw, 3.5rem)', fontWeight: 900, marginBottom: 24, color: 'var(--text-main)', letterSpacing: '-0.03em', lineHeight: 1.05 }}>{section.title}</h2>
-      <p style={{ fontSize: 'clamp(1.05rem, 2vw, 1.25rem)', color: 'var(--text-muted)', lineHeight: 1.8, maxWidth: 700, margin: '0 auto' }}>{section.content}</p>
+      <p style={{ fontSize: 'clamp(0.9rem, 2vw, 1.25rem)', color: 'var(--text-muted)', lineHeight: 1.8, maxWidth: 700, margin: '0 auto' }}>{section.content}</p>
     </div>
   </section>
 );
@@ -40,7 +40,7 @@ export const CropHowToSection: React.FC<SectionProps> = ({ section, badges, stat
             <Target size={14} /> {section.badgeText || 'Quick Guide'}
           </div>
           <h2 style={{ fontSize: 'clamp(2.2rem, 5vw, 3.5rem)', fontWeight: 900, color: 'var(--text-main)', letterSpacing: '-0.03em', lineHeight: 1.05, marginBottom: 24 }}>{section.title}</h2>
-          <p style={{ fontSize: 'clamp(1.05rem, 2vw, 1.25rem)', color: 'var(--text-muted)', lineHeight: 1.8 }}>Master the crop tool in three simple steps. Trim margins, focus content, and export instantly without ever uploading your file.</p>
+          <p style={{ fontSize: 'clamp(0.9rem, 2vw, 1.25rem)', color: 'var(--text-muted)', lineHeight: 1.8 }}>Master the crop tool in three simple steps. Trim margins, focus content, and export instantly without ever uploading your file.</p>
         </div>
       </div>
       
@@ -54,7 +54,7 @@ export const CropHowToSection: React.FC<SectionProps> = ({ section, badges, stat
               <h3 style={{ fontSize: 'clamp(1.25rem, 3vw, 1.5rem)', fontWeight: 800, marginBottom: 12, color: 'var(--text-main)', letterSpacing: '-0.02em' }}>
                 {step.title}
               </h3>
-              <p style={{ color: 'var(--text-muted)', lineHeight: 1.7, fontSize: 'clamp(1.05rem, 2vw, 1.25rem)' }}>{step.description}</p>
+              <p style={{ color: 'var(--text-muted)', lineHeight: 1.7, fontSize: 'clamp(0.9rem, 2vw, 1.25rem)' }}>{step.description}</p>
             </div>
           </div>
         ))}
@@ -70,7 +70,7 @@ export const CropGeoSection: React.FC<SectionProps> = ({ section, badges, stats,
         <MapPin size={14} /> {section.badgeText || 'Local Processing'}
       </div>
       <h2 style={{ fontSize: 'clamp(2.2rem, 5vw, 3.5rem)', fontWeight: 900, marginBottom: 32, color: 'var(--text-main)', letterSpacing: '-0.03em', lineHeight: 1.05 }}>{section.title}</h2>
-      <p style={{ fontSize: 'clamp(1.05rem, 2vw, 1.25rem)', color: 'var(--text-muted)', fontWeight: 500, lineHeight: 1.7, maxWidth: 800, margin: '0 auto 64px' }}>{section.content}</p>
+      <p style={{ fontSize: 'clamp(0.9rem, 2vw, 1.25rem)', color: 'var(--text-muted)', fontWeight: 500, lineHeight: 1.7, maxWidth: 800, margin: '0 auto 64px' }}>{section.content}</p>
       
       {/* Target Crosshair Graphic */}
       <div style={{ position: 'relative', width: 200, height: 200, margin: '0 auto', display: 'flex', alignItems: 'center', justifyItems: 'center' }}>
@@ -91,7 +91,7 @@ export const CropPrivacySection: React.FC<SectionProps> = ({ section, badges, st
          <div style={{ width: '100%', maxWidth: 400, padding: 48, borderRadius: 32, background: 'var(--bg-card)', border: '1px solid var(--border-color)', boxShadow: '0 30px 60px rgba(0,0,0,0.05)', position: 'relative', overflow: 'hidden' }} className="hover-lift">
             <Shield size={64} color="var(--brand-primary)" style={{ marginBottom: 32 }} />
             <h3 style={{ fontSize: 'clamp(1.25rem, 3vw, 1.5rem)', fontWeight: 800, marginBottom: 16, color: 'var(--text-main)' }}>Crop Without Uploads</h3>
-            <p style={{ fontSize: 'clamp(1.05rem, 2vw, 1.25rem)', color: 'var(--text-muted)', lineHeight: 1.7 }}>Extract visual data or trim sensitive margins off a document completely within your browser's private memory.</p>
+            <p style={{ fontSize: 'clamp(0.9rem, 2vw, 1.25rem)', color: 'var(--text-muted)', lineHeight: 1.7 }}>Extract visual data or trim sensitive margins off a document completely within your browser's private memory.</p>
          </div>
       </div>
       <div style={{ flex: '1 1 500px' }}>
@@ -99,7 +99,7 @@ export const CropPrivacySection: React.FC<SectionProps> = ({ section, badges, st
           <Shield size={14} /> {section.badgeText || 'Security First'}
         </div>
         <h2 style={{ fontSize: 'clamp(2.2rem, 5vw, 3.5rem)', fontWeight: 900, marginBottom: 32, color: 'var(--text-main)', letterSpacing: '-0.03em', lineHeight: 1.05 }}>{section.title}</h2>
-        <p style={{ fontSize: 'clamp(1.05rem, 2vw, 1.25rem)', color: 'var(--text-muted)', fontWeight: 500, lineHeight: 1.7, opacity: 0.8 }}>{section.content}</p>
+        <p style={{ fontSize: 'clamp(0.9rem, 2vw, 1.25rem)', color: 'var(--text-muted)', fontWeight: 500, lineHeight: 1.7, opacity: 0.8 }}>{section.content}</p>
       </div>
     </div>
   </section>
@@ -113,7 +113,7 @@ export const CropPerformanceSection: React.FC<SectionProps> = ({ section, badges
           <Zap size={14} /> {section.badgeText || 'Lightning Fast'}
         </div>
         <h2 style={{ fontSize: 'clamp(2.2rem, 5vw, 3.5rem)', fontWeight: 900, marginBottom: 32, color: 'var(--text-main)', letterSpacing: '-0.03em', lineHeight: 1.05 }}>{section.title}</h2>
-        <p style={{ fontSize: 'clamp(1.05rem, 2vw, 1.25rem)', color: 'var(--text-muted)', fontWeight: 500, lineHeight: 1.7, opacity: 0.8, marginBottom: 40 }}>{section.content}</p>
+        <p style={{ fontSize: 'clamp(0.9rem, 2vw, 1.25rem)', color: 'var(--text-muted)', fontWeight: 500, lineHeight: 1.7, opacity: 0.8, marginBottom: 40 }}>{section.content}</p>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: 16 }}>
           {(badges || ['Zero server latency', 'No upload bandwidth', 'Instant processing']).map((item, i) => (
             <div key={i} style={{ display: 'flex', alignItems: 'center', gap: 12, padding: '16px 20px', background: 'var(--bg-app)', borderRadius: 16, border: '1px solid var(--border-color)' }}>

@@ -6,7 +6,7 @@ export const CompetitorMatrix: React.FC = () => {
   const { t } = useTranslation();
 
   return (
-    <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 relative">
+    <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 relative overflow-hidden">
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full max-w-4xl bg-[radial-gradient(circle_at_center,rgba(5,218,237,0.05)_0%,transparent_60%)] pointer-events-none -z-10" />
       
       <div className="text-center max-w-3xl mx-auto mb-16 px-4">

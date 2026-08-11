@@ -32,7 +32,7 @@ export const ReverseHeroSection: React.FC<SectionProps> = ({ section, badges, st
           <ArrowDownUp size={16} /> Reverse Page Order
         </div>
         <h2 style={{ fontSize: 'clamp(2.2rem, 5vw, 3.5rem)', fontWeight: 900, marginBottom: 24, color: 'var(--text-main)', letterSpacing: '-0.03em', lineHeight: 1.05 }}>{section.title}</h2>
-        <p style={{ fontSize: 'clamp(1.05rem, 2vw, 1.25rem)', color: 'var(--text-muted)', lineHeight: 1.8 }}>{section.content}</p>
+        <p style={{ fontSize: 'clamp(0.9rem, 2vw, 1.25rem)', color: 'var(--text-muted)', lineHeight: 1.8 }}>{section.content}</p>
       </div>
     </div>
   </section>
@@ -48,7 +48,7 @@ export const ReverseHowToSection: React.FC<SectionProps> = ({ section, badges, s
              <h3 style={{ fontSize: 'clamp(1.25rem, 3vw, 1.5rem)', fontWeight: 800, marginBottom: 12, color: 'var(--text-main)', letterSpacing: '-0.02em' }}>
                <span style={{ color: 'var(--brand-primary)', marginRight: 16 }}>{i + 1}.</span>{step.title}
              </h3>
-             <p style={{ color: 'var(--text-muted)', lineHeight: 1.7, fontSize: 'clamp(1.05rem, 2vw, 1.25rem)' }}>{step.description}</p>
+             <p style={{ color: 'var(--text-muted)', lineHeight: 1.7, fontSize: 'clamp(0.9rem, 2vw, 1.25rem)' }}>{step.description}</p>
           </div>
           <div style={{ width: 64, height: 64, borderRadius: '50%', background: 'var(--bg-app)', border: '2px dashed var(--border-color)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--text-muted)' }}>
              <ArrowDownUp size={24} />
@@ -67,7 +67,7 @@ export const ReverseGeoSection: React.FC<SectionProps> = ({ section, badges, sta
           <MapPin size={14} /> {section.badgeText || 'Local Processing'}
         </div>
         <h2 style={{ fontSize: 'clamp(2.2rem, 5vw, 3.5rem)', fontWeight: 900, marginBottom: 32, color: 'var(--text-main)', letterSpacing: '-0.03em', lineHeight: 1.05 }}>{section.title}</h2>
-        <p style={{ fontSize: 'clamp(1.05rem, 2vw, 1.25rem)', color: 'var(--text-muted)', fontWeight: 500, lineHeight: 1.7 }}>{section.content}</p>
+        <p style={{ fontSize: 'clamp(0.9rem, 2vw, 1.25rem)', color: 'var(--text-muted)', fontWeight: 500, lineHeight: 1.7 }}>{section.content}</p>
       </div>
       <div style={{ flex: '1 1 400px', display: 'flex', justifyContent: 'center' }}>
          <div style={{ width: 200, height: 200, borderRadius: '50%', background: 'var(--bg-app)', border: '4px solid var(--brand-primary)', display: 'flex', alignItems: 'center', justifyContent: 'center', position: 'relative', boxShadow: '0 20px 40px rgba(0,0,0,0.05)' }} className="hover-lift">
@@ -87,7 +87,7 @@ export const ReversePrivacySection: React.FC<SectionProps> = ({ section, badges,
           <Shield size={40} color="var(--brand-primary)" />
         </div>
         <h2 style={{ fontSize: 'clamp(2.2rem, 5vw, 3.5rem)', fontWeight: 900, marginBottom: 32, color: 'var(--text-main)', letterSpacing: '-0.03em', lineHeight: 1.05 }}>{section.title}</h2>
-        <p style={{ fontSize: 'clamp(1.05rem, 2vw, 1.25rem)', color: 'var(--text-muted)', fontWeight: 500, lineHeight: 1.7, maxWidth: 800, margin: '0 auto' }}>{section.content}</p>
+        <p style={{ fontSize: 'clamp(0.9rem, 2vw, 1.25rem)', color: 'var(--text-muted)', fontWeight: 500, lineHeight: 1.7, maxWidth: 800, margin: '0 auto' }}>{section.content}</p>
       </div>
     </div>
   </section>
@@ -101,7 +101,7 @@ export const ReversePerformanceSection: React.FC<SectionProps> = ({ section, bad
           <Zap size={14} /> {section.badgeText || 'Lightning Fast'}
         </div>
         <h2 style={{ fontSize: 'clamp(2.2rem, 5vw, 3.5rem)', fontWeight: 900, marginBottom: 32, color: 'var(--text-main)', letterSpacing: '-0.03em', lineHeight: 1.05 }}>{section.title}</h2>
-        <p style={{ fontSize: 'clamp(1.05rem, 2vw, 1.25rem)', color: 'var(--text-muted)', fontWeight: 500, lineHeight: 1.7, opacity: 0.8, marginBottom: 40 }}>{section.content}</p>
+        <p style={{ fontSize: 'clamp(0.9rem, 2vw, 1.25rem)', color: 'var(--text-muted)', fontWeight: 500, lineHeight: 1.7, opacity: 0.8, marginBottom: 40 }}>{section.content}</p>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: 16 }}>
           {(badges || ['Zero server latency', 'Instant sequence flip', 'Format retention']).map((item, i) => (
             <div key={i} style={{ display: 'flex', alignItems: 'center', gap: 12, padding: '16px 20px', background: 'var(--bg-app)', borderRadius: 16, border: '1px solid var(--border-color)' }}>

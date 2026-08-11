@@ -63,7 +63,7 @@ export const ExcelToPdfHowToSection: React.FC<SectionProps> = ({ section, badges
           </div>
           <div>
              <h3 style={{ fontSize: '1.6rem', fontWeight: 800, marginBottom: 12, color: 'var(--text-main)', letterSpacing: '-0.02em' }}>{step.title}</h3>
-             <p style={{ color: 'var(--text-muted)', lineHeight: 1.7, fontSize: '1.1rem' }}>{step.description}</p>
+             <p style={{ color: 'var(--text-muted)', lineHeight: 1.7, fontSize: 'clamp(0.95rem, 3vw, 1.1rem)' }}>{step.description}</p>
           </div>
         </div>
       ))}
@@ -80,7 +80,7 @@ export const ExcelToPdfGeoSection: React.FC<SectionProps> = ({ section, badges, 
        </div>
        <div style={{ padding: 48, background: 'var(--bg-card)', borderRadius: 32, border: '2px solid var(--border-color)', display: 'flex', flexDirection: 'column', gap: 24 }}>
           <h3 style={{ fontSize: '1.6rem', fontWeight: 800, color: 'var(--text-main)' }}>Business Trusted</h3>
-          <ul style={{ display: 'flex', flexDirection: 'column', gap: 16, color: 'var(--text-muted)', fontSize: '1.1rem' }}>
+          <ul style={{ display: 'flex', flexDirection: 'column', gap: 16, color: 'var(--text-muted)', fontSize: 'clamp(0.95rem, 3vw, 1.1rem)' }}>
              <li style={{ display: 'flex', gap: 12, alignItems: 'center' }}><ShieldCheck color="#10b981" /> No data collection</li>
              <li style={{ display: 'flex', gap: 12, alignItems: 'center' }}><ShieldCheck color="#10b981" /> Runs without internet</li>
              <li style={{ display: 'flex', gap: 12, alignItems: 'center' }}><ShieldCheck color="#10b981" /> Zero server retention</li>

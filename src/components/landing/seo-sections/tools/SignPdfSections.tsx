@@ -59,7 +59,7 @@ export const SignHowToSection: React.FC<SectionProps> = ({ section, badges, stat
           </div>
           <div>
              <h3 style={{ fontSize: '1.6rem', fontWeight: 800, marginBottom: 12, color: 'var(--text-main)', letterSpacing: '-0.02em' }}>{step.title}</h3>
-             <p style={{ color: 'var(--text-muted)', lineHeight: 1.7, fontSize: '1.1rem' }}>{step.description}</p>
+             <p style={{ color: 'var(--text-muted)', lineHeight: 1.7, fontSize: 'clamp(0.95rem, 3vw, 1.1rem)' }}>{step.description}</p>
           </div>
         </div>
       ))}
@@ -74,7 +74,7 @@ export const SignGeoSection: React.FC<SectionProps> = ({ section, badges, stats,
          <div style={{ padding: 48, borderRadius: 32, background: 'rgba(255,255,255,0.1)', backdropFilter: 'blur(10px)', border: '1px solid rgba(255,255,255,0.2)' }} className="hover-lift">
             <Briefcase size={64} color="white" style={{ marginBottom: 24 }} />
             <h3 style={{ fontSize: '1.8rem', fontWeight: 800, marginBottom: 16 }}>B2B Ready</h3>
-            <p style={{ fontSize: '1.1rem', opacity: 0.9, lineHeight: 1.7 }}>Sign NDAs, contracts, and proposals with high-resolution vector strokes.</p>
+            <p style={{ fontSize: 'clamp(0.95rem, 3vw, 1.1rem)', opacity: 0.9, lineHeight: 1.7 }}>Sign NDAs, contracts, and proposals with high-resolution vector strokes.</p>
          </div>
       </div>
       <div style={{ flex: '1 1 500px' }}>
@@ -113,7 +113,7 @@ export const SignPerformanceSection: React.FC<SectionProps> = ({ section, badges
           {(badges || ['Vector quality', 'Zero latency', 'No watermark added', 'Custom fonts']).map((item, i) => (
              <div key={i} style={{ display: 'flex', alignItems: 'center', gap: 12, padding: '16px', background: 'var(--bg-card)', borderRadius: 16, border: '1px solid var(--border-color)' }}>
                 <Zap color="var(--brand-primary)" size={20} />
-                <span style={{ fontSize: '1.1rem', fontWeight: 700, color: 'var(--text-main)' }}>{item}</span>
+                <span style={{ fontSize: 'clamp(0.95rem, 3vw, 1.1rem)', fontWeight: 700, color: 'var(--text-main)' }}>{item}</span>
              </div>
           ))}
         </div>

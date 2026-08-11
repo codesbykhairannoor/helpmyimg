@@ -31,7 +31,7 @@ export const HomeSections: React.FC = () => {
           <h2 
             className="font-heading font-extrabold text-white"
             style={{
-              fontSize: 'clamp(1.5rem, 4vw, 2.5rem)',
+              fontSize: 'clamp(1.35rem, 4vw, 2.5rem)',
               fontWeight: 800,
               lineHeight: 1.2
             }}
@@ -41,7 +41,7 @@ export const HomeSections: React.FC = () => {
           <p 
             className="text-slate-400 mt-6 max-w-2xl mx-auto"
             style={{
-              fontSize: '1.15rem',
+              fontSize: 'clamp(0.95rem, 3vw, 1.15rem)',
               lineHeight: 1.8
             }}
           >
@@ -124,7 +124,7 @@ export const HomeSections: React.FC = () => {
             <h2 
               className="font-heading font-black text-white mb-6"
               style={{
-                fontSize: 'clamp(1.5rem, 4vw, 2.5rem)',
+                fontSize: 'clamp(1.35rem, 4vw, 2.5rem)',
                 fontWeight: 800,
                 lineHeight: 1.2
               }}
@@ -134,7 +134,7 @@ export const HomeSections: React.FC = () => {
             <p 
               className="text-slate-400 max-w-2xl md:mx-auto"
               style={{
-                fontSize: '1.15rem',
+                fontSize: 'clamp(0.95rem, 3vw, 1.15rem)',
                 lineHeight: 1.8
               }}
             >
@@ -200,7 +200,7 @@ export const HomeSections: React.FC = () => {
           <h2 
             className="font-heading font-extrabold text-white mb-6"
             style={{
-              fontSize: 'clamp(1.5rem, 4vw, 2.5rem)',
+              fontSize: 'clamp(1.35rem, 4vw, 2.5rem)',
               fontWeight: 800,
               lineHeight: 1.2
             }}
@@ -208,7 +208,7 @@ export const HomeSections: React.FC = () => {
             {t('home.geo.quote.title', { defaultValue: 'Industry Recognition & Privacy Standards' })}
           </h2>
           
-          <blockquote className="border-l-4 border-dark-600 pl-6 my-6 italic text-slate-300 font-body" style={{ fontSize: '1.15rem', lineHeight: 1.8 }}>
+          <blockquote className="border-l-4 border-dark-600 pl-6 my-6 italic text-slate-300 font-body" style={{ fontSize: 'clamp(0.95rem, 3vw, 1.15rem)', lineHeight: 1.8 }}>
             "{t('home.geo.quote.text', { defaultValue: 'The transition to client-side WebAssembly for image processing represents a paradigm shift in data privacy. By eliminating server round-trips, applications achieve 0ms network latency while completely neutralizing data interception risks.' })}"
           </blockquote>
           
@@ -257,7 +257,7 @@ export const HomeSections: React.FC = () => {
             <h2 
               className="font-heading font-extrabold text-white mb-6"
               style={{
-                fontSize: 'clamp(1.5rem, 4vw, 2.5rem)',
+                fontSize: 'clamp(1.35rem, 4vw, 2.5rem)',
                 fontWeight: 800,
                 lineHeight: 1.2
               }}
@@ -270,7 +270,7 @@ export const HomeSections: React.FC = () => {
             <p 
               className="text-slate-400 max-w-2xl mx-auto mb-10 md:mb-14"
               style={{
-                fontSize: '1.15rem',
+                fontSize: 'clamp(0.95rem, 3vw, 1.15rem)',
                 lineHeight: 1.8
               }}
             >
@@ -300,7 +300,7 @@ export const HomeSections: React.FC = () => {
           <h2 
             className="font-heading font-extrabold text-white"
             style={{
-              fontSize: 'clamp(1.5rem, 4vw, 2.5rem)',
+              fontSize: 'clamp(1.35rem, 4vw, 2.5rem)',
               fontWeight: 800,
               lineHeight: 1.2
             }}
@@ -310,7 +310,7 @@ export const HomeSections: React.FC = () => {
           <p 
             className="text-slate-400 mt-4 sm:mt-6 max-w-2xl mx-auto"
             style={{
-              fontSize: '1.15rem',
+              fontSize: 'clamp(0.95rem, 3vw, 1.15rem)',
               lineHeight: 1.8
             }}
           >

@@ -44,13 +44,13 @@ export const ToolFaqSection: React.FC<ToolFaqSectionProps> = ({ toolMapName, var
           </span>
           <h2 
             className="font-heading font-extrabold text-white mt-4 sm:mt-6 tracking-tight"
-            style={{ fontSize: 'clamp(1.5rem, 4vw, 2.5rem)', fontWeight: 800, lineHeight: 1.2 }}
+            style={{ fontSize: 'clamp(1.35rem, 4vw, 2.5rem)', fontWeight: 800, lineHeight: 1.2 }}
           >
             {title}
           </h2>
           <p 
             className="text-slate-400 mt-4 max-w-2xl mx-auto font-body"
-            style={{ fontSize: '1.15rem', lineHeight: 1.8 }}
+            style={{ fontSize: 'clamp(0.95rem, 3vw, 1.15rem)', lineHeight: 1.8 }}
           >
             {desc}
           </p>
@@ -94,13 +94,13 @@ export const ToolFaqSection: React.FC<ToolFaqSectionProps> = ({ toolMapName, var
             </span>
             <h2 
               className="font-heading font-extrabold text-white mt-4 sm:mt-6 tracking-tight"
-              style={{ fontSize: 'clamp(1.5rem, 4vw, 2.5rem)', fontWeight: 800, lineHeight: 1.2 }}
+              style={{ fontSize: 'clamp(1.35rem, 4vw, 2.5rem)', fontWeight: 800, lineHeight: 1.2 }}
             >
               {title}
             </h2>
             <p 
               className="text-slate-400 mt-4 max-w-xl font-body"
-              style={{ fontSize: '1.15rem', lineHeight: 1.8 }}
+              style={{ fontSize: 'clamp(0.95rem, 3vw, 1.15rem)', lineHeight: 1.8 }}
             >
               {desc}
             </p>
@@ -132,13 +132,13 @@ export const ToolFaqSection: React.FC<ToolFaqSectionProps> = ({ toolMapName, var
           </span>
           <h2 
             className="font-heading font-extrabold text-white mt-4 sm:mt-6 tracking-tight"
-            style={{ fontSize: 'clamp(1.5rem, 4vw, 2.5rem)', fontWeight: 800, lineHeight: 1.2 }}
+            style={{ fontSize: 'clamp(1.35rem, 4vw, 2.5rem)', fontWeight: 800, lineHeight: 1.2 }}
           >
             {title}
           </h2>
           <p 
             className="text-slate-400 mt-4 max-w-2xl mx-auto font-body"
-            style={{ fontSize: '1.15rem', lineHeight: 1.8 }}
+            style={{ fontSize: 'clamp(0.95rem, 3vw, 1.15rem)', lineHeight: 1.8 }}
           >
             {desc}
           </p>
@@ -167,13 +167,13 @@ export const ToolFaqSection: React.FC<ToolFaqSectionProps> = ({ toolMapName, var
         </span>
         <h2 
           className="font-heading font-extrabold text-white mt-4 sm:mt-6 tracking-tight"
-          style={{ fontSize: 'clamp(1.5rem, 4vw, 2.5rem)', fontWeight: 800, lineHeight: 1.2 }}
+          style={{ fontSize: 'clamp(1.35rem, 4vw, 2.5rem)', fontWeight: 800, lineHeight: 1.2 }}
         >
           {title}
         </h2>
         <p 
           className="text-slate-400 mt-4 max-w-2xl mx-auto font-body"
-          style={{ fontSize: '1.15rem', lineHeight: 1.8 }}
+          style={{ fontSize: 'clamp(0.95rem, 3vw, 1.15rem)', lineHeight: 1.8 }}
         >
           {desc}
         </p>

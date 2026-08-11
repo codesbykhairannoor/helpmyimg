@@ -11,7 +11,7 @@ export const SecurityHeroSection: React.FC<SectionProps> = ({ section, flipLayou
           <ShieldCheck size={16} /> Bank-Grade Security
         </div>
         <h2 style={{ fontSize: 'clamp(1.8rem, 4vw, 2.8rem)', fontWeight: 900, marginBottom: 20, color: 'var(--text-main)', lineHeight: 1.15 }}>{section.title}</h2>
-        <p style={{ fontSize: '1.15rem', color: 'var(--text-muted)', lineHeight: 1.8 }}>{section.content}</p>
+        <p style={{ fontSize: 'clamp(0.95rem, 3vw, 1.15rem)', color: 'var(--text-muted)', lineHeight: 1.8 }}>{section.content}</p>
       </div>
       <div style={{ flex: '1 1 360px', display: 'flex', justifyContent: 'center' }}>
         <div style={{ position: 'relative', width: 280, height: 280 }}>
@@ -28,12 +28,12 @@ export const SecurityHeroSection: React.FC<SectionProps> = ({ section, flipLayou
 
 export const SecurityHowToSection: React.FC<SectionProps> = ({ section }) => (
   <section className="seo-section security-how-to" style={{ padding: '80px 24px', margin: '40px 0', background: 'var(--bg-card)', borderRadius: 32 }}>
-    <h2 style={{ fontSize: 'clamp(1.5rem, 4vw, 2.5rem)', fontWeight: 800, textAlign: 'center', marginBottom: 60, color: 'var(--text-main)' }}>{section.title}</h2>
+    <h2 style={{ fontSize: 'clamp(1.35rem, 4vw, 2.5rem)', fontWeight: 800, textAlign: 'center', marginBottom: 60, color: 'var(--text-main)' }}>{section.title}</h2>
     <div style={{ maxWidth: 900, margin: '0 auto', display: 'flex', gap: 0, flexWrap: 'wrap', justifyContent: 'center' }}>
       {section.steps?.map((step, i) => (
         <div key={i} style={{ flex: '1 1 200px', textAlign: 'center', padding: '0 24px 40px' }}>
           <div style={{ width: 56, height: 56, borderRadius: '50%', background: 'rgba(16,185,129,0.1)', border: '2px solid #10b981', color: '#10b981', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 20px', fontSize: '1.2rem', fontWeight: 900 }}>{i + 1}</div>
-          <h3 style={{ fontSize: '1.1rem', fontWeight: 700, marginBottom: 10, color: 'var(--text-main)' }}>{step.title}</h3>
+          <h3 style={{ fontSize: 'clamp(0.95rem, 3vw, 1.1rem)', fontWeight: 700, marginBottom: 10, color: 'var(--text-main)' }}>{step.title}</h3>
           <p style={{ fontSize: '0.95rem', color: 'var(--text-muted)', lineHeight: 1.6 }}>{step.description}</p>
         </div>
       ))}
@@ -44,8 +44,8 @@ export const SecurityHowToSection: React.FC<SectionProps> = ({ section }) => (
 export const SecurityGeoSection: React.FC<SectionProps> = ({ section }) => (
   <section className="seo-section security-geo" style={{ padding: '80px 24px', margin: '40px 0' }}>
     <div style={{ maxWidth: 1000, margin: '0 auto' }}>
-      <h2 style={{ fontSize: 'clamp(1.5rem, 4vw, 2.5rem)', fontWeight: 800, marginBottom: 16, color: 'var(--text-main)', lineHeight: 1.2 }}>{section.title}</h2>
-      <p style={{ fontSize: '1.1rem', color: 'var(--text-muted)', lineHeight: 1.8, marginBottom: 40, maxWidth: 600 }}>{section.content}</p>
+      <h2 style={{ fontSize: 'clamp(1.35rem, 4vw, 2.5rem)', fontWeight: 800, marginBottom: 16, color: 'var(--text-main)', lineHeight: 1.2 }}>{section.title}</h2>
+      <p style={{ fontSize: 'clamp(0.95rem, 3vw, 1.1rem)', color: 'var(--text-muted)', lineHeight: 1.8, marginBottom: 40, maxWidth: 600 }}>{section.content}</p>
       {/* Bento grid layout */}
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gridTemplateRows: 'auto auto', gap: 16 }}>
         {/* Large card top-left spanning 2 cols */}
@@ -102,8 +102,8 @@ export const SecurityPrivacySection: React.FC<SectionProps> = ({ section }) => (
 export const SecurityPerformanceSection: React.FC<SectionProps> = ({ section }) => (
   <section className="seo-section security-performance" style={{ padding: '80px 24px', margin: '40px 0', background: 'var(--bg-card)', borderRadius: 32 }}>
     <div style={{ maxWidth: 900, margin: '0 auto', textAlign: 'center' }}>
-      <h2 style={{ fontSize: 'clamp(1.5rem, 4vw, 2.5rem)', fontWeight: 800, marginBottom: 16, color: 'var(--text-main)' }}>{section.title}</h2>
-      <p style={{ fontSize: '1.15rem', color: 'var(--text-muted)', lineHeight: 1.8, marginBottom: 48 }}>{section.content}</p>
+      <h2 style={{ fontSize: 'clamp(1.35rem, 4vw, 2.5rem)', fontWeight: 800, marginBottom: 16, color: 'var(--text-main)' }}>{section.title}</h2>
+      <p style={{ fontSize: 'clamp(0.95rem, 3vw, 1.15rem)', color: 'var(--text-muted)', lineHeight: 1.8, marginBottom: 48 }}>{section.content}</p>
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', gap: 24 }}>
         {[{ label: 'Cloud Tool', cols: ['Requires Upload', 'Server Queue', 'Privacy Risk', '30-60s Avg'] },
           { label: 'Our Tool', cols: ['Zero Upload', 'No Queue', 'Zero Risk', '<1s Avg'], highlight: true }

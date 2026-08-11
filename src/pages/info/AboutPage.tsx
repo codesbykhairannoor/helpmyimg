@@ -36,7 +36,7 @@ export const AboutPage: React.FC = () => {
           </div>
           <h1 
             className="font-heading font-black mb-8"
-            style={{ fontSize: 'clamp(2.5rem, 6vw, 4.5rem)', fontWeight: 900, letterSpacing: '-0.03em', lineHeight: 1.15 }}
+            style={{ fontSize: 'clamp(2.2rem, 6vw, 4.5rem)', fontWeight: 900, letterSpacing: '-0.03em', lineHeight: 1.15 }}
           >
             <span className="bg-gradient-to-r from-neon-cyan via-neon-emerald to-neon-indigo bg-clip-text text-transparent drop-shadow-sm">
               {gradientPart}

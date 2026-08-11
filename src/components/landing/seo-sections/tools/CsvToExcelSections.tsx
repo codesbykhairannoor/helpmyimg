@@ -56,7 +56,7 @@ export const CsvToExcelHowToSection: React.FC<SectionProps> = ({ section, badges
             {i === 0 ? <LayoutGrid size={32} /> : i === 1 ? <Columns size={32} /> : <Download size={32} />}
           </div>
           <h3 style={{ fontSize: '1.5rem', fontWeight: 800, color: 'var(--text-main)', letterSpacing: '-0.02em', zIndex: 1 }}>{step.title}</h3>
-          <p style={{ color: 'var(--text-muted)', lineHeight: 1.7, fontSize: '1.1rem', zIndex: 1 }}>{step.description}</p>
+          <p style={{ color: 'var(--text-muted)', lineHeight: 1.7, fontSize: 'clamp(0.95rem, 3vw, 1.1rem)', zIndex: 1 }}>{step.description}</p>
         </div>
       ))}
     </div>
@@ -80,14 +80,14 @@ export const CsvToExcelPrivacySection: React.FC<SectionProps> = ({ section, badg
     <div style={{ maxWidth: 1200, margin: '0 auto', display: 'flex', flexWrap: 'wrap', gap: 64, alignItems: 'center', position: 'relative', zIndex: 1 }}>
       <div style={{ flex: '1 1 500px' }}>
         <h2 style={{ fontSize: 'clamp(2.2rem, 5vw, 3.5rem)', fontWeight: 900, marginBottom: 32, color: 'white', letterSpacing: '-0.03em', lineHeight: 1.05 }}>{section.title}</h2>
-        <p style={{ fontSize: 'clamp(1.05rem, 2vw, 1.25rem)', color: '#94a3b8', fontWeight: 500, lineHeight: 1.7 }}>{section.content}</p>
+        <p style={{ fontSize: 'clamp(0.9rem, 2vw, 1.25rem)', color: '#94a3b8', fontWeight: 500, lineHeight: 1.7 }}>{section.content}</p>
       </div>
       <div style={{ flex: '1 1 400px', display: 'flex', justifyContent: 'center' }}>
          {/* Safe Box graphic */}
          <div style={{ width: '100%', maxWidth: 400, padding: 48, borderRadius: 32, background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.1)', position: 'relative' }} className="hover-lift">
             <ShieldCheck size={64} color="var(--brand-primary)" style={{ marginBottom: 24 }} />
             <h3 style={{ fontSize: '1.5rem', fontWeight: 800, marginBottom: 16, color: 'white' }}>Zero Cloud Access</h3>
-            <p style={{ fontSize: '1.1rem', color: '#94a3b8', lineHeight: 1.7 }}>All CSV parsing and Excel generation is isolated in your local memory.</p>
+            <p style={{ fontSize: 'clamp(0.95rem, 3vw, 1.1rem)', color: '#94a3b8', lineHeight: 1.7 }}>All CSV parsing and Excel generation is isolated in your local memory.</p>
          </div>
       </div>
     </div>
@@ -102,7 +102,7 @@ export const CsvToExcelPerformanceSection: React.FC<SectionProps> = ({ section, 
        
        <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: 24 }}>
           {(badges || ['100,000+ Rows', 'Instant UTF-8 Parsing', 'WebAssembly Core']).map((item, i) => (
-             <div key={i} style={{ padding: '16px 32px', background: 'rgba(255,255,255,0.1)', backdropFilter: 'blur(10px)', borderRadius: 100, border: '1px solid rgba(255,255,255,0.2)', fontWeight: 800, fontSize: '1.1rem' }}>
+             <div key={i} style={{ padding: '16px 32px', background: 'rgba(255,255,255,0.1)', backdropFilter: 'blur(10px)', borderRadius: 100, border: '1px solid rgba(255,255,255,0.2)', fontWeight: 800, fontSize: 'clamp(0.95rem, 3vw, 1.1rem)' }}>
                 {item}
              </div>
           ))}

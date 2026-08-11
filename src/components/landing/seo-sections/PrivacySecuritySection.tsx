@@ -10,7 +10,7 @@ export const PrivacySecuritySection: React.FC<SectionProps> = ({ section }) => (
       </div>
       <div style={{ flex: 1, minWidth: 300 }}>
         <h2 style={{ fontSize: 'clamp(1.5rem, 3vw, 2rem)', fontWeight: 800, marginBottom: 16, color: 'var(--text-main)' }}>{section.title}</h2>
-        <p style={{ fontSize: '1.15rem', color: 'var(--text-muted)', lineHeight: 1.7, marginBottom: 24 }}>{section.content}</p>
+        <p style={{ fontSize: 'clamp(0.95rem, 3vw, 1.15rem)', color: 'var(--text-muted)', lineHeight: 1.7, marginBottom: 24 }}>{section.content}</p>
         <div style={{ display: 'flex', gap: 24, flexWrap: 'wrap' }}>
           {['GDPR Compliant', 'HIPAA Ready', '100% Offline'].map(badge => (
             <div key={badge} style={{ display: 'flex', alignItems: 'center', gap: 8, color: 'var(--text-main)', fontWeight: 600 }}>

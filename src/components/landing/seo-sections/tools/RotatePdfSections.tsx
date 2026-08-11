@@ -22,7 +22,7 @@ export const RotateHeroSection: React.FC<SectionProps> = ({ section, badges, sta
         <RotateCw size={32} />
       </div>
       <h2 style={{ fontSize: 'clamp(2.2rem, 5vw, 3.5rem)', fontWeight: 900, marginBottom: 24, color: 'var(--text-main)', letterSpacing: '-0.03em', lineHeight: 1.05 }}>{section.title}</h2>
-      <p style={{ fontSize: 'clamp(1.05rem, 2vw, 1.25rem)', color: 'var(--text-muted)', lineHeight: 1.8, maxWidth: 700, margin: '0 auto' }}>{section.content}</p>
+      <p style={{ fontSize: 'clamp(0.9rem, 2vw, 1.25rem)', color: 'var(--text-muted)', lineHeight: 1.8, maxWidth: 700, margin: '0 auto' }}>{section.content}</p>
     </div>
   </section>
 );
@@ -51,7 +51,7 @@ export const RotateHowToSection: React.FC<SectionProps> = ({ section, badges, st
                 <h3 style={{ fontSize: 'clamp(1.25rem, 3vw, 1.5rem)', fontWeight: 800, color: 'var(--text-main)', letterSpacing: '-0.02em' }}>
                   {step.title}
                 </h3>
-                <p style={{ color: 'var(--text-muted)', lineHeight: 1.7, fontSize: 'clamp(1.05rem, 2vw, 1.25rem)' }}>{step.description}</p>
+                <p style={{ color: 'var(--text-muted)', lineHeight: 1.7, fontSize: 'clamp(0.9rem, 2vw, 1.25rem)' }}>{step.description}</p>
               </div>
             </div>
           );
@@ -68,7 +68,7 @@ export const RotateGeoSection: React.FC<SectionProps> = ({ section, badges, stat
         <MapPin size={14} /> {section.badgeText || 'Local Processing'}
       </div>
       <h2 style={{ fontSize: 'clamp(2.2rem, 5vw, 3.5rem)', fontWeight: 900, marginBottom: 32, color: 'var(--text-main)', letterSpacing: '-0.03em', lineHeight: 1.05 }}>{section.title}</h2>
-      <p style={{ fontSize: 'clamp(1.05rem, 2vw, 1.25rem)', color: 'var(--text-muted)', fontWeight: 500, lineHeight: 1.7, opacity: 0.8, maxWidth: 700, margin: '0 auto 64px' }}>{section.content}</p>
+      <p style={{ fontSize: 'clamp(0.9rem, 2vw, 1.25rem)', color: 'var(--text-muted)', fontWeight: 500, lineHeight: 1.7, opacity: 0.8, maxWidth: 700, margin: '0 auto 64px' }}>{section.content}</p>
       
       <div style={{ display: 'flex', gap: 24, justifyContent: 'center' }}>
         <div style={{ width: 120, height: 120, borderRadius: 24, background: 'var(--bg-app)', border: '1px solid var(--border-color)', display: 'flex', alignItems: 'center', justifyContent: 'center' }} className="hover-lift">
@@ -87,7 +87,7 @@ export const RotatePrivacySection: React.FC<SectionProps> = ({ section, badges, 
           <Shield size={14} /> {section.badgeText || 'Security First'}
         </div>
         <h2 style={{ fontSize: 'clamp(2.2rem, 5vw, 3.5rem)', fontWeight: 900, marginBottom: 32, color: 'var(--text-main)', letterSpacing: '-0.03em', lineHeight: 1.05 }}>{section.title}</h2>
-        <p style={{ fontSize: 'clamp(1.05rem, 2vw, 1.25rem)', color: 'var(--text-muted)', fontWeight: 500, lineHeight: 1.7, opacity: 0.8 }}>{section.content}</p>
+        <p style={{ fontSize: 'clamp(0.9rem, 2vw, 1.25rem)', color: 'var(--text-muted)', fontWeight: 500, lineHeight: 1.7, opacity: 0.8 }}>{section.content}</p>
       </div>
       <div style={{ flex: '1 1 400px', position: 'relative', display: 'flex', justifyContent: 'center' }}>
          <div style={{ width: 240, height: 240, borderRadius: 40, background: 'var(--bg-card)', border: '1px solid var(--border-color)', display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: '0 20px 50px rgba(0,0,0,0.05)', position: 'relative', zIndex: 1, transition: 'transform 0.5s ease' }} className="hover-lift">
@@ -113,7 +113,7 @@ export const RotatePerformanceSection: React.FC<SectionProps> = ({ section, badg
           <Zap size={14} /> {section.badgeText || 'Lightning Fast'}
         </div>
         <h2 style={{ fontSize: 'clamp(2.2rem, 5vw, 3.5rem)', fontWeight: 900, marginBottom: 32, color: 'var(--text-main)', letterSpacing: '-0.03em', lineHeight: 1.05 }}>{section.title}</h2>
-        <p style={{ fontSize: 'clamp(1.05rem, 2vw, 1.25rem)', color: 'var(--text-muted)', fontWeight: 500, lineHeight: 1.7, opacity: 0.8, marginBottom: 40 }}>{section.content}</p>
+        <p style={{ fontSize: 'clamp(0.9rem, 2vw, 1.25rem)', color: 'var(--text-muted)', fontWeight: 500, lineHeight: 1.7, opacity: 0.8, marginBottom: 40 }}>{section.content}</p>
         <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
           {(badges || ['Zero server latency', 'No upload bandwidth', 'Instant processing']).map((item, i) => (
             <div key={i} style={{ display: 'flex', alignItems: 'center', gap: 16, padding: '24px', background: 'var(--bg-app)', borderRadius: 24, border: '1px solid var(--border-color)', transition: 'transform 0.3s ease', boxShadow: '0 4px 12px rgba(0,0,0,0.02)' }} className="hover-lift">

@@ -26,14 +26,14 @@ export const BlurFaceSections: React.FC = () => {
               </span>
             </div>
 
-            <h2 className="font-heading font-extrabold text-white mt-4 sm:mt-6 tracking-tight" style={{ fontSize: 'clamp(1.5rem, 4vw, 2.5rem)', fontWeight: 800, lineHeight: 1.2 }}>
+            <h2 className="font-heading font-extrabold text-white mt-4 sm:mt-6 tracking-tight" style={{ fontSize: 'clamp(1.35rem, 4vw, 2.5rem)', fontWeight: 800, lineHeight: 1.2 }}>
               <span className="block">{tr('heroTitle', 'Censor with AI.')}</span>
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#10B981] to-[#06B6D4] block mt-2">
                 {tr('heroTitle2', 'Protect Identities.')}
               </span>
             </h2>
 
-            <p className="text-slate-400 mt-4 max-w-2xl mx-auto lg:mx-0 font-body" style={{ fontSize: '1.15rem', lineHeight: 1.8 }}>
+            <p className="text-slate-400 mt-4 max-w-2xl mx-auto lg:mx-0 font-body" style={{ fontSize: 'clamp(0.95rem, 3vw, 1.15rem)', lineHeight: 1.8 }}>
               {tr('heroDesc', 'Automatically detect and blur faces, license plates, or sensitive information in seconds. 100% private, running entirely within your browser.')}
             </p>
           </div>
@@ -129,7 +129,7 @@ export const BlurFaceSections: React.FC = () => {
           <span className="text-xs font-mono font-bold uppercase tracking-widest text-[#10B981] bg-[#10B981]/10 px-3 py-1.5 rounded-full border border-[#10B981]/30 block w-max mx-auto mb-4">
             {tr('stepsTag', 'HOW IT WORKS')}
           </span>
-          <h2 className="font-heading font-extrabold text-white mt-4 sm:mt-6 tracking-tight" style={{ fontSize: 'clamp(1.5rem, 4vw, 2.5rem)', fontWeight: 800, lineHeight: 1.2 }}>
+          <h2 className="font-heading font-extrabold text-white mt-4 sm:mt-6 tracking-tight" style={{ fontSize: 'clamp(1.35rem, 4vw, 2.5rem)', fontWeight: 800, lineHeight: 1.2 }}>
             {tr('stepsTitle', 'Anonymize in 3 Steps')}
           </h2>
         </div>

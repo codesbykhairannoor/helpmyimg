@@ -54,7 +54,7 @@ export const ExtractImagesHowToSection: React.FC<SectionProps> = ({ section, bad
             {i === 0 ? <Layers size={32} /> : i === 1 ? <Search size={32} /> : <Archive size={32} />}
           </div>
           <h3 style={{ fontSize: '1.5rem', fontWeight: 800, letterSpacing: '-0.02em' }}>{step.title}</h3>
-          <p style={{ opacity: 0.9, lineHeight: 1.7, fontSize: '1.1rem' }}>{step.description}</p>
+          <p style={{ opacity: 0.9, lineHeight: 1.7, fontSize: 'clamp(0.95rem, 3vw, 1.1rem)' }}>{step.description}</p>
         </div>
       ))}
     </div>

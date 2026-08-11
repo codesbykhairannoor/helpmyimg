@@ -58,7 +58,7 @@ export const ProtectHowToSection: React.FC<SectionProps> = ({ section, badges, s
             </div>
             <div style={{ padding: '24px 32px', background: 'var(--bg-app)', borderRadius: 24, flex: 1, border: '1px solid var(--border-color)' }}>
                <h3 style={{ fontSize: '1.6rem', fontWeight: 800, marginBottom: 12, color: 'var(--text-main)', letterSpacing: '-0.02em' }}>{step.title}</h3>
-               <p style={{ color: 'var(--text-muted)', lineHeight: 1.7, fontSize: '1.1rem' }}>{step.description}</p>
+               <p style={{ color: 'var(--text-muted)', lineHeight: 1.7, fontSize: 'clamp(0.95rem, 3vw, 1.1rem)' }}>{step.description}</p>
             </div>
           </div>
         ))}

@@ -61,7 +61,7 @@ export const PptToPdfHowToSection: React.FC<SectionProps> = ({ section, badges, 
           </div>
           <div>
              <h3 style={{ fontSize: '1.5rem', fontWeight: 800, marginBottom: 12, color: 'var(--text-main)' }}>{step.title}</h3>
-             <p style={{ color: 'var(--text-muted)', lineHeight: 1.7, fontSize: '1.1rem' }}>{step.description}</p>
+             <p style={{ color: 'var(--text-muted)', lineHeight: 1.7, fontSize: 'clamp(0.95rem, 3vw, 1.1rem)' }}>{step.description}</p>
           </div>
         </div>
       ))}
@@ -79,7 +79,7 @@ export const PptToPdfGeoSection: React.FC<SectionProps> = ({ section, badges, st
        <div style={{ flex: '1 1 400px', display: 'flex', justifyContent: 'center' }}>
           <div style={{ padding: 48, background: 'var(--bg-app)', borderRadius: 32, borderTop: '8px solid #d97706', boxShadow: '0 20px 50px rgba(0,0,0,0.05)', width: '100%' }}>
              <h3 style={{ fontSize: '1.6rem', fontWeight: 800, color: 'var(--text-main)', marginBottom: 24 }}>Why Local Conversion?</h3>
-             <ul style={{ display: 'flex', flexDirection: 'column', gap: 16, color: 'var(--text-muted)', fontSize: '1.1rem', margin: 0, padding: 0, listStyle: 'none' }}>
+             <ul style={{ display: 'flex', flexDirection: 'column', gap: 16, color: 'var(--text-muted)', fontSize: 'clamp(0.95rem, 3vw, 1.1rem)', margin: 0, padding: 0, listStyle: 'none' }}>
                 <li style={{ display: 'flex', gap: 12, alignItems: 'center' }}><ShieldCheck color="#d97706" size={24} /> Stop data scraping</li>
                 <li style={{ display: 'flex', gap: 12, alignItems: 'center' }}><ShieldCheck color="#d97706" size={24} /> No NDA violations</li>
                 <li style={{ display: 'flex', gap: 12, alignItems: 'center' }}><ShieldCheck color="#d97706" size={24} /> Bypass cloud queues</li>

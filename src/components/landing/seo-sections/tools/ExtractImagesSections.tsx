@@ -40,7 +40,7 @@ export const ExtractImagesGeoSection: React.FC<SectionProps> = ({ section, badge
       <MapPin size={32} color="var(--brand-primary)" style={{ flexShrink: 0, marginTop: 4 }} />
       <div>
         <h2 style={{ fontSize: '1.8rem', fontWeight: 800, marginBottom: 16, color: 'var(--text-main)' }}>{section.title}</h2>
-        <p style={{ fontSize: '1.1rem', color: 'var(--text-muted)', lineHeight: 1.7 }}>{section.content}</p>
+        <p style={{ fontSize: 'clamp(0.95rem, 3vw, 1.1rem)', color: 'var(--text-muted)', lineHeight: 1.7 }}>{section.content}</p>
       </div>
     </div>
   </section>
@@ -61,10 +61,10 @@ export const ExtractImagesPerformanceSection: React.FC<SectionProps> = ({ sectio
     <div style={{ maxWidth: 1000, margin: '0 auto', display: 'flex', alignItems: 'center', gap: 48, flexWrap: 'wrap' }}>
       <div style={{ flex: 1, minWidth: 300 }}>
         <h2 style={{ fontSize: '2.2rem', fontWeight: 800, marginBottom: 24, color: 'var(--text-main)' }}>{section.title}</h2>
-        <p style={{ fontSize: '1.1rem', color: 'var(--text-muted)', lineHeight: 1.7, marginBottom: 32 }}>{section.content}</p>
+        <p style={{ fontSize: 'clamp(0.95rem, 3vw, 1.1rem)', color: 'var(--text-muted)', lineHeight: 1.7, marginBottom: 32 }}>{section.content}</p>
         <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
           {(badges || ['Zero server latency', 'No upload bandwidth', 'Instant processing']).map((item, i) => (
-            <li key={i} style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 16, fontSize: '1.1rem', fontWeight: 500, color: 'var(--text-main)' }}>
+            <li key={i} style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 16, fontSize: 'clamp(0.95rem, 3vw, 1.1rem)', fontWeight: 500, color: 'var(--text-main)' }}>
               <CheckCircle2 color="var(--brand-primary)" size={20} />
               {item}
             </li>

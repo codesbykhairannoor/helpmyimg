@@ -7,7 +7,7 @@ export const SplitPrivacySection: React.FC<SectionProps> = ({ section }) => (
     <div style={{ position: 'absolute', top: -50, right: -50, width: 300, height: 300, background: 'rgba(59,130,246,0.2)', filter: 'blur(100px)', borderRadius: '50%' }} />
     <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center', maxWidth: 800, margin: '0 auto', position: 'relative', zIndex: 1 }}>
       <Lock size={64} color="#60a5fa" style={{ marginBottom: 32 }} />
-      <h2 style={{ fontSize: 'clamp(1.5rem, 4vw, 2.5rem)', fontWeight: 800, marginBottom: 24, color: 'white' }}>{section.title}</h2>
+      <h2 style={{ fontSize: 'clamp(1.35rem, 4vw, 2.5rem)', fontWeight: 800, marginBottom: 24, color: 'white' }}>{section.title}</h2>
       <p style={{ fontSize: '1.25rem', color: '#9ca3af', lineHeight: 1.8, marginBottom: 40 }}>{section.content}</p>
       <div style={{ display: 'flex', gap: 24, flexWrap: 'wrap', justifyContent: 'center' }}>
         {['No External API Calls', 'Memory-Only Execution'].map(b => (

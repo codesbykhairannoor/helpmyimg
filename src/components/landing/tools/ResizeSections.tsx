@@ -24,10 +24,10 @@ export const ResizeSections: React.FC = () => {
                 {tr('heroBadge', 'PIXEL-PERFECT SCALING')}
               </span>
             </div>
-            <h2 className="font-heading font-extrabold text-white mt-4 sm:mt-6 tracking-tight" style={{ fontSize: 'clamp(1.5rem, 4vw, 2.5rem)', fontWeight: 800, lineHeight: 1.2 }}>
+            <h2 className="font-heading font-extrabold text-white mt-4 sm:mt-6 tracking-tight" style={{ fontSize: 'clamp(1.35rem, 4vw, 2.5rem)', fontWeight: 800, lineHeight: 1.2 }}>
               {tr('heroTitle', 'Resize Images with Absolute Precision')}
             </h2>
-            <p className="text-slate-400 mt-4 max-w-2xl mx-auto lg:mx-0 font-body" style={{ fontSize: '1.15rem', lineHeight: 1.8 }}>
+            <p className="text-slate-400 mt-4 max-w-2xl mx-auto lg:mx-0 font-body" style={{ fontSize: 'clamp(0.95rem, 3vw, 1.15rem)', lineHeight: 1.8 }}>
               {tr('heroDesc', 'Scale your photos by exact pixel dimensions or percentages. Perfect for social media, websites, and printing without compromising quality.')}
             </p>
           </div>
@@ -115,10 +115,10 @@ export const ResizeSections: React.FC = () => {
       <section className="max-w-7xl mx-auto w-full relative" style={{ padding: '80px 24px', marginBottom: '80px' }}>
         <div className="glass-panel p-10 sm:p-14 rounded-[3rem] border-dark-600/30">
           <div className="text-center max-w-3xl mx-auto mb-16">
-            <h2 className="font-heading font-extrabold text-white mt-4 sm:mt-6 tracking-tight" style={{ fontSize: 'clamp(1.5rem, 4vw, 2.5rem)', fontWeight: 800, lineHeight: 1.2 }}>
+            <h2 className="font-heading font-extrabold text-white mt-4 sm:mt-6 tracking-tight" style={{ fontSize: 'clamp(1.35rem, 4vw, 2.5rem)', fontWeight: 800, lineHeight: 1.2 }}>
               {tr('socialTitle', 'Perfect for Every Platform')}
             </h2>
-            <p className="text-slate-400 mt-4 font-body" style={{ fontSize: '1.15rem', lineHeight: 1.8 }}>{tr('socialDesc', 'Meet strict upload requirements for social media without hassle.')}</p>
+            <p className="text-slate-400 mt-4 font-body" style={{ fontSize: 'clamp(0.95rem, 3vw, 1.15rem)', lineHeight: 1.8 }}>{tr('socialDesc', 'Meet strict upload requirements for social media without hassle.')}</p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -147,7 +147,7 @@ export const ResizeSections: React.FC = () => {
           <span className="text-xs font-mono font-bold uppercase tracking-widest text-[#12DA91] bg-[#12DA91]/10 px-3 py-1.5 rounded-full border border-[#12DA91]/30 block w-max mx-auto mb-4">
             {tr('stepsTag', 'HOW IT WORKS')}
           </span>
-          <h2 className="font-heading font-extrabold text-white mt-4 sm:mt-6 tracking-tight" style={{ fontSize: 'clamp(1.5rem, 4vw, 2.5rem)', fontWeight: 800, lineHeight: 1.2 }}>
+          <h2 className="font-heading font-extrabold text-white mt-4 sm:mt-6 tracking-tight" style={{ fontSize: 'clamp(1.35rem, 4vw, 2.5rem)', fontWeight: 800, lineHeight: 1.2 }}>
             {tr('stepsTitle', 'Resize in 3 Steps')}
           </h2>
         </div>

@@ -63,10 +63,10 @@ export const CompressSections: React.FC = () => {
               <Gauge className="w-4 h-4" />
               {tr('heroBadge', 'SMART COMPRESSION')}
             </div>
-            <h2 className="font-heading font-extrabold text-white mt-4 sm:mt-6 tracking-tight" style={{ fontSize: 'clamp(1.5rem, 4vw, 2.5rem)', fontWeight: 800, lineHeight: 1.2 }}>
+            <h2 className="font-heading font-extrabold text-white mt-4 sm:mt-6 tracking-tight" style={{ fontSize: 'clamp(1.35rem, 4vw, 2.5rem)', fontWeight: 800, lineHeight: 1.2 }}>
               {tr('heroTitle', 'Shrink Image File Size up to 90% Instantly')}
             </h2>
-            <p className="text-slate-400 mt-4 max-w-2xl mx-auto lg:mx-0 font-body" style={{ fontSize: '1.15rem', lineHeight: 1.8 }}>
+            <p className="text-slate-400 mt-4 max-w-2xl mx-auto lg:mx-0 font-body" style={{ fontSize: 'clamp(0.95rem, 3vw, 1.15rem)', lineHeight: 1.8 }}>
               {tr('heroDesc', 'Reduce the size of your photos without losing visual quality. Perfect for websites, emails, and strict upload limits.')}
             </p>
           </div>
@@ -110,10 +110,10 @@ export const CompressSections: React.FC = () => {
             <span className="text-xs font-mono font-bold uppercase tracking-widest text-[#05DAED] bg-[#05DAED]/10 px-3 py-1.5 rounded-full border border-[#05DAED]/30 block w-max mb-4">
               {tr('whoTag', 'WHO IS IT FOR')}
             </span>
-            <h2 className="font-heading font-extrabold text-white mt-4 sm:mt-6 tracking-tight" style={{ fontSize: 'clamp(1.5rem, 4vw, 2.5rem)', fontWeight: 800, lineHeight: 1.2 }}>
+            <h2 className="font-heading font-extrabold text-white mt-4 sm:mt-6 tracking-tight" style={{ fontSize: 'clamp(1.35rem, 4vw, 2.5rem)', fontWeight: 800, lineHeight: 1.2 }}>
               {tr('whoTitle', 'Built for Web & Media')}
             </h2>
-            <p className="text-slate-400 mt-4 max-w-2xl font-body" style={{ fontSize: '1.15rem', lineHeight: 1.8 }}>
+            <p className="text-slate-400 mt-4 max-w-2xl font-body" style={{ fontSize: 'clamp(0.95rem, 3vw, 1.15rem)', lineHeight: 1.8 }}>
               {tr('whoDesc', 'Perfect for developers, designers, and social media managers who need highly optimized images.')}
             </p>
           </div>
@@ -144,7 +144,7 @@ export const CompressSections: React.FC = () => {
           <span className="text-xs font-mono font-bold uppercase tracking-widest text-[#12DA91] bg-[#12DA91]/10 px-3 py-1.5 rounded-full border border-[#12DA91]/30 block w-max mx-auto mb-4">
             {tr('stepsTag', 'HOW IT WORKS')}
           </span>
-          <h2 className="font-heading font-extrabold text-white mt-4 sm:mt-6 tracking-tight" style={{ fontSize: 'clamp(1.5rem, 4vw, 2.5rem)', fontWeight: 800, lineHeight: 1.2 }}>
+          <h2 className="font-heading font-extrabold text-white mt-4 sm:mt-6 tracking-tight" style={{ fontSize: 'clamp(1.35rem, 4vw, 2.5rem)', fontWeight: 800, lineHeight: 1.2 }}>
             {tr('stepsTitle', '3 Steps to Optimize')}
           </h2>
         </div>

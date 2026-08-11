@@ -41,7 +41,7 @@ export const UnlockHowToSection: React.FC<SectionProps> = ({ section, badges, st
             {i === 0 ? <FileSearch size={32} /> : i === 1 ? <KeyRound size={32} /> : <LockOpen size={32} />}
           </div>
           <h3 style={{ fontSize: '1.5rem', fontWeight: 800, color: 'var(--text-main)', letterSpacing: '-0.02em' }}>{step.title}</h3>
-          <p style={{ color: 'var(--text-muted)', lineHeight: 1.7, fontSize: '1.1rem' }}>{step.description}</p>
+          <p style={{ color: 'var(--text-muted)', lineHeight: 1.7, fontSize: 'clamp(0.95rem, 3vw, 1.1rem)' }}>{step.description}</p>
         </div>
       ))}
     </div>
@@ -71,7 +71,7 @@ export const UnlockPrivacySection: React.FC<SectionProps> = ({ section, badges, 
          <div style={{ width: '100%', maxWidth: 400, padding: 48, borderRadius: 32, background: 'var(--bg-card)', border: '1px solid var(--border-color)', position: 'relative', boxShadow: '0 20px 50px rgba(0,0,0,0.05)' }} className="hover-lift">
             <ShieldCheck size={64} color="var(--brand-primary)" style={{ marginBottom: 24 }} />
             <h3 style={{ fontSize: '1.5rem', fontWeight: 800, marginBottom: 16, color: 'var(--text-main)' }}>Key Isolation</h3>
-            <p style={{ fontSize: '1.1rem', color: 'var(--text-muted)', lineHeight: 1.7 }}>The password you type is only used locally to decrypt the file stream. It is never logged.</p>
+            <p style={{ fontSize: 'clamp(0.95rem, 3vw, 1.1rem)', color: 'var(--text-muted)', lineHeight: 1.7 }}>The password you type is only used locally to decrypt the file stream. It is never logged.</p>
          </div>
       </div>
     </div>

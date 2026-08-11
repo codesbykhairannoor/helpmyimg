@@ -36,7 +36,7 @@ export const PricingPage: React.FC = () => {
           <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[400px] bg-neon-cyan/20 blur-[150px] rounded-full pointer-events-none -z-10" />
           <h1 
             className="font-heading font-black mb-8"
-            style={{ fontSize: 'clamp(2.5rem, 6vw, 4.5rem)', fontWeight: 900, letterSpacing: '-0.03em', lineHeight: 1.15 }}
+            style={{ fontSize: 'clamp(2.2rem, 6vw, 4.5rem)', fontWeight: 900, letterSpacing: '-0.03em', lineHeight: 1.15 }}
           >
             <span className="bg-gradient-to-r from-neon-cyan via-neon-emerald to-neon-indigo bg-clip-text text-transparent drop-shadow-sm">
               {gradientPart}

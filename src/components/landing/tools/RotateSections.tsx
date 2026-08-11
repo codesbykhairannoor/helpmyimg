@@ -23,11 +23,11 @@ export const RotateSections: React.FC = () => {
                 {tr('heroBadge', 'SPATIAL CONTROL')}
               </span>
             </div>
-            <h2 className="font-heading font-extrabold text-white mt-4 sm:mt-6 tracking-tight" style={{ fontSize: 'clamp(1.5rem, 4vw, 2.5rem)', fontWeight: 800, lineHeight: 1.2 }}>
+            <h2 className="font-heading font-extrabold text-white mt-4 sm:mt-6 tracking-tight" style={{ fontSize: 'clamp(1.35rem, 4vw, 2.5rem)', fontWeight: 800, lineHeight: 1.2 }}>
               {tr('heroTitle', 'Rotate and Flip.')}<br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#05DAED] to-[#12DA91]">{tr('heroTitle2', 'Perfect Orientation.')}</span>
             </h2>
-            <p className="text-slate-400 mt-4 max-w-2xl mx-auto lg:mx-0 font-body" style={{ fontSize: '1.15rem', lineHeight: 1.8 }}>
+            <p className="text-slate-400 mt-4 max-w-2xl mx-auto lg:mx-0 font-body" style={{ fontSize: 'clamp(0.95rem, 3vw, 1.15rem)', lineHeight: 1.8 }}>
               {tr('heroDesc', 'Correct sideways photos, create mirror effects, and fine-tune image rotation by exact degrees. Fast, free, and done entirely in your browser.')}
             </p>
           </div>
@@ -158,7 +158,7 @@ export const RotateSections: React.FC = () => {
           <span className="text-xs font-mono font-bold uppercase tracking-widest text-[#05DAED] bg-[#05DAED]/10 px-3 py-1.5 rounded-full border border-[#05DAED]/30 block w-max mx-auto mb-4">
             {tr('stepsTag', 'WORKFLOW')}
           </span>
-          <h2 className="font-heading font-extrabold text-white mt-4 sm:mt-6 tracking-tight" style={{ fontSize: 'clamp(1.5rem, 4vw, 2.5rem)', fontWeight: 800, lineHeight: 1.2 }}>
+          <h2 className="font-heading font-extrabold text-white mt-4 sm:mt-6 tracking-tight" style={{ fontSize: 'clamp(1.35rem, 4vw, 2.5rem)', fontWeight: 800, lineHeight: 1.2 }}>
             {tr('stepsTitle', 'Reorient in 3 Steps')}
           </h2>
         </div>
