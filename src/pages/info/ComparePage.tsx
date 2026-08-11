@@ -12,7 +12,7 @@ export const ComparePage: React.FC = () => {
     setOpenFaq(openFaq === index ? null : index);
   };
 
-  const rawTitle = t('compare.title') || 'HelpMyIMG vs The Rest';
+  const rawTitle = t('compare.title', { defaultValue: 'HelpMyIMG vs The Rest' });
   const titleWords = rawTitle.split(' ');
   const splitIndex = Math.min(2, Math.max(1, Math.floor(titleWords.length * 0.4)));
   const gradientPart = titleWords.slice(0, splitIndex).join(' ');
@@ -22,7 +22,7 @@ export const ComparePage: React.FC = () => {
     <>
       <Helmet>
         <title>{`${t('footer.compare')} | HelpMyIMG`}</title>
-        <meta name="description" content={t('compare.subtitle') || 'See how our local WebAssembly engine crushes cloud-based competitors.'} />
+        <meta name="description" content={t('compare.subtitle', { defaultValue: 'See how our local WebAssembly engine crushes cloud-based competitors.' })} />
         <link rel="canonical" href={`https://helpmyimg.com/${lang}/compare`} />
       </Helmet>
 
@@ -36,7 +36,7 @@ export const ComparePage: React.FC = () => {
           <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-3xl h-[400px] bg-neon-purple/20 blur-[150px] rounded-full pointer-events-none -z-10" />
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-neon-purple/10 border border-neon-purple/20 text-neon-purple text-sm font-mono font-bold mb-8">
             <Scale className="w-4 h-4" />
-            {t('compare.badge') || 'HEAD-TO-HEAD COMPARISON'}
+            {t('compare.badge', { defaultValue: 'HEAD-TO-HEAD COMPARISON' })}
           </div>
           <h1 
             className="font-heading font-black mb-8"
@@ -50,10 +50,10 @@ export const ComparePage: React.FC = () => {
             </span>
           </h1>
           <p className="text-xl md:text-2xl text-slate-300 max-w-4xl mx-auto leading-relaxed mb-8">
-            {t('compare.subtitle') || 'We rebuilt AI image processing from the ground up to run locally. See why the cloud is obsolete.'}
+            {t('compare.subtitle', { defaultValue: 'We rebuilt AI image processing from the ground up to run locally. See why the cloud is obsolete.' })}
           </p>
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-neon-emerald/10 border border-neon-emerald/20 text-neon-emerald text-sm md:text-base font-bold max-w-2xl mx-auto text-center">
-            {t('info.freePromo') || '100% Free, 0 Rupiah, No Subscriptions.'}
+            {t('info.freePromo', { defaultValue: '100% Free, 0 Rupiah, No Subscriptions.' })}
           </div>
         </motion.div>
 
@@ -139,10 +139,10 @@ export const ComparePage: React.FC = () => {
               <Zap className="w-8 h-8 text-neon-emerald" />
             </div>
             <h2 className="text-4xl font-heading font-black text-white mb-6">
-              {t('compare.s3.title') || 'Network Latency is the Enemy.'}
+              {t('compare.s3.title', { defaultValue: 'Network Latency is the Enemy.' })}
             </h2>
             <p className="text-xl text-slate-400 leading-relaxed">
-              {t('compare.s3.desc') || 'Cloud editors waste 80% of your time just transferring files back and forth. By processing directly on your hardware, we eliminate the network entirely, resulting in speeds up to 5x faster.'}
+              {t('compare.s3.desc', { defaultValue: 'Cloud editors waste 80% of your time just transferring files back and forth. By processing directly on your hardware, we eliminate the network entirely, resulting in speeds up to 5x faster.' })}
             </p>
           </div>
         </div>
@@ -151,10 +151,10 @@ export const ComparePage: React.FC = () => {
         <div className="mb-32 bg-gradient-to-r from-dark-800 to-dark-900 rounded-[40px] p-8 md:p-16 border border-dark-600 text-center">
           <WifiOff className="w-16 h-16 text-neon-cyan mx-auto mb-8" />
           <h2 className="text-3xl md:text-5xl font-heading font-black text-white mb-6">
-            {t('compare.s4.title') || 'Works Without Internet.'}
+            {t('compare.s4.title', { defaultValue: 'Works Without Internet.' })}
           </h2>
           <p className="text-xl text-slate-300 max-w-2xl mx-auto mb-8">
-            {t('compare.s4.desc') || 'Once the page loads, you can disconnect from Wi-Fi. The AI models run completely locally via your browser\'s WebAssembly engine.'}
+            {t('compare.s4.desc', { defaultValue: 'Once the page loads, you can disconnect from Wi-Fi. The AI models run completely locally via your browser\'s WebAssembly engine.' })}
           </p>
         </div>
 
@@ -186,7 +186,7 @@ export const ComparePage: React.FC = () => {
               FAQ
             </span>
             <h2 className="text-3xl font-heading font-black text-white">
-              {t('compare.faq.title') || 'Comparison FAQ'}
+              {t('compare.faq.title', { defaultValue: 'Comparison FAQ' })}
             </h2>
           </div>
           <div className="space-y-4">

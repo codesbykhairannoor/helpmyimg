@@ -7,7 +7,7 @@ import { motion } from 'framer-motion';
 export const TermsPage: React.FC = () => {
   const { t, lang } = useTranslation();
 
-  const rawTitle = t('terms.title') || 'Terms of Service';
+  const rawTitle = t('terms.title', { defaultValue: 'Terms of Service' });
   const titleWords = rawTitle.split(' ');
   const splitIndex = Math.min(2, Math.max(1, Math.floor(titleWords.length * 0.4)));
   const gradientPart = titleWords.slice(0, splitIndex).join(' ');
@@ -31,7 +31,7 @@ export const TermsPage: React.FC = () => {
         >
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-neon-purple/10 border border-neon-purple/20 text-neon-purple text-sm font-mono font-bold mb-8">
             <FileText className="w-4 h-4" />
-            {t('terms.badge') || 'TERMS OF SERVICE'}
+            {t('terms.badge', { defaultValue: 'TERMS OF SERVICE' })}
           </div>
           <h1 
             className="font-heading font-black mb-6"
@@ -45,13 +45,13 @@ export const TermsPage: React.FC = () => {
             </span>
           </h1>
           <p className="text-lg text-slate-500 font-mono tracking-widest uppercase mb-12">
-            {t('terms.lastUpdated') || 'Effective Date: July 11, 2026'}
+            {t('terms.lastUpdated', { defaultValue: 'Effective Date: July 11, 2026' })}
           </p>
           <p className="text-xl md:text-2xl text-slate-300 max-w-4xl mx-auto leading-relaxed border-l-4 border-neon-purple/50 pl-6 py-4 bg-dark-800/30 rounded-r-2xl text-left mb-6">
             {t('terms.intro')}
           </p>
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-neon-emerald/10 border border-neon-emerald/20 text-neon-emerald text-sm md:text-base font-bold max-w-2xl mx-auto text-center">
-            {t('info.freePromo') || '100% Free, 0 Rupiah, No Subscriptions.'}
+            {t('info.freePromo', { defaultValue: '100% Free, 0 Rupiah, No Subscriptions.' })}
           </div>
         </motion.div>
 

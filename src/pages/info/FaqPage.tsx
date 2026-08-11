@@ -18,15 +18,15 @@ export const FaqPage: React.FC = () => {
   };
 
   const categories = [
-    { id: 'general', icon: MessageCircleQuestion, label: t('faq.cat.general') || 'General' },
-    { id: 'privacy', icon: Shield, label: t('faq.cat.privacy') || 'Privacy & Security' },
-    { id: 'tech', icon: Zap, label: t('faq.cat.tech') || 'Technology' },
-    { id: 'usage', icon: ImageIcon, label: t('faq.cat.usage') || 'Usage & Limits' },
+    { id: 'general', icon: MessageCircleQuestion, label: t('faq.cat.general', { defaultValue: 'General' }) },
+    { id: 'privacy', icon: Shield, label: t('faq.cat.privacy', { defaultValue: 'Privacy & Security' }) },
+    { id: 'tech', icon: Zap, label: t('faq.cat.tech', { defaultValue: 'Technology' }) },
+    { id: 'usage', icon: ImageIcon, label: t('faq.cat.usage', { defaultValue: 'Usage & Limits' }) },
   ] as const;
 
   const currentFaqs = faqCategories[activeCategory];
 
-  const rawTitle = t('faq.title') || 'Frequently Asked Questions';
+  const rawTitle = t('faq.title', { defaultValue: 'Frequently Asked Questions' });
   const titleWords = rawTitle.split(' ');
   const splitIndex = Math.min(2, Math.max(1, Math.floor(titleWords.length * 0.4)));
   const gradientPart = titleWords.slice(0, splitIndex).join(' ');
@@ -51,7 +51,7 @@ export const FaqPage: React.FC = () => {
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-neon-cyan/20 blur-[100px] rounded-full pointer-events-none -z-10" />
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-neon-cyan/10 border border-neon-cyan/20 text-neon-cyan text-sm font-mono font-bold mb-8">
             <HelpCircle className="w-4 h-4" />
-            {t('faq.badge') || 'HELP CENTER & FAQ'}
+            {t('faq.badge', { defaultValue: 'HELP CENTER & FAQ' })}
           </div>
           <h1 
             className="font-heading font-black mb-6"
@@ -68,7 +68,7 @@ export const FaqPage: React.FC = () => {
             {t('faq.subtitle')}
           </p>
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-neon-emerald/10 border border-neon-emerald/20 text-neon-emerald text-sm md:text-base font-bold max-w-2xl mx-auto text-center">
-            {t('info.freePromo') || '100% Free, 0 Rupiah, No Subscriptions.'}
+            {t('info.freePromo', { defaultValue: '100% Free, 0 Rupiah, No Subscriptions.' })}
           </div>
         </motion.div>
 

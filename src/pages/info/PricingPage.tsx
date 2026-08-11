@@ -12,7 +12,7 @@ export const PricingPage: React.FC = () => {
     setOpenFaq(openFaq === index ? null : index);
   };
 
-  const rawTitle = t('pricing.title') || 'Stop Paying for Cloud AI.';
+  const rawTitle = t('pricing.title', { defaultValue: 'Stop Paying for Cloud AI.' });
   const titleWords = rawTitle.split(' ');
   const splitIndex = Math.min(2, Math.max(1, Math.floor(titleWords.length * 0.4)));
   const gradientPart = titleWords.slice(0, splitIndex).join(' ');
@@ -22,7 +22,7 @@ export const PricingPage: React.FC = () => {
     <>
       <Helmet>
         <title>{`${t('footer.pricing')} | HelpMyIMG`}</title>
-        <meta name="description" content={t('pricing.subtitle') || 'Stop paying for cloud AI. HelpMyIMG is 100% free.'} />
+        <meta name="description" content={t('pricing.subtitle', { defaultValue: 'Stop paying for cloud AI. HelpMyIMG is 100% free.' })} />
         <link rel="canonical" href={`https://helpmyimg.com/${lang}/pricing`} />
       </Helmet>
 
@@ -46,10 +46,10 @@ export const PricingPage: React.FC = () => {
             </span>
           </h1>
           <p className="text-2xl md:text-3xl text-neon-cyan font-bold max-w-4xl mx-auto leading-relaxed mb-6">
-            {t('pricing.subtitle') || 'Enterprise-grade image processing, absolutely free.'}
+            {t('pricing.subtitle', { defaultValue: 'Enterprise-grade image processing, absolutely free.' })}
           </p>
           <div className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-neon-emerald/10 border border-neon-emerald/20 text-neon-emerald text-base md:text-lg font-bold max-w-2xl mx-auto text-center">
-            {t('info.freePromo') || '100% Free, 0 Rupiah, No Subscriptions.'}
+            {t('info.freePromo', { defaultValue: '100% Free, 0 Rupiah, No Subscriptions.' })}
           </div>
         </motion.div>
 
@@ -60,13 +60,13 @@ export const PricingPage: React.FC = () => {
             <div className="text-center mb-12 relative z-10">
               <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-neon-cyan/10 text-neon-cyan text-sm font-bold tracking-widest uppercase mb-6">
                 <Sparkles className="w-4 h-4" />
-                {t('pricing.tierName') || 'Unlimited Edge Plan'}
+                {t('pricing.tierName', { defaultValue: 'Unlimited Edge Plan' })}
               </div>
               <div className="flex items-baseline justify-center gap-2 mb-4">
                 <span className="text-3xl text-slate-400 font-bold">IDR/USD</span>
                 <span className="text-7xl md:text-9xl font-black text-white tracking-tighter">0</span>
               </div>
-              <p className="text-xl text-slate-400">{t('pricing.period') || 'Forever. No credit card required.'}</p>
+              <p className="text-xl text-slate-400">{t('pricing.period', { defaultValue: 'Forever. No credit card required.' })}</p>
             </div>
             
             <div className="grid sm:grid-cols-2 gap-x-8 gap-y-6 relative z-10">
@@ -93,7 +93,7 @@ export const PricingPage: React.FC = () => {
         <div className="mb-32">
           <div className="bg-gradient-to-br from-dark-800 to-dark-900 border border-dark-600 rounded-3xl p-8 md:p-16 text-center">
             <h2 className="text-3xl md:text-5xl font-heading font-black text-white mb-8">
-              {t('pricing.s3.title') || 'How much will you save?'}
+              {t('pricing.s3.title', { defaultValue: 'How much will you save?' })}
             </h2>
             <div className="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
               {[
@@ -115,19 +115,19 @@ export const PricingPage: React.FC = () => {
         <div className="mb-32 grid md:grid-cols-2 gap-16 items-center">
           <div>
             <h2 className="text-4xl md:text-5xl font-heading font-black text-white mb-6">
-              {t('pricing.s4.title') || 'Why is it 100% Free?'}
+              {t('pricing.s4.title', { defaultValue: 'Why is it 100% Free?' })}
             </h2>
             <p className="text-xl text-slate-400 leading-relaxed mb-6">
-              {t('pricing.s4.desc1') || 'Cloud companies charge you money because running AI on cloud GPUs is incredibly expensive. Every time you upload an image, it costs them server power.'}
+              {t('pricing.s4.desc1', { defaultValue: 'Cloud companies charge you money because running AI on cloud GPUs is incredibly expensive. Every time you upload an image, it costs them server power.' })}
             </p>
             <p className="text-xl text-neon-cyan leading-relaxed font-medium">
-              {t('pricing.s4.desc2') || 'HelpMyIMG uses WebAssembly to run the AI directly inside your browser. Because we don\'t use cloud servers to process your images, our server costs are practically zero. So we pass those savings directly to you.'}
+              {t('pricing.s4.desc2', { defaultValue: 'HelpMyIMG uses WebAssembly to run the AI directly inside your browser. Because we don\'t use cloud servers to process your images, our server costs are practically zero. So we pass those savings directly to you.' })}
             </p>
           </div>
           <div className="bg-dark-800 border border-neon-indigo/30 rounded-3xl p-12 text-center shadow-[0_0_50px_rgba(79,70,229,0.1)]">
             <Infinity className="w-24 h-24 text-neon-indigo mx-auto mb-8" />
-            <h3 className="text-2xl font-bold text-white mb-4">{t('pricing.s4.boxTitle') || 'Infinite Scalability'}</h3>
-            <p className="text-slate-400">{t('pricing.s4.boxDesc') || 'Since your device does the computing, our platform can handle millions of users simultaneously without slowing down or increasing our costs.'}</p>
+            <h3 className="text-2xl font-bold text-white mb-4">{t('pricing.s4.boxTitle', { defaultValue: 'Infinite Scalability' })}</h3>
+            <p className="text-slate-400">{t('pricing.s4.boxDesc', { defaultValue: 'Since your device does the computing, our platform can handle millions of users simultaneously without slowing down or increasing our costs.' })}</p>
           </div>
         </div>
 
@@ -135,10 +135,10 @@ export const PricingPage: React.FC = () => {
         <div className="mb-32 bg-neon-emerald/5 border border-neon-emerald/20 rounded-[40px] p-8 md:p-16 text-center">
           <Zap className="w-16 h-16 text-neon-emerald mx-auto mb-8" />
           <h2 className="text-3xl md:text-4xl font-heading font-black text-white mb-6">
-            {t('pricing.s5.title') || 'No Accounts. No Credit Cards. No Bullshit.'}
+            {t('pricing.s5.title', { defaultValue: 'No Accounts. No Credit Cards. No Bullshit.' })}
           </h2>
           <p className="text-xl text-slate-400 max-w-2xl mx-auto">
-            {t('pricing.s5.desc') || 'Just open the website and start processing. We respect your time and your privacy.'}
+            {t('pricing.s5.desc', { defaultValue: 'Just open the website and start processing. We respect your time and your privacy.' })}
           </p>
         </div>
 
@@ -149,7 +149,7 @@ export const PricingPage: React.FC = () => {
               FAQ
             </span>
             <h2 className="text-3xl font-heading font-black text-white">
-              {t('pricing.faq.title') || 'Pricing FAQ'}
+              {t('pricing.faq.title', { defaultValue: 'Pricing FAQ' })}
             </h2>
           </div>
           <div className="space-y-4">

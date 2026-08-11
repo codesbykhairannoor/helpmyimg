@@ -45,25 +45,25 @@ export const Footer: React.FC = () => {
               <ul className="space-y-2.5 text-slate-500 dark:text-slate-400">
                 <li><a href={lang === 'en' ? `/${getLocalizedSlug('remove', lang)}` : `/${lang}/${getLocalizedSlug('remove', lang)}`} onClick={(e) => { e.preventDefault(); navigatePath(lang === 'en' ? `/${getLocalizedSlug('remove', lang)}` : `/${lang}/${getLocalizedSlug('remove', lang)}`); }} className="hover:text-cyan-600 dark:hover:text-white transition-colors">{t('nav.removeBg')}</a></li>
                 <li><a href={lang === 'en' ? `/${getLocalizedSlug('color', lang)}` : `/${lang}/${getLocalizedSlug('color', lang)}`} onClick={(e) => { e.preventDefault(); navigatePath(lang === 'en' ? `/${getLocalizedSlug('color', lang)}` : `/${lang}/${getLocalizedSlug('color', lang)}`); }} className="hover:text-cyan-600 dark:hover:text-white transition-colors">{t('nav.colorBg')}</a></li>
-                <li><a href={lang === 'en' ? `/${getLocalizedSlug('compress', lang)}` : `/${lang}/${getLocalizedSlug('compress', lang)}`} onClick={(e) => { e.preventDefault(); navigatePath(lang === 'en' ? `/${getLocalizedSlug('compress', lang)}` : `/${lang}/${getLocalizedSlug('compress', lang)}`); }} className="hover:text-cyan-600 dark:hover:text-white transition-colors">{t('nav.compress') || 'Compress Image'}</a></li>
+                <li><a href={lang === 'en' ? `/${getLocalizedSlug('compress', lang)}` : `/${lang}/${getLocalizedSlug('compress', lang)}`} onClick={(e) => { e.preventDefault(); navigatePath(lang === 'en' ? `/${getLocalizedSlug('compress', lang)}` : `/${lang}/${getLocalizedSlug('compress', lang)}`); }} className="hover:text-cyan-600 dark:hover:text-white transition-colors">{t('nav.compress', { defaultValue: 'Compress Image' })}</a></li>
               </ul>
             </div>
             <div className="space-y-4">
               <h3 className="font-bold text-slate-900 dark:text-white">{t('footer.legal')}</h3>
               <ul className="space-y-2.5 text-slate-500 dark:text-slate-400">
-                <li><a href={getInfoLink('about')} onClick={(e) => { e.preventDefault(); navigatePath(getInfoLink('about')); }} className="hover:text-cyan-600 dark:hover:text-white transition-colors">{t('footer.about') || 'About Us'}</a></li>
+                <li><a href={getInfoLink('about')} onClick={(e) => { e.preventDefault(); navigatePath(getInfoLink('about')); }} className="hover:text-cyan-600 dark:hover:text-white transition-colors">{t('footer.about', { defaultValue: 'About Us' })}</a></li>
                 <li><a href={getInfoLink('privacy')} onClick={(e) => { e.preventDefault(); navigatePath(getInfoLink('privacy')); }} className="hover:text-cyan-600 dark:hover:text-white transition-colors">{t('footer.privacy')}</a></li>
                 <li><a href={getInfoLink('terms')} onClick={(e) => { e.preventDefault(); navigatePath(getInfoLink('terms')); }} className="hover:text-cyan-600 dark:hover:text-white transition-colors">{t('footer.terms')}</a></li>
                 <li><a href={getInfoLink('faq')} onClick={(e) => { e.preventDefault(); navigatePath(getInfoLink('faq')); }} className="hover:text-cyan-600 dark:hover:text-white transition-colors">{t('nav.faq')}</a></li>
               </ul>
             </div>
             <div className="space-y-4">
-              <h3 className="font-bold text-slate-900 dark:text-white">{t('footer.resources') || 'Resources'}</h3>
+              <h3 className="font-bold text-slate-900 dark:text-white">{t('footer.resources', { defaultValue: 'Resources' })}</h3>
               <ul className="space-y-2.5 text-slate-500 dark:text-slate-400">
-                <li><a href={getInfoLink('security')} onClick={(e) => { e.preventDefault(); navigatePath(getInfoLink('security')); }} className="hover:text-cyan-600 dark:hover:text-white transition-colors">{t('footer.security') || 'Security & Trust'}</a></li>
-                <li><a href={getInfoLink('pricing')} onClick={(e) => { e.preventDefault(); navigatePath(getInfoLink('pricing')); }} className="hover:text-cyan-600 dark:hover:text-white transition-colors">{t('footer.pricing') || 'Pricing'}</a></li>
-                <li><a href={getInfoLink('compare')} onClick={(e) => { e.preventDefault(); navigatePath(getInfoLink('compare')); }} className="hover:text-cyan-600 dark:hover:text-white transition-colors">{t('footer.compare') || 'Compare'}</a></li>
-                <li><a href={getInfoLink('languages')} onClick={(e) => { e.preventDefault(); navigatePath(getInfoLink('languages')); }} className="hover:text-cyan-600 dark:hover:text-white transition-colors">{t('footer.languages') || 'Supported Languages'}</a></li>
+                <li><a href={getInfoLink('security')} onClick={(e) => { e.preventDefault(); navigatePath(getInfoLink('security')); }} className="hover:text-cyan-600 dark:hover:text-white transition-colors">{t('footer.security', { defaultValue: 'Security & Trust' })}</a></li>
+                <li><a href={getInfoLink('pricing')} onClick={(e) => { e.preventDefault(); navigatePath(getInfoLink('pricing')); }} className="hover:text-cyan-600 dark:hover:text-white transition-colors">{t('footer.pricing', { defaultValue: 'Pricing' })}</a></li>
+                <li><a href={getInfoLink('compare')} onClick={(e) => { e.preventDefault(); navigatePath(getInfoLink('compare')); }} className="hover:text-cyan-600 dark:hover:text-white transition-colors">{t('footer.compare', { defaultValue: 'Compare' })}</a></li>
+                <li><a href={getInfoLink('languages')} onClick={(e) => { e.preventDefault(); navigatePath(getInfoLink('languages')); }} className="hover:text-cyan-600 dark:hover:text-white transition-colors">{t('footer.languages', { defaultValue: 'Supported Languages' })}</a></li>
               </ul>
             </div>
           </div>

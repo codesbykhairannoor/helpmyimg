@@ -13,7 +13,7 @@ export const LanguagesPage: React.FC = () => {
     setOpenFaq(openFaq === index ? null : index);
   };
 
-  const rawTitle = t('languages.title') || 'Designed for the World.';
+  const rawTitle = t('languages.title', { defaultValue: 'Designed for the World.' });
   const titleWords = rawTitle.split(' ');
   const splitIndex = Math.min(2, Math.max(1, Math.floor(titleWords.length * 0.4)));
   const gradientPart = titleWords.slice(0, splitIndex).join(' ');
@@ -23,7 +23,7 @@ export const LanguagesPage: React.FC = () => {
     <>
       <Helmet>
         <title>{`${t('footer.languages')} | HelpMyIMG`}</title>
-        <meta name="description" content={t('languages.subtitle') || 'HelpMyIMG is natively translated into 30 global languages.'} />
+        <meta name="description" content={t('languages.subtitle', { defaultValue: 'HelpMyIMG is natively translated into 30 global languages.' })} />
         <link rel="canonical" href={`https://helpmyimg.com/${lang}/languages`} />
       </Helmet>
 
@@ -37,7 +37,7 @@ export const LanguagesPage: React.FC = () => {
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-neon-indigo/20 blur-[150px] rounded-full pointer-events-none -z-10" />
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-neon-indigo/10 border border-neon-indigo/20 text-neon-indigo text-sm font-mono font-bold mb-8">
             <Globe2 className="w-4 h-4" />
-            {t('languages.badge') || 'GLOBAL ACCESSIBILITY'}
+            {t('languages.badge', { defaultValue: 'GLOBAL ACCESSIBILITY' })}
           </div>
           <h1 
             className="font-heading font-black mb-8"
@@ -51,10 +51,10 @@ export const LanguagesPage: React.FC = () => {
             </span>
           </h1>
           <p className="text-xl md:text-2xl text-slate-300 max-w-4xl mx-auto leading-relaxed mb-8">
-            {t('languages.subtitle') || 'We believe powerful AI should be accessible to everyone, everywhere. That is why HelpMyIMG is natively localized into 30 different languages.'}
+            {t('languages.subtitle', { defaultValue: 'We believe powerful AI should be accessible to everyone, everywhere. That is why HelpMyIMG is natively localized into 30 different languages.' })}
           </p>
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-neon-emerald/10 border border-neon-emerald/20 text-neon-emerald text-sm md:text-base font-bold max-w-2xl mx-auto text-center">
-            {t('info.freePromo') || '100% Free, 0 Rupiah, No Subscriptions.'}
+            {t('info.freePromo', { defaultValue: '100% Free, 0 Rupiah, No Subscriptions.' })}
           </div>
         </motion.div>
 
@@ -62,10 +62,10 @@ export const LanguagesPage: React.FC = () => {
         <div className="mb-32">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-white mb-4">
-              {t('languages.s2.title') || 'Select Your Native Language'}
+              {t('languages.s2.title', { defaultValue: 'Select Your Native Language' })}
             </h2>
             <p className="text-slate-400 max-w-2xl mx-auto">
-              {t('languages.s2.desc') || 'Click on any language below to instantly switch the entire application interface.'}
+              {t('languages.s2.desc', { defaultValue: 'Click on any language below to instantly switch the entire application interface.' })}
             </p>
           </div>
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4">
@@ -94,10 +94,10 @@ export const LanguagesPage: React.FC = () => {
               <Languages className="w-8 h-8 text-neon-indigo" />
             </div>
             <h2 className="text-3xl md:text-5xl font-heading font-black text-white mb-6">
-              {t('languages.s3.title') || 'More Than Just Auto-Translate.'}
+              {t('languages.s3.title', { defaultValue: 'More Than Just Auto-Translate.' })}
             </h2>
             <p className="text-xl text-slate-400 leading-relaxed mb-6">
-              {t('languages.s3.desc') || 'We don\'t just plug our text into Google Translate and call it a day. Our localization engine adapts URLs, SEO meta tags, and cultural nuances so the platform feels truly native.'}
+              {t('languages.s3.desc', { defaultValue: 'We don\'t just plug our text into Google Translate and call it a day. Our localization engine adapts URLs, SEO meta tags, and cultural nuances so the platform feels truly native.' })}
             </p>
             <ul className="space-y-4">
               {[
@@ -138,10 +138,10 @@ export const LanguagesPage: React.FC = () => {
         <div className="mb-32 bg-dark-800/50 rounded-[40px] p-8 md:p-16 border border-dark-600 text-center">
           <Settings className="w-16 h-16 text-slate-400 mx-auto mb-8" />
           <h2 className="text-3xl md:text-5xl font-heading font-black text-white mb-6">
-            {t('languages.s4.title') || 'Zero Page Reloads.'}
+            {t('languages.s4.title', { defaultValue: 'Zero Page Reloads.' })}
           </h2>
           <p className="text-xl text-slate-400 max-w-2xl mx-auto mb-8">
-            {t('languages.s4.desc') || 'Built on React context, our i18n engine swaps all 1,500+ translation strings instantly without refreshing the page or interrupting your work.'}
+            {t('languages.s4.desc', { defaultValue: 'Built on React context, our i18n engine swaps all 1,500+ translation strings instantly without refreshing the page or interrupting your work.' })}
           </p>
         </div>
 
@@ -149,15 +149,15 @@ export const LanguagesPage: React.FC = () => {
         <div className="mb-32 bg-gradient-to-r from-neon-indigo/10 to-transparent border border-neon-indigo/20 rounded-3xl p-8 md:p-12 flex flex-col md:flex-row gap-8 items-center justify-between">
           <div>
             <h2 className="text-2xl font-bold text-white mb-4">
-              {t('languages.s5.title') || 'Missing Your Language?'}
+              {t('languages.s5.title', { defaultValue: 'Missing Your Language?' })}
             </h2>
             <p className="text-slate-400">
-              {t('languages.s5.desc') || 'We are constantly expanding. Let us know if you need HelpMyIMG in your native tongue.'}
+              {t('languages.s5.desc', { defaultValue: 'We are constantly expanding. Let us know if you need HelpMyIMG in your native tongue.' })}
             </p>
           </div>
           <button className="shrink-0 px-8 py-4 bg-neon-indigo hover:bg-neon-indigo/80 text-white rounded-xl font-bold transition-colors flex items-center gap-2">
             <MessageCircle className="w-5 h-5" />
-            {t('languages.s5.btn') || 'Request Translation'}
+            {t('languages.s5.btn', { defaultValue: 'Request Translation' })}
           </button>
         </div>
 
@@ -168,7 +168,7 @@ export const LanguagesPage: React.FC = () => {
               FAQ
             </span>
             <h2 className="text-3xl font-heading font-black text-white">
-              {t('languages.faq.title') || 'Localization FAQ'}
+              {t('languages.faq.title', { defaultValue: 'Localization FAQ' })}
             </h2>
           </div>
           <div className="space-y-4">

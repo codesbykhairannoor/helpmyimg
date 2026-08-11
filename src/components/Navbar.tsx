@@ -89,7 +89,7 @@ export const Navbar: React.FC = () => {
               {t('nav.removeBg')}
             </a>
             <a href={lang === 'en' ? `/${getLocalizedSlug('compress', lang)}` : `/${lang}/${getLocalizedSlug('compress', lang)}`} onClick={(e) => { e.preventDefault(); navigatePath(lang === 'en' ? `/${getLocalizedSlug('compress', lang)}` : `/${lang}/${getLocalizedSlug('compress', lang)}`); (document.activeElement as HTMLElement)?.blur(); }} className="hover:text-neon-cyan transition-colors font-bold text-[11px] uppercase tracking-normal px-2 py-1.5 flex items-center whitespace-nowrap rounded-lg hover:bg-slate-50 dark:hover:bg-dark-800/50">
-              {t('nav.compress') || 'Compress'}
+              {t('nav.compress', { defaultValue: 'Compress' })}
             </a>
             <a href={lang === 'en' ? `/${getLocalizedSlug('resize', lang)}` : `/${lang}/${getLocalizedSlug('resize', lang)}`} onClick={(e) => { e.preventDefault(); navigatePath(lang === 'en' ? `/${getLocalizedSlug('resize', lang)}` : `/${lang}/${getLocalizedSlug('resize', lang)}`); (document.activeElement as HTMLElement)?.blur(); }} className="hover:text-neon-cyan transition-colors font-bold text-[11px] uppercase tracking-normal px-2 py-1.5 flex items-center whitespace-nowrap rounded-lg hover:bg-slate-50 dark:hover:bg-dark-800/50">
               {t('nav.resize')}
@@ -99,7 +99,7 @@ export const Navbar: React.FC = () => {
             <div className="relative group/dropdown ml-1">
               <button className="flex items-center gap-2 bg-neon-cyan/10 hover:bg-neon-cyan/20 border border-neon-cyan/30 text-cyan-800 dark:text-neon-cyan px-3.5 py-1.5 rounded-lg transition-all duration-200 font-bold text-[11px] uppercase tracking-normal">
                 <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><rect width="7" height="7" x="3" y="3" rx="1"/><rect width="7" height="7" x="14" y="3" rx="1"/><rect width="7" height="7" x="14" y="14" rx="1"/><rect width="7" height="7" x="3" y="14" rx="1"/></svg>
-                {t('nav.tools') === 'AI Tools' ? 'All Photo Tools' : (t('nav.tools') || 'All Photo Tools')} 
+                {t('nav.tools') === 'AI Tools' ? 'All Photo Tools' : (t('nav.tools', { defaultValue: 'All Photo Tools' }))} 
                 <ChevronDown className="w-3.5 h-3.5 group-hover/dropdown:rotate-180 transition-transform duration-200" />
               </button>
               
@@ -148,10 +148,10 @@ export const Navbar: React.FC = () => {
         {/* Kanan: Theme Toggle, Language Switcher, Mobile Menu */}
         <div className="flex items-center justify-end gap-2 sm:gap-3 flex-shrink-0">
 
-          {/* Theme Toggle Button (Light Mode / Dark Mode) - Hidden on Mobile */}
+          {/* Theme Toggle Button (Light Mode / Dark Mode) */}
           <button
             onClick={toggleTheme}
-            className="hidden sm:flex items-center justify-center w-9 h-9 bg-dark-800 hover:bg-dark-700 border border-dark-500/60 rounded-xl text-slate-200 transition-all duration-200 shadow-sm"
+            className="flex items-center justify-center w-9 h-9 bg-dark-800 hover:bg-dark-700 border border-dark-500/60 rounded-xl text-slate-200 transition-all duration-200 shadow-sm"
             aria-label="Toggle Theme"
             title={theme === 'dark' ? 'Light Mode' : 'Dark Mode'}
           >
@@ -270,27 +270,12 @@ export const Navbar: React.FC = () => {
           >
             <div className="flex flex-col px-4 pt-4 pb-12 space-y-5">
               
-              {/* Theme Toggle inside Mobile Menu */}
-              <button
-                onClick={toggleTheme}
-                className="flex items-center justify-between w-full p-3 bg-dark-800 hover:bg-dark-700 border border-dark-600 rounded-xl transition-colors shadow-sm"
-              >
-                <span className="text-xs font-bold text-slate-800 dark:text-slate-200">
-                  {theme === 'dark' ? 'Switch to Light Mode' : 'Switch to Dark Mode'}
-                </span>
-                {theme === 'dark' ? (
-                  <Sun className="w-4 h-4 text-amber-400" />
-                ) : (
-                  <Moon className="w-4 h-4 text-indigo-500" />
-                )}
-              </button>
-
               {/* Quick 3 buttons */}
               <div className="grid grid-cols-3 gap-2">
                 {[
-                  { id: 'remove', label: t('nav.removeBg') || 'Remove BG' },
-                  { id: 'compress', label: t('nav.compress') || 'Compress' },
-                  { id: 'resize', label: t('nav.resize') || 'Resize' },
+                  { id: 'remove', label: t('nav.removeBg', { defaultValue: 'Remove BG' }) },
+                  { id: 'compress', label: t('nav.compress', { defaultValue: 'Compress' }) },
+                  { id: 'resize', label: t('nav.resize', { defaultValue: 'Resize' }) },
                 ].map(({ id, label }) => (
                   <button 
                     key={id} 
@@ -312,7 +297,7 @@ export const Navbar: React.FC = () => {
                 className="w-full bg-gradient-to-r from-neon-cyan/20 to-neon-indigo/20 border border-neon-cyan/30 text-white p-3 rounded-xl font-extrabold text-sm flex items-center justify-between shadow-sm transition-all"
                 style={{ marginBottom: isMobileAllOpen ? '8px' : '0' }}
               >
-                <span>{t('nav.tools') === 'AI Tools' ? 'All Photo Tools' : (t('nav.tools') || 'All Photo Tools')}</span>
+                <span>{t('nav.tools') === 'AI Tools' ? 'All Photo Tools' : (t('nav.tools', { defaultValue: 'All Photo Tools' }))}</span>
                 {isMobileAllOpen ? <ChevronDown className="w-5 h-5 rotate-180 transition-transform" /> : <ChevronDown className="w-5 h-5 transition-transform" />}
               </button>
 

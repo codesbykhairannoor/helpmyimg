@@ -12,7 +12,7 @@ export const SecurityPage: React.FC = () => {
     setOpenFaq(openFaq === index ? null : index);
   };
 
-  const rawTitle = t('security.title') || 'Your Data Never Leaves Your Device.';
+  const rawTitle = t('security.title', { defaultValue: 'Your Data Never Leaves Your Device.' });
   const titleWords = rawTitle.split(' ');
   const splitIndex = Math.min(2, Math.max(1, Math.floor(titleWords.length * 0.4)));
   const gradientPart = titleWords.slice(0, splitIndex).join(' ');
@@ -22,7 +22,7 @@ export const SecurityPage: React.FC = () => {
     <>
       <Helmet>
         <title>{`${t('footer.security')} | HelpMyIMG`}</title>
-        <meta name="description" content={t('security.subtitle') || 'Learn how our Zero-Cloud architecture protects your privacy.'} />
+        <meta name="description" content={t('security.subtitle', { defaultValue: 'Learn how our Zero-Cloud architecture protects your privacy.' })} />
         <link rel="canonical" href={`https://helpmyimg.com/${lang}/security`} />
       </Helmet>
 
@@ -36,7 +36,7 @@ export const SecurityPage: React.FC = () => {
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-neon-emerald/20 blur-[120px] rounded-full pointer-events-none -z-10" />
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-neon-emerald/10 border border-neon-emerald/20 text-neon-emerald text-sm font-mono font-bold mb-8">
             <Shield className="w-4 h-4" />
-            {t('security.badge') || 'ZERO-TRUST SECURITY MODEL'}
+            {t('security.badge', { defaultValue: 'ZERO-TRUST SECURITY MODEL' })}
           </div>
           <h1 
             className="font-heading font-black mb-8"
@@ -50,10 +50,10 @@ export const SecurityPage: React.FC = () => {
             </span>
           </h1>
           <p className="text-xl md:text-2xl text-slate-300 max-w-4xl mx-auto leading-relaxed mb-8">
-            {t('security.subtitle') || 'Experience 100% private AI image editing powered by local WebAssembly. We cannot see, store, or sell your photos because they never reach our servers.'}
+            {t('security.subtitle', { defaultValue: 'Experience 100% private AI image editing powered by local WebAssembly. We cannot see, store, or sell your photos because they never reach our servers.' })}
           </p>
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-neon-emerald/10 border border-neon-emerald/20 text-neon-emerald text-sm md:text-base font-bold max-w-2xl mx-auto text-center">
-            {t('info.freePromo') || '100% Free, 0 Rupiah, No Subscriptions.'}
+            {t('info.freePromo', { defaultValue: '100% Free, 0 Rupiah, No Subscriptions.' })}
           </div>
         </motion.div>
 
@@ -64,10 +64,10 @@ export const SecurityPage: React.FC = () => {
             <div className="grid lg:grid-cols-2 gap-16 items-center">
               <div>
                 <h2 className="text-3xl md:text-4xl font-heading font-bold text-white mb-6">
-                  {t('security.s2.title') || 'Client-Side Processing Execution'}
+                  {t('security.s2.title', { defaultValue: 'Client-Side Processing Execution' })}
                 </h2>
                 <p className="text-lg text-slate-400 leading-relaxed mb-8">
-                  {t('security.s2.desc') || 'Traditional image editors upload your sensitive files to their cloud servers, exposing them to breaches. HelpMyIMG downloads the AI neural network (Wasm) directly to your browser memory, processing everything locally.'}
+                  {t('security.s2.desc', { defaultValue: 'Traditional image editors upload your sensitive files to their cloud servers, exposing them to breaches. HelpMyIMG downloads the AI neural network (Wasm) directly to your browser memory, processing everything locally.' })}
                 </p>
                 <div className="space-y-4">
                   {[1, 2, 3].map((i) => (
@@ -95,7 +95,7 @@ export const SecurityPage: React.FC = () => {
                   </div>
                 </div>
                 <div className="text-center font-mono text-sm text-slate-400">
-                  {t('security.s2.graphic') || 'Cloud Uploads Disabled Internally'}
+                  {t('security.s2.graphic', { defaultValue: 'Cloud Uploads Disabled Internally' })}
                 </div>
               </div>
             </div>
@@ -106,7 +106,7 @@ export const SecurityPage: React.FC = () => {
         <div className="mb-32">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-5xl font-heading font-black text-white mb-6">
-              {t('security.s3.title') || 'Global Privacy Compliance'}
+              {t('security.s3.title', { defaultValue: 'Global Privacy Compliance' })}
             </h2>
           </div>
           <div className="grid md:grid-cols-3 gap-8">
@@ -171,7 +171,7 @@ export const SecurityPage: React.FC = () => {
               FAQ
             </span>
             <h2 className="text-3xl font-heading font-black text-white">
-              {t('security.faq.title') || 'Security FAQ'}
+              {t('security.faq.title', { defaultValue: 'Security FAQ' })}
             </h2>
           </div>
           <div className="space-y-4">
