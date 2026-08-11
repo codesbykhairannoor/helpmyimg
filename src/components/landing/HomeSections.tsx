@@ -31,7 +31,7 @@ export const HomeSections: React.FC = () => {
           <h2 
             className="font-heading font-extrabold text-white"
             style={{
-              fontSize: 'clamp(1.8rem, 4vw, 2.5rem)',
+              fontSize: 'clamp(1.5rem, 4vw, 2.5rem)',
               fontWeight: 800,
               lineHeight: 1.2
             }}
@@ -124,7 +124,7 @@ export const HomeSections: React.FC = () => {
             <h2 
               className="font-heading font-black text-white mb-6"
               style={{
-                fontSize: 'clamp(1.8rem, 4vw, 2.5rem)',
+                fontSize: 'clamp(1.5rem, 4vw, 2.5rem)',
                 fontWeight: 800,
                 lineHeight: 1.2
               }}
@@ -200,7 +200,7 @@ export const HomeSections: React.FC = () => {
           <h2 
             className="font-heading font-extrabold text-white mb-6"
             style={{
-              fontSize: 'clamp(1.8rem, 4vw, 2.5rem)',
+              fontSize: 'clamp(1.5rem, 4vw, 2.5rem)',
               fontWeight: 800,
               lineHeight: 1.2
             }}
@@ -257,7 +257,7 @@ export const HomeSections: React.FC = () => {
             <h2 
               className="font-heading font-extrabold text-white mb-6"
               style={{
-                fontSize: 'clamp(1.8rem, 4vw, 2.5rem)',
+                fontSize: 'clamp(1.5rem, 4vw, 2.5rem)',
                 fontWeight: 800,
                 lineHeight: 1.2
               }}
@@ -300,7 +300,7 @@ export const HomeSections: React.FC = () => {
           <h2 
             className="font-heading font-extrabold text-white"
             style={{
-              fontSize: 'clamp(1.8rem, 4vw, 2.5rem)',
+              fontSize: 'clamp(1.5rem, 4vw, 2.5rem)',
               fontWeight: 800,
               lineHeight: 1.2
             }}

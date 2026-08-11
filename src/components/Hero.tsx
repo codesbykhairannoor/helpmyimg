@@ -50,7 +50,7 @@ export const Hero: React.FC<HeroProps> = ({ title, description }) => {
         <h1 
           className="font-heading font-black mb-6 text-center"
           style={{ 
-            fontSize: 'clamp(1.8rem, 4.5vw, 4.5rem)', 
+            fontSize: 'clamp(2.5rem, 6vw, 4.5rem)', 
             fontWeight: 900, 
             letterSpacing: '-0.03em', 
             lineHeight: 1.15 

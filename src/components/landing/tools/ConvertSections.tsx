@@ -26,7 +26,7 @@ export const ConvertSections: React.FC = () => {
               </span>
             </div>
 
-            <h2 className="font-heading font-extrabold text-white mt-4 sm:mt-6 tracking-tight" style={{ fontSize: 'clamp(1.8rem, 4vw, 2.5rem)', fontWeight: 800, lineHeight: 1.2 }}>
+            <h2 className="font-heading font-extrabold text-white mt-4 sm:mt-6 tracking-tight" style={{ fontSize: 'clamp(1.5rem, 4vw, 2.5rem)', fontWeight: 800, lineHeight: 1.2 }}>
               <span className="block">{tr('heroTitle', 'Format Transformer.')}</span>
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#06B6D4] to-[#EC4899] block mt-2">
                 {tr('heroTitle2', 'Zero Quality Loss.')}
@@ -135,7 +135,7 @@ export const ConvertSections: React.FC = () => {
             <span className="text-xs font-mono font-bold uppercase tracking-widest text-[#06B6D4] bg-[#06B6D4]/10 px-3 py-1.5 rounded-full border border-[#06B6D4]/30 block w-max mx-auto mb-4">
               {tr('stepsTag', 'WORKFLOW')}
             </span>
-            <h2 className="font-heading font-extrabold text-white mt-4 sm:mt-6 tracking-tight" style={{ fontSize: 'clamp(1.8rem, 4vw, 2.5rem)', fontWeight: 800, lineHeight: 1.2 }}>
+            <h2 className="font-heading font-extrabold text-white mt-4 sm:mt-6 tracking-tight" style={{ fontSize: 'clamp(1.5rem, 4vw, 2.5rem)', fontWeight: 800, lineHeight: 1.2 }}>
               {tr('stepsTitle', 'Convert in 3 Steps')}
             </h2>
           </div>

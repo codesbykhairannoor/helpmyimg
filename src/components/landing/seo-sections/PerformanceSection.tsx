@@ -13,7 +13,7 @@ export const PerformanceSection: React.FC<SectionProps> = ({ section }) => (
           <Zap size={28} color="white" />
         </div>
         <div style={{ flex: 1 }}>
-          <h2 style={{ fontSize: 'clamp(1.8rem, 4vw, 2.5rem)', fontWeight: 800, marginBottom: 12, color: 'var(--text-main)', lineHeight: 1.2 }}>{section.title}</h2>
+          <h2 style={{ fontSize: 'clamp(1.5rem, 4vw, 2.5rem)', fontWeight: 800, marginBottom: 12, color: 'var(--text-main)', lineHeight: 1.2 }}>{section.title}</h2>
           <p style={{ fontSize: '1.1rem', color: 'var(--text-muted)', lineHeight: 1.8, maxWidth: 680 }}>{section.content}</p>
         </div>
       </div>

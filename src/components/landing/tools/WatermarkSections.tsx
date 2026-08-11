@@ -26,7 +26,7 @@ export const WatermarkSections: React.FC = () => {
               </span>
             </div>
 
-            <h2 className="font-heading font-extrabold text-white mt-4 sm:mt-6 tracking-tight" style={{ fontSize: 'clamp(1.8rem, 4vw, 2.5rem)', fontWeight: 800, lineHeight: 1.2 }}>
+            <h2 className="font-heading font-extrabold text-white mt-4 sm:mt-6 tracking-tight" style={{ fontSize: 'clamp(1.5rem, 4vw, 2.5rem)', fontWeight: 800, lineHeight: 1.2 }}>
               <span className="block">{tr('heroTitle', 'Protect Your Work.')}</span>
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#8B5CF6] via-[#EC4899] to-[#F43F5E] block mt-2">
                 {tr('heroTitle2', 'Build Your Identity.')}
@@ -122,7 +122,7 @@ export const WatermarkSections: React.FC = () => {
             <span className="text-xs font-mono font-bold uppercase tracking-widest text-[#8B5CF6] bg-[#8B5CF6]/10 px-3 py-1.5 rounded-full border border-[#8B5CF6]/30 block w-max mx-auto mb-4">
               {tr('stepsTag', 'WORKFLOW')}
             </span>
-            <h2 className="font-heading font-extrabold text-white mt-4 sm:mt-6 tracking-tight" style={{ fontSize: 'clamp(1.8rem, 4vw, 2.5rem)', fontWeight: 800, lineHeight: 1.2 }}>
+            <h2 className="font-heading font-extrabold text-white mt-4 sm:mt-6 tracking-tight" style={{ fontSize: 'clamp(1.5rem, 4vw, 2.5rem)', fontWeight: 800, lineHeight: 1.2 }}>
               {tr('stepsTitle', 'Protect in 3 Steps')}
             </h2>
           </div>

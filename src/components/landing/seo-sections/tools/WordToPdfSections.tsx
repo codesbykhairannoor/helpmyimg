@@ -52,7 +52,7 @@ export const WordToPdfGeoSection: React.FC<SectionProps> = ({ section, flipLayou
   <section className="seo-section word-geo" style={{ padding: '80px 24px', margin: '40px 0', background: 'var(--bg-main)' }}>
     <div style={{ maxWidth: 1000, margin: '0 auto', display: 'flex', flexDirection: flipLayout ? 'row-reverse' : 'row', flexWrap: 'wrap', gap: 48, alignItems: 'center' }}>
       <div style={{ flex: '1 1 400px' }}>
-        <h2 style={{ fontSize: 'clamp(1.8rem, 4vw, 2.5rem)', fontWeight: 900, marginBottom: 24, color: 'var(--text-main)', lineHeight: 1.2 }}>{section.title}</h2>
+        <h2 style={{ fontSize: 'clamp(1.5rem, 4vw, 2.5rem)', fontWeight: 900, marginBottom: 24, color: 'var(--text-main)', lineHeight: 1.2 }}>{section.title}</h2>
         <p style={{ fontSize: '1.15rem', color: 'var(--text-muted)', lineHeight: 1.8 }}>{section.content}</p>
       </div>
       <div style={{ flex: '1 1 350px', background: 'var(--brand-gradient)', padding: 40, borderRadius: 32, border: '1px solid rgba(225, 29, 72, 0.2)' }}>
@@ -73,7 +73,7 @@ export const WordToPdfPrivacySection: React.FC<SectionProps> = ({ section, badge
   <section className="seo-section word-privacy" style={{ padding: '80px 24px', margin: '60px 0', background: 'var(--bg-card)', borderRadius: 32, border: '1px solid var(--border-color)', textAlign: 'center' }}>
     <div style={{ maxWidth: 700, margin: '0 auto' }}>
       <ShieldCheck size={56} color="var(--brand-primary)" style={{ margin: '0 auto 24px' }} />
-      <h2 style={{ fontSize: 'clamp(1.8rem, 4vw, 2.5rem)', fontWeight: 900, marginBottom: 20, color: 'var(--text-main)' }}>{section.title}</h2>
+      <h2 style={{ fontSize: 'clamp(1.5rem, 4vw, 2.5rem)', fontWeight: 900, marginBottom: 20, color: 'var(--text-main)' }}>{section.title}</h2>
       <p style={{ fontSize: '1.15rem', color: 'var(--text-muted)', lineHeight: 1.8, marginBottom: 40 }}>{section.content}</p>
       <div style={{ display: 'flex', justifyContent: 'center', gap: 20, flexWrap: 'wrap' }}>
         <div style={{ padding: '12px 24px', background: 'rgba(225, 29, 72, 0.1)', color: 'var(--brand-primary)', borderRadius: 100, fontWeight: 700, fontSize: '0.9rem' }}>Strictly Confidential</div>
@@ -88,7 +88,7 @@ export const WordToPdfPerformanceSection: React.FC<SectionProps> = ({ section, b
     <div style={{ maxWidth: 1000, margin: '0 auto', display: 'flex', flexWrap: 'wrap', gap: 48, alignItems: 'center' }}>
       <div style={{ flex: '1 1 360px' }}>
         <Zap size={48} color="var(--brand-primary)" style={{ marginBottom: 24 }} />
-        <h2 style={{ fontSize: 'clamp(1.8rem, 4vw, 2.5rem)', fontWeight: 900, marginBottom: 20, color: 'var(--text-main)' }}>{section.title}</h2>
+        <h2 style={{ fontSize: 'clamp(1.5rem, 4vw, 2.5rem)', fontWeight: 900, marginBottom: 20, color: 'var(--text-main)' }}>{section.title}</h2>
         <p style={{ fontSize: '1.15rem', color: 'var(--text-muted)', lineHeight: 1.8 }}>{section.content}</p>
       </div>
       <div style={{ flex: '1 1 400px', display: 'flex', flexDirection: 'column', gap: 20 }}>

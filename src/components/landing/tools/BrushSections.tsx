@@ -20,7 +20,7 @@ export const BrushSections: React.FC = () => {
             {tr('heroBadge', 'PIXEL-PERFECT CONTROL')}
           </div>
           
-          <h2 className="font-heading font-extrabold text-white mt-4 sm:mt-6 tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-slate-900 via-fuchsia-800 to-fuchsia-600 dark:from-white dark:via-fuchsia-100 dark:to-fuchsia-400" style={{ fontSize: 'clamp(1.8rem, 4vw, 2.5rem)', fontWeight: 800, lineHeight: 1.2 }}>
+          <h2 className="font-heading font-extrabold text-white mt-4 sm:mt-6 tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-slate-900 via-fuchsia-800 to-fuchsia-600 dark:from-white dark:via-fuchsia-100 dark:to-fuchsia-400" style={{ fontSize: 'clamp(1.5rem, 4vw, 2.5rem)', fontWeight: 800, lineHeight: 1.2 }}>
             {tr('heroTitle', 'Master Your Edges with the Magic Refinement Brush')}
           </h2>
           
@@ -70,7 +70,7 @@ export const BrushSections: React.FC = () => {
       {/* 2. BENTO BOX FEATURES GRID */}
       <section className="max-w-7xl mx-auto w-full relative" style={{ padding: '80px 24px', marginBottom: '80px' }}>
          <div className="text-center mb-16">
-            <h2 className="font-heading font-extrabold text-white mt-4 sm:mt-6 tracking-tight" style={{ fontSize: 'clamp(1.8rem, 4vw, 2.5rem)', fontWeight: 800, lineHeight: 1.2 }}>Precision at your Fingertips</h2>
+            <h2 className="font-heading font-extrabold text-white mt-4 sm:mt-6 tracking-tight" style={{ fontSize: 'clamp(1.5rem, 4vw, 2.5rem)', fontWeight: 800, lineHeight: 1.2 }}>Precision at your Fingertips</h2>
             <p className="text-slate-400 mt-4 font-body" style={{ fontSize: '1.15rem', lineHeight: 1.8 }}>Everything you need to manually perfect your images.</p>
          </div>
 

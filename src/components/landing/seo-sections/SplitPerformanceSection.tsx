@@ -7,7 +7,7 @@ export const SplitPerformanceSection: React.FC<SectionProps> = ({ section }) => 
     <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', justifyContent: 'space-between', gap: 40, maxWidth: 1000, margin: '0 auto' }}>
       <div style={{ flex: '1 1 400px' }}>
         <Monitor size={48} color="#ec4899" style={{ marginBottom: 24 }} />
-        <h2 style={{ fontSize: 'clamp(1.8rem, 4vw, 2.5rem)', fontWeight: 800, marginBottom: 24, color: 'var(--text-main)', lineHeight: 1.2 }}>{section.title}</h2>
+        <h2 style={{ fontSize: 'clamp(1.5rem, 4vw, 2.5rem)', fontWeight: 800, marginBottom: 24, color: 'var(--text-main)', lineHeight: 1.2 }}>{section.title}</h2>
         <p style={{ fontSize: '1.15rem', color: 'var(--text-muted)', lineHeight: 1.8 }}>{section.content}</p>
       </div>
       <div style={{ flex: '1 1 300px', display: 'flex', flexDirection: 'column', gap: 20 }}>

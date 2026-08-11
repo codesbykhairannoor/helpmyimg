@@ -3,7 +3,7 @@ import type { SectionProps } from './types';
 
 export const HowToStepsSection: React.FC<SectionProps> = ({ section }) => (
   <section className="seo-section how-to-steps" style={{ padding: '80px 24px', margin: '40px 0', background: 'var(--bg-card)', borderRadius: 32 }}>
-    <h2 style={{ fontSize: 'clamp(1.8rem, 4vw, 2.5rem)', fontWeight: 800, textAlign: 'center', marginBottom: 60, color: 'var(--text-main)' }}>{section.title}</h2>
+    <h2 style={{ fontSize: 'clamp(1.5rem, 4vw, 2.5rem)', fontWeight: 800, textAlign: 'center', marginBottom: 60, color: 'var(--text-main)' }}>{section.title}</h2>
     <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: 40, maxWidth: 1000, margin: '0 auto' }}>
       {section.steps?.map((step, i) => (
         <div key={i} style={{ textAlign: 'left', position: 'relative', paddingLeft: 40 }}>

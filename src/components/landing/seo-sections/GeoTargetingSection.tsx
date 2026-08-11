@@ -16,7 +16,7 @@ export const GeoTargetingSection: React.FC<SectionProps> = ({ section, flipLayou
         </div>
       </div>
       <div style={{ flex: '1 1 400px' }}>
-        <h2 style={{ fontSize: 'clamp(1.8rem, 4vw, 2.5rem)', fontWeight: 800, marginBottom: 24, color: 'var(--text-main)', lineHeight: 1.2 }}>{section.title}</h2>
+        <h2 style={{ fontSize: 'clamp(1.5rem, 4vw, 2.5rem)', fontWeight: 800, marginBottom: 24, color: 'var(--text-main)', lineHeight: 1.2 }}>{section.title}</h2>
         <p style={{ fontSize: '1.15rem', color: 'var(--text-muted)', lineHeight: 1.8 }}>{section.content}</p>
         <div style={{ display: 'flex', gap: 16, marginTop: 24, flexWrap: 'wrap' }}>
           <div style={{ padding: '8px 16px', background: 'rgba(16,185,129,0.1)', color: '#10b981', borderRadius: 100, fontSize: '0.9rem', fontWeight: 700, display: 'flex', alignItems: 'center', gap: 8 }}><ServerOff size={16} /> Zero Server Ping</div>

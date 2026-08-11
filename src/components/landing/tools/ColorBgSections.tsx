@@ -24,7 +24,7 @@ export const ColorBgSections: React.FC = () => {
                 {tr('heroBadge', 'INSTANT COLOR STUDIO')}
               </span>
             </div>
-            <h2 className="font-heading font-extrabold text-white mt-4 sm:mt-6 tracking-tight bg-clip-text bg-gradient-to-r from-white via-slate-200 to-slate-400" style={{ fontSize: 'clamp(1.8rem, 4vw, 2.5rem)', fontWeight: 800, lineHeight: 1.2 }}>
+            <h2 className="font-heading font-extrabold text-white mt-4 sm:mt-6 tracking-tight bg-clip-text bg-gradient-to-r from-white via-slate-200 to-slate-400" style={{ fontSize: 'clamp(1.5rem, 4vw, 2.5rem)', fontWeight: 800, lineHeight: 1.2 }}>
               {tr('heroTitle', 'Transform Background Colors in Real-Time')}
             </h2>
             <p className="text-slate-400 mt-4 max-w-2xl mx-auto lg:mx-0 font-body" style={{ fontSize: '1.15rem', lineHeight: 1.8 }}>
@@ -114,7 +114,7 @@ export const ColorBgSections: React.FC = () => {
           <span className="text-xs font-mono font-bold uppercase tracking-widest text-[#05DAED] bg-[#05DAED]/10 px-3 py-1.5 rounded-full border border-[#05DAED]/30 block w-max mx-auto mb-4">
             {tr('whoTag', 'PROFESSIONAL USES')}
           </span>
-          <h2 className="font-heading font-extrabold text-white mt-4 sm:mt-6 tracking-tight" style={{ fontSize: 'clamp(1.8rem, 4vw, 2.5rem)', fontWeight: 800, lineHeight: 1.2 }}>
+          <h2 className="font-heading font-extrabold text-white mt-4 sm:mt-6 tracking-tight" style={{ fontSize: 'clamp(1.5rem, 4vw, 2.5rem)', fontWeight: 800, lineHeight: 1.2 }}>
             {tr('whoTitle', 'Built for Visual Creators')}
           </h2>
         </div>
@@ -150,7 +150,7 @@ export const ColorBgSections: React.FC = () => {
       <section className="max-w-7xl mx-auto w-full relative" style={{ padding: '80px 24px', marginBottom: '80px' }}>
         <div className="glass-panel p-12 rounded-[3rem] border-dark-600/30">
           <div className="text-center max-w-3xl mx-auto mb-16">
-            <h2 className="font-heading font-extrabold text-white mt-4 sm:mt-6 tracking-tight" style={{ fontSize: 'clamp(1.8rem, 4vw, 2.5rem)', fontWeight: 800, lineHeight: 1.2 }}>
+            <h2 className="font-heading font-extrabold text-white mt-4 sm:mt-6 tracking-tight" style={{ fontSize: 'clamp(1.5rem, 4vw, 2.5rem)', fontWeight: 800, lineHeight: 1.2 }}>
               {tr('stepsTitle', 'Colorize in 3 Steps')}
             </h2>
           </div>

@@ -23,7 +23,7 @@ export const PickerSections: React.FC = () => {
                 {tr('heroBadge', 'PIXEL PRECISION')}
               </span>
             </div>
-            <h2 className="font-heading font-extrabold text-white mt-4 sm:mt-6 tracking-tight" style={{ fontSize: 'clamp(1.8rem, 4vw, 2.5rem)', fontWeight: 800, lineHeight: 1.2 }}>
+            <h2 className="font-heading font-extrabold text-white mt-4 sm:mt-6 tracking-tight" style={{ fontSize: 'clamp(1.5rem, 4vw, 2.5rem)', fontWeight: 800, lineHeight: 1.2 }}>
               {tr('heroTitle', 'Extract Perfect Colors.')}<br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-slate-300 to-[#05DAED]">{tr('heroTitle2', 'Build Stunning Palettes.')}</span>
             </h2>
@@ -126,7 +126,7 @@ export const PickerSections: React.FC = () => {
           <span className="text-xs font-mono font-bold uppercase tracking-widest text-[#05DAED] bg-[#05DAED]/10 px-3 py-1.5 rounded-full border border-[#05DAED]/30 block w-max mx-auto mb-4">
             {tr('stepsTag', 'WORKFLOW')}
           </span>
-          <h2 className="font-heading font-extrabold text-white mt-4 sm:mt-6 tracking-tight" style={{ fontSize: 'clamp(1.8rem, 4vw, 2.5rem)', fontWeight: 800, lineHeight: 1.2 }}>
+          <h2 className="font-heading font-extrabold text-white mt-4 sm:mt-6 tracking-tight" style={{ fontSize: 'clamp(1.5rem, 4vw, 2.5rem)', fontWeight: 800, lineHeight: 1.2 }}>
             {tr('stepsTitle', 'Extract in 3 Steps')}
           </h2>
         </div>

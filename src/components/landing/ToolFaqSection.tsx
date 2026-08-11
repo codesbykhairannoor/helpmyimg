@@ -44,7 +44,7 @@ export const ToolFaqSection: React.FC<ToolFaqSectionProps> = ({ toolMapName, var
           </span>
           <h2 
             className="font-heading font-extrabold text-white mt-4 sm:mt-6 tracking-tight"
-            style={{ fontSize: 'clamp(1.8rem, 4vw, 2.5rem)', fontWeight: 800, lineHeight: 1.2 }}
+            style={{ fontSize: 'clamp(1.5rem, 4vw, 2.5rem)', fontWeight: 800, lineHeight: 1.2 }}
           >
             {title}
           </h2>
@@ -94,7 +94,7 @@ export const ToolFaqSection: React.FC<ToolFaqSectionProps> = ({ toolMapName, var
             </span>
             <h2 
               className="font-heading font-extrabold text-white mt-4 sm:mt-6 tracking-tight"
-              style={{ fontSize: 'clamp(1.8rem, 4vw, 2.5rem)', fontWeight: 800, lineHeight: 1.2 }}
+              style={{ fontSize: 'clamp(1.5rem, 4vw, 2.5rem)', fontWeight: 800, lineHeight: 1.2 }}
             >
               {title}
             </h2>
@@ -132,7 +132,7 @@ export const ToolFaqSection: React.FC<ToolFaqSectionProps> = ({ toolMapName, var
           </span>
           <h2 
             className="font-heading font-extrabold text-white mt-4 sm:mt-6 tracking-tight"
-            style={{ fontSize: 'clamp(1.8rem, 4vw, 2.5rem)', fontWeight: 800, lineHeight: 1.2 }}
+            style={{ fontSize: 'clamp(1.5rem, 4vw, 2.5rem)', fontWeight: 800, lineHeight: 1.2 }}
           >
             {title}
           </h2>
@@ -167,7 +167,7 @@ export const ToolFaqSection: React.FC<ToolFaqSectionProps> = ({ toolMapName, var
         </span>
         <h2 
           className="font-heading font-extrabold text-white mt-4 sm:mt-6 tracking-tight"
-          style={{ fontSize: 'clamp(1.8rem, 4vw, 2.5rem)', fontWeight: 800, lineHeight: 1.2 }}
+          style={{ fontSize: 'clamp(1.5rem, 4vw, 2.5rem)', fontWeight: 800, lineHeight: 1.2 }}
         >
           {title}
         </h2>
