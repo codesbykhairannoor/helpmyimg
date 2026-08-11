@@ -10,10 +10,10 @@ import { Globe, ChevronDown, Sun, Moon, Menu, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { getToolFromSlug, getLocalizedSlug, type InternalTool } from '../utils/urlMapper';
 import { getInfoPageFromSlug, getLocalizedInfoSlug, type InfoPageType } from '../utils/infoUrlMapper';
-// Dummy reference to suppress unused InfoPageType warning
+// Suppress unused InfoPageType import warning
 const _unusedInfoPageType: InfoPageType = 'about';
-// Dummy reference to suppress unused InfoPageType warning
-const _unusedInfoPageType: InfoPageType = 'about';
+void _unusedInfoPageType;
+
 import { tools, categories } from '../config/tools';
 
 export const Navbar: React.FC = () => {
