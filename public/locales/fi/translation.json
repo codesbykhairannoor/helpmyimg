@@ -19,7 +19,7 @@
   "tab.remove": "✂️ Poista Tausta",
   "tab.blur": "💧 Studio Bokeh -sumennus",
   "tab.color": "🎨 Passikuvat & Värit",
-  "tab.brush": "🖌️ Manuaalinen Sivellin",
+  "tab.brush": "Manuaalinen Sivellin",
   "tab.widget": "🔌 Widget-generaattori",
   "dropzone.title": "Lataa kuvasi tähän (Tukee jopa 10 kuvan erää)",
   "dropzone.subtitle": "Vedä ja pudota kuvat (PNG, JPG, WEBP) tai klikkaa",

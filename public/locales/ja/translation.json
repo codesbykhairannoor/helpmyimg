@@ -18,7 +18,7 @@
   "tab.remove": "✂️ 背景自動切り抜き",
   "tab.blur": "💧 背景ぼかし (ボケ)",
   "tab.color": "🎨 証明写真 & 単色",
-  "tab.brush": "🖌️ 手動補正ブラシ",
+  "tab.brush": "手動補正ブラシ",
   "tab.widget": "🔌 ウィジェット生成",
   "dropzone.title": "ここに写真をアップロード (最大10枚一括処理に対応)",
   "dropzone.subtitle": "写真をドラッグ＆ドロップ (PNG, JPG, WEBP) またはクリックして選択",

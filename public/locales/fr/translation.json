@@ -19,7 +19,7 @@
   "tab.remove": "✂️ Détourage IA",
   "tab.blur": "💧 Flou Bokeh Studio",
   "tab.color": "🎨 Photo d’Identité",
-  "tab.brush": "🖌️ Pinceau Manuel",
+  "tab.brush": "Pinceau Manuel",
   "tab.widget": "🔌 Générateur Widget",
   "dropzone.title": "Déposez vos photos ici (Supporte par lot jusqu’à 10)",
   "dropzone.subtitle": "Glissez-déposez des photos (PNG, JPG, WEBP) ou cliquez pour parcourir",

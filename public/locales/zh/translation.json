@@ -19,7 +19,7 @@
   "tab.remove": "✂️ AI 智能抠图",
   "tab.blur": "💧 单反背景虚化",
   "tab.color": "🎨 证件照红蓝底",
-  "tab.brush": "🖌️ 手动修图画笔",
+  "tab.brush": "手动修图画笔",
   "tab.widget": "🔌 免费组件生成",
   "dropzone.title": "在此上传照片（支持最高 10 张批量处理）",
   "dropzone.subtitle": "拖拽照片至此 (PNG, JPG, WEBP) 或点击选择文件",

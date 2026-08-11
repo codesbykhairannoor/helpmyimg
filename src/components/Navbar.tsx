@@ -104,7 +104,7 @@ export const Navbar: React.FC = () => {
               </button>
               
               {/* Premium Full-Width Mega Menu (4 Columns) */}
-              <div className="fixed left-0 right-0 top-[56px] bg-white dark:bg-dark-900/95 backdrop-blur-2xl border-b-2 border-neon-cyan shadow-[0_24px_60px_rgba(0,0,0,0.15)] dark:shadow-[0_24px_60px_rgba(0,0,0,0.4)] opacity-0 invisible group-hover/dropdown:opacity-100 group-hover/dropdown:visible transition-all duration-200 py-8 z-50">
+              <div className="fixed left-0 right-0 top-[55px] bg-white dark:bg-dark-900/95 backdrop-blur-2xl border-b-2 border-neon-cyan shadow-[0_24px_60px_rgba(0,0,0,0.15)] dark:shadow-[0_24px_60px_rgba(0,0,0,0.4)] opacity-0 invisible group-hover/dropdown:opacity-100 group-hover/dropdown:visible transition-all duration-200 py-8 z-50">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-x-8 gap-y-8 text-left">
                   {categories.filter(c => c.id !== 'all').map(cat => {
                     const catTools = tools.filter(t => t.category === cat.id);
@@ -129,7 +129,7 @@ export const Navbar: React.FC = () => {
                                 className="flex items-center gap-3.5 py-2 px-3 -mx-3 rounded-xl hover:bg-slate-50 dark:hover:bg-dark-800 transition-colors group/item"
                               >
                                 <tool.icon strokeWidth={1.5} className="w-5 h-5 flex-shrink-0 text-slate-600 dark:text-slate-400 group-hover/item:text-neon-cyan transition-colors" />
-                                <span className="text-base capitalize text-slate-700 dark:text-slate-200 font-bold tracking-tight truncate group-hover/item:text-neon-cyan transition-colors">
+                                <span className="text-[11px] uppercase text-slate-700 dark:text-slate-200 font-bold tracking-widest truncate group-hover/item:text-neon-cyan transition-colors">
                                   {t(tool.titleKey)}
                                 </span>
                               </a>
@@ -268,7 +268,7 @@ export const Navbar: React.FC = () => {
             transition={{ duration: 0.15, ease: 'easeInOut' }}
             className="lg:hidden absolute inset-x-0 top-14 z-50 bg-dark-900/95 backdrop-blur-xl border-t border-b border-dark-500/40 shadow-2xl overflow-y-auto max-h-[calc(100vh-56px)]"
           >
-            <div className="flex flex-col px-4 pt-4 pb-12 space-y-5">
+            <div className="flex flex-col px-4 pt-4 pb-6 space-y-5">
               
               {/* Quick 3 buttons */}
               <div className="grid grid-cols-3 gap-2">
@@ -284,7 +284,7 @@ export const Navbar: React.FC = () => {
                       navigatePath(lang === 'en' ? `/${getLocalizedSlug(toolId, lang)}` : `/${lang}/${getLocalizedSlug(toolId, lang)}`);
                       setMobileMenuOpen(false);
                     }} 
-                    className="bg-dark-800 hover:bg-dark-700 border border-dark-600/50 p-2.5 rounded-xl font-bold text-slate-200 text-xs sm:text-sm text-center shadow-sm transition-colors"
+                    className="bg-dark-800 hover:bg-dark-700 border border-dark-600/50 p-2.5 rounded-xl font-bold text-slate-200 text-[10px] sm:text-xs uppercase tracking-wider text-center shadow-sm transition-colors"
                   >
                     {label}
                   </button>
@@ -294,17 +294,18 @@ export const Navbar: React.FC = () => {
               {/* Accordion: All Tools */}
               <button
                 onClick={() => setIsMobileAllOpen(!isMobileAllOpen)}
-                className="w-full bg-gradient-to-r from-cyan-500 to-emerald-500 text-white py-[11px] px-4 rounded-lg font-extrabold text-[0.9rem] flex items-center justify-between shadow-sm transition-all"
+                className="w-full bg-gradient-to-r from-cyan-500 to-emerald-500 text-white py-[11px] px-4 rounded-lg font-extrabold text-[0.8rem] uppercase tracking-widest flex items-center justify-between shadow-sm transition-all"
                 style={{ marginBottom: isMobileAllOpen ? '12px' : '0' }}
               >
                 <span>{t('nav.tools') === 'AI Tools' ? 'All Photo Tools' : (t('nav.tools', { defaultValue: 'All Photo Tools' }))}</span>
                 {isMobileAllOpen ? <ChevronDown className="w-4 h-4 rotate-180 transition-transform" /> : <ChevronDown className="w-4 h-4 transition-transform" />}
               </button>
 
-              <nav className="flex flex-col space-y-4">
-                {isMobileAllOpen && categories.filter(c => c.id !== 'all').map(cat => {
-                  const catTools = tools.filter(t => t.category === cat.id);
-                  if (catTools.length === 0) return null;
+              {isMobileAllOpen && (
+                <nav className="flex flex-col space-y-4">
+                  {categories.filter(c => c.id !== 'all').map(cat => {
+                    const catTools = tools.filter(t => t.category === cat.id);
+                    if (catTools.length === 0) return null;
 
                   return (
                     <div key={cat.id} className="space-y-0">
@@ -332,6 +333,7 @@ export const Navbar: React.FC = () => {
                   );
                 })}
               </nav>
+            )}
             </div>
           </motion.div>
         )}
