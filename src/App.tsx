@@ -58,7 +58,7 @@ const MainContent = () => {
   }
 
   return (
-    <main className="flex-1 w-full flex flex-col gap-8 md:gap-16 pt-8 sm:pt-10 md:pt-14 pb-16 min-h-screen">
+    <main className="flex-1 w-full flex flex-col gap-8 md:gap-16 pt-12 pb-16 min-h-screen">
       <div className="relative">
         <div className="fixed top-1/2 left-0 w-[500px] h-[500px] -translate-x-1/2 -translate-y-1/2 bg-[radial-gradient(circle_at_center,rgba(5,218,237,0.12)_0%,transparent_60%)] rounded-full pointer-events-none -z-10" />
         <div className="fixed top-1/3 right-0 w-[600px] h-[600px] translate-x-1/3 -translate-y-1/2 bg-[radial-gradient(circle_at_center,rgba(79,70,229,0.1)_0%,transparent_60%)] rounded-full pointer-events-none -z-10" />

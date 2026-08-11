@@ -314,7 +314,7 @@ export const Navbar: React.FC = () => {
 
  return (
  <div key={cat.id} className="space-y-0">
- <div className="text-[0.7rem] font-extrabold text-cyan-600 dark:text-neon-cyan mt-2 mb-2 pb-1.5 border-b border-dashed border-slate-200 dark:border-dark-600 uppercase">
+ <div className="text-[0.65rem] font-extrabold text-cyan-600 dark:text-neon-cyan mt-2 mb-2 pb-1.5 border-b border-dashed border-slate-200 dark:border-dark-600 uppercase">
  {t(cat.labelKey)}
  </div>
  <div className="grid grid-cols-2 gap-1.5">
@@ -327,7 +327,7 @@ export const Navbar: React.FC = () => {
  navigatePath(lang === 'en' ? `/${getLocalizedSlug(tool.id, lang)}` : `/${lang}/${getLocalizedSlug(tool.id, lang)}`);
  setMobileMenuOpen(false);
  }}
- className="flex items-center gap-2 bg-white dark:bg-dark-800 border border-slate-200 dark:border-dark-600/50 px-[11px] py-[9px] rounded-lg font-semibold text-slate-700 dark:text-slate-200 text-[0.78rem] text-left hover:border-cyan-500 dark:hover:border-neon-cyan transition-colors"
+ className="flex items-center gap-2 bg-white dark:bg-dark-800 border border-slate-200 dark:border-dark-600/50 px-[11px] py-[9px] rounded-lg font-semibold text-slate-700 dark:text-slate-200 text-[0.72rem] text-left hover:border-cyan-500 dark:hover:border-neon-cyan transition-colors"
  >
  <tool.icon className="w-[13px] h-[13px] text-cyan-600 dark:text-neon-cyan shrink-0" strokeWidth={2.5} />
  <span className="truncate uppercase">{t(tool.titleKey)}</span>
