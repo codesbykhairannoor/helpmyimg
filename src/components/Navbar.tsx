@@ -16,6 +16,7 @@ export const Navbar: React.FC = () => {
   const { theme, toggleTheme } = useTheme();
   const [langOpen, setLangOpen] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [isMobileAllOpen, setIsMobileAllOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
   const { navigatePath } = useRouter();
 
@@ -281,8 +282,38 @@ export const Navbar: React.FC = () => {
                 )}
               </button>
 
+              {/* Quick 3 buttons */}
+              <div className="grid grid-cols-3 gap-2">
+                {[
+                  { id: 'remove', label: t('nav.removeBg') || 'Remove BG' },
+                  { id: 'compress', label: t('nav.compress') || 'Compress' },
+                  { id: 'resize', label: t('nav.resize') || 'Resize' },
+                ].map(({ id, label }) => (
+                  <button 
+                    key={id} 
+                    onClick={() => {
+                      navigatePath(lang === 'en' ? `/${getLocalizedSlug(id, lang)}` : `/${lang}/${getLocalizedSlug(id, lang)}`);
+                      setMobileMenuOpen(false);
+                    }} 
+                    className="bg-dark-800 hover:bg-dark-700 border border-dark-600/50 p-2.5 rounded-xl font-bold text-slate-200 text-xs sm:text-sm text-center shadow-sm transition-colors"
+                  >
+                    {label}
+                  </button>
+                ))}
+              </div>
+
+              {/* Accordion: All Tools */}
+              <button
+                onClick={() => setIsMobileAllOpen(!isMobileAllOpen)}
+                className="w-full bg-gradient-to-r from-neon-cyan/20 to-neon-indigo/20 border border-neon-cyan/30 text-white p-3 rounded-xl font-extrabold text-sm flex items-center justify-between shadow-sm transition-all"
+                style={{ marginBottom: isMobileAllOpen ? '8px' : '0' }}
+              >
+                <span>{t('nav.tools') === 'AI Tools' ? 'All Photo Tools' : (t('nav.tools') || 'All Photo Tools')}</span>
+                {isMobileAllOpen ? <ChevronDown className="w-5 h-5 rotate-180 transition-transform" /> : <ChevronDown className="w-5 h-5 transition-transform" />}
+              </button>
+
               <nav className="flex flex-col space-y-5">
-                {categories.filter(c => c.id !== 'all').map(cat => {
+                {isMobileAllOpen && categories.filter(c => c.id !== 'all').map(cat => {
                   const catTools = tools.filter(t => t.category === cat.id);
                   if (catTools.length === 0) return null;
 

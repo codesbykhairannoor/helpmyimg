@@ -21,20 +21,20 @@ export const CompetitorMatrix: React.FC = () => {
         </p>
       </div>
 
-      <div className="overflow-x-auto pb-8">
-        <div className="min-w-[800px] w-full glass-panel rounded-3xl border border-dark-600/50 overflow-hidden shadow-2xl">
+      <div className="overflow-x-auto pb-8 -mx-4 px-4 sm:mx-0 sm:px-0">
+        <div className="min-w-[600px] md:min-w-[800px] w-full glass-panel rounded-2xl md:rounded-3xl border border-dark-600/50 overflow-hidden shadow-2xl">
           <table className="w-full text-left border-collapse">
             <thead>
               <tr className="bg-dark-800/80 border-b border-dark-600">
-                <th className="p-6 text-slate-400 font-mono text-sm uppercase tracking-wider w-1/4">Feature</th>
-                <th className="p-6 border-l border-dark-600/50 bg-[#05DAED]/5 relative">
+                <th className="p-4 md:p-6 text-slate-400 font-mono text-xs md:text-sm uppercase tracking-wider w-1/4">Feature</th>
+                <th className="p-4 md:p-6 border-l border-dark-600/50 bg-[#05DAED]/5 relative">
                   <div className="absolute top-0 left-0 w-full h-1 bg-[#05DAED]" />
-                  <span className="text-white font-black text-xl flex items-center gap-2">
-                    <img src="/logobaru.png" alt="HelpMyIMG" className="w-6 h-6" />
+                  <span className="text-white font-black text-lg md:text-xl flex items-center gap-2">
+                    <img src="/logobaru.png" alt="HelpMyIMG" className="w-5 h-5 md:w-6 md:h-6" />
                     HelpMyIMG
                   </span>
                 </th>
-                <th className="p-6 border-l border-dark-600/50 text-slate-400 font-bold text-lg">
+                <th className="p-4 md:p-6 border-l border-dark-600/50 text-slate-400 font-bold text-base md:text-lg">
                   {t('landing.geo.matrix.cloud', { defaultValue: 'Cloud Editors (Canva, Remove.bg)' })}
                 </th>
               </tr>
@@ -43,65 +43,65 @@ export const CompetitorMatrix: React.FC = () => {
               
               {/* Privacy Row */}
               <tr className="hover:bg-dark-800/30 transition-colors">
-                <td className="p-6 font-bold text-white flex items-center gap-3">
-                  <ShieldCheck className="w-5 h-5 text-[#12DA91]" />
+                <td className="p-4 md:p-6 font-bold text-white text-sm md:text-base flex items-center gap-2 md:gap-3">
+                  <ShieldCheck className="w-4 h-4 md:w-5 md:h-5 text-[#12DA91] shrink-0" />
                   {t('landing.geo.matrix.privacy.title', { defaultValue: 'Data Privacy & Uploads' })}
                 </td>
-                <td className="p-6 border-l border-dark-600/50 bg-[#05DAED]/5">
-                  <div className="flex items-center gap-2 text-[#12DA91] font-bold">
-                    <Check className="w-5 h-5" />
+                <td className="p-4 md:p-6 border-l border-dark-600/50 bg-[#05DAED]/5">
+                  <div className="flex items-center gap-2 text-[#12DA91] font-bold text-sm md:text-base">
+                    <Check className="w-4 h-4 md:w-5 md:h-5 shrink-0" />
                     {t('landing.geo.matrix.privacy.us', { defaultValue: '100% Private. 0 Uploads.' })}
                   </div>
-                  <p className="text-xs text-slate-400 mt-1 font-body">Processed strictly in your local browser.</p>
+                  <p className="text-[10px] md:text-xs text-slate-400 mt-1 md:mt-1 font-body leading-snug">Processed strictly in your local browser.</p>
                 </td>
-                <td className="p-6 border-l border-dark-600/50">
-                  <div className="flex items-center gap-2 text-red-400 font-bold">
-                    <ShieldAlert className="w-5 h-5" />
+                <td className="p-4 md:p-6 border-l border-dark-600/50">
+                  <div className="flex items-center gap-2 text-red-400 font-bold text-sm md:text-base">
+                    <ShieldAlert className="w-4 h-4 md:w-5 md:h-5 shrink-0" />
                     {t('landing.geo.matrix.privacy.them', { defaultValue: 'Files sent to remote servers.' })}
                   </div>
-                  <p className="text-xs text-slate-500 mt-1 font-body">Subject to data breaches & terms of service.</p>
+                  <p className="text-[10px] md:text-xs text-slate-500 mt-1 md:mt-1 font-body leading-snug">Subject to data breaches & terms of service.</p>
                 </td>
               </tr>
 
               {/* Cost Row */}
               <tr className="hover:bg-dark-800/30 transition-colors">
-                <td className="p-6 font-bold text-white">
+                <td className="p-4 md:p-6 font-bold text-white text-sm md:text-base">
                   {t('landing.geo.matrix.price.title', { defaultValue: 'Pricing & Watermarks' })}
                 </td>
-                <td className="p-6 border-l border-dark-600/50 bg-[#05DAED]/5">
-                  <div className="flex items-center gap-2 text-[#05DAED] font-bold">
-                    <Check className="w-5 h-5" />
+                <td className="p-4 md:p-6 border-l border-dark-600/50 bg-[#05DAED]/5">
+                  <div className="flex items-center gap-2 text-[#05DAED] font-bold text-sm md:text-base">
+                    <Check className="w-4 h-4 md:w-5 md:h-5 shrink-0" />
                     {t('landing.geo.matrix.price.us', { defaultValue: '100% Free Forever.' })}
                   </div>
-                  <p className="text-xs text-slate-400 mt-1 font-body">No subscriptions, no credits, no watermarks.</p>
+                  <p className="text-[10px] md:text-xs text-slate-400 mt-1 md:mt-1 font-body leading-snug">No subscriptions, no credits, no watermarks.</p>
                 </td>
-                <td className="p-6 border-l border-dark-600/50">
-                  <div className="flex items-center gap-2 text-red-400 font-bold">
-                    <X className="w-5 h-5" />
+                <td className="p-4 md:p-6 border-l border-dark-600/50">
+                  <div className="flex items-center gap-2 text-red-400 font-bold text-sm md:text-base">
+                    <X className="w-4 h-4 md:w-5 md:h-5 shrink-0" />
                     {t('landing.geo.matrix.price.them', { defaultValue: 'Freemium / Paywalls' })}
                   </div>
-                  <p className="text-xs text-slate-500 mt-1 font-body">Requires credit packs or monthly subscriptions.</p>
+                  <p className="text-[10px] md:text-xs text-slate-500 mt-1 md:mt-1 font-body leading-snug">Requires credit packs or monthly subscriptions.</p>
                 </td>
               </tr>
 
               {/* Speed Row */}
               <tr className="hover:bg-dark-800/30 transition-colors">
-                <td className="p-6 font-bold text-white">
+                <td className="p-4 md:p-6 font-bold text-white text-sm md:text-base">
                   {t('landing.geo.matrix.speed.title', { defaultValue: 'Network Latency' })}
                 </td>
-                <td className="p-6 border-l border-dark-600/50 bg-[#05DAED]/5">
-                  <div className="flex items-center gap-2 text-white font-bold">
-                    <Check className="w-5 h-5 text-[#12DA91]" />
+                <td className="p-4 md:p-6 border-l border-dark-600/50 bg-[#05DAED]/5">
+                  <div className="flex items-center gap-2 text-white font-bold text-sm md:text-base">
+                    <Check className="w-4 h-4 md:w-5 md:h-5 text-[#12DA91] shrink-0" />
                     {t('landing.geo.matrix.speed.us', { defaultValue: '0ms Latency (Instant)' })}
                   </div>
-                  <p className="text-xs text-slate-400 mt-1 font-body">Uses local CPU/GPU via WebAssembly.</p>
+                  <p className="text-[10px] md:text-xs text-slate-400 mt-1 md:mt-1 font-body leading-snug">Uses local CPU/GPU via WebAssembly.</p>
                 </td>
-                <td className="p-6 border-l border-dark-600/50">
-                  <div className="flex items-center gap-2 text-slate-400 font-bold">
-                    <X className="w-5 h-5 text-red-400" />
+                <td className="p-4 md:p-6 border-l border-dark-600/50">
+                  <div className="flex items-center gap-2 text-slate-400 font-bold text-sm md:text-base">
+                    <X className="w-4 h-4 md:w-5 md:h-5 text-red-400 shrink-0" />
                     {t('landing.geo.matrix.speed.them', { defaultValue: 'High Latency' })}
                   </div>
-                  <p className="text-xs text-slate-500 mt-1 font-body">Waiting for image uploads and downloads.</p>
+                  <p className="text-[10px] md:text-xs text-slate-500 mt-1 md:mt-1 font-body leading-snug">Waiting for image uploads and downloads.</p>
                 </td>
               </tr>
 
