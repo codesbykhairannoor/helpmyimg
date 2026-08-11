@@ -94,12 +94,12 @@ export const Hero: React.FC<HeroProps> = ({ title, description }) => {
         {/* Search Bar matching the image layout */}
         {!title && (
           <div className="relative max-w-2xl mx-auto mb-4 shadow-xl shadow-slate-200/20 dark:shadow-none rounded-full group">
-            <div className="absolute inset-y-0 left-0 pl-5 flex items-center pointer-events-none">
-              <Search className="h-5 w-5 text-slate-400 group-focus-within:text-neon-cyan transition-colors" />
+            <div className="absolute inset-y-0 left-0 pl-4 sm:pl-5 flex items-center pointer-events-none">
+              <Search className="h-4 w-4 sm:h-5 sm:w-5 text-slate-400 group-focus-within:text-neon-cyan transition-colors" />
             </div>
             <input
               type="text"
-              className="block w-full pl-12 pr-6 py-4 rounded-full border-0 bg-white dark:bg-dark-800 text-slate-900 dark:text-white placeholder-slate-400 focus:ring-2 focus:ring-neon-cyan focus:outline-none sm:text-lg transition-all duration-300"
+              className="block w-full pl-10 sm:pl-12 pr-4 sm:pr-6 py-3 sm:py-4 rounded-full border-0 bg-white dark:bg-dark-800 text-slate-900 dark:text-white placeholder-slate-400 focus:ring-2 focus:ring-neon-cyan focus:outline-none text-sm sm:text-lg transition-all duration-300"
               placeholder={t('hero.search.placeholder', { defaultValue: "Search tools (Remove BG, Compress, Edit)..." })}
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}

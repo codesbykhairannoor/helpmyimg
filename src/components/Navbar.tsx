@@ -284,9 +284,9 @@ export const Navbar: React.FC = () => {
                       navigatePath(lang === 'en' ? `/${getLocalizedSlug(toolId, lang)}` : `/${lang}/${getLocalizedSlug(toolId, lang)}`);
                       setMobileMenuOpen(false);
                     }} 
-                    className="bg-dark-800 hover:bg-dark-700 border border-dark-600/50 p-2.5 rounded-xl font-bold text-slate-200 text-[10px] sm:text-xs uppercase tracking-wider text-center shadow-sm transition-colors"
+                    className="bg-dark-800 hover:bg-dark-700 border border-dark-600/50 py-2 px-1.5 rounded-lg font-bold text-slate-200 text-[8px] min-[375px]:text-[9px] sm:text-xs uppercase tracking-tight text-center shadow-sm transition-colors leading-tight flex items-center justify-center min-h-[36px]"
                   >
-                    {label}
+                    <span className="line-clamp-2">{label}</span>
                   </button>
                 ))}
               </div>
