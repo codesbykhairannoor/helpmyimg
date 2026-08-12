@@ -89,19 +89,19 @@ export const Navbar: React.FC = () => {
  {/* Tengah: Navigation Links (Desktop) */}
  <div className="hidden lg:flex items-center justify-center flex-1 relative group px-4">
  <nav className="flex items-center gap-2 xl:gap-4 text-sm font-medium text-slate-700 dark:text-slate-300">
- <a href={lang === 'en' ? `/${getLocalizedSlug('remove', lang)}` : `/${lang}/${getLocalizedSlug('remove', lang)}`} onClick={(e) => { e.preventDefault(); navigatePath(lang === 'en' ? `/${getLocalizedSlug('remove', lang)}` : `/${lang}/${getLocalizedSlug('remove', lang)}`); (document.activeElement as HTMLElement)?.blur(); }} className="hover:text-neon-cyan transition-colors font-bold text-[10px] uppercase px-2 py-1.5 flex items-center whitespace-nowrap rounded-lg hover:bg-slate-50 dark:hover:bg-dark-800/50">
+ <a href={lang === 'en' ? `/${getLocalizedSlug('remove', lang)}` : `/${lang}/${getLocalizedSlug('remove', lang)}`} onClick={(e) => { e.preventDefault(); navigatePath(lang === 'en' ? `/${getLocalizedSlug('remove', lang)}` : `/${lang}/${getLocalizedSlug('remove', lang)}`); (document.activeElement as HTMLElement)?.blur(); }} className="hover:text-neon-cyan transition-colors font-bold text-[13px] uppercase px-2.5 py-1.5 flex items-center whitespace-nowrap rounded-lg hover:bg-slate-50 dark:hover:bg-dark-800/50">
  {t('nav.removeBg')}
  </a>
- <a href={lang === 'en' ? `/${getLocalizedSlug('compress', lang)}` : `/${lang}/${getLocalizedSlug('compress', lang)}`} onClick={(e) => { e.preventDefault(); navigatePath(lang === 'en' ? `/${getLocalizedSlug('compress', lang)}` : `/${lang}/${getLocalizedSlug('compress', lang)}`); (document.activeElement as HTMLElement)?.blur(); }} className="hover:text-neon-cyan transition-colors font-bold text-[11px] uppercase px-2 py-1.5 flex items-center whitespace-nowrap rounded-lg hover:bg-slate-50 dark:hover:bg-dark-800/50">
+ <a href={lang === 'en' ? `/${getLocalizedSlug('compress', lang)}` : `/${lang}/${getLocalizedSlug('compress', lang)}`} onClick={(e) => { e.preventDefault(); navigatePath(lang === 'en' ? `/${getLocalizedSlug('compress', lang)}` : `/${lang}/${getLocalizedSlug('compress', lang)}`); (document.activeElement as HTMLElement)?.blur(); }} className="hover:text-neon-cyan transition-colors font-bold text-[13px] uppercase px-2.5 py-1.5 flex items-center whitespace-nowrap rounded-lg hover:bg-slate-50 dark:hover:bg-dark-800/50">
  {t('nav.compress', { defaultValue: 'Compress' })}
  </a>
- <a href={lang === 'en' ? `/${getLocalizedSlug('resize', lang)}` : `/${lang}/${getLocalizedSlug('resize', lang)}`} onClick={(e) => { e.preventDefault(); navigatePath(lang === 'en' ? `/${getLocalizedSlug('resize', lang)}` : `/${lang}/${getLocalizedSlug('resize', lang)}`); (document.activeElement as HTMLElement)?.blur(); }} className="hover:text-neon-cyan transition-colors font-bold text-[11px] uppercase px-2 py-1.5 flex items-center whitespace-nowrap rounded-lg hover:bg-slate-50 dark:hover:bg-dark-800/50">
+ <a href={lang === 'en' ? `/${getLocalizedSlug('resize', lang)}` : `/${lang}/${getLocalizedSlug('resize', lang)}`} onClick={(e) => { e.preventDefault(); navigatePath(lang === 'en' ? `/${getLocalizedSlug('resize', lang)}` : `/${lang}/${getLocalizedSlug('resize', lang)}`); (document.activeElement as HTMLElement)?.blur(); }} className="hover:text-neon-cyan transition-colors font-bold text-[13px] uppercase px-2.5 py-1.5 flex items-center whitespace-nowrap rounded-lg hover:bg-slate-50 dark:hover:bg-dark-800/50">
  {t('nav.resize')}
  </a>
  
  {/* Menu Dropdown All Tools */}
  <div className="relative group/dropdown ml-1">
- <button className="flex items-center gap-2 bg-neon-cyan/10 hover:bg-neon-cyan/20 border border-neon-cyan/30 text-cyan-800 dark:text-neon-cyan px-3.5 py-1.5 rounded-lg transition-all duration-200 font-bold text-[11px] uppercase ">
+ <button className="flex items-center gap-2 bg-neon-cyan/10 hover:bg-neon-cyan/20 border border-neon-cyan/30 text-cyan-800 dark:text-neon-cyan px-3.5 py-1.5 rounded-lg transition-all duration-200 font-bold text-[13px] uppercase ">
  <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><rect width="7" height="7" x="3" y="3" rx="1"/><rect width="7" height="7" x="14" y="3" rx="1"/><rect width="7" height="7" x="14" y="14" rx="1"/><rect width="7" height="7" x="3" y="14" rx="1"/></svg>
  {t('nav.tools') === 'AI Tools' ? 'All Photo Tools' : (t('nav.tools', { defaultValue: 'All Photo Tools' }))} 
  <ChevronDown className="w-3.5 h-3.5 group-hover/dropdown:rotate-180 transition-transform duration-200" />
