@@ -33,11 +33,29 @@ try {
   console.warn('Warning: Could not parse urlMapper.ts', error);
 }
 
+// Parse Info URL Mapper
+let infoSlugMap = {};
+try {
+  const infoUrlMapperContent = fs.readFileSync(path.join(__dirname, 'src', 'utils', 'infoUrlMapper.ts'), 'utf8');
+  const infoSlugMapRegex = /export const INFO_SLUG_MAP[\s\S]*?=\s*({[\s\S]*?});/;
+  const match = infoSlugMapRegex.exec(infoUrlMapperContent);
+  if (match) {
+    infoSlugMap = eval('(' + match[1] + ')');
+  }
+} catch (error) {
+  console.warn('Warning: Could not parse infoUrlMapper.ts', error);
+}
+
 const getLocalizedSlug = (tool, lang) => {
   if (tool === 'brush') return 'magic-brush';
   if (slugMap[lang] && slugMap[lang][tool]) return slugMap[lang][tool];
   const fallbacks = { remove: 'remove-background', color: 'change-background', watermark: 'watermark-image' };
-  return fallbacks[tool] || fallbacks['remove'];
+  return fallbacks[tool] || tool;
+};
+
+const getLocalizedInfoSlug = (page, lang) => {
+  if (infoSlugMap[lang] && infoSlugMap[lang][page]) return infoSlugMap[lang][page];
+  return page;
 };
 
 // Ensure public and sitemaps directories exist
@@ -55,108 +73,59 @@ const writeSitemapShard = (filename, urls) => {
   xml += '</urlset>';
   const filePath = path.join(sitemapsDir, filename);
   fs.writeFileSync(filePath, xml, 'utf8');
-  console.log(`✓ Generated high-density shard [${filename}] with ${urls.length} authoritative URLs.`);
+  console.log(`✓ Generated [${filename}] with ${urls.length} URLs.`);
   return `${DOMAIN}/sitemaps/${filename}`;
 };
 
-const coreUrls = [];
-const removeUrls = [];
-const compressUrls = [];
-const convertUrls = [];
-const resizeUrls = [];
-const colorUrls = [];
-const watermarkUrls = [];
-
+// ============================================================================
+// CORE PAGES ONLY — Every URL here has a real HTML file in dist/
+// 30 langs × (1 home + 12 tools + 8 info) = 30 × 21 = 630 URLs
+// ============================================================================
 const baseTools = ['remove', 'color', 'watermark', 'compress', 'convert', 'resize', 'crop', 'rotate', 'picker', 'blurface', 'design', 'brush'];
 const infoPages = ['about', 'privacy', 'terms', 'faq', 'security', 'pricing', 'compare', 'languages'];
 
-// 1. Core Hub URLs & Info Pages across 30 Languages
+const coreUrls = [];
+
 for (const lang of LANGS) {
-  coreUrls.push(`${DOMAIN}/${lang}`);
-  for (const info of infoPages) {
-    coreUrls.push(`${DOMAIN}/${lang}/${info}`);
-  }
+  // Home page
+  coreUrls.push(`${DOMAIN}/${lang}/`);
+
+  // Tool pages (12 tools)
   for (const tool of baseTools) {
     const slug = getLocalizedSlug(tool, lang);
-    coreUrls.push(`${DOMAIN}/${lang}/${slug}`);
+    coreUrls.push(`${DOMAIN}/${lang}/${slug}/`);
+  }
+
+  // Info pages (8 pages)
+  for (const page of infoPages) {
+    const slug = getLocalizedInfoSlug(page, lang);
+    coreUrls.push(`${DOMAIN}/${lang}/${slug}/`);
   }
 }
 
-// 2. Extract High-Value Static pSEO Slugs from src/data/pseoKeywords.ts
-try {
-  const pseoContent = fs.readFileSync(path.join(__dirname, 'src', 'data', 'pseoKeywords.ts'), 'utf8');
-  const objectRegex = /{[^{}]*slug:\s*['"]([^'"]+)['"][^{}]*tool:\s*['"]([^'"]+)['"][^{}]*lang:\s*['"]([^'"]+)['"]/g;
-  let match;
-  while ((match = objectRegex.exec(pseoContent)) !== null) {
-    const slug = match[1];
-    const tool = match[2];
-    const lang = match[3];
-    const route = getLocalizedSlug(tool, lang);
-    const url = `${DOMAIN}/${lang}/${route}/${slug}`;
-    if (tool === 'remove' || tool === 'brush') removeUrls.push(url);
-    else if (tool === 'compress') compressUrls.push(url);
-    else if (tool === 'convert') convertUrls.push(url);
-    else if (tool === 'resize' || tool === 'crop') resizeUrls.push(url);
-    else if (tool === 'color') colorUrls.push(url);
-    else if (tool === 'watermark') watermarkUrls.push(url);
-    else coreUrls.push(url);
-  }
-} catch (error) {
-  console.warn('Could not read pseoKeywords.ts', error);
-}
-
-// 3. Elite Curated High-Intent Matrix (Matching iLoveIMG's exact ~1,650 URL footprint to guarantee zero keyword dilution)
-const eliteRemoveIntent = ['remove-background-from-image-online', 'transparent-bg-ecommerce-product', 'erase-bg-hd-free'];
-const eliteCompressIntent = [
-  'kompres-foto-100kb-online-gratis', 
-  'compress-image-to-50kb-for-passport', 
-  'bulk-compress-20-photos-batch', 
-  'reduce-photo-size-under-200kb',
-  'jpeg-to-jpg-compressor',
-  'how-can-i-reduce-picture-file-size',
-  'how-do-i-decrease-the-file-size-of-a-jpeg',
-  'how-to-reduce-picture-file-size',
-  'how-to-shrink-file-size-of-a-picture',
-  'smaller-file-size-jpeg',
-  'how-to-reduce-file-size-of-jpeg'
+// Delete old pSEO shard files if they exist
+const oldPseoFiles = [
+  'sitemap-pseo-remove.xml',
+  'sitemap-pseo-compress.xml',
+  'sitemap-pseo-convert.xml',
+  'sitemap-pseo-resize.xml',
+  'sitemap-pseo-color.xml',
+  'sitemap-pseo-watermark.xml',
 ];
-const eliteConvertIntent = ['convert-30-photos-to-webp-batch', 'png-to-jpg-converter-online', 'convert-heic-to-jpg-free', 'webp-converter-for-shopify'];
-const eliteResizeIntent = ['resize-dimensions-1080p-hd', 'make-4x6-passport-photo-size', 'scale-image-for-instagram-square'];
-const eliteColorIntent = ['change-background-color-online', 'red-background-cpns-pas-foto', 'blue-background-ktp-ijazah', 'white-background-for-amazon-product'];
-const eliteWatermarkIntent = ['add-watermark-to-photo-bulk', 'protect-image-copyright-with-logo', 'batch-watermark-20-photos-free'];
-
-for (const lang of LANGS) {
-  const removeSlug = getLocalizedSlug('remove', lang);
-  for (const intent of eliteRemoveIntent) removeUrls.push(`${DOMAIN}/${lang}/${removeSlug}/${intent}`);
-
-  const compressSlug = getLocalizedSlug('compress', lang);
-  for (const intent of eliteCompressIntent) compressUrls.push(`${DOMAIN}/${lang}/${compressSlug}/${intent}`);
-
-  const convertSlug = getLocalizedSlug('convert', lang);
-  for (const intent of eliteConvertIntent) convertUrls.push(`${DOMAIN}/${lang}/${convertSlug}/${intent}`);
-
-  const resizeSlug = getLocalizedSlug('resize', lang);
-  for (const intent of eliteResizeIntent) resizeUrls.push(`${DOMAIN}/${lang}/${resizeSlug}/${intent}`);
-
-  const colorSlug = getLocalizedSlug('color', lang);
-  for (const intent of eliteColorIntent) colorUrls.push(`${DOMAIN}/${lang}/${colorSlug}/${intent}`);
-
-  const watermarkSlug = getLocalizedSlug('watermark', lang);
-  for (const intent of eliteWatermarkIntent) watermarkUrls.push(`${DOMAIN}/${lang}/${watermarkSlug}/${intent}`);
+for (const f of oldPseoFiles) {
+  const p = path.join(sitemapsDir, f);
+  if (fs.existsSync(p)) {
+    fs.unlinkSync(p);
+    console.log(`🗑️  Deleted ghost pSEO shard: ${f}`);
+  }
 }
 
-// Generate all high-density shards
+// Write the single clean core sitemap
 const shardFiles = [
   writeSitemapShard('sitemap-core.xml', coreUrls),
-  writeSitemapShard('sitemap-pseo-remove.xml', removeUrls),
-  writeSitemapShard('sitemap-pseo-compress.xml', compressUrls),
-  writeSitemapShard('sitemap-pseo-convert.xml', convertUrls),
-  writeSitemapShard('sitemap-pseo-resize.xml', resizeUrls),
-  writeSitemapShard('sitemap-pseo-color.xml', colorUrls),
-  writeSitemapShard('sitemap-pseo-watermark.xml', watermarkUrls)
 ];
 
-// Generate Master Sitemap Index (sitemap.xml) inside public/
+// Generate Master Sitemap Index (sitemap.xml) — only core
 let sitemapIndex = '<?xml version="1.0" encoding="UTF-8"?>\n<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n';
 for (const shardUrl of shardFiles) {
   sitemapIndex += `  <sitemap>\n    <loc>${shardUrl}</loc>\n    <lastmod>${CURRENT_ISO_DATE}</lastmod>\n  </sitemap>\n`;
@@ -166,44 +135,27 @@ sitemapIndex += '</sitemapindex>';
 const masterSitemapPath = path.join(publicDir, 'sitemap.xml');
 fs.writeFileSync(masterSitemapPath, sitemapIndex, 'utf8');
 
-const totalUrls = coreUrls.length + removeUrls.length + compressUrls.length + convertUrls.length + resizeUrls.length + colorUrls.length + watermarkUrls.length;
-console.log(`\n🏆 Successfully generated Elite High-Density Master Sitemap Index [sitemap.xml] featuring ${totalUrls} authoritative URLs (Zero dilution, matching iLoveIMG's exact footprint)!`);
+console.log(`\n✅ Clean sitemap generated: ${coreUrls.length} real URLs (${LANGS.length} langs × 21 pages).`);
+console.log(`   → Every single URL here has a real HTML file in dist/`);
 
-// ============================================================================
-// AUTOMATIC INDEXNOW API PING
-// Instantly submit all URLs to Bing, Yandex, and Seznam for real-time RAG crawling
-// ============================================================================
-const allUrls = [
-  ...coreUrls,
-  ...removeUrls,
-  ...compressUrls,
-  ...convertUrls,
-  ...resizeUrls,
-  ...colorUrls,
-  ...watermarkUrls
-];
-
-const indexNowPayload = JSON.stringify({
-  host: 'helpmyimg.com',
-  key: 'c8e54926d5744902bc6e85fb2c85e0f2',
-  keyLocation: 'https://helpmyimg.com/c8e54926d5744902bc6e85fb2c85e0f2.txt',
-  urlList: allUrls
-});
-
+// Submit only real URLs to IndexNow
 fetch('https://api.indexnow.org/indexnow', {
   method: 'POST',
-  headers: {
-    'Content-Type': 'application/json; charset=utf-8'
-  },
-  body: indexNowPayload
+  headers: { 'Content-Type': 'application/json; charset=utf-8' },
+  body: JSON.stringify({
+    host: 'helpmyimg.com',
+    key: 'c8e54926d5744902bc6e85fb2c85e0f2',
+    keyLocation: 'https://helpmyimg.com/c8e54926d5744902bc6e85fb2c85e0f2.txt',
+    urlList: coreUrls
+  })
 })
 .then(res => {
   if (res.ok) {
-    console.log(`\n🚀 [IndexNow API] Successfully pinged ${allUrls.length} URLs to Bing & Yandex! (Status: ${res.status})`);
+    console.log(`\n🚀 [IndexNow] Submitted ${coreUrls.length} verified URLs to Bing & Yandex (Status: ${res.status})`);
   } else {
-    console.warn(`\n⚠️ [IndexNow API] Ping returned non-success status: ${res.status}`);
+    console.warn(`\n⚠️ [IndexNow] Status: ${res.status}`);
   }
 })
 .catch(err => {
-  console.error(`\n❌ [IndexNow API] Failed to ping search engines: ${err.message}`);
+  console.error(`\n❌ [IndexNow] Failed: ${err.message}`);
 });
