@@ -289,7 +289,7 @@ export const Navbar: React.FC = () => {
  navigatePath(lang === 'en' ? `/${slug}` : `/${lang}/${slug}`);
  setMobileMenuOpen(false);
  }} 
- className="bg-white dark:bg-dark-800 hover:bg-slate-50 dark:hover:bg-dark-700 border border-slate-200 dark:border-dark-600/50 py-2 px-1.5 rounded-lg font-bold text-slate-700 dark:text-slate-200 text-[0.7rem] uppercase text-center transition-colors leading-tight flex items-center justify-center min-h-[36px]"
+ className="bg-white dark:bg-dark-800 hover:bg-slate-50 dark:hover:bg-dark-700 border border-slate-200 dark:border-dark-600/50 py-[8px] px-2 rounded-lg font-bold text-slate-700 dark:text-slate-200 text-[0.72rem] uppercase text-center transition-colors leading-tight flex items-center justify-center"
  >
  <span className="line-clamp-2">{label}</span>
  </button>
