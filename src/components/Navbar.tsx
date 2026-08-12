@@ -116,7 +116,7 @@ export const Navbar: React.FC = () => {
  
  return (
  <div key={cat.id} className="flex flex-col">
- <div className="flex items-center gap-2 text-[11px] font-bold text-cyan-600 dark:text-neon-cyan uppercase border-b border-slate-100 dark:border-dark-700 pb-2 mb-3">
+ <div className="flex items-center gap-2 text-xs font-bold text-cyan-600 dark:text-neon-cyan uppercase border-b border-slate-100 dark:border-dark-700 pb-2 mb-3">
  {t(cat.labelKey)}
  </div>
  <div className="flex flex-col gap-1.5">
@@ -133,7 +133,7 @@ export const Navbar: React.FC = () => {
  className="flex items-center gap-3.5 py-2 px-3 -mx-3 rounded-xl hover:bg-slate-50 dark:hover:bg-dark-800 transition-colors group/item"
  >
  <tool.icon strokeWidth={1.5} className="w-5 h-5 flex-shrink-0 text-slate-600 dark:text-slate-400 group-hover/item:text-neon-emerald transition-colors" />
- <span className="text-[10px] uppercase text-slate-700 dark:text-slate-200 font-bold truncate group-hover/item:text-neon-emerald transition-colors">
+ <span className="text-[11.5px] uppercase text-slate-700 dark:text-slate-200 font-bold truncate group-hover/item:text-neon-emerald transition-colors">
  {t(tool.titleKey)}
  </span>
  </a>
@@ -275,7 +275,7 @@ export const Navbar: React.FC = () => {
  <div className="flex flex-col px-4 pt-3 pb-7 gap-4">
  
  {/* Quick 3 buttons */}
- <div className="grid grid-cols-3 gap-4 mb-4">
+ <div className="grid grid-cols-3 gap-4">
  {[
  { id: 'remove', label: t('nav.removeBg', { defaultValue: 'Remove BG' }) },
  { id: 'compress', label: t('nav.compress', { defaultValue: 'Compress' }) },
