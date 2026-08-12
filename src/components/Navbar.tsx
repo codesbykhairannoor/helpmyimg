@@ -272,7 +272,7 @@ export const Navbar: React.FC = () => {
  transition={{ duration: 0.15, ease: 'easeInOut' }}
  className="lg:hidden absolute inset-x-0 top-12 z-50 bg-slate-50 dark:bg-dark-900 border-t border-b border-slate-200 dark:border-dark-500/40 shadow-2xl overflow-y-auto max-h-[calc(100vh-48px)]"
  >
- <div className="flex flex-col px-4 pt-4 pb-7 gap-3">
+ <div className="flex flex-col px-4 pt-3 pb-7 gap-3">
  
  {/* Quick 3 buttons */}
  <div className="grid grid-cols-3 gap-2">
@@ -289,9 +289,9 @@ export const Navbar: React.FC = () => {
  navigatePath(lang === 'en' ? `/${slug}` : `/${lang}/${slug}`);
  setMobileMenuOpen(false);
  }} 
- className="bg-white dark:bg-dark-800 hover:bg-slate-50 dark:hover:bg-dark-700 border border-slate-200 dark:border-dark-600/50 py-[8px] px-2 rounded-lg font-bold text-slate-700 dark:text-slate-200 text-[0.72rem] uppercase text-center transition-colors leading-tight flex items-center justify-center"
+ className="bg-white dark:bg-dark-800 hover:bg-slate-50 dark:hover:bg-dark-700 border border-slate-200 dark:border-dark-600/50 p-[10px] rounded-lg font-bold text-slate-700 dark:text-slate-200 text-[0.78rem] uppercase text-center transition-colors cursor-pointer w-full"
  >
- <span className="line-clamp-2">{label}</span>
+ {label}
  </button>
  ))}
  </div>
