@@ -136,6 +136,7 @@ export const ToolLandingPage: React.FC = () => {
   return (
     <div className="min-h-screen bg-dark-900 text-slate-900 dark:text-slate-100 transition-colors duration-300">
       <SeoHead
+        key={`${lang}-${tool || 'home'}`}
         title={displayConfig.title}
         description={displayConfig.description}
         canonicalPath={`/${lang === 'en' ? '' : lang + '/'}${tool || 'remove-background'}${keywordSlug ? `/${keywordSlug}` : ''}`.replace('//', '/')}

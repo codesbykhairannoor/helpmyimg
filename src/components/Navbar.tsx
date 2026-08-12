@@ -275,7 +275,7 @@ export const Navbar: React.FC = () => {
  <div className="flex flex-col px-4 pt-3 pb-7 gap-3">
  
  {/* Quick 3 buttons */}
- <div className="grid grid-cols-3 gap-2.5 mb-2">
+ <div className="grid grid-cols-3 gap-2 mb-3">
  {[
  { id: 'remove', label: t('nav.removeBg', { defaultValue: 'Remove BG' }) },
  { id: 'compress', label: t('nav.compress', { defaultValue: 'Compress' }) },
@@ -289,9 +289,9 @@ export const Navbar: React.FC = () => {
  navigatePath(lang === 'en' ? `/${slug}` : `/${lang}/${slug}`);
  setMobileMenuOpen(false);
  }} 
- className="bg-white dark:bg-dark-800 hover:bg-slate-50 dark:hover:bg-dark-700 border border-slate-200 dark:border-dark-600/50 py-[10px] px-2 rounded-lg font-bold text-slate-700 dark:text-slate-200 text-[0.76rem] uppercase text-center transition-colors cursor-pointer w-full"
+ className="bg-white dark:bg-dark-800 hover:bg-slate-50 dark:hover:bg-dark-700 border border-slate-200 dark:border-dark-600/50 px-1 rounded-lg font-bold text-slate-700 dark:text-slate-200 text-[0.72rem] uppercase text-center transition-colors cursor-pointer w-full h-[36px] flex items-center justify-center overflow-hidden"
  >
- {label}
+ <span className="truncate w-full block whitespace-nowrap">{label}</span>
  </button>
  ))}
  </div>
