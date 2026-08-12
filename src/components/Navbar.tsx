@@ -272,10 +272,10 @@ export const Navbar: React.FC = () => {
  transition={{ duration: 0.15, ease: 'easeInOut' }}
  className="lg:hidden absolute inset-x-0 top-[60px] z-50 bg-slate-50 dark:bg-dark-900 border-t border-b border-slate-200 dark:border-dark-500/40 shadow-2xl overflow-y-auto max-h-[calc(100vh-60px)]"
  >
- <div className="flex flex-col px-4 pt-3 pb-7 gap-3">
+ <div className="flex flex-col px-4 pt-3 pb-7 gap-4">
  
  {/* Quick 3 buttons */}
- <div className="grid grid-cols-3 gap-2 mb-3">
+ <div className="grid grid-cols-3 gap-4 mb-4">
  {[
  { id: 'remove', label: t('nav.removeBg', { defaultValue: 'Remove BG' }) },
  { id: 'compress', label: t('nav.compress', { defaultValue: 'Compress' }) },
@@ -293,7 +293,7 @@ export const Navbar: React.FC = () => {
  navigatePath(lang === 'en' ? `/${slug}` : `/${lang}/${slug}`);
  setMobileMenuOpen(false);
  }} 
- className="bg-white dark:bg-dark-800 hover:bg-slate-50 dark:hover:bg-dark-700 border border-slate-200 dark:border-dark-600/50 p-[10px] rounded-lg font-bold text-slate-700 dark:text-slate-200 text-[0.78rem] uppercase text-center transition-colors cursor-pointer w-full flex items-center justify-center whitespace-nowrap overflow-hidden"
+ className="bg-white dark:bg-dark-800 hover:bg-slate-50 dark:hover:bg-dark-700 border border-slate-200 dark:border-dark-600/50 py-[7px] px-1 rounded-lg font-bold text-slate-700 dark:text-slate-200 text-[0.78rem] leading-tight uppercase text-center transition-colors cursor-pointer w-full flex items-center justify-center whitespace-nowrap overflow-hidden"
  >
  <span className="truncate">{shortLabel || label}</span>
  </button>
@@ -304,8 +304,8 @@ export const Navbar: React.FC = () => {
  {/* Accordion: All Tools */}
  <button
  onClick={() => setIsMobileAllOpen(!isMobileAllOpen)}
- className="w-full bg-gradient-to-r from-cyan-500 to-emerald-500 text-white py-[11px] px-4 rounded-lg font-[800] text-[0.9rem] uppercase flex items-center justify-between shadow-sm transition-all"
- style={{ marginBottom: isMobileAllOpen ? '12px' : '0' }}
+ className="w-full bg-gradient-to-r from-cyan-500 to-emerald-500 text-white py-[9px] px-4 rounded-lg font-[800] text-[0.9rem] leading-tight uppercase flex items-center justify-between shadow-sm transition-all"
+ style={{ marginBottom: isMobileAllOpen ? '16px' : '0' }}
  >
  <span className="!text-white">{t('nav.tools') === 'AI Tools' ? 'All Photo Tools' : (t('nav.tools', { defaultValue: 'All Photo Tools' }))}</span>
  {isMobileAllOpen ? <ChevronDown className="w-4 h-4 rotate-180 transition-transform" /> : <ChevronDown className="w-4 h-4 transition-transform" />}
