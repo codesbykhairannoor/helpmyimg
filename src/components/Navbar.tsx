@@ -277,10 +277,14 @@ export const Navbar: React.FC = () => {
  {/* Quick 3 buttons */}
  <div className="grid grid-cols-3 gap-2 mb-3">
  {[
- { id: 'remove', label: lang === 'id' ? 'Hapus BG' : 'Remove BG' },
- { id: 'compress', label: lang === 'id' ? 'Kompres' : 'Compress' },
- { id: 'resize', label: lang === 'id' ? 'Resize' : 'Resize' },
- ].map(({ id, label }) => (
+ { id: 'remove', label: t('nav.removeBg', { defaultValue: 'Remove BG' }) },
+ { id: 'compress', label: t('nav.compress', { defaultValue: 'Compress' }) },
+ { id: 'resize', label: t('nav.resize', { defaultValue: 'Resize' }) },
+ ].map(({ id, label }) => {
+ // Smart shortener for all 30 languages to ensure fit on mobile
+ const shortLabel = label.replace(/\s*(Image|Gambar|Background|Latar Belakang|Latar|Photo|Foto|Format|Obraz|Изображение)\s*/gi, '').trim();
+
+ return (
  <button 
  key={id} 
  onClick={() => {
@@ -289,11 +293,12 @@ export const Navbar: React.FC = () => {
  navigatePath(lang === 'en' ? `/${slug}` : `/${lang}/${slug}`);
  setMobileMenuOpen(false);
  }} 
- className="bg-white dark:bg-dark-800 hover:bg-slate-50 dark:hover:bg-dark-700 border border-slate-200 dark:border-dark-600/50 p-[10px] rounded-lg font-bold text-slate-700 dark:text-slate-200 text-[0.78rem] uppercase text-center transition-colors cursor-pointer w-full"
+ className="bg-white dark:bg-dark-800 hover:bg-slate-50 dark:hover:bg-dark-700 border border-slate-200 dark:border-dark-600/50 p-[10px] rounded-lg font-bold text-slate-700 dark:text-slate-200 text-[0.78rem] uppercase text-center transition-colors cursor-pointer w-full flex items-center justify-center whitespace-nowrap overflow-hidden"
  >
- {label}
+ <span className="truncate">{shortLabel || label}</span>
  </button>
- ))}
+ );
+ })}
  </div>
 
  {/* Accordion: All Tools */}
