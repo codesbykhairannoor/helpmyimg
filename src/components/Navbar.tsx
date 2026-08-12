@@ -293,7 +293,7 @@ export const Navbar: React.FC = () => {
  navigatePath(lang === 'en' ? `/${slug}` : `/${lang}/${slug}`);
  setMobileMenuOpen(false);
  }} 
- className="bg-white dark:bg-dark-800 hover:bg-slate-50 dark:hover:bg-dark-700 border border-slate-200 dark:border-dark-600/50 py-[7px] px-1 rounded-lg font-bold text-slate-700 dark:text-slate-200 text-[0.78rem] leading-tight uppercase text-center transition-colors cursor-pointer w-full flex items-center justify-center whitespace-nowrap overflow-hidden"
+ className="bg-white dark:bg-dark-800 hover:bg-slate-50 dark:hover:bg-dark-700 border border-slate-200 dark:border-dark-600/50 py-[7px] px-1 rounded-lg font-semibold text-slate-800 dark:text-slate-100 text-[0.72rem] leading-tight uppercase text-center transition-colors cursor-pointer w-full flex items-center justify-center whitespace-nowrap overflow-hidden"
  >
  <span className="truncate">{shortLabel || label}</span>
  </button>
@@ -304,7 +304,7 @@ export const Navbar: React.FC = () => {
  {/* Accordion: All Tools */}
  <button
  onClick={() => setIsMobileAllOpen(!isMobileAllOpen)}
- className="w-full bg-gradient-to-r from-cyan-500 to-emerald-500 text-white py-[9px] px-4 rounded-lg font-[800] text-[0.9rem] leading-tight uppercase flex items-center justify-between shadow-sm transition-all"
+ className="w-full bg-gradient-to-r from-cyan-500 to-emerald-500 text-white py-[9px] px-4 rounded-lg font-[800] text-[0.84rem] leading-tight uppercase flex items-center justify-between shadow-sm transition-all"
  style={{ marginBottom: isMobileAllOpen ? '16px' : '0' }}
  >
  <span className="!text-white">{t('nav.tools') === 'AI Tools' ? 'All Photo Tools' : (t('nav.tools', { defaultValue: 'All Photo Tools' }))}</span>
