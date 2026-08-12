@@ -75,11 +75,11 @@ export const Navbar: React.FC = () => {
  {/* Kiri: Brand Logo */}
  <div className="flex items-center justify-start flex-shrink-0">
  <a href={lang === 'en' ? '/' : `/${lang}`} onClick={(e) => { e.preventDefault(); navigatePath(lang === 'en' ? '/' : `/${lang}`); }} className="flex items-center gap-2.5 group">
- <div className="w-8 h-8 flex-shrink-0 transition-all duration-300 group-hover:scale-105 drop-shadow-glow-cyan">
- <img src="/logobaru.png" alt="HelpMyIMG Logo" width="32" height="32" decoding="async" className="w-full h-full object-contain" />
+ <div className="w-[38px] h-[38px] flex-shrink-0 transition-all duration-300 group-hover:scale-105 drop-shadow-glow-cyan">
+ <img src="/logobaru.png" alt="HelpMyIMG Logo" width="38" height="38" decoding="async" className="w-full h-full object-contain" />
  </div>
  <div className="flex flex-col">
- <span className="text-lg font-heading font-extrabold text-slate-900 dark:text-white">
+ <span className="text-xl font-heading font-extrabold text-slate-900 dark:text-white">
  HelpMy<span className="text-transparent bg-clip-text bg-gradient-to-r from-neon-cyan to-neon-emerald">IMG</span>
  </span>
  </div>
@@ -89,19 +89,19 @@ export const Navbar: React.FC = () => {
  {/* Tengah: Navigation Links (Desktop) */}
  <div className="hidden lg:flex items-center justify-center flex-1 relative group px-4">
  <nav className="flex items-center gap-2 xl:gap-4 text-sm font-medium text-slate-700 dark:text-slate-300">
- <a href={lang === 'en' ? `/${getLocalizedSlug('remove', lang)}` : `/${lang}/${getLocalizedSlug('remove', lang)}`} onClick={(e) => { e.preventDefault(); navigatePath(lang === 'en' ? `/${getLocalizedSlug('remove', lang)}` : `/${lang}/${getLocalizedSlug('remove', lang)}`); (document.activeElement as HTMLElement)?.blur(); }} className="hover:text-neon-cyan transition-colors font-bold text-[13px] uppercase px-2.5 py-1.5 flex items-center whitespace-nowrap rounded-lg hover:bg-slate-50 dark:hover:bg-dark-800/50">
+ <a href={lang === 'en' ? `/${getLocalizedSlug('remove', lang)}` : `/${lang}/${getLocalizedSlug('remove', lang)}`} onClick={(e) => { e.preventDefault(); navigatePath(lang === 'en' ? `/${getLocalizedSlug('remove', lang)}` : `/${lang}/${getLocalizedSlug('remove', lang)}`); (document.activeElement as HTMLElement)?.blur(); }} className="hover:text-neon-cyan transition-colors font-bold text-[12px] uppercase px-2.5 py-1.5 flex items-center whitespace-nowrap rounded-lg hover:bg-slate-50 dark:hover:bg-dark-800/50">
  {t('nav.removeBg')}
  </a>
- <a href={lang === 'en' ? `/${getLocalizedSlug('compress', lang)}` : `/${lang}/${getLocalizedSlug('compress', lang)}`} onClick={(e) => { e.preventDefault(); navigatePath(lang === 'en' ? `/${getLocalizedSlug('compress', lang)}` : `/${lang}/${getLocalizedSlug('compress', lang)}`); (document.activeElement as HTMLElement)?.blur(); }} className="hover:text-neon-cyan transition-colors font-bold text-[13px] uppercase px-2.5 py-1.5 flex items-center whitespace-nowrap rounded-lg hover:bg-slate-50 dark:hover:bg-dark-800/50">
+ <a href={lang === 'en' ? `/${getLocalizedSlug('compress', lang)}` : `/${lang}/${getLocalizedSlug('compress', lang)}`} onClick={(e) => { e.preventDefault(); navigatePath(lang === 'en' ? `/${getLocalizedSlug('compress', lang)}` : `/${lang}/${getLocalizedSlug('compress', lang)}`); (document.activeElement as HTMLElement)?.blur(); }} className="hover:text-neon-cyan transition-colors font-bold text-[12px] uppercase px-2.5 py-1.5 flex items-center whitespace-nowrap rounded-lg hover:bg-slate-50 dark:hover:bg-dark-800/50">
  {t('nav.compress', { defaultValue: 'Compress' })}
  </a>
- <a href={lang === 'en' ? `/${getLocalizedSlug('resize', lang)}` : `/${lang}/${getLocalizedSlug('resize', lang)}`} onClick={(e) => { e.preventDefault(); navigatePath(lang === 'en' ? `/${getLocalizedSlug('resize', lang)}` : `/${lang}/${getLocalizedSlug('resize', lang)}`); (document.activeElement as HTMLElement)?.blur(); }} className="hover:text-neon-cyan transition-colors font-bold text-[13px] uppercase px-2.5 py-1.5 flex items-center whitespace-nowrap rounded-lg hover:bg-slate-50 dark:hover:bg-dark-800/50">
+ <a href={lang === 'en' ? `/${getLocalizedSlug('resize', lang)}` : `/${lang}/${getLocalizedSlug('resize', lang)}`} onClick={(e) => { e.preventDefault(); navigatePath(lang === 'en' ? `/${getLocalizedSlug('resize', lang)}` : `/${lang}/${getLocalizedSlug('resize', lang)}`); (document.activeElement as HTMLElement)?.blur(); }} className="hover:text-neon-cyan transition-colors font-bold text-[12px] uppercase px-2.5 py-1.5 flex items-center whitespace-nowrap rounded-lg hover:bg-slate-50 dark:hover:bg-dark-800/50">
  {t('nav.resize')}
  </a>
  
  {/* Menu Dropdown All Tools */}
  <div className="relative group/dropdown ml-1">
- <button className="flex items-center gap-2 bg-neon-cyan/10 hover:bg-neon-cyan/20 border border-neon-cyan/30 text-cyan-800 dark:text-neon-cyan px-3.5 py-1.5 rounded-lg transition-all duration-200 font-bold text-[13px] uppercase ">
+ <button className="flex items-center gap-2 bg-neon-cyan/10 hover:bg-neon-cyan/20 border border-neon-cyan/30 text-cyan-800 dark:text-neon-cyan px-3.5 py-1.5 rounded-lg transition-all duration-200 font-bold text-[12px] uppercase ">
  <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><rect width="7" height="7" x="3" y="3" rx="1"/><rect width="7" height="7" x="14" y="3" rx="1"/><rect width="7" height="7" x="14" y="14" rx="1"/><rect width="7" height="7" x="3" y="14" rx="1"/></svg>
  {t('nav.tools') === 'AI Tools' ? 'All Photo Tools' : (t('nav.tools', { defaultValue: 'All Photo Tools' }))} 
  <ChevronDown className="w-3.5 h-3.5 group-hover/dropdown:rotate-180 transition-transform duration-200" />
@@ -155,14 +155,14 @@ export const Navbar: React.FC = () => {
  {/* Theme Toggle Button (Light Mode / Dark Mode) */}
  <button
  onClick={toggleTheme}
- className="flex items-center justify-center w-8 h-8 bg-slate-100 dark:bg-dark-800 hover:bg-slate-200 dark:hover:bg-dark-700 border border-slate-200 dark:border-dark-500/60 rounded-xl text-slate-600 dark:text-slate-200 transition-all duration-200 shadow-sm"
+ className="flex items-center justify-center w-9 h-9 bg-slate-100 dark:bg-dark-800 hover:bg-slate-200 dark:hover:bg-dark-700 border border-slate-200 dark:border-dark-500/60 rounded-xl text-slate-600 dark:text-slate-200 transition-all duration-200 shadow-sm"
  aria-label="Toggle Theme"
  title={theme === 'dark' ? 'Light Mode' : 'Dark Mode'}
  >
  {theme === 'dark' ? (
- <Sun className="w-3.5 h-3.5 text-amber-500 hover:rotate-45 transition-transform duration-300" />
+ <Sun className="w-4 h-4 text-amber-500 hover:rotate-45 transition-transform duration-300" />
  ) : (
- <Moon className="w-3.5 h-3.5 text-indigo-400 hover:-rotate-12 transition-transform duration-300" />
+ <Moon className="w-4 h-4 text-indigo-400 hover:-rotate-12 transition-transform duration-300" />
  )}
  </button>
 
@@ -173,12 +173,12 @@ export const Navbar: React.FC = () => {
  setLangOpen(!langOpen);
  setSearchQuery('');
  }}
- className="flex items-center gap-2 bg-slate-100 dark:bg-dark-800 hover:bg-slate-200 dark:hover:bg-dark-700 border border-slate-200 dark:border-dark-500/60 px-2.5 py-1 rounded-xl text-xs font-medium text-slate-700 dark:text-slate-200 transition-all duration-200 shadow-sm"
+ className="flex items-center gap-2 bg-slate-100 dark:bg-dark-800 hover:bg-slate-200 dark:hover:bg-dark-700 border border-slate-200 dark:border-dark-500/60 px-3 h-9 rounded-xl text-[13px] font-medium text-slate-700 dark:text-slate-200 transition-all duration-200 shadow-sm"
  aria-label="Pilih Bahasa"
  >
  <Globe className="w-4 h-4 text-cyan-600 dark:text-neon-cyan" />
  <span>{currentLang.flag}</span>
- <span className="hidden sm:inline uppercase font-mono text-xs">{currentLang.code}</span>
+ <span className="hidden sm:inline uppercase font-mono text-[13px]">{currentLang.code}</span>
  <ChevronDown className={`w-3.5 h-3.5 text-slate-400 transition-transform duration-200 ${langOpen ? 'rotate-180' : ''}`} />
  </button>
 
