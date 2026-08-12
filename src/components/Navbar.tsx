@@ -71,7 +71,7 @@ export const Navbar: React.FC = () => {
 
  return (
  <header className="sticky top-0 z-50 w-full border-b border-slate-200 dark:border-dark-500/40 bg-white dark:bg-dark-900 shadow-sm dark:shadow-none">
- <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-12 flex items-center justify-between">
+ <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-14 flex items-center justify-between">
  {/* Kiri: Brand Logo */}
  <div className="flex items-center justify-start flex-shrink-0">
  <a href={lang === 'en' ? '/' : `/${lang}`} onClick={(e) => { e.preventDefault(); navigatePath(lang === 'en' ? '/' : `/${lang}`); }} className="flex items-center gap-2.5 group">
@@ -270,12 +270,12 @@ export const Navbar: React.FC = () => {
  animate={{ opacity: 1 }}
  exit={{ opacity: 0 }}
  transition={{ duration: 0.15, ease: 'easeInOut' }}
- className="lg:hidden absolute inset-x-0 top-12 z-50 bg-slate-50 dark:bg-dark-900 border-t border-b border-slate-200 dark:border-dark-500/40 shadow-2xl overflow-y-auto max-h-[calc(100vh-48px)]"
+ className="lg:hidden absolute inset-x-0 top-14 z-50 bg-slate-50 dark:bg-dark-900 border-t border-b border-slate-200 dark:border-dark-500/40 shadow-2xl overflow-y-auto max-h-[calc(100vh-56px)]"
  >
  <div className="flex flex-col px-4 pt-3 pb-7 gap-3">
  
  {/* Quick 3 buttons */}
- <div className="grid grid-cols-3 gap-2">
+ <div className="grid grid-cols-3 gap-2.5 mb-2">
  {[
  { id: 'remove', label: t('nav.removeBg', { defaultValue: 'Remove BG' }) },
  { id: 'compress', label: t('nav.compress', { defaultValue: 'Compress' }) },
@@ -289,7 +289,7 @@ export const Navbar: React.FC = () => {
  navigatePath(lang === 'en' ? `/${slug}` : `/${lang}/${slug}`);
  setMobileMenuOpen(false);
  }} 
- className="bg-white dark:bg-dark-800 hover:bg-slate-50 dark:hover:bg-dark-700 border border-slate-200 dark:border-dark-600/50 p-[10px] rounded-lg font-bold text-slate-700 dark:text-slate-200 text-[0.78rem] uppercase text-center transition-colors cursor-pointer w-full"
+ className="bg-white dark:bg-dark-800 hover:bg-slate-50 dark:hover:bg-dark-700 border border-slate-200 dark:border-dark-600/50 py-[10px] px-2 rounded-lg font-bold text-slate-700 dark:text-slate-200 text-[0.76rem] uppercase text-center transition-colors cursor-pointer w-full"
  >
  {label}
  </button>
