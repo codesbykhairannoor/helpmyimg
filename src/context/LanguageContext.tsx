@@ -4,6 +4,7 @@
 import React, { createContext, useContext, useEffect } from 'react';
 import { useTranslation as useI18nextTranslation } from 'react-i18next';
 import { type Language, SUPPORTED_LANGUAGES } from '../i18n/translations';
+import { fetchTranslation } from '../i18n/i18n';
 
 interface LanguageContextType {
   lang: Language;
@@ -19,7 +20,11 @@ export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ chil
 
   const lang = (i18n.resolvedLanguage || i18n.language || 'en') as Language;
 
-  const setLang = (newLang: Language) => {
+  const setLang = async (newLang: Language) => {
+    if (!i18n.hasResourceBundle(newLang, 'translation')) {
+      const translations = await fetchTranslation(newLang);
+      i18n.addResourceBundle(newLang, 'translation', translations, true, true);
+    }
     i18n.changeLanguage(newLang);
     localStorage.setItem('helpmyimg_lang', newLang);
   };
