@@ -1,4 +1,3 @@
-import React from 'react';
 import { useTranslation } from '../../../context/LanguageContext';
 import { ShieldAlert, Layers, SlidersHorizontal, Grid, Fingerprint, Upload, Save } from 'lucide-react';
 

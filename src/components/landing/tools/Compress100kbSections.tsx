@@ -192,9 +192,9 @@ export const Compress100kbSections: React.FC = () => {
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
-              { icon: Upload, title: "1. Upload", desc: config.extraSectionItems?.[0] || "Upload your file", color: "text-blue-500", bg: "bg-blue-100 dark:bg-blue-900/30" },
-              { icon: Zap, title: "2. AI Shrink", desc: config.extraSectionItems?.[1] || "AI processes it", color: "text-purple-500", bg: "bg-purple-100 dark:bg-purple-900/30" },
-              { icon: Download, title: "3. Download", desc: config.extraSectionItems?.[2] || "Save result", color: "text-green-500", bg: "bg-green-100 dark:bg-green-900/30" }
+              { icon: Upload, title: "1. Upload", desc: (config.extraSectionItems || [])?.[0] || "Upload your file", color: "text-blue-500", bg: "bg-blue-100 dark:bg-blue-900/30" },
+              { icon: Zap, title: "2. AI Shrink", desc: (config.extraSectionItems || [])?.[1] || "AI processes it", color: "text-purple-500", bg: "bg-purple-100 dark:bg-purple-900/30" },
+              { icon: Download, title: "3. Download", desc: (config.extraSectionItems || [])?.[2] || "Save result", color: "text-green-500", bg: "bg-green-100 dark:bg-green-900/30" }
             ].map((step, idx) => (
               <motion.div 
                 key={idx}

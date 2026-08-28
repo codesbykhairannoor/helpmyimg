@@ -1,11 +1,10 @@
-import React from 'react';
-import { Sparkles, Layers, ShieldCheck, Star, PenTool, Eraser, MoveUpRight, ArrowRight, Wand2, Download } from 'lucide-react';
-import { motion } from 'framer-motion';
+import { Layers, ShieldCheck, Star, PenTool, Eraser, MoveUpRight, Wand2, Download } from 'lucide-react';
 import { PSEO_KEYWORD_MATRIX } from '../../../data/pseoKeywords';
 import { useRouter } from '../../../context/RouterContext';
 
 export function RemoveLogoSections() {
-  const { lang } = useRouter();
+  const { route } = useRouter();
+  const lang = route.lang;
   const config = PSEO_KEYWORD_MATRIX.find(c => c.tool === 'removelogo' && c.lang === lang)
               || PSEO_KEYWORD_MATRIX.find(c => c.tool === 'removelogo' && c.lang === 'en');
 
@@ -69,7 +68,7 @@ export function RemoveLogoSections() {
                 {config.extraSectionDesc}
               </p>
               <ul className="space-y-4">
-                {config.extraSectionItems?.map((item, idx) => (
+                {(config.extraSectionItems || [])?.map((item, idx) => (
                   <li key={idx} className="flex items-center gap-4 text-white">
                     <div className="w-8 h-8 rounded-full bg-blue-500/20 flex items-center justify-center text-blue-400 shrink-0">
                       <ShieldCheck className="w-4 h-4" />
@@ -99,9 +98,9 @@ export function RemoveLogoSections() {
           <div className="flex flex-col md:flex-row gap-6 items-stretch justify-center relative">
              <div className="absolute top-1/2 left-0 w-full h-1 bg-gradient-to-r from-transparent via-blue-500/20 to-transparent -translate-y-1/2 hidden md:block"></div>
              {[
-               { icon: Layers, text: config.extraSection2Items?.[0] },
-               { icon: Wand2, text: config.extraSection2Items?.[1] },
-               { icon: Download, text: config.extraSection2Items?.[2] }
+               { icon: Layers, text: (config.extraSection2Items || [])?.[0] },
+               { icon: Wand2, text: (config.extraSection2Items || [])?.[1] },
+               { icon: Download, text: (config.extraSection2Items || [])?.[2] }
              ].map((step, idx) => (
                 <motion.div 
                   key={idx}

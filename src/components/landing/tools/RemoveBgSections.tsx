@@ -1,5 +1,4 @@
 // src/components/landing/tools/RemoveBgSections.tsx
-import React from 'react';
 import { useTranslation } from '../../../context/LanguageContext';
 import { Wand2, Image as ImageIcon, Sparkles, Scissors, Lock, Focus, ShoppingBag, Palette, Download } from 'lucide-react';
 

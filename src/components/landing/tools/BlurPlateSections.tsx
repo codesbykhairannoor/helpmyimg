@@ -1,10 +1,10 @@
-import React from 'react';
 import { ShieldCheck, EyeOff, Lock, AlertOctagon, CarFront, FileLock2, ServerCrash } from 'lucide-react';
 import { PSEO_KEYWORD_MATRIX } from '../../../data/pseoKeywords';
 import { useRouter } from '../../../context/RouterContext';
 
 export function BlurPlateSections() {
-  const { lang } = useRouter();
+  const { route } = useRouter();
+  const lang = route.lang;
   const config = PSEO_KEYWORD_MATRIX.find(c => c.tool === 'blurplate' && c.lang === lang)
               || PSEO_KEYWORD_MATRIX.find(c => c.tool === 'blurplate' && c.lang === 'en');
 
@@ -71,7 +71,7 @@ export function BlurPlateSections() {
           <p className="text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">{config.extraSectionDesc}</p>
         </div>
         <div className="grid md:grid-cols-3 gap-8">
-          {config.extraSectionItems.map((item, i) => (
+          {(config.extraSectionItems || []).map((item, i) => (
             <div key={i} className="flex flex-col items-center text-center p-6 bg-slate-50 dark:bg-slate-800/50 rounded-2xl border border-slate-100 dark:border-slate-800">
               <div className="w-16 h-16 bg-slate-200 dark:bg-slate-700 text-slate-700 dark:text-slate-300 rounded-full flex items-center justify-center mb-6">
                 {[<FileLock2 />, <CarFront />, <ServerCrash />][i]}
@@ -89,7 +89,7 @@ export function BlurPlateSections() {
            <p className="text-slate-400 mb-10">{config.extraSection2Desc}</p>
            
            <div className="grid md:grid-cols-3 gap-6">
-              {config.extraSection2Items.map((item, i) => (
+              {(config.extraSection2Items || []).map((item, i) => (
                 <div key={i} className="bg-slate-800 rounded-xl p-6 border border-slate-700 hover:border-blue-500 transition-colors">
                    <div className="h-12 w-full bg-slate-700 rounded overflow-hidden mb-4 relative">
                       {i === 0 && <div className="absolute inset-0 backdrop-blur-md bg-white/10" />}

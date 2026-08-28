@@ -1,4 +1,3 @@
-import React from 'react';
 import { useTranslation } from '../../../context/LanguageContext';
 import { Wand2, Type, Square, Layers, Download, Move, Palette } from 'lucide-react';
 

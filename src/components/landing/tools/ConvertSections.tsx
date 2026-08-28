@@ -1,4 +1,3 @@
-import React from 'react';
 import { useTranslation } from '../../../context/LanguageContext';
 import { ArrowRightLeft, Image as ImageIcon, Zap, Upload, LayoutGrid, FileType2, Download } from 'lucide-react';
 

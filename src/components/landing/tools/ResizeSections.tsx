@@ -1,4 +1,3 @@
-import React from 'react';
 import { useTranslation } from '../../../context/LanguageContext';
 import { Maximize, Layers, Unlock, Share2, Globe, MonitorSmartphone, Download, Image as ImageIcon } from 'lucide-react';
 

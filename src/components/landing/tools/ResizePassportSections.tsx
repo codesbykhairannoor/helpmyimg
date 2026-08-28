@@ -1,10 +1,10 @@
-import React from 'react';
-import { FileBadge, Globe2, Briefcase, FileText, CheckCircle2, ClipboardList, ScanFace } from 'lucide-react';
+import { FileBadge, Globe2, FileText, CheckCircle2, ClipboardList, ScanFace } from 'lucide-react';
 import { PSEO_KEYWORD_MATRIX } from '../../../data/pseoKeywords';
 import { useRouter } from '../../../context/RouterContext';
 
 export function ResizePassportSections() {
-  const { lang } = useRouter();
+  const { route } = useRouter();
+  const lang = route.lang;
   const config = PSEO_KEYWORD_MATRIX.find(c => c.tool === 'resizepassport' && c.lang === lang)
               || PSEO_KEYWORD_MATRIX.find(c => c.tool === 'resizepassport' && c.lang === 'en');
 
@@ -40,7 +40,7 @@ export function ResizePassportSections() {
           </div>
           
           <div className="grid md:grid-cols-3 gap-6">
-            {config.extraSectionItems?.map((item, idx) => (
+            {(config.extraSectionItems || [])?.map((item, idx) => (
               <div key={idx} className="bg-white dark:bg-slate-800 rounded-xl p-6 border-t-4 border-blue-500 shadow-sm">
                 <div className="flex gap-4 items-start">
                   <div className="mt-1 text-blue-500"><CheckCircle2 className="w-5 h-5"/></div>
@@ -70,7 +70,7 @@ export function ResizePassportSections() {
                 <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-2">{config.extraSection2Title}</h3>
                 <p className="text-slate-600 dark:text-slate-400 mb-6">{config.extraSection2Desc}</p>
                 <div className="grid md:grid-cols-2 gap-4">
-                  {config.extraSection2Items?.map((item, idx) => (
+                  {(config.extraSection2Items || [])?.map((item, idx) => (
                     <div key={idx} className="flex gap-3 bg-white dark:bg-slate-800 p-4 rounded-xl border border-slate-200 dark:border-slate-700">
                        <ScanFace className="w-5 h-5 text-blue-500 shrink-0 mt-0.5" />
                        <p className="text-sm text-slate-700 dark:text-slate-300 leading-relaxed">{item}</p>

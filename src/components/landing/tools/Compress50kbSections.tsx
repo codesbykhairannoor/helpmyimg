@@ -151,9 +151,9 @@ export const Compress50kbSections: React.FC = () => {
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {[
-              { icon: Building, color: "text-blue-400", bg: "bg-blue-500/10", text: config.extraSectionItems?.[0] },
-              { icon: GraduationCap, color: "text-amber-400", bg: "bg-amber-500/10", text: config.extraSectionItems?.[1] },
-              { icon: Plane, color: "text-emerald-400", bg: "bg-emerald-500/10", text: config.extraSectionItems?.[2] }
+              { icon: Building, color: "text-blue-400", bg: "bg-blue-500/10", text: (config.extraSectionItems || [])?.[0] },
+              { icon: GraduationCap, color: "text-amber-400", bg: "bg-amber-500/10", text: (config.extraSectionItems || [])?.[1] },
+              { icon: Plane, color: "text-emerald-400", bg: "bg-emerald-500/10", text: (config.extraSectionItems || [])?.[2] }
             ].map((useCase, idx) => (
               <motion.div
                 key={idx}

@@ -1,4 +1,3 @@
-import React from 'react';
 import { useTranslation } from '../../../context/LanguageContext';
 import { Palette, Wand2, Image as ImageIcon, Focus, Monitor, LayoutGrid, Droplet, Download, Lock } from 'lucide-react';
 

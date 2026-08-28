@@ -1,6 +1,4 @@
-import React from 'react';
-import { Camera, Maximize, Grip, Sparkles, Smartphone, Layers, Layout, ArrowRight } from 'lucide-react';
-import { motion } from 'framer-motion';
+import { Camera, Maximize, Grip, Sparkles, Smartphone, Layers } from 'lucide-react';
 import { PSEO_KEYWORD_MATRIX } from '../../../data/pseoKeywords';
 import { useRouter } from '../../../context/RouterContext';
 
@@ -144,9 +142,9 @@ export const ResizeIgSections: React.FC = () => {
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
-              { ratio: "1:1", name: "Square", color: "text-blue-500", box: "w-16 h-16", text: config.extraSectionItems?.[0] },
-              { ratio: "4:5", name: "Portrait", color: "text-purple-500", box: "w-16 h-20", text: config.extraSectionItems?.[1] },
-              { ratio: "9:16", name: "Stories", color: "text-pink-500", box: "w-16 h-28", text: config.extraSectionItems?.[2] }
+              { ratio: "1:1", name: "Square", color: "text-blue-500", box: "w-16 h-16", text: (config.extraSectionItems || [])?.[0] },
+              { ratio: "4:5", name: "Portrait", color: "text-purple-500", box: "w-16 h-20", text: (config.extraSectionItems || [])?.[1] },
+              { ratio: "9:16", name: "Stories", color: "text-pink-500", box: "w-16 h-28", text: (config.extraSectionItems || [])?.[2] }
             ].map((item, idx) => (
               <motion.div 
                 key={idx}

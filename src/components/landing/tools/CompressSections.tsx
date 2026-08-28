@@ -1,5 +1,4 @@
 // src/components/landing/tools/CompressSections.tsx
-import React from 'react';
 import { useTranslation } from '../../../context/LanguageContext';
 import { Zap, FileArchive, Activity, ShieldCheck, Gauge, Image as ImageIcon } from 'lucide-react';
 

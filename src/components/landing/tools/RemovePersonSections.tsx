@@ -1,11 +1,10 @@
-import React from 'react';
 import { Sparkles, Eraser, Move, ScanLine, Image as ImageIcon, Zap, CheckCircle2 } from 'lucide-react';
 import { PSEO_KEYWORD_MATRIX } from '../../../data/pseoKeywords';
 import { useRouter } from '../../../context/RouterContext';
-import { motion } from 'framer-motion';
 
 export function RemovePersonSections() {
-  const { lang } = useRouter();
+  const { route } = useRouter();
+  const lang = route.lang;
   const config = PSEO_KEYWORD_MATRIX.find(c => c.tool === 'removeperson' && c.lang === lang)
               || PSEO_KEYWORD_MATRIX.find(c => c.tool === 'removeperson' && c.lang === 'en');
 
@@ -87,7 +86,7 @@ export function RemovePersonSections() {
           <p className="text-slate-600 dark:text-slate-400">{config.extraSectionDesc}</p>
         </div>
         <div className="grid md:grid-cols-3 gap-6">
-          {config.extraSectionItems.map((item, i) => (
+          {(config.extraSectionItems || []).map((item, i) => (
             <div key={i} className="bg-white dark:bg-slate-800 rounded-2xl p-6 border border-slate-200 dark:border-slate-700 hover:border-purple-500/50 transition-colors shadow-sm">
               <CheckCircle2 className="w-8 h-8 text-purple-500 mb-4" />
               <h4 className="font-bold text-slate-900 dark:text-white text-lg">{item}</h4>
@@ -106,7 +105,7 @@ export function RemovePersonSections() {
              <h3 className="text-2xl font-bold mb-2 relative z-10">{config.extraSection2Title}</h3>
              <p className="text-purple-100 mb-6 max-w-md relative z-10">{config.extraSection2Desc}</p>
              <div className="space-y-3 relative z-10">
-               {config.extraSection2Items.map((item, i) => (
+               {(config.extraSection2Items || []).map((item, i) => (
                  <div key={i} className="flex items-center gap-3 bg-white/10 backdrop-blur-sm px-4 py-3 rounded-lg border border-white/20">
                    <Zap className="w-5 h-5 text-purple-200" />
                    <span className="font-medium">{item}</span>

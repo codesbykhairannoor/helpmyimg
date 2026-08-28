@@ -1,4 +1,3 @@
-import React from 'react';
 import { useTranslation } from '../../../context/LanguageContext';
 import { ScanFace, EyeOff, Shield, Crop, UserX, Download, Upload } from 'lucide-react';
 

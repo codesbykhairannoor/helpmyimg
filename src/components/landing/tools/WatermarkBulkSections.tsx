@@ -1,10 +1,10 @@
-import React from 'react';
-import { Layers, Copy, Shield, CopyPlus, LayoutGrid, CheckCircle2, Award } from 'lucide-react';
+import { Layers, Shield, CopyPlus, LayoutGrid, CheckCircle2, Award } from 'lucide-react';
 import { PSEO_KEYWORD_MATRIX } from '../../../data/pseoKeywords';
 import { useRouter } from '../../../context/RouterContext';
 
 export function WatermarkBulkSections() {
-  const { lang } = useRouter();
+  const { route } = useRouter();
+  const lang = route.lang;
   const config = PSEO_KEYWORD_MATRIX.find(c => c.tool === 'watermarkbulk' && c.lang === lang)
               || PSEO_KEYWORD_MATRIX.find(c => c.tool === 'watermarkbulk' && c.lang === 'en');
 
@@ -66,7 +66,7 @@ export function WatermarkBulkSections() {
               <p className="text-amber-400 font-semibold">{config.quantitativeProof}</p>
            </div>
            <div className="w-full md:w-1/3 flex flex-col gap-4">
-              {config.extraSection2Items.map((item, i) => (
+              {(config.extraSection2Items || []).map((item, i) => (
                 <div key={i} className="bg-slate-900/50 p-4 rounded-xl border border-slate-700/50 flex items-start gap-3">
                    <CheckCircle2 className="w-5 h-5 text-amber-500 shrink-0 mt-0.5" />
                    <p className="text-slate-200 text-sm">{item}</p>
@@ -83,7 +83,7 @@ export function WatermarkBulkSections() {
           <p className="text-slate-400">{config.extraSectionDesc}</p>
         </div>
         <div className="grid md:grid-cols-3 gap-6">
-          {config.extraSectionItems.map((item, i) => (
+          {(config.extraSectionItems || []).map((item, i) => (
             <div key={i} className="bg-slate-800 p-8 rounded-2xl border border-slate-700 hover:border-amber-500/50 transition-all text-center group">
               <div className="w-16 h-16 bg-slate-900 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-amber-500/10 transition-colors">
                 {[<LayoutGrid className="text-blue-400" />, <Layers className="text-purple-400" />, <Award className="text-amber-400" />][i]}

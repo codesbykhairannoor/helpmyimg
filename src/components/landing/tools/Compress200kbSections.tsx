@@ -1,10 +1,10 @@
-import React from 'react';
-import { Database, FileDown, Gauge, Cpu, Check, Server, TerminalSquare } from 'lucide-react';
+import { Database, Check, Server, TerminalSquare } from 'lucide-react';
 import { PSEO_KEYWORD_MATRIX } from '../../../data/pseoKeywords';
 import { useRouter } from '../../../context/RouterContext';
 
 export function Compress200kbSections() {
-  const { lang } = useRouter();
+  const { route } = useRouter();
+  const lang = route.lang;
   const config = PSEO_KEYWORD_MATRIX.find(c => c.tool === 'compress200kb' && c.lang === lang)
               || PSEO_KEYWORD_MATRIX.find(c => c.tool === 'compress200kb' && c.lang === 'en');
 
@@ -44,17 +44,17 @@ export function Compress200kbSections() {
               <tbody className="bg-black">
                 <tr className="border-b border-zinc-800/50 hover:bg-zinc-900/30 transition-colors">
                   <td className="p-4 text-emerald-400 font-bold border-r border-zinc-800/50">200KB</td>
-                  <td className="p-4 text-zinc-400">{config.extraSectionItems?.[0]?.split(':')[1] || "Blogs & Forums"}</td>
+                  <td className="p-4 text-zinc-400">{(config.extraSectionItems || [])?.[0]?.split(':')[1] || "Blogs & Forums"}</td>
                   <td className="p-4 text-zinc-400 flex items-center gap-2"><Check className="w-4 h-4 text-emerald-500"/> Excellent</td>
                 </tr>
                 <tr className="border-b border-zinc-800/50 hover:bg-zinc-900/30 transition-colors">
                   <td className="p-4 text-amber-400 font-bold border-r border-zinc-800/50">100KB</td>
-                  <td className="p-4 text-zinc-400">{config.extraSectionItems?.[1]?.split(':')[1] || "App Forms"}</td>
+                  <td className="p-4 text-zinc-400">{(config.extraSectionItems || [])?.[1]?.split(':')[1] || "App Forms"}</td>
                   <td className="p-4 text-zinc-400 flex items-center gap-2"><Check className="w-4 h-4 text-amber-500"/> Good</td>
                 </tr>
                 <tr className="hover:bg-zinc-900/30 transition-colors">
                   <td className="p-4 text-red-400 font-bold border-r border-zinc-800/50">50KB</td>
-                  <td className="p-4 text-zinc-400">{config.extraSectionItems?.[2]?.split(':')[1] || "Gov IDs"}</td>
+                  <td className="p-4 text-zinc-400">{(config.extraSectionItems || [])?.[2]?.split(':')[1] || "Gov IDs"}</td>
                   <td className="p-4 text-zinc-400 flex items-center gap-2"><Check className="w-4 h-4 text-red-500"/> Acceptable</td>
                 </tr>
               </tbody>
@@ -74,7 +74,7 @@ export function Compress200kbSections() {
                <h3 className="text-2xl font-bold text-white mb-3">{config.extraSection2Title}</h3>
                <p className="text-emerald-400 mb-6">{config.extraSection2Desc}</p>
                <ul className="space-y-3">
-                 {config.extraSection2Items?.map((item, idx) => (
+                 {(config.extraSection2Items || [])?.map((item, idx) => (
                     <li key={idx} className="flex gap-3 text-zinc-300">
                       <TerminalSquare className="w-5 h-5 text-emerald-500 shrink-0" />
                       {item}

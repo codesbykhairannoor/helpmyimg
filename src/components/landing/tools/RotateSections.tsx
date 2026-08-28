@@ -1,4 +1,3 @@
-import React from 'react';
 import { useTranslation } from '../../../context/LanguageContext';
 import { RotateCw, FlipHorizontal, FlipVertical, Image as ImageIcon, Download, SlidersHorizontal, MousePointerClick } from 'lucide-react';
 

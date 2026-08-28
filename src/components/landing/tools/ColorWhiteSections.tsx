@@ -1,11 +1,10 @@
-import React from 'react';
 import { ShoppingBag, Star, LayoutTemplate, BadgeCheck, Zap, ArrowRightCircle } from 'lucide-react';
-import { motion } from 'framer-motion';
 import { PSEO_KEYWORD_MATRIX } from '../../../data/pseoKeywords';
 import { useRouter } from '../../../context/RouterContext';
 
 export function ColorWhiteSections() {
-  const { lang } = useRouter();
+  const { route } = useRouter();
+  const lang = route.lang;
   const config = PSEO_KEYWORD_MATRIX.find(c => c.tool === 'colorwhite' && c.lang === lang)
               || PSEO_KEYWORD_MATRIX.find(c => c.tool === 'colorwhite' && c.lang === 'en');
 
@@ -65,7 +64,7 @@ export function ColorWhiteSections() {
             </div>
 
             <div className="grid md:grid-cols-3 gap-6 relative z-10">
-              {config.extraSectionItems?.map((item, idx) => (
+              {(config.extraSectionItems || [])?.map((item, idx) => (
                 <div key={idx} className="bg-slate-50 dark:bg-slate-800/50 rounded-2xl p-6 text-center">
                   <div className="w-12 h-12 mx-auto bg-white dark:bg-slate-800 rounded-full shadow-sm flex items-center justify-center mb-4 text-orange-500">
                     {idx === 0 ? <BadgeCheck /> : idx === 1 ? <LayoutTemplate /> : <Zap />}
@@ -84,7 +83,7 @@ export function ColorWhiteSections() {
           <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-4">{config.extraSection2Title}</h3>
           <p className="text-slate-600 dark:text-slate-400 mb-8">{config.extraSection2Desc}</p>
           <div className="flex flex-col gap-4">
-            {config.extraSection2Items?.map((item, idx) => (
+            {(config.extraSection2Items || [])?.map((item, idx) => (
                <div key={idx} className="bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-xl p-4 flex items-center justify-between shadow-sm">
                  <span className="text-slate-700 dark:text-slate-300 font-medium">{item}</span>
                  <ArrowRightCircle className="w-5 h-5 text-orange-500" />

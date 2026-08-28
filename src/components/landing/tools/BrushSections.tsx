@@ -1,5 +1,4 @@
 // src/components/landing/tools/BrushSections.tsx
-import React from 'react';
 import { useTranslation } from '../../../context/LanguageContext';
 import { Brush, Eraser, Undo2, Focus, Palette, Target, MousePointer2, Layers } from 'lucide-react';
 

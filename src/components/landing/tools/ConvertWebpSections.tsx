@@ -1,10 +1,10 @@
-import React from 'react';
 import { RefreshCcw, FileType, CheckCircle2, AlertTriangle, Monitor, Smartphone, Globe, CloudOff } from 'lucide-react';
 import { PSEO_KEYWORD_MATRIX } from '../../../data/pseoKeywords';
 import { useRouter } from '../../../context/RouterContext';
 
 export function ConvertWebpSections() {
-  const { lang } = useRouter();
+  const { route } = useRouter();
+  const lang = route.lang;
   const config = PSEO_KEYWORD_MATRIX.find(c => c.tool === 'convertwebp' && c.lang === lang)
               || PSEO_KEYWORD_MATRIX.find(c => c.tool === 'convertwebp' && c.lang === 'en');
 
@@ -94,8 +94,8 @@ export function ConvertWebpSections() {
               </tr>
               <tr>
                 <td className="p-4 font-medium text-slate-700 dark:text-slate-300">Best Use Case</td>
-                <td className="p-4">{config.extraSectionItems[0].replace('WEBP: ', '')}</td>
-                <td className="p-4">{config.extraSectionItems[1].replace('JPG: ', '')}</td>
+                <td className="p-4">{(config.extraSectionItems || [])[0].replace('WEBP: ', '')}</td>
+                <td className="p-4">{(config.extraSectionItems || [])[1].replace('JPG: ', '')}</td>
               </tr>
             </tbody>
           </table>
@@ -126,7 +126,7 @@ export function ConvertWebpSections() {
           <p className="text-slate-600 dark:text-slate-400 mt-2">{config.extraSection2Desc}</p>
         </div>
         <div className="grid md:grid-cols-3 gap-8">
-          {config.extraSection2Items.map((item, i) => (
+          {(config.extraSection2Items || []).map((item, i) => (
             <div key={i} className="flex flex-col items-center text-center group">
               <div className="w-16 h-16 bg-white dark:bg-slate-800 rounded-full shadow-md flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
                 {[<Globe />, <Monitor />, <Smartphone />][i % 3]}
