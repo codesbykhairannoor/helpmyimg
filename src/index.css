@@ -21,14 +21,9 @@
 }
 
 @layer base {
-  @media (min-width: 1024px) {
-    html {
-      font-size: 81.25%; /* 13px base size -> scales all rem dimensions to match 80% sleek visual zoom! */
-    }
-  }
-
   body {
     @apply bg-dark-900 text-slate-100 font-body min-h-screen overflow-x-clip antialiased transition-colors duration-300;
+    zoom: 0.8;
     background-image: 
       radial-gradient(at 10% 20%, hsla(250, 90%, 65%, 0.15) 0px, transparent 50%),
       radial-gradient(at 90% 80%, hsla(190, 95%, 50%, 0.15) 0px, transparent 50%),
