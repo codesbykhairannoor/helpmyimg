@@ -1,0 +1,38 @@
+{
+  "title": "Compactar imagem para 100 KB online gratuitamente - rápido e privado",
+  "h1": "Comprima qualquer imagem em 100 KB instantaneamente",
+  "description": "Compacte facilmente suas imagens JPG, PNG e WEBP para exatamente 100 KB ou menos sem perder qualidade. 100% privado, processado no seu navegador.",
+  "sections": [
+    {
+      "title": "Reduza o tamanho da imagem sem perder clareza",
+      "content": "Lutando com limites de upload em portais governamentais, sites de empregos ou formulários universitários? Nosso compressor avançado do lado do cliente reduz o tamanho da imagem precisamente abaixo de 100 KB, mantendo o texto e os rostos nítidos.",
+      "badgeText": "Meta de 100 KB",
+      "type": "hero_split"
+    },
+    {
+      "title": "Processamento 100% privado e seguro",
+      "content": "Ao contrário de outras ferramentas online, nunca carregamos seus cartões de identificação, passaportes ou fotos pessoais confidenciais para servidores externos. Tudo funciona totalmente offline dentro do seu navegador.",
+      "badgeText": "Nenhum upload",
+      "type": "privacy_shield"
+    },
+    {
+      "title": "Como compactar sua imagem para 100 KB",
+      "content": "1. Carregue sua imagem. \n2. Escolha compactação 'Forte'. \n3. Baixe seu arquivo otimizado de 100 KB instantaneamente.",
+      "badgeText": "Guia rápido",
+      "type": "how_to_steps"
+    }
+  ],
+  "faqs": [
+    {
+      "q": "Como posso compactar uma imagem para exatamente 100 KB?",
+      "a": "Nossa ferramenta ajusta automaticamente o controle deslizante de qualidade e remove metadados desnecessários para reduzir o tamanho do arquivo para menos de 100 KB, preservando a fidelidade visual."
+    },
+    {
+      "q": "É seguro compactar a foto do meu passaporte aqui?",
+      "a": "Sim, é 100% seguro. Suas imagens nunca são transmitidas pela internet. O processamento acontece localmente na memória do seu dispositivo."
+    }
+  ],
+  "faqTitle": "Perguntas frequentes",
+  "supportCenter": "Centro de suporte",
+  "buttonText": "Compactar para 100 KB agora"
+}

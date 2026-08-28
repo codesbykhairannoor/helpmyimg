@@ -17,6 +17,7 @@
     "canvas": "^3.2.3",
     "canvas-confetti": "^1.9.4",
     "framer-motion": "^12.42.2",
+    "google-translate-api-x": "^10.7.2",
     "i18next": "^26.3.4",
     "i18next-browser-languagedetector": "^8.2.1",
     "jszip": "^3.10.1",

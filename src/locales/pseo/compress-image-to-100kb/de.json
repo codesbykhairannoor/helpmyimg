@@ -1,0 +1,38 @@
+{
+  "title": "Komprimieren Sie das Bild online kostenlos auf 100 KB – schnell und privat",
+  "h1": "Komprimieren Sie jedes Bild sofort auf 100 KB",
+  "description": "Komprimieren Sie Ihre JPG-, PNG- und WEBP-Bilder ganz einfach auf genau 100 KB oder weniger, ohne an Qualität zu verlieren. 100 % privat, verarbeitet in Ihrem Browser.",
+  "sections": [
+    {
+      "title": "Verkleinern Sie die Bildgröße, ohne die Klarheit zu verlieren",
+      "content": "Haben Sie Probleme mit Upload-Beschränkungen auf Regierungsportalen, Jobbörsen oder Universitätsformularen? Unser fortschrittlicher clientseitiger Kompressor reduziert Ihre Bildgröße auf genau unter 100 KB und sorgt gleichzeitig dafür, dass Text und Gesichter kristallklar bleiben.",
+      "badgeText": "Zielgröße: 100 KB",
+      "type": "hero_center"
+    },
+    {
+      "title": "100 % private und sichere Verarbeitung",
+      "content": "Im Gegensatz zu anderen Online-Tools laden wir Ihre sensiblen Ausweise, Pässe oder persönlichen Fotos niemals auf externe Server hoch. Alles läuft komplett offline in Ihrem Browser.",
+      "badgeText": "Keine Uploads",
+      "type": "how_to_grid"
+    },
+    {
+      "title": "So komprimieren Sie Ihr Bild auf 100 KB",
+      "content": "1. Laden Sie Ihr Bild hoch. \n2. Wählen Sie „Starke“ Komprimierung. \n3. Laden Sie Ihre optimierte 100-KB-Datei sofort herunter.",
+      "badgeText": "Kurzanleitung",
+      "type": "privacy_alert"
+    }
+  ],
+  "faqs": [
+    {
+      "q": "Wie kann ich ein Bild auf genau 100 KB komprimieren?",
+      "a": "Unser Tool passt den Qualitätsregler automatisch an und entfernt unnötige Metadaten, um die Dateigröße unter 100 KB zu drücken und gleichzeitig die visuelle Wiedergabetreue zu wahren."
+    },
+    {
+      "q": "Ist es hier sicher, mein Passfoto zu komprimieren?",
+      "a": "Ja, es ist 100 % sicher. Ihre Bilder werden niemals über das Internet übertragen. Die Verarbeitung erfolgt lokal im Speicher Ihres Geräts."
+    }
+  ],
+  "faqTitle": "Häufig gestellte Fragen",
+  "supportCenter": "Support-Center",
+  "buttonText": "Jetzt auf 100 KB komprimieren"
+}

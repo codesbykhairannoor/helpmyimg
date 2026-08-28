@@ -1,0 +1,38 @@
+{
+  "title": "Comprime imágenes a 100 KB en línea gratis: rápido y privado",
+  "h1": "Comprime cualquier imagen a 100 KB al instante",
+  "description": "Comprime fácilmente tus imágenes JPG, PNG y WEBP a exactamente 100 KB o menos sin perder calidad. 100% privado, procesado en tu navegador.",
+  "sections": [
+    {
+      "title": "Reducir el tamaño de la imagen sin perder claridad",
+      "content": "¿Tiene problemas con los límites de carga en portales gubernamentales, sitios de empleo o formularios universitarios? Nuestro compresor avanzado del lado del cliente reduce el tamaño de su imagen precisamente por debajo de 100 KB mientras mantiene el texto y los rostros nítidos.",
+      "badgeText": "Objetivo 100 KB",
+      "type": "hero_split_reverse"
+    },
+    {
+      "title": "Procesamiento 100% privado y seguro",
+      "content": "A diferencia de otras herramientas en línea, nunca cargamos sus documentos de identificación, pasaportes o fotografías personales confidenciales a servidores externos. Todo se ejecuta completamente sin conexión dentro de su navegador.",
+      "badgeText": "Cargas cero",
+      "type": "privacy_shield_dark"
+    },
+    {
+      "title": "Cómo comprimir su imagen a 100 KB",
+      "content": "1. Sube tu imagen. \n2. Elija compresión 'Fuerte'. \n3. Descargue su archivo optimizado de 100 KB al instante.",
+      "badgeText": "Guía rápida",
+      "type": "how_to_steps"
+    }
+  ],
+  "faqs": [
+    {
+      "q": "¿Cómo puedo comprimir una imagen a exactamente 100 KB?",
+      "a": "Nuestra herramienta ajusta automáticamente el control deslizante de calidad y elimina los metadatos innecesarios para reducir el tamaño del archivo por debajo de 100 KB y al mismo tiempo preservar la fidelidad visual."
+    },
+    {
+      "q": "¿Es seguro comprimir mi foto de pasaporte aquí?",
+      "a": "Sí, es 100% seguro. Tus imágenes nunca se transmiten a través de Internet. El procesamiento ocurre localmente en la memoria de su dispositivo."
+    }
+  ],
+  "faqTitle": "Preguntas frecuentes",
+  "supportCenter": "Centro de soporte",
+  "buttonText": "Comprimir a 100 KB ahora"
+}

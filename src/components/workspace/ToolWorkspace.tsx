@@ -35,7 +35,7 @@ export type { ColorInfo };
 import type { WatermarkPosition } from './tools/WatermarkControl';
 export type { WatermarkPosition };
 
-export type TabType = 'remove' | 'color' | 'brush' | 'watermark' | 'compress' | 'convert' | 'resize' | 'crop' | 'rotate' | 'picker' | 'blurface' | 'design';
+export type TabType = 'remove' | 'color' | 'brush' | 'watermark' | 'compress' | 'compress100kb' | 'convert' | 'resize' | 'crop' | 'rotate' | 'picker' | 'blurface' | 'design';
 
 export interface BatchItem {
   id: string;
@@ -1090,7 +1090,7 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({ initialTab = 'remo
                   />
                 )}
 
-                {initialTab === 'compress' && (
+                {(initialTab === 'compress' || initialTab === 'compress100kb') && (
                   <CompressControl
                     quality={compressQuality}
                     setQuality={setCompressQuality}

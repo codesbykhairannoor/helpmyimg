@@ -1,0 +1,38 @@
+{
+  "title": "Compresser l'image à 100 Ko en ligne gratuitement - Rapide et privé",
+  "h1": "Compressez n'importe quelle image à 100 Ko instantanément",
+  "description": "Compressez facilement vos images JPG, PNG et WEBP à exactement 100 Ko ou moins sans perte de qualité. 100% privé, traité dans votre navigateur.",
+  "sections": [
+    {
+      "title": "Réduire la taille de l'image sans perdre en clarté",
+      "content": "Vous avez du mal à respecter les limites de téléchargement sur les portails gouvernementaux, les sites d'emploi ou les formulaires universitaires ? Notre compresseur avancé côté client réduit la taille de votre image précisément en dessous de 100 Ko tout en gardant le texte et les visages parfaitement clairs.",
+      "badgeText": "Cibler 100 Ko",
+      "type": "hero_split"
+    },
+    {
+      "title": "Traitement 100 % privé et sécurisé",
+      "content": "Contrairement à d'autres outils en ligne, nous ne téléchargeons jamais vos cartes d'identité, passeports ou photos personnelles sensibles sur des serveurs externes. Tout fonctionne entièrement hors ligne dans votre navigateur.",
+      "badgeText": "Zéro téléchargement",
+      "type": "privacy_shield"
+    },
+    {
+      "title": "Comment compresser votre image à 100 Ko",
+      "content": "1. Téléchargez votre image. \n2. Choisissez une compression « Forte ». \n3. Téléchargez instantanément votre fichier optimisé de 100 Ko.",
+      "badgeText": "Guide rapide",
+      "type": "how_to_steps"
+    }
+  ],
+  "faqs": [
+    {
+      "q": "Comment puis-je compresser une image à exactement 100 Ko ?",
+      "a": "Notre outil ajuste automatiquement le curseur de qualité et supprime les métadonnées inutiles pour pousser la taille du fichier en dessous de 100 Ko tout en préservant la fidélité visuelle."
+    },
+    {
+      "q": "Est-il sécuritaire de compresser ma photo d’identité ici ?",
+      "a": "Oui, c'est 100% sûr. Vos images ne sont jamais transmises sur Internet. Le traitement s'effectue localement dans la mémoire de votre appareil."
+    }
+  ],
+  "faqTitle": "Foire aux questions",
+  "supportCenter": "Centre d'assistance",
+  "buttonText": "Compresser à 100 Ko maintenant"
+}

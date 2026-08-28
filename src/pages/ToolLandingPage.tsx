@@ -11,6 +11,8 @@ import { useTranslation } from '../context/LanguageContext';
 import { type Language } from '../i18n/translations';
 import { synthesizeDynamicPSeo } from '../utils/dynamicPSeoSynthesizer';
 import { ToolWorkspace } from '../components/workspace/ToolWorkspace';
+import { usePSeoData } from '../hooks/usePSeoData';
+import { DynamicPSeoSections } from '../components/seo/DynamicPSeoSections';
 
 export const ToolLandingPage: React.FC = () => {
   const { setLang, lang: currentLang, t } = useTranslation();
@@ -23,6 +25,8 @@ export const ToolLandingPage: React.FC = () => {
       setLang(lang as Language);
     }
   }, [lang, currentLang, setLang]);
+
+  const { data: dynamicJsonData } = usePSeoData(keywordSlug || undefined, lang as string);
 
   // The route.tool is already parsed as the internal tool by RouterContext
   const internalTool = tool || 'remove';
@@ -137,8 +141,8 @@ export const ToolLandingPage: React.FC = () => {
     <div className="min-h-screen bg-dark-900 text-slate-900 dark:text-slate-100 transition-colors duration-300">
       <SeoHead
         key={`${lang}-${tool || 'home'}`}
-        title={displayConfig.title}
-        description={displayConfig.description}
+        title={dynamicJsonData ? dynamicJsonData.title : displayConfig.title}
+        description={dynamicJsonData ? dynamicJsonData.description : displayConfig.description}
         canonicalPath={`/${lang === 'en' ? '' : lang + '/'}${tool || 'remove-background'}${keywordSlug ? `/${keywordSlug}` : ''}`.replace('//', '/')}
         lang={lang}
         citationFirst={displayConfig.citationFirst}
@@ -149,8 +153,8 @@ export const ToolLandingPage: React.FC = () => {
 
       {/* Hero Section */}
       <Hero 
-        title={!tool ? undefined : displayConfig.h1} 
-        description={!tool ? undefined : displayConfig.description} 
+        title={dynamicJsonData ? dynamicJsonData.h1 : (!tool ? undefined : displayConfig.h1)} 
+        description={dynamicJsonData ? dynamicJsonData.description : (!tool ? undefined : displayConfig.description)} 
       />
 
 
@@ -169,6 +173,8 @@ export const ToolLandingPage: React.FC = () => {
       <div className="mt-32 sm:mt-40">
         {!tool ? (
           <HomeSections />
+        ) : dynamicJsonData ? (
+          <DynamicPSeoSections data={dynamicJsonData} />
         ) : (
           <>
             <LandingSections tool={displayConfig.tool as any} />

@@ -1,0 +1,38 @@
+{
+  "title": "Compress Image to 100KB Online Free - Fast & Private",
+  "h1": "Compress Any Image to 100KB Instantly",
+  "description": "Easily compress your JPG, PNG, and WEBP images to exactly 100KB or less without losing quality. 100% private, processed in your browser.",
+  "sections": [
+    {
+      "title": "Shrink Image Size Without Losing Clarity",
+      "content": "Struggling with upload limits on government portals, job sites, or university forms? Our advanced client-side compressor reduces your image size precisely under 100KB while keeping text and faces crystal clear.",
+      "badgeText": "Target 100KB",
+      "type": "hero_split"
+    },
+    {
+      "title": "100% Private & Secure Processing",
+      "content": "Unlike other online tools, we never upload your sensitive ID cards, passports, or personal photos to external servers. Everything runs entirely offline inside your browser.",
+      "badgeText": "Zero Uploads",
+      "type": "privacy_shield"
+    },
+    {
+      "title": "How to Compress Your Image to 100KB",
+      "content": "1. Upload your image. \n2. Choose 'Strong' compression. \n3. Download your optimized 100KB file instantly.",
+      "badgeText": "Quick Guide",
+      "type": "how_to_steps"
+    }
+  ],
+  "faqs": [
+    {
+      "q": "How can I compress an image to exactly 100KB?",
+      "a": "Our tool automatically adjusts the quality slider and strips unnecessary metadata to push the file size below 100KB while preserving visual fidelity."
+    },
+    {
+      "q": "Is it safe to compress my passport photo here?",
+      "a": "Yes, it is 100% safe. Your images are never transmitted over the internet. Processing happens locally in your device's memory."
+    }
+  ],
+  "faqTitle": "Frequently Asked Questions",
+  "supportCenter": "Support Center",
+  "buttonText": "Compress to 100KB Now"
+}
