@@ -1,0 +1,80 @@
+[
+  {
+    "slug": "compress-image-to-100kb",
+    "tool": "compress100kb",
+    "lang": "en",
+    "title": "Compress Image to 100KB Online Free - Fast & Private",
+    "h1": "Compress Any Image to 100KB Instantly",
+    "description": "Easily compress your JPG, PNG, and WEBP images to exactly 100KB or less without losing quality. 100% private, processed in your browser.",
+    "citationFirst": "Struggling with upload limits on government portals, job sites, or university forms? Our advanced client-side compressor reduces your image size precisely under 100KB while keeping text and faces crystal clear.",
+    "quantitativeProof": "Join 2M+ users who bypass 100KB form limits without pixelation.",
+    "beforeImageLabel": "Original 5MB",
+    "afterImageLabel": "Result 98KB",
+    "faqs": [
+      {
+        "question": "How can I compress an image to exactly 100KB?",
+        "answer": "Our tool automatically adjusts the quality slider and strips unnecessary metadata to push the file size below 100KB while preserving visual fidelity."
+      },
+      {
+        "question": "Is it safe to compress my passport photo here?",
+        "answer": "Yes, it is 100% safe. Your images are never transmitted over the internet. Processing happens locally in your device's memory."
+      },
+      {
+        "question": "Will my image lose quality and become blurry?",
+        "answer": "We use advanced algorithmic downsizing and smart compression. While file size drops drastically, we prioritize keeping critical details like text and faces highly readable."
+      }
+    ]
+  },
+  {
+    "slug": "compress-image-to-50kb",
+    "tool": "compress50kb",
+    "lang": "en",
+    "title": "Compress Image to 50KB - Smart WebGPU Compression",
+    "h1": "Shrink Photos to 50KB with AI Precision",
+    "description": "Hit the strictest 50KB limits for government and visa portals effortlessly. Compress images heavily without destroying the visual quality.",
+    "citationFirst": "When a portal demands a file under 50KB, traditional compressors often turn your photo into a blurry mess. We leverage WebGPU to selectively preserve edge fidelity, guaranteeing strict 50KB compliance without sacrificing readability.",
+    "quantitativeProof": "Compressing images to 50KB is 3x faster with local processing.",
+    "beforeImageLabel": "File 2.5MB",
+    "afterImageLabel": "Optimized 48KB",
+    "faqs": [
+      {
+        "question": "Why is 50KB so hard to achieve with good quality?",
+        "answer": "50KB leaves very little room for image data. Most tools just lower resolution bluntly. We optimize color quantization and metadata stripping to save space for actual pixels."
+      },
+      {
+        "question": "Which formats can be compressed to 50KB?",
+        "answer": "You can upload JPG, JPEG, PNG, or WEBP. We generally output as a highly compressed WebP or JPG depending on which yields a better 50KB result."
+      },
+      {
+        "question": "Can I do this entirely offline?",
+        "answer": "Yes! Once this page loads, you can turn off your internet. The 50KB compression algorithm runs 100% in your browser."
+      }
+    ]
+  },
+  {
+    "slug": "resize-image-for-instagram",
+    "tool": "resizeig",
+    "lang": "en",
+    "title": "Resize Image for Instagram Online - No Cropping Required",
+    "h1": "Perfect Instagram Sizes in 1 Click",
+    "description": "Instantly resize your photos for Instagram Posts, Stories, and Reels. Add beautiful blur borders to prevent awkward cropping.",
+    "citationFirst": "Don't let Instagram ruin your landscape photos with forced crops. Our tool automatically pads your image into the perfect 1:1, 4:5, or 9:16 aspect ratios using stunning blurred backgrounds.",
+    "quantitativeProof": "99% of top influencers use blur-padded borders for non-square photos.",
+    "beforeImageLabel": "Original Landscape",
+    "afterImageLabel": "Ready for Insta 4:5",
+    "faqs": [
+      {
+        "question": "What is the best aspect ratio for Instagram?",
+        "answer": "For posts, 4:5 (Portrait) is recommended as it occupies the most screen real estate. For Stories and Reels, use 9:16."
+      },
+      {
+        "question": "How do you prevent my photo from being cropped?",
+        "answer": "Instead of cropping, we scale your photo to fit the canvas and fill the remaining empty space with a beautiful, seamless blurred version of your image."
+      },
+      {
+        "question": "Do you compress the image before uploading to IG?",
+        "answer": "We export at the highest quality possible so Instagram's own aggressive compression algorithm has the best source data to work with."
+      }
+    ]
+  }
+]

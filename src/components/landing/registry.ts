@@ -15,6 +15,8 @@ import { BlurFaceSections } from './tools/BlurFaceSections';
 import { ConvertSections } from './tools/ConvertSections';
 import { BrushSections } from './tools/BrushSections';
 import { Compress100kbSections } from './tools/Compress100kbSections';
+import { Compress50kbSections } from './tools/Compress50kbSections';
+import { ResizeIgSections } from './tools/ResizeIgSections';
 
 export const SECTION_REGISTRY: Record<string, React.FC> = {
   'remove': RemoveBgSections,
@@ -30,4 +32,6 @@ export const SECTION_REGISTRY: Record<string, React.FC> = {
   'convert': ConvertSections,
   'brush': BrushSections,
   'compress100kb': Compress100kbSections,
+  'compress50kb': Compress50kbSections,
+  'resizeig': ResizeIgSections,
 };

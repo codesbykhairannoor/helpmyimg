@@ -33,8 +33,8 @@ export const ToolLandingPage: React.FC = () => {
 
   // Cari konfigurasi SEO dari matriks
   let config: PSeoKeywordConfig | undefined = keywordSlug ? getPSeoConfigBySlug(keywordSlug) : undefined;
-  if (!config && internalTool === 'compress100kb') {
-    config = getPSeoConfigBySlug(keywordSlug || '') || PSEO_KEYWORD_MATRIX.find(c => c.tool === 'compress100kb' && c.lang === lang);
+  if (!config && (internalTool === 'compress100kb' || internalTool === 'compress50kb' || internalTool === 'resizeig')) {
+    config = getPSeoConfigBySlug(keywordSlug || '') || PSEO_KEYWORD_MATRIX.find(c => c.tool === internalTool && c.lang === lang);
   }
 
   const defaultTitle = !tool 
@@ -45,7 +45,7 @@ export const ToolLandingPage: React.FC = () => {
     ? t('landing.default.title.watermark')
     : internalTool === 'compress'
     ? t('landing.default.title.compress')
-    : internalTool === 'compress100kb' && config
+    : (internalTool === 'compress100kb' || internalTool === 'compress50kb' || internalTool === 'resizeig') && config
     ? config.title
     : internalTool === 'convert'
     ? t('landing.default.title.convert')
@@ -73,7 +73,7 @@ export const ToolLandingPage: React.FC = () => {
     ? t('landing.default.title.watermark')
     : internalTool === 'compress'
     ? t('landing.default.title.compress')
-    : internalTool === 'compress100kb' && config
+    : (internalTool === 'compress100kb' || internalTool === 'compress50kb' || internalTool === 'resizeig') && config
     ? config.h1
     : internalTool === 'convert'
     ? t('landing.default.title.convert')
@@ -101,7 +101,7 @@ export const ToolLandingPage: React.FC = () => {
     ? t('landing.default.desc.watermark')
     : internalTool === 'compress'
     ? t('landing.default.desc.compress')
-    : internalTool === 'compress100kb' && config
+    : (internalTool === 'compress100kb' || internalTool === 'compress50kb' || internalTool === 'resizeig') && config
     ? config.description
     : internalTool === 'convert'
     ? t('landing.default.desc.convert')
@@ -190,7 +190,7 @@ export const ToolLandingPage: React.FC = () => {
           
           {/* Tool Specific FAQ Section - Unified 4 Questions Redesign */}
           {/* Tool Specific FAQ Section - Dynamic Variants */}
-          {internalTool !== 'compress100kb' && (
+          {!['compress100kb', 'compress50kb', 'resizeig'].includes(internalTool) && (
             <ToolFaqSection 
               toolMapName={toolMapName} 
               variant={
