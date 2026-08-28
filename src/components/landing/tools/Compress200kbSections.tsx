@@ -19,7 +19,7 @@ export function Compress200kbSections() {
           {"[ " + config.h1 + " ]"}
         </h2>
         <div className="bg-black/50 border border-emerald-500/30 rounded-xl p-6 text-emerald-50/80 leading-relaxed">
-           <span className="text-emerald-500 mr-2">&gt;</span> {config.citationFirst}
+           <span className="text-emerald-500 mr-2">&gt;</span> {config.extraSectionDesc || config.description}
         </div>
       </section>
 
@@ -88,7 +88,7 @@ export function Compress200kbSections() {
 
       {/* SECTION 4: Server Logs / FAQ style */}
       <section className="relative px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto w-full">
-         <div className="bg-[#0a0a0a] rounded-xl border border-zinc-800 p-1">
+         <div className=" rounded-xl border border-zinc-800 p-1">
             <div className="bg-zinc-900 rounded-t-lg p-3 flex gap-2 border-b border-zinc-800">
                <div className="w-3 h-3 rounded-full bg-red-500"></div>
                <div className="w-3 h-3 rounded-full bg-amber-500"></div>

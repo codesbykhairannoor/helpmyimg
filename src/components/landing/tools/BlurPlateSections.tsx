@@ -11,7 +11,7 @@ export function BlurPlateSections() {
   if (!config) return null;
 
   return (
-    <div className="w-full flex flex-col items-center gap-24 py-12 overflow-hidden bg-white dark:bg-[#0B1121]">
+    <div className="w-full flex flex-col items-center gap-24 py-12 overflow-hidden dark:bg-[#0B1121]">
       
       {/* SECTION 1: High Security Hero */}
       <section className="relative px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto w-full text-center">
@@ -19,11 +19,11 @@ export function BlurPlateSections() {
           <ShieldCheck className="w-4 h-4" />
           <span>100% Offline Privacy Guarantee</span>
         </div>
-        <h2 className="text-4xl md:text-6xl font-black text-slate-900 dark:text-white mb-6 leading-tight">
-          {config.h1}
+        <h2 className="text-4xl md:text-6xl font-black text-slate-900 dark:text-slate-900 dark:text-slate-900 dark:text-white mb-6 leading-tight">
+          {config.extraSectionTitle || config.h1}
         </h2>
         <p className="text-xl text-slate-600 dark:text-slate-400 max-w-3xl mx-auto mb-16">
-          {config.description}
+          {config.extraSectionDesc || config.description}
         </p>
 
         {/* Censor Demonstration */}
@@ -32,14 +32,14 @@ export function BlurPlateSections() {
               <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1541899481282-d53bffe3c35d?auto=format&fit=crop&q=80&w=1200')] bg-cover bg-center" />
               {/* Blur Box */}
               <div className="absolute bottom-[20%] left-[30%] w-[40%] h-[15%] backdrop-blur-xl bg-black/20 border-2 border-white/50 rounded flex items-center justify-center shadow-2xl">
-                 <Lock className="w-8 h-8 text-white/80" />
+                 <Lock className="w-8 h-8 text-slate-900 dark:text-white/80" />
               </div>
               
               <div className="absolute top-4 left-4 right-4 flex justify-between">
                 <div className="bg-red-500 text-white px-3 py-1 rounded shadow-lg text-sm font-bold animate-pulse">
                   {config.beforeImageLabel}
                 </div>
-                <div className="bg-emerald-500 text-white px-3 py-1 rounded shadow-lg text-sm font-bold">
+                <div className="bg-emerald-500 text-slate-900 dark:text-white px-3 py-1 rounded shadow-lg text-sm font-bold">
                   {config.afterImageLabel}
                 </div>
               </div>
@@ -55,7 +55,7 @@ export function BlurPlateSections() {
            </div>
            <div>
               <p className="text-xl md:text-2xl font-bold text-slate-900 dark:text-white mb-4">
-                {config.citationFirst}
+                {config.extraSectionDesc || config.description}
               </p>
               <p className="text-red-600 dark:text-red-400 font-medium">
                 {config.quantitativeProof}
@@ -73,7 +73,7 @@ export function BlurPlateSections() {
         <div className="grid md:grid-cols-3 gap-8">
           {(config.extraSectionItems || []).map((item, i) => (
             <div key={i} className="flex flex-col items-center text-center p-6 bg-slate-50 dark:bg-slate-800/50 rounded-2xl border border-slate-100 dark:border-slate-800">
-              <div className="w-16 h-16 bg-slate-200 dark:bg-slate-700 text-slate-700 dark:text-slate-300 rounded-full flex items-center justify-center mb-6">
+              <div className="w-16 h-16 bg-slate-200 dark:bg-slate-700 text-slate-700 dark:text-slate-600 dark:text-slate-300 rounded-full flex items-center justify-center mb-6">
                 {[<FileLock2 />, <CarFront />, <ServerCrash />][i]}
               </div>
               <h4 className="font-bold text-slate-900 dark:text-white text-lg">{item}</h4>
@@ -84,13 +84,13 @@ export function BlurPlateSections() {
 
       {/* SECTION 4: Types of Censors */}
       <section className="px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto w-full">
-        <div className="bg-slate-900 rounded-3xl p-8 md:p-12 text-white shadow-2xl">
+        <div className=" rounded-3xl p-8 md:p-12 text-slate-900 dark:text-white shadow-2xl">
            <h3 className="text-3xl font-bold mb-4">{config.extraSection2Title}</h3>
            <p className="text-slate-400 mb-10">{config.extraSection2Desc}</p>
            
            <div className="grid md:grid-cols-3 gap-6">
               {(config.extraSection2Items || []).map((item, i) => (
-                <div key={i} className="bg-slate-800 rounded-xl p-6 border border-slate-700 hover:border-blue-500 transition-colors">
+                <div key={i} className="bg-white dark:bg-slate-800 shadow-md dark:shadow-none rounded-xl p-6 border border-slate-700 hover:border-blue-500 transition-colors">
                    <div className="h-12 w-full bg-slate-700 rounded overflow-hidden mb-4 relative">
                       {i === 0 && <div className="absolute inset-0 backdrop-blur-md bg-white/10" />}
                       {i === 1 && <div className="absolute inset-0" style={{ backgroundImage: 'radial-gradient(circle, #334155 20%, transparent 20%)', backgroundSize: '4px 4px' }} />}

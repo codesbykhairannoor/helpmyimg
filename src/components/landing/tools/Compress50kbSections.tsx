@@ -39,7 +39,7 @@ export const Compress50kbSections: React.FC = () => {
           transition={{ delay: 0.1 }}
           className="text-4xl sm:text-5xl lg:text-6xl font-black text-transparent bg-clip-text bg-gradient-to-b from-white to-zinc-500 leading-tight"
         >
-          {config.h1}
+          {config.extraSectionTitle || config.h1}
         </motion.h2>
 
         <motion.p 
@@ -48,7 +48,7 @@ export const Compress50kbSections: React.FC = () => {
           transition={{ delay: 0.2 }}
           className="text-lg sm:text-xl text-zinc-400 max-w-3xl mx-auto leading-relaxed"
         >
-          {config.citationFirst}
+          {config.extraSectionDesc || config.description}
         </motion.p>
       </section>
 

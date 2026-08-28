@@ -1,4 +1,5 @@
 import { Layers, ShieldCheck, Star, PenTool, Eraser, MoveUpRight, Wand2, Download } from 'lucide-react';
+import { motion } from 'framer-motion';
 import { PSEO_KEYWORD_MATRIX } from '../../../data/pseoKeywords';
 import { useRouter } from '../../../context/RouterContext';
 
@@ -38,9 +39,9 @@ export function RemoveLogoSections() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: idx * 0.1 }}
-              className="relative group rounded-3xl overflow-hidden bg-slate-900 border border-slate-800 aspect-square flex items-center justify-center"
+              className="relative group rounded-3xl overflow-hidden border border-slate-800 aspect-square flex items-center justify-center"
             >
-              <div className="absolute inset-0 bg-white group-hover:opacity-0 transition-opacity duration-500 flex items-center justify-center z-10">
+              <div className="absolute inset-0 group-hover:opacity-0 transition-opacity duration-500 flex items-center justify-center z-10">
                 <div className={`w-16 h-16 rounded-full bg-gradient-to-br ${item.color} shadow-lg flex items-center justify-center text-white font-bold text-xs`}>
                   {item.name}
                 </div>
@@ -61,7 +62,7 @@ export function RemoveLogoSections() {
         <section className="relative px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center bg-gradient-to-br from-blue-900/20 to-indigo-900/20 rounded-[3rem] p-8 md:p-16 border border-blue-500/10">
             <div>
-              <h2 className="text-3xl md:text-4xl font-bold text-white mb-6 leading-tight">
+              <h2 className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-slate-900 dark:text-white mb-6 leading-tight">
                 {config.extraSectionTitle}
               </h2>
               <p className="text-lg text-indigo-200/70 mb-8">

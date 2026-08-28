@@ -33,10 +33,10 @@ export const Compress100kbSections: React.FC = () => {
               <span>Client-Side Architecture</span>
             </div>
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-slate-900 to-slate-600 dark:from-slate-100 dark:to-slate-400 leading-tight">
-              {config.h1}
+              {config.extraSectionTitle || config.h1}
             </h2>
             <p className="text-lg text-slate-600 dark:text-slate-400 leading-relaxed font-medium">
-              {config.citationFirst}
+              {config.extraSectionDesc || config.description}
             </p>
             <div className="pt-4 grid grid-cols-2 gap-4">
               <div className="flex items-center gap-3">
@@ -61,12 +61,12 @@ export const Compress100kbSections: React.FC = () => {
             className="relative"
           >
             {/* Visual Abstract Representation */}
-            <div className="aspect-[4/3] rounded-[2rem] bg-slate-900 border border-slate-800 overflow-hidden relative group shadow-2xl">
+            <div className="aspect-[4/3] rounded-[2rem] border border-slate-800 overflow-hidden relative group shadow-2xl">
               <div className="absolute inset-0 bg-gradient-to-br from-indigo-500/10 to-pink-500/10 opacity-50" />
               <div className="absolute inset-0 flex items-center justify-center p-8">
                 
                 {/* Before Image Card */}
-                <div className="relative w-48 h-64 bg-slate-800 rounded-xl shadow-2xl overflow-hidden transform -rotate-12 group-hover:-rotate-6 transition-transform duration-500 border border-slate-700">
+                <div className="relative w-48 h-64 dark:bg-slate-800 shadow-md dark:shadow-none rounded-xl shadow-2xl overflow-hidden transform -rotate-12 group-hover:-rotate-6 transition-transform duration-500 border border-slate-700">
                   <div className="w-full h-3/5 bg-slate-700 animate-pulse" />
                   <div className="p-4 space-y-3">
                     <div className="w-full h-2 bg-slate-600 rounded-full" />
@@ -85,7 +85,7 @@ export const Compress100kbSections: React.FC = () => {
                 </div>
                 
                 {/* After Image Card */}
-                <div className="relative w-48 h-64 bg-slate-800 rounded-xl shadow-2xl overflow-hidden transform rotate-12 group-hover:rotate-6 transition-transform duration-500 border border-indigo-500/30">
+                <div className="relative w-48 h-64 bg-white dark:bg-slate-800 shadow-md dark:shadow-none rounded-xl shadow-2xl overflow-hidden transform rotate-12 group-hover:rotate-6 transition-transform duration-500 border border-indigo-500/30">
                   <div className="w-full h-3/5 bg-slate-700" />
                   <div className="p-4 space-y-3">
                     <div className="w-full h-2 bg-slate-600 rounded-full" />

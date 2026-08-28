@@ -11,23 +11,23 @@ export function ColorWhiteSections() {
   if (!config) return null;
 
   return (
-    <div className="w-full flex flex-col items-center gap-24 py-16 bg-slate-50 dark:bg-[#0a0a0a]">
+    <div className="w-full flex flex-col items-center gap-24 py-16 ">
       
       {/* SECTION 1: Product Showcase Slider */}
       <section className="relative w-full overflow-hidden py-10">
         <div className="text-center mb-16 px-4">
           <h2 className="text-3xl md:text-5xl font-black text-slate-900 dark:text-white tracking-tight">
-            Amazon Ready in <span className="text-orange-500">Seconds</span>
+            {config.extraSectionTitle || "Amazon Ready"}
           </h2>
           <p className="mt-4 text-xl text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">
-            {config.citationFirst}
+            {config.extraSectionDesc || config.description}
           </p>
         </div>
 
         {/* E-commerce mockups */}
         <div className="flex gap-6 px-4 md:px-12 overflow-x-auto pb-8 snap-x">
           {[1, 2, 3, 4].map((i) => (
-            <div key={i} className="shrink-0 w-[280px] md:w-[320px] snap-center bg-white rounded-2xl shadow-xl shadow-slate-200/50 dark:shadow-none dark:border dark:border-slate-800 p-4">
+            <div key={i} className="shrink-0 w-[280px] md:w-[320px] snap-center rounded-2xl shadow-xl shadow-slate-200/50 dark:shadow-none dark:border dark:border-slate-800 p-4">
               <div className="aspect-square bg-slate-100 rounded-xl mb-4 relative overflow-hidden group">
                  {/* Before State (Hover to reveal after) */}
                  <div className="absolute inset-0 bg-slate-300 flex items-center justify-center transition-opacity duration-500 group-hover:opacity-0">

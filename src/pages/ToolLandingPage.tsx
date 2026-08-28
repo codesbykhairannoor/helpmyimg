@@ -9,7 +9,6 @@ import { ToolFaqSection } from '../components/landing/ToolFaqSection';
 import { ToolGrid } from '../components/ToolGrid';
 import { useTranslation } from '../context/LanguageContext';
 import { type Language } from '../i18n/translations';
-import { synthesizeDynamicPSeo } from '../utils/dynamicPSeoSynthesizer';
 import { ToolWorkspace } from '../components/workspace/ToolWorkspace';
 import { usePSeoData } from '../hooks/usePSeoData';
 import { DynamicPSeoSections } from '../components/seo/DynamicPSeoSections';
@@ -31,13 +30,16 @@ export const ToolLandingPage: React.FC = () => {
   // The route.tool is already parsed as the internal tool by RouterContext
   const internalTool = tool || 'remove';
 
+  const isPseoTool = ['compress100kb', 'compress50kb', 'compress200kb', 'resizeig', 'resizepassport', 'removelogo', 'colorwhite', 'removeperson', 'convertwebp', 'watermarkbulk', 'blurplate'].includes(internalTool);
+
+
   // Cari konfigurasi SEO dari matriks
   let config: PSeoKeywordConfig | undefined = keywordSlug ? getPSeoConfigBySlug(keywordSlug) : undefined;
-  if (!config && (internalTool === 'compress100kb' || internalTool === 'compress50kb' || internalTool === 'resizeig' || internalTool === 'removelogo' || internalTool === 'colorwhite' || internalTool === 'compress200kb' || internalTool === 'resizepassport')) {
+  if (!config && isPseoTool) {
     config = getPSeoConfigBySlug(keywordSlug || '') || PSEO_KEYWORD_MATRIX.find(c => c.tool === internalTool && c.lang === lang);
   }
 
-  const defaultTitle = !tool 
+  const defaultTitle = isPseoTool && config ? config.title : (!tool 
     ? t('home.tab.title', { defaultValue: "HelpMyIMG | All Image Tools in One Place" })
     : internalTool === 'color' 
     ? t('landing.default.title.color') 
@@ -45,8 +47,6 @@ export const ToolLandingPage: React.FC = () => {
     ? t('landing.default.title.watermark')
     : internalTool === 'compress'
     ? t('landing.default.title.compress')
-    : (internalTool === 'compress100kb' || internalTool === 'compress50kb' || internalTool === 'resizeig') && config
-    ? config.title
     : internalTool === 'convert'
     ? t('landing.default.title.convert')
     : internalTool === 'resize'
@@ -63,9 +63,9 @@ export const ToolLandingPage: React.FC = () => {
     ? t('landing.default.title.design')
     : internalTool === 'brush'
     ? t('brush.title')
-    : t('landing.default.title.remove');
+    : t('landing.default.title.remove'));
 
-  const defaultH1 = !tool
+  const defaultH1 = isPseoTool && config ? config.h1 : (!tool
     ? t('landing.default.title.home', { defaultValue: "Every AI tool you need to edit images in bulk" })
     : internalTool === 'color' 
     ? t('landing.default.title.color') 
@@ -73,8 +73,6 @@ export const ToolLandingPage: React.FC = () => {
     ? t('landing.default.title.watermark')
     : internalTool === 'compress'
     ? t('landing.default.title.compress')
-    : (internalTool === 'compress100kb' || internalTool === 'compress50kb' || internalTool === 'resizeig') && config
-    ? config.h1
     : internalTool === 'convert'
     ? t('landing.default.title.convert')
     : internalTool === 'resize'
@@ -91,9 +89,9 @@ export const ToolLandingPage: React.FC = () => {
     ? t('landing.default.title.design')
     : internalTool === 'brush'
     ? t('brush.title')
-    : t('landing.default.title.remove');
+    : t('landing.default.title.remove'));
 
-  const defaultDesc = !tool
+  const defaultDesc = isPseoTool && config ? (config.description || '') : (!tool
     ? t('landing.default.desc.home', { defaultValue: "Your local AI photo editor is here and forever free! 100% private, runs directly in your browser." })
     : internalTool === 'color' 
     ? t('landing.default.desc.color') 
@@ -101,8 +99,6 @@ export const ToolLandingPage: React.FC = () => {
     ? t('landing.default.desc.watermark')
     : internalTool === 'compress'
     ? t('landing.default.desc.compress')
-    : (internalTool === 'compress100kb' || internalTool === 'compress50kb' || internalTool === 'resizeig') && config
-    ? config.description
     : internalTool === 'convert'
     ? t('landing.default.desc.convert')
     : internalTool === 'resize'
@@ -113,40 +109,24 @@ export const ToolLandingPage: React.FC = () => {
     ? t('landing.default.desc.rotate')
     : internalTool === 'picker'
     ? t('landing.default.desc.picker')
-    : internalTool === 'brush'
-    ? t('brush.desc')
     : internalTool === 'blurface'
     ? t('landing.default.desc.blurface')
     : internalTool === 'design'
     ? t('landing.default.desc.design')
-    : t('landing.default.desc.remove');
+    : internalTool === 'brush'
+    ? t('brush.desc')
+    : t('landing.default.desc.remove'));
 
-  // Resolve tool string for i18n keys
-  const toolMapName = ['remove', 'color', 'watermark', 'compress', 'convert', 'resize', 'crop', 'rotate', 'picker', 'brush', 'blurface', 'design'].includes(internalTool) ? internalTool : 'remove';
-
-  let displayConfig: PSeoKeywordConfig;
-  if (config) {
-    displayConfig = config;
-  } else if (keywordSlug) {
-    // Gunakan Mesin Sintesis pSEO dinamis untuk memproses slug seperti kompres-foto-100kb atau compress-20-photos
-    displayConfig = synthesizeDynamicPSeo(keywordSlug, internalTool, lang, defaultTitle, defaultDesc);
-  } else {
-    displayConfig = {
-      slug: tool || '',
-      tool: internalTool as any,
-      lang: lang,
-      title: defaultTitle,
-      h1: defaultH1,
-      description: defaultDesc,
-      citationFirst: defaultDesc,
-      quantitativeProof: defaultDesc,
-      beforeImageLabel: 'Original',
-      afterImageLabel: 'HD Result',
-      faqs: []
-    };
-  }
+  const toolMapName = internalTool;
+  const displayConfig = {
+    title: defaultTitle,
+    description: defaultDesc,
+    h1: defaultH1,
+    tool: internalTool
+  };
 
   return (
+
     <div className="min-h-screen bg-dark-900 text-slate-900 dark:text-slate-100 transition-colors duration-300">
       <SeoHead
         key={`${lang}-${tool || 'home'}`}
@@ -154,8 +134,6 @@ export const ToolLandingPage: React.FC = () => {
         description={dynamicJsonData ? dynamicJsonData.description : displayConfig.description}
         canonicalPath={`/${lang === 'en' ? '' : lang + '/'}${tool || 'remove-background'}${keywordSlug ? `/${keywordSlug}` : ''}`.replace('//', '/')}
         lang={lang}
-        citationFirst={displayConfig.citationFirst}
-        quantitativeProof={displayConfig.quantitativeProof}
         internalTool={internalTool}
         keywordSlug={keywordSlug || undefined}
       />

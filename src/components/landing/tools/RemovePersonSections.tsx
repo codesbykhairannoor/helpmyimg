@@ -18,15 +18,15 @@ export function RemovePersonSections() {
         <div className="w-20 h-20 bg-purple-100 dark:bg-purple-900/30 text-purple-600 dark:text-purple-400 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg shadow-purple-500/20">
           <Eraser className="w-10 h-10" />
         </div>
-        <h2 className="text-4xl md:text-6xl font-bold text-slate-900 dark:text-white mb-6 leading-tight">
-          {config.h1}
+        <h2 className="text-4xl md:text-6xl font-bold text-slate-900 dark:text-slate-900 dark:text-slate-900 dark:text-white mb-6 leading-tight">
+          {config.extraSectionTitle || config.h1}
         </h2>
-        <p className="text-xl text-slate-600 dark:text-slate-300 max-w-3xl mx-auto mb-10 leading-relaxed">
-          {config.description}
+        <p className="text-xl text-slate-600 dark:text-slate-600 dark:text-slate-600 dark:text-slate-300 max-w-3xl mx-auto mb-10 leading-relaxed">
+          {config.extraSectionDesc || config.description}
         </p>
 
         {/* Interactive Inpainting Showcase */}
-        <div className="relative mx-auto max-w-4xl rounded-2xl overflow-hidden bg-slate-900 shadow-2xl border border-slate-700/50">
+        <div className="relative mx-auto max-w-4xl rounded-2xl overflow-hidden shadow-2xl border border-slate-700/50">
           <div className="aspect-video relative overflow-hidden group">
             {/* Background Base */}
             <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=1200')] bg-cover bg-center" />
@@ -34,7 +34,7 @@ export function RemovePersonSections() {
             {/* Photobomber Layer (Animated out on hover) */}
             <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=1200')] bg-cover bg-center transition-opacity duration-700 group-hover:opacity-0 flex items-center justify-center">
                <div className="absolute inset-y-0 right-1/4 w-1/4 bg-red-500/30 mix-blend-multiply flex items-center justify-center border-2 border-red-500 border-dashed rounded-lg animate-pulse">
-                  <span className="bg-red-600 text-white px-3 py-1 rounded text-sm font-bold shadow-lg">Target Detected</span>
+                  <span className="bg-red-600 text-slate-900 dark:text-white px-3 py-1 rounded text-sm font-bold shadow-lg">Target Detected</span>
                </div>
             </div>
 
@@ -43,7 +43,7 @@ export function RemovePersonSections() {
 
             {/* Label */}
             <div className="absolute bottom-6 left-6 right-6 flex justify-between items-center z-10 pointer-events-none">
-              <span className="bg-slate-900/80 backdrop-blur-md text-white px-4 py-2 rounded-full font-medium shadow-lg transition-opacity group-hover:opacity-0">
+              <span className=" /80 backdrop-blur-md text-slate-900 dark:text-white px-4 py-2 rounded-full font-medium shadow-lg transition-opacity group-hover:opacity-0">
                 {config.beforeImageLabel}
               </span>
               <span className="bg-purple-600/90 backdrop-blur-md text-white px-4 py-2 rounded-full font-medium shadow-lg opacity-0 transition-opacity group-hover:opacity-100">
@@ -53,7 +53,7 @@ export function RemovePersonSections() {
             
             <div className="absolute inset-0 flex items-center justify-center pointer-events-none group-hover:opacity-0 transition-opacity">
                <div className="bg-white/20 backdrop-blur-sm p-4 rounded-full">
-                 <Move className="w-8 h-8 text-white animate-bounce-x" />
+                 <Move className="w-8 h-8 text-slate-900 dark:text-white animate-bounce-x" />
                </div>
             </div>
           </div>
@@ -67,7 +67,7 @@ export function RemovePersonSections() {
             <Sparkles className="w-32 h-32" />
           </div>
           <p className="text-xl md:text-2xl font-serif italic text-slate-700 dark:text-slate-300 relative z-10">
-            "{config.citationFirst}"
+            "{config.extraSectionDesc || config.description}"
           </p>
           <div className="mt-8 flex items-center gap-4 relative z-10">
             <div className="h-12 w-1 bg-purple-500 rounded-full" />
@@ -98,7 +98,7 @@ export function RemovePersonSections() {
       {/* SECTION 4: Contextual Situations (Bento Grid) */}
       <section className="px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto w-full">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-          <div className="lg:col-span-2 bg-gradient-to-br from-purple-500 to-indigo-600 rounded-3xl p-8 text-white shadow-xl relative overflow-hidden">
+          <div className="lg:col-span-2 bg-gradient-to-br from-purple-500 to-indigo-600 rounded-3xl p-8 text-slate-900 dark:text-white shadow-xl relative overflow-hidden">
              <div className="absolute -right-10 -top-10 opacity-20">
                 <ScanLine className="w-48 h-48" />
              </div>

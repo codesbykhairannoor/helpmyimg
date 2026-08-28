@@ -1,3 +1,5 @@
+import React from 'react';
+import { motion } from 'framer-motion';
 import { Camera, Maximize, Grip, Sparkles, Smartphone, Layers } from 'lucide-react';
 import { PSEO_KEYWORD_MATRIX } from '../../../data/pseoKeywords';
 import { useRouter } from '../../../context/RouterContext';
@@ -12,7 +14,7 @@ export const ResizeIgSections: React.FC = () => {
   if (!config) return null;
 
   return (
-    <div className="w-full flex flex-col gap-24 relative z-10 pb-32 pt-12 overflow-hidden bg-white dark:bg-slate-950">
+    <div className="w-full flex flex-col gap-24 relative z-10 pb-32 pt-12 overflow-hidden dark:bg-slate-950">
       
       {/* SECTION 1: Instagram Vibe Hero + Mockup */}
       <section className="relative px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full">
@@ -31,15 +33,15 @@ export const ResizeIgSections: React.FC = () => {
             </div>
             
             <h2 className="text-4xl sm:text-5xl lg:text-6xl font-black text-slate-900 dark:text-white leading-tight">
-              {config.h1}
+              {config.extraSectionTitle || config.h1}
             </h2>
             
             <p className="text-lg text-slate-600 dark:text-slate-400 leading-relaxed max-w-lg font-medium">
-              {config.citationFirst}
+              {config.extraSectionDesc || config.description}
             </p>
             
             <div className="flex flex-wrap gap-4 pt-4">
-              <div className="flex items-center gap-2 text-slate-700 dark:text-slate-300 font-semibold bg-slate-100 dark:bg-slate-900 px-4 py-2 rounded-xl">
+              <div className="flex items-center gap-2 text-slate-700 dark:text-slate-300 font-semibold bg-slate-100 dark: px-4 py-2 rounded-xl">
                 <Maximize className="w-4 h-4 text-purple-500" />
                 <span>4:5 Portrait</span>
               </div>

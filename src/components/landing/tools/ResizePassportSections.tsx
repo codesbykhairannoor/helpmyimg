@@ -11,7 +11,7 @@ export function ResizePassportSections() {
   if (!config) return null;
 
   return (
-    <div className="w-full flex flex-col items-center gap-16 py-12 bg-[#f8fafc] dark:bg-slate-900">
+    <div className="w-full flex flex-col items-center gap-16 py-12 bg-[#f8fafc] dark: ">
       
       {/* SECTION 1: Document Style Header */}
       <section className="relative px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto w-full text-center">
@@ -19,11 +19,11 @@ export function ResizePassportSections() {
           <FileBadge className="w-10 h-10" />
         </div>
         <h2 className="text-3xl md:text-5xl font-serif font-bold text-slate-900 dark:text-white mb-6">
-          {config.h1}
+          {config.extraSectionTitle || config.h1}
         </h2>
-        <div className="bg-white dark:bg-slate-800 p-8 rounded-2xl shadow-sm border border-slate-200 dark:border-slate-700">
+        <div className=" dark:bg-slate-800 p-8 rounded-2xl shadow-sm border border-slate-200 dark:border-slate-700">
            <p className="text-lg text-slate-700 dark:text-slate-300 leading-relaxed font-medium">
-             {config.citationFirst}
+             {config.extraSectionDesc || config.description}
            </p>
         </div>
       </section>
@@ -41,7 +41,7 @@ export function ResizePassportSections() {
           
           <div className="grid md:grid-cols-3 gap-6">
             {(config.extraSectionItems || [])?.map((item, idx) => (
-              <div key={idx} className="bg-white dark:bg-slate-800 rounded-xl p-6 border-t-4 border-blue-500 shadow-sm">
+              <div key={idx} className="bg-white dark:bg-white dark:bg-slate-800 shadow-md dark:shadow-none rounded-xl p-6 border-t-4 border-blue-500 shadow-sm">
                 <div className="flex gap-4 items-start">
                   <div className="mt-1 text-blue-500"><CheckCircle2 className="w-5 h-5"/></div>
                   <div>

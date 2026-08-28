@@ -11,7 +11,7 @@ export function ConvertWebpSections() {
   if (!config) return null;
 
   return (
-    <div className="w-full flex flex-col items-center gap-24 py-12 overflow-hidden bg-slate-50 dark:bg-slate-900/20">
+    <div className="w-full flex flex-col items-center gap-24 py-12 overflow-hidden /20">
       
       {/* SECTION 1: Converter Hero */}
       <section className="relative px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto w-full text-center">
@@ -19,17 +19,17 @@ export function ConvertWebpSections() {
           <RefreshCcw className="w-4 h-4 animate-spin-slow" />
           <span>Local Batch Processor</span>
         </div>
-        <h2 className="text-4xl md:text-6xl font-black text-slate-900 dark:text-white mb-6 leading-tight tracking-tight">
-          {config.h1}
+        <h2 className="text-4xl md:text-6xl font-black text-slate-900 dark:text-slate-900 dark:text-slate-900 dark:text-white mb-6 leading-tight tracking-tight">
+          {config.extraSectionTitle || config.h1}
         </h2>
         <p className="text-xl text-slate-600 dark:text-slate-300 max-w-2xl mx-auto mb-12">
-          {config.description}
+          {config.extraSectionDesc || config.description}
         </p>
 
         {/* Format Pipeline Visualizer */}
         <div className="flex flex-col md:flex-row items-center justify-center gap-6 max-w-3xl mx-auto">
           {/* WEBP Source */}
-          <div className="bg-white dark:bg-slate-800 p-6 rounded-2xl shadow-lg border border-slate-200 dark:border-slate-700 w-full md:w-64 text-center">
+          <div className=" dark:bg-slate-800 p-6 rounded-2xl shadow-lg border border-slate-200 dark:border-slate-700 w-full md:w-64 text-center">
              <div className="w-16 h-16 bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 rounded-xl flex items-center justify-center mx-auto mb-4">
                 <FileType className="w-8 h-8" />
              </div>
@@ -107,7 +107,7 @@ export function ConvertWebpSections() {
         <div className="bg-emerald-50 dark:bg-emerald-900/10 rounded-2xl p-8 border border-emerald-100 dark:border-emerald-800 flex flex-col md:flex-row items-center gap-8">
           <div className="flex-1">
             <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-4">WebAssembly Engine</h3>
-            <p className="text-lg text-slate-700 dark:text-slate-300 italic mb-4">"{config.citationFirst}"</p>
+            <p className="text-lg text-slate-700 dark:text-slate-300 italic mb-4">"{config.extraSectionDesc || config.description}"</p>
             <div className="flex items-center gap-2 text-emerald-600 dark:text-emerald-400 font-bold text-sm uppercase tracking-wide">
               <Monitor className="w-5 h-5" />
               <span>{config.quantitativeProof}</span>
