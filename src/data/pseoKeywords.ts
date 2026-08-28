@@ -3,7 +3,7 @@
 
 export interface PSeoKeywordConfig {
   slug: string;
-  tool: 'remove' | 'color' | 'brush' | 'watermark' | 'compress' | 'compress100kb' | 'convert' | 'resize';
+  tool: 'remove' | 'color' | 'brush' | 'watermark' | 'compress' | 'compress100kb' | 'compress50kb' | 'convert' | 'resize' | 'resizeig';
   lang: string; // 'id' | 'en' | 'es' | 'hi' | 'ar' | 'zh' | 'pt' | 'ja' | 'fr' | 'de' | 'all'
   title: string;
   h1: string;
