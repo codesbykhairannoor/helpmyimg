@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
-import { Camera, Maximize, Grip, Image as ImageIcon, CheckCircle, ChevronDown, Sparkles, Smartphone, Layers } from 'lucide-react';
-import { motion, AnimatePresence } from 'framer-motion';
+import React from 'react';
+import { Camera, Maximize, Grip, Sparkles, Smartphone, Layers } from 'lucide-react';
+import { motion } from 'framer-motion';
 import { PSEO_KEYWORD_MATRIX } from '../../../data/pseoKeywords';
 import { useRouter } from '../../../context/RouterContext';
 
@@ -10,8 +10,6 @@ export const ResizeIgSections: React.FC = () => {
   
   const config = PSEO_KEYWORD_MATRIX.find(c => c.tool === 'resizeig' && c.lang === currentLang)
               || PSEO_KEYWORD_MATRIX.find(c => c.tool === 'resizeig' && c.lang === 'en');
-
-  const [openFaq, setOpenFaq] = useState<number | null>(0);
 
   if (!config) return null;
 

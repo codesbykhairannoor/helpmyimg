@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ShieldAlert, Zap, Layers, Image as ImageIcon, CheckCircle, ChevronDown, Rocket, Smartphone } from 'lucide-react';
+import { ShieldAlert, Zap, Layers, CheckCircle, ChevronDown, Rocket, Smartphone } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { PSEO_KEYWORD_MATRIX } from '../../../data/pseoKeywords';
 import { useRouter } from '../../../context/RouterContext';
