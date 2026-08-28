@@ -4,7 +4,7 @@ import { useTranslation } from '../../../context/LanguageContext';
 import { motion } from 'framer-motion';
 
 export const Compress100kbSections: React.FC = () => {
-  const { t } = useTranslation();
+  useTranslation(); // we call it if we need context, but not using t here. Or simply remove useTranslation if entirely unused.
 
   return (
     <div className="w-full flex flex-col gap-16 md:gap-24 overflow-hidden relative z-10 pb-20">
