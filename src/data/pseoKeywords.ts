@@ -7427,7 +7427,6 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
 ,
   {
     "tool": "removeperson",
-    "slugEn": "remove-person-from-photo",
     "title": "Remove Person from Photo - Free Photobomb Eraser",
     "h1": "Erase People & Photobombers Instantly",
     "description": "Remove exes, strangers, and photobombers from your pictures using AI. The background is magically reconstructed seamlessly.",
@@ -8628,7 +8627,6 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
   },
   {
     "tool": "convertwebp",
-    "slugEn": "convert-webp-to-jpg",
     "title": "Convert WEBP to JPG Free - Image Converter",
     "h1": "Fastest WEBP to JPG Converter",
     "description": "Batch convert WEBP images to universally compatible JPG format. Drag and drop, no limits, and 100% free.",
@@ -9829,7 +9827,6 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
   },
   {
     "tool": "watermarkbulk",
-    "slugEn": "batch-watermark-photos",
     "title": "Batch Watermark Photos - Bulk Logo Adder",
     "h1": "Watermark Hundreds of Photos at Once",
     "description": "Add your logo or text watermark to multiple images simultaneously. Protect your photography portfolio in seconds.",
@@ -11030,7 +11027,6 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
   },
   {
     "tool": "blurplate",
-    "slugEn": "blur-license-plate",
     "title": "Blur License Plate Online - Auto Privacy Censor",
     "h1": "Censor Car License Plates Quickly",
     "description": "Hide and blur license plates before selling your car or posting on social media. Protect your privacy with a single click.",
