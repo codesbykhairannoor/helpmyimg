@@ -32,24 +32,24 @@ export const Compress100kbSections: React.FC = () => {
               <CloudOff className="w-4 h-4" />
               <span>Client-Side Architecture</span>
             </div>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-slate-100 to-slate-400 leading-tight">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-slate-900 to-slate-600 dark:from-slate-100 dark:to-slate-400 leading-tight">
               {config.h1}
             </h2>
-            <p className="text-lg text-slate-400 leading-relaxed font-medium">
+            <p className="text-lg text-slate-600 dark:text-slate-400 leading-relaxed font-medium">
               {config.citationFirst}
             </p>
             <div className="pt-4 grid grid-cols-2 gap-4">
               <div className="flex items-center gap-3">
-                <div className="p-2 bg-indigo-500/20 rounded-lg">
-                  <Lock className="w-5 h-5 text-indigo-400" />
+                <div className="p-2 bg-indigo-500/10 dark:bg-indigo-500/20 rounded-lg">
+                  <Lock className="w-5 h-5 text-indigo-500 dark:text-indigo-400" />
                 </div>
-                <span className="text-sm font-semibold text-slate-300">100% Secure</span>
+                <span className="text-sm font-semibold text-slate-700 dark:text-slate-300">100% Secure</span>
               </div>
               <div className="flex items-center gap-3">
-                <div className="p-2 bg-pink-500/20 rounded-lg">
-                  <Cpu className="w-5 h-5 text-pink-400" />
+                <div className="p-2 bg-pink-500/10 dark:bg-pink-500/20 rounded-lg">
+                  <Cpu className="w-5 h-5 text-pink-500 dark:text-pink-400" />
                 </div>
-                <span className="text-sm font-semibold text-slate-300">WebGPU Powered</span>
+                <span className="text-sm font-semibold text-slate-700 dark:text-slate-300">WebGPU Powered</span>
               </div>
             </div>
           </motion.div>
@@ -105,7 +105,7 @@ export const Compress100kbSections: React.FC = () => {
       </section>
 
       {/* SECTION 2: Quantitative Proof (Stats / Banner Layout) */}
-      <section className="relative w-full bg-slate-900/50 border-y border-slate-800 py-16">
+      <section className="relative w-full bg-slate-50 dark:bg-slate-900/50 border-y border-slate-200 dark:border-slate-800 py-16">
         <div className="px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
             <motion.div 
@@ -116,7 +116,7 @@ export const Compress100kbSections: React.FC = () => {
             >
               <div className="relative">
                 <div className="absolute inset-0 bg-indigo-500 blur-3xl opacity-20 rounded-full" />
-                <Activity className="w-32 h-32 text-indigo-400 relative z-10" />
+                <Activity className="w-32 h-32 text-indigo-500 dark:text-indigo-400 relative z-10" />
               </div>
             </motion.div>
             <motion.div 
@@ -126,8 +126,8 @@ export const Compress100kbSections: React.FC = () => {
               transition={{ delay: 0.1 }}
               className="md:col-span-7 space-y-4 text-center md:text-left"
             >
-              <h3 className="text-2xl font-bold text-slate-100">Proven Performance</h3>
-              <p className="text-xl text-slate-300 leading-relaxed italic border-l-4 border-indigo-500 pl-4 py-2 bg-slate-800/30 rounded-r-xl">
+              <h3 className="text-2xl font-bold text-slate-900 dark:text-slate-100">Proven Performance</h3>
+              <p className="text-xl text-slate-700 dark:text-slate-300 leading-relaxed italic border-l-4 border-indigo-500 pl-4 py-2 bg-white dark:bg-slate-800/30 shadow-sm dark:shadow-none rounded-r-xl">
                 "{config.quantitativeProof}"
               </p>
             </motion.div>
@@ -141,7 +141,7 @@ export const Compress100kbSections: React.FC = () => {
           {[
             {
               icon: Shield,
-              color: "text-emerald-400",
+              color: "text-emerald-500 dark:text-emerald-400",
               bg: "bg-emerald-500/10",
               border: "border-emerald-500/20",
               title: "Absolute Privacy",
@@ -149,7 +149,7 @@ export const Compress100kbSections: React.FC = () => {
             },
             {
               icon: Zap,
-              color: "text-amber-400",
+              color: "text-amber-500 dark:text-amber-400",
               bg: "bg-amber-500/10",
               border: "border-amber-500/20",
               title: "Lightning Fast",
@@ -157,7 +157,7 @@ export const Compress100kbSections: React.FC = () => {
             },
             {
               icon: FileJson,
-              color: "text-blue-400",
+              color: "text-blue-500 dark:text-blue-400",
               bg: "bg-blue-500/10",
               border: "border-blue-500/20",
               title: "Batch Ready",
@@ -170,13 +170,13 @@ export const Compress100kbSections: React.FC = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: idx * 0.1 }}
-              className="bg-slate-800/40 border border-slate-700/50 rounded-3xl p-8 hover:bg-slate-800/80 transition-all hover:-translate-y-1 shadow-lg group"
+              className="bg-white dark:bg-slate-800/40 border border-slate-200 dark:border-slate-700/50 rounded-3xl p-8 hover:bg-slate-50 dark:hover:bg-slate-800/80 transition-all hover:-translate-y-1 shadow-lg group"
             >
               <div className={`w-14 h-14 rounded-2xl ${feature.bg} ${feature.border} border flex items-center justify-center mb-6 group-hover:scale-110 transition-transform`}>
                 <feature.icon className={`w-7 h-7 ${feature.color}`} />
               </div>
-              <h3 className="text-xl font-bold text-slate-100 mb-3">{feature.title}</h3>
-              <p className="text-slate-400 leading-relaxed">{feature.desc}</p>
+              <h3 className="text-xl font-bold text-slate-900 dark:text-slate-100 mb-3">{feature.title}</h3>
+              <p className="text-slate-600 dark:text-slate-400 leading-relaxed">{feature.desc}</p>
             </motion.div>
           ))}
         </div>
@@ -186,7 +186,7 @@ export const Compress100kbSections: React.FC = () => {
       {config.faqs && config.faqs.length > 0 && (
         <section className="relative px-4 sm:px-6 lg:px-8 max-w-3xl mx-auto w-full">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-slate-100 mb-4">Frequently Asked Questions</h2>
+            <h2 className="text-3xl font-bold text-slate-900 dark:text-slate-100 mb-4">Frequently Asked Questions</h2>
             <div className="h-1 w-20 bg-indigo-500 mx-auto rounded-full" />
           </div>
           <div className="space-y-4">
@@ -196,14 +196,14 @@ export const Compress100kbSections: React.FC = () => {
                 initial={{ opacity: 0, y: 10 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                className="bg-slate-800/50 border border-slate-700 rounded-2xl overflow-hidden"
+                className="bg-white dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 rounded-2xl overflow-hidden shadow-sm dark:shadow-none"
               >
                 <button 
                   onClick={() => setOpenFaq(openFaq === idx ? null : idx)}
                   className="w-full px-6 py-5 flex items-center justify-between text-left focus:outline-none"
                 >
-                  <span className="text-lg font-semibold text-slate-200 pr-8">{faq.question}</span>
-                  <ChevronDown className={`w-5 h-5 text-slate-400 transition-transform duration-300 shrink-0 ${openFaq === idx ? 'rotate-180' : ''}`} />
+                  <span className="text-lg font-semibold text-slate-800 dark:text-slate-200 pr-8">{faq.question}</span>
+                  <ChevronDown className={`w-5 h-5 text-slate-500 dark:text-slate-400 transition-transform duration-300 shrink-0 ${openFaq === idx ? 'rotate-180' : ''}`} />
                 </button>
                 <AnimatePresence>
                   {openFaq === idx && (
@@ -213,7 +213,7 @@ export const Compress100kbSections: React.FC = () => {
                       exit={{ height: 0, opacity: 0 }}
                       className="overflow-hidden"
                     >
-                      <div className="px-6 pb-6 text-slate-400 leading-relaxed border-t border-slate-700/50 pt-4">
+                      <div className="px-6 pb-6 text-slate-600 dark:text-slate-400 leading-relaxed border-t border-slate-100 dark:border-slate-700/50 pt-4">
                         {faq.answer}
                       </div>
                     </motion.div>
