@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useRouter } from '../context/RouterContext';
-import { getPSeoConfigBySlug, type PSeoKeywordConfig } from '../data/pseoKeywords';
+import { getPSeoConfigBySlug, PSEO_KEYWORD_MATRIX, type PSeoKeywordConfig } from '../data/pseoKeywords';
 import { SeoHead } from '../components/seo/SeoHead';
 import { Hero } from '../components/Hero';
 import { LandingSections } from '../components/landing/LandingSections';
@@ -32,7 +32,10 @@ export const ToolLandingPage: React.FC = () => {
   const internalTool = tool || 'remove';
 
   // Cari konfigurasi SEO dari matriks
-  const config: PSeoKeywordConfig | undefined = keywordSlug ? getPSeoConfigBySlug(keywordSlug) : undefined;
+  let config: PSeoKeywordConfig | undefined = keywordSlug ? getPSeoConfigBySlug(keywordSlug) : undefined;
+  if (!config && internalTool === 'compress100kb') {
+    config = getPSeoConfigBySlug(keywordSlug || '') || PSEO_KEYWORD_MATRIX.find(c => c.tool === 'compress100kb' && c.lang === lang);
+  }
 
   const defaultTitle = !tool 
     ? t('home.tab.title', { defaultValue: "HelpMyIMG | All Image Tools in One Place" })
@@ -42,6 +45,8 @@ export const ToolLandingPage: React.FC = () => {
     ? t('landing.default.title.watermark')
     : internalTool === 'compress'
     ? t('landing.default.title.compress')
+    : internalTool === 'compress100kb' && config
+    ? config.title
     : internalTool === 'convert'
     ? t('landing.default.title.convert')
     : internalTool === 'resize'
@@ -68,6 +73,8 @@ export const ToolLandingPage: React.FC = () => {
     ? t('landing.default.title.watermark')
     : internalTool === 'compress'
     ? t('landing.default.title.compress')
+    : internalTool === 'compress100kb' && config
+    ? config.h1
     : internalTool === 'convert'
     ? t('landing.default.title.convert')
     : internalTool === 'resize'
@@ -94,6 +101,8 @@ export const ToolLandingPage: React.FC = () => {
     ? t('landing.default.desc.watermark')
     : internalTool === 'compress'
     ? t('landing.default.desc.compress')
+    : internalTool === 'compress100kb' && config
+    ? config.description
     : internalTool === 'convert'
     ? t('landing.default.desc.convert')
     : internalTool === 'resize'
@@ -181,23 +190,25 @@ export const ToolLandingPage: React.FC = () => {
           
           {/* Tool Specific FAQ Section - Unified 4 Questions Redesign */}
           {/* Tool Specific FAQ Section - Dynamic Variants */}
-          <ToolFaqSection 
-            toolMapName={toolMapName} 
-            variant={
-              toolMapName === 'remove' ? 'grid' :
-              toolMapName === 'compress' ? 'cards' :
-              toolMapName === 'color' ? 'accordion' :
-              toolMapName === 'resize' ? 'split' :
-              toolMapName === 'crop' ? 'cards' :
-              toolMapName === 'rotate' ? 'accordion' :
-              toolMapName === 'watermark' ? 'split' :
-              toolMapName === 'design' ? 'grid' :
-              toolMapName === 'picker' ? 'cards' :
-              toolMapName === 'brush' ? 'accordion' :
-              toolMapName === 'blurface' ? 'accordion' :
-              toolMapName === 'convert' ? 'split' : 'grid'
-            } 
-          />
+          {internalTool !== 'compress100kb' && (
+            <ToolFaqSection 
+              toolMapName={toolMapName} 
+              variant={
+                toolMapName === 'remove' ? 'grid' :
+                toolMapName === 'compress' ? 'cards' :
+                toolMapName === 'color' ? 'accordion' :
+                toolMapName === 'resize' ? 'split' :
+                toolMapName === 'crop' ? 'cards' :
+                toolMapName === 'rotate' ? 'accordion' :
+                toolMapName === 'watermark' ? 'split' :
+                toolMapName === 'design' ? 'grid' :
+                toolMapName === 'picker' ? 'cards' :
+                toolMapName === 'brush' ? 'accordion' :
+                toolMapName === 'blurface' ? 'accordion' :
+                toolMapName === 'convert' ? 'split' : 'grid'
+              } 
+            />
+          )}
         </>
       )}
       </div>

@@ -1,113 +1,165 @@
-import React from 'react';
-import { Shield, Zap, FileJson, CheckCircle2, CloudOff } from 'lucide-react';
-import { useTranslation } from '../../../context/LanguageContext';
-import { motion } from 'framer-motion';
+import React, { useState } from 'react';
+import { Shield, Zap, FileJson, CloudOff, ChevronDown, Activity, Lock, Cpu } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { PSEO_KEYWORD_MATRIX } from '../../../data/pseoKeywords';
+import { useRouter } from '../../../context/RouterContext';
 
 export const Compress100kbSections: React.FC = () => {
-  useTranslation(); // we call it if we need context, but not using t here. Or simply remove useTranslation if entirely unused.
+  const { route } = useRouter();
+  const currentLang = route.lang || 'en';
+  
+  // Ambil config yang sesuai dengan bahasa saat ini, atau fallback ke bahasa Inggris
+  const config = PSEO_KEYWORD_MATRIX.find(c => c.tool === 'compress100kb' && c.lang === currentLang)
+              || PSEO_KEYWORD_MATRIX.find(c => c.tool === 'compress100kb' && c.lang === 'en');
+
+  const [openFaq, setOpenFaq] = useState<number | null>(0);
+
+  if (!config) return null;
 
   return (
-    <div className="w-full flex flex-col gap-16 md:gap-24 overflow-hidden relative z-10 pb-20">
+    <div className="w-full flex flex-col gap-20 md:gap-32 overflow-hidden relative z-10 pb-24 pt-8">
       
-      {/* SECTION 1: Hardcoded Left-Right Split (Unique Layout) */}
-      <section className="relative px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full pt-12">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+      {/* SECTION 1: Citation First (Split Layout with Abstract Visualization) */}
+      <section className="relative px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
           <motion.div 
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
+            viewport={{ once: true, margin: "-100px" }}
             className="space-y-6"
           >
             <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-indigo-500/10 text-indigo-400 font-medium text-sm border border-indigo-500/20">
               <CloudOff className="w-4 h-4" />
-              <span>100% Offline Processing</span>
+              <span>Client-Side Architecture</span>
             </div>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight bg-clip-text text-transparent bg-gradient-to-br from-slate-100 to-slate-400">
-              Why Compress to 100KB?
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-slate-100 to-slate-400 leading-tight">
+              {config.h1}
             </h2>
-            <p className="text-lg text-slate-400 leading-relaxed">
-              Most government forms, university applications, and HR portals strictly require identity documents to be under 100KB or 200KB. 
-              Our specialized client-side WebGPU tool guarantees exact sizing without sending your sensitive documents to a server.
+            <p className="text-lg text-slate-400 leading-relaxed font-medium">
+              {config.citationFirst}
             </p>
-            <ul className="space-y-4 pt-4">
-              {[
-                "Zero data collection. Your privacy is absolute.",
-                "Instant processing right inside your browser.",
-                "Maintains readability of text and facial features.",
-                "Works seamlessly on both Mobile and Desktop."
-              ].map((item, idx) => (
-                <li key={idx} className="flex items-start gap-3 text-slate-300">
-                  <CheckCircle2 className="w-6 h-6 text-indigo-500 shrink-0" />
-                  <span>{item}</span>
-                </li>
-              ))}
-            </ul>
+            <div className="pt-4 grid grid-cols-2 gap-4">
+              <div className="flex items-center gap-3">
+                <div className="p-2 bg-indigo-500/20 rounded-lg">
+                  <Lock className="w-5 h-5 text-indigo-400" />
+                </div>
+                <span className="text-sm font-semibold text-slate-300">100% Secure</span>
+              </div>
+              <div className="flex items-center gap-3">
+                <div className="p-2 bg-pink-500/20 rounded-lg">
+                  <Cpu className="w-5 h-5 text-pink-400" />
+                </div>
+                <span className="text-sm font-semibold text-slate-300">WebGPU Powered</span>
+              </div>
+            </div>
           </motion.div>
 
           <motion.div 
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             className="relative"
           >
             {/* Visual Abstract Representation */}
-            <div className="aspect-square sm:aspect-[4/3] rounded-3xl bg-slate-800/50 border border-slate-700/50 overflow-hidden relative group">
-              <div className="absolute inset-0 bg-gradient-to-br from-indigo-500/20 to-transparent opacity-50" />
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className="relative w-48 h-64 bg-slate-200 rounded-lg shadow-2xl overflow-hidden transform -rotate-6 group-hover:rotate-0 transition-transform duration-500">
-                  <div className="w-full h-1/2 bg-slate-300 animate-pulse" />
+            <div className="aspect-[4/3] rounded-[2rem] bg-slate-900 border border-slate-800 overflow-hidden relative group shadow-2xl">
+              <div className="absolute inset-0 bg-gradient-to-br from-indigo-500/10 to-pink-500/10 opacity-50" />
+              <div className="absolute inset-0 flex items-center justify-center p-8">
+                
+                {/* Before Image Card */}
+                <div className="relative w-48 h-64 bg-slate-800 rounded-xl shadow-2xl overflow-hidden transform -rotate-12 group-hover:-rotate-6 transition-transform duration-500 border border-slate-700">
+                  <div className="w-full h-3/5 bg-slate-700 animate-pulse" />
                   <div className="p-4 space-y-3">
-                    <div className="w-full h-2 bg-slate-400 rounded-full" />
-                    <div className="w-3/4 h-2 bg-slate-400 rounded-full" />
-                    <div className="w-1/2 h-2 bg-slate-400 rounded-full" />
+                    <div className="w-full h-2 bg-slate-600 rounded-full" />
+                    <div className="w-3/4 h-2 bg-slate-600 rounded-full" />
                   </div>
-                  <div className="absolute top-2 right-2 bg-red-500 text-white text-[10px] font-bold px-2 py-0.5 rounded-full shadow-lg">
-                    5 MB
+                  <div className="absolute bottom-4 left-0 right-0 text-center">
+                    <span className="bg-red-500/20 text-red-400 text-xs font-bold px-3 py-1 rounded-full border border-red-500/30">
+                      {config.beforeImageLabel}
+                    </span>
                   </div>
                 </div>
                 
-                <div className="z-10 bg-indigo-500 p-3 rounded-full shadow-xl mx-4">
-                  <Zap className="w-6 h-6 text-white" />
+                {/* Action Button Icon */}
+                <div className="z-10 bg-gradient-to-r from-indigo-500 to-pink-500 p-4 rounded-full shadow-[0_0_30px_rgba(99,102,241,0.5)] mx-[-20px]">
+                  <Zap className="w-8 h-8 text-white" />
                 </div>
                 
-                <div className="relative w-40 h-56 bg-slate-200 rounded-lg shadow-2xl overflow-hidden transform rotate-6 group-hover:rotate-0 transition-transform duration-500">
-                  <div className="w-full h-1/2 bg-slate-300" />
+                {/* After Image Card */}
+                <div className="relative w-48 h-64 bg-slate-800 rounded-xl shadow-2xl overflow-hidden transform rotate-12 group-hover:rotate-6 transition-transform duration-500 border border-indigo-500/30">
+                  <div className="w-full h-3/5 bg-slate-700" />
                   <div className="p-4 space-y-3">
-                    <div className="w-full h-2 bg-slate-400 rounded-full" />
-                    <div className="w-3/4 h-2 bg-slate-400 rounded-full" />
-                    <div className="w-1/2 h-2 bg-slate-400 rounded-full" />
+                    <div className="w-full h-2 bg-slate-600 rounded-full" />
+                    <div className="w-3/4 h-2 bg-slate-600 rounded-full" />
                   </div>
-                  <div className="absolute top-2 right-2 bg-green-500 text-white text-[10px] font-bold px-2 py-0.5 rounded-full shadow-lg border border-green-400">
-                    98 KB
+                  <div className="absolute bottom-4 left-0 right-0 text-center">
+                    <span className="bg-green-500/20 text-green-400 text-xs font-bold px-3 py-1 rounded-full border border-green-500/30">
+                      {config.afterImageLabel}
+                    </span>
                   </div>
                 </div>
+
               </div>
             </div>
           </motion.div>
         </div>
       </section>
 
-      {/* SECTION 2: Grid Features (Unique Icons/Colors) */}
-      <section className="relative px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full">
-        <div className="text-center max-w-3xl mx-auto mb-12">
-          <h2 className="text-2xl sm:text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-br from-slate-100 to-slate-400">
-            Advanced Client-Side Engineering
-          </h2>
+      {/* SECTION 2: Quantitative Proof (Stats / Banner Layout) */}
+      <section className="relative w-full bg-slate-900/50 border-y border-slate-800 py-16">
+        <div className="px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="md:col-span-5 flex justify-center md:justify-start"
+            >
+              <div className="relative">
+                <div className="absolute inset-0 bg-indigo-500 blur-3xl opacity-20 rounded-full" />
+                <Activity className="w-32 h-32 text-indigo-400 relative z-10" />
+              </div>
+            </motion.div>
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.1 }}
+              className="md:col-span-7 space-y-4 text-center md:text-left"
+            >
+              <h3 className="text-2xl font-bold text-slate-100">Proven Performance</h3>
+              <p className="text-xl text-slate-300 leading-relaxed italic border-l-4 border-indigo-500 pl-4 py-2 bg-slate-800/30 rounded-r-xl">
+                "{config.quantitativeProof}"
+              </p>
+            </motion.div>
+          </div>
         </div>
+      </section>
+
+      {/* SECTION 3: Technical Features Grid */}
+      <section className="relative px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {[
             {
               icon: Shield,
+              color: "text-emerald-400",
+              bg: "bg-emerald-500/10",
+              border: "border-emerald-500/20",
               title: "Absolute Privacy",
               desc: "By utilizing WebWorkers, images never leave your device. Serverless architecture prevents data leaks."
             },
             {
               icon: Zap,
+              color: "text-amber-400",
+              bg: "bg-amber-500/10",
+              border: "border-amber-500/20",
               title: "Lightning Fast",
               desc: "Powered by browser-native APIs. Compressing a 5MB image to 100KB takes less than 0.5 seconds."
             },
             {
               icon: FileJson,
+              color: "text-blue-400",
+              bg: "bg-blue-500/10",
+              border: "border-blue-500/20",
               title: "Batch Ready",
               desc: "Drag and drop up to 50 images at once. They process concurrently without crashing your tab."
             }
@@ -118,10 +170,10 @@ export const Compress100kbSections: React.FC = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: idx * 0.1 }}
-              className="bg-slate-800/30 border border-slate-700/50 rounded-2xl p-6 hover:bg-slate-800/60 transition-colors"
+              className="bg-slate-800/40 border border-slate-700/50 rounded-3xl p-8 hover:bg-slate-800/80 transition-all hover:-translate-y-1 shadow-lg group"
             >
-              <div className="w-12 h-12 rounded-xl bg-indigo-500/20 flex items-center justify-center mb-6">
-                <feature.icon className="w-6 h-6 text-indigo-400" />
+              <div className={`w-14 h-14 rounded-2xl ${feature.bg} ${feature.border} border flex items-center justify-center mb-6 group-hover:scale-110 transition-transform`}>
+                <feature.icon className={`w-7 h-7 ${feature.color}`} />
               </div>
               <h3 className="text-xl font-bold text-slate-100 mb-3">{feature.title}</h3>
               <p className="text-slate-400 leading-relaxed">{feature.desc}</p>
@@ -129,6 +181,49 @@ export const Compress100kbSections: React.FC = () => {
           ))}
         </div>
       </section>
+
+      {/* SECTION 4: Localized FAQs (Accordion Layout) */}
+      {config.faqs && config.faqs.length > 0 && (
+        <section className="relative px-4 sm:px-6 lg:px-8 max-w-3xl mx-auto w-full">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold text-slate-100 mb-4">Frequently Asked Questions</h2>
+            <div className="h-1 w-20 bg-indigo-500 mx-auto rounded-full" />
+          </div>
+          <div className="space-y-4">
+            {config.faqs.map((faq, idx) => (
+              <motion.div 
+                key={idx}
+                initial={{ opacity: 0, y: 10 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                className="bg-slate-800/50 border border-slate-700 rounded-2xl overflow-hidden"
+              >
+                <button 
+                  onClick={() => setOpenFaq(openFaq === idx ? null : idx)}
+                  className="w-full px-6 py-5 flex items-center justify-between text-left focus:outline-none"
+                >
+                  <span className="text-lg font-semibold text-slate-200 pr-8">{faq.question}</span>
+                  <ChevronDown className={`w-5 h-5 text-slate-400 transition-transform duration-300 shrink-0 ${openFaq === idx ? 'rotate-180' : ''}`} />
+                </button>
+                <AnimatePresence>
+                  {openFaq === idx && (
+                    <motion.div
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: 'auto', opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      className="overflow-hidden"
+                    >
+                      <div className="px-6 pb-6 text-slate-400 leading-relaxed border-t border-slate-700/50 pt-4">
+                        {faq.answer}
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </motion.div>
+            ))}
+          </div>
+        </section>
+      )}
 
     </div>
   );
