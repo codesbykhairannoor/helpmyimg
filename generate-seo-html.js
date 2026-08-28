@@ -66,7 +66,7 @@ const getLocalizedInfoSlug = (page, lang) => {
 };
 
 // Tool identifiers
-const TOOLS = ['remove', 'color', 'watermark', 'compress', 'convert', 'resize', 'crop', 'rotate', 'picker', 'blurface', 'design', 'brush'];
+const TOOLS = ['remove', 'color', 'watermark', 'compress', 'convert', 'resize', 'crop', 'rotate', 'picker', 'blurface', 'design', 'brush', 'compress100kb', 'compress50kb', 'resizeig', 'removelogo', 'colorwhite', 'compress200kb', 'resizepassport'];
 
 // Info page identifiers
 const INFO_PAGES = ['about', 'privacy', 'terms', 'faq', 'security', 'pricing', 'compare', 'languages'];

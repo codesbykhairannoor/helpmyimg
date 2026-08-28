@@ -17,6 +17,10 @@ import { BrushSections } from './tools/BrushSections';
 import { Compress100kbSections } from './tools/Compress100kbSections';
 import { Compress50kbSections } from './tools/Compress50kbSections';
 import { ResizeIgSections } from './tools/ResizeIgSections';
+import { RemoveLogoSections } from './tools/RemoveLogoSections';
+import { ColorWhiteSections } from './tools/ColorWhiteSections';
+import { Compress200kbSections } from './tools/Compress200kbSections';
+import { ResizePassportSections } from './tools/ResizePassportSections';
 
 export const SECTION_REGISTRY: Record<string, React.FC> = {
   'remove': RemoveBgSections,
@@ -34,4 +38,8 @@ export const SECTION_REGISTRY: Record<string, React.FC> = {
   'compress100kb': Compress100kbSections,
   'compress50kb': Compress50kbSections,
   'resizeig': ResizeIgSections,
+  'removelogo': RemoveLogoSections,
+  'colorwhite': ColorWhiteSections,
+  'compress200kb': Compress200kbSections,
+  'resizepassport': ResizePassportSections,
 };

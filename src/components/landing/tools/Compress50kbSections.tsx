@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ShieldAlert, Zap, Layers, CheckCircle, ChevronDown, Rocket, Smartphone } from 'lucide-react';
+import { ShieldAlert, Zap, Layers, CheckCircle, ChevronDown, Rocket, Smartphone, Building, GraduationCap, Plane } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { PSEO_KEYWORD_MATRIX } from '../../../data/pseoKeywords';
 import { useRouter } from '../../../context/RouterContext';
@@ -141,7 +141,39 @@ export const Compress50kbSections: React.FC = () => {
         </div>
       </section>
 
-      {/* SECTION 3: FAQs (Minimalist Dark Layout) */}
+      {/* SECTION 3: Use Cases Grid */}
+      {config.extraSectionTitle && (
+        <section className="relative px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto w-full">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold text-white mb-4">{config.extraSectionTitle}</h2>
+            <p className="text-lg text-zinc-400 max-w-2xl mx-auto">{config.extraSectionDesc}</p>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {[
+              { icon: Building, color: "text-blue-400", bg: "bg-blue-500/10", text: config.extraSectionItems?.[0] },
+              { icon: GraduationCap, color: "text-amber-400", bg: "bg-amber-500/10", text: config.extraSectionItems?.[1] },
+              { icon: Plane, color: "text-emerald-400", bg: "bg-emerald-500/10", text: config.extraSectionItems?.[2] }
+            ].map((useCase, idx) => (
+              <motion.div
+                key={idx}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: idx * 0.1 }}
+                className="bg-zinc-900 border border-zinc-800 rounded-3xl p-6 flex flex-col items-center text-center hover:border-zinc-700 transition-colors"
+              >
+                <div className={`w-14 h-14 rounded-2xl flex items-center justify-center mb-4 ${useCase.bg}`}>
+                  <useCase.icon className={`w-7 h-7 ${useCase.color}`} />
+                </div>
+                <p className="text-zinc-300 font-medium leading-relaxed">{useCase.text}</p>
+              </motion.div>
+            ))}
+          </div>
+        </section>
+      )}
+
+      {/* SECTION 4: FAQs (Minimalist Dark Layout) */}
       {config.faqs && config.faqs.length > 0 && (
         <section className="relative px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto w-full">
           <div className="border border-zinc-800 bg-zinc-900/50 backdrop-blur-xl rounded-[2rem] p-8 md:p-12">

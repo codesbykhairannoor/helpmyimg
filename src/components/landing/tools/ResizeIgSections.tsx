@@ -1,5 +1,5 @@
 import React from 'react';
-import { Camera, Maximize, Grip, Sparkles, Smartphone, Layers } from 'lucide-react';
+import { Camera, Maximize, Grip, Sparkles, Smartphone, Layers, Layout, ArrowRight } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { PSEO_KEYWORD_MATRIX } from '../../../data/pseoKeywords';
 import { useRouter } from '../../../context/RouterContext';
@@ -134,7 +134,42 @@ export const ResizeIgSections: React.FC = () => {
         </div>
       </section>
 
-      {/* SECTION 3: Minimalist FAQs Grid */}
+      {/* SECTION 3: Why Aspect Ratio Matters */}
+      {config.extraSectionTitle && (
+        <section className="relative px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full py-12">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white mb-4">{config.extraSectionTitle}</h2>
+            <p className="text-lg text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">{config.extraSectionDesc}</p>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {[
+              { ratio: "1:1", name: "Square", color: "text-blue-500", box: "w-16 h-16", text: config.extraSectionItems?.[0] },
+              { ratio: "4:5", name: "Portrait", color: "text-purple-500", box: "w-16 h-20", text: config.extraSectionItems?.[1] },
+              { ratio: "9:16", name: "Stories", color: "text-pink-500", box: "w-16 h-28", text: config.extraSectionItems?.[2] }
+            ].map((item, idx) => (
+              <motion.div 
+                key={idx}
+                initial={{ opacity: 0, scale: 0.95 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: idx * 0.15 }}
+                className="bg-white dark:bg-slate-900 rounded-3xl p-8 border border-slate-200 dark:border-slate-800 flex flex-col items-center text-center shadow-sm hover:shadow-md transition-shadow"
+              >
+                <div className="h-32 flex items-end justify-center mb-6">
+                  <div className={`${item.box} rounded-lg border-2 border-dashed border-slate-300 dark:border-slate-600 flex items-center justify-center bg-slate-50 dark:bg-slate-800`}>
+                    <span className={`font-bold ${item.color}`}>{item.ratio}</span>
+                  </div>
+                </div>
+                <h4 className="text-xl font-bold text-slate-900 dark:text-white mb-3">{item.name}</h4>
+                <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">{item.text}</p>
+              </motion.div>
+            ))}
+          </div>
+        </section>
+      )}
+
+      {/* SECTION 4: Minimalist FAQs Grid */}
       {config.faqs && config.faqs.length > 0 && (
         <section className="relative px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto w-full">
           <div className="flex flex-col md:flex-row gap-12 items-start">

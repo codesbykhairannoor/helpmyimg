@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Shield, Zap, FileJson, CloudOff, ChevronDown, Activity, Lock, Cpu } from 'lucide-react';
+import { Shield, Zap, FileJson, CloudOff, ChevronDown, Activity, Lock, Cpu, Upload, ArrowRight, Download } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { PSEO_KEYWORD_MATRIX } from '../../../data/pseoKeywords';
 import { useRouter } from '../../../context/RouterContext';
@@ -182,7 +182,46 @@ export const Compress100kbSections: React.FC = () => {
         </div>
       </section>
 
-      {/* SECTION 4: Localized FAQs (Accordion Layout) */}
+      {/* SECTION 4: New "How to Compress" Visual Guide */}
+      {config.extraSectionTitle && (
+        <section className="relative px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full py-12">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white">{config.extraSectionTitle}</h2>
+            <p className="mt-4 text-lg text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">{config.extraSectionDesc}</p>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {[
+              { icon: Upload, title: "1. Upload", desc: config.extraSectionItems?.[0] || "Upload your file", color: "text-blue-500", bg: "bg-blue-100 dark:bg-blue-900/30" },
+              { icon: Zap, title: "2. AI Shrink", desc: config.extraSectionItems?.[1] || "AI processes it", color: "text-purple-500", bg: "bg-purple-100 dark:bg-purple-900/30" },
+              { icon: Download, title: "3. Download", desc: config.extraSectionItems?.[2] || "Save result", color: "text-green-500", bg: "bg-green-100 dark:bg-green-900/30" }
+            ].map((step, idx) => (
+              <motion.div 
+                key={idx}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: idx * 0.15 }}
+                className="relative bg-white dark:bg-slate-900 rounded-3xl p-8 border border-slate-200 dark:border-slate-800 text-center shadow-sm"
+              >
+                <div className={`w-16 h-16 mx-auto rounded-2xl flex items-center justify-center mb-6 ${step.bg}`}>
+                  <step.icon className={`w-8 h-8 ${step.color}`} />
+                </div>
+                <h4 className="text-xl font-bold text-slate-900 dark:text-white mb-3">{step.title}</h4>
+                <p className="text-slate-600 dark:text-slate-400 leading-relaxed">{step.desc}</p>
+                
+                {idx < 2 && (
+                  <div className="hidden md:block absolute -right-6 top-1/2 -translate-y-1/2 z-10 text-slate-300 dark:text-slate-700">
+                    <ArrowRight className="w-8 h-8" />
+                  </div>
+                )}
+              </motion.div>
+            ))}
+          </div>
+        </section>
+      )}
+
+      {/* SECTION 5: Localized FAQs (Accordion Layout) */}
       {config.faqs && config.faqs.length > 0 && (
         <section className="relative px-4 sm:px-6 lg:px-8 max-w-3xl mx-auto w-full">
           <div className="text-center mb-12">

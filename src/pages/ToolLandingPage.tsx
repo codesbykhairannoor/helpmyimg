@@ -33,7 +33,7 @@ export const ToolLandingPage: React.FC = () => {
 
   // Cari konfigurasi SEO dari matriks
   let config: PSeoKeywordConfig | undefined = keywordSlug ? getPSeoConfigBySlug(keywordSlug) : undefined;
-  if (!config && (internalTool === 'compress100kb' || internalTool === 'compress50kb' || internalTool === 'resizeig')) {
+  if (!config && (internalTool === 'compress100kb' || internalTool === 'compress50kb' || internalTool === 'resizeig' || internalTool === 'removelogo' || internalTool === 'colorwhite' || internalTool === 'compress200kb' || internalTool === 'resizepassport')) {
     config = getPSeoConfigBySlug(keywordSlug || '') || PSEO_KEYWORD_MATRIX.find(c => c.tool === internalTool && c.lang === lang);
   }
 
@@ -190,7 +190,7 @@ export const ToolLandingPage: React.FC = () => {
           
           {/* Tool Specific FAQ Section - Unified 4 Questions Redesign */}
           {/* Tool Specific FAQ Section - Dynamic Variants */}
-          {!['compress100kb', 'compress50kb', 'resizeig'].includes(internalTool) && (
+          {!['compress100kb', 'compress50kb', 'resizeig', 'removelogo', 'colorwhite', 'compress200kb', 'resizepassport'].includes(internalTool) && (
             <ToolFaqSection 
               toolMapName={toolMapName} 
               variant={
