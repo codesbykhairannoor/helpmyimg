@@ -81,7 +81,7 @@ const writeSitemapShard = (filename, urls) => {
 // CORE PAGES ONLY — Every URL here has a real HTML file in dist/
 // 30 langs × (1 home + 12 tools + 8 info) = 30 × 21 = 630 URLs
 // ============================================================================
-const baseTools = ['remove', 'color', 'watermark', 'compress', 'convert', 'resize', 'crop', 'rotate', 'picker', 'blurface', 'design', 'brush', 'compress100kb', 'compress50kb', 'resizeig', 'removelogo', 'colorwhite', 'compress200kb', 'resizepassport'];
+const baseTools = ['remove', 'color', 'watermark', 'compress', 'convert', 'resize', 'crop', 'rotate', 'picker', 'blurface', 'design', 'brush', 'compress100kb', 'compress50kb', 'resizeig', 'removelogo', 'colorwhite', 'compress200kb', 'resizepassport', 'removeperson', 'convertwebp', 'watermarkbulk', 'blurplate'];
 const infoPages = ['about', 'privacy', 'terms', 'faq', 'security', 'pricing', 'compare', 'languages'];
 
 const coreUrls = [];

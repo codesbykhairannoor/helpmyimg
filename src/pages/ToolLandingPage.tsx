@@ -190,7 +190,7 @@ export const ToolLandingPage: React.FC = () => {
           
           {/* Tool Specific FAQ Section - Unified 4 Questions Redesign */}
           {/* Tool Specific FAQ Section - Dynamic Variants */}
-          {!['compress100kb', 'compress50kb', 'resizeig', 'removelogo', 'colorwhite', 'compress200kb', 'resizepassport'].includes(internalTool) && (
+          {!['compress100kb', 'compress50kb', 'resizeig', 'removelogo', 'colorwhite', 'compress200kb', 'resizepassport', 'removeperson', 'convertwebp', 'watermarkbulk', 'blurplate'].includes(internalTool) && (
             <ToolFaqSection 
               toolMapName={toolMapName} 
               variant={

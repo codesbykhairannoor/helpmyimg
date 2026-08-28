@@ -22,6 +22,11 @@ import { ColorWhiteSections } from './tools/ColorWhiteSections';
 import { Compress200kbSections } from './tools/Compress200kbSections';
 import { ResizePassportSections } from './tools/ResizePassportSections';
 
+import { RemovePersonSections } from './tools/RemovePersonSections';
+import { ConvertWebpSections } from './tools/ConvertWebpSections';
+import { WatermarkBulkSections } from './tools/WatermarkBulkSections';
+import { BlurPlateSections } from './tools/BlurPlateSections';
+
 export const SECTION_REGISTRY: Record<string, React.FC> = {
   'remove': RemoveBgSections,
   'compress': CompressSections,
@@ -42,4 +47,8 @@ export const SECTION_REGISTRY: Record<string, React.FC> = {
   'colorwhite': ColorWhiteSections,
   'compress200kb': Compress200kbSections,
   'resizepassport': ResizePassportSections,
+  'removeperson': RemovePersonSections,
+  'convertwebp': ConvertWebpSections,
+  'watermarkbulk': WatermarkBulkSections,
+  'blurplate': BlurPlateSections,
 };
