@@ -48,6 +48,15 @@ const getLocalizedSlug = (tool, lang) => {
   return fallbacks[tool] || tool;
 };
 
+// 3. Load Matrix JSON
+let matrixData = [];
+try {
+  matrixData = JSON.parse(fs.readFileSync(path.join(publicDir, 'matrix.json'), 'utf8'));
+} catch (e) {
+  console.warn('Warning: Could not read public/matrix.json. Long-tail FAQs may be missing.');
+}
+
+
 let infoSlugMap = {};
 try {
   const infoUrlMapperContent = fs.readFileSync(path.join(__dirname, 'src', 'utils', 'infoUrlMapper.ts'), 'utf8');
@@ -132,16 +141,41 @@ const generateHtml = (lang, urlPath, seoTitle, seoDesc, tool = null, translation
   };
 
   const faqEntities = [];
-  const maxFaq = !tool ? 4 : 5;
-  for (let i = 1; i <= maxFaq; i++) {
-    const q = !tool ? translations[`faq${i}.q`] : translations[`landing.${tool}.faq${i}.q`];
-    const a = !tool ? translations[`faq${i}.a`] : translations[`landing.${tool}.faq${i}.a`];
-    if (q && a) {
-      faqEntities.push({
-        "@type": "Question",
-        "name": q,
-        "acceptedAnswer": { "@type": "Answer", "text": a }
-      });
+  if (tool) {
+    // Check if it's a long-tail tool in matrixData
+    const matrixItem = matrixData.find(m => m.tool === tool && (m.lang === lang || m.lang === (lang === 'zh-CN' ? 'zh' : lang)));
+    if (matrixItem && matrixItem.faqs) {
+      for (const faq of matrixItem.faqs) {
+        faqEntities.push({
+          "@type": "Question",
+          "name": faq.question,
+          "acceptedAnswer": { "@type": "Answer", "text": faq.answer }
+        });
+      }
+    } else {
+      for (let i = 1; i <= 5; i++) {
+        const q = translations[`landing.${tool}.faq${i}.q`];
+        const a = translations[`landing.${tool}.faq${i}.a`];
+        if (q && a) {
+          faqEntities.push({
+            "@type": "Question",
+            "name": q,
+            "acceptedAnswer": { "@type": "Answer", "text": a }
+          });
+        }
+      }
+    }
+  } else {
+    for (let i = 1; i <= 4; i++) {
+      const q = translations[`faq${i}.q`];
+      const a = translations[`faq${i}.a`];
+      if (q && a) {
+        faqEntities.push({
+          "@type": "Question",
+          "name": q,
+          "acceptedAnswer": { "@type": "Answer", "text": a }
+        });
+      }
     }
   }
 
@@ -193,19 +227,28 @@ const generateHtml = (lang, urlPath, seoTitle, seoDesc, tool = null, translation
       </div>
     `;
   } else {
-    const h1 = translations[`landing.${tool}.why.title`] || translations[`seo.jsonld.name.${tool}`] || tool;
-    const p1 = translations[`landing.${tool}.why.desc`] || translations[`seo.jsonld.desc.${tool}`] || '';
-    const h2Work = translations[`landing.${tool}.work.title`] || 'How it Works';
-    const pWork = translations[`landing.${tool}.work.desc`] || '';
-    const h2Who = translations[`landing.${tool}.who.title`] || 'Who is it for?';
-    const pWho = translations[`landing.${tool}.who.desc`] || '';
-    const h2Faq = translations[`landing.${tool}.faqTitle`] || 'FAQ';
+    // Find matrix item
+    const matrixItem = matrixData.find(m => m.tool === tool && (m.lang === lang || m.lang === (lang === 'zh-CN' ? 'zh' : lang)));
+    
+    const h1 = (matrixItem && matrixItem.h1) || translations[`seo.jsonld.name.${tool}`] || tool;
+    const p1 = (matrixItem && matrixItem.description) || translations[`seo.jsonld.desc.${tool}`] || '';
+    const h2Feat = translations[`longtail.features`] || 'Features';
+    const h2Faq = translations[`longtail.faq`] || 'FAQ';
     
     let faqs = '';
-    for (let i = 1; i <= 5; i++) {
-      const q = translations[`landing.${tool}.faq${i}.q`];
-      const a = translations[`landing.${tool}.faq${i}.a`];
-      if (q) faqs += `<h3>${q}</h3><p>${a}</p>`;
+    if (matrixItem && matrixItem.faqs) {
+      for (const faq of matrixItem.faqs) {
+        faqs += `<h3>${faq.question}</h3><p>${faq.answer}</p>`;
+      }
+    }
+    
+    let features = '';
+    for (let i = 1; i <= 4; i++) {
+      const featTitle = translations[`longtail.${tool.toLowerCase()}.feat${i}.title`];
+      const featDesc = translations[`longtail.${tool.toLowerCase()}.feat${i}.desc`];
+      if (featTitle) {
+        features += `<h3>${featTitle}</h3><p>${featDesc}</p>`;
+      }
     }
 
     semanticHtml = `
@@ -215,12 +258,8 @@ const generateHtml = (lang, urlPath, seoTitle, seoDesc, tool = null, translation
           <p>${p1}</p>
         </header>
         <section>
-          <h2>${h2Work}</h2>
-          <p>${pWork}</p>
-        </section>
-        <section>
-          <h2>${h2Who}</h2>
-          <p>${pWho}</p>
+          <h2>${h2Feat}</h2>
+          ${features}
         </section>
         <section>
           <h2>${h2Faq}</h2>
