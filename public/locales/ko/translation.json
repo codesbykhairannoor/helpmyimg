@@ -1642,5 +1642,11 @@
   "seo.title.remove": "쿠팡 및 네이버 스마트스토어 상품 사진 누끼따기 무료 AI",
   "seo.title.compress": "압축 이미지 to 200KB 무료",
   "seo.title.convert": "변환 WEBP to JPG 무료",
-  "seo.title.resize": "크기 조정 이미지 to 4x6 무료"
+  "seo.title.resize": "크기 조정 이미지 to 4x6 무료",
+  "longtail.compress100kb.feat1.title": "절대적인 개인 정보 보호",
+  "longtail.compress100kb.feat1.desc": "WebWorkers를 활용하면 이미지가 장치를 떠나지 않습니다. 서버리스 아키텍처는 데이터 유출을 방지합니다.",
+  "longtail.compress100kb.feat2.title": "번개처럼 빠른",
+  "longtail.compress100kb.feat2.desc": "브라우저 기반 API로 구동됩니다. 5MB 이미지를 100KB로 압축하는 데는 0.5초도 걸리지 않습니다.",
+  "longtail.compress100kb.feat3.title": "배치 준비",
+  "longtail.compress100kb.feat3.desc": "한 번에 최대 50개의 이미지를 드래그 앤 드롭하세요. 탭을 충돌시키지 않고 동시에 처리됩니다."
 }

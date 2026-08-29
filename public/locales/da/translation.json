@@ -1642,5 +1642,11 @@
   "seo.title.remove": "Fjern Baggrund fra Billeder til Webshop - Gratis AI | HelpMyIMG",
   "seo.title.compress": "Komprimer Billede to 200KB Gratis",
   "seo.title.convert": "Konverter WEBP to JPG Gratis",
-  "seo.title.resize": "Tilpas Billede to 4x6 Gratis"
+  "seo.title.resize": "Tilpas Billede to 4x6 Gratis",
+  "longtail.compress100kb.feat1.title": "Absolut privatliv",
+  "longtail.compress100kb.feat1.desc": "Ved at bruge WebWorkers forlader billeder aldrig din enhed. Serverløs arkitektur forhindrer datalæk.",
+  "longtail.compress100kb.feat2.title": "Lynhurtigt",
+  "longtail.compress100kb.feat2.desc": "Drevet af browser-native API'er. At komprimere et 5MB billede til 100KB tager mindre end 0,5 sekunder.",
+  "longtail.compress100kb.feat3.title": "Batch klar",
+  "longtail.compress100kb.feat3.desc": "Træk og slip op til 50 billeder på én gang. De behandler samtidigt uden at crashe din fane."
 }

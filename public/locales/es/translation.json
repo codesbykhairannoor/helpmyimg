@@ -1640,5 +1640,11 @@
   "longtail.c200.acceptable": "Aceptable",
   "longtail.c200.serverLogs": "Registros del servidor",
   "seo.title.remove": "Quitar Fondo de Imagen Gratis para E-Commerce y Mercado Libre",
-  "seo.title.resize": "Redimensionar Imagen para Pasaporte (4x6) Gratis"
+  "seo.title.resize": "Redimensionar Imagen para Pasaporte (4x6) Gratis",
+  "longtail.compress100kb.feat1.title": "Privacidad absoluta",
+  "longtail.compress100kb.feat1.desc": "Al utilizar WebWorkers, las imágenes nunca salen de su dispositivo. La arquitectura sin servidor evita las fugas de datos.",
+  "longtail.compress100kb.feat2.title": "Rayo rápido",
+  "longtail.compress100kb.feat2.desc": "Desarrollado por API nativas del navegador. Comprimir una imagen de 5 MB a 100 KB lleva menos de 0,5 segundos.",
+  "longtail.compress100kb.feat3.title": "Lote listo",
+  "longtail.compress100kb.feat3.desc": "Arrastra y suelta hasta 50 imágenes a la vez. Se procesan simultáneamente sin bloquear su pestaña."
 }

@@ -146,24 +146,24 @@ export const Compress100kbSections: React.FC = () => {
               color: "text-emerald-500 dark:text-emerald-400",
               bg: "bg-emerald-500/10",
               border: "border-emerald-500/20",
-              title: "Absolute Privacy",
-              desc: "By utilizing WebWorkers, images never leave your device. Serverless architecture prevents data leaks."
+              title: t('longtail.compress100kb.feat1.title', { defaultValue: "Absolute Privacy" }),
+              desc: t('longtail.compress100kb.feat1.desc', { defaultValue: "By utilizing WebWorkers, images never leave your device. Serverless architecture prevents data leaks." })
             },
             {
               icon: Zap,
               color: "text-amber-500 dark:text-amber-400",
               bg: "bg-amber-500/10",
               border: "border-amber-500/20",
-              title: "Lightning Fast",
-              desc: "Powered by browser-native APIs. Compressing a 5MB image to 100KB takes less than 0.5 seconds."
+              title: t('longtail.compress100kb.feat2.title', { defaultValue: "Lightning Fast" }),
+              desc: t('longtail.compress100kb.feat2.desc', { defaultValue: "Powered by browser-native APIs. Compressing a 5MB image to 100KB takes less than 0.5 seconds." })
             },
             {
               icon: FileJson,
               color: "text-blue-500 dark:text-blue-400",
               bg: "bg-blue-500/10",
               border: "border-blue-500/20",
-              title: "Batch Ready",
-              desc: "Drag and drop up to 50 images at once. They process concurrently without crashing your tab."
+              title: t('longtail.compress100kb.feat3.title', { defaultValue: "Batch Ready" }),
+              desc: t('longtail.compress100kb.feat3.desc', { defaultValue: "Drag and drop up to 50 images at once. They process concurrently without crashing your tab." })
             }
           ].map((feature, idx) => (
             <motion.div 

@@ -1623,5 +1623,11 @@
   "seo.title.remove": "הסרת רקע מתמונות לאתרי מכירות ואיקומרס - חינם AI | HelpMyIMG",
   "seo.title.compress": "דחיסה תמונה to 200KB חינם",
   "seo.title.convert": "המרה WEBP to JPG חינם",
-  "seo.title.resize": "שינוי גודל תמונה to 4x6 חינם"
+  "seo.title.resize": "שינוי גודל תמונה to 4x6 חינם",
+  "longtail.compress100kb.feat1.title": "פרטיות מוחלטת",
+  "longtail.compress100kb.feat1.desc": "על ידי שימוש ב-WebWorkers, תמונות לעולם לא עוזבות את המכשיר שלך. ארכיטקטורה ללא שרת מונעת דליפות נתונים.",
+  "longtail.compress100kb.feat2.title": "מהיר ברק",
+  "longtail.compress100kb.feat2.desc": "מופעל על ידי ממשקי API מקוריים בדפדפן. דחיסת תמונה של 5MB ל-100KB לוקחת פחות מ-0.5 שניות.",
+  "longtail.compress100kb.feat3.title": "מוכן לאצווה",
+  "longtail.compress100kb.feat3.desc": "גרור ושחרר עד 50 תמונות בבת אחת. הם מעבדים במקביל מבלי לקרוס את הכרטיסייה שלך."
 }

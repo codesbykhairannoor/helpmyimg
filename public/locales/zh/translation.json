@@ -1642,5 +1642,11 @@
   "seo.title.remove": "免费AI一键抠图与背景移除工具 (电商品牌专用)",
   "seo.title.compress": "压缩 图片 to 200KB 免费",
   "seo.title.convert": "转换 WEBP to JPG 免费",
-  "seo.title.resize": "调整大小 图片 to 4x6 免费"
+  "seo.title.resize": "调整大小 图片 to 4x6 免费",
+  "longtail.compress100kb.feat1.title": "绝对隐私",
+  "longtail.compress100kb.feat1.desc": "通过使用 WebWorkers，图像永远不会离开您的设备。 无服务器架构可防止数据泄露。",
+  "longtail.compress100kb.feat2.title": "快如闪电",
+  "longtail.compress100kb.feat2.desc": "由浏览器本机 API 提供支持。 将 5MB 图像压缩到 100KB 只需不到 0.5 秒。",
+  "longtail.compress100kb.feat3.title": "批量准备",
+  "longtail.compress100kb.feat3.desc": "一次最多拖放 50 张图像。 它们同时处理，不会导致您的选项卡崩溃。"
 }

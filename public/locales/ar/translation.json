@@ -1667,5 +1667,11 @@
   "seo.title.remove": "إزالة خلفية الصورة مجاناً وبدون إنترنت (AI WebGPU)",
   "seo.title.compress": "ضغط صورة to 200KB مجاني",
   "seo.title.convert": "تحويل WEBP to JPG مجاني",
-  "seo.title.resize": "تغيير الحجم صورة to 4x6 مجاني"
+  "seo.title.resize": "تغيير الحجم صورة to 4x6 مجاني",
+  "longtail.compress100kb.feat1.title": "الخصوصية المطلقة",
+  "longtail.compress100kb.feat1.desc": "ومن خلال استخدام WebWorkers، لن تترك الصور جهازك أبدًا. تمنع البنية بدون خادم تسرب البيانات.",
+  "longtail.compress100kb.feat2.title": "بسرعة البرق",
+  "longtail.compress100kb.feat2.desc": "مدعوم من واجهات برمجة التطبيقات الأصلية للمتصفح. يستغرق ضغط صورة بحجم 5 ميجا بايت إلى 100 كيلو بايت أقل من 0.5 ثانية.",
+  "longtail.compress100kb.feat3.title": "دفعة جاهزة",
+  "longtail.compress100kb.feat3.desc": "قم بسحب وإسقاط ما يصل إلى 50 صورة مرة واحدة. يتم معالجتها بشكل متزامن دون تعطل علامة التبويب الخاصة بك."
 }

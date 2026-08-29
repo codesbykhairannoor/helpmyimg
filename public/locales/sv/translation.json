@@ -1642,5 +1642,11 @@
   "seo.title.remove": "Ta bort bakgrund från bilder för E-handel - Gratis AI | HelpMyIMG",
   "seo.title.compress": "Komprimera Bild to 200KB Gratis",
   "seo.title.convert": "Konvertera WEBP to JPG Gratis",
-  "seo.title.resize": "Ändra storlek Bild to 4x6 Gratis"
+  "seo.title.resize": "Ändra storlek Bild to 4x6 Gratis",
+  "longtail.compress100kb.feat1.title": "Absolut integritet",
+  "longtail.compress100kb.feat1.desc": "Genom att använda WebWorkers lämnar bilder aldrig din enhet. Serverlös arkitektur förhindrar dataläckor.",
+  "longtail.compress100kb.feat2.title": "Blixtsnabb",
+  "longtail.compress100kb.feat2.desc": "Drivs av webbläsarbaserade API:er. Att komprimera en 5MB-bild till 100KB tar mindre än 0,5 sekunder.",
+  "longtail.compress100kb.feat3.title": "Batch redo",
+  "longtail.compress100kb.feat3.desc": "Dra och släpp upp till 50 bilder samtidigt. De bearbetas samtidigt utan att din flik kraschar."
 }

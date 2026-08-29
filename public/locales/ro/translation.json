@@ -1642,5 +1642,11 @@
   "seo.title.remove": "Elimină Fundalul Poze Produse eMAG & E-commerce - Gratuit AI | HelpMyIMG",
   "seo.title.compress": "Comprimare Imagine to 200KB Gratuit",
   "seo.title.convert": "Convertire WEBP to JPG Gratuit",
-  "seo.title.resize": "Redimensionare Imagine to 4x6 Gratuit"
+  "seo.title.resize": "Redimensionare Imagine to 4x6 Gratuit",
+  "longtail.compress100kb.feat1.title": "Confidențialitate absolută",
+  "longtail.compress100kb.feat1.desc": "Prin utilizarea WebWorkers, imaginile nu părăsesc dispozitivul dvs. Arhitectura serverless previne scurgerile de date.",
+  "longtail.compress100kb.feat2.title": "Rapid fulger",
+  "longtail.compress100kb.feat2.desc": "Funcționat de API-uri native pentru browser. Comprimarea unei imagini de 5MB la 100KB durează mai puțin de 0,5 secunde.",
+  "longtail.compress100kb.feat3.title": "Lot gata",
+  "longtail.compress100kb.feat3.desc": "Trageți și plasați până la 50 de imagini simultan. Acestea procesează concomitent fără să vă blocheze fila."
 }

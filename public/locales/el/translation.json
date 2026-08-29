@@ -1642,5 +1642,11 @@
   "seo.title.remove": "Αφαίρεση Φόντου από Φωτογραφίες για Skroutz & E-shop",
   "seo.title.compress": "Συμπίεση Εικόνα to 200KB Δωρεάν",
   "seo.title.convert": "Μετατροπή WEBP to JPG Δωρεάν",
-  "seo.title.resize": "Αλλαγή μεγέθους Εικόνα to 4x6 Δωρεάν"
+  "seo.title.resize": "Αλλαγή μεγέθους Εικόνα to 4x6 Δωρεάν",
+  "longtail.compress100kb.feat1.title": "Απόλυτο Απόρρητο",
+  "longtail.compress100kb.feat1.desc": "Χρησιμοποιώντας το WebWorkers, οι εικόνες δεν φεύγουν ποτέ από τη συσκευή σας. Η αρχιτεκτονική χωρίς διακομιστή αποτρέπει τις διαρροές δεδομένων.",
+  "longtail.compress100kb.feat2.title": "Αστραπιαία",
+  "longtail.compress100kb.feat2.desc": "Υποστηρίζεται από εγγενή API του προγράμματος περιήγησης. Η συμπίεση μιας εικόνας 5 MB σε 100 KB διαρκεί λιγότερο από 0,5 δευτερόλεπτα.",
+  "longtail.compress100kb.feat3.title": "Έτοιμο για παρτίδες",
+  "longtail.compress100kb.feat3.desc": "Σύρετε και αποθέστε έως και 50 εικόνες ταυτόχρονα. Επεξεργάζονται ταυτόχρονα χωρίς να διακοπεί η καρτέλα σας."
 }

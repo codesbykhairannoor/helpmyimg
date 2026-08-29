@@ -1647,5 +1647,11 @@
   "seo.title.remove": "Usuwanie Tła ze Zdjęć Produktów na Allegro - Za darmo | HelpMyIMG",
   "seo.title.compress": "Kompresuj Obraz to 200KB Za darmo",
   "seo.title.convert": "Konwertuj WEBP to JPG Za darmo",
-  "seo.title.resize": "Zmień rozmiar Obraz to 4x6 Za darmo"
+  "seo.title.resize": "Zmień rozmiar Obraz to 4x6 Za darmo",
+  "longtail.compress100kb.feat1.title": "Absolutna prywatność",
+  "longtail.compress100kb.feat1.desc": "Korzystając z WebWorkers, obrazy nigdy nie opuszczają Twojego urządzenia. Architektura bezserwerowa zapobiega wyciekom danych.",
+  "longtail.compress100kb.feat2.title": "Błyskawicznie szybki",
+  "longtail.compress100kb.feat2.desc": "Obsługiwane przez natywne interfejsy API przeglądarki. Kompresja obrazu o rozmiarze 5 MB do 100 KB zajmuje mniej niż 0,5 sekundy.",
+  "longtail.compress100kb.feat3.title": "Partia gotowa",
+  "longtail.compress100kb.feat3.desc": "Przeciągnij i upuść do 50 obrazów jednocześnie. Przetwarzają się one jednocześnie, bez powodowania awarii karty."
 }

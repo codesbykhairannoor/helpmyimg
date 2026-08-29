@@ -1642,5 +1642,11 @@
   "seo.title.remove": "Enlever le Fond dune Image Gratuitement en Ligne (IA 100% Privée)",
   "seo.title.compress": "Compresser Image to 200KB Gratuit",
   "seo.title.convert": "Convertir WEBP to JPG Gratuit",
-  "seo.title.resize": "Redimensionner Image to 4x6 Gratuit"
+  "seo.title.resize": "Redimensionner Image to 4x6 Gratuit",
+  "longtail.compress100kb.feat1.title": "Confidentialité absolue",
+  "longtail.compress100kb.feat1.desc": "En utilisant WebWorkers, les images ne quittent jamais votre appareil. L'architecture sans serveur empêche les fuites de données.",
+  "longtail.compress100kb.feat2.title": "Rapide comme l'éclair",
+  "longtail.compress100kb.feat2.desc": "Propulsé par des API natives du navigateur. La compression d'une image de 5 Mo à 100 Ko prend moins de 0,5 seconde.",
+  "longtail.compress100kb.feat3.title": "Lot prêt",
+  "longtail.compress100kb.feat3.desc": "Glissez et déposez jusqu'à 50 images à la fois. Ils traitent simultanément sans faire planter votre onglet."
 }

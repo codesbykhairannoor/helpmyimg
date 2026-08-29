@@ -1663,5 +1663,11 @@
   "seo.title.remove": "DSLR Bokeh Portrait Background Blur Maker Online",
   "seo.title.color": "Biometric Passport Photo Background Color Changer Online",
   "seo.title.compress": "Compress Image to 100KB Online Free (Batch 20-50 Photos)",
-  "seo.title.convert": "Convert 30 Photos to WEBP Online Free (Batch Processing & ZIP)"
+  "seo.title.convert": "Convert 30 Photos to WEBP Online Free (Batch Processing & ZIP)",
+  "longtail.compress100kb.feat1.title": "Absolute Privacy",
+  "longtail.compress100kb.feat1.desc": "By utilizing WebWorkers, images never leave your device. Serverless architecture prevents data leaks.",
+  "longtail.compress100kb.feat2.title": "Lightning Fast",
+  "longtail.compress100kb.feat2.desc": "Powered by browser-native APIs. Compressing a 5MB image to 100KB takes less than 0.5 seconds.",
+  "longtail.compress100kb.feat3.title": "Batch Ready",
+  "longtail.compress100kb.feat3.desc": "Drag and drop up to 50 images at once. They process concurrently without crashing your tab."
 }

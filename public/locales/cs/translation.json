@@ -1653,5 +1653,11 @@
   "seo.title.remove": "Odstranění Pozadí z Fotek pro Alza & Heureka - Zdarma AI | HelpMyIMG",
   "seo.title.compress": "Komprimovat Obrázek to 200KB Zdarma",
   "seo.title.convert": "Převést WEBP to JPG Zdarma",
-  "seo.title.resize": "Změnit velikost Obrázek to 4x6 Zdarma"
+  "seo.title.resize": "Změnit velikost Obrázek to 4x6 Zdarma",
+  "longtail.compress100kb.feat1.title": "Absolutní soukromí",
+  "longtail.compress100kb.feat1.desc": "S využitím WebWorkers obrázky nikdy neopustí vaše zařízení. Bezserverová architektura zabraňuje úniku dat.",
+  "longtail.compress100kb.feat2.title": "Bleskově rychlý",
+  "longtail.compress100kb.feat2.desc": "Využívá nativní rozhraní API prohlížeče. Komprese obrázku o velikosti 5 MB na 100 kB trvá méně než 0,5 sekundy.",
+  "longtail.compress100kb.feat3.title": "Dávka připravena",
+  "longtail.compress100kb.feat3.desc": "Přetáhněte až 50 obrázků najednou. Zpracovávají souběžně, aniž by došlo k selhání vaší karty."
 }

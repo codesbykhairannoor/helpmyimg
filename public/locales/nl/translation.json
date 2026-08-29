@@ -1642,5 +1642,11 @@
   "seo.title.remove": "Achtergrond Verwijderen voor Bol.com & Webshops - Gratis AI | HelpMyIMG",
   "seo.title.compress": "Comprimeren Afbeelding to 200KB Gratis",
   "seo.title.convert": "Converteren WEBP to JPG Gratis",
-  "seo.title.resize": "Formaat wijzigen Afbeelding to 4x6 Gratis"
+  "seo.title.resize": "Formaat wijzigen Afbeelding to 4x6 Gratis",
+  "longtail.compress100kb.feat1.title": "Absolute privacy",
+  "longtail.compress100kb.feat1.desc": "Door gebruik te maken van WebWorkers verlaten afbeeldingen nooit uw apparaat. Serverloze architectuur voorkomt datalekken.",
+  "longtail.compress100kb.feat2.title": "Bliksemsnel",
+  "longtail.compress100kb.feat2.desc": "Mogelijk gemaakt door browser-native API's. Het comprimeren van een afbeelding van 5 MB naar 100 KB duurt minder dan 0,5 seconde.",
+  "longtail.compress100kb.feat3.title": "Batch gereed",
+  "longtail.compress100kb.feat3.desc": "Sleep maximaal 50 afbeeldingen tegelijk. Ze worden gelijktijdig verwerkt zonder dat uw tabblad crasht."
 }

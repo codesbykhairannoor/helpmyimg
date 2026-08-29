@@ -1642,5 +1642,11 @@
   "seo.title.remove": "Fjern Bakgrunn fra Bilder for Nettbutikk - Gratis AI | HelpMyIMG",
   "seo.title.compress": "Komprimer Bilde to 200KB Gratis",
   "seo.title.convert": "Konverter WEBP to JPG Gratis",
-  "seo.title.resize": "Endre størrelse Bilde to 4x6 Gratis"
+  "seo.title.resize": "Endre størrelse Bilde to 4x6 Gratis",
+  "longtail.compress100kb.feat1.title": "Absolutt personvern",
+  "longtail.compress100kb.feat1.desc": "Ved å bruke WebWorkers forlater aldri bilder enheten din. Serverløs arkitektur forhindrer datalekkasjer.",
+  "longtail.compress100kb.feat2.title": "Lynrask",
+  "longtail.compress100kb.feat2.desc": "Drevet av nettleserbaserte APIer. Å komprimere et 5MB bilde til 100KB tar mindre enn 0,5 sekunder.",
+  "longtail.compress100kb.feat3.title": "Batch klar",
+  "longtail.compress100kb.feat3.desc": "Dra og slipp opptil 50 bilder samtidig. De behandler samtidig uten å krasje fanen din."
 }

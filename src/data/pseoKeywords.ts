@@ -2860,22 +2860,22 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     "title": "Comprime imágenes a 100 KB en línea gratis: rápido y privado",
     "h1": "Comprime cualquier imagen a 100 KB al instante",
     "description": "Comprime fácilmente tus imágenes JPG, PNG y WEBP a exactamente 100 KB o menos sin perder calidad. 100% privado, procesado en tu navegador.",
-    "citationFirst": "Struggling with upload limits on government portals, job sites, or university forms? Our advanced client-side compressor reduces your image size precisely under 100KB while keeping text and faces crystal clear.",
+    "citationFirst": "¿Tiene problemas con los límites de carga en portales gubernamentales, sitios de empleo o formularios universitarios? Nuestro compresor avanzado del lado del cliente reduce el tamaño de su imagen precisamente por debajo de 100 KB mientras mantiene el texto y los rostros nítidos.",
     "quantitativeProof": "Únase a más de 2 millones de usuarios que superan los límites de formulario de 100 KB sin pixelación.",
     "beforeImageLabel": "Originales 5MB",
     "afterImageLabel": "Resultado 98KB",
     "faqs": [
       {
-        "question": "How can I compress an image to exactly 100KB?",
-        "answer": "Our tool automatically adjusts the quality slider and strips unnecessary metadata to push the file size below 100KB while preserving visual fidelity."
+        "question": "¿Cómo puedo comprimir una imagen a exactamente 100 KB?",
+        "answer": "Nuestra herramienta ajusta automáticamente el control deslizante de calidad y elimina los metadatos innecesarios para reducir el tamaño del archivo por debajo de 100 KB y al mismo tiempo preservar la fidelidad visual."
       },
       {
-        "question": "Is it safe to compress my passport photo here?",
-        "answer": "Yes, it is 100% safe. Your images are never transmitted over the internet. Processing happens locally in your device's memory."
+        "question": "¿Es seguro comprimir mi foto de pasaporte aquí?",
+        "answer": "Sí, es 100% seguro. Tus imágenes nunca se transmiten a través de Internet. El procesamiento ocurre localmente en la memoria de su dispositivo."
       },
       {
-        "question": "Will my image lose quality and become blurry?",
-        "answer": "We use advanced algorithmic downsizing and smart compression. While file size drops drastically, we prioritize keeping critical details like text and faces highly readable."
+        "question": "¿Mi imagen perderá calidad y se volverá borrosa?",
+        "answer": "Utilizamos reducción algorítmica avanzada y compresión inteligente. Si bien el tamaño del archivo disminuye drásticamente, damos prioridad a que los detalles críticos, como el texto y las caras, sean altamente legibles."
       }
     ]
   },
@@ -2886,22 +2886,22 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     "title": "Compresser l'image à 100 Ko en ligne gratuitement - Rapide et privé",
     "h1": "Compressez n'importe quelle image à 100 Ko instantanément",
     "description": "Compressez facilement vos images JPG, PNG et WEBP à exactement 100 Ko ou moins sans perte de qualité. 100% privé, traité dans votre navigateur.",
-    "citationFirst": "Struggling with upload limits on government portals, job sites, or university forms? Our advanced client-side compressor reduces your image size precisely under 100KB while keeping text and faces crystal clear.",
+    "citationFirst": "Vous avez du mal à respecter les limites de téléchargement sur les portails gouvernementaux, les sites d'emploi ou les formulaires universitaires ? Notre compresseur avancé côté client réduit la taille de votre image précisément en dessous de 100 Ko tout en gardant le texte et les visages parfaitement clairs.",
     "quantitativeProof": "Rejoignez plus de 2 millions d'utilisateurs qui contournent les limites de formulaire de 100 Ko sans pixellisation.",
     "beforeImageLabel": "Original 5 Mo",
     "afterImageLabel": "Résultat 98 Ko",
     "faqs": [
       {
-        "question": "How can I compress an image to exactly 100KB?",
-        "answer": "Our tool automatically adjusts the quality slider and strips unnecessary metadata to push the file size below 100KB while preserving visual fidelity."
+        "question": "Comment puis-je compresser une image à exactement 100 Ko ?",
+        "answer": "Notre outil ajuste automatiquement le curseur de qualité et supprime les métadonnées inutiles pour pousser la taille du fichier en dessous de 100 Ko tout en préservant la fidélité visuelle."
       },
       {
-        "question": "Is it safe to compress my passport photo here?",
-        "answer": "Yes, it is 100% safe. Your images are never transmitted over the internet. Processing happens locally in your device's memory."
+        "question": "Est-il sécuritaire de compresser ma photo d’identité ici ?",
+        "answer": "Oui, c'est 100% sûr. Vos images ne sont jamais transmises sur Internet. Le traitement s'effectue localement dans la mémoire de votre appareil."
       },
       {
-        "question": "Will my image lose quality and become blurry?",
-        "answer": "We use advanced algorithmic downsizing and smart compression. While file size drops drastically, we prioritize keeping critical details like text and faces highly readable."
+        "question": "Mon image va-t-elle perdre en qualité et devenir floue ?",
+        "answer": "Nous utilisons une réduction des effectifs algorithmique avancée et une compression intelligente. Même si la taille des fichiers diminue considérablement, nous accordons la priorité à la lisibilité des détails critiques tels que le texte et les visages."
       }
     ]
   },
@@ -2912,22 +2912,22 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     "title": "Komprimieren Sie das Bild online kostenlos auf 100 KB – schnell und privat",
     "h1": "Komprimieren Sie jedes Bild sofort auf 100 KB",
     "description": "Komprimieren Sie Ihre JPG-, PNG- und WEBP-Bilder ganz einfach auf genau 100 KB oder weniger, ohne an Qualität zu verlieren. 100 % privat, verarbeitet in Ihrem Browser.",
-    "citationFirst": "Struggling with upload limits on government portals, job sites, or university forms? Our advanced client-side compressor reduces your image size precisely under 100KB while keeping text and faces crystal clear.",
+    "citationFirst": "Haben Sie Probleme mit Upload-Beschränkungen auf Regierungsportalen, Jobbörsen oder Universitätsformularen? Unser fortschrittlicher clientseitiger Kompressor reduziert Ihre Bildgröße auf genau unter 100 KB und sorgt gleichzeitig dafür, dass Text und Gesichter kristallklar bleiben.",
     "quantitativeProof": "Schließen Sie sich mehr als 2 Millionen Benutzern an, die die 100-KB-Formularbeschränkungen ohne Pixelierung umgehen.",
     "beforeImageLabel": "Original 5 MB",
     "afterImageLabel": "Ergebnis 98 KB",
     "faqs": [
       {
-        "question": "How can I compress an image to exactly 100KB?",
-        "answer": "Our tool automatically adjusts the quality slider and strips unnecessary metadata to push the file size below 100KB while preserving visual fidelity."
+        "question": "Wie kann ich ein Bild auf genau 100 KB komprimieren?",
+        "answer": "Unser Tool passt den Qualitätsregler automatisch an und entfernt unnötige Metadaten, um die Dateigröße unter 100 KB zu drücken und gleichzeitig die visuelle Wiedergabetreue zu wahren."
       },
       {
-        "question": "Is it safe to compress my passport photo here?",
-        "answer": "Yes, it is 100% safe. Your images are never transmitted over the internet. Processing happens locally in your device's memory."
+        "question": "Ist es hier sicher, mein Passfoto zu komprimieren?",
+        "answer": "Ja, es ist 100 % sicher. Ihre Bilder werden niemals über das Internet übertragen. Die Verarbeitung erfolgt lokal im Speicher Ihres Geräts."
       },
       {
-        "question": "Will my image lose quality and become blurry?",
-        "answer": "We use advanced algorithmic downsizing and smart compression. While file size drops drastically, we prioritize keeping critical details like text and faces highly readable."
+        "question": "Verliert mein Bild an Qualität und wird unscharf?",
+        "answer": "Wir verwenden fortschrittliches algorithmisches Downsizing und intelligente Komprimierung. Während die Dateigröße drastisch sinkt, legen wir Wert darauf, dass wichtige Details wie Text und Gesichter gut lesbar bleiben."
       }
     ]
   },
@@ -2938,22 +2938,22 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     "title": "画像をオンラインで無料で 100KB に圧縮 - 高速かつプライベート",
     "h1": "あらゆる画像を瞬時に 100KB に圧縮",
     "description": "品質を損なうことなく、JPG、PNG、WEBP 画像を正確に 100KB 以下に簡単に圧縮できます。 100% プライベートであり、ブラウザーで処理されます。",
-    "citationFirst": "Struggling with upload limits on government portals, job sites, or university forms? Our advanced client-side compressor reduces your image size precisely under 100KB while keeping text and faces crystal clear.",
+    "citationFirst": "政府ポータル、求人サイト、大学のフォームのアップロード制限に悩んでいませんか? 当社の高度なクライアント側コンプレッサーは、テキストと文字を鮮明に保ちながら、画像サイズを正確に 100KB 未満に削減します。",
     "quantitativeProof": "ピクセル化せずに 100 KB のフォーム制限を回避する 200 万以上のユーザーに加わりましょう。",
     "beforeImageLabel": "オリジナル 5MB",
     "afterImageLabel": "結果 98KB",
     "faqs": [
       {
-        "question": "How can I compress an image to exactly 100KB?",
-        "answer": "Our tool automatically adjusts the quality slider and strips unnecessary metadata to push the file size below 100KB while preserving visual fidelity."
+        "question": "画像を正確に 100KB に圧縮するにはどうすればよいですか?",
+        "answer": "当社のツールは、品質スライダーを自動的に調整し、不要なメタデータを削除して、視覚的な忠実性を維持しながらファイル サイズを 100 KB 以下に押し下げます。"
       },
       {
-        "question": "Is it safe to compress my passport photo here?",
-        "answer": "Yes, it is 100% safe. Your images are never transmitted over the internet. Processing happens locally in your device's memory."
+        "question": "ここでパスポートの写真を圧縮しても安全ですか?",
+        "answer": "はい、100% 安全です。 あなたの画像がインターネット経由で送信されることはありません。 処理はデバイスのメモリ内でローカルに行われます。"
       },
       {
-        "question": "Will my image lose quality and become blurry?",
-        "answer": "We use advanced algorithmic downsizing and smart compression. While file size drops drastically, we prioritize keeping critical details like text and faces highly readable."
+        "question": "画像の品質が低下し、ぼやけてしまいますか?",
+        "answer": "高度なアルゴリズムによるダウンサイジングとスマート圧縮を使用します。 ファイル サイズは大幅に小さくなりますが、テキストや顔などの重要な詳細を読みやすく保つことを優先しています。"
       }
     ]
   },
@@ -2964,22 +2964,22 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     "title": "Compactar imagem para 100 KB online gratuitamente - rápido e privado",
     "h1": "Comprima qualquer imagem em 100 KB instantaneamente",
     "description": "Compacte facilmente suas imagens JPG, PNG e WEBP para exatamente 100 KB ou menos sem perder qualidade. 100% privado, processado no seu navegador.",
-    "citationFirst": "Struggling with upload limits on government portals, job sites, or university forms? Our advanced client-side compressor reduces your image size precisely under 100KB while keeping text and faces crystal clear.",
+    "citationFirst": "Lutando com limites de upload em portais governamentais, sites de empregos ou formulários universitários? Nosso compressor avançado do lado do cliente reduz o tamanho da imagem precisamente abaixo de 100 KB, mantendo o texto e os rostos nítidos.",
     "quantitativeProof": "Junte-se a mais de 2 milhões de usuários que ultrapassam os limites de formulário de 100 KB sem pixelização.",
     "beforeImageLabel": "5 MB originais",
     "afterImageLabel": "Resultado 98 KB",
     "faqs": [
       {
-        "question": "How can I compress an image to exactly 100KB?",
-        "answer": "Our tool automatically adjusts the quality slider and strips unnecessary metadata to push the file size below 100KB while preserving visual fidelity."
+        "question": "Como posso compactar uma imagem para exatamente 100 KB?",
+        "answer": "Nossa ferramenta ajusta automaticamente o controle deslizante de qualidade e remove metadados desnecessários para reduzir o tamanho do arquivo para menos de 100 KB, preservando a fidelidade visual."
       },
       {
-        "question": "Is it safe to compress my passport photo here?",
-        "answer": "Yes, it is 100% safe. Your images are never transmitted over the internet. Processing happens locally in your device's memory."
+        "question": "É seguro compactar a foto do meu passaporte aqui?",
+        "answer": "Sim, é 100% seguro. Suas imagens nunca são transmitidas pela internet. O processamento acontece localmente na memória do seu dispositivo."
       },
       {
-        "question": "Will my image lose quality and become blurry?",
-        "answer": "We use advanced algorithmic downsizing and smart compression. While file size drops drastically, we prioritize keeping critical details like text and faces highly readable."
+        "question": "Minha imagem perderá qualidade e ficará desfocada?",
+        "answer": "Usamos downsizing algorítmico avançado e compactação inteligente. Embora o tamanho do arquivo caia drasticamente, priorizamos manter detalhes críticos como texto e rostos altamente legíveis."
       }
     ]
   },
@@ -2990,22 +2990,22 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     "title": "Сжимайте изображение до 100 КБ онлайн бесплатно — быстро и конфиденциально",
     "h1": "Мгновенно сжимайте любое изображение до 100 КБ",
     "description": "Легко сжимайте изображения JPG, PNG и WEBP до размера ровно 100 КБ или меньше без потери качества. 100% конфиденциальность, обработка в вашем браузере.",
-    "citationFirst": "Struggling with upload limits on government portals, job sites, or university forms? Our advanced client-side compressor reduces your image size precisely under 100KB while keeping text and faces crystal clear.",
+    "citationFirst": "Боретесь с ограничениями на загрузку на правительственных порталах, сайтах вакансий или университетских формах? Наш усовершенствованный клиентский компрессор уменьшает размер изображения до размера менее 100 КБ, сохраняя при этом кристальную четкость текста и лиц.",
     "quantitativeProof": "Присоединяйтесь к более чем 2 миллионам пользователей, которые обходят ограничения формы в 100 КБ без пикселизации.",
     "beforeImageLabel": "Оригинал 5 МБ",
     "afterImageLabel": "Результат 98 КБ",
     "faqs": [
       {
-        "question": "How can I compress an image to exactly 100KB?",
-        "answer": "Our tool automatically adjusts the quality slider and strips unnecessary metadata to push the file size below 100KB while preserving visual fidelity."
+        "question": "Как я могу сжать изображение ровно до 100 КБ?",
+        "answer": "Наш инструмент автоматически настраивает ползунок качества и удаляет ненужные метаданные, чтобы уменьшить размер файла ниже 100 КБ, сохраняя при этом визуальную точность."
       },
       {
-        "question": "Is it safe to compress my passport photo here?",
-        "answer": "Yes, it is 100% safe. Your images are never transmitted over the internet. Processing happens locally in your device's memory."
+        "question": "Безопасно ли сжимать здесь фотографию паспорта?",
+        "answer": "Да, это на 100% безопасно. Ваши изображения никогда не передаются через Интернет. Обработка происходит локально в памяти вашего устройства."
       },
       {
-        "question": "Will my image lose quality and become blurry?",
-        "answer": "We use advanced algorithmic downsizing and smart compression. While file size drops drastically, we prioritize keeping critical details like text and faces highly readable."
+        "question": "Не потеряет ли мое изображение качество и не станет ли оно размытым?",
+        "answer": "Мы используем передовые алгоритмические сокращения и интеллектуальное сжатие. Хотя размер файла резко уменьшается, мы уделяем приоритетное внимание сохранению читаемости важных деталей, таких как текст и лица."
       }
     ]
   },
@@ -3016,22 +3016,22 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     "title": "免费在线将图像压缩至 100KB - 快速且私密",
     "h1": "立即将任何图像压缩至 100KB",
     "description": "轻松将 JPG、PNG 和 WEBP 图像压缩至 100KB 或更小，而不会降低质量。 100% 私密，在您的浏览器中处理。",
-    "citationFirst": "Struggling with upload limits on government portals, job sites, or university forms? Our advanced client-side compressor reduces your image size precisely under 100KB while keeping text and faces crystal clear.",
+    "citationFirst": "还在为政府门户网站、求职网站或大学表格的上传限制而烦恼吗？ 我们先进的客户端压缩器可将您的图像大小精确减少到 100KB 以下，同时保持文本和面孔清晰可见。",
     "quantitativeProof": "加入 200 万以上用户的行列，绕过 100KB 表单限制而不会出现像素化。",
     "beforeImageLabel": "原版5MB",
     "afterImageLabel": "结果 98KB",
     "faqs": [
       {
-        "question": "How can I compress an image to exactly 100KB?",
-        "answer": "Our tool automatically adjusts the quality slider and strips unnecessary metadata to push the file size below 100KB while preserving visual fidelity."
+        "question": "如何将图像压缩到正好 100KB？",
+        "answer": "我们的工具会自动调整质量滑块并删除不必要的元数据，将文件大小降至 100KB 以下，同时保持视觉保真度。"
       },
       {
-        "question": "Is it safe to compress my passport photo here?",
-        "answer": "Yes, it is 100% safe. Your images are never transmitted over the internet. Processing happens locally in your device's memory."
+        "question": "在这里压缩我的护照照片安全吗？",
+        "answer": "是的，它是 100% 安全的。 您的图像永远不会通过互联网传输。 处理发生在设备的本地内存中。"
       },
       {
-        "question": "Will my image lose quality and become blurry?",
-        "answer": "We use advanced algorithmic downsizing and smart compression. While file size drops drastically, we prioritize keeping critical details like text and faces highly readable."
+        "question": "我的图像会失去质量并变得模糊吗？",
+        "answer": "我们使用先进的算法缩小尺寸和智能压缩。 虽然文件大小大幅下降，但我们优先考虑保持文本和面孔等关键细节的高度可读性。"
       }
     ]
   },
@@ -3042,22 +3042,22 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     "title": "ضغط الصور إلى 100 كيلو بايت عبر الإنترنت مجانًا - سريع وخاص",
     "h1": "ضغط أي صورة إلى 100 كيلو بايت على الفور",
     "description": "قم بضغط صور JPG وPNG وWEBP بسهولة إلى حجم 100 كيلو بايت بالضبط أو أقل دون فقدان الجودة. خصوصية 100%، وتتم معالجتها في متصفحك.",
-    "citationFirst": "Struggling with upload limits on government portals, job sites, or university forms? Our advanced client-side compressor reduces your image size precisely under 100KB while keeping text and faces crystal clear.",
+    "citationFirst": "هل تعاني من قيود التحميل على البوابات الحكومية أو مواقع العمل أو نماذج الجامعات؟ يعمل ضاغطنا المتقدم من جانب العميل على تقليل حجم صورتك بدقة أقل من 100 كيلو بايت مع الحفاظ على وضوح النص والوجوه.",
     "quantitativeProof": "انضم إلى أكثر من 2 مليون مستخدم يتجاوزون حدود النموذج التي تبلغ 100 كيلو بايت بدون تقسيم.",
     "beforeImageLabel": "اصلية 5 ميجا",
     "afterImageLabel": "النتيجة 98 كيلو بايت",
     "faqs": [
       {
-        "question": "How can I compress an image to exactly 100KB?",
-        "answer": "Our tool automatically adjusts the quality slider and strips unnecessary metadata to push the file size below 100KB while preserving visual fidelity."
+        "question": "كيف يمكنني ضغط صورة بحجم 100 كيلو بايت بالضبط؟",
+        "answer": "تقوم أداتنا تلقائيًا بضبط شريط تمرير الجودة وإزالة البيانات التعريفية غير الضرورية لدفع حجم الملف إلى أقل من 100 كيلو بايت مع الحفاظ على الدقة المرئية."
       },
       {
-        "question": "Is it safe to compress my passport photo here?",
-        "answer": "Yes, it is 100% safe. Your images are never transmitted over the internet. Processing happens locally in your device's memory."
+        "question": "هل من الآمن ضغط صورة جواز السفر الخاص بي هنا؟",
+        "answer": "نعم، إنه آمن بنسبة 100%. لا يتم أبدًا نقل صورك عبر الإنترنت. تتم المعالجة محليًا في ذاكرة جهازك."
       },
       {
-        "question": "Will my image lose quality and become blurry?",
-        "answer": "We use advanced algorithmic downsizing and smart compression. While file size drops drastically, we prioritize keeping critical details like text and faces highly readable."
+        "question": "هل ستفقد صورتي جودتها وتصبح ضبابية؟",
+        "answer": "نحن نستخدم تقليص الحجم الخوارزمي المتقدم والضغط الذكي. على الرغم من انخفاض حجم الملف بشكل كبير، فإننا نعطي الأولوية للحفاظ على التفاصيل المهمة مثل النص والوجوه قابلة للقراءة بشكل كبير."
       }
     ]
   },
@@ -3068,22 +3068,22 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     "title": "छवि को 100KB तक ऑनलाइन निःशुल्क संपीड़ित करें - तेज़ और निजी",
     "h1": "किसी भी छवि को तुरंत 100KB तक संपीड़ित करें",
     "description": "गुणवत्ता खोए बिना अपनी JPG, PNG और WEBP छवियों को आसानी से 100KB या उससे कम पर संपीड़ित करें। 100% निजी, आपके ब्राउज़र में संसाधित।",
-    "citationFirst": "Struggling with upload limits on government portals, job sites, or university forms? Our advanced client-side compressor reduces your image size precisely under 100KB while keeping text and faces crystal clear.",
+    "citationFirst": "सरकारी पोर्टलों, नौकरी साइटों, या विश्वविद्यालय फॉर्म पर अपलोड सीमा से जूझ रहे हैं? हमारा उन्नत क्लाइंट-साइड कंप्रेसर टेक्स्ट और चेहरों को बिल्कुल स्पष्ट रखते हुए आपकी छवि का आकार 100KB से कम कर देता है।",
     "quantitativeProof": "उन 2M+ उपयोगकर्ताओं से जुड़ें जो पिक्सेलेशन के बिना 100KB फॉर्म सीमा को बायपास करते हैं।",
     "beforeImageLabel": "मूल 5एमबी",
     "afterImageLabel": "परिणाम 98KB",
     "faqs": [
       {
-        "question": "How can I compress an image to exactly 100KB?",
-        "answer": "Our tool automatically adjusts the quality slider and strips unnecessary metadata to push the file size below 100KB while preserving visual fidelity."
+        "question": "मैं किसी छवि को ठीक 100KB तक कैसे संपीड़ित कर सकता हूँ?",
+        "answer": "हमारा टूल स्वचालित रूप से गुणवत्ता स्लाइडर को समायोजित करता है और दृश्य निष्ठा को संरक्षित करते हुए फ़ाइल आकार को 100KB से नीचे धकेलने के लिए अनावश्यक मेटाडेटा को हटा देता है।"
       },
       {
-        "question": "Is it safe to compress my passport photo here?",
-        "answer": "Yes, it is 100% safe. Your images are never transmitted over the internet. Processing happens locally in your device's memory."
+        "question": "क्या यहां मेरे पासपोर्ट फोटो को कंप्रेस करना सुरक्षित है?",
+        "answer": "हाँ, यह 100% सुरक्षित है। आपकी छवियाँ कभी भी इंटरनेट पर प्रसारित नहीं की जातीं। प्रोसेसिंग आपके डिवाइस की मेमोरी में स्थानीय रूप से होती है।"
       },
       {
-        "question": "Will my image lose quality and become blurry?",
-        "answer": "We use advanced algorithmic downsizing and smart compression. While file size drops drastically, we prioritize keeping critical details like text and faces highly readable."
+        "question": "क्या मेरी छवि गुणवत्ता खो देगी और धुंधली हो जाएगी?",
+        "answer": "हम उन्नत एल्गोरिथम डाउनसाइज़िंग और स्मार्ट कम्प्रेशन का उपयोग करते हैं। जबकि फ़ाइल का आकार काफी कम हो जाता है, हम पाठ और चेहरों जैसे महत्वपूर्ण विवरणों को अत्यधिक पठनीय रखने को प्राथमिकता देते हैं।"
       }
     ]
   },
@@ -3094,22 +3094,22 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     "title": "Comprimi immagine a 100KB online gratuitamente: veloce e privato",
     "h1": "Comprimi istantaneamente qualsiasi immagine a 100 KB",
     "description": "Comprimi facilmente le tue immagini JPG, PNG e WEBP esattamente a 100 KB o meno senza perdere la qualità. 100% privato, elaborato nel tuo browser.",
-    "citationFirst": "Struggling with upload limits on government portals, job sites, or university forms? Our advanced client-side compressor reduces your image size precisely under 100KB while keeping text and faces crystal clear.",
+    "citationFirst": "Hai problemi con i limiti di caricamento su portali governativi, siti di lavoro o moduli universitari? Il nostro avanzato compressore lato client riduce le dimensioni dell'immagine esattamente sotto i 100 KB mantenendo testo e volti cristallini.",
     "quantitativeProof": "Unisciti a oltre 2 milioni di utenti che superano i limiti del modulo da 100 KB senza pixelazione.",
     "beforeImageLabel": "5 MB originali",
     "afterImageLabel": "Risultato 98KB",
     "faqs": [
       {
-        "question": "How can I compress an image to exactly 100KB?",
-        "answer": "Our tool automatically adjusts the quality slider and strips unnecessary metadata to push the file size below 100KB while preserving visual fidelity."
+        "question": "Come posso comprimere un'immagine esattamente a 100KB?",
+        "answer": "Il nostro strumento regola automaticamente il cursore della qualità ed elimina i metadati non necessari per spingere la dimensione del file al di sotto di 100 KB preservando la fedeltà visiva."
       },
       {
-        "question": "Is it safe to compress my passport photo here?",
-        "answer": "Yes, it is 100% safe. Your images are never transmitted over the internet. Processing happens locally in your device's memory."
+        "question": "È sicuro comprimere la mia foto tessera qui?",
+        "answer": "Sì, è sicuro al 100%. Le tue immagini non vengono mai trasmesse su Internet. L'elaborazione avviene localmente nella memoria del tuo dispositivo."
       },
       {
-        "question": "Will my image lose quality and become blurry?",
-        "answer": "We use advanced algorithmic downsizing and smart compression. While file size drops drastically, we prioritize keeping critical details like text and faces highly readable."
+        "question": "La mia immagine perderà qualità e diventerà sfocata?",
+        "answer": "Utilizziamo il ridimensionamento algoritmico avanzato e la compressione intelligente. Anche se le dimensioni dei file diminuiscono drasticamente, diamo la priorità a mantenere i dettagli critici come testo e volti altamente leggibili."
       }
     ]
   },
@@ -3120,22 +3120,22 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     "title": "온라인에서 무료로 이미지를 100KB로 압축 - 빠르고 비공개",
     "h1": "모든 이미지를 즉시 100KB로 압축",
     "description": "품질 저하 없이 JPG, PNG 및 WEBP 이미지를 정확히 100KB 이하로 쉽게 압축할 수 있습니다. 100% 비공개이며 브라우저에서 처리됩니다.",
-    "citationFirst": "Struggling with upload limits on government portals, job sites, or university forms? Our advanced client-side compressor reduces your image size precisely under 100KB while keeping text and faces crystal clear.",
+    "citationFirst": "정부 포털, 채용 사이트 또는 대학 양식의 업로드 제한으로 인해 어려움을 겪고 계십니까? 당사의 고급 클라이언트측 압축기는 텍스트와 얼굴을 선명하게 유지하면서 이미지 크기를 정확히 100KB 미만으로 줄입니다.",
     "quantitativeProof": "픽셀화 없이 100KB 양식 제한을 우회하는 2백만 명 이상의 사용자와 함께 하세요.",
     "beforeImageLabel": "원본 5MB",
     "afterImageLabel": "결과 98KB",
     "faqs": [
       {
-        "question": "How can I compress an image to exactly 100KB?",
-        "answer": "Our tool automatically adjusts the quality slider and strips unnecessary metadata to push the file size below 100KB while preserving visual fidelity."
+        "question": "이미지를 정확히 100KB로 압축하려면 어떻게 해야 하나요?",
+        "answer": "우리의 도구는 자동으로 품질 슬라이더를 조정하고 불필요한 메타데이터를 제거하여 시각적 충실도를 유지하면서 파일 크기를 100KB 미만으로 줄입니다."
       },
       {
-        "question": "Is it safe to compress my passport photo here?",
-        "answer": "Yes, it is 100% safe. Your images are never transmitted over the internet. Processing happens locally in your device's memory."
+        "question": "여권사진을 여기서 압축해도 안전할까요?",
+        "answer": "예, 100% 안전합니다. 귀하의 이미지는 인터넷을 통해 전송되지 않습니다. 처리는 장치의 메모리에서 로컬로 수행됩니다."
       },
       {
-        "question": "Will my image lose quality and become blurry?",
-        "answer": "We use advanced algorithmic downsizing and smart compression. While file size drops drastically, we prioritize keeping critical details like text and faces highly readable."
+        "question": "이미지 품질이 떨어지고 흐려지나요?",
+        "answer": "우리는 고급 알고리즘을 통한 축소 및 스마트 압축을 사용합니다. 파일 크기는 대폭 줄어들지만 텍스트 및 얼굴과 같은 중요한 세부 정보를 읽기 쉽게 유지하는 데 우선순위를 두고 있습니다."
       }
     ]
   },
@@ -3146,22 +3146,22 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     "title": "Comprimeer afbeelding online gratis tot 100 KB - snel en privé",
     "h1": "Comprimeer elke afbeelding onmiddellijk tot 100 KB",
     "description": "Comprimeer uw JPG-, PNG- en WEBP-afbeeldingen eenvoudig tot precies 100 KB of minder zonder kwaliteitsverlies. 100% privé, verwerkt in uw browser.",
-    "citationFirst": "Struggling with upload limits on government portals, job sites, or university forms? Our advanced client-side compressor reduces your image size precisely under 100KB while keeping text and faces crystal clear.",
+    "citationFirst": "Worstel je met uploadlimieten op overheidsportals, vacaturesites of universiteitsformulieren? Onze geavanceerde client-side compressor verkleint uw afbeeldingsgrootte tot precies onder de 100 KB, terwijl tekst en gezichten kristalhelder blijven.",
     "quantitativeProof": "Sluit u aan bij meer dan 2 miljoen gebruikers die de formulierlimieten van 100 KB omzeilen zonder pixelvorming.",
     "beforeImageLabel": "Origineel 5MB",
     "afterImageLabel": "Resultaat 98KB",
     "faqs": [
       {
-        "question": "How can I compress an image to exactly 100KB?",
-        "answer": "Our tool automatically adjusts the quality slider and strips unnecessary metadata to push the file size below 100KB while preserving visual fidelity."
+        "question": "Hoe kan ik een afbeelding comprimeren tot precies 100 KB?",
+        "answer": "Onze tool past automatisch de kwaliteitsschuifregelaar aan en verwijdert onnodige metagegevens om de bestandsgrootte onder de 100 KB te brengen, terwijl de visuele betrouwbaarheid behouden blijft."
       },
       {
-        "question": "Is it safe to compress my passport photo here?",
-        "answer": "Yes, it is 100% safe. Your images are never transmitted over the internet. Processing happens locally in your device's memory."
+        "question": "Is het veilig om mijn pasfoto hier te comprimeren?",
+        "answer": "Ja, het is 100% veilig. Uw afbeeldingen worden nooit via internet verzonden. De verwerking gebeurt lokaal in het geheugen van uw apparaat."
       },
       {
-        "question": "Will my image lose quality and become blurry?",
-        "answer": "We use advanced algorithmic downsizing and smart compression. While file size drops drastically, we prioritize keeping critical details like text and faces highly readable."
+        "question": "Zal mijn beeld kwaliteit verliezen en wazig worden?",
+        "answer": "We gebruiken geavanceerde algoritmische inkrimping en slimme compressie. Hoewel de bestandsgrootte drastisch afneemt, geven we er prioriteit aan om kritische details zoals tekst en gezichten goed leesbaar te houden."
       }
     ]
   },
@@ -3172,22 +3172,22 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     "title": "Görüntüyü Çevrimiçi Olarak 100 KB'ye Sıkıştırın - Hızlı ve Özel",
     "h1": "Herhangi Bir Görüntüyü Anında 100KB'ye Sıkıştırın",
     "description": "JPG, PNG ve WEBP görsellerinizi kaliteden ödün vermeden tam olarak 100 KB veya daha az boyuta kolayca sıkıştırın. %100 gizli, tarayıcınızda işlenir.",
-    "citationFirst": "Struggling with upload limits on government portals, job sites, or university forms? Our advanced client-side compressor reduces your image size precisely under 100KB while keeping text and faces crystal clear.",
+    "citationFirst": "Devlet portallarında, iş sitelerinde veya üniversite formlarında yükleme sınırlamalarıyla mı uğraşıyorsunuz? Gelişmiş istemci tarafı sıkıştırıcımız, metin ve yüzleri kristal netliğinde tutarken görüntü boyutunuzu tam olarak 100 KB'nin altına düşürür.",
     "quantitativeProof": "100 KB form sınırlarını pikselleşme olmadan aşan 2 milyondan fazla kullanıcıya katılın.",
     "beforeImageLabel": "Orijinal 5MB",
     "afterImageLabel": "Sonuç 98KB",
     "faqs": [
       {
-        "question": "How can I compress an image to exactly 100KB?",
-        "answer": "Our tool automatically adjusts the quality slider and strips unnecessary metadata to push the file size below 100KB while preserving visual fidelity."
+        "question": "Bir görüntüyü tam olarak 100KB'ye nasıl sıkıştırabilirim?",
+        "answer": "Aracımız kalite kaydırıcısını otomatik olarak ayarlar ve görsel doğruluğu korurken dosya boyutunu 100KB'nin altına itmek için gereksiz meta verileri çıkarır."
       },
       {
-        "question": "Is it safe to compress my passport photo here?",
-        "answer": "Yes, it is 100% safe. Your images are never transmitted over the internet. Processing happens locally in your device's memory."
+        "question": "Pasaport fotoğrafımı buraya sıkıştırmak güvenli midir?",
+        "answer": "Evet %100 güvenlidir. Resimleriniz hiçbir zaman internet üzerinden iletilmez. İşleme, cihazınızın belleğinde yerel olarak gerçekleşir."
       },
       {
-        "question": "Will my image lose quality and become blurry?",
-        "answer": "We use advanced algorithmic downsizing and smart compression. While file size drops drastically, we prioritize keeping critical details like text and faces highly readable."
+        "question": "Görüntümün kalitesi düşecek ve bulanıklaşacak mı?",
+        "answer": "Gelişmiş algoritmik küçültme ve akıllı sıkıştırma kullanıyoruz. Dosya boyutu büyük ölçüde düşerken, metin ve yüzler gibi kritik ayrıntıların yüksek düzeyde okunabilir tutulmasına öncelik veriyoruz."
       }
     ]
   },
@@ -3198,22 +3198,22 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     "title": "Kompresuj obraz do 100 KB online bezpłatnie — szybko i prywatnie",
     "h1": "Natychmiast skompresuj dowolny obraz do 100 KB",
     "description": "Z łatwością kompresuj obrazy JPG, PNG i WEBP do dokładnie 100 KB lub mniej, bez utraty jakości. 100% prywatne, przetwarzane w Twojej przeglądarce.",
-    "citationFirst": "Struggling with upload limits on government portals, job sites, or university forms? Our advanced client-side compressor reduces your image size precisely under 100KB while keeping text and faces crystal clear.",
+    "citationFirst": "Masz problemy z limitami przesyłania na portalach rządowych, stronach z ofertami pracy lub formularzach uniwersyteckich? Nasz zaawansowany kompresor po stronie klienta zmniejsza rozmiar obrazu dokładnie poniżej 100 KB, zachowując jednocześnie krystalicznie czysty tekst i twarze.",
     "quantitativeProof": "Dołącz do ponad 2 milionów użytkowników, którzy omijają limity formularzy o rozmiarze 100 KB bez pikselizacji.",
     "beforeImageLabel": "Oryginalne 5MB",
     "afterImageLabel": "Wynik 98 KB",
     "faqs": [
       {
-        "question": "How can I compress an image to exactly 100KB?",
-        "answer": "Our tool automatically adjusts the quality slider and strips unnecessary metadata to push the file size below 100KB while preserving visual fidelity."
+        "question": "Jak mogę skompresować obraz do dokładnie 100 KB?",
+        "answer": "Nasze narzędzie automatycznie dostosowuje suwak jakości i usuwa niepotrzebne metadane, aby zmniejszyć rozmiar pliku poniżej 100 KB, zachowując jednocześnie wierność wizualną."
       },
       {
-        "question": "Is it safe to compress my passport photo here?",
-        "answer": "Yes, it is 100% safe. Your images are never transmitted over the internet. Processing happens locally in your device's memory."
+        "question": "Czy bezpieczne jest skompresowanie tutaj mojego zdjęcia paszportowego?",
+        "answer": "Tak, jest w 100% bezpieczny. Twoje obrazy nigdy nie są przesyłane przez Internet. Przetwarzanie odbywa się lokalnie w pamięci Twojego urządzenia."
       },
       {
-        "question": "Will my image lose quality and become blurry?",
-        "answer": "We use advanced algorithmic downsizing and smart compression. While file size drops drastically, we prioritize keeping critical details like text and faces highly readable."
+        "question": "Czy mój obraz straci jakość i stanie się niewyraźny?",
+        "answer": "Stosujemy zaawansowane algorytmiczne zmniejszanie rozmiaru i inteligentną kompresję. Chociaż rozmiar pliku drastycznie spada, priorytetem jest zapewnienie dużej czytelności kluczowych szczegółów, takich jak tekst i twarze."
       }
     ]
   },
@@ -3224,22 +3224,22 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     "title": "Nén hình ảnh trực tuyến miễn phí xuống 100KB - Nhanh chóng và riêng tư",
     "h1": "Nén bất kỳ hình ảnh nào xuống 100KB ngay lập tức",
     "description": "Dễ dàng nén hình ảnh JPG, PNG và WEBP của bạn xuống chính xác 100KB trở xuống mà không làm giảm chất lượng. Riêng tư 100%, được xử lý trong trình duyệt của bạn.",
-    "citationFirst": "Struggling with upload limits on government portals, job sites, or university forms? Our advanced client-side compressor reduces your image size precisely under 100KB while keeping text and faces crystal clear.",
+    "citationFirst": "Bạn đang gặp khó khăn với giới hạn tải lên trên các cổng thông tin chính phủ, trang web việc làm hoặc biểu mẫu của trường đại học? Trình nén phía máy khách tiên tiến của chúng tôi giảm kích thước hình ảnh của bạn xuống dưới 100KB một cách chính xác trong khi vẫn giữ cho văn bản và khuôn mặt rõ ràng.",
     "quantitativeProof": "Tham gia cùng hơn 2 triệu người dùng vượt qua giới hạn biểu mẫu 100KB mà không bị pixel.",
     "beforeImageLabel": "5 MB gốc",
     "afterImageLabel": "Kết quả 98KB",
     "faqs": [
       {
-        "question": "How can I compress an image to exactly 100KB?",
-        "answer": "Our tool automatically adjusts the quality slider and strips unnecessary metadata to push the file size below 100KB while preserving visual fidelity."
+        "question": "Làm cách nào tôi có thể nén hình ảnh đến chính xác 100KB?",
+        "answer": "Công cụ của chúng tôi tự động điều chỉnh thanh trượt chất lượng và loại bỏ siêu dữ liệu không cần thiết để đẩy kích thước tệp xuống dưới 100KB trong khi vẫn duy trì độ trung thực của hình ảnh."
       },
       {
-        "question": "Is it safe to compress my passport photo here?",
-        "answer": "Yes, it is 100% safe. Your images are never transmitted over the internet. Processing happens locally in your device's memory."
+        "question": "Nén ảnh hộ chiếu của tôi ở đây có an toàn không?",
+        "answer": "Có, nó an toàn 100%. Hình ảnh của bạn không bao giờ được truyền qua internet. Quá trình xử lý diễn ra cục bộ trong bộ nhớ thiết bị của bạn."
       },
       {
-        "question": "Will my image lose quality and become blurry?",
-        "answer": "We use advanced algorithmic downsizing and smart compression. While file size drops drastically, we prioritize keeping critical details like text and faces highly readable."
+        "question": "Hình ảnh của tôi có bị giảm chất lượng và bị mờ không?",
+        "answer": "Chúng tôi sử dụng thuật toán giảm kích thước tiên tiến và nén thông minh. Mặc dù kích thước tệp giảm đáng kể nhưng chúng tôi ưu tiên giữ các chi tiết quan trọng như văn bản và khuôn mặt ở mức dễ đọc."
       }
     ]
   },
@@ -3276,22 +3276,22 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     "title": "Komprimera bild till 100KB online gratis - snabbt och privat",
     "h1": "Komprimera vilken bild som helst till 100KB direkt",
     "description": "Komprimera enkelt dina JPG-, PNG- och WEBP-bilder till exakt 100 KB eller mindre utan att förlora kvalitet. 100 % privat, bearbetad i din webbläsare.",
-    "citationFirst": "Struggling with upload limits on government portals, job sites, or university forms? Our advanced client-side compressor reduces your image size precisely under 100KB while keeping text and faces crystal clear.",
+    "citationFirst": "Kämpar du med uppladdningsgränser på statliga portaler, jobbsajter eller universitetsformulär? Vår avancerade kompressor på klientsidan minskar din bildstorlek exakt under 100 KB samtidigt som text och ansikten hålls kristallklara.",
     "quantitativeProof": "Gå med i 2 miljoner+ användare som kringgår 100 kB formulärgränser utan pixelering.",
     "beforeImageLabel": "Original 5MB",
     "afterImageLabel": "Resultat 98KB",
     "faqs": [
       {
-        "question": "How can I compress an image to exactly 100KB?",
-        "answer": "Our tool automatically adjusts the quality slider and strips unnecessary metadata to push the file size below 100KB while preserving visual fidelity."
+        "question": "Hur kan jag komprimera en bild till exakt 100KB?",
+        "answer": "Vårt verktyg justerar automatiskt kvalitetsreglaget och tar bort onödig metadata för att pressa filstorleken under 100KB samtidigt som visuell trohet bevaras."
       },
       {
-        "question": "Is it safe to compress my passport photo here?",
-        "answer": "Yes, it is 100% safe. Your images are never transmitted over the internet. Processing happens locally in your device's memory."
+        "question": "Är det säkert att komprimera mitt passfoto här?",
+        "answer": "Ja, det är 100 % säkert. Dina bilder överförs aldrig över internet. Bearbetning sker lokalt i enhetens minne."
       },
       {
-        "question": "Will my image lose quality and become blurry?",
-        "answer": "We use advanced algorithmic downsizing and smart compression. While file size drops drastically, we prioritize keeping critical details like text and faces highly readable."
+        "question": "Kommer min bild att tappa kvalitet och bli suddig?",
+        "answer": "Vi använder avancerad algoritmisk nedskärning och smart komprimering. Även om filstorleken minskar drastiskt, prioriterar vi att hålla viktiga detaljer som text och ansikten mycket läsbara."
       }
     ]
   },
@@ -3302,22 +3302,22 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     "title": "Komprimujte obrázek na 100 kB online zdarma – rychle a v soukromí",
     "h1": "Okamžitě komprimujte libovolný obrázek na 100 kB",
     "description": "Snadno komprimujte své obrázky JPG, PNG a WEBP přesně na 100 kB nebo méně bez ztráty kvality. 100% soukromé, zpracované ve vašem prohlížeči.",
-    "citationFirst": "Struggling with upload limits on government portals, job sites, or university forms? Our advanced client-side compressor reduces your image size precisely under 100KB while keeping text and faces crystal clear.",
+    "citationFirst": "Potýkáte se s limity nahrávání na vládních portálech, pracovních stránkách nebo univerzitních formulářích? Náš pokročilý kompresor na straně klienta zmenšuje velikost vašeho obrázku přesně pod 100 kB, přičemž text a obličeje zůstávají křišťálově čisté.",
     "quantitativeProof": "Připojte se k více než 2 milionům uživatelů, kteří obejdou limity 100 kB bez pixelace.",
     "beforeImageLabel": "Původní 5 MB",
     "afterImageLabel": "Výsledek 98 kB",
     "faqs": [
       {
-        "question": "How can I compress an image to exactly 100KB?",
-        "answer": "Our tool automatically adjusts the quality slider and strips unnecessary metadata to push the file size below 100KB while preserving visual fidelity."
+        "question": "Jak mohu komprimovat obrázek přesně na 100 kB?",
+        "answer": "Náš nástroj automaticky upraví posuvník kvality a odstraní nepotřebná metadata, aby se velikost souboru posunula pod 100 kB při zachování vizuální věrnosti."
       },
       {
-        "question": "Is it safe to compress my passport photo here?",
-        "answer": "Yes, it is 100% safe. Your images are never transmitted over the internet. Processing happens locally in your device's memory."
+        "question": "Je bezpečné sem komprimovat pasovou fotografii?",
+        "answer": "Ano, je to 100% bezpečné. Vaše obrázky se nikdy nepřenášejí přes internet. Zpracování probíhá lokálně v paměti vašeho zařízení."
       },
       {
-        "question": "Will my image lose quality and become blurry?",
-        "answer": "We use advanced algorithmic downsizing and smart compression. While file size drops drastically, we prioritize keeping critical details like text and faces highly readable."
+        "question": "Ztratí můj obrázek kvalitu a bude rozmazaný?",
+        "answer": "Používáme pokročilé algoritmické zmenšování a chytrou kompresi. Přestože velikost souboru drasticky klesá, upřednostňujeme zachování vysoké čitelnosti důležitých detailů, jako je text a obličeje."
       }
     ]
   },
@@ -3328,22 +3328,22 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     "title": "Komprimer billedet til 100KB online gratis - hurtigt og privat",
     "h1": "Komprimer ethvert billede til 100KB med det samme",
     "description": "Kom nemt dine JPG-, PNG- og WEBP-billeder til præcis 100 KB eller mindre uden at miste kvalitet. 100 % privat, behandlet i din browser.",
-    "citationFirst": "Struggling with upload limits on government portals, job sites, or university forms? Our advanced client-side compressor reduces your image size precisely under 100KB while keeping text and faces crystal clear.",
+    "citationFirst": "Kæmper du med uploadgrænser på offentlige portaler, jobsider eller universitetsformularer? Vores avancerede klientside-kompressor reducerer din billedstørrelse præcist under 100 KB, mens tekst og ansigter holdes krystalklare.",
     "quantitativeProof": "Slut dig til 2M+ brugere, der omgår 100KB formulargrænser uden pixelering.",
     "beforeImageLabel": "Original 5MB",
     "afterImageLabel": "Resultat 98KB",
     "faqs": [
       {
-        "question": "How can I compress an image to exactly 100KB?",
-        "answer": "Our tool automatically adjusts the quality slider and strips unnecessary metadata to push the file size below 100KB while preserving visual fidelity."
+        "question": "Hvordan kan jeg komprimere et billede til præcis 100KB?",
+        "answer": "Vores værktøj justerer automatisk kvalitetsskyderen og fjerner unødvendige metadata for at skubbe filstørrelsen til under 100 KB, mens den bevarer visuel troskab."
       },
       {
-        "question": "Is it safe to compress my passport photo here?",
-        "answer": "Yes, it is 100% safe. Your images are never transmitted over the internet. Processing happens locally in your device's memory."
+        "question": "Er det sikkert at komprimere mit pasfoto her?",
+        "answer": "Ja, det er 100 % sikkert. Dine billeder sendes aldrig over internettet. Behandling sker lokalt i din enheds hukommelse."
       },
       {
-        "question": "Will my image lose quality and become blurry?",
-        "answer": "We use advanced algorithmic downsizing and smart compression. While file size drops drastically, we prioritize keeping critical details like text and faces highly readable."
+        "question": "Vil mit billede miste kvalitet og blive sløret?",
+        "answer": "Vi bruger avanceret algoritmisk downsizing og smart komprimering. Selvom filstørrelsen falder drastisk, prioriterer vi at holde kritiske detaljer som tekst og ansigter meget læsbare."
       }
     ]
   },
@@ -3354,22 +3354,22 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     "title": "Συμπίεση εικόνας σε 100 KB Δωρεάν Online - Γρήγορη και ιδιωτική",
     "h1": "Συμπιέστε οποιαδήποτε εικόνα στα 100 KB αμέσως",
     "description": "Συμπιέστε εύκολα τις εικόνες JPG, PNG και WEBP σε ακριβώς 100 KB ή λιγότερο χωρίς απώλεια ποιότητας. 100% ιδιωτικό, επεξεργασία στο πρόγραμμα περιήγησής σας.",
-    "citationFirst": "Struggling with upload limits on government portals, job sites, or university forms? Our advanced client-side compressor reduces your image size precisely under 100KB while keeping text and faces crystal clear.",
+    "citationFirst": "Δυσκολεύεστε με τα όρια μεταφόρτωσης σε κυβερνητικές πύλες, ιστότοπους εργασίας ή πανεπιστημιακές φόρμες; Ο προηγμένος συμπιεστής μας από την πλευρά του πελάτη μειώνει το μέγεθος της εικόνας σας ακριβώς κάτω από 100 KB, ενώ διατηρεί το κείμενο και τα πρόσωπα κρυστάλλινα.",
     "quantitativeProof": "Γίνετε μέλος 2 εκατομμυρίων χρηστών που παρακάμπτουν τα όρια φόρμας 100 KB χωρίς εικονοστοιχεία.",
     "beforeImageLabel": "Πρωτότυπο 5MB",
     "afterImageLabel": "Αποτέλεσμα 98KB",
     "faqs": [
       {
-        "question": "How can I compress an image to exactly 100KB?",
-        "answer": "Our tool automatically adjusts the quality slider and strips unnecessary metadata to push the file size below 100KB while preserving visual fidelity."
+        "question": "Πώς μπορώ να συμπιέσω μια εικόνα στα 100 KB ακριβώς;",
+        "answer": "Το εργαλείο μας προσαρμόζει αυτόματα το ρυθμιστικό ποιότητας και αφαιρεί τα περιττά μεταδεδομένα για να ωθήσει το μέγεθος του αρχείου κάτω από 100 KB διατηρώντας παράλληλα την οπτική πιστότητα."
       },
       {
-        "question": "Is it safe to compress my passport photo here?",
-        "answer": "Yes, it is 100% safe. Your images are never transmitted over the internet. Processing happens locally in your device's memory."
+        "question": "Είναι ασφαλές να συμπιέσω τη φωτογραφία του διαβατηρίου μου εδώ;",
+        "answer": "Ναι, είναι 100% ασφαλές. Οι εικόνες σας δεν μεταδίδονται ποτέ μέσω Διαδικτύου. Η επεξεργασία πραγματοποιείται τοπικά στη μνήμη της συσκευής σας."
       },
       {
-        "question": "Will my image lose quality and become blurry?",
-        "answer": "We use advanced algorithmic downsizing and smart compression. While file size drops drastically, we prioritize keeping critical details like text and faces highly readable."
+        "question": "Η εικόνα μου θα χάσει την ποιότητα και θα γίνει θολή;",
+        "answer": "Χρησιμοποιούμε προηγμένη αλγοριθμική μείωση μεγέθους και έξυπνη συμπίεση. Ενώ το μέγεθος του αρχείου μειώνεται δραστικά, δίνουμε προτεραιότητα στη διατήρηση κρίσιμων λεπτομερειών όπως το κείμενο και τα πρόσωπα με υψηλή ευανάγνωση."
       }
     ]
   },
@@ -3380,22 +3380,22 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     "title": "Pakkaa kuva 100 kilotavuun verkossa ilmaiseksi - nopea ja yksityinen",
     "h1": "Pakkaa mikä tahansa kuva heti 100 kilotavuun",
     "description": "Pakkaa JPG-, PNG- ja WEBP-kuvasi helposti täsmälleen 100 kilotavuun tai pienemmäksi laadun heikkenemättä. 100 % yksityinen, käsitelty selaimessasi.",
-    "citationFirst": "Struggling with upload limits on government portals, job sites, or university forms? Our advanced client-side compressor reduces your image size precisely under 100KB while keeping text and faces crystal clear.",
+    "citationFirst": "Kamppailetko latausrajoitusten kanssa valtion portaaleille, työsivustoille tai yliopistolomakkeille? Edistyksellinen asiakaspuolen kompressorimme pienentää kuvakoon tarkasti alle 100 kt:n pitäen tekstin ja kasvot kristallinkirkkaina.",
     "quantitativeProof": "Liity yli 2 miljoonan käyttäjän joukkoon, jotka ohittavat 100 kt:n lomakerajat ilman pikselointia.",
     "beforeImageLabel": "Alkuperäinen 5MB",
     "afterImageLabel": "Tulos 98 kt",
     "faqs": [
       {
-        "question": "How can I compress an image to exactly 100KB?",
-        "answer": "Our tool automatically adjusts the quality slider and strips unnecessary metadata to push the file size below 100KB while preserving visual fidelity."
+        "question": "Kuinka voin pakata kuvan tarkalleen 100 kt:ksi?",
+        "answer": "Työkalumme säätää automaattisesti laadun liukusäädintä ja poistaa tarpeettomat metatiedot siirtääkseen tiedostokoon alle 100 kt säilyttäen samalla visuaalisen tarkkuuden."
       },
       {
-        "question": "Is it safe to compress my passport photo here?",
-        "answer": "Yes, it is 100% safe. Your images are never transmitted over the internet. Processing happens locally in your device's memory."
+        "question": "Onko turvallista pakata passikuvani tähän?",
+        "answer": "Kyllä, se on 100% turvallista. Kuviasi ei koskaan välitetä Internetin kautta. Käsittely tapahtuu paikallisesti laitteesi muistissa."
       },
       {
-        "question": "Will my image lose quality and become blurry?",
-        "answer": "We use advanced algorithmic downsizing and smart compression. While file size drops drastically, we prioritize keeping critical details like text and faces highly readable."
+        "question": "Menettääkö kuvani laatu ja tuleeko siitä epäselvä?",
+        "answer": "Käytämme edistynyttä algoritmista koon pienentämistä ja älykästä pakkausta. Vaikka tiedostokoko pienenee rajusti, pidämme tärkeät yksityiskohdat, kuten tekstin ja kasvot, erittäin luettavana."
       }
     ]
   },
@@ -3406,22 +3406,22 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     "title": "דחוס תמונה ל-100KB בחינם באינטרנט - מהיר ופרטי",
     "h1": "דחוס כל תמונה ל-100KB באופן מיידי",
     "description": "דחוס בקלות את תמונות ה-JPG, PNG וה-WEBP שלך ל-100KB בדיוק או פחות מבלי לאבד איכות. 100% פרטי, מעובד בדפדפן שלך.",
-    "citationFirst": "Struggling with upload limits on government portals, job sites, or university forms? Our advanced client-side compressor reduces your image size precisely under 100KB while keeping text and faces crystal clear.",
+    "citationFirst": "נאבקים עם מגבלות העלאה בפורטלים ממשלתיים, אתרי עבודה או טפסים באוניברסיטה? המדחס המתקדם שלנו בצד הלקוח מקטין את גודל התמונה שלך בדיוק מתחת ל-100KB תוך שמירה על טקסט ופנים ברורים.",
     "quantitativeProof": "הצטרף ל-2M+ משתמשים שעוקפים את מגבלות הטפסים של 100KB ללא פיקסלים.",
     "beforeImageLabel": "5MB מקורי",
     "afterImageLabel": "תוצאה 98KB",
     "faqs": [
       {
-        "question": "How can I compress an image to exactly 100KB?",
-        "answer": "Our tool automatically adjusts the quality slider and strips unnecessary metadata to push the file size below 100KB while preserving visual fidelity."
+        "question": "איך אני יכול לדחוס תמונה ל-100KB בדיוק?",
+        "answer": "הכלי שלנו מתאים אוטומטית את מחוון האיכות ומסיר מטא נתונים מיותרים כדי לדחוף את גודל הקובץ מתחת ל-100KB תוך שמירה על נאמנות חזותית."
       },
       {
-        "question": "Is it safe to compress my passport photo here?",
-        "answer": "Yes, it is 100% safe. Your images are never transmitted over the internet. Processing happens locally in your device's memory."
+        "question": "האם זה בטוח לדחוס את תמונת הדרכון שלי כאן?",
+        "answer": "כן, זה בטוח ב-100%. התמונות שלך לעולם לא מועברות דרך האינטרנט. העיבוד מתרחש באופן מקומי בזיכרון המכשיר שלך."
       },
       {
-        "question": "Will my image lose quality and become blurry?",
-        "answer": "We use advanced algorithmic downsizing and smart compression. While file size drops drastically, we prioritize keeping critical details like text and faces highly readable."
+        "question": "האם התמונה שלי תאבד מאיכות ותהפוך מטושטשת?",
+        "answer": "אנו משתמשים בצמצום אלגוריתמי מתקדם ובדחיסה חכמה. בעוד שגודל הקובץ יורד באופן דרסטי, אנו נותנים עדיפות לשמור על פרטים קריטיים כמו טקסט ופרצופים קריאים מאוד."
       }
     ]
   },
@@ -3432,22 +3432,22 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     "title": "Tömörítse a képet 100 KB-ra online ingyenes – gyors és privát",
     "h1": "Bármelyik kép azonnali tömörítése 100 KB-ra",
     "description": "Könnyedén tömörítse JPG, PNG és WEBP képeit pontosan 100 KB-ra vagy kevesebbre a minőség romlása nélkül. 100%-ban privát, a böngészőben feldolgozva.",
-    "citationFirst": "Struggling with upload limits on government portals, job sites, or university forms? Our advanced client-side compressor reduces your image size precisely under 100KB while keeping text and faces crystal clear.",
+    "citationFirst": "Küszködik a feltöltési korlátokkal a kormányzati portálokon, álláshelyeken vagy egyetemi űrlapokon? Fejlett kliensoldali tömörítőnk pontosan 100 KB alá csökkenti a képméretet, miközben a szöveget és az arcokat kristálytisztán tartja.",
     "quantitativeProof": "Csatlakozzon több mint 2 millió felhasználóhoz, akik pixelezés nélkül megkerülik a 100 KB-os űrlapkorlátokat.",
     "beforeImageLabel": "Eredeti 5MB",
     "afterImageLabel": "Eredmény 98KB",
     "faqs": [
       {
-        "question": "How can I compress an image to exactly 100KB?",
-        "answer": "Our tool automatically adjusts the quality slider and strips unnecessary metadata to push the file size below 100KB while preserving visual fidelity."
+        "question": "Hogyan tömöríthetek egy képet pontosan 100 KB-ra?",
+        "answer": "Eszközünk automatikusan beállítja a minőségi csúszkát és eltávolítja a szükségtelen metaadatokat, hogy a fájlméretet 100 KB alá tolja, miközben megőrzi a vizuális hűséget."
       },
       {
-        "question": "Is it safe to compress my passport photo here?",
-        "answer": "Yes, it is 100% safe. Your images are never transmitted over the internet. Processing happens locally in your device's memory."
+        "question": "Biztonságos itt tömöríteni az útlevélképemet?",
+        "answer": "Igen, 100%-ban biztonságos. Képeidet soha nem továbbítják az interneten. A feldolgozás helyileg, az eszköz memóriájában történik."
       },
       {
-        "question": "Will my image lose quality and become blurry?",
-        "answer": "We use advanced algorithmic downsizing and smart compression. While file size drops drastically, we prioritize keeping critical details like text and faces highly readable."
+        "question": "A képem minősége romlik és elmosódott lesz?",
+        "answer": "Speciális algoritmikus méretcsökkentést és intelligens tömörítést alkalmazunk. Míg a fájlméret drasztikusan csökken, prioritást élvezünk, hogy a kritikus részleteket, például a szöveget és az arcokat jól olvashatóan tartsuk."
       }
     ]
   },
@@ -3458,22 +3458,22 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     "title": "Komprimer bildet til 100KB online gratis – raskt og privat",
     "h1": "Komprimer et hvilket som helst bilde til 100KB umiddelbart",
     "description": "Komprimer enkelt JPG-, PNG- og WEBP-bildene dine til nøyaktig 100 KB eller mindre uten å miste kvalitet. 100 % privat, behandlet i nettleseren din.",
-    "citationFirst": "Struggling with upload limits on government portals, job sites, or university forms? Our advanced client-side compressor reduces your image size precisely under 100KB while keeping text and faces crystal clear.",
+    "citationFirst": "Sliter du med opplastingsgrenser på offentlige portaler, jobbsider eller universitetsskjemaer? Vår avanserte kompressor på klientsiden reduserer bildestørrelsen din nøyaktig under 100 KB samtidig som tekst og ansikter holdes krystallklare.",
     "quantitativeProof": "Bli med over 2 millioner brukere som omgår skjemagrenser på 100 KB uten pikselering.",
     "beforeImageLabel": "Original 5MB",
     "afterImageLabel": "Resultat 98KB",
     "faqs": [
       {
-        "question": "How can I compress an image to exactly 100KB?",
-        "answer": "Our tool automatically adjusts the quality slider and strips unnecessary metadata to push the file size below 100KB while preserving visual fidelity."
+        "question": "Hvordan kan jeg komprimere et bilde til nøyaktig 100KB?",
+        "answer": "Verktøyet vårt justerer automatisk kvalitetsglidebryteren og fjerner unødvendige metadata for å presse filstørrelsen under 100KB samtidig som den bevarer visuell troskap."
       },
       {
-        "question": "Is it safe to compress my passport photo here?",
-        "answer": "Yes, it is 100% safe. Your images are never transmitted over the internet. Processing happens locally in your device's memory."
+        "question": "Er det trygt å komprimere passbildet mitt her?",
+        "answer": "Ja, det er 100 % trygt. Bildene dine overføres aldri over internett. Behandling skjer lokalt i enhetens minne."
       },
       {
-        "question": "Will my image lose quality and become blurry?",
-        "answer": "We use advanced algorithmic downsizing and smart compression. While file size drops drastically, we prioritize keeping critical details like text and faces highly readable."
+        "question": "Vil bildet mitt miste kvalitet og bli uskarpt?",
+        "answer": "Vi bruker avansert algoritmisk nedbemanning og smart komprimering. Mens filstørrelsen synker drastisk, prioriterer vi å holde kritiske detaljer som tekst og ansikter svært lesbare."
       }
     ]
   },
@@ -3484,22 +3484,22 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     "title": "Comprimați imaginea la 100KB online gratuit - rapid și privat",
     "h1": "Comprimați orice imagine la 100KB instantaneu",
     "description": "Comprimați-vă cu ușurință imaginile JPG, PNG și WEBP la exact 100 KB sau mai puțin, fără a pierde calitatea. 100% privat, procesat în browser.",
-    "citationFirst": "Struggling with upload limits on government portals, job sites, or university forms? Our advanced client-side compressor reduces your image size precisely under 100KB while keeping text and faces crystal clear.",
+    "citationFirst": "Te lupți cu limitele de încărcare pe portaluri guvernamentale, site-uri de locuri de muncă sau formulare universitare? Compresorul nostru avansat la nivelul clientului reduce dimensiunea imaginii cu precizie sub 100KB, păstrând în același timp textul și fețele clare.",
     "quantitativeProof": "Alăturați-vă celor peste 2 milioane de utilizatori care ocolesc limitele de formulare de 100 KB fără pixeli.",
     "beforeImageLabel": "Original 5MB",
     "afterImageLabel": "Rezultat 98KB",
     "faqs": [
       {
-        "question": "How can I compress an image to exactly 100KB?",
-        "answer": "Our tool automatically adjusts the quality slider and strips unnecessary metadata to push the file size below 100KB while preserving visual fidelity."
+        "question": "Cum pot comprima o imagine la exact 100KB?",
+        "answer": "Instrumentul nostru ajustează automat glisorul de calitate și elimină metadatele inutile pentru a împinge dimensiunea fișierului sub 100 KB, păstrând în același timp fidelitatea vizuală."
       },
       {
-        "question": "Is it safe to compress my passport photo here?",
-        "answer": "Yes, it is 100% safe. Your images are never transmitted over the internet. Processing happens locally in your device's memory."
+        "question": "Este sigur să comprim fotografia mea de pașaport aici?",
+        "answer": "Da, este 100% sigur. Imaginile tale nu sunt niciodată transmise prin internet. Procesarea are loc local în memoria dispozitivului dvs."
       },
       {
-        "question": "Will my image lose quality and become blurry?",
-        "answer": "We use advanced algorithmic downsizing and smart compression. While file size drops drastically, we prioritize keeping critical details like text and faces highly readable."
+        "question": "Imaginea mea își va pierde calitatea și va deveni neclară?",
+        "answer": "Utilizăm reducerea algoritmică avansată și compresia inteligentă. În timp ce dimensiunea fișierului scade drastic, acordăm prioritate păstrării detaliilor critice, cum ar fi textul și fețele, foarte lizibile."
       }
     ]
   },
@@ -3510,22 +3510,22 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     "title": "Komprimujte obrázok na 100 kB online zadarmo – rýchlo a súkromne",
     "h1": "Okamžite skomprimujte akýkoľvek obrázok na 100 kB",
     "description": "Jednoducho komprimujte svoje obrázky JPG, PNG a WEBP na presne 100 kB alebo menej bez straty kvality. 100% súkromné, spracované vo vašom prehliadači.",
-    "citationFirst": "Struggling with upload limits on government portals, job sites, or university forms? Our advanced client-side compressor reduces your image size precisely under 100KB while keeping text and faces crystal clear.",
+    "citationFirst": "Bojujete s limitmi nahrávania na vládnych portáloch, pracovných stránkach alebo univerzitných formulároch? Náš pokročilý kompresor na strane klienta zmenšuje veľkosť obrázka presne pod 100 kB, pričom text a tváre zachováva krištáľovo čisté.",
     "quantitativeProof": "Pripojte sa k viac ako 2 miliónom používateľov, ktorí obchádzajú 100 kB limity formulárov bez pixelovania.",
     "beforeImageLabel": "Pôvodná veľkosť 5 MB",
     "afterImageLabel": "Výsledok 98 kB",
     "faqs": [
       {
-        "question": "How can I compress an image to exactly 100KB?",
-        "answer": "Our tool automatically adjusts the quality slider and strips unnecessary metadata to push the file size below 100KB while preserving visual fidelity."
+        "question": "Ako môžem komprimovať obrázok presne na 100 kB?",
+        "answer": "Náš nástroj automaticky upraví posúvač kvality a odstráni nepotrebné metadáta, aby sa veľkosť súboru posunula pod 100 kB pri zachovaní vizuálnej vernosti."
       },
       {
-        "question": "Is it safe to compress my passport photo here?",
-        "answer": "Yes, it is 100% safe. Your images are never transmitted over the internet. Processing happens locally in your device's memory."
+        "question": "Je bezpečné tu komprimovať fotografiu z pasu?",
+        "answer": "Áno, je to 100% bezpečné. Vaše obrázky sa nikdy neprenášajú cez internet. Spracovanie prebieha lokálne v pamäti vášho zariadenia."
       },
       {
-        "question": "Will my image lose quality and become blurry?",
-        "answer": "We use advanced algorithmic downsizing and smart compression. While file size drops drastically, we prioritize keeping critical details like text and faces highly readable."
+        "question": "Stratí môj obrázok kvalitu a bude rozmazaný?",
+        "answer": "Používame pokročilé algoritmické zmenšovanie a inteligentnú kompresiu. Aj keď veľkosť súboru drasticky klesá, uprednostňujeme, aby boli dôležité detaily, ako je text a tváre, dobre čitateľné."
       }
     ]
   },
@@ -3536,22 +3536,22 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     "title": "Стисніть зображення до 100 КБ онлайн безкоштовно - швидко та приватно",
     "h1": "Миттєво стисніть будь-яке зображення до 100 КБ",
     "description": "Легко стисніть зображення JPG, PNG і WEBP рівно до 100 КБ або менше без втрати якості. 100% приватне, оброблене у вашому браузері.",
-    "citationFirst": "Struggling with upload limits on government portals, job sites, or university forms? Our advanced client-side compressor reduces your image size precisely under 100KB while keeping text and faces crystal clear.",
+    "citationFirst": "Боретеся з обмеженнями на завантаження на державні портали, сайти вакансій чи університетські форми? Наш удосконалений компресор на стороні клієнта зменшує розмір вашого зображення точно до 100 КБ, зберігаючи при цьому текст і обличчя кристально чистими.",
     "quantitativeProof": "Приєднуйтеся до понад 2 мільйонів користувачів, які обходять ліміт форми у 100 КБ без пікселізації.",
     "beforeImageLabel": "Оригінал 5 Мб",
     "afterImageLabel": "Результат 98KB",
     "faqs": [
       {
-        "question": "How can I compress an image to exactly 100KB?",
-        "answer": "Our tool automatically adjusts the quality slider and strips unnecessary metadata to push the file size below 100KB while preserving visual fidelity."
+        "question": "Як я можу стиснути зображення рівно до 100 КБ?",
+        "answer": "Наш інструмент автоматично регулює повзунок якості та видаляє непотрібні метадані, щоб зменшити розмір файлу до 100 КБ, зберігаючи візуальну точність."
       },
       {
-        "question": "Is it safe to compress my passport photo here?",
-        "answer": "Yes, it is 100% safe. Your images are never transmitted over the internet. Processing happens locally in your device's memory."
+        "question": "Чи безпечно стискати фотографію мого паспорта тут?",
+        "answer": "Так, це на 100% безпечно. Ваші зображення ніколи не передаються через Інтернет. Обробка відбувається локально в пам'яті вашого пристрою."
       },
       {
-        "question": "Will my image lose quality and become blurry?",
-        "answer": "We use advanced algorithmic downsizing and smart compression. While file size drops drastically, we prioritize keeping critical details like text and faces highly readable."
+        "question": "Чи моє зображення втратить якість і стане розмитим?",
+        "answer": "Ми використовуємо вдосконалене алгоритмічне зменшення розміру та розумне стиснення. Хоча розмір файлу різко зменшується, ми надаємо пріоритет тому, щоб такі важливі деталі, як текст і обличчя, були добре читабельними."
       }
     ]
   },
@@ -3562,22 +3562,22 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     "title": "Mampatkan Imej kepada 100KB Percuma Dalam Talian - Pantas & Peribadi",
     "h1": "Mampatkan Mana-mana Imej kepada 100KB Serta-merta",
     "description": "Mampatkan imej JPG, PNG dan WEBP anda dengan mudah kepada tepat 100KB atau kurang tanpa kehilangan kualiti. 100% peribadi, diproses dalam penyemak imbas anda.",
-    "citationFirst": "Struggling with upload limits on government portals, job sites, or university forms? Our advanced client-side compressor reduces your image size precisely under 100KB while keeping text and faces crystal clear.",
+    "citationFirst": "Bergelut dengan had muat naik pada portal kerajaan, tapak kerja atau borang universiti? Pemampat bahagian pelanggan termaju kami mengurangkan saiz imej anda tepat di bawah 100KB sambil mengekalkan teks dan wajah yang jelas.",
     "quantitativeProof": "Sertai 2J+ pengguna yang memintas had borang 100KB tanpa pikselasi.",
     "beforeImageLabel": "5MB asal",
     "afterImageLabel": "Keputusan 98KB",
     "faqs": [
       {
-        "question": "How can I compress an image to exactly 100KB?",
-        "answer": "Our tool automatically adjusts the quality slider and strips unnecessary metadata to push the file size below 100KB while preserving visual fidelity."
+        "question": "Bagaimanakah saya boleh memampatkan imej kepada tepat 100KB?",
+        "answer": "Alat kami secara automatik melaraskan peluncur kualiti dan menjalurkan metadata yang tidak diperlukan untuk menolak saiz fail di bawah 100KB sambil mengekalkan kesetiaan visual."
       },
       {
-        "question": "Is it safe to compress my passport photo here?",
-        "answer": "Yes, it is 100% safe. Your images are never transmitted over the internet. Processing happens locally in your device's memory."
+        "question": "Adakah selamat untuk memampatkan gambar pasport saya di sini?",
+        "answer": "Ya, ia 100% selamat. Imej anda tidak pernah dihantar melalui internet. Pemprosesan berlaku secara setempat dalam memori peranti anda."
       },
       {
-        "question": "Will my image lose quality and become blurry?",
-        "answer": "We use advanced algorithmic downsizing and smart compression. While file size drops drastically, we prioritize keeping critical details like text and faces highly readable."
+        "question": "Adakah imej saya akan kehilangan kualiti dan menjadi kabur?",
+        "answer": "Kami menggunakan pengecilan algoritma lanjutan dan pemampatan pintar. Walaupun saiz fail menurun secara drastik, kami mengutamakan mengekalkan butiran penting seperti teks dan muka yang sangat mudah dibaca."
       }
     ]
   },
@@ -3640,22 +3640,22 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     "title": "Comprimir imagen a 50 KB: compresión WebGPU inteligente",
     "h1": "Reduzca fotos a 50 KB con AI Precision",
     "description": "Alcance los límites más estrictos de 50 KB para portales gubernamentales y de visas sin esfuerzo. Comprime mucho las imágenes sin destruir la calidad visual.",
-    "citationFirst": "When a portal demands a file under 50KB, traditional compressors often turn your photo into a blurry mess. We leverage WebGPU to selectively preserve edge fidelity, guaranteeing strict 50KB compliance without sacrificing readability.",
+    "citationFirst": "Cuando un portal exige un archivo de menos de 50 KB, los compresores tradicionales suelen convertir la foto en un desastre borroso. Aprovechamos WebGPU para preservar selectivamente la fidelidad del borde, garantizando un estricto cumplimiento de 50 KB sin sacrificar la legibilidad.",
     "quantitativeProof": "Comprimir imágenes a 50 KB es 3 veces más rápido con el procesamiento local.",
     "beforeImageLabel": "Archivo 2,5 MB",
     "afterImageLabel": "Optimizado 48 KB",
     "faqs": [
       {
-        "question": "Why is 50KB so hard to achieve with good quality?",
-        "answer": "50KB leaves very little room for image data. Most tools just lower resolution bluntly. We optimize color quantization and metadata stripping to save space for actual pixels."
+        "question": "¿Por qué es tan difícil conseguir 50 KB con buena calidad?",
+        "answer": "50 KB dejan muy poco espacio para datos de imágenes. La mayoría de las herramientas simplemente reducen la resolución sin rodeos. Optimizamos la cuantificación del color y la eliminación de metadatos para ahorrar espacio para los píxeles reales."
       },
       {
-        "question": "Which formats can be compressed to 50KB?",
-        "answer": "You can upload JPG, JPEG, PNG, or WEBP. We generally output as a highly compressed WebP or JPG depending on which yields a better 50KB result."
+        "question": "¿Qué formatos se pueden comprimir a 50 KB?",
+        "answer": "Puede cargar JPG, JPEG, PNG o WEBP. Generalmente generamos como WebP o JPG altamente comprimido, dependiendo de cuál produzca un mejor resultado de 50 KB."
       },
       {
-        "question": "Can I do this entirely offline?",
-        "answer": "Yes! Once this page loads, you can turn off your internet. The 50KB compression algorithm runs 100% in your browser."
+        "question": "¿Puedo hacer esto completamente sin conexión?",
+        "answer": "¡Sí! Una vez que se carga esta página, puede apagar Internet. El algoritmo de compresión de 50 KB se ejecuta al 100 % en su navegador."
       }
     ]
   },
@@ -3666,22 +3666,22 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     "title": "Compresser l'image à 50 Ko - Compression intelligente WebGPU",
     "h1": "Réduisez les photos à 50 Ko avec AI Precision",
     "description": "Atteignez sans effort les limites de 50 Ko les plus strictes pour les portails gouvernementaux et de visa. Compressez fortement les images sans détruire la qualité visuelle.",
-    "citationFirst": "When a portal demands a file under 50KB, traditional compressors often turn your photo into a blurry mess. We leverage WebGPU to selectively preserve edge fidelity, guaranteeing strict 50KB compliance without sacrificing readability.",
+    "citationFirst": "Lorsqu'un portail demande un fichier de moins de 50 Ko, les compresseurs traditionnels transforment souvent votre photo en un désordre flou. Nous exploitons WebGPU pour préserver de manière sélective la fidélité des bords, garantissant une conformité stricte de 50 Ko sans sacrifier la lisibilité.",
     "quantitativeProof": "La compression des images à 50 Ko est 3 fois plus rapide avec le traitement local.",
     "beforeImageLabel": "Fichier 2,5 Mo",
     "afterImageLabel": "48 Ko optimisés",
     "faqs": [
       {
-        "question": "Why is 50KB so hard to achieve with good quality?",
-        "answer": "50KB leaves very little room for image data. Most tools just lower resolution bluntly. We optimize color quantization and metadata stripping to save space for actual pixels."
+        "question": "Pourquoi est-il si difficile d’obtenir 50 Ko avec une bonne qualité ?",
+        "answer": "50 Ko laissent très peu de place aux données d’image. La plupart des outils diminuent simplement la résolution. Nous optimisons la quantification des couleurs et la suppression des métadonnées pour économiser de l'espace pour les pixels réels."
       },
       {
-        "question": "Which formats can be compressed to 50KB?",
-        "answer": "You can upload JPG, JPEG, PNG, or WEBP. We generally output as a highly compressed WebP or JPG depending on which yields a better 50KB result."
+        "question": "Quels formats peuvent être compressés à 50 Ko ?",
+        "answer": "Vous pouvez télécharger des fichiers JPG, JPEG, PNG ou WEBP. Nous produisons généralement sous forme de WebP ou JPG hautement compressé, selon ce qui donne un meilleur résultat de 50 Ko."
       },
       {
-        "question": "Can I do this entirely offline?",
-        "answer": "Yes! Once this page loads, you can turn off your internet. The 50KB compression algorithm runs 100% in your browser."
+        "question": "Puis-je le faire entièrement hors ligne ?",
+        "answer": "Oui! Une fois cette page chargée, vous pouvez désactiver votre connexion Internet. L'algorithme de compression de 50 Ko s'exécute à 100 % dans votre navigateur."
       }
     ]
   },
@@ -3692,22 +3692,22 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     "title": "Bild auf 50 KB komprimieren – Intelligente WebGPU-Komprimierung",
     "h1": "Verkleinern Sie Fotos mit AI Precision auf 50 KB",
     "description": "Erreichen Sie mühelos die strengsten 50-KB-Grenzwerte für Regierungs- und Visaportale. Komprimieren Sie Bilder stark, ohne die visuelle Qualität zu beeinträchtigen.",
-    "citationFirst": "When a portal demands a file under 50KB, traditional compressors often turn your photo into a blurry mess. We leverage WebGPU to selectively preserve edge fidelity, guaranteeing strict 50KB compliance without sacrificing readability.",
+    "citationFirst": "Wenn ein Portal eine Datei mit weniger als 50 KB verlangt, verwandeln herkömmliche Kompressoren Ihr Foto oft in ein verschwommenes Durcheinander. Wir nutzen WebGPU, um die Kantentreue selektiv zu wahren und so eine strikte 50-KB-Konformität ohne Einbußen bei der Lesbarkeit zu gewährleisten.",
     "quantitativeProof": "Das Komprimieren von Bildern auf 50 KB ist bei lokaler Verarbeitung dreimal schneller.",
     "beforeImageLabel": "Datei 2,5 MB",
     "afterImageLabel": "Optimiert 48 KB",
     "faqs": [
       {
-        "question": "Why is 50KB so hard to achieve with good quality?",
-        "answer": "50KB leaves very little room for image data. Most tools just lower resolution bluntly. We optimize color quantization and metadata stripping to save space for actual pixels."
+        "question": "Warum ist es bei guter Qualität so schwer, 50 KB zu erreichen?",
+        "answer": "50 KB lassen nur sehr wenig Platz für Bilddaten. Die meisten Tools verringern die Auflösung einfach stumpf. Wir optimieren die Farbquantisierung und das Entfernen von Metadaten, um Platz für tatsächliche Pixel zu sparen."
       },
       {
-        "question": "Which formats can be compressed to 50KB?",
-        "answer": "You can upload JPG, JPEG, PNG, or WEBP. We generally output as a highly compressed WebP or JPG depending on which yields a better 50KB result."
+        "question": "Welche Formate können auf 50 KB komprimiert werden?",
+        "answer": "Sie können JPG, JPEG, PNG oder WEBP hochladen. Wir geben im Allgemeinen als stark komprimiertes WebP oder JPG aus, je nachdem, was ein besseres 50-KB-Ergebnis liefert."
       },
       {
-        "question": "Can I do this entirely offline?",
-        "answer": "Yes! Once this page loads, you can turn off your internet. The 50KB compression algorithm runs 100% in your browser."
+        "question": "Kann ich das komplett offline machen?",
+        "answer": "Ja! Sobald diese Seite geladen ist, können Sie Ihr Internet ausschalten. Der 50-KB-Komprimierungsalgorithmus läuft zu 100 % in Ihrem Browser."
       }
     ]
   },
@@ -3718,22 +3718,22 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     "title": "画像を 50KB に圧縮 - スマート WebGPU 圧縮",
     "h1": "AI の精度で写真を 50KB に縮小",
     "description": "政府およびビザポータルの最も厳しい 50 KB 制限を簡単に達成します。視覚的な品質を損なうことなく画像を大幅に圧縮します。",
-    "citationFirst": "When a portal demands a file under 50KB, traditional compressors often turn your photo into a blurry mess. We leverage WebGPU to selectively preserve edge fidelity, guaranteeing strict 50KB compliance without sacrificing readability.",
+    "citationFirst": "ポータルが 50 KB 未満のファイルを要求する場合、従来のコンプレッサーでは写真がぼやけた状態になってしまうことがよくあります。 WebGPU を活用してエッジの忠実度を選択的に保持し、可読性を犠牲にすることなく 50KB への厳格な準拠を保証します。",
     "quantitativeProof": "画像を 50KB に圧縮すると、ローカル処理により 3 倍高速になります。",
     "beforeImageLabel": "ファイル 2.5MB",
     "afterImageLabel": "最適化された48KB",
     "faqs": [
       {
-        "question": "Why is 50KB so hard to achieve with good quality?",
-        "answer": "50KB leaves very little room for image data. Most tools just lower resolution bluntly. We optimize color quantization and metadata stripping to save space for actual pixels."
+        "question": "高品質で 50KB を達成するのが非常に難しいのはなぜですか?",
+        "answer": "50KB では、画像データを入れる余地はほとんどありません。 ほとんどのツールは解像度を露骨に下げるだけです。 実際のピクセルのスペースを節約するために、色の量子化とメタデータの除去を最適化します。"
       },
       {
-        "question": "Which formats can be compressed to 50KB?",
-        "answer": "You can upload JPG, JPEG, PNG, or WEBP. We generally output as a highly compressed WebP or JPG depending on which yields a better 50KB result."
+        "question": "50KB に圧縮できる形式はどれですか?",
+        "answer": "JPG、JPEG、PNG、または WEBP をアップロードできます。 通常、50 KB のどちらの方が良い結果が得られるかに応じて、高圧縮の WebP または JPG として出力します。"
       },
       {
-        "question": "Can I do this entirely offline?",
-        "answer": "Yes! Once this page loads, you can turn off your internet. The 50KB compression algorithm runs 100% in your browser."
+        "question": "これを完全にオフラインで行うことはできますか?",
+        "answer": "はい！ このページが読み込まれたら、インターネットをオフにしても構いません。 50KB の圧縮アルゴリズムはブラウザで 100% 実行されます。"
       }
     ]
   },
@@ -3744,22 +3744,22 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     "title": "Compactar imagem em 50 KB - Compressão WebGPU inteligente",
     "h1": "Reduza fotos para 50 KB com precisão de IA",
     "description": "Alcance os limites mais rígidos de 50 KB para portais governamentais e de vistos sem esforço. Comprima fortemente as imagens sem destruir a qualidade visual.",
-    "citationFirst": "When a portal demands a file under 50KB, traditional compressors often turn your photo into a blurry mess. We leverage WebGPU to selectively preserve edge fidelity, guaranteeing strict 50KB compliance without sacrificing readability.",
+    "citationFirst": "Quando um portal exige um arquivo com menos de 50 KB, os compressores tradicionais geralmente transformam sua foto em uma bagunça borrada. Aproveitamos o WebGPU para preservar seletivamente a fidelidade de borda, garantindo conformidade estrita de 50 KB sem sacrificar a legibilidade.",
     "quantitativeProof": "A compactação de imagens para 50 KB é 3x mais rápida com processamento local.",
     "beforeImageLabel": "Arquivo 2,5 MB",
     "afterImageLabel": "48 KB otimizado",
     "faqs": [
       {
-        "question": "Why is 50KB so hard to achieve with good quality?",
-        "answer": "50KB leaves very little room for image data. Most tools just lower resolution bluntly. We optimize color quantization and metadata stripping to save space for actual pixels."
+        "question": "Por que é tão difícil conseguir 50 KB com boa qualidade?",
+        "answer": "50 KB deixam muito pouco espaço para dados de imagem. A maioria das ferramentas apenas reduz a resolução sem rodeios. Otimizamos a quantização de cores e a remoção de metadados para economizar espaço para pixels reais."
       },
       {
-        "question": "Which formats can be compressed to 50KB?",
-        "answer": "You can upload JPG, JPEG, PNG, or WEBP. We generally output as a highly compressed WebP or JPG depending on which yields a better 50KB result."
+        "question": "Quais formatos podem ser compactados para 50 KB?",
+        "answer": "Você pode fazer upload de JPG, JPEG, PNG ou WEBP. Geralmente produzimos como WebP ou JPG altamente compactado, dependendo de qual produz um resultado melhor de 50 KB."
       },
       {
-        "question": "Can I do this entirely offline?",
-        "answer": "Yes! Once this page loads, you can turn off your internet. The 50KB compression algorithm runs 100% in your browser."
+        "question": "Posso fazer isso totalmente offline?",
+        "answer": "Sim! Assim que esta página carregar, você pode desligar sua internet. O algoritmo de compactação de 50 KB funciona 100% no seu navegador."
       }
     ]
   },
@@ -3770,22 +3770,22 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     "title": "Сжатие изображения до 50 КБ — интеллектуальное сжатие WebGPU",
     "h1": "Уменьшите фотографии до 50 КБ с помощью AI Precision",
     "description": "Легко соблюдайте самые строгие ограничения в 50 КБ для правительственных и визовых порталов. Сильно сжимайте изображения, не ухудшая визуальное качество.",
-    "citationFirst": "When a portal demands a file under 50KB, traditional compressors often turn your photo into a blurry mess. We leverage WebGPU to selectively preserve edge fidelity, guaranteeing strict 50KB compliance without sacrificing readability.",
+    "citationFirst": "Когда портал требует файл размером менее 50 КБ, традиционные компрессоры часто превращают вашу фотографию в размытый беспорядок. Мы используем WebGPU для выборочного сохранения точности границ, гарантируя строгое соответствие 50 КБ без ущерба для читаемости.",
     "quantitativeProof": "Сжатие изображений до 50 КБ происходит в 3 раза быстрее при локальной обработке.",
     "beforeImageLabel": "Файл 2,5 МБ",
     "afterImageLabel": "Оптимизированный 48 КБ",
     "faqs": [
       {
-        "question": "Why is 50KB so hard to achieve with good quality?",
-        "answer": "50KB leaves very little room for image data. Most tools just lower resolution bluntly. We optimize color quantization and metadata stripping to save space for actual pixels."
+        "question": "Почему так сложно добиться 50 КБ с хорошим качеством?",
+        "answer": "Размер 50 КБ оставляет очень мало места для данных изображения. Большинство инструментов просто резко снижают разрешение. Мы оптимизируем квантование цвета и удаление метаданных, чтобы сэкономить место для реальных пикселей."
       },
       {
-        "question": "Which formats can be compressed to 50KB?",
-        "answer": "You can upload JPG, JPEG, PNG, or WEBP. We generally output as a highly compressed WebP or JPG depending on which yields a better 50KB result."
+        "question": "Какие форматы можно сжать до 50 КБ?",
+        "answer": "Вы можете загрузить файлы JPG, JPEG, PNG или WEBP. Обычно мы выводим файлы в формате WebP или JPG с высокой степенью сжатия, в зависимости от того, какой из них дает лучший результат размером 50 КБ."
       },
       {
-        "question": "Can I do this entirely offline?",
-        "answer": "Yes! Once this page loads, you can turn off your internet. The 50KB compression algorithm runs 100% in your browser."
+        "question": "Могу ли я сделать это полностью оффлайн?",
+        "answer": "Да! Как только эта страница загрузится, вы можете отключить Интернет. Алгоритм сжатия 50 КБ работает на 100% в вашем браузере."
       }
     ]
   },
@@ -3796,22 +3796,22 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     "title": "将图像压缩至 50KB - 智能 WebGPU 压缩",
     "h1": "利用 AI Precision 将照片缩小至 50KB",
     "description": "轻松达到政府和签证门户最严格的 50KB 限制。 大量压缩图像而不破坏视觉质量。",
-    "citationFirst": "When a portal demands a file under 50KB, traditional compressors often turn your photo into a blurry mess. We leverage WebGPU to selectively preserve edge fidelity, guaranteeing strict 50KB compliance without sacrificing readability.",
+    "citationFirst": "当门户网站要求文件大小低于 50KB 时，传统压缩器通常会将您的照片变得模糊混乱。 我们利用 WebGPU 有选择地保留边缘保真度，保证严格的 50KB 合规性而不牺牲可读性。",
     "quantitativeProof": "通过本地处理，将图像压缩至 50KB 的速度提高了 3 倍。",
     "beforeImageLabel": "文件2.5MB",
     "afterImageLabel": "优化48KB",
     "faqs": [
       {
-        "question": "Why is 50KB so hard to achieve with good quality?",
-        "answer": "50KB leaves very little room for image data. Most tools just lower resolution bluntly. We optimize color quantization and metadata stripping to save space for actual pixels."
+        "question": "为什么 50KB 的质量这么难实现？",
+        "answer": "50KB 留给图像数据的空间非常小。 大多数工具只是直接降低分辨率。 我们优化颜色量化和元数据剥离，以节省实际像素的空间。"
       },
       {
-        "question": "Which formats can be compressed to 50KB?",
-        "answer": "You can upload JPG, JPEG, PNG, or WEBP. We generally output as a highly compressed WebP or JPG depending on which yields a better 50KB result."
+        "question": "哪些格式可以压缩到50KB？",
+        "answer": "您可以上传 JPG、JPEG、PNG 或 WEBP。 我们通常输出为高度压缩的 WebP 或 JPG，具体取决于哪个会产生更好的 50KB 结果。"
       },
       {
-        "question": "Can I do this entirely offline?",
-        "answer": "Yes! Once this page loads, you can turn off your internet. The 50KB compression algorithm runs 100% in your browser."
+        "question": "我可以完全离线执行此操作吗？",
+        "answer": "是的！ 加载此页面后，您可以关闭互联网。 50KB 压缩算法在您的浏览器中运行 100%。"
       }
     ]
   },
@@ -3822,22 +3822,22 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     "title": "ضغط الصورة إلى 50 كيلو بايت - ضغط WebGPU الذكي",
     "h1": "تقليص الصور إلى 50 كيلو بايت بدقة الذكاء الاصطناعي",
     "description": "حقق أقصى حدود صرامة البالغة 50 كيلو بايت للبوابات الحكومية وبوابات التأشيرات دون عناء. ضغط الصور بشكل كبير دون الإضرار بالجودة البصرية.",
-    "citationFirst": "When a portal demands a file under 50KB, traditional compressors often turn your photo into a blurry mess. We leverage WebGPU to selectively preserve edge fidelity, guaranteeing strict 50KB compliance without sacrificing readability.",
+    "citationFirst": "عندما تطلب إحدى البوابة ملفًا يقل حجمه عن 50 كيلو بايت، غالبًا ما تحول أدوات الضغط التقليدية صورتك إلى فوضى ضبابية. نحن نستفيد من WebGPU للحفاظ على دقة الحافة بشكل انتقائي، مما يضمن الامتثال الصارم بمقدار 50 كيلو بايت دون التضحية بسهولة القراءة.",
     "quantitativeProof": "يعد ضغط الصور إلى 50 كيلو بايت أسرع بثلاث مرات مع المعالجة المحلية.",
     "beforeImageLabel": "الملف 2.5 ميجا",
     "afterImageLabel": "الأمثل 48 كيلو بايت",
     "faqs": [
       {
-        "question": "Why is 50KB so hard to achieve with good quality?",
-        "answer": "50KB leaves very little room for image data. Most tools just lower resolution bluntly. We optimize color quantization and metadata stripping to save space for actual pixels."
+        "question": "لماذا يصعب تحقيق 50 كيلو بايت بجودة جيدة؟",
+        "answer": "50 كيلو بايت يترك مساحة صغيرة جدًا لبيانات الصورة. معظم الأدوات تخفض الدقة بشكل صريح. نحن نقوم بتحسين تكميم الألوان وتجريد البيانات الوصفية لتوفير مساحة لوحدات البكسل الفعلية."
       },
       {
-        "question": "Which formats can be compressed to 50KB?",
-        "answer": "You can upload JPG, JPEG, PNG, or WEBP. We generally output as a highly compressed WebP or JPG depending on which yields a better 50KB result."
+        "question": "ما هي التنسيقات التي يمكن ضغطها إلى 50 كيلو بايت؟",
+        "answer": "يمكنك تحميل JPG، JPEG، PNG، أو WEBP. نقوم عمومًا بالإخراج بتنسيق WebP أو JPG مضغوط للغاية اعتمادًا على ما ينتج عنه نتيجة أفضل بحجم 50 كيلو بايت."
       },
       {
-        "question": "Can I do this entirely offline?",
-        "answer": "Yes! Once this page loads, you can turn off your internet. The 50KB compression algorithm runs 100% in your browser."
+        "question": "هل يمكنني القيام بذلك دون اتصال بالإنترنت تمامًا؟",
+        "answer": "نعم! بمجرد تحميل هذه الصفحة، يمكنك إيقاف تشغيل الإنترنت الخاص بك. تعمل خوارزمية الضغط البالغة 50 كيلو بايت بنسبة 100% في متصفحك."
       }
     ]
   },
@@ -3848,22 +3848,22 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     "title": "छवि को 50KB तक संपीड़ित करें - स्मार्ट वेबजीपीयू संपीड़न",
     "h1": "AI परिशुद्धता के साथ फ़ोटो को 50KB तक सिकोड़ें",
     "description": "सरकारी और वीज़ा पोर्टलों के लिए सख्त से सख्त 50KB की सीमा को आसानी से पूरा करें। दृश्य गुणवत्ता को नष्ट किए बिना छवियों को भारी मात्रा में संपीड़ित करें।",
-    "citationFirst": "When a portal demands a file under 50KB, traditional compressors often turn your photo into a blurry mess. We leverage WebGPU to selectively preserve edge fidelity, guaranteeing strict 50KB compliance without sacrificing readability.",
+    "citationFirst": "जब कोई पोर्टल 50KB से कम की फ़ाइल की मांग करता है, तो पारंपरिक कंप्रेसर अक्सर आपकी तस्वीर को धुंधली गंदगी में बदल देते हैं। हम पठनीयता का त्याग किए बिना सख्त 50KB अनुपालन की गारंटी देते हुए, एज फ़िडेलिटी को चुनिंदा रूप से संरक्षित करने के लिए WebGPU का लाभ उठाते हैं।",
     "quantitativeProof": "स्थानीय प्रसंस्करण के साथ छवियों को 50KB तक संपीड़ित करना 3 गुना तेज है।",
     "beforeImageLabel": "फ़ाइल 2.5एमबी",
     "afterImageLabel": "अनुकूलित 48KB",
     "faqs": [
       {
-        "question": "Why is 50KB so hard to achieve with good quality?",
-        "answer": "50KB leaves very little room for image data. Most tools just lower resolution bluntly. We optimize color quantization and metadata stripping to save space for actual pixels."
+        "question": "अच्छी गुणवत्ता के साथ 50KB हासिल करना इतना कठिन क्यों है?",
+        "answer": "50KB छवि डेटा के लिए बहुत कम जगह छोड़ता है। अधिकांश उपकरण सीधे तौर पर रिज़ॉल्यूशन को कम कर देते हैं। हम वास्तविक पिक्सेल के लिए स्थान बचाने के लिए रंग परिमाणीकरण और मेटाडेटा स्ट्रिपिंग को अनुकूलित करते हैं।"
       },
       {
-        "question": "Which formats can be compressed to 50KB?",
-        "answer": "You can upload JPG, JPEG, PNG, or WEBP. We generally output as a highly compressed WebP or JPG depending on which yields a better 50KB result."
+        "question": "कौन से प्रारूप को 50KB तक संपीड़ित किया जा सकता है?",
+        "answer": "आप JPG, JPEG, PNG, या WEBP अपलोड कर सकते हैं। हम आम तौर पर अत्यधिक संपीड़ित वेबपी या जेपीजी के रूप में आउटपुट करते हैं, जिसके आधार पर बेहतर 50KB परिणाम मिलता है।"
       },
       {
-        "question": "Can I do this entirely offline?",
-        "answer": "Yes! Once this page loads, you can turn off your internet. The 50KB compression algorithm runs 100% in your browser."
+        "question": "क्या मैं इसे पूरी तरह ऑफ़लाइन कर सकता हूँ?",
+        "answer": "हाँ! एक बार यह पेज लोड हो जाए, तो आप अपना इंटरनेट बंद कर सकते हैं। 50KB कंप्रेशन एल्गोरिदम आपके ब्राउज़र में 100% चलता है।"
       }
     ]
   },
@@ -3874,22 +3874,22 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     "title": "Comprimi immagine a 50 KB: compressione WebGPU intelligente",
     "h1": "Riduci le foto a 50KB con precisione AI",
     "description": "Raggiungi senza sforzo i limiti più severi di 50KB per i portali governativi e per i visti. Comprime pesantemente le immagini senza distruggere la qualità visiva.",
-    "citationFirst": "When a portal demands a file under 50KB, traditional compressors often turn your photo into a blurry mess. We leverage WebGPU to selectively preserve edge fidelity, guaranteeing strict 50KB compliance without sacrificing readability.",
+    "citationFirst": "Quando un portale richiede un file inferiore a 50 KB, i compressori tradizionali spesso trasformano la tua foto in un pasticcio sfocato. Sfruttiamo WebGPU per preservare selettivamente la fedeltà dei bordi, garantendo la rigorosa conformità a 50KB senza sacrificare la leggibilità.",
     "quantitativeProof": "La compressione delle immagini a 50 KB è 3 volte più veloce con l'elaborazione locale.",
     "beforeImageLabel": "File 2,5 MB",
     "afterImageLabel": "Ottimizzato 48KB",
     "faqs": [
       {
-        "question": "Why is 50KB so hard to achieve with good quality?",
-        "answer": "50KB leaves very little room for image data. Most tools just lower resolution bluntly. We optimize color quantization and metadata stripping to save space for actual pixels."
+        "question": "Perché è così difficile raggiungere 50KB con una buona qualità?",
+        "answer": "50KB lasciano pochissimo spazio per i dati dell'immagine. La maggior parte degli strumenti riduce semplicemente la risoluzione in modo brusco. Ottimizziamo la quantizzazione del colore e l'eliminazione dei metadati per risparmiare spazio per i pixel effettivi."
       },
       {
-        "question": "Which formats can be compressed to 50KB?",
-        "answer": "You can upload JPG, JPEG, PNG, or WEBP. We generally output as a highly compressed WebP or JPG depending on which yields a better 50KB result."
+        "question": "Quali formati possono essere compressi a 50KB?",
+        "answer": "Puoi caricare JPG, JPEG, PNG o WEBP. Generalmente produciamo come WebP o JPG altamente compresso a seconda di quale produce un risultato migliore di 50 KB."
       },
       {
-        "question": "Can I do this entirely offline?",
-        "answer": "Yes! Once this page loads, you can turn off your internet. The 50KB compression algorithm runs 100% in your browser."
+        "question": "Posso farlo completamente offline?",
+        "answer": "SÌ! Una volta caricata questa pagina, puoi disattivare Internet. L'algoritmo di compressione da 50 KB funziona al 100% nel tuo browser."
       }
     ]
   },
@@ -3900,22 +3900,22 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     "title": "이미지를 50KB로 압축 - 스마트 WebGPU 압축",
     "h1": "AI Precision으로 사진을 50KB로 축소",
     "description": "정부 및 비자 포털의 가장 엄격한 50KB 제한을 손쉽게 달성하세요. 시각적 품질을 손상시키지 않고 이미지를 크게 압축합니다.",
-    "citationFirst": "When a portal demands a file under 50KB, traditional compressors often turn your photo into a blurry mess. We leverage WebGPU to selectively preserve edge fidelity, guaranteeing strict 50KB compliance without sacrificing readability.",
+    "citationFirst": "포털에서 50KB 미만의 파일을 요구하는 경우 기존 압축기는 사진을 흐릿하게 만드는 경우가 많습니다. 우리는 WebGPU를 활용하여 에지 충실도를 선택적으로 보존하고 가독성을 저하시키지 않으면서 엄격한 50KB 규정 준수를 보장합니다.",
     "quantitativeProof": "로컬 처리를 사용하면 이미지를 50KB로 압축하는 속도가 3배 더 빨라집니다.",
     "beforeImageLabel": "파일 2.5MB",
     "afterImageLabel": "최적화된 48KB",
     "faqs": [
       {
-        "question": "Why is 50KB so hard to achieve with good quality?",
-        "answer": "50KB leaves very little room for image data. Most tools just lower resolution bluntly. We optimize color quantization and metadata stripping to save space for actual pixels."
+        "question": "좋은 품질로 50KB를 달성하기 어려운 이유는 무엇입니까?",
+        "answer": "50KB는 이미지 데이터를 위한 공간이 거의 없습니다. 대부분의 도구는 해상도를 무뚝뚝하게 낮춥니다. 실제 픽셀을 위한 공간을 절약하기 위해 색상 양자화 및 메타데이터 스트리핑을 최적화합니다."
       },
       {
-        "question": "Which formats can be compressed to 50KB?",
-        "answer": "You can upload JPG, JPEG, PNG, or WEBP. We generally output as a highly compressed WebP or JPG depending on which yields a better 50KB result."
+        "question": "50KB로 압축할 수 있는 형식은 무엇입니까?",
+        "answer": "JPG, JPEG, PNG 또는 WEBP를 업로드할 수 있습니다. 우리는 일반적으로 어느 것이 더 나은 50KB 결과를 산출하는지에 따라 고도로 압축된 WebP 또는 JPG로 출력합니다."
       },
       {
-        "question": "Can I do this entirely offline?",
-        "answer": "Yes! Once this page loads, you can turn off your internet. The 50KB compression algorithm runs 100% in your browser."
+        "question": "이 작업을 완전히 오프라인으로 수행할 수 있나요?",
+        "answer": "예! 이 페이지가 로드되면 인터넷을 끌 수 있습니다. 50KB 압축 알고리즘은 브라우저에서 100% 실행됩니다."
       }
     ]
   },
@@ -3926,22 +3926,22 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     "title": "Comprimeer afbeelding tot 50 KB - Slimme WebGPU-compressie",
     "h1": "Verklein foto's tot 50 KB met AI Precision",
     "description": "Bereik moeiteloos de strengste limieten van 50 KB voor overheids- en visumportals. Comprimeer afbeeldingen zwaar zonder de visuele kwaliteit te vernietigen.",
-    "citationFirst": "When a portal demands a file under 50KB, traditional compressors often turn your photo into a blurry mess. We leverage WebGPU to selectively preserve edge fidelity, guaranteeing strict 50KB compliance without sacrificing readability.",
+    "citationFirst": "Wanneer een portal een bestand van minder dan 50 KB nodig heeft, veranderen traditionele compressoren uw foto vaak in een wazige puinhoop. We maken gebruik van WebGPU om de edge-fidelity selectief te behouden, waardoor strikte naleving van 50 KB wordt gegarandeerd zonder dat dit ten koste gaat van de leesbaarheid.",
     "quantitativeProof": "Het comprimeren van afbeeldingen naar 50 KB gaat 3x sneller met lokale verwerking.",
     "beforeImageLabel": "Bestand 2,5 MB",
     "afterImageLabel": "Geoptimaliseerd 48 KB",
     "faqs": [
       {
-        "question": "Why is 50KB so hard to achieve with good quality?",
-        "answer": "50KB leaves very little room for image data. Most tools just lower resolution bluntly. We optimize color quantization and metadata stripping to save space for actual pixels."
+        "question": "Waarom is 50 KB zo moeilijk te bereiken met goede kwaliteit?",
+        "answer": "50 KB laat heel weinig ruimte over voor beeldgegevens. De meeste tools verlagen de resolutie botweg. We optimaliseren de kleurkwantisering en het strippen van metagegevens om ruimte te besparen voor daadwerkelijke pixels."
       },
       {
-        "question": "Which formats can be compressed to 50KB?",
-        "answer": "You can upload JPG, JPEG, PNG, or WEBP. We generally output as a highly compressed WebP or JPG depending on which yields a better 50KB result."
+        "question": "Welke formaten kunnen worden gecomprimeerd tot 50 KB?",
+        "answer": "U kunt JPG, JPEG, PNG of WEBP uploaden. We voeren doorgaans uit als een sterk gecomprimeerde WebP of JPG, afhankelijk van wat een beter resultaat van 50 KB oplevert."
       },
       {
-        "question": "Can I do this entirely offline?",
-        "answer": "Yes! Once this page loads, you can turn off your internet. The 50KB compression algorithm runs 100% in your browser."
+        "question": "Kan ik dit volledig offline doen?",
+        "answer": "Ja! Zodra deze pagina is geladen, kunt u uw internet uitschakelen. Het compressie-algoritme van 50 KB wordt 100% in uw browser uitgevoerd."
       }
     ]
   },
@@ -3952,22 +3952,22 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     "title": "Görüntüyü 50KB'ye Sıkıştırın - Akıllı WebGPU Sıkıştırma",
     "h1": "AI Precision ile Fotoğrafları 50 KB'a Küçült",
     "description": "Devlet ve vize portalları için en katı 50 KB limitlerine zahmetsizce ulaşın. Görsel kaliteyi bozmadan görüntüleri yoğun bir şekilde sıkıştırın.",
-    "citationFirst": "When a portal demands a file under 50KB, traditional compressors often turn your photo into a blurry mess. We leverage WebGPU to selectively preserve edge fidelity, guaranteeing strict 50KB compliance without sacrificing readability.",
+    "citationFirst": "Bir portal 50 KB'nin altında bir dosya talep ettiğinde, geleneksel sıkıştırıcılar genellikle fotoğrafınızı bulanık bir karmaşaya dönüştürür. Okunabilirlikten ödün vermeden 50 KB'lik katı uyumluluğu garanti ederek uç doğruluğunu seçici olarak korumak için WebGPU'dan yararlanıyoruz.",
     "quantitativeProof": "Yerel işlemeyle görüntüleri 50 KB'ye sıkıştırmak 3 kat daha hızlıdır.",
     "beforeImageLabel": "Dosya 2,5 MB",
     "afterImageLabel": "Optimize edilmiş 48KB",
     "faqs": [
       {
-        "question": "Why is 50KB so hard to achieve with good quality?",
-        "answer": "50KB leaves very little room for image data. Most tools just lower resolution bluntly. We optimize color quantization and metadata stripping to save space for actual pixels."
+        "question": "50 KB'yi iyi kalitede elde etmek neden bu kadar zor?",
+        "answer": "50 KB görüntü verileri için çok az yer bırakır. Çoğu araç çözünürlüğü açıkça düşürür. Gerçek piksellere yer kazandırmak için renk nicelemeyi ve meta veri ayırmayı optimize ediyoruz."
       },
       {
-        "question": "Which formats can be compressed to 50KB?",
-        "answer": "You can upload JPG, JPEG, PNG, or WEBP. We generally output as a highly compressed WebP or JPG depending on which yields a better 50KB result."
+        "question": "Hangi formatlar 50 KB'ye sıkıştırılabilir?",
+        "answer": "JPG, JPEG, PNG veya WEBP'yi yükleyebilirsiniz. Hangisinin daha iyi 50 KB sonuç verdiğine bağlı olarak genellikle yüksek oranda sıkıştırılmış bir WebP veya JPG olarak çıktı alırız."
       },
       {
-        "question": "Can I do this entirely offline?",
-        "answer": "Yes! Once this page loads, you can turn off your internet. The 50KB compression algorithm runs 100% in your browser."
+        "question": "Bunu tamamen çevrimdışı yapabilir miyim?",
+        "answer": "Evet! Bu sayfa yüklendikten sonra internetinizi kapatabilirsiniz. 50KB sıkıştırma algoritması tarayıcınızda %100 çalışır."
       }
     ]
   },
@@ -3978,22 +3978,22 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     "title": "Kompresuj obraz do 50 KB — inteligentna kompresja WebGPU",
     "h1": "Zmniejsz zdjęcia do 50 KB dzięki AI Precision",
     "description": "Bez wysiłku osiągaj najsurowsze limity 50 KB dla portali rządowych i wizowych. Mocno kompresuj obrazy bez utraty jakości wizualnej.",
-    "citationFirst": "When a portal demands a file under 50KB, traditional compressors often turn your photo into a blurry mess. We leverage WebGPU to selectively preserve edge fidelity, guaranteeing strict 50KB compliance without sacrificing readability.",
+    "citationFirst": "Gdy portal żąda pliku o rozmiarze mniejszym niż 50 KB, tradycyjne kompresory często zamieniają zdjęcie w niewyraźny bałagan. Wykorzystujemy technologię WebGPU, aby selektywnie zachować wierność brzegową, gwarantując ścisłą zgodność z 50 KB bez utraty czytelności.",
     "quantitativeProof": "Kompresja obrazów do 50 KB jest 3 razy szybsza przy przetwarzaniu lokalnym.",
     "beforeImageLabel": "Plik 2,5MB",
     "afterImageLabel": "Zoptymalizowano 48 KB",
     "faqs": [
       {
-        "question": "Why is 50KB so hard to achieve with good quality?",
-        "answer": "50KB leaves very little room for image data. Most tools just lower resolution bluntly. We optimize color quantization and metadata stripping to save space for actual pixels."
+        "question": "Dlaczego 50 KB jest tak trudne do osiągnięcia przy dobrej jakości?",
+        "answer": "50 KB pozostawia bardzo mało miejsca na dane obrazu. Większość narzędzi po prostu bez ogródek obniża rozdzielczość. Optymalizujemy kwantyzację kolorów i usuwanie metadanych, aby zaoszczędzić miejsce na rzeczywiste piksele."
       },
       {
-        "question": "Which formats can be compressed to 50KB?",
-        "answer": "You can upload JPG, JPEG, PNG, or WEBP. We generally output as a highly compressed WebP or JPG depending on which yields a better 50KB result."
+        "question": "Jakie formaty można skompresować do 50 KB?",
+        "answer": "Możesz przesyłać pliki JPG, JPEG, PNG lub WEBP. Zwykle wysyłamy jako wysoce skompresowany plik WebP lub JPG, w zależności od tego, co daje lepszy wynik 50 KB."
       },
       {
-        "question": "Can I do this entirely offline?",
-        "answer": "Yes! Once this page loads, you can turn off your internet. The 50KB compression algorithm runs 100% in your browser."
+        "question": "Czy mogę to zrobić całkowicie offline?",
+        "answer": "Tak! Po załadowaniu tej strony możesz wyłączyć internet. Algorytm kompresji 50 KB działa w 100% w Twojej przeglądarce."
       }
     ]
   },
@@ -4004,22 +4004,22 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     "title": "Nén hình ảnh xuống 50KB - Nén WebGPU thông minh",
     "h1": "Thu nhỏ ảnh xuống 50KB với AI Precision",
     "description": "Đạt giới hạn 50KB nghiêm ngặt nhất dành cho các cổng thông tin chính phủ và thị thực một cách dễ dàng. Nén hình ảnh rất nhiều mà không làm giảm chất lượng hình ảnh.",
-    "citationFirst": "When a portal demands a file under 50KB, traditional compressors often turn your photo into a blurry mess. We leverage WebGPU to selectively preserve edge fidelity, guaranteeing strict 50KB compliance without sacrificing readability.",
+    "citationFirst": "Khi một cổng thông tin yêu cầu tệp dưới 50KB, các trình nén truyền thống thường biến ảnh của bạn thành một mớ hỗn độn mờ ảo. Chúng tôi tận dụng WebGPU để duy trì có chọn lọc độ trung thực của cạnh, đảm bảo tuân thủ nghiêm ngặt 50KB mà không làm mất đi khả năng đọc.",
     "quantitativeProof": "Nén hình ảnh xuống 50KB nhanh hơn gấp 3 lần khi xử lý cục bộ.",
     "beforeImageLabel": "Tệp 2,5 MB",
     "afterImageLabel": "Tối ưu hóa 48KB",
     "faqs": [
       {
-        "question": "Why is 50KB so hard to achieve with good quality?",
-        "answer": "50KB leaves very little room for image data. Most tools just lower resolution bluntly. We optimize color quantization and metadata stripping to save space for actual pixels."
+        "question": "Tại sao 50KB lại khó đạt được với chất lượng tốt?",
+        "answer": "50KB để lại rất ít chỗ cho dữ liệu hình ảnh. Hầu hết các công cụ chỉ giảm độ phân giải một cách thẳng thừng. Chúng tôi tối ưu hóa lượng tử hóa màu và loại bỏ siêu dữ liệu để tiết kiệm dung lượng cho các pixel thực tế."
       },
       {
-        "question": "Which formats can be compressed to 50KB?",
-        "answer": "You can upload JPG, JPEG, PNG, or WEBP. We generally output as a highly compressed WebP or JPG depending on which yields a better 50KB result."
+        "question": "Những định dạng nào có thể được nén tới 50KB?",
+        "answer": "Bạn có thể tải lên JPG, JPEG, PNG hoặc WEBP. Chúng tôi thường xuất ra dưới dạng WebP hoặc JPG được nén ở mức độ cao, tùy thuộc vào loại nào mang lại kết quả 50KB tốt hơn."
       },
       {
-        "question": "Can I do this entirely offline?",
-        "answer": "Yes! Once this page loads, you can turn off your internet. The 50KB compression algorithm runs 100% in your browser."
+        "question": "Tôi có thể làm điều này hoàn toàn ngoại tuyến không?",
+        "answer": "Đúng! Sau khi tải trang này, bạn có thể tắt Internet. Thuật toán nén 50KB chạy 100% trong trình duyệt của bạn."
       }
     ]
   },
@@ -4056,22 +4056,22 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     "title": "Komprimera bild till 50KB - Smart WebGPU-komprimering",
     "h1": "Krympa foton till 50KB med AI Precision",
     "description": "Träffa de strängaste 50KB-gränserna för regerings- och visumportaler utan ansträngning. Komprimera bilder kraftigt utan att förstöra den visuella kvaliteten.",
-    "citationFirst": "When a portal demands a file under 50KB, traditional compressors often turn your photo into a blurry mess. We leverage WebGPU to selectively preserve edge fidelity, guaranteeing strict 50KB compliance without sacrificing readability.",
+    "citationFirst": "När en portal kräver en fil under 50 kB, förvandlar traditionella kompressorer ofta ditt foto till en suddig röra. Vi använder WebGPU för att selektivt bevara edge fidelity, vilket garanterar strikt 50KB-efterlevnad utan att offra läsbarheten.",
     "quantitativeProof": "Att komprimera bilder till 50KB är 3x snabbare med lokal bearbetning.",
     "beforeImageLabel": "Fil 2,5 MB",
     "afterImageLabel": "Optimerad 48KB",
     "faqs": [
       {
-        "question": "Why is 50KB so hard to achieve with good quality?",
-        "answer": "50KB leaves very little room for image data. Most tools just lower resolution bluntly. We optimize color quantization and metadata stripping to save space for actual pixels."
+        "question": "Varför är 50KB så svårt att uppnå med bra kvalitet?",
+        "answer": "50KB lämnar väldigt lite utrymme för bilddata. De flesta verktyg sänker bara upplösningen rakt på sak. Vi optimerar färgkvantisering och strippning av metadata för att spara utrymme för faktiska pixlar."
       },
       {
-        "question": "Which formats can be compressed to 50KB?",
-        "answer": "You can upload JPG, JPEG, PNG, or WEBP. We generally output as a highly compressed WebP or JPG depending on which yields a better 50KB result."
+        "question": "Vilka format kan komprimeras till 50KB?",
+        "answer": "Du kan ladda upp JPG, JPEG, PNG eller WEBP. Vi matar vanligtvis ut som en mycket komprimerad WebP eller JPG beroende på vilket som ger ett bättre 50KB-resultat."
       },
       {
-        "question": "Can I do this entirely offline?",
-        "answer": "Yes! Once this page loads, you can turn off your internet. The 50KB compression algorithm runs 100% in your browser."
+        "question": "Kan jag göra detta helt offline?",
+        "answer": "Ja! När den här sidan har laddats kan du stänga av ditt internet. 50KB-komprimeringsalgoritmen körs till 100 % i din webbläsare."
       }
     ]
   },
@@ -4082,22 +4082,22 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     "title": "Komprimujte obrázek na 50 kB – Inteligentní komprese WebGPU",
     "h1": "Zmenšete fotografie na 50 kB s AI Precision",
     "description": "Dosáhněte bez námahy nejpřísnějších limitů 50 kB pro vládní a vízové ​​portály. Silně komprimujte obrázky, aniž byste narušili vizuální kvalitu.",
-    "citationFirst": "When a portal demands a file under 50KB, traditional compressors often turn your photo into a blurry mess. We leverage WebGPU to selectively preserve edge fidelity, guaranteeing strict 50KB compliance without sacrificing readability.",
+    "citationFirst": "Když portál požaduje soubor menší než 50 kB, tradiční kompresory často z vaší fotografie udělají rozmazaný nepořádek. Využíváme WebGPU k selektivnímu zachování věrnosti okrajů a zaručuje přísnou shodu s 50 kB bez obětování čitelnosti.",
     "quantitativeProof": "Komprese obrázků na 50 kB je při místním zpracování 3x rychlejší.",
     "beforeImageLabel": "Soubor 2,5 MB",
     "afterImageLabel": "Optimalizováno 48 kB",
     "faqs": [
       {
-        "question": "Why is 50KB so hard to achieve with good quality?",
-        "answer": "50KB leaves very little room for image data. Most tools just lower resolution bluntly. We optimize color quantization and metadata stripping to save space for actual pixels."
+        "question": "Proč je tak těžké dosáhnout 50 kB s dobrou kvalitou?",
+        "answer": "50 kB ponechává velmi málo místa pro obrazová data. Většina nástrojů jen tupě snižuje rozlišení. Optimalizujeme kvantizaci barev a odstraňování metadat, abychom ušetřili místo pro skutečné pixely."
       },
       {
-        "question": "Which formats can be compressed to 50KB?",
-        "answer": "You can upload JPG, JPEG, PNG, or WEBP. We generally output as a highly compressed WebP or JPG depending on which yields a better 50KB result."
+        "question": "Které formáty lze komprimovat na 50 kB?",
+        "answer": "Můžete nahrát JPG, JPEG, PNG nebo WEBP. Výstup obvykle provádíme jako vysoce komprimovaný WebP nebo JPG v závislosti na tom, který dává lepší výsledek o velikosti 50 kB."
       },
       {
-        "question": "Can I do this entirely offline?",
-        "answer": "Yes! Once this page loads, you can turn off your internet. The 50KB compression algorithm runs 100% in your browser."
+        "question": "Mohu to udělat zcela offline?",
+        "answer": "Ano! Jakmile se tato stránka načte, můžete vypnout internet. Algoritmus komprese 50 kB běží ve vašem prohlížeči 100 %."
       }
     ]
   },
@@ -4108,22 +4108,22 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     "title": "Komprimer billede til 50KB - Smart WebGPU-komprimering",
     "h1": "Formindsk fotos til 50 KB med AI Precision",
     "description": "Ram de strengeste 50 KB grænser for regerings- og visumportaler uden besvær. Komprimer billeder kraftigt uden at ødelægge den visuelle kvalitet.",
-    "citationFirst": "When a portal demands a file under 50KB, traditional compressors often turn your photo into a blurry mess. We leverage WebGPU to selectively preserve edge fidelity, guaranteeing strict 50KB compliance without sacrificing readability.",
+    "citationFirst": "Når en portal kræver en fil under 50 KB, forvandler traditionelle kompressorer ofte dit billede til et sløret rod. Vi udnytter WebGPU til selektivt at bevare edge fidelity, hvilket garanterer streng 50KB overholdelse uden at ofre læsbarheden.",
     "quantitativeProof": "Komprimering af billeder til 50KB er 3x hurtigere med lokal behandling.",
     "beforeImageLabel": "Fil 2,5 MB",
     "afterImageLabel": "Optimeret 48KB",
     "faqs": [
       {
-        "question": "Why is 50KB so hard to achieve with good quality?",
-        "answer": "50KB leaves very little room for image data. Most tools just lower resolution bluntly. We optimize color quantization and metadata stripping to save space for actual pixels."
+        "question": "Hvorfor er 50KB så svært at opnå med god kvalitet?",
+        "answer": "50KB efterlader meget lidt plads til billeddata. De fleste værktøjer sænker bare opløsningen direkte. Vi optimerer farvekvantisering og metadatastripning for at spare plads til faktiske pixels."
       },
       {
-        "question": "Which formats can be compressed to 50KB?",
-        "answer": "You can upload JPG, JPEG, PNG, or WEBP. We generally output as a highly compressed WebP or JPG depending on which yields a better 50KB result."
+        "question": "Hvilke formater kan komprimeres til 50KB?",
+        "answer": "Du kan uploade JPG, JPEG, PNG eller WEBP. Vi udsender generelt som en meget komprimeret WebP eller JPG afhængigt af, hvilket giver et bedre 50KB resultat."
       },
       {
-        "question": "Can I do this entirely offline?",
-        "answer": "Yes! Once this page loads, you can turn off your internet. The 50KB compression algorithm runs 100% in your browser."
+        "question": "Kan jeg gøre dette helt offline?",
+        "answer": "Ja! Når denne side er indlæst, kan du slukke for dit internet. 50KB kompressionsalgoritmen kører 100% i din browser."
       }
     ]
   },
@@ -4134,22 +4134,22 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     "title": "Συμπίεση εικόνας σε 50 KB - Έξυπνη συμπίεση WebGPU",
     "h1": "Σμικρύνετε τις φωτογραφίες στα 50 KB με AI Precision",
     "description": "Περάστε τα αυστηρότερα όρια των 50 KB για κυβερνητικές πύλες και βίζα χωρίς κόπο. Συμπιέστε τις εικόνες σε μεγάλο βαθμό χωρίς να καταστρέψετε την οπτική ποιότητα.",
-    "citationFirst": "When a portal demands a file under 50KB, traditional compressors often turn your photo into a blurry mess. We leverage WebGPU to selectively preserve edge fidelity, guaranteeing strict 50KB compliance without sacrificing readability.",
+    "citationFirst": "Όταν μια πύλη απαιτεί ένα αρχείο κάτω των 50 KB, οι παραδοσιακοί συμπιεστές συχνά μετατρέπουν τη φωτογραφία σας σε ένα θολό χάος. Αξιοποιούμε το WebGPU για να διατηρήσουμε επιλεκτικά την πιστότητα των άκρων, εξασφαλίζοντας αυστηρή συμμόρφωση 50 KB χωρίς να θυσιάζεται η αναγνωσιμότητα.",
     "quantitativeProof": "Η συμπίεση εικόνων στα 50 KB είναι 3 φορές ταχύτερη με τοπική επεξεργασία.",
     "beforeImageLabel": "Αρχείο 2,5 MB",
     "afterImageLabel": "Βελτιστοποιημένο 48KB",
     "faqs": [
       {
-        "question": "Why is 50KB so hard to achieve with good quality?",
-        "answer": "50KB leaves very little room for image data. Most tools just lower resolution bluntly. We optimize color quantization and metadata stripping to save space for actual pixels."
+        "question": "Γιατί είναι τόσο δύσκολο να επιτευχθούν τα 50KB με καλή ποιότητα;",
+        "answer": "Τα 50 KB αφήνουν πολύ λίγο χώρο για δεδομένα εικόνας. Τα περισσότερα εργαλεία απλώς χαμηλώνουν ωμά την ανάλυση. Βελτιστοποιούμε την κβαντοποίηση χρωμάτων και την αφαίρεση μεταδεδομένων για εξοικονόμηση χώρου για πραγματικά pixel."
       },
       {
-        "question": "Which formats can be compressed to 50KB?",
-        "answer": "You can upload JPG, JPEG, PNG, or WEBP. We generally output as a highly compressed WebP or JPG depending on which yields a better 50KB result."
+        "question": "Ποιες μορφές μπορούν να συμπιεστούν στα 50 KB;",
+        "answer": "Μπορείτε να ανεβάσετε JPG, JPEG, PNG ή WEBP. Γενικά εξάγουμε ως εξαιρετικά συμπιεσμένο WebP ή JPG ανάλογα με το ποιο αποφέρει καλύτερο αποτέλεσμα 50 KB."
       },
       {
-        "question": "Can I do this entirely offline?",
-        "answer": "Yes! Once this page loads, you can turn off your internet. The 50KB compression algorithm runs 100% in your browser."
+        "question": "Μπορώ να το κάνω εντελώς εκτός σύνδεσης;",
+        "answer": "Ναί! Μόλις φορτώσει αυτή η σελίδα, μπορείτε να απενεργοποιήσετε το διαδίκτυο. Ο αλγόριθμος συμπίεσης 50 KB εκτελείται 100% στο πρόγραμμα περιήγησής σας."
       }
     ]
   },
@@ -4160,22 +4160,22 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     "title": "Pakkaa kuva 50 kilotavuun - Smart WebGPU -pakkaus",
     "h1": "Pienennä valokuvat 50 kilotavuun AI Precisionin avulla",
     "description": "Saavuta vaivattomasti tiukimmat 50 kt:n rajoitukset hallituksen ja viisumiportaaleille. Pakkaa kuvat voimakkaasti vahingoittamatta visuaalista laatua.",
-    "citationFirst": "When a portal demands a file under 50KB, traditional compressors often turn your photo into a blurry mess. We leverage WebGPU to selectively preserve edge fidelity, guaranteeing strict 50KB compliance without sacrificing readability.",
+    "citationFirst": "Kun portaali vaatii alle 50 kt:n tiedoston, perinteiset kompressorit muuttavat valokuvasi usein epäselväksi sotkuksi. Hyödynnämme WebGPU:ta säilyttääksemme valikoivasti reunatarkkuuden ja takaamalla tiukan 50 kt:n vaatimustenmukaisuuden luettavuutta tinkimättä.",
     "quantitativeProof": "Kuvien pakkaaminen 50 kilotavuun on 3x nopeampaa paikallisella käsittelyllä.",
     "beforeImageLabel": "Tiedosto 2,5 Mt",
     "afterImageLabel": "Optimoitu 48 kt",
     "faqs": [
       {
-        "question": "Why is 50KB so hard to achieve with good quality?",
-        "answer": "50KB leaves very little room for image data. Most tools just lower resolution bluntly. We optimize color quantization and metadata stripping to save space for actual pixels."
+        "question": "Miksi 50 kilotavua on niin vaikea saavuttaa hyvällä laadulla?",
+        "answer": "50 kt jättää hyvin vähän tilaa kuvadatalle. Useimmat työkalut vain heikentävät resoluutiota. Optimoimme värien kvantisoinnin ja metatietojen poistamisen säästääksemme tilaa todellisille pikseleille."
       },
       {
-        "question": "Which formats can be compressed to 50KB?",
-        "answer": "You can upload JPG, JPEG, PNG, or WEBP. We generally output as a highly compressed WebP or JPG depending on which yields a better 50KB result."
+        "question": "Mitä formaatteja voidaan pakata 50 kilotavuun?",
+        "answer": "Voit ladata JPG-, JPEG-, PNG- tai WEBP-tiedostoja. Tulostamme yleensä erittäin pakattuna WebP- tai JPG-tiedostona riippuen siitä, kumpi tuottaa paremman 50 kt:n tuloksen."
       },
       {
-        "question": "Can I do this entirely offline?",
-        "answer": "Yes! Once this page loads, you can turn off your internet. The 50KB compression algorithm runs 100% in your browser."
+        "question": "Voinko tehdä tämän kokonaan offline-tilassa?",
+        "answer": "Kyllä! Kun tämä sivu on latautunut, voit sammuttaa internetin. 50 kt:n pakkausalgoritmi toimii 100 % selaimessasi."
       }
     ]
   },
@@ -4186,22 +4186,22 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     "title": "דחוס תמונה ל-50KB - דחיסה חכמה של WebGPU",
     "h1": "כווץ תמונות ל-50KB עם AI Precision",
     "description": "היכנס למגבלות המחמירות ביותר של 50KB עבור פורטלי ממשלה וויזה ללא מאמץ. דחוס תמונות בכבדות מבלי להרוס את האיכות החזותית.",
-    "citationFirst": "When a portal demands a file under 50KB, traditional compressors often turn your photo into a blurry mess. We leverage WebGPU to selectively preserve edge fidelity, guaranteeing strict 50KB compliance without sacrificing readability.",
+    "citationFirst": "כאשר פורטל דורש קובץ מתחת ל-50KB, מדחסים מסורתיים הופכים את התמונה שלך לבלגן מטושטש. אנו ממנפים את WebGPU כדי לשמר באופן סלקטיבי את נאמנות הקצה, ומבטיחים תאימות קפדנית של 50KB מבלי להקריב את הקריאה.",
     "quantitativeProof": "דחיסת תמונות ל-50KB מהירה פי 3 עם עיבוד מקומי.",
     "beforeImageLabel": "קובץ 2.5MB",
     "afterImageLabel": "אופטימיזציה של 48KB",
     "faqs": [
       {
-        "question": "Why is 50KB so hard to achieve with good quality?",
-        "answer": "50KB leaves very little room for image data. Most tools just lower resolution bluntly. We optimize color quantization and metadata stripping to save space for actual pixels."
+        "question": "מדוע כל כך קשה להשיג 50KB עם איכות טובה?",
+        "answer": "50KB משאיר מעט מאוד מקום לנתוני תמונה. רוב הכלים פשוט מורידים את הרזולוציה בצורה בוטה. אנו מייעלים קוונטיזציה של צבעים והסרת מטא נתונים כדי לחסוך מקום לפיקסלים בפועל."
       },
       {
-        "question": "Which formats can be compressed to 50KB?",
-        "answer": "You can upload JPG, JPEG, PNG, or WEBP. We generally output as a highly compressed WebP or JPG depending on which yields a better 50KB result."
+        "question": "אילו פורמטים ניתן לדחוס ל-50KB?",
+        "answer": "אתה יכול להעלות JPG, JPEG, PNG או WEBP. בדרך כלל, אנו פלטים כ-WebP או JPG דחוסים מאוד, תלוי מה מניב תוצאה טובה יותר של 50KB."
       },
       {
-        "question": "Can I do this entirely offline?",
-        "answer": "Yes! Once this page loads, you can turn off your internet. The 50KB compression algorithm runs 100% in your browser."
+        "question": "האם אני יכול לעשות את זה לגמרי במצב לא מקוון?",
+        "answer": "כֵּן! ברגע שהדף הזה נטען, אתה יכול לכבות את האינטרנט שלך. אלגוריתם הדחיסה של 50KB פועל ב-100% בדפדפן שלך."
       }
     ]
   },
@@ -4212,22 +4212,22 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     "title": "Kép tömörítése 50 KB-ra – Intelligens WebGPU-tömörítés",
     "h1": "Csökkentse a fényképeket 50 KB-ra az AI Precision segítségével",
     "description": "Könnyedén elérheti a kormányzati és vízumportálok legszigorúbb 50 KB-os korlátait. Erősen tömörítse a képeket anélkül, hogy rontaná a vizuális minőséget.",
-    "citationFirst": "When a portal demands a file under 50KB, traditional compressors often turn your photo into a blurry mess. We leverage WebGPU to selectively preserve edge fidelity, guaranteeing strict 50KB compliance without sacrificing readability.",
+    "citationFirst": "Amikor egy portál 50 KB-nál kisebb fájlt igényel, a hagyományos tömörítők gyakran homályos rendetlenné teszik a fényképet. A WebGPU segítségével szelektíven megőrizzük az élhűséget, garantálva az 50 KB-os szigorú megfelelést az olvashatóság feláldozása nélkül.",
     "quantitativeProof": "A képek 50 KB-ra való tömörítése háromszor gyorsabb helyi feldolgozás mellett.",
     "beforeImageLabel": "Fájl 2,5 MB",
     "afterImageLabel": "Optimalizált 48 KB",
     "faqs": [
       {
-        "question": "Why is 50KB so hard to achieve with good quality?",
-        "answer": "50KB leaves very little room for image data. Most tools just lower resolution bluntly. We optimize color quantization and metadata stripping to save space for actual pixels."
+        "question": "Miért olyan nehéz 50 KB-ot jó minőséggel elérni?",
+        "answer": "Az 50 KB nagyon kevés helyet hagy a képadatok számára. A legtöbb eszköz csak tompán csökkenti a felbontást. Optimalizáljuk a színkvantálást és a metaadatok eltávolítását, hogy helyet takarítsunk meg a tényleges pixelek számára."
       },
       {
-        "question": "Which formats can be compressed to 50KB?",
-        "answer": "You can upload JPG, JPEG, PNG, or WEBP. We generally output as a highly compressed WebP or JPG depending on which yields a better 50KB result."
+        "question": "Mely formátumok tömöríthetők 50 KB-ra?",
+        "answer": "JPG, JPEG, PNG vagy WEBP fájlokat tölthet fel. Általában erősen tömörített WebP vagy JPG formátumban adjuk ki, attól függően, hogy melyik ad jobb 50 KB-os eredményt."
       },
       {
-        "question": "Can I do this entirely offline?",
-        "answer": "Yes! Once this page loads, you can turn off your internet. The 50KB compression algorithm runs 100% in your browser."
+        "question": "Megtehetem ezt teljesen offline állapotban?",
+        "answer": "Igen! Az oldal betöltése után kikapcsolhatja az internetet. Az 50 KB-os tömörítési algoritmus 100%-ban fut a böngészőjében."
       }
     ]
   },
@@ -4238,22 +4238,22 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     "title": "Komprimer bilde til 50KB - Smart WebGPU-komprimering",
     "h1": "Krymp bilder til 50 KB med AI Precision",
     "description": "Treff de strengeste 50KB-grensene for myndighets- og visumportaler uten problemer. Komprimer bilder tungt uten å ødelegge den visuelle kvaliteten.",
-    "citationFirst": "When a portal demands a file under 50KB, traditional compressors often turn your photo into a blurry mess. We leverage WebGPU to selectively preserve edge fidelity, guaranteeing strict 50KB compliance without sacrificing readability.",
+    "citationFirst": "Når en portal krever en fil under 50KB, gjør tradisjonelle kompressorer ofte bildet ditt til et uskarpt rot. Vi utnytter WebGPU for å selektivt bevare edge fidelity, og garanterer streng 50KB-overholdelse uten å ofre lesbarheten.",
     "quantitativeProof": "Å komprimere bilder til 50KB er 3x raskere med lokal behandling.",
     "beforeImageLabel": "Fil 2,5 MB",
     "afterImageLabel": "Optimalisert 48KB",
     "faqs": [
       {
-        "question": "Why is 50KB so hard to achieve with good quality?",
-        "answer": "50KB leaves very little room for image data. Most tools just lower resolution bluntly. We optimize color quantization and metadata stripping to save space for actual pixels."
+        "question": "Hvorfor er 50KB så vanskelig å oppnå med god kvalitet?",
+        "answer": "50KB gir svært lite plass til bildedata. De fleste verktøy reduserer bare oppløsningen rett og slett. Vi optimaliserer fargekvantisering og metadatastripping for å spare plass til faktiske piksler."
       },
       {
-        "question": "Which formats can be compressed to 50KB?",
-        "answer": "You can upload JPG, JPEG, PNG, or WEBP. We generally output as a highly compressed WebP or JPG depending on which yields a better 50KB result."
+        "question": "Hvilke formater kan komprimeres til 50KB?",
+        "answer": "Du kan laste opp JPG, JPEG, PNG eller WEBP. Vi produserer vanligvis som en svært komprimert WebP eller JPG avhengig av hvilken som gir et bedre 50KB-resultat."
       },
       {
-        "question": "Can I do this entirely offline?",
-        "answer": "Yes! Once this page loads, you can turn off your internet. The 50KB compression algorithm runs 100% in your browser."
+        "question": "Kan jeg gjøre dette helt offline?",
+        "answer": "Ja! Når denne siden har lastet inn, kan du slå av Internett. 50KB kompresjonsalgoritmen kjører 100 % i nettleseren din."
       }
     ]
   },
@@ -4264,22 +4264,22 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     "title": "Comprimați imaginea la 50KB - Smart WebGPU Compression",
     "h1": "Reduceți fotografiile la 50 KB cu AI Precision",
     "description": "Atingeți cele mai stricte limite de 50 KB pentru portalurile guvernamentale și de viză fără efort. Comprimați puternic imaginile fără a distruge calitatea vizuală.",
-    "citationFirst": "When a portal demands a file under 50KB, traditional compressors often turn your photo into a blurry mess. We leverage WebGPU to selectively preserve edge fidelity, guaranteeing strict 50KB compliance without sacrificing readability.",
+    "citationFirst": "Când un portal solicită un fișier mai mic de 50 KB, compresoarele tradiționale transformă adesea fotografia într-o mizerie neclară. Folosim WebGPU pentru a păstra în mod selectiv fidelitatea marginilor, garantând respectarea strictă a 50KB fără a sacrifica lizibilitatea.",
     "quantitativeProof": "Comprimarea imaginilor la 50 KB este de 3 ori mai rapidă cu procesarea locală.",
     "beforeImageLabel": "Fișier de 2,5 MB",
     "afterImageLabel": "Optimizat 48KB",
     "faqs": [
       {
-        "question": "Why is 50KB so hard to achieve with good quality?",
-        "answer": "50KB leaves very little room for image data. Most tools just lower resolution bluntly. We optimize color quantization and metadata stripping to save space for actual pixels."
+        "question": "De ce este atât de greu de realizat 50KB cu o calitate bună?",
+        "answer": "50KB lasă foarte puțin spațiu pentru datele de imagine. Majoritatea instrumentelor scad rezoluția direct. Optimizăm cuantificarea culorilor și eliminarea metadatelor pentru a economisi spațiu pentru pixelii reali."
       },
       {
-        "question": "Which formats can be compressed to 50KB?",
-        "answer": "You can upload JPG, JPEG, PNG, or WEBP. We generally output as a highly compressed WebP or JPG depending on which yields a better 50KB result."
+        "question": "Ce formate pot fi comprimate la 50KB?",
+        "answer": "Puteți încărca JPG, JPEG, PNG sau WEBP. În general, ieșim ca un WebP sau JPG foarte comprimat, în funcție de care produce un rezultat mai bun de 50KB."
       },
       {
-        "question": "Can I do this entirely offline?",
-        "answer": "Yes! Once this page loads, you can turn off your internet. The 50KB compression algorithm runs 100% in your browser."
+        "question": "Pot face asta complet offline?",
+        "answer": "Da! Odată ce această pagină se încarcă, vă puteți opri internetul. Algoritmul de compresie de 50 KB rulează 100% în browser."
       }
     ]
   },
@@ -4290,22 +4290,22 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     "title": "Komprimujte obrázok na 50 kB – inteligentná kompresia WebGPU",
     "h1": "Zmenšenie fotografií na 50 kB s AI Precision",
     "description": "Bez námahy dosiahnite najprísnejšie limity 50 kB pre vládne a vízové ​​portály. Silne komprimujte obrázky bez poškodenia vizuálnej kvality.",
-    "citationFirst": "When a portal demands a file under 50KB, traditional compressors often turn your photo into a blurry mess. We leverage WebGPU to selectively preserve edge fidelity, guaranteeing strict 50KB compliance without sacrificing readability.",
+    "citationFirst": "Keď portál požaduje súbor s veľkosťou menšou ako 50 kB, tradičné kompresory často zmenia vašu fotografiu na rozmazaný neporiadok. WebGPU využívame na selektívne zachovanie vernosti okrajov, pričom zaručujeme prísnu zhodu s veľkosťou 50 kB bez obetovania čitateľnosti.",
     "quantitativeProof": "Kompresia obrázkov na 50 kB je pri lokálnom spracovaní 3x rýchlejšia.",
     "beforeImageLabel": "Súbor 2,5 MB",
     "afterImageLabel": "Optimalizované 48 kB",
     "faqs": [
       {
-        "question": "Why is 50KB so hard to achieve with good quality?",
-        "answer": "50KB leaves very little room for image data. Most tools just lower resolution bluntly. We optimize color quantization and metadata stripping to save space for actual pixels."
+        "question": "Prečo je také ťažké dosiahnuť 50 kB s dobrou kvalitou?",
+        "answer": "50 kB ponecháva veľmi málo miesta pre obrazové dáta. Väčšina nástrojov jednoducho zníži rozlíšenie. Optimalizujeme kvantizáciu farieb a odstraňovanie metadát, aby sme ušetrili priestor pre skutočné pixely."
       },
       {
-        "question": "Which formats can be compressed to 50KB?",
-        "answer": "You can upload JPG, JPEG, PNG, or WEBP. We generally output as a highly compressed WebP or JPG depending on which yields a better 50KB result."
+        "question": "Ktoré formáty je možné skomprimovať na 50 kB?",
+        "answer": "Môžete nahrať JPG, JPEG, PNG alebo WEBP. Vo všeobecnosti vystupujeme ako vysoko komprimovaný WebP alebo JPG v závislosti od toho, čo prináša lepší výsledok s veľkosťou 50 kB."
       },
       {
-        "question": "Can I do this entirely offline?",
-        "answer": "Yes! Once this page loads, you can turn off your internet. The 50KB compression algorithm runs 100% in your browser."
+        "question": "Môžem to urobiť úplne offline?",
+        "answer": "Áno! Po načítaní tejto stránky môžete vypnúť internet. Algoritmus kompresie 50 kB beží vo vašom prehliadači na 100 %."
       }
     ]
   },
@@ -4316,22 +4316,22 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     "title": "Стисніть зображення до 50 КБ - Smart WebGPU Compression",
     "h1": "Зменште фотографії до 50 Кб за допомогою AI Precision",
     "description": "Досягніть найсуворіших обмежень у 50 КБ для державних і візових порталів без зусиль. Сильно стискайте зображення без шкоди для візуальної якості.",
-    "citationFirst": "When a portal demands a file under 50KB, traditional compressors often turn your photo into a blurry mess. We leverage WebGPU to selectively preserve edge fidelity, guaranteeing strict 50KB compliance without sacrificing readability.",
+    "citationFirst": "Коли портал вимагає файл менше 50 КБ, традиційні компресори часто перетворюють ваше фото на розмитий безлад. Ми використовуємо WebGPU для вибіркового збереження точності країв, гарантуючи сувору відповідність 50 КБ без шкоди для читання.",
     "quantitativeProof": "Стиснення зображень до 50 КБ відбувається втричі швидше завдяки локальній обробці.",
     "beforeImageLabel": "Файл 2,5 Мб",
     "afterImageLabel": "Оптимізовано 48 Кб",
     "faqs": [
       {
-        "question": "Why is 50KB so hard to achieve with good quality?",
-        "answer": "50KB leaves very little room for image data. Most tools just lower resolution bluntly. We optimize color quantization and metadata stripping to save space for actual pixels."
+        "question": "Чому так важко досягти 50 КБ із гарною якістю?",
+        "answer": "50 КБ залишає дуже мало місця для даних зображення. Більшість інструментів просто різко знижують роздільну здатність. Ми оптимізуємо квантування кольорів і видалення метаданих, щоб заощадити місце для фактичних пікселів."
       },
       {
-        "question": "Which formats can be compressed to 50KB?",
-        "answer": "You can upload JPG, JPEG, PNG, or WEBP. We generally output as a highly compressed WebP or JPG depending on which yields a better 50KB result."
+        "question": "Які формати можна стиснути до 50 КБ?",
+        "answer": "Ви можете завантажити JPG, JPEG, PNG або WEBP. Зазвичай ми виводимо як WebP або JPG із високим ступенем стиснення, залежно від того, що дає кращий результат у 50 КБ."
       },
       {
-        "question": "Can I do this entirely offline?",
-        "answer": "Yes! Once this page loads, you can turn off your internet. The 50KB compression algorithm runs 100% in your browser."
+        "question": "Чи можу я зробити це повністю офлайн?",
+        "answer": "так! Після завантаження цієї сторінки ви можете вимкнути Інтернет. Алгоритм стиснення 50 КБ працює на 100% у вашому браузері."
       }
     ]
   },
@@ -4342,22 +4342,22 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     "title": "Mampatkan Imej kepada 50KB - Pemampatan WebGPU Pintar",
     "h1": "Kecilkan Foto kepada 50KB dengan AI Precision",
     "description": "Capai had 50KB yang paling ketat untuk portal kerajaan dan visa dengan mudah. Memampatkan imej dengan banyak tanpa merosakkan kualiti visual.",
-    "citationFirst": "When a portal demands a file under 50KB, traditional compressors often turn your photo into a blurry mess. We leverage WebGPU to selectively preserve edge fidelity, guaranteeing strict 50KB compliance without sacrificing readability.",
+    "citationFirst": "Apabila portal menuntut fail di bawah 50KB, pemampat tradisional sering menjadikan foto anda menjadi kucar-kacir kabur. Kami memanfaatkan WebGPU untuk mengekalkan kesetiaan tepi secara selektif, menjamin pematuhan ketat 50KB tanpa mengorbankan kebolehbacaan.",
     "quantitativeProof": "Memampatkan imej kepada 50KB adalah 3x lebih pantas dengan pemprosesan tempatan.",
     "beforeImageLabel": "Fail 2.5MB",
     "afterImageLabel": "Dioptimumkan 48KB",
     "faqs": [
       {
-        "question": "Why is 50KB so hard to achieve with good quality?",
-        "answer": "50KB leaves very little room for image data. Most tools just lower resolution bluntly. We optimize color quantization and metadata stripping to save space for actual pixels."
+        "question": "Mengapakah 50KB sangat sukar dicapai dengan kualiti yang baik?",
+        "answer": "50KB meninggalkan ruang yang sangat sedikit untuk data imej. Kebanyakan alat hanya menurunkan resolusi secara terang-terangan. Kami mengoptimumkan kuantisasi warna dan pelucutan metadata untuk menjimatkan ruang bagi piksel sebenar."
       },
       {
-        "question": "Which formats can be compressed to 50KB?",
-        "answer": "You can upload JPG, JPEG, PNG, or WEBP. We generally output as a highly compressed WebP or JPG depending on which yields a better 50KB result."
+        "question": "Format yang manakah boleh dimampatkan kepada 50KB?",
+        "answer": "Anda boleh memuat naik JPG, JPEG, PNG atau WEBP. Kami biasanya mengeluarkan sebagai WebP atau JPG yang sangat mampat bergantung pada yang menghasilkan hasil 50KB yang lebih baik."
       },
       {
-        "question": "Can I do this entirely offline?",
-        "answer": "Yes! Once this page loads, you can turn off your internet. The 50KB compression algorithm runs 100% in your browser."
+        "question": "Bolehkah saya melakukan ini sepenuhnya di luar talian?",
+        "answer": "Ya! Setelah halaman ini dimuatkan, anda boleh mematikan internet anda. Algoritma mampatan 50KB berjalan 100% dalam penyemak imbas anda."
       }
     ]
   },
@@ -4420,22 +4420,22 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     "title": "Cambiar el tamaño de la imagen para Instagram en línea: no es necesario recortar",
     "h1": "Tamaños perfectos de Instagram en 1 clic",
     "description": "Cambia instantáneamente el tamaño de tus fotos para publicaciones, historias y carretes de Instagram. Agregue hermosos bordes borrosos para evitar recortes incómodos.",
-    "citationFirst": "Don't let Instagram ruin your landscape photos with forced crops. Our tool automatically pads your image into the perfect 1:1, 4:5, or 9:16 aspect ratios using stunning blurred backgrounds.",
+    "citationFirst": "No dejes que Instagram arruine tus fotos de paisajes con recortes forzados. Nuestra herramienta rellena automáticamente su imagen en las relaciones de aspecto perfectas de 1:1, 4:5 o 9:16 utilizando impresionantes fondos borrosos.",
     "quantitativeProof": "El 99% de los principales influencers utilizan bordes difuminados en fotografías que no son cuadradas.",
     "beforeImageLabel": "Paisaje Original",
     "afterImageLabel": "Listo para Insta 4:5",
     "faqs": [
       {
-        "question": "What is the best aspect ratio for Instagram?",
-        "answer": "For posts, 4:5 (Portrait) is recommended as it occupies the most screen real estate. For Stories and Reels, use 9:16."
+        "question": "¿Cuál es la mejor relación de aspecto para Instagram?",
+        "answer": "Para publicaciones, se recomienda 4:5 (Retrato), ya que ocupa la mayor parte del espacio en pantalla. Para historias y carretes, utilice 9:16."
       },
       {
-        "question": "How do you prevent my photo from being cropped?",
-        "answer": "Instead of cropping, we scale your photo to fit the canvas and fill the remaining empty space with a beautiful, seamless blurred version of your image."
+        "question": "¿Cómo evitas que mi foto sea recortada?",
+        "answer": "En lugar de recortarla, escalamos su foto para que se ajuste al lienzo y llenamos el espacio vacío restante con una hermosa versión borrosa y perfecta de su imagen."
       },
       {
-        "question": "Do you compress the image before uploading to IG?",
-        "answer": "We export at the highest quality possible so Instagram's own aggressive compression algorithm has the best source data to work with."
+        "question": "¿Comprimes la imagen antes de subirla a IG?",
+        "answer": "Exportamos con la mayor calidad posible para que el agresivo algoritmo de compresión de Instagram tenga la mejor fuente de datos con la que trabajar."
       }
     ]
   },
@@ -4446,22 +4446,22 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     "title": "Redimensionner l'image pour Instagram en ligne - Aucun recadrage requis",
     "h1": "Tailles Instagram parfaites en 1 clic",
     "description": "Redimensionnez instantanément vos photos pour les publications, histoires et bobines Instagram. Ajoutez de belles bordures floues pour éviter un recadrage gênant.",
-    "citationFirst": "Don't let Instagram ruin your landscape photos with forced crops. Our tool automatically pads your image into the perfect 1:1, 4:5, or 9:16 aspect ratios using stunning blurred backgrounds.",
+    "citationFirst": "Ne laissez pas Instagram gâcher vos photos de paysages avec des recadrages forcés. Notre outil adapte automatiquement votre image aux proportions parfaites de 1:1, 4:5 ou 9:16 à l'aide d'arrière-plans flous époustouflants.",
     "quantitativeProof": "99 % des principaux influenceurs utilisent des bordures floues pour les photos non carrées.",
     "beforeImageLabel": "Paysage original",
     "afterImageLabel": "Prêt pour Insta 4:5",
     "faqs": [
       {
-        "question": "What is the best aspect ratio for Instagram?",
-        "answer": "For posts, 4:5 (Portrait) is recommended as it occupies the most screen real estate. For Stories and Reels, use 9:16."
+        "question": "Quel est le meilleur rapport hauteur/largeur pour Instagram ?",
+        "answer": "Pour les publications, le format 4:5 (Portrait) est recommandé car il occupe la plus grande surface d'écran. Pour les histoires et les bobines, utilisez 9h16."
       },
       {
-        "question": "How do you prevent my photo from being cropped?",
-        "answer": "Instead of cropping, we scale your photo to fit the canvas and fill the remaining empty space with a beautiful, seamless blurred version of your image."
+        "question": "Comment empêcher que ma photo soit recadrée ?",
+        "answer": "Au lieu de recadrer, nous redimensionnons votre photo pour l'adapter à la toile et remplissons l'espace vide restant avec une belle version floue et homogène de votre image."
       },
       {
-        "question": "Do you compress the image before uploading to IG?",
-        "answer": "We export at the highest quality possible so Instagram's own aggressive compression algorithm has the best source data to work with."
+        "question": "Compressez-vous l’image avant de la télécharger sur IG ?",
+        "answer": "Nous exportons avec la meilleure qualité possible afin que l'algorithme de compression agressif d'Instagram dispose des meilleures données sources avec lesquelles travailler."
       }
     ]
   },
@@ -4472,22 +4472,22 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     "title": "Bildgröße für Instagram online ändern – kein Zuschneiden erforderlich",
     "h1": "Perfekte Instagram-Größen mit 1 Klick",
     "description": "Ändern Sie sofort die Größe Ihrer Fotos für Instagram-Posts, Stories und Reels. Fügen Sie schöne Unschärferänder hinzu, um umständliches Zuschneiden zu vermeiden.",
-    "citationFirst": "Don't let Instagram ruin your landscape photos with forced crops. Our tool automatically pads your image into the perfect 1:1, 4:5, or 9:16 aspect ratios using stunning blurred backgrounds.",
+    "citationFirst": "Lassen Sie nicht zu, dass Instagram Ihre Landschaftsfotos durch erzwungene Ausschnitte ruiniert. Unser Tool füllt Ihr Bild automatisch mit atemberaubenden unscharfen Hintergründen in die perfekten Seitenverhältnisse 1:1, 4:5 oder 9:16 auf.",
     "quantitativeProof": "99 % der Top-Influencer verwenden unscharfe Ränder für nicht quadratische Fotos.",
     "beforeImageLabel": "Ursprüngliche Landschaft",
     "afterImageLabel": "Bereit für Insta 4:5",
     "faqs": [
       {
-        "question": "What is the best aspect ratio for Instagram?",
-        "answer": "For posts, 4:5 (Portrait) is recommended as it occupies the most screen real estate. For Stories and Reels, use 9:16."
+        "question": "Was ist das beste Seitenverhältnis für Instagram?",
+        "answer": "Für Beiträge wird 4:5 (Hochformat) empfohlen, da es die meiste Bildschirmfläche einnimmt. Verwenden Sie für Stories und Reels 9:16."
       },
       {
-        "question": "How do you prevent my photo from being cropped?",
-        "answer": "Instead of cropping, we scale your photo to fit the canvas and fill the remaining empty space with a beautiful, seamless blurred version of your image."
+        "question": "Wie verhindern Sie, dass mein Foto beschnitten wird?",
+        "answer": "Anstatt es zuzuschneiden, skalieren wir Ihr Foto so, dass es auf die Leinwand passt und füllen den verbleibenden leeren Raum mit einer wunderschönen, nahtlos unscharfen Version Ihres Bildes."
       },
       {
-        "question": "Do you compress the image before uploading to IG?",
-        "answer": "We export at the highest quality possible so Instagram's own aggressive compression algorithm has the best source data to work with."
+        "question": "Komprimieren Sie das Bild, bevor Sie es auf IG hochladen?",
+        "answer": "Wir exportieren mit der höchstmöglichen Qualität, sodass der aggressive Komprimierungsalgorithmus von Instagram über die besten Quelldaten verfügt, mit denen er arbeiten kann."
       }
     ]
   },
@@ -4498,22 +4498,22 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     "title": "Instagramオンライン用に画像のサイズを変更 - トリミングは必要ありません",
     "h1": "ワンクリックで完璧な Instagram サイズに",
     "description": "Instagram の投稿、ストーリー、リール用に写真のサイズを即座に変更できます。美しいぼかし境界線を追加して、厄介なトリミングを防ぎます。",
-    "citationFirst": "Don't let Instagram ruin your landscape photos with forced crops. Our tool automatically pads your image into the perfect 1:1, 4:5, or 9:16 aspect ratios using stunning blurred backgrounds.",
+    "citationFirst": "Instagram が強制的にトリミングして風景写真を台無しにしないようにしましょう。 当社のツールは、見事なぼかした背景を使用して、画像を完璧な 1:1、4:5、または 9:16 のアスペクト比に自動的にパディングします。",
     "quantitativeProof": "トップインフルエンサーの 99% は、非正方形の写真にぼかしパッド付きの境界線を使用しています。",
     "beforeImageLabel": "原風景",
     "afterImageLabel": "インスタ4:5の準備完了",
     "faqs": [
       {
-        "question": "What is the best aspect ratio for Instagram?",
-        "answer": "For posts, 4:5 (Portrait) is recommended as it occupies the most screen real estate. For Stories and Reels, use 9:16."
+        "question": "Instagram に最適なアスペクト比はどれですか?",
+        "answer": "投稿の場合は、画面の占有面積が最も大きいため、4:5 (縦) をお勧めします。 ストーリーとリールの場合は、9:16 を使用します。"
       },
       {
-        "question": "How do you prevent my photo from being cropped?",
-        "answer": "Instead of cropping, we scale your photo to fit the canvas and fill the remaining empty space with a beautiful, seamless blurred version of your image."
+        "question": "私の写真が切り取られるのを防ぐにはどうすればよいですか?",
+        "answer": "トリミングする代わりに、キャンバスに合わせて写真を拡大縮小し、残りの空きスペースを美しくシームレスなぼかした画像で埋めます。"
       },
       {
-        "question": "Do you compress the image before uploading to IG?",
-        "answer": "We export at the highest quality possible so Instagram's own aggressive compression algorithm has the best source data to work with."
+        "question": "IGにアップロードする前に画像を圧縮しますか？",
+        "answer": "可能な限り最高の品質でエクスポートするため、Instagram 独自の積極的な圧縮アルゴリズムで最適なソース データを使用できます。"
       }
     ]
   },
@@ -4524,22 +4524,22 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     "title": "Redimensionar imagem para Instagram Online - sem necessidade de corte",
     "h1": "Tamanhos perfeitos do Instagram em 1 clique",
     "description": "Redimensione instantaneamente suas fotos para postagens, histórias e rolos do Instagram. Adicione lindas bordas desfocadas para evitar cortes estranhos.",
-    "citationFirst": "Don't let Instagram ruin your landscape photos with forced crops. Our tool automatically pads your image into the perfect 1:1, 4:5, or 9:16 aspect ratios using stunning blurred backgrounds.",
+    "citationFirst": "Não deixe o Instagram estragar suas fotos de paisagens com cortes forçados. Nossa ferramenta preenche automaticamente sua imagem nas proporções perfeitas de 1:1, 4:5 ou 9:16 usando fundos desfocados impressionantes.",
     "quantitativeProof": "99% dos principais influenciadores usam bordas desfocadas para fotos não quadradas.",
     "beforeImageLabel": "Paisagem original",
     "afterImageLabel": "Pronto para Insta 4:5",
     "faqs": [
       {
-        "question": "What is the best aspect ratio for Instagram?",
-        "answer": "For posts, 4:5 (Portrait) is recommended as it occupies the most screen real estate. For Stories and Reels, use 9:16."
+        "question": "Qual é a melhor proporção para o Instagram?",
+        "answer": "Para postagens, recomenda-se 4:5 (Retrato), pois ocupa a maior parte do espaço da tela. Para Stories e Momentos, use 9:16."
       },
       {
-        "question": "How do you prevent my photo from being cropped?",
-        "answer": "Instead of cropping, we scale your photo to fit the canvas and fill the remaining empty space with a beautiful, seamless blurred version of your image."
+        "question": "Como você evita que minha foto seja cortada?",
+        "answer": "Em vez de recortar, dimensionamos sua foto para caber na tela e preenchemos o espaço vazio restante com uma versão bonita e desfocada de sua imagem."
       },
       {
-        "question": "Do you compress the image before uploading to IG?",
-        "answer": "We export at the highest quality possible so Instagram's own aggressive compression algorithm has the best source data to work with."
+        "question": "Você compacta a imagem antes de enviar para o IG?",
+        "answer": "Exportamos com a mais alta qualidade possível para que o algoritmo de compressão agressivo do próprio Instagram tenha a melhor fonte de dados para trabalhar."
       }
     ]
   },
@@ -4550,22 +4550,22 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     "title": "Изменение размера изображения для Instagram онлайн – обрезка не требуется",
     "h1": "Идеальные размеры Instagram в 1 клик",
     "description": "Мгновенно изменяйте размер фотографий для публикаций, историй и роликов Instagram. Добавьте красивое размытие границ, чтобы избежать неудобной обрезки.",
-    "citationFirst": "Don't let Instagram ruin your landscape photos with forced crops. Our tool automatically pads your image into the perfect 1:1, 4:5, or 9:16 aspect ratios using stunning blurred backgrounds.",
+    "citationFirst": "Не позволяйте Instagram испортить ваши пейзажные фотографии принудительной обрезкой. Наш инструмент автоматически дополняет ваше изображение до идеального соотношения сторон 1:1, 4:5 или 9:16, используя потрясающий размытый фон.",
     "quantitativeProof": "99% влиятельных лиц используют размытые границы для неквадратных фотографий.",
     "beforeImageLabel": "Оригинальный пейзаж",
     "afterImageLabel": "Готов к Инсте 4:5",
     "faqs": [
       {
-        "question": "What is the best aspect ratio for Instagram?",
-        "answer": "For posts, 4:5 (Portrait) is recommended as it occupies the most screen real estate. For Stories and Reels, use 9:16."
+        "question": "Какое соотношение сторон лучше всего для Instagram?",
+        "answer": "Для публикаций рекомендуется формат 4:5 (Портрет), поскольку он занимает большую часть экрана. Для историй и роликов используйте 9:16."
       },
       {
-        "question": "How do you prevent my photo from being cropped?",
-        "answer": "Instead of cropping, we scale your photo to fit the canvas and fill the remaining empty space with a beautiful, seamless blurred version of your image."
+        "question": "Как предотвратить обрезку моей фотографии?",
+        "answer": "Вместо обрезки мы масштабируем вашу фотографию по размеру холста и заполняем оставшееся пустое пространство красивой, бесшовной и размытой версией вашего изображения."
       },
       {
-        "question": "Do you compress the image before uploading to IG?",
-        "answer": "We export at the highest quality possible so Instagram's own aggressive compression algorithm has the best source data to work with."
+        "question": "Вы сжимаете изображение перед загрузкой в ​​IG?",
+        "answer": "Мы экспортируем в максимально возможном качестве, поэтому собственный агрессивный алгоритм сжатия Instagram имеет лучшие исходные данные для работы."
       }
     ]
   },
@@ -4576,22 +4576,22 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     "title": "在线调整 Instagram 图像大小 - 无需裁剪",
     "h1": "一键完美 Instagram 尺寸",
     "description": "立即调整 Instagram 帖子、故事和卷轴的照片大小。 添加漂亮的模糊边框以防止尴尬的裁剪。",
-    "citationFirst": "Don't let Instagram ruin your landscape photos with forced crops. Our tool automatically pads your image into the perfect 1:1, 4:5, or 9:16 aspect ratios using stunning blurred backgrounds.",
+    "citationFirst": "不要让 Instagram 用强制裁剪毁掉你的风景照片。 我们的工具会使用令人惊叹的模糊背景自动将您的图像填充为完美的 1:1、4:5 或 9:16 纵横比。",
     "quantitativeProof": "99% 的顶级影响者对非方形照片使用模糊填充边框。",
     "beforeImageLabel": "原始风景",
     "afterImageLabel": "准备好 Insta 4:5",
     "faqs": [
       {
-        "question": "What is the best aspect ratio for Instagram?",
-        "answer": "For posts, 4:5 (Portrait) is recommended as it occupies the most screen real estate. For Stories and Reels, use 9:16."
+        "question": "Instagram 的最佳宽高比是多少？",
+        "answer": "对于帖子，建议使用 4:5（纵向），因为它占据大部分屏幕空间。 对于故事和卷轴，请使用 9:16。"
       },
       {
-        "question": "How do you prevent my photo from being cropped?",
-        "answer": "Instead of cropping, we scale your photo to fit the canvas and fill the remaining empty space with a beautiful, seamless blurred version of your image."
+        "question": "如何防止我的照片被裁剪？",
+        "answer": "我们不会裁剪照片，而是缩放您的照片以适合画布，并用美丽、无缝的模糊图像版本填充剩余的空白空间。"
       },
       {
-        "question": "Do you compress the image before uploading to IG?",
-        "answer": "We export at the highest quality possible so Instagram's own aggressive compression algorithm has the best source data to work with."
+        "question": "上传到 IG 之前会压缩图像吗？",
+        "answer": "我们以尽可能最高的质量导出，因此 Instagram 自己的激进压缩算法可以使用最佳的源数据。"
       }
     ]
   },
@@ -4602,22 +4602,22 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     "title": "تغيير حجم الصورة لـ Instagram عبر الإنترنت - لا يلزم قصها",
     "h1": "أحجام Instagram المثالية بنقرة واحدة",
     "description": "قم بتغيير حجم صورك على الفور لتناسب منشورات وقصص وReels Instagram. أضف حدودًا ضبابية جميلة لمنع الاقتصاص غير المناسب.",
-    "citationFirst": "Don't let Instagram ruin your landscape photos with forced crops. Our tool automatically pads your image into the perfect 1:1, 4:5, or 9:16 aspect ratios using stunning blurred backgrounds.",
+    "citationFirst": "لا تدع Instagram يفسد صور المناظر الطبيعية الخاصة بك من خلال المحاصيل القسرية. تعمل أداتنا تلقائيًا على دمج صورتك في نسب العرض إلى الارتفاع المثالية 1:1 أو 4:5 أو 9:16 باستخدام خلفيات غير واضحة مذهلة.",
     "quantitativeProof": "يستخدم 99% من كبار الشخصيات المؤثرة حدودًا ضبابية للصور غير المربعة.",
     "beforeImageLabel": "المناظر الطبيعية الأصلية",
     "afterImageLabel": "جاهز للإنستا 4:5",
     "faqs": [
       {
-        "question": "What is the best aspect ratio for Instagram?",
-        "answer": "For posts, 4:5 (Portrait) is recommended as it occupies the most screen real estate. For Stories and Reels, use 9:16."
+        "question": "ما هي أفضل نسبة العرض إلى الارتفاع لـ Instagram؟",
+        "answer": "بالنسبة للمشاركات، يوصى باستخدام 4:5 (عمودي) لأنها تشغل معظم مساحة الشاشة. بالنسبة للقصص والبكرات، استخدم 9:16."
       },
       {
-        "question": "How do you prevent my photo from being cropped?",
-        "answer": "Instead of cropping, we scale your photo to fit the canvas and fill the remaining empty space with a beautiful, seamless blurred version of your image."
+        "question": "كيف يمكنك منع اقتصاص صورتي؟",
+        "answer": "بدلاً من الاقتصاص، نقوم بتغيير حجم صورتك لتناسب اللوحة القماشية وملء المساحة الفارغة المتبقية بنسخة جميلة وسلسة وغير واضحة من صورتك."
       },
       {
-        "question": "Do you compress the image before uploading to IG?",
-        "answer": "We export at the highest quality possible so Instagram's own aggressive compression algorithm has the best source data to work with."
+        "question": "هل تقوم بضغط الصورة قبل تحميلها على IG؟",
+        "answer": "نحن نقوم بالتصدير بأعلى جودة ممكنة، لذا فإن خوارزمية الضغط القوية الخاصة بـ Instagram تتمتع بأفضل البيانات المصدرية للعمل معها."
       }
     ]
   },
@@ -4628,22 +4628,22 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     "title": "इंस्टाग्राम ऑनलाइन के लिए छवि का आकार बदलें - काटने की कोई आवश्यकता नहीं है",
     "h1": "1 क्लिक में परफेक्ट इंस्टाग्राम साइज",
     "description": "इंस्टाग्राम पोस्ट, स्टोरीज़ और रील्स के लिए तुरंत अपनी तस्वीरों का आकार बदलें। अजीब क्रॉपिंग को रोकने के लिए सुंदर धुंधले बॉर्डर जोड़ें।",
-    "citationFirst": "Don't let Instagram ruin your landscape photos with forced crops. Our tool automatically pads your image into the perfect 1:1, 4:5, or 9:16 aspect ratios using stunning blurred backgrounds.",
+    "citationFirst": "इंस्टाग्राम को जबरन क्रॉप करके अपनी लैंडस्केप तस्वीरों को बर्बाद न करने दें। हमारा टूल आश्चर्यजनक धुंधली पृष्ठभूमि का उपयोग करके स्वचालित रूप से आपकी छवि को सही 1:1, 4:5, या 9:16 पहलू अनुपात में पैड कर देता है।",
     "quantitativeProof": "99% शीर्ष प्रभावशाली व्यक्ति गैर-वर्गाकार फ़ोटो के लिए धुंधले-गद्देदार बॉर्डर का उपयोग करते हैं।",
     "beforeImageLabel": "मूल परिदृश्य",
     "afterImageLabel": "इंस्टा 4:5 के लिए तैयार",
     "faqs": [
       {
-        "question": "What is the best aspect ratio for Instagram?",
-        "answer": "For posts, 4:5 (Portrait) is recommended as it occupies the most screen real estate. For Stories and Reels, use 9:16."
+        "question": "इंस्टाग्राम के लिए सबसे अच्छा पहलू अनुपात क्या है?",
+        "answer": "पोस्ट के लिए, 4:5 (पोर्ट्रेट) की अनुशंसा की जाती है क्योंकि यह सबसे अधिक स्क्रीन रीयल एस्टेट पर कब्जा करता है। कहानियों और रीलों के लिए, 9:16 का उपयोग करें।"
       },
       {
-        "question": "How do you prevent my photo from being cropped?",
-        "answer": "Instead of cropping, we scale your photo to fit the canvas and fill the remaining empty space with a beautiful, seamless blurred version of your image."
+        "question": "आप मेरी फ़ोटो को क्रॉप होने से कैसे रोकेंगे?",
+        "answer": "क्रॉप करने के बजाय, हम आपकी तस्वीर को कैनवास में फिट करने के लिए स्केल करते हैं और शेष खाली जगह को आपकी छवि के एक सुंदर, निर्बाध धुंधले संस्करण से भर देते हैं।"
       },
       {
-        "question": "Do you compress the image before uploading to IG?",
-        "answer": "We export at the highest quality possible so Instagram's own aggressive compression algorithm has the best source data to work with."
+        "question": "क्या आप IG पर अपलोड करने से पहले छवि को संपीड़ित करते हैं?",
+        "answer": "हम यथासंभव उच्चतम गुणवत्ता पर निर्यात करते हैं इसलिए इंस्टाग्राम के अपने आक्रामक संपीड़न एल्गोरिदम के साथ काम करने के लिए सबसे अच्छा स्रोत डेटा है।"
       }
     ]
   },
@@ -4654,22 +4654,22 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     "title": "Ridimensiona l'immagine per Instagram online: non è necessario ritagliare",
     "h1": "Dimensioni Instagram perfette in 1 clic",
     "description": "Ridimensiona istantaneamente le tue foto per post, storie e reel di Instagram. Aggiungi bellissimi bordi sfocati per evitare ritagli scomodi.",
-    "citationFirst": "Don't let Instagram ruin your landscape photos with forced crops. Our tool automatically pads your image into the perfect 1:1, 4:5, or 9:16 aspect ratios using stunning blurred backgrounds.",
+    "citationFirst": "Non lasciare che Instagram rovini le tue foto di paesaggi con ritagli forzati. Il nostro strumento inserisce automaticamente la tua immagine nelle perfette proporzioni 1:1, 4:5 o 9:16 utilizzando splendidi sfondi sfocati.",
     "quantitativeProof": "Il 99% dei principali influencer utilizza bordi sfumati per le foto non quadrate.",
     "beforeImageLabel": "Paesaggio originale",
     "afterImageLabel": "Pronto per Instagram 4:5",
     "faqs": [
       {
-        "question": "What is the best aspect ratio for Instagram?",
-        "answer": "For posts, 4:5 (Portrait) is recommended as it occupies the most screen real estate. For Stories and Reels, use 9:16."
+        "question": "Qual è il rapporto d'aspetto migliore per Instagram?",
+        "answer": "Per i post, si consiglia il formato 4:5 (Ritratto) poiché occupa la maggior parte dello spazio sullo schermo. Per Storie e Reels, usa 9:16."
       },
       {
-        "question": "How do you prevent my photo from being cropped?",
-        "answer": "Instead of cropping, we scale your photo to fit the canvas and fill the remaining empty space with a beautiful, seamless blurred version of your image."
+        "question": "Come si evita che la mia foto venga ritagliata?",
+        "answer": "Invece di ritagliare, ridimensioniamo la tua foto per adattarla alla tela e riempiamo lo spazio vuoto rimanente con una bellissima versione sfocata senza soluzione di continuità della tua immagine."
       },
       {
-        "question": "Do you compress the image before uploading to IG?",
-        "answer": "We export at the highest quality possible so Instagram's own aggressive compression algorithm has the best source data to work with."
+        "question": "Comprimi l'immagine prima di caricarla su IG?",
+        "answer": "Esportiamo alla massima qualità possibile in modo che l'algoritmo di compressione aggressivo di Instagram abbia i migliori dati di origine con cui lavorare."
       }
     ]
   },
@@ -4680,22 +4680,22 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     "title": "Instagram 온라인용 이미지 크기 조정 - 자르기 필요 없음",
     "h1": "한 번의 클릭으로 완벽한 인스타그램 크기 만들기",
     "description": "Instagram 게시물, 스토리, 릴에 맞게 사진 크기를 즉시 조정하세요. 어색한 자르기를 방지하려면 아름다운 흐림 테두리를 추가하세요.",
-    "citationFirst": "Don't let Instagram ruin your landscape photos with forced crops. Our tool automatically pads your image into the perfect 1:1, 4:5, or 9:16 aspect ratios using stunning blurred backgrounds.",
+    "citationFirst": "인스타그램이 강제로 잘라내서 풍경 사진을 망치게 하지 마세요. 우리의 도구는 놀랍도록 흐린 배경을 사용하여 이미지를 완벽한 1:1, 4:5 또는 9:16 종횡비로 자동으로 채웁니다.",
     "quantitativeProof": "최고의 인플루언서 중 99%는 정사각형이 아닌 사진에 블러 처리된 테두리를 사용합니다.",
     "beforeImageLabel": "원래 풍경",
     "afterImageLabel": "Insta 4:5 준비 완료",
     "faqs": [
       {
-        "question": "What is the best aspect ratio for Instagram?",
-        "answer": "For posts, 4:5 (Portrait) is recommended as it occupies the most screen real estate. For Stories and Reels, use 9:16."
+        "question": "인스타그램에 가장 적합한 화면 비율은 무엇입니까?",
+        "answer": "게시물의 경우 화면 공간을 가장 많이 차지하는 4:5(세로)를 권장합니다. 스토리 및 릴의 경우 9:16을 사용하세요."
       },
       {
-        "question": "How do you prevent my photo from being cropped?",
-        "answer": "Instead of cropping, we scale your photo to fit the canvas and fill the remaining empty space with a beautiful, seamless blurred version of your image."
+        "question": "내 사진이 잘리는 것을 방지하려면 어떻게 해야 하나요?",
+        "answer": "자르는 대신 캔버스에 맞게 사진의 크기를 조정하고 남은 빈 공간을 아름답고 매끄럽게 흐린 이미지 버전으로 채웁니다."
       },
       {
-        "question": "Do you compress the image before uploading to IG?",
-        "answer": "We export at the highest quality possible so Instagram's own aggressive compression algorithm has the best source data to work with."
+        "question": "IG에 업로드하기 전에 이미지를 압축하시나요?",
+        "answer": "가능한 최고 품질로 내보내므로 Instagram의 공격적인 압축 알고리즘이 작업에 가장 적합한 소스 데이터를 갖습니다."
       }
     ]
   },
@@ -4706,22 +4706,22 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     "title": "Formaat van afbeelding wijzigen voor Instagram online - bijsnijden niet vereist",
     "h1": "Perfecte Instagram-formaten in 1 klik",
     "description": "Pas het formaat van uw foto's onmiddellijk aan voor Instagram-berichten, verhalen en rollen. Voeg prachtige vervaagde randen toe om onhandig bijsnijden te voorkomen.",
-    "citationFirst": "Don't let Instagram ruin your landscape photos with forced crops. Our tool automatically pads your image into the perfect 1:1, 4:5, or 9:16 aspect ratios using stunning blurred backgrounds.",
+    "citationFirst": "Laat Instagram je landschapsfoto's niet verpesten met geforceerde crops. Onze tool past uw afbeelding automatisch aan in de perfecte beeldverhoudingen van 1:1, 4:5 of 9:16 met behulp van verbluffende onscherpe achtergronden.",
     "quantitativeProof": "99% van de topbeïnvloeders gebruikt onscherpe randen voor niet-vierkante foto's.",
     "beforeImageLabel": "Origineel landschap",
     "afterImageLabel": "Klaar voor Insta 4:5",
     "faqs": [
       {
-        "question": "What is the best aspect ratio for Instagram?",
-        "answer": "For posts, 4:5 (Portrait) is recommended as it occupies the most screen real estate. For Stories and Reels, use 9:16."
+        "question": "Wat is de beste beeldverhouding voor Instagram?",
+        "answer": "Voor berichten wordt 4:5 (portret) aanbevolen, omdat dit het meeste schermruimte in beslag neemt. Gebruik 9:16 voor verhalen en rollen."
       },
       {
-        "question": "How do you prevent my photo from being cropped?",
-        "answer": "Instead of cropping, we scale your photo to fit the canvas and fill the remaining empty space with a beautiful, seamless blurred version of your image."
+        "question": "Hoe voorkom je dat mijn foto wordt bijgesneden?",
+        "answer": "In plaats van bij te snijden, schalen we uw foto zodat deze op het canvas past en vullen we de resterende lege ruimte met een prachtige, naadloze, vervaagde versie van uw afbeelding."
       },
       {
-        "question": "Do you compress the image before uploading to IG?",
-        "answer": "We export at the highest quality possible so Instagram's own aggressive compression algorithm has the best source data to work with."
+        "question": "Comprimeer je de afbeelding voordat je deze naar IG uploadt?",
+        "answer": "We exporteren met de hoogst mogelijke kwaliteit, zodat Instagram's eigen agressieve compressie-algoritme over de beste brongegevens beschikt om mee te werken."
       }
     ]
   },
@@ -4732,22 +4732,22 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     "title": "Instagram Çevrimiçi için Görüntüyü Yeniden Boyutlandır - Kırpmaya Gerek Yok",
     "h1": "1 Tıklamayla Mükemmel Instagram Boyutları",
     "description": "Instagram Gönderileri, Hikayeleri ve Makaraları için fotoğraflarınızı anında yeniden boyutlandırın. Garip kırpmayı önlemek için güzel bulanıklık kenarlıkları ekleyin.",
-    "citationFirst": "Don't let Instagram ruin your landscape photos with forced crops. Our tool automatically pads your image into the perfect 1:1, 4:5, or 9:16 aspect ratios using stunning blurred backgrounds.",
+    "citationFirst": "Instagram'ın zorunlu kırpmalarla manzara fotoğraflarınızı mahvetmesine izin vermeyin. Aracımız, çarpıcı bulanık arka planlar kullanarak görüntünüzü otomatik olarak mükemmel 1:1, 4:5 veya 9:16 en boy oranlarına sığdırır.",
     "quantitativeProof": "Önde gelen etkileyicilerin %99'u kare olmayan fotoğraflar için bulanıklaştırılmış çerçeveler kullanıyor.",
     "beforeImageLabel": "Orijinal Manzara",
     "afterImageLabel": "Insta 4:5'e hazır",
     "faqs": [
       {
-        "question": "What is the best aspect ratio for Instagram?",
-        "answer": "For posts, 4:5 (Portrait) is recommended as it occupies the most screen real estate. For Stories and Reels, use 9:16."
+        "question": "Instagram için en iyi en boy oranı nedir?",
+        "answer": "Gönderiler için, ekranda en fazla alanı kapladığından 4:5 (Portre) önerilir. Hikayeler ve Makaralar için 9:16'yı kullanın."
       },
       {
-        "question": "How do you prevent my photo from being cropped?",
-        "answer": "Instead of cropping, we scale your photo to fit the canvas and fill the remaining empty space with a beautiful, seamless blurred version of your image."
+        "question": "Fotoğrafımın kırpılmasını nasıl önlersiniz?",
+        "answer": "Fotoğrafınızı kırpmak yerine tuvale sığacak şekilde ölçeklendiriyoruz ve kalan boş alanı görüntünüzün güzel, kusursuz, bulanık bir versiyonuyla dolduruyoruz."
       },
       {
-        "question": "Do you compress the image before uploading to IG?",
-        "answer": "We export at the highest quality possible so Instagram's own aggressive compression algorithm has the best source data to work with."
+        "question": "Görüntüyü IG'ye yüklemeden önce sıkıştırıyor musunuz?",
+        "answer": "Instagram'ın kendi agresif sıkıştırma algoritmasının çalışılacak en iyi kaynak veriye sahip olması için mümkün olan en yüksek kalitede dışa aktarıyoruz."
       }
     ]
   },
@@ -4758,22 +4758,22 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     "title": "Zmień rozmiar obrazu w serwisie Instagram Online — bez konieczności przycinania",
     "h1": "Idealne rozmiary na Instagramie jednym kliknięciem",
     "description": "Natychmiast zmieniaj rozmiar swoich zdjęć w postach, relacjach i filmach na Instagramie. Dodaj piękne rozmyte krawędzie, aby zapobiec niewygodnemu przycinaniu.",
-    "citationFirst": "Don't let Instagram ruin your landscape photos with forced crops. Our tool automatically pads your image into the perfect 1:1, 4:5, or 9:16 aspect ratios using stunning blurred backgrounds.",
+    "citationFirst": "Nie pozwól, aby Instagram zrujnował Twoje zdjęcia krajobrazów wymuszonym kadrowaniem. Nasze narzędzie automatycznie dopasowuje obraz do idealnych proporcji 1:1, 4:5 lub 9:16, korzystając z oszałamiająco rozmytego tła.",
     "quantitativeProof": "99% wpływowych osób używa niewyraźnych ramek do zdjęć, które nie są kwadratowe.",
     "beforeImageLabel": "Oryginalny krajobraz",
     "afterImageLabel": "Gotowi na Insta 4:5",
     "faqs": [
       {
-        "question": "What is the best aspect ratio for Instagram?",
-        "answer": "For posts, 4:5 (Portrait) is recommended as it occupies the most screen real estate. For Stories and Reels, use 9:16."
+        "question": "Jaki jest najlepszy współczynnik proporcji na Instagramie?",
+        "answer": "W przypadku postów zalecany jest format 4:5 (portret), ponieważ zajmuje on najwięcej miejsca na ekranie. W przypadku opowiadań i szpul użyj formatu 9:16."
       },
       {
-        "question": "How do you prevent my photo from being cropped?",
-        "answer": "Instead of cropping, we scale your photo to fit the canvas and fill the remaining empty space with a beautiful, seamless blurred version of your image."
+        "question": "Jak zapobiec przycięciu mojego zdjęcia?",
+        "answer": "Zamiast przycinać, skalujemy Twoje zdjęcie, aby dopasować je do płótna i wypełniamy pozostałą pustą przestrzeń piękną, płynną, rozmytą wersją Twojego obrazu."
       },
       {
-        "question": "Do you compress the image before uploading to IG?",
-        "answer": "We export at the highest quality possible so Instagram's own aggressive compression algorithm has the best source data to work with."
+        "question": "Czy kompresujesz obraz przed przesłaniem na IG?",
+        "answer": "Eksportujemy z najwyższą możliwą jakością, więc agresywny algorytm kompresji Instagrama ma najlepsze dane źródłowe do pracy."
       }
     ]
   },
@@ -4784,22 +4784,22 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     "title": "Thay đổi kích thước hình ảnh cho Instagram trực tuyến - Không cần cắt xén",
     "h1": "Kích thước Instagram hoàn hảo chỉ sau 1 cú nhấp chuột",
     "description": "Thay đổi kích thước ảnh của bạn ngay lập tức cho Bài đăng, Câu chuyện và Câu chuyện trên Instagram. Thêm các đường viền mờ đẹp mắt để tránh việc cắt xén khó xử.",
-    "citationFirst": "Don't let Instagram ruin your landscape photos with forced crops. Our tool automatically pads your image into the perfect 1:1, 4:5, or 9:16 aspect ratios using stunning blurred backgrounds.",
+    "citationFirst": "Đừng để Instagram làm hỏng những bức ảnh phong cảnh của bạn bằng cách cắt xén bắt buộc. Công cụ của chúng tôi tự động đưa hình ảnh của bạn vào các tỷ lệ khung hình 1:1, 4:5 hoặc 9:16 hoàn hảo bằng cách sử dụng nền mờ tuyệt đẹp.",
     "quantitativeProof": "99% những người có ảnh hưởng hàng đầu sử dụng đường viền mờ cho ảnh không vuông.",
     "beforeImageLabel": "Phong Cảnh Gốc",
     "afterImageLabel": "Sẵn sàng cho Insta 4:5",
     "faqs": [
       {
-        "question": "What is the best aspect ratio for Instagram?",
-        "answer": "For posts, 4:5 (Portrait) is recommended as it occupies the most screen real estate. For Stories and Reels, use 9:16."
+        "question": "Tỷ lệ khung hình tốt nhất cho Instagram là gì?",
+        "answer": "Đối với bài đăng, tỷ lệ 4:5 (Chân dung) được khuyên dùng vì nó chiếm nhiều diện tích màn hình nhất. Đối với Câu chuyện và Câu chuyện, hãy sử dụng 9:16."
       },
       {
-        "question": "How do you prevent my photo from being cropped?",
-        "answer": "Instead of cropping, we scale your photo to fit the canvas and fill the remaining empty space with a beautiful, seamless blurred version of your image."
+        "question": "Làm cách nào để ngăn ảnh của tôi bị cắt?",
+        "answer": "Thay vì cắt xén, chúng tôi chia tỷ lệ ảnh của bạn cho vừa với khung vẽ và lấp đầy khoảng trống còn lại bằng phiên bản hình ảnh mờ đẹp mắt, liền mạch của bạn."
       },
       {
-        "question": "Do you compress the image before uploading to IG?",
-        "answer": "We export at the highest quality possible so Instagram's own aggressive compression algorithm has the best source data to work with."
+        "question": "Bạn có nén ảnh trước khi up lên IG không?",
+        "answer": "Chúng tôi xuất ở chất lượng cao nhất có thể để thuật toán nén linh hoạt của Instagram có dữ liệu nguồn tốt nhất để xử lý."
       }
     ]
   },
@@ -4836,22 +4836,22 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     "title": "Ändra storlek på bild för Instagram online - ingen beskärning krävs",
     "h1": "Perfekta Instagram-storlekar med 1 klick",
     "description": "Ändra omedelbart storleken på dina foton för Instagram-inlägg, berättelser och rullar. Lägg till vackra suddiga kanter för att förhindra besvärlig beskärning.",
-    "citationFirst": "Don't let Instagram ruin your landscape photos with forced crops. Our tool automatically pads your image into the perfect 1:1, 4:5, or 9:16 aspect ratios using stunning blurred backgrounds.",
+    "citationFirst": "Låt inte Instagram förstöra dina landskapsbilder med påtvingade beskärningar. Vårt verktyg lägger automatiskt in din bild till de perfekta bildförhållandena 1:1, 4:5 eller 9:16 med enastående suddig bakgrund.",
     "quantitativeProof": "99 % av de främsta influencers använder oskärpa vadderade kanter för icke-fyrkantiga foton.",
     "beforeImageLabel": "Ursprungligt landskap",
     "afterImageLabel": "Klar för Insta 4:5",
     "faqs": [
       {
-        "question": "What is the best aspect ratio for Instagram?",
-        "answer": "For posts, 4:5 (Portrait) is recommended as it occupies the most screen real estate. For Stories and Reels, use 9:16."
+        "question": "Vilket är det bästa bildförhållandet för Instagram?",
+        "answer": "För inlägg rekommenderas 4:5 (porträtt) eftersom det upptar den största skärmbilden. För berättelser och rullar, använd 9:16."
       },
       {
-        "question": "How do you prevent my photo from being cropped?",
-        "answer": "Instead of cropping, we scale your photo to fit the canvas and fill the remaining empty space with a beautiful, seamless blurred version of your image."
+        "question": "Hur förhindrar du att mitt foto beskärs?",
+        "answer": "Istället för att beskära, skalar vi ditt foto så att det passar duken och fyller det återstående tomma utrymmet med en vacker, sömlös suddig version av din bild."
       },
       {
-        "question": "Do you compress the image before uploading to IG?",
-        "answer": "We export at the highest quality possible so Instagram's own aggressive compression algorithm has the best source data to work with."
+        "question": "Komprimerar du bilden innan du laddar upp den till IG?",
+        "answer": "Vi exporterar med högsta möjliga kvalitet så Instagrams egen aggressiva komprimeringsalgoritm har den bästa källdatan att arbeta med."
       }
     ]
   },
@@ -4862,22 +4862,22 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     "title": "Změna velikosti obrázku pro Instagram online – není potřeba žádné oříznutí",
     "h1": "Perfektní velikosti Instagramu na 1 kliknutí",
     "description": "Okamžitě změňte velikost svých fotografií pro příspěvky na Instagramu, příběhy a kotouče. Přidejte krásné rozmazané okraje, abyste zabránili nepříjemnému oříznutí.",
-    "citationFirst": "Don't let Instagram ruin your landscape photos with forced crops. Our tool automatically pads your image into the perfect 1:1, 4:5, or 9:16 aspect ratios using stunning blurred backgrounds.",
+    "citationFirst": "Nenechte Instagram zničit vaše fotografie krajiny nuceným oříznutím. Náš nástroj automaticky upraví váš obrázek do dokonalých poměrů stran 1:1, 4:5 nebo 9:16 pomocí úžasného rozmazaného pozadí.",
     "quantitativeProof": "99 % předních influencerů používá u nečtvercových fotografií okraje s rozmazaným okrajem.",
     "beforeImageLabel": "Původní krajina",
     "afterImageLabel": "Připraveno na Insta 4:5",
     "faqs": [
       {
-        "question": "What is the best aspect ratio for Instagram?",
-        "answer": "For posts, 4:5 (Portrait) is recommended as it occupies the most screen real estate. For Stories and Reels, use 9:16."
+        "question": "Jaký je nejlepší poměr stran pro Instagram?",
+        "answer": "U příspěvků se doporučuje 4:5 (na výšku), protože zabírá největší plochu obrazovky. Pro příběhy a kotouče použijte 9:16."
       },
       {
-        "question": "How do you prevent my photo from being cropped?",
-        "answer": "Instead of cropping, we scale your photo to fit the canvas and fill the remaining empty space with a beautiful, seamless blurred version of your image."
+        "question": "Jak zabráníte oříznutí mé fotografie?",
+        "answer": "Namísto oříznutí upravíme velikost vaší fotografie tak, aby se vešla na plátno, a vyplníme zbývající prázdný prostor krásnou, bezproblémovou rozmazanou verzí vašeho obrázku."
       },
       {
-        "question": "Do you compress the image before uploading to IG?",
-        "answer": "We export at the highest quality possible so Instagram's own aggressive compression algorithm has the best source data to work with."
+        "question": "Komprimujete obrázek před nahráním na IG?",
+        "answer": "Exportujeme v nejvyšší možné kvalitě, takže vlastní agresivní kompresní algoritmus Instagramu má nejlepší zdrojová data pro práci."
       }
     ]
   },
@@ -4888,22 +4888,22 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     "title": "Ændre størrelse på billede til Instagram online - ingen beskæring påkrævet",
     "h1": "Perfekte Instagram-størrelser med 1 klik",
     "description": "Ændr øjeblikkeligt størrelsen på dine billeder til Instagram-indlæg, historier og ruller. Tilføj smukke slørede kanter for at forhindre akavet beskæring.",
-    "citationFirst": "Don't let Instagram ruin your landscape photos with forced crops. Our tool automatically pads your image into the perfect 1:1, 4:5, or 9:16 aspect ratios using stunning blurred backgrounds.",
+    "citationFirst": "Lad ikke Instagram ødelægge dine landskabsbilleder med tvungne afgrøder. Vores værktøj udfylder automatisk dit billede i de perfekte 1:1, 4:5 eller 9:16 billedformater ved hjælp af forbløffende slørede baggrunde.",
     "quantitativeProof": "99 % af de bedste influencers bruger slørede polstrede kanter til ikke-firkantede billeder.",
     "beforeImageLabel": "Originalt Landskab",
     "afterImageLabel": "Klar til Insta 4:5",
     "faqs": [
       {
-        "question": "What is the best aspect ratio for Instagram?",
-        "answer": "For posts, 4:5 (Portrait) is recommended as it occupies the most screen real estate. For Stories and Reels, use 9:16."
+        "question": "Hvad er det bedste billedformat til Instagram?",
+        "answer": "For indlæg anbefales 4:5 (Portræt), da det fylder mest på skærmen. For historier og ruller, brug 9:16."
       },
       {
-        "question": "How do you prevent my photo from being cropped?",
-        "answer": "Instead of cropping, we scale your photo to fit the canvas and fill the remaining empty space with a beautiful, seamless blurred version of your image."
+        "question": "Hvordan forhindrer du, at mit billede bliver beskåret?",
+        "answer": "I stedet for at beskære, skalerer vi dit billede, så det passer til lærredet og fylder det resterende tomme rum med en smuk, sømløs sløret version af dit billede."
       },
       {
-        "question": "Do you compress the image before uploading to IG?",
-        "answer": "We export at the highest quality possible so Instagram's own aggressive compression algorithm has the best source data to work with."
+        "question": "Komprimerer du billedet før upload til IG?",
+        "answer": "Vi eksporterer i den højest mulige kvalitet, så Instagrams egen aggressive komprimeringsalgoritme har de bedste kildedata at arbejde med."
       }
     ]
   },
@@ -4914,22 +4914,22 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     "title": "Αλλαγή μεγέθους εικόνας για το Instagram Online - Δεν απαιτείται περικοπή",
     "h1": "Τέλεια μεγέθη Instagram σε 1 κλικ",
     "description": "Αλλάξτε άμεσα το μέγεθος των φωτογραφιών σας για αναρτήσεις, ιστορίες και τροχούς Instagram. Προσθέστε όμορφα περιγράμματα θαμπώματος για να αποτρέψετε την άβολη περικοπή.",
-    "citationFirst": "Don't let Instagram ruin your landscape photos with forced crops. Our tool automatically pads your image into the perfect 1:1, 4:5, or 9:16 aspect ratios using stunning blurred backgrounds.",
+    "citationFirst": "Μην αφήνετε το Instagram να καταστρέψει τις φωτογραφίες τοπίων με αναγκαστικές καλλιέργειες. Το εργαλείο μας συμπληρώνει αυτόματα την εικόνα σας στις τέλειες αναλογίες διαστάσεων 1:1, 4:5 ή 9:16 χρησιμοποιώντας εντυπωσιακά θολά φόντο.",
     "quantitativeProof": "Το 99% των κορυφαίων επιρροών χρησιμοποιούν περιγράμματα με θαμπάδα για μη τετράγωνες φωτογραφίες.",
     "beforeImageLabel": "Πρωτότυπο τοπίο",
     "afterImageLabel": "Έτοιμοι για το Insta 4:5",
     "faqs": [
       {
-        "question": "What is the best aspect ratio for Instagram?",
-        "answer": "For posts, 4:5 (Portrait) is recommended as it occupies the most screen real estate. For Stories and Reels, use 9:16."
+        "question": "Ποια είναι η καλύτερη αναλογία διαστάσεων για το Instagram;",
+        "answer": "Για αναρτήσεις, προτείνεται το 4:5 (Πορτραίτο), καθώς καταλαμβάνει το μεγαλύτερο μέρος της οθόνης. Για Ιστορίες και Καρούλια, χρησιμοποιήστε το 9:16."
       },
       {
-        "question": "How do you prevent my photo from being cropped?",
-        "answer": "Instead of cropping, we scale your photo to fit the canvas and fill the remaining empty space with a beautiful, seamless blurred version of your image."
+        "question": "Πώς αποτρέπετε την περικοπή της φωτογραφίας μου;",
+        "answer": "Αντί να περικόψουμε, προσαρμόζουμε τη φωτογραφία σας ώστε να ταιριάζει στον καμβά και γεμίζουμε τον υπόλοιπο κενό χώρο με μια όμορφη, απρόσκοπτη θολή έκδοση της εικόνας σας."
       },
       {
-        "question": "Do you compress the image before uploading to IG?",
-        "answer": "We export at the highest quality possible so Instagram's own aggressive compression algorithm has the best source data to work with."
+        "question": "Συμπιέζετε την εικόνα πριν την ανεβάσετε στο IG;",
+        "answer": "Εξάγουμε με την υψηλότερη δυνατή ποιότητα, έτσι ώστε ο επιθετικός αλγόριθμος συμπίεσης του Instagram να έχει τα καλύτερα δεδομένα πηγής για να εργαστείτε."
       }
     ]
   },
@@ -4940,22 +4940,22 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     "title": "Muuta kuvan kokoa Instagram Onlinea varten - Rajausta ei vaadita",
     "h1": "Täydelliset Instagram-koot yhdellä napsautuksella",
     "description": "Muuta valokuviesi kokoa välittömästi Instagram-postauksia, tarinoita ja keloja varten. Lisää kauniita epätarkkoja reunoja estääksesi hankalia rajaamista.",
-    "citationFirst": "Don't let Instagram ruin your landscape photos with forced crops. Our tool automatically pads your image into the perfect 1:1, 4:5, or 9:16 aspect ratios using stunning blurred backgrounds.",
+    "citationFirst": "Älä anna Instagramin pilata maisemakuviasi pakotetuilla rajauksilla. Työkalumme pehmustaa kuvasi automaattisesti täydelliseen 1:1-, 4:5- tai 9:16-kuvasuhteeseen käyttämällä upeita sumeita taustoja.",
     "quantitativeProof": "99 % parhaista vaikuttajista käyttää sumennettuja reunuksia muissa kuin neliön muotoisissa kuvissa.",
     "beforeImageLabel": "Alkuperäinen maisema",
     "afterImageLabel": "Valmiina Installe 4:5",
     "faqs": [
       {
-        "question": "What is the best aspect ratio for Instagram?",
-        "answer": "For posts, 4:5 (Portrait) is recommended as it occupies the most screen real estate. For Stories and Reels, use 9:16."
+        "question": "Mikä on paras kuvasuhde Instagramille?",
+        "answer": "Viesteissä suositellaan 4:5 (pysty) -suhdetta, koska se vie eniten näyttöä. Tarinoita ja keloja varten käytä 9:16."
       },
       {
-        "question": "How do you prevent my photo from being cropped?",
-        "answer": "Instead of cropping, we scale your photo to fit the canvas and fill the remaining empty space with a beautiful, seamless blurred version of your image."
+        "question": "Miten estät kuvani rajaamisen?",
+        "answer": "Rajaamisen sijaan skaalaamme valokuvasi kankaalle sopivaksi ja täytämme jäljellä olevan tyhjän tilan kauniilla, saumattomalla sumealla versiolla kuvastasi."
       },
       {
-        "question": "Do you compress the image before uploading to IG?",
-        "answer": "We export at the highest quality possible so Instagram's own aggressive compression algorithm has the best source data to work with."
+        "question": "Pakkaatko kuvan ennen lataamista IG:hen?",
+        "answer": "Viemme parasta mahdollista laatua, joten Instagramin omalla aggressiivisella pakkausalgoritmilla on parhaat lähdetiedot käytettäväksi."
       }
     ]
   },
@@ -4966,22 +4966,22 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     "title": "שנה את גודל התמונה עבור אינסטגרם מקוון - אין צורך בחיתוך",
     "h1": "גדלים מושלמים של אינסטגרם בקליק אחד",
     "description": "שנה את גודל התמונות שלך באופן מיידי עבור פוסטים, סטוריז וסלילים באינסטגרם. הוסף גבולות טשטוש יפים כדי למנוע חיתוך מביך.",
-    "citationFirst": "Don't let Instagram ruin your landscape photos with forced crops. Our tool automatically pads your image into the perfect 1:1, 4:5, or 9:16 aspect ratios using stunning blurred backgrounds.",
+    "citationFirst": "אל תתנו לאינסטגרם להרוס את תמונות הנוף שלכם עם חיתוכים מאולצים. הכלי שלנו מרפד אוטומטית את התמונה שלך ליחסי רוחב-גובה של 1:1, 4:5 או 9:16 המושלמים תוך שימוש ברקע מטושטש מדהים.",
     "quantitativeProof": "99% מהמשפיעים המובילים משתמשים בגבולות מרופדים מטושטשים לתמונות לא מרובעות.",
     "beforeImageLabel": "נוף מקורי",
     "afterImageLabel": "מוכן לאינסטה 4:5",
     "faqs": [
       {
-        "question": "What is the best aspect ratio for Instagram?",
-        "answer": "For posts, 4:5 (Portrait) is recommended as it occupies the most screen real estate. For Stories and Reels, use 9:16."
+        "question": "מהו יחס הגובה-רוחב הטוב ביותר לאינסטגרם?",
+        "answer": "עבור פוסטים, מומלץ 4:5 (דיוקן) מכיוון שהוא תופס את מספר הנכסים המסכים ביותר. עבור סיפורים ו-Reels, השתמש ב-9:16."
       },
       {
-        "question": "How do you prevent my photo from being cropped?",
-        "answer": "Instead of cropping, we scale your photo to fit the canvas and fill the remaining empty space with a beautiful, seamless blurred version of your image."
+        "question": "איך מונעים את חיתוך התמונה שלי?",
+        "answer": "במקום לחתוך, אנו משנים את התמונה שלך כך שתתאים לקנבס וממלאים את החלל הריק שנותר בגרסה מטושטשת יפה וחלקה של התמונה שלך."
       },
       {
-        "question": "Do you compress the image before uploading to IG?",
-        "answer": "We export at the highest quality possible so Instagram's own aggressive compression algorithm has the best source data to work with."
+        "question": "האם אתה דוחס את התמונה לפני העלאה ל-IG?",
+        "answer": "אנו מייצאים באיכות הגבוהה ביותר האפשרית כך שלאלגוריתם הדחיסה האגרסיבי של אינסטגרם יש את נתוני המקור הטובים ביותר לעבוד איתם."
       }
     ]
   },
@@ -4992,22 +4992,22 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     "title": "Kép átméretezése az Instagram Online számára – nincs szükség vágásra",
     "h1": "Tökéletes Instagram-méretek 1 kattintással",
     "description": "Azonnal átméretezheti fényképeit az Instagram-bejegyzésekhez, történetekhez és tekercsekhez. Adjon hozzá gyönyörű elmosódott szegélyeket, hogy elkerülje a kellemetlen kivágást.",
-    "citationFirst": "Don't let Instagram ruin your landscape photos with forced crops. Our tool automatically pads your image into the perfect 1:1, 4:5, or 9:16 aspect ratios using stunning blurred backgrounds.",
+    "citationFirst": "Ne hagyja, hogy az Instagram tönkretegye tájképeit kényszervágással. Eszközünk automatikusan a tökéletes 1:1, 4:5 vagy 9:16 képarányra párnázza a képet, lenyűgöző elmosódott háttérrel.",
     "quantitativeProof": "A legjobb befolyásolók 99%-a elmosódott szegélyeket használ a nem négyzet alakú fotókhoz.",
     "beforeImageLabel": "Eredeti tájkép",
     "afterImageLabel": "Készen áll az Instára 4:5",
     "faqs": [
       {
-        "question": "What is the best aspect ratio for Instagram?",
-        "answer": "For posts, 4:5 (Portrait) is recommended as it occupies the most screen real estate. For Stories and Reels, use 9:16."
+        "question": "Mi a legjobb képarány az Instagram számára?",
+        "answer": "A bejegyzéseknél a 4:5 (Álló) arány javasolt, mivel ez foglalja el a legtöbb képernyőterületet. A történetekhez és a tekercsekhez használja a 9:16-ot."
       },
       {
-        "question": "How do you prevent my photo from being cropped?",
-        "answer": "Instead of cropping, we scale your photo to fit the canvas and fill the remaining empty space with a beautiful, seamless blurred version of your image."
+        "question": "Hogyan akadályozhatod meg, hogy a fotómat levágják?",
+        "answer": "Vágás helyett átméretezzük a fényképet, hogy illeszkedjen a vászonhoz, és a fennmaradó üres helyet kitöltjük a kép gyönyörű, zökkenőmentes elmosódott változatával."
       },
       {
-        "question": "Do you compress the image before uploading to IG?",
-        "answer": "We export at the highest quality possible so Instagram's own aggressive compression algorithm has the best source data to work with."
+        "question": "Tömöríted a képet az IG-re való feltöltés előtt?",
+        "answer": "A lehető legjobb minőségben exportálunk, így az Instagram saját agresszív tömörítési algoritmusa rendelkezik a legjobb forrásadatokkal."
       }
     ]
   },
@@ -5018,22 +5018,22 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     "title": "Endre størrelse på bilde for Instagram Online - Ingen beskjæring nødvendig",
     "h1": "Perfekte Instagram-størrelser med 1 klikk",
     "description": "Endre størrelsen på bildene dine umiddelbart for Instagram-innlegg, historier og hjul. Legg til vakre uskarpe kanter for å forhindre vanskelig beskjæring.",
-    "citationFirst": "Don't let Instagram ruin your landscape photos with forced crops. Our tool automatically pads your image into the perfect 1:1, 4:5, or 9:16 aspect ratios using stunning blurred backgrounds.",
+    "citationFirst": "Ikke la Instagram ødelegge landskapsbildene dine med tvungen beskjæring. Verktøyet vårt legger automatisk bildet ditt til de perfekte 1:1, 4:5 eller 9:16 sideforhold ved hjelp av imponerende uskarpe bakgrunner.",
     "quantitativeProof": "99 % av de beste influencerne bruker uskarpe polstrede kanter for ikke-firkantede bilder.",
     "beforeImageLabel": "Originalt landskap",
     "afterImageLabel": "Klar for Insta 4:5",
     "faqs": [
       {
-        "question": "What is the best aspect ratio for Instagram?",
-        "answer": "For posts, 4:5 (Portrait) is recommended as it occupies the most screen real estate. For Stories and Reels, use 9:16."
+        "question": "Hva er det beste sideforholdet for Instagram?",
+        "answer": "For innlegg anbefales 4:5 (portrett) da det opptar mest skjermeiendom. For historier og ruller, bruk 9:16."
       },
       {
-        "question": "How do you prevent my photo from being cropped?",
-        "answer": "Instead of cropping, we scale your photo to fit the canvas and fill the remaining empty space with a beautiful, seamless blurred version of your image."
+        "question": "Hvordan forhindrer du at bildet mitt blir beskåret?",
+        "answer": "I stedet for å beskjære, skalerer vi bildet ditt slik at det passer til lerretet og fyller den gjenværende tomme plassen med en vakker, sømløs uskarp versjon av bildet ditt."
       },
       {
-        "question": "Do you compress the image before uploading to IG?",
-        "answer": "We export at the highest quality possible so Instagram's own aggressive compression algorithm has the best source data to work with."
+        "question": "Komprimerer du bildet før du laster det opp til IG?",
+        "answer": "Vi eksporterer med høyest mulig kvalitet, slik at Instagrams egen aggressive komprimeringsalgoritme har de beste kildedataene å jobbe med."
       }
     ]
   },
@@ -5044,22 +5044,22 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     "title": "Redimensionați imaginea pentru Instagram online - nu este necesară decuparea",
     "h1": "Dimensiuni perfecte pentru Instagram într-un singur clic",
     "description": "Redimensionați instantaneu fotografiile dvs. pentru postări, povești și role Instagram. Adăugați margini neclare frumoase pentru a preveni tăierea incomodă.",
-    "citationFirst": "Don't let Instagram ruin your landscape photos with forced crops. Our tool automatically pads your image into the perfect 1:1, 4:5, or 9:16 aspect ratios using stunning blurred backgrounds.",
+    "citationFirst": "Nu lăsați Instagram să vă strice fotografiile de peisaj cu decupări forțate. Instrumentul nostru completează automat imaginea dvs. în raporturile perfecte de aspect 1:1, 4:5 sau 9:16 folosind fundaluri neclare uimitoare.",
     "quantitativeProof": "99% dintre cei mai influenți folosesc margini neclare pentru fotografii nepătrate.",
     "beforeImageLabel": "Peisaj original",
     "afterImageLabel": "Gata pentru Insta 4:5",
     "faqs": [
       {
-        "question": "What is the best aspect ratio for Instagram?",
-        "answer": "For posts, 4:5 (Portrait) is recommended as it occupies the most screen real estate. For Stories and Reels, use 9:16."
+        "question": "Care este cel mai bun raport de aspect pentru Instagram?",
+        "answer": "Pentru postări, se recomandă 4:5 (Portret), deoarece ocupă cea mai mare parte a ecranului. Pentru povești și role, folosiți 9:16."
       },
       {
-        "question": "How do you prevent my photo from being cropped?",
-        "answer": "Instead of cropping, we scale your photo to fit the canvas and fill the remaining empty space with a beautiful, seamless blurred version of your image."
+        "question": "Cum împiedici fotografia mea să fie tăiată?",
+        "answer": "În loc să decupăm, îți redimensionăm fotografia pentru a se potrivi pe pânză și umplem spațiul gol rămas cu o versiune neclară frumoasă a imaginii tale."
       },
       {
-        "question": "Do you compress the image before uploading to IG?",
-        "answer": "We export at the highest quality possible so Instagram's own aggressive compression algorithm has the best source data to work with."
+        "question": "Comprimați imaginea înainte de a o încărca pe IG?",
+        "answer": "Exportăm la cea mai înaltă calitate posibilă, astfel încât algoritmul de compresie agresiv al Instagram are cea mai bună sursă de date pentru a lucra."
       }
     ]
   },
@@ -5070,22 +5070,22 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     "title": "Zmena veľkosti obrázka pre Instagram online – nevyžaduje sa žiadne orezanie",
     "h1": "Perfektné veľkosti Instagramu na 1 kliknutie",
     "description": "Okamžite zmeňte veľkosť svojich fotografií pre príspevky, príbehy a kotúče na Instagrame. Pridajte krásne rozmazané okraje, aby ste zabránili nepríjemnému orezaniu.",
-    "citationFirst": "Don't let Instagram ruin your landscape photos with forced crops. Our tool automatically pads your image into the perfect 1:1, 4:5, or 9:16 aspect ratios using stunning blurred backgrounds.",
+    "citationFirst": "Nedovoľte, aby Instagram zničil vaše fotografie krajiny núteným orezaním. Náš nástroj automaticky upraví váš obrázok do perfektných pomerov strán 1:1, 4:5 alebo 9:16 pomocou úžasného rozmazaného pozadia.",
     "quantitativeProof": "99 % najlepších influencerov používa okraje s rozmazaným okrajom pre neštvorcové fotografie.",
     "beforeImageLabel": "Pôvodná krajina",
     "afterImageLabel": "Pripravený na Insta 4:5",
     "faqs": [
       {
-        "question": "What is the best aspect ratio for Instagram?",
-        "answer": "For posts, 4:5 (Portrait) is recommended as it occupies the most screen real estate. For Stories and Reels, use 9:16."
+        "question": "Aký je najlepší pomer strán pre Instagram?",
+        "answer": "Pre príspevky sa odporúča 4:5 (na výšku), pretože zaberá najväčšiu plochu obrazovky. Pre príbehy a kotúče použite 9:16."
       },
       {
-        "question": "How do you prevent my photo from being cropped?",
-        "answer": "Instead of cropping, we scale your photo to fit the canvas and fill the remaining empty space with a beautiful, seamless blurred version of your image."
+        "question": "Ako zabránite orezaniu mojej fotografie?",
+        "answer": "Namiesto orezania upravíme veľkosť vašej fotografie tak, aby sa zmestila na plátno, a zvyšný prázdny priestor vyplníme nádhernou, bezproblémovou rozmazanou verziou vášho obrázka."
       },
       {
-        "question": "Do you compress the image before uploading to IG?",
-        "answer": "We export at the highest quality possible so Instagram's own aggressive compression algorithm has the best source data to work with."
+        "question": "Komprimujete obrázok pred nahraním na IG?",
+        "answer": "Exportujeme v najvyššej možnej kvalite, takže vlastný agresívny kompresný algoritmus Instagramu má najlepšie zdrojové údaje na prácu."
       }
     ]
   },
@@ -5096,22 +5096,22 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     "title": "Змініть розмір зображення для Instagram онлайн – обрізання не потрібне",
     "h1": "Ідеальні розміри Instagram в 1 клік",
     "description": "Миттєво змінюйте розмір своїх фотографій для публікацій, історій і роликів в Instagram. Додайте красиві розмиті межі, щоб уникнути незручного кадрування.",
-    "citationFirst": "Don't let Instagram ruin your landscape photos with forced crops. Our tool automatically pads your image into the perfect 1:1, 4:5, or 9:16 aspect ratios using stunning blurred backgrounds.",
+    "citationFirst": "Не дозволяйте Instagram псувати ваші пейзажні фотографії примусовими кадруваннями. Наш інструмент автоматично змінює ваше зображення в ідеальному форматі 1:1, 4:5 або 9:16 за допомогою приголомшливого розмитого фону.",
     "quantitativeProof": "99% найкращих впливових людей використовують розмиті межі для неквадратних фотографій.",
     "beforeImageLabel": "Оригінальний пейзаж",
     "afterImageLabel": "Готовий до Insta 4:5",
     "faqs": [
       {
-        "question": "What is the best aspect ratio for Instagram?",
-        "answer": "For posts, 4:5 (Portrait) is recommended as it occupies the most screen real estate. For Stories and Reels, use 9:16."
+        "question": "Яке найкраще співвідношення сторін для Instagram?",
+        "answer": "Для дописів рекомендовано формат 4:5 (портрет), оскільки він займає більшу частину екрана. Для історій і роликів використовуйте 9:16."
       },
       {
-        "question": "How do you prevent my photo from being cropped?",
-        "answer": "Instead of cropping, we scale your photo to fit the canvas and fill the remaining empty space with a beautiful, seamless blurred version of your image."
+        "question": "Як запобігти обрізанню моєї фотографії?",
+        "answer": "Замість обрізання ми масштабуємо вашу фотографію, щоб вона відповідала розміру полотна, і заповнюємо вільний простір, що залишився, красивою безшовною розмитою версією вашого зображення."
       },
       {
-        "question": "Do you compress the image before uploading to IG?",
-        "answer": "We export at the highest quality possible so Instagram's own aggressive compression algorithm has the best source data to work with."
+        "question": "Ви стискаєте зображення перед завантаженням в IG?",
+        "answer": "Ми експортуємо найвищу якість, тому власний агресивний алгоритм стиснення Instagram має найкращі вихідні дані для роботи."
       }
     ]
   },
@@ -5122,22 +5122,22 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     "title": "Ubah Saiz Imej untuk Instagram Dalam Talian - Tiada Pemotongan Diperlukan",
     "h1": "Saiz Instagram Sempurna dalam 1 Klik",
     "description": "Ubah saiz foto anda dengan serta-merta untuk Siaran Instagram, Cerita dan Kekili. Tambahkan sempadan kabur yang cantik untuk mengelakkan pemangkasan janggal.",
-    "citationFirst": "Don't let Instagram ruin your landscape photos with forced crops. Our tool automatically pads your image into the perfect 1:1, 4:5, or 9:16 aspect ratios using stunning blurred backgrounds.",
+    "citationFirst": "Jangan biarkan Instagram merosakkan foto landskap anda dengan tanaman paksa. Alat kami secara automatik memasukkan imej anda ke dalam nisbah aspek 1:1, 4:5 atau 9:16 yang sempurna menggunakan latar belakang kabur yang menakjubkan.",
     "quantitativeProof": "99% daripada pengaruh teratas menggunakan sempadan berlapik kabur untuk foto bukan segi empat sama.",
     "beforeImageLabel": "Landskap Asal",
     "afterImageLabel": "Sedia untuk Insta 4:5",
     "faqs": [
       {
-        "question": "What is the best aspect ratio for Instagram?",
-        "answer": "For posts, 4:5 (Portrait) is recommended as it occupies the most screen real estate. For Stories and Reels, use 9:16."
+        "question": "Apakah nisbah aspek terbaik untuk Instagram?",
+        "answer": "Untuk siaran, 4:5 (Potret) disyorkan kerana ia menduduki paling banyak hartanah skrin. Untuk Cerita dan Kekili, gunakan 9:16."
       },
       {
-        "question": "How do you prevent my photo from being cropped?",
-        "answer": "Instead of cropping, we scale your photo to fit the canvas and fill the remaining empty space with a beautiful, seamless blurred version of your image."
+        "question": "Bagaimanakah anda menghalang foto saya daripada dipangkas?",
+        "answer": "Daripada memangkas, kami menskalakan foto anda agar sesuai dengan kanvas dan mengisi ruang kosong yang tinggal dengan versi imej anda yang kabur dan lancar."
       },
       {
-        "question": "Do you compress the image before uploading to IG?",
-        "answer": "We export at the highest quality possible so Instagram's own aggressive compression algorithm has the best source data to work with."
+        "question": "Adakah anda memampatkan imej sebelum memuat naik ke IG?",
+        "answer": "Kami mengeksport pada kualiti tertinggi yang mungkin jadi algoritma pemampatan agresif Instagram sendiri mempunyai data sumber terbaik untuk digunakan."
       }
     ]
   },
@@ -7788,7 +7788,7 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     "title": "Compactar imagem para 200 KB - Redutor de alta qualidade",
     "h1": "Reduza fotos para 200 KB sem perder detalhes",
     "description": "Comprima imagens pesadas de 10 MB até 200 KB. Ideal para aplicativos on-line, fóruns e páginas da web de carregamento rápido.",
-    "citationFirst": "200 KB é o ponto ideal entre tamanhos de arquivo minúsculos e alta fidelidade visual. Ao contrário dos limites de 50 KB, 200 KB permite reter texturas nítidas e detalhes de alta resolução, ao mesmo tempo que economiza enorme largura de banda.",
+    "citationFirst": "200 KB é o ponto ideal entre tamanhos de arquivo minúsculos e alta fidelidade visual. Ao contrário dos limites de 50 KB, 200 KB permite reter texturas nítidas e detalhes de alta resolução, ao mesmo tempo em que economiza enorme largura de banda.",
     "quantitativeProof": "Uma imagem de 200 KB carrega 8x mais rápido em conexões 3G do que uma foto padrão de 2 MB.",
     "beforeImageLabel": "Foto bruta 8 MB",
     "afterImageLabel": "195 KB otimizado",
@@ -9848,11 +9848,11 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     ],
     "faqs": [
       {
-        "question": "Does this tool automatically detect my face?",
+        "question": "Rozpozná tento nástroj automaticky moju tvár?",
         "answer": "Áno, môžete manuálne upraviť pole orezania, aby ste zaistili, že vaša hlava bude spĺňať 70 – 80 % pokrytie snímky požadované vo väčšine krajín."
       },
       {
-        "question": "Can it change my background to white or blue?",
+        "question": "Môže zmeniť moje pozadie na biele alebo modré?",
         "answer": "Absolútne! Keďže ide o súpravu typu všetko v jednom, môžete použiť nástroj „Zmeniť pozadie“ hneď po zmene veľkosti, aby ste získali dokonalé biele alebo modré pozadie."
       },
       {
@@ -13809,14 +13809,14 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     "faqs": [
       {
         "question": "O desfoque pode ser revertido ou desfocado por outra pessoa?",
-        "answer": "Não. Depois de aplicar um desfoque gaussiano ou pixelização e baixar a imagem, os pixels originais são destruídos. É matematicamente impossível reverter."
+        "answer": "Não. Depois de aplicar um desfoque gaussiano ou pixelização e abaixar a imagem, os pixels originais são destruídos. É matematicamente impossível reverter."
       },
       {
         "question": "Posso desfocar vários carros na mesma foto?",
         "answer": "Sim, você pode desenhar várias caixas de desfoque sobre diferentes placas de veículos ou até mesmo rostos no fundo."
       },
       {
-        "question": "Funciona no celular?",
+        "question": "Funciona sem celular?",
         "answer": "Sim, nossa interface sensível ao toque permite que você aperte e aplique zoom para desfocar as placas diretamente no navegador do seu smartphone."
       }
     ]
@@ -13889,7 +13889,7 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     "faqs": [
       {
         "question": "其他人可以逆转或消除模糊吗？",
-        "answer": "不会。一旦应用高斯模糊或像素化并下载图像，原始像素就会被破坏。 从数学上来说是不可能逆转的。"
+        "answer": "不会。 一旦应用高斯模糊或像素化并下载图像，原始像素就会被破坏。 从数学上来说是不可能逆转的。"
       },
       {
         "question": "我可以对同一张照片中的多辆车进行模糊处理吗？",

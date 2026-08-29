@@ -1642,5 +1642,11 @@
   "seo.title.remove": "Remover Fundo de Foto Grátis e Online (Sem Upload no Servidor)",
   "seo.title.compress": "Comprimir Imagem to 200KB Grátis",
   "seo.title.convert": "Converter WEBP to JPG Grátis",
-  "seo.title.resize": "Redimensionar Imagem to 4x6 Grátis"
+  "seo.title.resize": "Redimensionar Imagem to 4x6 Grátis",
+  "longtail.compress100kb.feat1.title": "Privacidade Absoluta",
+  "longtail.compress100kb.feat1.desc": "Ao utilizar WebWorkers, as imagens nunca saem do seu dispositivo. A arquitetura sem servidor evita vazamentos de dados.",
+  "longtail.compress100kb.feat2.title": "Relâmpago",
+  "longtail.compress100kb.feat2.desc": "Desenvolvido por APIs nativas do navegador. A compactação de uma imagem de 5 MB para 100 KB leva menos de 0,5 segundos.",
+  "longtail.compress100kb.feat3.title": "Lote pronto",
+  "longtail.compress100kb.feat3.desc": "Arraste e solte até 50 imagens de uma vez. Eles processam simultaneamente sem travar sua guia."
 }

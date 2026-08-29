@@ -1642,5 +1642,11 @@
   "seo.title.remove": "Háttér Eltávolítása Képről Webáruházakhoz - Ingyen AI | HelpMyIMG",
   "seo.title.compress": "Tömörítés Kép to 200KB Ingyenes",
   "seo.title.convert": "Konvertálás WEBP to JPG Ingyenes",
-  "seo.title.resize": "Átméretezés Kép to 4x6 Ingyenes"
+  "seo.title.resize": "Átméretezés Kép to 4x6 Ingyenes",
+  "longtail.compress100kb.feat1.title": "Abszolút adatvédelem",
+  "longtail.compress100kb.feat1.desc": "A WebWorkers használatával a képek soha nem hagyják el az eszközt. A szerver nélküli architektúra megakadályozza az adatszivárgást.",
+  "longtail.compress100kb.feat2.title": "Villámgyors",
+  "longtail.compress100kb.feat2.desc": "A böngészőben natív API-k működtetik. Egy 5 MB-os kép 100 KB-ra tömörítése kevesebb, mint 0,5 másodpercet vesz igénybe.",
+  "longtail.compress100kb.feat3.title": "Batch Ready",
+  "longtail.compress100kb.feat3.desc": "Húzzon egyszerre akár 50 képet. Egyidejűleg dolgoznak fel, anélkül, hogy a lap összeomlik."
 }

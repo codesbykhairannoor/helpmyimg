@@ -1642,5 +1642,11 @@
   "seo.title.remove": "Trendyol ve Hepsiburada İçin Ücretsiz Ürün Arka Plan Silme | HelpMyIMG",
   "seo.title.compress": "Sıkıştır Resim to 200KB Ücretsiz",
   "seo.title.convert": "Dönüştür WEBP to JPG Ücretsiz",
-  "seo.title.resize": "Boyutlandır Resim to 4x6 Ücretsiz"
+  "seo.title.resize": "Boyutlandır Resim to 4x6 Ücretsiz",
+  "longtail.compress100kb.feat1.title": "Mutlak Gizlilik",
+  "longtail.compress100kb.feat1.desc": "WebWorkers'ı kullandığınızda görüntüler cihazınızdan asla ayrılmaz. Sunucusuz mimari veri sızıntılarını önler.",
+  "longtail.compress100kb.feat2.title": "Yıldırım Hızında",
+  "longtail.compress100kb.feat2.desc": "Tarayıcının yerel API'leri tarafından desteklenmektedir. 5 MB'lık bir görüntüyü 100 KB'ye sıkıştırmak 0,5 saniyeden kısa sürer.",
+  "longtail.compress100kb.feat3.title": "Toplu Hazır",
+  "longtail.compress100kb.feat3.desc": "Aynı anda 50'ye kadar görüntüyü sürükleyip bırakın. Sekmenizi çökertmeden eşzamanlı olarak işlem yaparlar."
 }

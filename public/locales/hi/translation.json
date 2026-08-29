@@ -1642,5 +1642,11 @@
   "seo.title.remove": "फ्री फोटो बैकग्राउंड रिमूवर ऑनलाइन (100% Free & Offline)",
   "seo.title.compress": "कंप्रेस छवि to 200KB मुफ़्त",
   "seo.title.convert": "बदलें WEBP to JPG मुफ़्त",
-  "seo.title.resize": "आकार बदलें छवि to 4x6 मुफ़्त"
+  "seo.title.resize": "आकार बदलें छवि to 4x6 मुफ़्त",
+  "longtail.compress100kb.feat1.title": "पूर्ण गोपनीयता",
+  "longtail.compress100kb.feat1.desc": "वेबवर्कर्स का उपयोग करके, छवियां आपके डिवाइस को कभी नहीं छोड़ती हैं। सर्वर रहित आर्किटेक्चर डेटा लीक को रोकता है।",
+  "longtail.compress100kb.feat2.title": "बिजली की तेजी",
+  "longtail.compress100kb.feat2.desc": "ब्राउज़र-मूल एपीआई द्वारा संचालित। 5MB छवि को 100KB तक संपीड़ित करने में 0.5 सेकंड से भी कम समय लगता है।",
+  "longtail.compress100kb.feat3.title": "बैच तैयार",
+  "longtail.compress100kb.feat3.desc": "एक बार में 50 छवियों तक खींचें और छोड़ें। वे आपके टैब को क्रैश किए बिना समवर्ती रूप से प्रक्रिया करते हैं।"
 }

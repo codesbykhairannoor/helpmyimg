@@ -1634,5 +1634,11 @@
   "seo.title.remove": "Hintergrund Entfernen Kostenlos (100% DSGVO-Konform & Offline)",
   "seo.title.compress": "Komprimieren Bild to 200KB Kostenlos",
   "seo.title.convert": "Konvertieren WEBP to JPG Kostenlos",
-  "seo.title.resize": "Größe ändern Bild to 4x6 Kostenlos"
+  "seo.title.resize": "Größe ändern Bild to 4x6 Kostenlos",
+  "longtail.compress100kb.feat1.title": "Absolute Privatsphäre",
+  "longtail.compress100kb.feat1.desc": "Durch die Verwendung von WebWorkers verlassen Bilder niemals Ihr Gerät. Serverlose Architektur verhindert Datenlecks.",
+  "longtail.compress100kb.feat2.title": "Blitzschnell",
+  "longtail.compress100kb.feat2.desc": "Unterstützt durch browsernative APIs. Das Komprimieren eines 5-MB-Bildes auf 100 KB dauert weniger als 0,5 Sekunden.",
+  "longtail.compress100kb.feat3.title": "Chargenbereit",
+  "longtail.compress100kb.feat3.desc": "Ziehen Sie bis zu 50 Bilder gleichzeitig per Drag & Drop. Sie werden gleichzeitig verarbeitet, ohne dass Ihr Tab abstürzt."
 }

@@ -1642,5 +1642,11 @@
   "seo.title.remove": "Xóa Nền Ảnh Sản Phẩm Shopee & Lazada Miễn Phí AI",
   "seo.title.compress": "Nén Hình ảnh to 200KB Miễn phí",
   "seo.title.convert": "Chuyển đổi WEBP to JPG Miễn phí",
-  "seo.title.resize": "Đổi kích thước Hình ảnh to 4x6 Miễn phí"
+  "seo.title.resize": "Đổi kích thước Hình ảnh to 4x6 Miễn phí",
+  "longtail.compress100kb.feat1.title": "Quyền riêng tư tuyệt đối",
+  "longtail.compress100kb.feat1.desc": "Bằng cách sử dụng WebWorkers, hình ảnh sẽ không bao giờ rời khỏi thiết bị của bạn. Kiến trúc serverless ngăn ngừa rò rỉ dữ liệu.",
+  "longtail.compress100kb.feat2.title": "Nhanh như chớp",
+  "longtail.compress100kb.feat2.desc": "Được hỗ trợ bởi API gốc của trình duyệt. Nén hình ảnh 5 MB thành 100KB chỉ mất chưa đến 0,5 giây.",
+  "longtail.compress100kb.feat3.title": "Hàng loạt đã sẵn sàng",
+  "longtail.compress100kb.feat3.desc": "Kéo và thả tối đa 50 hình ảnh cùng một lúc. Chúng xử lý đồng thời mà không làm hỏng tab của bạn."
 }

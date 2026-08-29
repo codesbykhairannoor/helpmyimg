@@ -1642,5 +1642,11 @@
   "seo.title.remove": "Poista Tausta Kuvasta Verkkokauppaan - Ilmainen AI | HelpMyIMG",
   "seo.title.compress": "Pakkaa Kuva to 200KB Ilmainen",
   "seo.title.convert": "Muunna WEBP to JPG Ilmainen",
-  "seo.title.resize": "Muuta kokoa Kuva to 4x6 Ilmainen"
+  "seo.title.resize": "Muuta kokoa Kuva to 4x6 Ilmainen",
+  "longtail.compress100kb.feat1.title": "Ehdoton yksityisyys",
+  "longtail.compress100kb.feat1.desc": "WebWorkersin avulla kuvat eivät koskaan poistu laitteestasi. Palvelimeton arkkitehtuuri estää tietovuodot.",
+  "longtail.compress100kb.feat2.title": "Salaman nopea",
+  "longtail.compress100kb.feat2.desc": "Selainpohjaisten sovellusliittymien tuottamana. 5 Mt:n kuvan pakkaaminen 100 kilotavuun kestää alle 0,5 sekuntia.",
+  "longtail.compress100kb.feat3.title": "Erä valmis",
+  "longtail.compress100kb.feat3.desc": "Vedä ja pudota jopa 50 kuvaa kerralla. Ne käsittelevät samanaikaisesti ilman, että välilehti kaatuu."
 }

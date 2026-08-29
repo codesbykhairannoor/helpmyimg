@@ -1642,5 +1642,11 @@
   "seo.title.remove": "Buang Latar Belakang Gambar Produk Shopee & Lazada",
   "seo.title.compress": "Mampat Imej to 200KB Percuma",
   "seo.title.convert": "Tukar Format WEBP to JPG Percuma",
-  "seo.title.resize": "Ubah Saiz Imej to 4x6 Percuma"
+  "seo.title.resize": "Ubah Saiz Imej to 4x6 Percuma",
+  "longtail.compress100kb.feat1.title": "Privasi Mutlak",
+  "longtail.compress100kb.feat1.desc": "Dengan menggunakan WebWorkers, imej tidak pernah meninggalkan peranti anda. Seni bina tanpa pelayan menghalang kebocoran data.",
+  "longtail.compress100kb.feat2.title": "Sepantas Kilat",
+  "longtail.compress100kb.feat2.desc": "Dikuasakan oleh API asli pelayar. Memampatkan imej 5MB kepada 100KB mengambil masa kurang daripada 0.5 saat.",
+  "longtail.compress100kb.feat3.title": "Sedia Kumpulan",
+  "longtail.compress100kb.feat3.desc": "Seret dan lepas sehingga 50 imej serentak. Mereka memproses secara serentak tanpa merosakkan tab anda."
 }

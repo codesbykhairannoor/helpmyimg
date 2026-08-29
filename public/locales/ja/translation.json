@@ -1642,5 +1642,11 @@
   "seo.title.remove": "無料AI背景透過・画像切り抜きツール (完全プライバシー保護)",
   "seo.title.compress": "圧縮 画像 to 200KB 無料",
   "seo.title.convert": "変換 WEBP to JPG 無料",
-  "seo.title.resize": "サイズ変更 画像 to 4x6 無料"
+  "seo.title.resize": "サイズ変更 画像 to 4x6 無料",
+  "longtail.compress100kb.feat1.title": "絶対的なプライバシー",
+  "longtail.compress100kb.feat1.desc": "WebWorkers を利用すると、画像がデバイスから流出することはありません。 サーバーレスアーキテクチャによりデータ漏洩を防ぎます。",
+  "longtail.compress100kb.feat2.title": "電光石火の速さ",
+  "longtail.compress100kb.feat2.desc": "ブラウザネイティブ API を利用します。 5MB の画像を 100KB に圧縮するのにかかる時間は 0.5 秒未満です。",
+  "longtail.compress100kb.feat3.title": "バッチ対応",
+  "longtail.compress100kb.feat3.desc": "一度に最大 50 枚の画像をドラッグ アンド ドロップします。 これらはタブをクラッシュさせることなく同時に処理されます。"
 }

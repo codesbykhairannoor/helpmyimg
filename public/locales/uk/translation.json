@@ -1642,5 +1642,11 @@
   "seo.title.remove": "Видалити фон з фото для Rozetka та Prom - Безкоштовно ІІ | HelpMyIMG",
   "seo.title.compress": "Стиснути Зображення to 200KB Безкоштовно",
   "seo.title.convert": "Конвертувати WEBP to JPG Безкоштовно",
-  "seo.title.resize": "Змінити розмір Зображення to 4x6 Безкоштовно"
+  "seo.title.resize": "Змінити розмір Зображення to 4x6 Безкоштовно",
+  "longtail.compress100kb.feat1.title": "Абсолютна конфіденційність",
+  "longtail.compress100kb.feat1.desc": "Завдяки WebWorkers зображення ніколи не залишають ваш пристрій. Безсерверна архітектура запобігає витоку даних.",
+  "longtail.compress100kb.feat2.title": "Блискавичний",
+  "longtail.compress100kb.feat2.desc": "Працює на основі вбудованих API браузера. Стиснення зображення розміром 5 МБ до 100 КБ займає менше 0,5 секунди.",
+  "longtail.compress100kb.feat3.title": "Партія готова",
+  "longtail.compress100kb.feat3.desc": "Перетягуйте до 50 зображень одночасно. Вони обробляються одночасно без збою вашої вкладки."
 }

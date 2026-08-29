@@ -1642,5 +1642,11 @@
   "seo.title.remove": "Rimuovi Sfondo Foto per E-commerce e Moda - Gratis e Offline | HelpMyIMG",
   "seo.title.compress": "Comprimi Immagine to 200KB Gratis",
   "seo.title.convert": "Converti WEBP to JPG Gratis",
-  "seo.title.resize": "Ridimensiona Immagine to 4x6 Gratis"
+  "seo.title.resize": "Ridimensiona Immagine to 4x6 Gratis",
+  "longtail.compress100kb.feat1.title": "Privacy assoluta",
+  "longtail.compress100kb.feat1.desc": "Utilizzando WebWorkers, le immagini non lasciano mai il tuo dispositivo. L'architettura serverless previene le fughe di dati.",
+  "longtail.compress100kb.feat2.title": "Fulmineo",
+  "longtail.compress100kb.feat2.desc": "Alimentato da API native del browser. La compressione di un'immagine da 5 MB a 100 KB richiede meno di 0,5 secondi.",
+  "longtail.compress100kb.feat3.title": "Lotto pronto",
+  "longtail.compress100kb.feat3.desc": "Trascina e rilascia fino a 50 immagini contemporaneamente. Vengono elaborati contemporaneamente senza bloccare la scheda."
 }

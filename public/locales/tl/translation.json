@@ -1642,5 +1642,11 @@
   "seo.title.remove": "Alisin ang Background ng Larawan para sa Shopee & Lazada",
   "seo.title.compress": "I-compress Larawan to 200KB Libre",
   "seo.title.convert": "I-convert WEBP to JPG Libre",
-  "seo.title.resize": "I-resize Larawan to 4x6 Libre"
+  "seo.title.resize": "I-resize Larawan to 4x6 Libre",
+  "longtail.compress100kb.feat1.title": "Ganap na Pagkapribado",
+  "longtail.compress100kb.feat1.desc": "Sa pamamagitan ng paggamit sa WebWorkers, hindi kailanman umaalis ang mga larawan sa iyong device. Pinipigilan ng arkitektura ng walang server ang mga pagtagas ng data.",
+  "longtail.compress100kb.feat2.title": "Mabilis na Kidlat",
+  "longtail.compress100kb.feat2.desc": "Pinapatakbo ng mga browser-native na API. Ang pag-compress ng 5MB na imahe sa 100KB ay tumatagal ng mas mababa sa 0.5 segundo.",
+  "longtail.compress100kb.feat3.title": "Batch Ready",
+  "longtail.compress100kb.feat3.desc": "I-drag at i-drop ang hanggang 50 mga larawan nang sabay-sabay. Sabay-sabay silang nagpoproseso nang hindi na-crash ang iyong tab."
 }
