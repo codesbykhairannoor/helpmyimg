@@ -60,10 +60,27 @@ export interface BatchItem {
 }
 
 interface ToolWorkspaceProps {
-  initialTab?: TabType;
+  initialTab?: TabType | string;
 }
 
-export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({ initialTab = 'remove' }) => {
+export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({ initialTab: rawInitialTab = 'remove' }) => {
+  const resolveBaseTab = (tab: string): TabType => {
+    switch(tab) {
+      case 'colorwhite': return 'color';
+      case 'watermarkbulk': return 'watermark';
+      case 'removeperson': return 'brush';
+      case 'removelogo': return 'brush';
+      case 'convertwebp': return 'convert';
+      case 'blurplate': return 'blurface';
+      case 'resizeig': return 'resize';
+      case 'resizepassport': return 'resize';
+      case 'compress50kb': return 'compress';
+      case 'compress100kb': return 'compress';
+      case 'compress200kb': return 'compress';
+      default: return tab as TabType;
+    }
+  };
+  const initialTab = resolveBaseTab(rawInitialTab);
   const { t } = useTranslation();
 
   const { route } = useRouter();
