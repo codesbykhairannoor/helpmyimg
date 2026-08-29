@@ -11,7 +11,7 @@ export function ConvertWebpSections() {
   if (!config) return null;
 
   return (
-    <div className="w-full flex flex-col items-center gap-24 py-12 overflow-hidden /20">
+    <div className="w-full flex flex-col items-center gap-24 py-12 overflow-hidden">
       
       {/* SECTION 1: Converter Hero */}
       <section className="relative px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto w-full text-center">
@@ -29,7 +29,7 @@ export function ConvertWebpSections() {
         {/* Format Pipeline Visualizer */}
         <div className="flex flex-col md:flex-row items-center justify-center gap-6 max-w-3xl mx-auto">
           {/* WEBP Source */}
-          <div className=" dark:bg-slate-800 p-6 rounded-2xl shadow-lg border border-slate-200 dark:border-slate-700 w-full md:w-64 text-center">
+          <div className="bg-white dark:bg-slate-800 p-6 rounded-2xl shadow-lg border border-slate-200 dark:border-slate-700 w-full md:w-64 text-center">
              <div className="w-16 h-16 bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 rounded-xl flex items-center justify-center mx-auto mb-4">
                 <FileType className="w-8 h-8" />
              </div>

@@ -11,7 +11,7 @@ export function WatermarkBulkSections() {
   if (!config) return null;
 
   return (
-    <div className="w-full flex flex-col items-center gap-24 py-12 overflow-hidden ">
+    <div className="w-full flex flex-col items-center gap-24 py-12 overflow-hidden">
       
       {/* SECTION 1: Dark Mode Pro Hero */}
       <section className="relative px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto w-full text-center">

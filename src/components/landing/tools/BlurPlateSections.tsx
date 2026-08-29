@@ -11,7 +11,7 @@ export function BlurPlateSections() {
   if (!config) return null;
 
   return (
-    <div className="w-full flex flex-col items-center gap-24 py-12 overflow-hidden dark:bg-[#0B1121]">
+    <div className="w-full flex flex-col items-center gap-24 py-12 overflow-hidden">
       
       {/* SECTION 1: High Security Hero */}
       <section className="relative px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto w-full text-center">

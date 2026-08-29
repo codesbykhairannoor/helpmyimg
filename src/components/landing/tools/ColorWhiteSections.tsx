@@ -11,7 +11,7 @@ export function ColorWhiteSections() {
   if (!config) return null;
 
   return (
-    <div className="w-full flex flex-col items-center gap-24 py-16 bg-slate-50 dark:bg-[#0a0a0a]">
+    <div className="w-full flex flex-col items-center gap-24 py-16">
       
       {/* SECTION 1: Product Showcase Slider */}
       <section className="relative w-full overflow-hidden py-10">

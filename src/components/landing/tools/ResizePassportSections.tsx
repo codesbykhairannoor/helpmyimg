@@ -11,7 +11,7 @@ export function ResizePassportSections() {
   if (!config) return null;
 
   return (
-    <div className="w-full flex flex-col items-center gap-16 py-12 bg-[#f8fafc] dark: ">
+    <div className="w-full flex flex-col items-center gap-16 py-12">
       
       {/* SECTION 1: Document Style Header */}
       <section className="relative px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto w-full text-center">
@@ -21,7 +21,7 @@ export function ResizePassportSections() {
         <h2 className="text-3xl md:text-5xl font-serif font-bold text-slate-900 dark:text-white mb-6">
           {config.extraSectionTitle || config.h1}
         </h2>
-        <div className=" dark:bg-slate-800 p-8 rounded-2xl shadow-sm border border-slate-200 dark:border-slate-700">
+        <div className="bg-white dark:bg-slate-800 p-8 rounded-2xl shadow-sm border border-slate-200 dark:border-slate-700">
            <p className="text-lg text-slate-700 dark:text-slate-300 leading-relaxed font-medium">
              {config.extraSectionDesc || config.description}
            </p>

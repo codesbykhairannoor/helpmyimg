@@ -43,7 +43,7 @@ export function RemovePersonSections() {
 
             {/* Label */}
             <div className="absolute bottom-6 left-6 right-6 flex justify-between items-center z-10 pointer-events-none">
-              <span className=" /80 backdrop-blur-md text-slate-900 dark:text-white px-4 py-2 rounded-full font-medium shadow-lg transition-opacity group-hover:opacity-0">
+              <span className="bg-slate-900/80 backdrop-blur-md text-slate-900 dark:text-white px-4 py-2 rounded-full font-medium shadow-lg transition-opacity group-hover:opacity-0">
                 {config.beforeImageLabel}
               </span>
               <span className="bg-purple-600/90 backdrop-blur-md text-white px-4 py-2 rounded-full font-medium shadow-lg opacity-0 transition-opacity group-hover:opacity-100">
