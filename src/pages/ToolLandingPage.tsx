@@ -163,8 +163,6 @@ export const ToolLandingPage: React.FC = () => {
           <HomeSections />
         ) : dynamicJsonData ? (
           <DynamicPSeoSections data={dynamicJsonData} />
-        ) : isPseoTool ? (
-          <LongTailSections tool={internalTool} />
         ) : (
           <>
             <LandingSections tool={displayConfig.tool as any} />
