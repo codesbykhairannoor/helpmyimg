@@ -12,7 +12,6 @@ import { type Language } from '../i18n/translations';
 import { ToolWorkspace } from '../components/workspace/ToolWorkspace';
 import { usePSeoData } from '../hooks/usePSeoData';
 import { DynamicPSeoSections } from '../components/seo/DynamicPSeoSections';
-import { LongTailSections } from '../components/landing/LongTailSections';
 
 export const ToolLandingPage: React.FC = () => {
   const { setLang, lang: currentLang, t } = useTranslation();
