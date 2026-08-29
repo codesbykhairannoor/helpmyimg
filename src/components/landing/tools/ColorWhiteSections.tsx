@@ -25,7 +25,8 @@ export function ColorWhiteSections() {
         </div>
 
         {/* E-commerce mockups */}
-        <div className="flex gap-6 px-4 md:px-12 overflow-x-auto pb-8 snap-x">
+        <div className="max-w-[1500px] mx-auto w-full">
+          <div className="flex gap-6 px-4 md:px-12 overflow-x-auto pb-8 snap-x">
           {[1, 2, 3, 4].map((i) => (
             <div key={i} className="shrink-0 w-[280px] md:w-[320px] snap-center bg-white dark:bg-slate-900 rounded-2xl shadow-xl shadow-slate-200/50 dark:shadow-none dark:border dark:border-slate-800 p-4">
               <div className="aspect-square bg-slate-100 rounded-xl mb-4 relative overflow-hidden group">
@@ -46,6 +47,7 @@ export function ColorWhiteSections() {
               </div>
             </div>
           ))}
+          </div>
         </div>
       </section>
 
