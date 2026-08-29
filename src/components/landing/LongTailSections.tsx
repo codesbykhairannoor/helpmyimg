@@ -13,7 +13,7 @@ export const LongTailSections: React.FC<LongTailSectionsProps> = ({ tool }) => {
 
   // Fetch Matrix data for FAQs
   const matrixItem = PSEO_KEYWORD_MATRIX.find(
-    (m) => m.tool === tool && (m.lang === lang || m.lang === (lang === 'zh-CN' ? 'zh' : lang))
+    (m) => m.tool === tool && m.lang === lang
   );
 
   // Parse Features from translations
