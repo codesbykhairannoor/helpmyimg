@@ -62,7 +62,7 @@ export const PickerSections: React.FC = () => {
                  <Search className="w-8 h-8" />
                </div>
                <h3 className="text-xl sm:text-2xl font-bold font-heading mb-4">{tr('feat1Title', 'Microscopic Detail')}</h3>
-               <p className="text-lg sm:text-xl text-slate-400 leading-relaxed mb-8">{tr('feat1Desc', 'The built-in magnifying loupe lets you zoom down to individual pixels. No more guessing which shade of blue you are clicking on.')}</p>
+               <p className="font-body text-lg sm:text-xl text-slate-400 leading-relaxed mb-8">{tr('feat1Desc', 'The built-in magnifying loupe lets you zoom down to individual pixels. No more guessing which shade of blue you are clicking on.')}</p>
                <div className="flex gap-2">
                  <div className="w-8 h-8 rounded-md bg-[#05DAED]" />
                  <div className="w-8 h-8 rounded-md bg-[#05DAED]/80" />
@@ -79,7 +79,7 @@ export const PickerSections: React.FC = () => {
                  <Code2 className="w-8 h-8" />
                </div>
                <h3 className="text-xl sm:text-2xl font-bold font-heading mb-4">{tr('feat2Title', 'Multiple Formats')}</h3>
-               <p className="text-lg sm:text-xl text-slate-400 leading-relaxed mb-8">{tr('feat2Desc', 'Get your colors instantly converted into HEX, RGB, and HSL formats. Click once to copy to your clipboard and paste directly into your CSS.')}</p>
+               <p className="font-body text-lg sm:text-xl text-slate-400 leading-relaxed mb-8">{tr('feat2Desc', 'Get your colors instantly converted into HEX, RGB, and HSL formats. Click once to copy to your clipboard and paste directly into your CSS.')}</p>
                
                <div className="space-y-3 font-mono text-xs sm:text-sm">
                  <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between bg-dark-900 border border-dark-700 rounded-xl p-3 gap-2">
@@ -104,7 +104,7 @@ export const PickerSections: React.FC = () => {
                   <Palette className="w-8 h-8" />
                 </div>
                 <h3 className="text-xl sm:text-2xl font-bold font-heading mb-4">{tr('feat3Title', 'Auto-Generate Palettes')}</h3>
-                <p className="text-lg sm:text-xl text-slate-400 leading-relaxed">{tr('feat3Desc', 'Don\'t just pick one color. Our AI algorithm analyzes your uploaded image and automatically generates a harmonious 5-color palette based on the most dominant and striking colors present.')}</p>
+                <p className="font-body text-lg sm:text-xl text-slate-400 leading-relaxed">{tr('feat3Desc', 'Don\'t just pick one color. Our AI algorithm analyzes your uploaded image and automatically generates a harmonious 5-color palette based on the most dominant and striking colors present.')}</p>
              </div>
              <div className="flex-1 w-full flex justify-center">
                 <div className="flex w-full max-w-sm h-32 rounded-2xl overflow-hidden shadow-2xl transform-gpu rotate-2 group-hover:rotate-0 transition-transform">
@@ -136,7 +136,7 @@ export const PickerSections: React.FC = () => {
               <ImageIcon className="w-8 h-8 text-slate-400 group-hover:text-[#05DAED] transition-colors" />
             </div>
             <h3 className="text-xl sm:text-2xl font-bold font-heading mb-2">{tr('s1Title', 'Upload')}</h3>
-            <p className="text-lg sm:text-xl text-slate-400">{tr('s1Desc', 'Load your reference image.')}</p>
+            <p className="font-body text-lg sm:text-xl text-slate-400">{tr('s1Desc', 'Load your reference image.')}</p>
           </div>
 
           <div className="hidden md:block w-16 h-[2px] mt-10 bg-gradient-to-r from-transparent via-dark-500 to-transparent" />
@@ -146,7 +146,7 @@ export const PickerSections: React.FC = () => {
               <Pipette className="w-8 h-8 text-[#05DAED]" />
             </div>
             <h3 className="text-xl sm:text-2xl font-bold font-heading mb-2">{tr('s2Title', 'Pick')}</h3>
-            <p className="text-lg sm:text-xl text-slate-400">{tr('s2Desc', 'Hover over any pixel and click to capture.')}</p>
+            <p className="font-body text-lg sm:text-xl text-slate-400">{tr('s2Desc', 'Hover over any pixel and click to capture.')}</p>
           </div>
 
           <div className="hidden md:block w-16 h-[2px] mt-10 bg-gradient-to-r from-transparent via-dark-500 to-transparent" />
@@ -156,7 +156,7 @@ export const PickerSections: React.FC = () => {
               <Copy className="w-8 h-8 text-[#12DA91]" />
             </div>
             <h3 className="text-xl sm:text-2xl font-bold font-heading mb-2">{tr('s3Title', 'Copy')}</h3>
-            <p className="text-lg sm:text-xl text-slate-400">{tr('s3Desc', 'Copy the HEX/RGB values instantly.')}</p>
+            <p className="font-body text-lg sm:text-xl text-slate-400">{tr('s3Desc', 'Copy the HEX/RGB values instantly.')}</p>
           </div>
         </div>
       </section>

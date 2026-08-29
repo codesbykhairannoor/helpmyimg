@@ -99,7 +99,7 @@ export const BlurFaceSections: React.FC = () => {
               <ScanFace className="w-8 h-8" />
             </div>
             <h3 className="text-xl sm:text-2xl font-bold font-heading mb-4">{tr('feat1Title', 'Face Detection')}</h3>
-            <p className="text-slate-400 leading-relaxed text-lg">{tr('feat1Desc', 'Our local AI model automatically finds and highlights faces in your photos with incredible accuracy.')}</p>
+            <p className="font-body text-slate-400 leading-relaxed text-lg">{tr('feat1Desc', 'Our local AI model automatically finds and highlights faces in your photos with incredible accuracy.')}</p>
           </div>
 
           <div className="bg-dark-900 border border-dark-600 p-10 rounded-[2rem] hover:border-[#06B6D4]/50 transition-colors group relative overflow-hidden">
@@ -108,7 +108,7 @@ export const BlurFaceSections: React.FC = () => {
               <Crop className="w-8 h-8" />
             </div>
             <h3 className="text-xl sm:text-2xl font-bold font-heading mb-4">{tr('feat2Title', 'Smart Blurring')}</h3>
-            <p className="text-slate-400 leading-relaxed text-lg">{tr('feat2Desc', 'Apply beautiful gaussian blurs, pixelation, or solid color blocks to obscure sensitive regions permanently.')}</p>
+            <p className="font-body text-slate-400 leading-relaxed text-lg">{tr('feat2Desc', 'Apply beautiful gaussian blurs, pixelation, or solid color blocks to obscure sensitive regions permanently.')}</p>
           </div>
 
           <div className="bg-dark-900 border border-dark-600 p-10 rounded-[2rem] hover:border-emerald-400/50 transition-colors group relative overflow-hidden">
@@ -117,7 +117,7 @@ export const BlurFaceSections: React.FC = () => {
               <UserX className="w-8 h-8" />
             </div>
             <h3 className="text-xl sm:text-2xl font-bold font-heading mb-4">{tr('feat3Title', 'Manual Override')}</h3>
-            <p className="text-slate-400 leading-relaxed text-lg">{tr('feat3Desc', 'Need to hide a license plate or a document? Use our manual selection tools to blur any specific area.')}</p>
+            <p className="font-body text-slate-400 leading-relaxed text-lg">{tr('feat3Desc', 'Need to hide a license plate or a document? Use our manual selection tools to blur any specific area.')}</p>
           </div>
         </div>
       </section>
@@ -139,7 +139,7 @@ export const BlurFaceSections: React.FC = () => {
               <Upload className="w-8 h-8 text-slate-400 group-hover:text-[#10B981]" />
             </div>
             <h3 className="text-xl sm:text-2xl font-bold font-heading sm:mb-2">{tr('s1Title', 'Upload')}</h3>
-            <p className="text-lg text-slate-400">{tr('s1Desc', 'Drop photos safely into the browser.')}</p>
+            <p className="font-body text-lg text-slate-400">{tr('s1Desc', 'Drop photos safely into the browser.')}</p>
           </div>
 
           <div className="flex-1 text-center group relative z-10 w-full max-w-sm mx-auto md:max-w-none md:w-auto bg-dark-800/40 md:bg-transparent p-8 md:p-0 rounded-3xl border border-dark-600/30 md:border-transparent">
@@ -147,7 +147,7 @@ export const BlurFaceSections: React.FC = () => {
               <ScanFace className="w-8 h-8 text-[#06B6D4]" />
             </div>
             <h3 className="text-xl sm:text-2xl font-bold font-heading sm:mb-2">{tr('s2Title', 'Detect')}</h3>
-            <p className="text-lg text-slate-400">{tr('s2Desc', 'Let AI find and select faces automatically.')}</p>
+            <p className="font-body text-lg text-slate-400">{tr('s2Desc', 'Let AI find and select faces automatically.')}</p>
           </div>
 
           <div className="flex-1 text-center group relative z-10 w-full max-w-sm mx-auto md:max-w-none md:w-auto bg-dark-800/40 md:bg-transparent p-8 md:p-0 rounded-3xl border border-dark-600/30 md:border-transparent">
@@ -155,7 +155,7 @@ export const BlurFaceSections: React.FC = () => {
               <Download className="w-8 h-8 text-[#10B981]" />
             </div>
             <h3 className="text-xl sm:text-2xl font-bold font-heading sm:mb-2">{tr('s3Title', 'Save')}</h3>
-            <p className="text-lg text-slate-400">{tr('s3Desc', 'Download the anonymized photos.')}</p>
+            <p className="font-body text-lg text-slate-400">{tr('s3Desc', 'Download the anonymized photos.')}</p>
           </div>
         </div>
       </section>

@@ -74,7 +74,7 @@ export const RotateSections: React.FC = () => {
                 <RotateCw className="w-8 h-8" />
               </div>
               <h3 className="text-xl sm:text-2xl font-bold font-heading sm:lg:mb-6">{tr('feat1Title', 'Quick 90° Turns')}</h3>
-              <p className="text-lg sm:text-xl text-slate-400 leading-relaxed mb-6">
+              <p className="font-body text-lg sm:text-xl text-slate-400 leading-relaxed mb-6">
                 {tr('feat1Desc', 'Fix photos taken in the wrong orientation instantly. Rotate left or right in precise 90-degree increments to snap images upright.')}
               </p>
               <div className="flex gap-4">
@@ -97,7 +97,7 @@ export const RotateSections: React.FC = () => {
                 <FlipHorizontal className="w-8 h-8" />
               </div>
               <h3 className="text-xl sm:text-2xl font-bold font-heading sm:lg:mb-6">{tr('feat2Title', 'Mirror Effects')}</h3>
-              <p className="text-lg sm:text-xl text-slate-400 leading-relaxed mb-6">
+              <p className="font-body text-lg sm:text-xl text-slate-400 leading-relaxed mb-6">
                 {tr('feat2Desc', 'Flip images horizontally to fix mirrored selfies, or vertically for creative reflection effects. The transformation is applied instantly without reloading.')}
               </p>
                <div className="flex gap-4">
@@ -124,7 +124,7 @@ export const RotateSections: React.FC = () => {
                 <SlidersHorizontal className="w-8 h-8" />
               </div>
               <h3 className="text-xl sm:text-2xl font-bold font-heading sm:lg:mb-6">{tr('feat3Title', 'Fine-Tune Horizon')}</h3>
-              <p className="text-lg sm:text-xl text-slate-400 leading-relaxed mb-6">
+              <p className="font-body text-lg sm:text-xl text-slate-400 leading-relaxed mb-6">
                 {tr('feat3Desc', 'Got a crooked landscape photo? Use the precise rotation slider to level the horizon by exact degrees. Auto-crops boundaries seamlessly.')}
               </p>
                <div className="bg-dark-900 rounded-2xl p-6 border border-dark-600">
@@ -168,7 +168,7 @@ export const RotateSections: React.FC = () => {
               <ImageIcon className="w-8 h-8 text-slate-400 group-hover:text-[#05DAED] transition-colors" />
             </div>
             <h3 className="text-xl sm:text-2xl font-bold font-heading mb-2">{tr('s1Title', 'Upload')}</h3>
-            <p className="text-lg sm:text-xl text-slate-400">{tr('s1Desc', 'Add the images you want to fix.')}</p>
+            <p className="font-body text-lg sm:text-xl text-slate-400">{tr('s1Desc', 'Add the images you want to fix.')}</p>
           </div>
 
           <div className="hidden md:block w-16 h-[2px] mt-10 bg-gradient-to-r from-transparent via-dark-500 to-transparent" />
@@ -178,7 +178,7 @@ export const RotateSections: React.FC = () => {
               <MousePointerClick className="w-8 h-8 text-[#05DAED]" />
             </div>
             <h3 className="text-xl sm:text-2xl font-bold font-heading mb-2">{tr('s2Title', 'Adjust')}</h3>
-            <p className="text-lg sm:text-xl text-slate-400">{tr('s2Desc', 'Use the rotate and flip buttons.')}</p>
+            <p className="font-body text-lg sm:text-xl text-slate-400">{tr('s2Desc', 'Use the rotate and flip buttons.')}</p>
           </div>
 
           <div className="hidden md:block w-16 h-[2px] mt-10 bg-gradient-to-r from-transparent via-dark-500 to-transparent" />
@@ -188,7 +188,7 @@ export const RotateSections: React.FC = () => {
               <Download className="w-8 h-8 text-[#12DA91]" />
             </div>
             <h3 className="text-xl sm:text-2xl font-bold font-heading mb-2">{tr('s3Title', 'Save')}</h3>
-            <p className="text-lg sm:text-xl text-slate-400">{tr('s3Desc', 'Download the corrected images.')}</p>
+            <p className="font-body text-lg sm:text-xl text-slate-400">{tr('s3Desc', 'Download the corrected images.')}</p>
           </div>
         </div>
       </section>

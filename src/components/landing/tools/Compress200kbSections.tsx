@@ -1,8 +1,10 @@
 import { Database, Check, Server, TerminalSquare } from 'lucide-react';
 import { PSEO_KEYWORD_MATRIX } from '../../../data/pseoKeywords';
 import { useRouter } from '../../../context/RouterContext';
+import { useTranslation } from '../../../context/LanguageContext';
 
 export function Compress200kbSections() {
+  const { t } = useTranslation();
   const { route } = useRouter();
   const lang = route.lang;
   const config = PSEO_KEYWORD_MATRIX.find(c => c.tool === 'compress200kb' && c.lang === lang)
@@ -30,15 +32,15 @@ export function Compress200kbSections() {
              <Database className="w-6 h-6 text-emerald-400" />
              <h3 className="font-heading text-2xl font-bold text-white uppercase">{config.extraSectionTitle}</h3>
           </div>
-          <p className="text-zinc-400 mb-8">{config.extraSectionDesc}</p>
+          <p className="font-body text-zinc-400 mb-8">{config.extraSectionDesc}</p>
           
           <div className="overflow-x-auto rounded-xl border border-zinc-800">
             <table className="w-full text-left border-collapse">
               <thead>
                 <tr className="bg-zinc-900 border-b border-zinc-800">
-                  <th className="p-4 text-zinc-300 font-semibold uppercase text-sm">Target Size</th>
-                  <th className="p-4 text-zinc-300 font-semibold uppercase text-sm">Best Use Case</th>
-                  <th className="p-4 text-zinc-300 font-semibold uppercase text-sm">Quality Retention</th>
+                  <th className="p-4 text-zinc-300 font-semibold uppercase text-sm">{t('longtail.c200.targetSize', { defaultValue: 'Target Size' })}</th>
+                  <th className="p-4 text-zinc-300 font-semibold uppercase text-sm">{t('longtail.c200.bestUse', { defaultValue: 'Best Use Case' })}</th>
+                  <th className="p-4 text-zinc-300 font-semibold uppercase text-sm">{t('longtail.c200.quality', { defaultValue: 'Quality Retention' })}</th>
                 </tr>
               </thead>
               <tbody className="bg-black">
@@ -72,7 +74,7 @@ export function Compress200kbSections() {
             </div>
             <div className="md:w-2/3">
                <h3 className="font-heading text-2xl font-bold text-white mb-3">{config.extraSection2Title}</h3>
-               <p className="text-emerald-400 mb-6">{config.extraSection2Desc}</p>
+               <p className="font-body text-emerald-400 mb-6">{config.extraSection2Desc}</p>
                <ul className="space-y-3">
                  {(config.extraSection2Items || [])?.map((item, idx) => (
                     <li key={idx} className="flex gap-3 text-zinc-300">

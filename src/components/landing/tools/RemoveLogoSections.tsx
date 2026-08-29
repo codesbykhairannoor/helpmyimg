@@ -20,7 +20,7 @@ export function RemoveLogoSections() {
           <h2 className="font-heading text-3xl md:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-500 mb-6">
             {config.citationFirst.split('.')[0] + '.'}
           </h2>
-          <p className="text-xl text-slate-500 dark:text-slate-400 max-w-3xl mx-auto leading-relaxed">
+          <p className="font-body text-xl text-slate-500 dark:text-slate-400 max-w-3xl mx-auto leading-relaxed">
             {config.citationFirst.split('.').slice(1).join('.')}
           </p>
         </div>
@@ -65,7 +65,7 @@ export function RemoveLogoSections() {
               <h2 className="font-heading text-3xl md:text-4xl font-bold text-slate-900 dark:text-slate-900 dark:text-white mb-6 leading-tight">
                 {config.extraSectionTitle}
               </h2>
-              <p className="text-lg text-indigo-200/70 mb-8">
+              <p className="font-body text-lg text-indigo-200/70 mb-8">
                 {config.extraSectionDesc}
               </p>
               <ul className="space-y-4">
@@ -94,7 +94,7 @@ export function RemoveLogoSections() {
       {config.extraSection2Title && (
         <section className="relative px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto w-full text-center">
           <h2 className="font-heading text-3xl font-bold text-slate-900 dark:text-white mb-4">{config.extraSection2Title}</h2>
-          <p className="text-slate-600 dark:text-slate-400 mb-12">{config.extraSection2Desc}</p>
+          <p className="font-body text-slate-600 dark:text-slate-400 mb-12">{config.extraSection2Desc}</p>
           
           <div className="flex flex-col md:flex-row gap-6 items-stretch justify-center relative">
              <div className="absolute top-1/2 left-0 w-full h-1 bg-gradient-to-r from-transparent via-blue-500/20 to-transparent -translate-y-1/2 hidden md:block"></div>
@@ -114,7 +114,7 @@ export function RemoveLogoSections() {
                   <div className="w-16 h-16 rounded-full bg-blue-50 dark:bg-blue-900/30 text-blue-500 flex items-center justify-center mb-6">
                     <step.icon className="w-8 h-8" />
                   </div>
-                  <p className="font-medium text-slate-800 dark:text-slate-200">{step.text}</p>
+                  <p className="font-body font-medium text-slate-800 dark:text-slate-200">{step.text}</p>
                 </motion.div>
              ))}
           </div>

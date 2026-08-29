@@ -61,7 +61,7 @@ export const ResizeSections: React.FC = () => {
             <h3 className="text-xl sm:text-2xl font-bold font-heading sm:lg:mb-6">
               <span className="text-[#05DAED] mr-4">01.</span>{tr('feat1Title', 'Exact Pixel Dimensions')}
             </h3>
-            <p className="text-lg sm:text-xl text-slate-400 leading-relaxed mb-6">
+            <p className="font-body text-lg sm:text-xl text-slate-400 leading-relaxed mb-6">
               {tr('feat1Desc', 'Take full control over your image size. Input specific width and height values in pixels to meet strict platform requirements.')}
             </p>
             <ul className="space-y-3 font-mono text-sm text-slate-300">
@@ -99,7 +99,7 @@ export const ResizeSections: React.FC = () => {
             <h3 className="text-xl sm:text-2xl font-bold font-heading sm:lg:mb-6">
               <span className="text-[#12DA91] mr-4">02.</span>{tr('feat2Title', 'Percentage Scaling')}
             </h3>
-            <p className="text-lg sm:text-xl text-slate-400 leading-relaxed mb-6">
+            <p className="font-body text-lg sm:text-xl text-slate-400 leading-relaxed mb-6">
               {tr('feat2Desc', 'Need it twice as large or half the size? Use the percentage slider to quickly scale images up or down proportionally.')}
             </p>
             <ul className="space-y-3 font-mono text-sm text-slate-300">
@@ -123,18 +123,18 @@ export const ResizeSections: React.FC = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <div className="bg-dark-900 rounded-3xl p-8 border border-dark-700 hover:border-[#05DAED]/50 transition-colors text-center">
               <MonitorSmartphone className="w-10 h-10 text-pink-500 mx-auto mb-4" />
-              <h4 className="text-white font-bold mb-2">Instagram</h4>
-              <p className="text-sm font-mono text-[#05DAED]">1080 x 1080 px</p>
+              <h4 className="font-heading text-white font-bold mb-2">Instagram</h4>
+              <p className="font-body text-sm  text-[#05DAED]">1080 x 1080 px</p>
             </div>
             <div className="bg-dark-900 rounded-3xl p-8 border border-dark-700 hover:border-[#05DAED]/50 transition-colors text-center">
               <Share2 className="w-10 h-10 text-blue-400 mx-auto mb-4" />
-              <h4 className="text-white font-bold mb-2">Twitter</h4>
-              <p className="text-sm font-mono text-[#05DAED]">1200 x 675 px</p>
+              <h4 className="font-heading text-white font-bold mb-2">Twitter</h4>
+              <p className="font-body text-sm  text-[#05DAED]">1200 x 675 px</p>
             </div>
             <div className="bg-dark-900 rounded-3xl p-8 border border-dark-700 hover:border-[#05DAED]/50 transition-colors text-center">
               <Globe className="w-10 h-10 text-blue-600 mx-auto mb-4" />
-              <h4 className="text-white font-bold mb-2">Facebook</h4>
-              <p className="text-sm font-mono text-[#05DAED]">1200 x 630 px</p>
+              <h4 className="font-heading text-white font-bold mb-2">Facebook</h4>
+              <p className="font-body text-sm  text-[#05DAED]">1200 x 630 px</p>
             </div>
           </div>
         </div>
@@ -157,7 +157,7 @@ export const ResizeSections: React.FC = () => {
               <ImageIcon className="w-8 h-8 text-slate-400 group-hover:text-[#12DA91] transition-colors" />
             </div>
             <h3 className="text-xl sm:text-2xl font-bold font-heading mb-2">{tr('s1Title', 'Upload Images')}</h3>
-            <p className="text-lg sm:text-xl text-slate-400">{tr('s1Desc', 'Drop up to 10 photos into the tool.')}</p>
+            <p className="font-body text-lg sm:text-xl text-slate-400">{tr('s1Desc', 'Drop up to 10 photos into the tool.')}</p>
           </div>
 
           <div className="hidden md:block w-16 h-[2px] mt-10 bg-gradient-to-r from-transparent via-dark-500 to-transparent" />
@@ -167,7 +167,7 @@ export const ResizeSections: React.FC = () => {
               <Maximize className="w-8 h-8 text-[#05DAED]" />
             </div>
             <h3 className="text-xl sm:text-2xl font-bold font-heading mb-2">{tr('s2Title', 'Set Dimensions')}</h3>
-            <p className="text-lg sm:text-xl text-slate-400">{tr('s2Desc', 'Input your target width and height.')}</p>
+            <p className="font-body text-lg sm:text-xl text-slate-400">{tr('s2Desc', 'Input your target width and height.')}</p>
           </div>
 
           <div className="hidden md:block w-16 h-[2px] mt-10 bg-gradient-to-r from-transparent via-dark-500 to-transparent" />
@@ -177,7 +177,7 @@ export const ResizeSections: React.FC = () => {
               <Download className="w-8 h-8 text-[#12DA91]" />
             </div>
             <h3 className="text-xl sm:text-2xl font-bold font-heading mb-2">{tr('s3Title', 'Save')}</h3>
-            <p className="text-lg sm:text-xl text-slate-400">{tr('s3Desc', 'Download the resized photos instantly.')}</p>
+            <p className="font-body text-lg sm:text-xl text-slate-400">{tr('s3Desc', 'Download the resized photos instantly.')}</p>
           </div>
         </div>
       </section>

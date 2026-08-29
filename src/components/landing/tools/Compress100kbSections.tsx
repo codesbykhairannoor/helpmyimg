@@ -3,8 +3,10 @@ import { Shield, Zap, FileJson, CloudOff, ChevronDown, Activity, Lock, Cpu, Uplo
 import { motion, AnimatePresence } from 'framer-motion';
 import { PSEO_KEYWORD_MATRIX } from '../../../data/pseoKeywords';
 import { useRouter } from '../../../context/RouterContext';
+import { useTranslation } from '../../../context/LanguageContext';
 
 export const Compress100kbSections: React.FC = () => {
+  const { t } = useTranslation();
   const { route } = useRouter();
   const currentLang = route.lang || 'en';
   
@@ -30,12 +32,12 @@ export const Compress100kbSections: React.FC = () => {
           >
             <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-indigo-500/10 text-indigo-400 font-medium text-sm border border-indigo-500/20">
               <CloudOff className="w-4 h-4" />
-              <span>Client-Side Architecture</span>
+              <span>{t('longtail.c100.clientSide', { defaultValue: 'Client-Side Architecture' })}</span>
             </div>
             <h2 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-slate-900 to-slate-600 dark:from-slate-100 dark:to-slate-400 leading-tight">
               {config.extraSectionTitle || config.h1}
             </h2>
-            <p className="text-lg text-slate-600 dark:text-slate-400 leading-relaxed font-medium">
+            <p className="font-body text-lg text-slate-600 dark:text-slate-400 leading-relaxed font-medium">
               {config.extraSectionDesc || config.description}
             </p>
             <div className="pt-4 grid grid-cols-2 gap-4">
@@ -43,13 +45,13 @@ export const Compress100kbSections: React.FC = () => {
                 <div className="p-2 bg-indigo-500/10 dark:bg-indigo-500/20 rounded-lg">
                   <Lock className="w-5 h-5 text-indigo-500 dark:text-indigo-400" />
                 </div>
-                <span className="text-sm font-semibold text-slate-700 dark:text-slate-300">100% Secure</span>
+                <span className="text-sm font-semibold text-slate-700 dark:text-slate-300">{t('longtail.c100.secure', { defaultValue: '100% Secure' })}</span>
               </div>
               <div className="flex items-center gap-3">
                 <div className="p-2 bg-pink-500/10 dark:bg-pink-500/20 rounded-lg">
                   <Cpu className="w-5 h-5 text-pink-500 dark:text-pink-400" />
                 </div>
-                <span className="text-sm font-semibold text-slate-700 dark:text-slate-300">WebGPU Powered</span>
+                <span className="text-sm font-semibold text-slate-700 dark:text-slate-300">{t('longtail.c100.webgpu', { defaultValue: 'WebGPU Powered' })}</span>
               </div>
             </div>
           </motion.div>
@@ -126,8 +128,8 @@ export const Compress100kbSections: React.FC = () => {
               transition={{ delay: 0.1 }}
               className="md:col-span-7 space-y-4 text-center md:text-left"
             >
-              <h3 className="font-heading text-2xl font-bold text-slate-900 dark:text-slate-100">Proven Performance</h3>
-              <p className="text-xl text-slate-700 dark:text-slate-300 leading-relaxed italic border-l-4 border-indigo-500 pl-4 py-2 bg-white dark:bg-slate-800/30 shadow-sm dark:shadow-none rounded-r-xl">
+              <h3 className="font-heading text-2xl font-bold text-slate-900 dark:text-slate-100">{t('longtail.c100.proven', { defaultValue: 'Proven Performance' })}</h3>
+              <p className="font-body text-xl text-slate-700 dark:text-slate-300 leading-relaxed italic border-l-4 border-indigo-500 pl-4 py-2 bg-white dark:bg-slate-800/30 shadow-sm dark:shadow-none rounded-r-xl">
                 "{config.quantitativeProof}"
               </p>
             </motion.div>
@@ -176,7 +178,7 @@ export const Compress100kbSections: React.FC = () => {
                 <feature.icon className={`w-7 h-7 ${feature.color}`} />
               </div>
               <h3 className="font-heading text-xl font-bold text-slate-900 dark:text-slate-100 mb-3">{feature.title}</h3>
-              <p className="text-slate-600 dark:text-slate-400 leading-relaxed">{feature.desc}</p>
+              <p className="font-body text-slate-600 dark:text-slate-400 leading-relaxed">{feature.desc}</p>
             </motion.div>
           ))}
         </div>
@@ -187,7 +189,7 @@ export const Compress100kbSections: React.FC = () => {
         <section className="relative px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full py-12">
           <div className="text-center mb-16">
             <h2 className="font-heading text-3xl md:text-4xl font-bold text-slate-900 dark:text-white">{config.extraSectionTitle}</h2>
-            <p className="mt-4 text-lg text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">{config.extraSectionDesc}</p>
+            <p className="font-body mt-4 text-lg text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">{config.extraSectionDesc}</p>
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -208,7 +210,7 @@ export const Compress100kbSections: React.FC = () => {
                   <step.icon className={`w-8 h-8 ${step.color}`} />
                 </div>
                 <h4 className="font-heading text-xl font-bold text-slate-900 dark:text-white mb-3">{step.title}</h4>
-                <p className="text-slate-600 dark:text-slate-400 leading-relaxed">{step.desc}</p>
+                <p className="font-body text-slate-600 dark:text-slate-400 leading-relaxed">{step.desc}</p>
                 
                 {idx < 2 && (
                   <div className="hidden md:block absolute -right-6 top-1/2 -translate-y-1/2 z-10 text-slate-600 dark:text-slate-300 dark:text-slate-700">
@@ -225,7 +227,7 @@ export const Compress100kbSections: React.FC = () => {
       {config.faqs && config.faqs.length > 0 && (
         <section className="relative px-4 sm:px-6 lg:px-8 max-w-3xl mx-auto w-full">
           <div className="text-center mb-12">
-            <h2 className="font-heading text-3xl font-bold text-slate-900 dark:text-slate-100 mb-4">Frequently Asked Questions</h2>
+            <h2 className="font-heading text-3xl font-bold text-slate-900 dark:text-slate-100 mb-4">{t('longtail.faq', { defaultValue: 'Frequently Asked Questions' })}</h2>
             <div className="h-1 w-20 bg-indigo-500 mx-auto rounded-full" />
           </div>
           <div className="space-y-4">

@@ -55,7 +55,7 @@ export const RemoveBgSections: React.FC = () => {
             </div>
             <span className="text-xs font-mono font-bold uppercase tracking-widest text-[#05DAED] bg-[#05DAED]/10 px-3 py-1 block w-max mb-4 rounded-full border border-[#05DAED]/30">{tr('feat1Badge', '99.8% ACCURACY')}</span>
             <h3 className="text-xl sm:text-2xl font-bold font-heading mb-4 font-heading">{tr('feat1Title', 'Flawless Hair & Edge Detection')}</h3>
-            <p className="text-slate-400 leading-relaxed">{tr('feat1Desc', 'Our neural network easily handles complex details like human hair, animal fur, and semi-transparent objects.')}</p>
+            <p className="font-body text-slate-400 leading-relaxed">{tr('feat1Desc', 'Our neural network easily handles complex details like human hair, animal fur, and semi-transparent objects.')}</p>
           </div>
 
           <div className="glass-panel p-10 rounded-[2rem] border-dark-600/30 hover:border-[#12DA91]/50 transition-all duration-300 hover:shadow-[0_0_20px_rgba(18,218,145,0.15)]">
@@ -64,7 +64,7 @@ export const RemoveBgSections: React.FC = () => {
             </div>
             <span className="text-xs font-mono font-bold uppercase tracking-widest text-[#12DA91] bg-[#12DA91]/10 px-3 py-1 block w-max mb-4 rounded-full border border-[#12DA91]/30">{tr('feat2Badge', '100% SECURE')}</span>
             <h3 className="text-xl sm:text-2xl font-bold font-heading mb-4 font-heading">{tr('feat2Title', 'Complete Offline Privacy')}</h3>
-            <p className="text-slate-400 leading-relaxed">{tr('feat2Desc', 'The AI model loads directly into your browser. Your images never leave your computer, ensuring total data security.')}</p>
+            <p className="font-body text-slate-400 leading-relaxed">{tr('feat2Desc', 'The AI model loads directly into your browser. Your images never leave your computer, ensuring total data security.')}</p>
           </div>
 
           <div className="glass-panel p-10 rounded-[2rem] border-dark-600/30 hover:border-[#05DAED]/50 transition-all duration-300 hover:shadow-[0_0_20px_rgba(5,218,237,0.15)]">
@@ -73,7 +73,7 @@ export const RemoveBgSections: React.FC = () => {
             </div>
             <span className="text-xs font-mono font-bold uppercase tracking-widest text-[#05DAED] bg-[#05DAED]/10 px-3 py-1 block w-max mb-4 rounded-full border border-[#05DAED]/30">{tr('feat3Badge', 'BATCH MODE')}</span>
             <h3 className="text-xl sm:text-2xl font-bold font-heading mb-4 font-heading">{tr('feat3Title', 'Bulk Processing Ready')}</h3>
-            <p className="text-slate-400 leading-relaxed">{tr('feat3Desc', 'Drag and drop up to 10 photos at once. Process them simultaneously and download everything in a neat ZIP file.')}</p>
+            <p className="font-body text-slate-400 leading-relaxed">{tr('feat3Desc', 'Drag and drop up to 10 photos at once. Process them simultaneously and download everything in a neat ZIP file.')}</p>
           </div>
         </div>
       </section>
@@ -99,7 +99,7 @@ export const RemoveBgSections: React.FC = () => {
                 <ShoppingBag className="w-10 h-10" />
               </div>
               <h3 className="text-xl sm:text-2xl font-bold font-heading mb-4">{tr('who1Title', 'E-Commerce Sellers')}</h3>
-              <p className="text-slate-400 text-lg leading-relaxed mb-8">{tr('who1Desc', 'Create clean white backgrounds for product listings.')}</p>
+              <p className="font-body text-slate-400 text-lg leading-relaxed mb-8">{tr('who1Desc', 'Create clean white backgrounds for product listings.')}</p>
             </div>
             <div className="inline-flex items-center px-4 py-2 rounded-full bg-dark-900 border border-[#12DA91]/30 text-sm text-[#12DA91] font-mono self-start">
               {tr('who1Tags', 'PRODUCT LISTING')}
@@ -112,7 +112,7 @@ export const RemoveBgSections: React.FC = () => {
                 <Palette className="w-10 h-10" />
               </div>
               <h3 className="text-xl sm:text-2xl font-bold font-heading mb-4">{tr('who2Title', 'Graphic Designers')}</h3>
-              <p className="text-slate-400 text-lg leading-relaxed mb-8">{tr('who2Desc', 'Extract logos, signatures, and assets instantly.')}</p>
+              <p className="font-body text-slate-400 text-lg leading-relaxed mb-8">{tr('who2Desc', 'Extract logos, signatures, and assets instantly.')}</p>
             </div>
             <div className="inline-flex items-center px-4 py-2 rounded-full bg-dark-900 border border-[#05DAED]/30 text-sm text-[#05DAED] font-mono self-start">
               {tr('who2Tags', 'DESIGN ASSETS')}
@@ -140,24 +140,24 @@ export const RemoveBgSections: React.FC = () => {
             <div className="w-24 h-24 mx-auto bg-dark-800 rounded-full border-4 border-dark-700 flex items-center justify-center mb-6 shadow-xl hover:border-[#05DAED]/50 transition-colors">
               <ImageIcon className="w-10 h-10 text-slate-400" />
             </div>
-            <h3 className="text-xl font-bold text-white mb-2">{tr('s1Title', 'Upload Image')}</h3>
-            <p className="text-slate-400">{tr('s1Desc', 'Drag & drop your photo. PNG, JPG, or WEBP.')}</p>
+            <h3 className="font-heading text-xl font-bold text-white mb-2">{tr('s1Title', 'Upload Image')}</h3>
+            <p className="font-body text-slate-400">{tr('s1Desc', 'Drag & drop your photo. PNG, JPG, or WEBP.')}</p>
           </div>
 
           <div className="flex-1 text-center group relative z-10 w-full max-w-sm mx-auto md:max-w-none md:w-auto bg-dark-800/40 md:bg-transparent p-8 md:p-0 rounded-3xl border border-dark-600/30 md:border-transparent">
             <div className="w-24 h-24 mx-auto bg-dark-800 rounded-full border-4 border-[#05DAED] flex items-center justify-center mb-6 shadow-[0_0_15px_rgba(5,218,237,0.4)]">
               <Wand2 className="w-10 h-10 text-[#05DAED]" />
             </div>
-            <h3 className="text-xl font-bold text-white mb-2">{tr('s2Title', 'AI Processing')}</h3>
-            <p className="text-slate-400">{tr('s2Desc', 'The local WASM AI detects the main subject in 1 second.')}</p>
+            <h3 className="font-heading text-xl font-bold text-white mb-2">{tr('s2Title', 'AI Processing')}</h3>
+            <p className="font-body text-slate-400">{tr('s2Desc', 'The local WASM AI detects the main subject in 1 second.')}</p>
           </div>
 
           <div className="flex-1 text-center group relative z-10 w-full max-w-sm mx-auto md:max-w-none md:w-auto bg-dark-800/40 md:bg-transparent p-8 md:p-0 rounded-3xl border border-dark-600/30 md:border-transparent">
             <div className="w-24 h-24 mx-auto bg-dark-800 rounded-full border-4 border-[#12DA91] flex items-center justify-center mb-6 shadow-[0_0_15px_rgba(18,218,145,0.4)]">
               <Download className="w-10 h-10 text-[#12DA91]" />
             </div>
-            <h3 className="text-xl font-bold text-white mb-2">{tr('s3Title', 'Download HD')}</h3>
-            <p className="text-slate-400">{tr('s3Desc', 'Export your cut-out photo with a transparent background.')}</p>
+            <h3 className="font-heading text-xl font-bold text-white mb-2">{tr('s3Title', 'Download HD')}</h3>
+            <p className="font-body text-slate-400">{tr('s3Desc', 'Export your cut-out photo with a transparent background.')}</p>
           </div>
         </div>
       </section>

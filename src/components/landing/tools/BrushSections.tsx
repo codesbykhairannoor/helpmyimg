@@ -82,7 +82,7 @@ export const BrushSections: React.FC = () => {
             <div className="relative z-10 w-full sm:w-2/3">
                <span className="text-xs font-mono font-bold uppercase tracking-widest text-red-600 dark:text-red-400 bg-red-50 dark:bg-red-500/10 px-3 py-1 block w-max mb-6 rounded-full border border-red-200 dark:border-red-500/30">{tr('feat1Badge', 'ERASE TOOL')}</span>
                <h3 className="text-2xl sm:text-3xl font-bold font-heading mb-4 text-slate-900 dark:text-white">{tr('feat1Title', 'Clean Up Stubborn Artifacts')}</h3>
-               <p className="text-slate-600 dark:text-slate-400 leading-relaxed text-base sm:text-lg">{tr('feat1Desc', 'Notice a speck of background that the AI missed? Simply paint over it to permanently erase it from your composition.')}</p>
+               <p className="font-body text-slate-600 dark:text-slate-400 leading-relaxed text-base sm:text-lg">{tr('feat1Desc', 'Notice a speck of background that the AI missed? Simply paint over it to permanently erase it from your composition.')}</p>
             </div>
           </div>
 
@@ -95,7 +95,7 @@ export const BrushSections: React.FC = () => {
                </div>
                <span className="text-xs font-mono font-bold uppercase tracking-widest text-fuchsia-600 dark:text-fuchsia-400 bg-fuchsia-50 dark:bg-fuchsia-500/10 px-3 py-1 block w-max mx-auto rounded-full border border-fuchsia-200 dark:border-fuchsia-500/30">{tr('feat3Badge', 'ADJUSTABLE')}</span>
                <h3 className="text-2xl font-bold font-heading text-slate-900 dark:text-white">{tr('feat3Title', 'Dynamic Brush Sizing')}</h3>
-               <p className="text-slate-600 dark:text-slate-400 leading-relaxed">{tr('feat3Desc', 'Scale your brush size from a massive block for large area cleanups down to a tiny point for pixel-perfect edge refinement.')}</p>
+               <p className="font-body text-slate-600 dark:text-slate-400 leading-relaxed">{tr('feat3Desc', 'Scale your brush size from a massive block for large area cleanups down to a tiny point for pixel-perfect edge refinement.')}</p>
             </div>
           </div>
 
@@ -104,7 +104,7 @@ export const BrushSections: React.FC = () => {
             <div className="flex-1 z-10">
                <span className="text-xs font-mono font-bold uppercase tracking-widest text-green-600 dark:text-green-400 bg-green-50 dark:bg-green-500/10 px-3 py-1 block w-max mb-4 rounded-full border border-green-200 dark:border-green-500/30">{tr('feat2Badge', 'RESTORE TOOL')}</span>
                <h3 className="text-2xl sm:text-3xl font-bold font-heading mb-4 text-slate-900 dark:text-white">{tr('feat2Title', 'Bring Back Missing Details')}</h3>
-               <p className="text-slate-600 dark:text-slate-400 leading-relaxed text-base sm:text-lg">{tr('feat2Desc', 'Did the AI accidentally remove a piece of clothing or hair? Use the restore brush to magically bring those pixels back from the original image.')}</p>
+               <p className="font-body text-slate-600 dark:text-slate-400 leading-relaxed text-base sm:text-lg">{tr('feat2Desc', 'Did the AI accidentally remove a piece of clothing or hair? Use the restore brush to magically bring those pixels back from the original image.')}</p>
             </div>
             <div className="hidden sm:flex w-32 h-32 rounded-full bg-green-50 dark:bg-green-500/10 border border-green-200 dark:border-green-500/30 items-center justify-center text-green-600 dark:text-green-400 relative z-10 group-hover:rotate-180 transition-transform duration-700">
                <Undo2 className="w-16 h-16" />
@@ -129,7 +129,7 @@ export const BrushSections: React.FC = () => {
                   {tr('whoTag', 'PROFESSIONAL TOUCH')}
                </span>
                <h3 className="text-3xl sm:text-4xl font-extrabold leading-tight font-heading text-slate-900 dark:text-white">{tr('case1Title', 'E-commerce Products')}</h3>
-               <p className="text-lg sm:text-xl text-slate-600 dark:text-slate-400 leading-relaxed">
+               <p className="font-body text-lg sm:text-xl text-slate-600 dark:text-slate-400 leading-relaxed">
                   {tr('case1Desc', 'Product photos often have shadows or reflections that AI might confuse. Use the magic brush to ensure your product edges are exceptionally clean before publishing to your store.')}
                </p>
             </div>
@@ -148,7 +148,7 @@ export const BrushSections: React.FC = () => {
                   {tr('whoTag', 'PROFESSIONAL TOUCH')}
                </span>
                <h3 className="text-3xl sm:text-4xl font-extrabold leading-tight font-heading text-slate-900 dark:text-white">{tr('case2Title', 'Complex Hair & Fur')}</h3>
-               <p className="text-lg sm:text-xl text-slate-600 dark:text-slate-400 leading-relaxed">
+               <p className="font-body text-lg sm:text-xl text-slate-600 dark:text-slate-400 leading-relaxed">
                   {tr('case2Desc', 'While our AI is trained on millions of hair patterns, extremely chaotic backgrounds can trick it. The restore brush lets you paint back fine strands of hair perfectly.')}
                </p>
             </div>

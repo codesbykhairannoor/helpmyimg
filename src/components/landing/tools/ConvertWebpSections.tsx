@@ -1,8 +1,10 @@
 import { RefreshCcw, FileType, CheckCircle2, AlertTriangle, Monitor, Smartphone, Globe, CloudOff } from 'lucide-react';
 import { PSEO_KEYWORD_MATRIX } from '../../../data/pseoKeywords';
 import { useRouter } from '../../../context/RouterContext';
+import { useTranslation } from '../../../context/LanguageContext';
 
 export function ConvertWebpSections() {
+  const { t } = useTranslation();
   const { route } = useRouter();
   const lang = route.lang;
   const config = PSEO_KEYWORD_MATRIX.find(c => c.tool === 'convertwebp' && c.lang === lang)
@@ -22,7 +24,7 @@ export function ConvertWebpSections() {
         <h2 className="font-heading text-4xl md:text-6xl font-black text-slate-900 dark:text-slate-900 dark:text-slate-900 dark:text-white mb-6 leading-tight tracking-tight">
           {config.extraSectionTitle || config.h1}
         </h2>
-        <p className="text-xl text-slate-600 dark:text-slate-300 max-w-2xl mx-auto mb-12">
+        <p className="font-body text-xl text-slate-600 dark:text-slate-300 max-w-2xl mx-auto mb-12">
           {config.extraSectionDesc || config.description}
         </p>
 
@@ -33,8 +35,8 @@ export function ConvertWebpSections() {
              <div className="w-16 h-16 bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 rounded-xl flex items-center justify-center mx-auto mb-4">
                 <FileType className="w-8 h-8" />
              </div>
-             <p className="font-bold text-lg mb-1">{config.beforeImageLabel}</p>
-             <p className="text-xs text-slate-500 uppercase font-medium">.webp format</p>
+             <p className="font-body font-bold text-lg mb-1">{config.beforeImageLabel}</p>
+             <p className="font-body text-xs text-slate-500 uppercase font-medium">.webp format</p>
           </div>
 
           {/* Engine */}
@@ -54,8 +56,8 @@ export function ConvertWebpSections() {
              <div className="w-16 h-16 bg-emerald-100 dark:bg-emerald-900/30 text-emerald-600 dark:text-emerald-400 rounded-xl flex items-center justify-center mx-auto mb-4">
                 <FileType className="w-8 h-8" />
              </div>
-             <p className="font-bold text-lg mb-1">{config.afterImageLabel}</p>
-             <p className="text-xs text-slate-500 uppercase font-medium">.jpg / .jpeg</p>
+             <p className="font-body font-bold text-lg mb-1">{config.afterImageLabel}</p>
+             <p className="font-body text-xs text-slate-500 uppercase font-medium">.jpg / .jpeg</p>
           </div>
         </div>
       </section>
@@ -64,7 +66,7 @@ export function ConvertWebpSections() {
       <section className="px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto w-full">
         <div className="text-center mb-10">
           <h3 className="font-heading text-3xl font-bold text-slate-900 dark:text-white mb-4">{config.extraSectionTitle}</h3>
-          <p className="text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">{config.extraSectionDesc}</p>
+          <p className="font-body text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">{config.extraSectionDesc}</p>
         </div>
         
         <div className="overflow-x-auto rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm bg-white dark:bg-slate-800">
@@ -93,7 +95,7 @@ export function ConvertWebpSections() {
                 <td className="p-4 border-b border-slate-200 dark:border-slate-700">No (Replaced with White)</td>
               </tr>
               <tr>
-                <td className="p-4 font-medium text-slate-700 dark:text-slate-300">Best Use Case</td>
+                <td className="p-4 font-medium text-slate-700 dark:text-slate-300">{t('longtail.c200.bestUse', { defaultValue: 'Best Use Case' })}</td>
                 <td className="p-4">{(config.extraSectionItems || [])[0].replace('WEBP: ', '')}</td>
                 <td className="p-4">{(config.extraSectionItems || [])[1].replace('JPG: ', '')}</td>
               </tr>
@@ -107,7 +109,7 @@ export function ConvertWebpSections() {
         <div className="bg-emerald-50 dark:bg-emerald-900/10 rounded-2xl p-8 border border-emerald-100 dark:border-emerald-800 flex flex-col md:flex-row items-center gap-8">
           <div className="flex-1">
             <h3 className="font-heading text-2xl font-bold text-slate-900 dark:text-white mb-4">WebAssembly Engine</h3>
-            <p className="text-lg text-slate-700 dark:text-slate-300 italic mb-4">"{config.extraSectionDesc || config.description}"</p>
+            <p className="font-body text-lg text-slate-700 dark:text-slate-300 italic mb-4">"{config.extraSectionDesc || config.description}"</p>
             <div className="flex items-center gap-2 text-emerald-600 dark:text-emerald-400 font-bold text-sm uppercase tracking-wide">
               <Monitor className="w-5 h-5" />
               <span>{config.quantitativeProof}</span>
@@ -123,7 +125,7 @@ export function ConvertWebpSections() {
       <section className="px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto w-full">
         <div className="text-center mb-10">
           <h3 className="font-heading text-2xl font-bold text-slate-900 dark:text-white">{config.extraSection2Title}</h3>
-          <p className="text-slate-600 dark:text-slate-400 mt-2">{config.extraSection2Desc}</p>
+          <p className="font-body text-slate-600 dark:text-slate-400 mt-2">{config.extraSection2Desc}</p>
         </div>
         <div className="grid md:grid-cols-3 gap-8">
           {(config.extraSection2Items || []).map((item, i) => (
@@ -131,7 +133,7 @@ export function ConvertWebpSections() {
               <div className="w-16 h-16 bg-white dark:bg-slate-800 rounded-full shadow-md flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
                 {[<Globe />, <Monitor />, <Smartphone />][i % 3]}
               </div>
-              <p className="font-semibold text-slate-900 dark:text-white">{item}</p>
+              <p className="font-body font-semibold text-slate-900 dark:text-white">{item}</p>
             </div>
           ))}
         </div>
@@ -144,7 +146,7 @@ export function ConvertWebpSections() {
           {config.faqs.map((faq, i) => (
             <div key={i} className="bg-white dark:bg-slate-800 p-6 rounded-2xl shadow-sm border border-slate-200 dark:border-slate-700 flex flex-col">
               <h4 className="font-heading font-bold text-lg text-slate-900 dark:text-white mb-3">{faq.question}</h4>
-              <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed mt-auto">{faq.answer}</p>
+              <p className="font-body text-slate-600 dark:text-slate-400 text-sm leading-relaxed mt-auto">{faq.answer}</p>
             </div>
           ))}
         </div>

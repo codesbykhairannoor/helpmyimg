@@ -1,8 +1,10 @@
 import { ShoppingBag, Star, LayoutTemplate, BadgeCheck, Zap, ArrowRightCircle } from 'lucide-react';
 import { PSEO_KEYWORD_MATRIX } from '../../../data/pseoKeywords';
 import { useRouter } from '../../../context/RouterContext';
+import { useTranslation } from '../../../context/LanguageContext';
 
 export function ColorWhiteSections() {
+  const { t } = useTranslation();
   const { route } = useRouter();
   const lang = route.lang;
   const config = PSEO_KEYWORD_MATRIX.find(c => c.tool === 'colorwhite' && c.lang === lang)
@@ -19,7 +21,7 @@ export function ColorWhiteSections() {
           <h2 className="font-heading text-3xl md:text-5xl font-black text-slate-900 dark:text-white tracking-tight">
             {config.extraSectionTitle || "Amazon Ready"}
           </h2>
-          <p className="mt-4 text-xl text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">
+          <p className="font-body mt-4 text-xl text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">
             {config.extraSectionDesc || config.description}
           </p>
         </div>
@@ -62,7 +64,7 @@ export function ColorWhiteSections() {
                 <ShoppingBag className="w-4 h-4" /> E-Commerce Optimization
               </span>
               <h2 className="font-heading text-3xl font-bold text-slate-900 dark:text-white">{config.extraSectionTitle}</h2>
-              <p className="mt-3 text-slate-600 dark:text-slate-400">{config.extraSectionDesc}</p>
+              <p className="font-body mt-3 text-slate-600 dark:text-slate-400">{config.extraSectionDesc}</p>
             </div>
 
             <div className="grid md:grid-cols-3 gap-6 relative z-10">
@@ -71,7 +73,7 @@ export function ColorWhiteSections() {
                   <div className="w-12 h-12 mx-auto bg-white dark:bg-slate-800 rounded-full shadow-sm flex items-center justify-center mb-4 text-orange-500">
                     {idx === 0 ? <BadgeCheck /> : idx === 1 ? <LayoutTemplate /> : <Zap />}
                   </div>
-                  <p className="font-semibold text-slate-800 dark:text-slate-200">{item}</p>
+                  <p className="font-body font-semibold text-slate-800 dark:text-slate-200">{item}</p>
                 </div>
               ))}
             </div>
@@ -83,7 +85,7 @@ export function ColorWhiteSections() {
       {config.extraSection2Title && (
         <section className="relative px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto w-full mb-12 text-center">
           <h3 className="font-heading text-2xl font-bold text-slate-900 dark:text-white mb-4">{config.extraSection2Title}</h3>
-          <p className="text-slate-600 dark:text-slate-400 mb-8">{config.extraSection2Desc}</p>
+          <p className="font-body text-slate-600 dark:text-slate-400 mb-8">{config.extraSection2Desc}</p>
           <div className="flex flex-col gap-4">
             {(config.extraSection2Items || [])?.map((item, idx) => (
                <div key={idx} className="bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-xl p-4 flex items-center justify-between shadow-sm">
@@ -97,12 +99,12 @@ export function ColorWhiteSections() {
 
       {/* SECTION 4: Clean FAQs */}
       <section className="relative px-4 sm:px-6 lg:px-8 max-w-3xl mx-auto w-full mb-16">
-        <h3 className="font-heading text-2xl font-bold text-slate-900 dark:text-white mb-8 text-center">Frequently Asked Questions</h3>
+        <h3 className="font-heading text-2xl font-bold text-slate-900 dark:text-white mb-8 text-center">{t('longtail.faq', { defaultValue: 'Frequently Asked Questions' })}</h3>
         <div className="space-y-4">
           {config.faqs?.map((faq, i) => (
             <div key={i} className="bg-white dark:bg-slate-900 rounded-2xl p-6 shadow-sm border border-slate-100 dark:border-slate-800">
               <h4 className="font-heading font-bold text-slate-900 dark:text-white mb-2">{faq.question}</h4>
-              <p className="text-slate-600 dark:text-slate-400">{faq.answer}</p>
+              <p className="font-body text-slate-600 dark:text-slate-400">{faq.answer}</p>
             </div>
           ))}
         </div>

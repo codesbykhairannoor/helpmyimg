@@ -91,7 +91,7 @@ export const WatermarkSections: React.FC = () => {
               <Layers className="w-7 h-7" />
             </div>
             <h3 className="text-xl sm:text-2xl font-bold font-heading sm:mb-4">{tr('feat1Title', 'Non-Destructive Layering')}</h3>
-            <p className="text-slate-400 leading-relaxed text-lg">{tr('feat1Desc', 'Add multiple watermark layers without altering your original image data. Easy to position, scale, and rotate.')}</p>
+            <p className="font-body text-slate-400 leading-relaxed text-lg">{tr('feat1Desc', 'Add multiple watermark layers without altering your original image data. Easy to position, scale, and rotate.')}</p>
           </div>
 
           <div className="glass-panel p-8 md:p-10 rounded-[2rem] border-dark-600/50 hover:border-[#EC4899]/50 transition-colors transform md:translate-y-8 hover:translate-y-6 duration-300 bg-dark-900/80 shadow-[0_0_40px_rgba(236,72,153,0.1)] relative z-10">
@@ -99,7 +99,7 @@ export const WatermarkSections: React.FC = () => {
               <SlidersHorizontal className="w-7 h-7" />
             </div>
             <h3 className="text-xl sm:text-2xl font-bold font-heading sm:mb-4">{tr('feat2Title', 'Opacity & Blending')}</h3>
-            <p className="text-slate-400 leading-relaxed text-lg">{tr('feat2Desc', 'Fine-tune the transparency of your text or logo. Choose advanced blending modes to make your watermark subtle yet impossible to remove.')}</p>
+            <p className="font-body text-slate-400 leading-relaxed text-lg">{tr('feat2Desc', 'Fine-tune the transparency of your text or logo. Choose advanced blending modes to make your watermark subtle yet impossible to remove.')}</p>
           </div>
 
           <div className="glass-panel p-8 md:p-10 rounded-[2rem] border-dark-600/50 hover:border-[#F43F5E]/50 transition-colors transform hover:-translate-y-2 duration-300 bg-dark-900/80">
@@ -107,7 +107,7 @@ export const WatermarkSections: React.FC = () => {
               <Grid className="w-7 h-7" />
             </div>
             <h3 className="text-xl sm:text-2xl font-bold font-heading sm:mb-4">{tr('feat3Title', 'Tiled Pattern Mode')}</h3>
-            <p className="text-slate-400 leading-relaxed text-lg">{tr('feat3Desc', 'Automatically repeat your watermark across the entire image in a grid pattern. Ultimate protection against unauthorized cropping.')}</p>
+            <p className="font-body text-slate-400 leading-relaxed text-lg">{tr('feat3Desc', 'Automatically repeat your watermark across the entire image in a grid pattern. Ultimate protection against unauthorized cropping.')}</p>
           </div>
         </div>
       </section>
@@ -132,7 +132,7 @@ export const WatermarkSections: React.FC = () => {
                 <Upload className="w-10 h-10 text-slate-400 group-hover:text-[#8B5CF6]" />
               </div>
               <h3 className="text-xl sm:text-2xl font-bold font-heading sm:mb-3">{tr('s1Title', 'Upload')}</h3>
-              <p className="text-lg text-slate-400">{tr('s1Desc', 'Load your original photos securely into the browser.')}</p>
+              <p className="font-body text-lg text-slate-400">{tr('s1Desc', 'Load your original photos securely into the browser.')}</p>
             </div>
 
             <div className="text-center group relative z-10 w-full max-w-sm mx-auto md:max-w-none md:w-auto bg-dark-800/40 md:bg-transparent p-8 md:p-0 rounded-3xl border border-dark-600/30 md:border-transparent">
@@ -143,7 +143,7 @@ export const WatermarkSections: React.FC = () => {
                 <ShieldAlert className="w-10 h-10 text-[#EC4899]" />
               </div>
               <h3 className="text-xl sm:text-2xl font-bold font-heading sm:mb-3">{tr('s2Title', 'Stamp')}</h3>
-              <p className="text-lg text-slate-400">{tr('s2Desc', 'Apply your custom text or logo watermark with styling.')}</p>
+              <p className="font-body text-lg text-slate-400">{tr('s2Desc', 'Apply your custom text or logo watermark with styling.')}</p>
             </div>
 
             <div className="text-center group relative z-10 w-full max-w-sm mx-auto md:max-w-none md:w-auto bg-dark-800/40 md:bg-transparent p-8 md:p-0 rounded-3xl border border-dark-600/30 md:border-transparent">
@@ -154,7 +154,7 @@ export const WatermarkSections: React.FC = () => {
                 <Save className="w-10 h-10 text-[#F43F5E]" />
               </div>
               <h3 className="text-xl sm:text-2xl font-bold font-heading sm:mb-3">{tr('s3Title', 'Export')}</h3>
-              <p className="text-lg text-slate-400">{tr('s3Desc', 'Save the protected images instantly to your device.')}</p>
+              <p className="font-body text-lg text-slate-400">{tr('s3Desc', 'Save the protected images instantly to your device.')}</p>
             </div>
           </div>
         </div>

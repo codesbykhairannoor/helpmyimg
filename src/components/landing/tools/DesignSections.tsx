@@ -79,7 +79,7 @@ export const DesignSections: React.FC = () => {
                 <Type className="w-8 h-8" />
               </div>
               <h3 className="text-xl sm:text-2xl font-bold font-heading mb-4 font-heading">{tr('feat1Title', 'Rich Typography')}</h3>
-              <p className="text-lg sm:text-xl text-slate-400 leading-relaxed">{tr('feat1Desc', 'Add custom text layers, choose from hundreds of web fonts, and style them with strokes, shadows, and gradients for maximum impact.')}</p>
+              <p className="font-body text-lg sm:text-xl text-slate-400 leading-relaxed">{tr('feat1Desc', 'Add custom text layers, choose from hundreds of web fonts, and style them with strokes, shadows, and gradients for maximum impact.')}</p>
             </div>
           </div>
 
@@ -90,7 +90,7 @@ export const DesignSections: React.FC = () => {
             </div>
             <div className="mt-8">
               <h3 className="text-xl sm:text-2xl font-bold font-heading mb-3 font-heading">{tr('feat2Title', 'Pro Filters')}</h3>
-              <p className="text-lg sm:text-xl text-slate-400 leading-relaxed">{tr('feat2Desc', 'Apply cinematic color grading and professional adjustments natively.')}</p>
+              <p className="font-body text-lg sm:text-xl text-slate-400 leading-relaxed">{tr('feat2Desc', 'Apply cinematic color grading and professional adjustments natively.')}</p>
             </div>
           </div>
 
@@ -101,7 +101,7 @@ export const DesignSections: React.FC = () => {
             </div>
             <div className="mt-8">
               <h3 className="text-xl sm:text-2xl font-bold font-heading mb-3 font-heading">{tr('feat3Title', 'Vector Shapes')}</h3>
-              <p className="text-lg sm:text-xl text-slate-400 leading-relaxed">{tr('feat3Desc', 'Draw geometric shapes, arrows, and borders with precision.')}</p>
+              <p className="font-body text-lg sm:text-xl text-slate-400 leading-relaxed">{tr('feat3Desc', 'Draw geometric shapes, arrows, and borders with precision.')}</p>
             </div>
           </div>
 
@@ -113,7 +113,7 @@ export const DesignSections: React.FC = () => {
                 <Layers className="w-8 h-8" />
               </div>
               <h3 className="text-xl sm:text-2xl font-bold font-heading mb-4 font-heading">{tr('feat4Title', 'Layer Management')}</h3>
-              <p className="text-lg sm:text-xl text-slate-400 leading-relaxed">{tr('feat4Desc', 'Organize complex designs effortlessly. Stack, group, hide, and lock multiple layers to create intricate compositions without losing control.')}</p>
+              <p className="font-body text-lg sm:text-xl text-slate-400 leading-relaxed">{tr('feat4Desc', 'Organize complex designs effortlessly. Stack, group, hide, and lock multiple layers to create intricate compositions without losing control.')}</p>
             </div>
           </div>
         </div>
@@ -136,7 +136,7 @@ export const DesignSections: React.FC = () => {
               <Wand2 className="w-8 h-8 text-slate-400 group-hover:text-[#8B5CF6] transition-colors" />
             </div>
             <h3 className="text-xl sm:text-2xl font-bold font-heading mb-2">{tr('s1Title', 'Start Canvas')}</h3>
-            <p className="text-lg sm:text-xl text-slate-400">{tr('s1Desc', 'Open a blank canvas or import a photo.')}</p>
+            <p className="font-body text-lg sm:text-xl text-slate-400">{tr('s1Desc', 'Open a blank canvas or import a photo.')}</p>
           </div>
 
           <div className="flex-1 text-center group relative z-10 w-full max-w-sm mx-auto md:max-w-none md:w-auto bg-dark-800/40 md:bg-transparent p-8 md:p-0 rounded-3xl border border-dark-600/30 md:border-transparent">
@@ -144,7 +144,7 @@ export const DesignSections: React.FC = () => {
               <Palette className="w-8 h-8 text-[#EC4899]" />
             </div>
             <h3 className="text-xl sm:text-2xl font-bold font-heading mb-2">{tr('s2Title', 'Design')}</h3>
-            <p className="text-lg sm:text-xl text-slate-400">{tr('s2Desc', 'Add text, graphics, and apply filters.')}</p>
+            <p className="font-body text-lg sm:text-xl text-slate-400">{tr('s2Desc', 'Add text, graphics, and apply filters.')}</p>
           </div>
 
           <div className="flex-1 text-center group relative z-10 w-full max-w-sm mx-auto md:max-w-none md:w-auto bg-dark-800/40 md:bg-transparent p-8 md:p-0 rounded-3xl border border-dark-600/30 md:border-transparent">
@@ -152,7 +152,7 @@ export const DesignSections: React.FC = () => {
               <Download className="w-8 h-8 text-[#05DAED]" />
             </div>
             <h3 className="text-xl sm:text-2xl font-bold font-heading mb-2">{tr('s3Title', 'Export')}</h3>
-            <p className="text-lg sm:text-xl text-slate-400">{tr('s3Desc', 'Download the final masterpiece.')}</p>
+            <p className="font-body text-lg sm:text-xl text-slate-400">{tr('s3Desc', 'Download the final masterpiece.')}</p>
           </div>
         </div>
       </section>

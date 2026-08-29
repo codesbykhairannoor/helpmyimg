@@ -37,7 +37,7 @@ export const Compress50kbSections: React.FC = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.1 }}
-          className="text-4xl sm:text-5xl lg:text-6xl font-black text-transparent bg-clip-text bg-gradient-to-b from-white to-zinc-500 leading-tight"
+          className="font-heading text-4xl sm:text-5xl lg:text-6xl font-black text-transparent bg-clip-text bg-gradient-to-b from-white to-zinc-500 leading-tight"
         >
           {config.extraSectionTitle || config.h1}
         </motion.h2>
@@ -46,7 +46,7 @@ export const Compress50kbSections: React.FC = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2 }}
-          className="text-lg sm:text-xl text-zinc-400 max-w-3xl mx-auto leading-relaxed"
+          className="font-body text-lg sm:text-xl text-zinc-400 max-w-3xl mx-auto leading-relaxed"
         >
           {config.extraSectionDesc || config.description}
         </motion.p>
@@ -68,7 +68,7 @@ export const Compress50kbSections: React.FC = () => {
             </div>
             <div className="relative z-10 flex flex-col justify-center h-full max-w-md">
               <h3 className="font-heading text-2xl font-bold text-white mb-4">High-Speed Processing</h3>
-              <p className="text-lg text-zinc-400 font-medium italic border-l-4 border-violet-500 pl-4 py-2">
+              <p className="font-body text-lg text-zinc-400 font-medium italic border-l-4 border-violet-500 pl-4 py-2">
                 "{config.quantitativeProof}"
               </p>
             </div>
@@ -127,14 +127,14 @@ export const Compress50kbSections: React.FC = () => {
                 <Layers className="w-6 h-6 text-blue-400" />
               </div>
               <h4 className="font-heading text-lg font-bold text-white">Smart Quality Retention</h4>
-              <p className="text-sm text-zinc-400">Our algorithm automatically adjusts compression curves to retain edge sharpness even at extremely low bitrates.</p>
+              <p className="font-body text-sm text-zinc-400">Our algorithm automatically adjusts compression curves to retain edge sharpness even at extremely low bitrates.</p>
             </div>
             <div className="space-y-3">
               <div className="w-12 h-12 bg-zinc-800 rounded-lg flex items-center justify-center">
                 <Smartphone className="w-6 h-6 text-emerald-400" />
               </div>
               <h4 className="font-heading text-lg font-bold text-white">Mobile Optimized</h4>
-              <p className="text-sm text-zinc-400">Works flawlessly on iOS and Android browsers without requiring any app installations or backend uploads.</p>
+              <p className="font-body text-sm text-zinc-400">Works flawlessly on iOS and Android browsers without requiring any app installations or backend uploads.</p>
             </div>
           </motion.div>
 
@@ -146,7 +146,7 @@ export const Compress50kbSections: React.FC = () => {
         <section className="relative px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto w-full">
           <div className="text-center mb-12">
             <h2 className="font-heading text-3xl font-bold text-white mb-4">{config.extraSectionTitle}</h2>
-            <p className="text-lg text-zinc-400 max-w-2xl mx-auto">{config.extraSectionDesc}</p>
+            <p className="font-body text-lg text-zinc-400 max-w-2xl mx-auto">{config.extraSectionDesc}</p>
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -166,7 +166,7 @@ export const Compress50kbSections: React.FC = () => {
                 <div className={`w-14 h-14 rounded-2xl flex items-center justify-center mb-4 ${useCase.bg}`}>
                   <useCase.icon className={`w-7 h-7 ${useCase.color}`} />
                 </div>
-                <p className="text-zinc-300 font-medium leading-relaxed">{useCase.text}</p>
+                <p className="font-body text-zinc-300 font-medium leading-relaxed">{useCase.text}</p>
               </motion.div>
             ))}
           </div>

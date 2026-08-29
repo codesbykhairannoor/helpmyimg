@@ -22,7 +22,7 @@ export function BlurPlateSections() {
         <h2 className="font-heading text-4xl md:text-6xl font-black text-slate-900 dark:text-slate-900 dark:text-slate-900 dark:text-white mb-6 leading-tight">
           {config.extraSectionTitle || config.h1}
         </h2>
-        <p className="text-xl text-slate-600 dark:text-slate-400 max-w-3xl mx-auto mb-16">
+        <p className="font-body text-xl text-slate-600 dark:text-slate-400 max-w-3xl mx-auto mb-16">
           {config.extraSectionDesc || config.description}
         </p>
 
@@ -54,10 +54,10 @@ export function BlurPlateSections() {
              <AlertOctagon className="w-12 h-12" />
            </div>
            <div>
-              <p className="text-xl md:text-2xl font-bold text-slate-900 dark:text-white mb-4">
+              <p className="font-body text-xl md:text-2xl font-bold text-slate-900 dark:text-white mb-4">
                 {config.extraSectionDesc || config.description}
               </p>
-              <p className="text-red-600 dark:text-red-400 font-medium">
+              <p className="font-body text-red-600 dark:text-red-400 font-medium">
                 {config.quantitativeProof}
               </p>
            </div>
@@ -68,7 +68,7 @@ export function BlurPlateSections() {
       <section className="px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto w-full">
         <div className="text-center mb-12">
           <h3 className="font-heading text-3xl font-bold text-slate-900 dark:text-white mb-4">{config.extraSectionTitle}</h3>
-          <p className="text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">{config.extraSectionDesc}</p>
+          <p className="font-body text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">{config.extraSectionDesc}</p>
         </div>
         <div className="grid md:grid-cols-3 gap-8">
           {(config.extraSectionItems || []).map((item, i) => (
@@ -86,7 +86,7 @@ export function BlurPlateSections() {
       <section className="px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto w-full">
         <div className=" rounded-3xl p-8 md:p-12 text-slate-900 dark:text-white shadow-2xl">
            <h3 className="font-heading text-3xl font-bold mb-4">{config.extraSection2Title}</h3>
-           <p className="text-slate-500 dark:text-slate-400 mb-10">{config.extraSection2Desc}</p>
+           <p className="font-body text-slate-500 dark:text-slate-400 mb-10">{config.extraSection2Desc}</p>
            
            <div className="grid md:grid-cols-3 gap-6">
               {(config.extraSection2Items || []).map((item, i) => (
@@ -96,7 +96,7 @@ export function BlurPlateSections() {
                       {i === 1 && <div className="absolute inset-0" style={{ backgroundImage: 'radial-gradient(circle, #334155 20%, transparent 20%)', backgroundSize: '4px 4px' }} />}
                       {i === 2 && <div className="absolute inset-0 bg-black" />}
                    </div>
-                   <p className="font-bold">{item}</p>
+                   <p className="font-body font-bold">{item}</p>
                 </div>
               ))}
            </div>
@@ -113,7 +113,7 @@ export function BlurPlateSections() {
                 <EyeOff className="w-5 h-5 text-blue-500" />
                 {faq.question}
               </h4>
-              <p className="text-slate-600 dark:text-slate-400 leading-relaxed pl-7">{faq.answer}</p>
+              <p className="font-body text-slate-600 dark:text-slate-400 leading-relaxed pl-7">{faq.answer}</p>
             </div>
           ))}
         </div>

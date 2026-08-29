@@ -49,7 +49,7 @@ export const CropSections: React.FC = () => {
               <Move className="w-8 h-8 group-hover:scale-110 transition-transform" />
             </div>
             <h3 className="text-xl sm:text-2xl font-bold font-heading mb-4 relative z-10">{tr('feat1Title', 'Freeform Selection')}</h3>
-            <p className="text-lg sm:text-xl text-slate-400 leading-relaxed flex-1 relative z-10">{tr('feat1Desc', 'Drag the crop box edges freely to frame your subject exactly the way you want without any dimension restrictions.')}</p>
+            <p className="font-body text-lg sm:text-xl text-slate-400 leading-relaxed flex-1 relative z-10">{tr('feat1Desc', 'Drag the crop box edges freely to frame your subject exactly the way you want without any dimension restrictions.')}</p>
           </div>
 
           <div className="glass-panel p-8 sm:p-10 rounded-3xl border-dark-600/30 hover:border-[#12DA91]/50 transition-colors h-full flex flex-col group relative overflow-hidden transform md:-translate-y-8">
@@ -58,7 +58,7 @@ export const CropSections: React.FC = () => {
               <Grid3X3 className="w-8 h-8 group-hover:scale-110 transition-transform" />
             </div>
             <h3 className="text-xl sm:text-2xl font-bold font-heading mb-4 relative z-10 text-center">{tr('feat2Title', 'Fixed Aspect Ratios')}</h3>
-            <p className="text-lg sm:text-xl text-slate-400 leading-relaxed flex-1 relative z-10 text-center">{tr('feat2Desc', 'Need a perfect square? Or a 16:9 thumbnail? Lock the crop aspect ratio to maintain exact proportions effortlessly.')}</p>
+            <p className="font-body text-lg sm:text-xl text-slate-400 leading-relaxed flex-1 relative z-10 text-center">{tr('feat2Desc', 'Need a perfect square? Or a 16:9 thumbnail? Lock the crop aspect ratio to maintain exact proportions effortlessly.')}</p>
           </div>
 
           <div className="glass-panel p-8 sm:p-10 rounded-b-[3rem] rounded-t-3xl border-dark-600/30 hover:border-[#05DAED]/50 transition-colors h-full flex flex-col group relative overflow-hidden">
@@ -67,7 +67,7 @@ export const CropSections: React.FC = () => {
               <Scissors className="w-8 h-8 group-hover:scale-110 transition-transform" />
             </div>
             <h3 className="text-xl sm:text-2xl font-bold font-heading mb-4 relative z-10">{tr('feat3Title', 'Lossless Extraction')}</h3>
-            <p className="text-lg sm:text-xl text-slate-400 leading-relaxed flex-1 relative z-10">{tr('feat3Desc', 'When you crop an image, we extract the pixels natively ensuring there is absolutely zero compression or quality loss in the process.')}</p>
+            <p className="font-body text-lg sm:text-xl text-slate-400 leading-relaxed flex-1 relative z-10">{tr('feat3Desc', 'When you crop an image, we extract the pixels natively ensuring there is absolutely zero compression or quality loss in the process.')}</p>
           </div>
         </div>
       </section>
@@ -89,7 +89,7 @@ export const CropSections: React.FC = () => {
               <ImageIcon className="w-8 h-8 text-[#12DA91]" />
             </div>
             <h3 className="text-xl sm:text-2xl font-bold font-heading mb-3">{tr('s1Title', 'Upload Photo')}</h3>
-            <p className="text-lg sm:text-xl text-slate-400">{tr('s1Desc', 'Drag and drop your image into the workspace.')}</p>
+            <p className="font-body text-lg sm:text-xl text-slate-400">{tr('s1Desc', 'Drag and drop your image into the workspace.')}</p>
           </div>
 
           <div className="hidden md:block w-16 h-[2px] mt-10 bg-gradient-to-r from-transparent via-dark-500 to-transparent" />
@@ -99,7 +99,7 @@ export const CropSections: React.FC = () => {
               <Crosshair className="w-8 h-8 text-[#05DAED]" />
             </div>
             <h3 className="text-xl sm:text-2xl font-bold font-heading mb-3">{tr('s2Title', 'Drag the Box')}</h3>
-            <p className="text-lg sm:text-xl text-slate-400">{tr('s2Desc', 'Use the corner handles to adjust the crop area.')}</p>
+            <p className="font-body text-lg sm:text-xl text-slate-400">{tr('s2Desc', 'Use the corner handles to adjust the crop area.')}</p>
           </div>
 
           <div className="hidden md:block w-16 h-[2px] mt-10 bg-gradient-to-r from-transparent via-dark-500 to-transparent" />
@@ -109,7 +109,7 @@ export const CropSections: React.FC = () => {
               <Download className="w-8 h-8 text-[#12DA91]" />
             </div>
             <h3 className="text-xl sm:text-2xl font-bold font-heading mb-3">{tr('s3Title', 'Apply & Save')}</h3>
-            <p className="text-lg sm:text-xl text-slate-400">{tr('s3Desc', 'Hit crop and download your extracted image.')}</p>
+            <p className="font-body text-lg sm:text-xl text-slate-400">{tr('s3Desc', 'Hit crop and download your extracted image.')}</p>
           </div>
         </div>
       </section>

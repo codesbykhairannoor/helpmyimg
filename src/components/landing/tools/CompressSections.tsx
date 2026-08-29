@@ -81,21 +81,21 @@ export const CompressSections: React.FC = () => {
               <Activity className="w-10 h-10 text-[#05DAED] mb-6 group-hover:scale-110 transition-transform" />
               <div className="text-xs font-mono font-bold uppercase tracking-widest text-[#05DAED] bg-[#05DAED]/10 px-3 py-1 block w-max mb-4 rounded-full border border-[#05DAED]/30">{tr('feat1Badge', 'NO QUALITY LOSS')}</div>
               <h3 className="text-xl sm:text-2xl font-bold font-heading mb-4">{tr('feat1Title', 'Smart Optimization')}</h3>
-              <p className="text-slate-400">{tr('feat1Desc', 'Automatically finds the perfect balance between minimal file size and maximum image quality.')}</p>
+              <p className="font-body text-slate-400">{tr('feat1Desc', 'Automatically finds the perfect balance between minimal file size and maximum image quality.')}</p>
             </div>
 
             <div className="p-8 sm:p-12 group hover:bg-dark-800/80 transition-colors">
               <ShieldCheck className="w-10 h-10 text-[#12DA91] mb-6 group-hover:scale-110 transition-transform" />
               <div className="text-xs font-mono font-bold uppercase tracking-widest text-[#12DA91] bg-[#12DA91]/10 px-3 py-1 block w-max mb-4 rounded-full border border-[#12DA91]/30">{tr('feat2Badge', '100% PRIVATE')}</div>
               <h3 className="text-xl sm:text-2xl font-bold font-heading mb-4">{tr('feat2Title', 'Zero Uploads')}</h3>
-              <p className="text-slate-400">{tr('feat2Desc', 'Like all our tools, compression happens right in your web browser. Nothing goes to any server.')}</p>
+              <p className="font-body text-slate-400">{tr('feat2Desc', 'Like all our tools, compression happens right in your web browser. Nothing goes to any server.')}</p>
             </div>
 
             <div className="p-8 sm:p-12 group hover:bg-dark-800/80 transition-colors">
               <FileArchive className="w-10 h-10 text-[#05DAED] mb-6 group-hover:scale-110 transition-transform" />
               <div className="text-xs font-mono font-bold uppercase tracking-widest text-[#05DAED] bg-[#05DAED]/10 px-3 py-1 block w-max mb-4 rounded-full border border-[#05DAED]/30">{tr('feat3Badge', 'ANY FORMAT')}</div>
               <h3 className="text-xl sm:text-2xl font-bold font-heading mb-4">{tr('feat3Title', 'Broad Support')}</h3>
-              <p className="text-slate-400">{tr('feat3Desc', 'Works with standard JPG and PNG formats, as well as modern ultra-efficient WEBP formats.')}</p>
+              <p className="font-body text-slate-400">{tr('feat3Desc', 'Works with standard JPG and PNG formats, as well as modern ultra-efficient WEBP formats.')}</p>
             </div>
 
           </div>
@@ -119,16 +119,16 @@ export const CompressSections: React.FC = () => {
           
           <div className="flex-1 space-y-6 w-full">
             <div className="bg-dark-800 p-8 rounded-3xl border border-dark-600 border-l-4 border-l-[#05DAED] shadow-lg group hover:bg-dark-800/80 transition-colors">
-              <h3 className="text-xl font-bold text-white mb-2">{tr('who1Title', 'Web Developers')}</h3>
-              <p className="text-slate-400 mb-4">{tr('who1Desc', 'Improve PageSpeed scores and decrease load times without sacrificing image quality.')}</p>
+              <h3 className="font-heading text-xl font-bold text-white mb-2">{tr('who1Title', 'Web Developers')}</h3>
+              <p className="font-body text-slate-400 mb-4">{tr('who1Desc', 'Improve PageSpeed scores and decrease load times without sacrificing image quality.')}</p>
               <div className="inline-block px-3 py-1 bg-[#05DAED]/10 text-[#05DAED] text-xs font-mono rounded">
                 {tr('who1Tags', 'SEO OPTIMIZATION')}
               </div>
             </div>
 
             <div className="bg-dark-800 p-8 rounded-3xl border border-dark-600 border-l-4 border-l-[#12DA91] shadow-lg group hover:bg-dark-800/80 transition-colors">
-              <h3 className="text-xl font-bold text-white mb-2">{tr('who2Title', 'Content Creators')}</h3>
-              <p className="text-slate-400 mb-4">{tr('who2Desc', 'Meet strict upload size limits for platforms like Discord, Twitter, or email attachments.')}</p>
+              <h3 className="font-heading text-xl font-bold text-white mb-2">{tr('who2Title', 'Content Creators')}</h3>
+              <p className="font-body text-slate-400 mb-4">{tr('who2Desc', 'Meet strict upload size limits for platforms like Discord, Twitter, or email attachments.')}</p>
               <div className="inline-block px-3 py-1 bg-[#12DA91]/10 text-[#12DA91] text-xs font-mono rounded">
                 {tr('who2Tags', 'SOCIAL MEDIA')}
               </div>
@@ -154,8 +154,8 @@ export const CompressSections: React.FC = () => {
               1
             </div>
             <div>
-              <h3 className="text-xl font-bold text-white mb-1">{tr('s1Title', 'Upload Images')}</h3>
-              <p className="text-slate-400">{tr('s1Desc', 'Drag and drop your photos into the compression workspace.')}</p>
+              <h3 className="font-heading text-xl font-bold text-white mb-1">{tr('s1Title', 'Upload Images')}</h3>
+              <p className="font-body text-slate-400">{tr('s1Desc', 'Drag and drop your photos into the compression workspace.')}</p>
             </div>
           </div>
 
@@ -164,8 +164,8 @@ export const CompressSections: React.FC = () => {
               2
             </div>
             <div>
-              <h3 className="text-xl font-bold text-white mb-1">{tr('s2Title', 'Set Compression Level')}</h3>
-              <p className="text-slate-400">{tr('s2Desc', 'Adjust the quality slider to find the right balance between visual quality and file size.')}</p>
+              <h3 className="font-heading text-xl font-bold text-white mb-1">{tr('s2Title', 'Set Compression Level')}</h3>
+              <p className="font-body text-slate-400">{tr('s2Desc', 'Adjust the quality slider to find the right balance between visual quality and file size.')}</p>
             </div>
           </div>
 
@@ -174,8 +174,8 @@ export const CompressSections: React.FC = () => {
               3
             </div>
             <div>
-              <h3 className="text-xl font-bold text-white mb-1">{tr('s3Title', 'Save Storage')}</h3>
-              <p className="text-slate-400">{tr('s3Desc', 'Download your optimized images and enjoy reduced file sizes.')}</p>
+              <h3 className="font-heading text-xl font-bold text-white mb-1">{tr('s3Title', 'Save Storage')}</h3>
+              <p className="font-body text-slate-400">{tr('s3Desc', 'Download your optimized images and enjoy reduced file sizes.')}</p>
             </div>
           </div>
         </div>

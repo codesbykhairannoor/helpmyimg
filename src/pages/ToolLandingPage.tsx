@@ -39,7 +39,7 @@ export const ToolLandingPage: React.FC = () => {
     config = getPSeoConfigBySlug(keywordSlug || '') || PSEO_KEYWORD_MATRIX.find(c => c.tool === internalTool && c.lang === lang);
   }
 
-  const defaultTitle = isPseoTool && config ? config.title : (!tool 
+  const defaultTitle = isPseoTool ? t(`seo.title.${internalTool}`, { defaultValue: config?.title || "HelpMyIMG" }) : (!tool 
     ? t('home.tab.title', { defaultValue: "HelpMyIMG | All Image Tools in One Place" })
     : internalTool === 'color' 
     ? t('landing.default.title.color') 
@@ -65,7 +65,7 @@ export const ToolLandingPage: React.FC = () => {
     ? t('brush.title')
     : t('landing.default.title.remove'));
 
-  const defaultH1 = isPseoTool && config ? config.h1 : (!tool
+  const defaultH1 = isPseoTool && config ? t(`seo.h1.${internalTool}`, { defaultValue: config.h1 }) : (!tool
     ? t('landing.default.title.home', { defaultValue: "Every AI tool you need to edit images in bulk" })
     : internalTool === 'color' 
     ? t('landing.default.title.color') 
@@ -91,7 +91,7 @@ export const ToolLandingPage: React.FC = () => {
     ? t('brush.title')
     : t('landing.default.title.remove'));
 
-  const defaultDesc = isPseoTool && config ? (config.description || '') : (!tool
+  const defaultDesc = isPseoTool && config ? t(`seo.desc.${internalTool}`, { defaultValue: config.description || '' }) : (!tool
     ? t('landing.default.desc.home', { defaultValue: "Your local AI photo editor is here and forever free! 100% private, runs directly in your browser." })
     : internalTool === 'color' 
     ? t('landing.default.desc.color') 

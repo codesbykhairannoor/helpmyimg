@@ -1,8 +1,10 @@
 import { Sparkles, Eraser, Move, ScanLine, Image as ImageIcon, Zap, CheckCircle2 } from 'lucide-react';
 import { PSEO_KEYWORD_MATRIX } from '../../../data/pseoKeywords';
 import { useRouter } from '../../../context/RouterContext';
+import { useTranslation } from '../../../context/LanguageContext';
 
 export function RemovePersonSections() {
+  const { t } = useTranslation();
   const { route } = useRouter();
   const lang = route.lang;
   const config = PSEO_KEYWORD_MATRIX.find(c => c.tool === 'removeperson' && c.lang === lang)
@@ -21,7 +23,7 @@ export function RemovePersonSections() {
         <h2 className="font-heading text-4xl md:text-6xl font-bold text-slate-900 dark:text-slate-900 dark:text-slate-900 dark:text-white mb-6 leading-tight">
           {config.extraSectionTitle || config.h1}
         </h2>
-        <p className="text-xl text-slate-600 dark:text-slate-600 dark:text-slate-600 dark:text-slate-300 max-w-3xl mx-auto mb-10 leading-relaxed">
+        <p className="font-body text-xl text-slate-600 dark:text-slate-600 dark:text-slate-600 dark:text-slate-300 max-w-3xl mx-auto mb-10 leading-relaxed">
           {config.extraSectionDesc || config.description}
         </p>
 
@@ -66,14 +68,14 @@ export function RemovePersonSections() {
           <div className="absolute top-0 right-0 p-8 opacity-5">
             <Sparkles className="w-32 h-32" />
           </div>
-          <p className="text-xl md:text-2xl font-serif italic text-slate-700 dark:text-slate-300 relative z-10">
+          <p className="font-body text-xl md:text-2xl  italic text-slate-700 dark:text-slate-300 relative z-10">
             "{config.extraSectionDesc || config.description}"
           </p>
           <div className="mt-8 flex items-center gap-4 relative z-10">
             <div className="h-12 w-1 bg-purple-500 rounded-full" />
             <div>
-              <p className="font-bold text-slate-900 dark:text-white">AI Vision Model v4</p>
-              <p className="text-sm text-slate-500 dark:text-slate-400">{config.quantitativeProof}</p>
+              <p className="font-body font-bold text-slate-900 dark:text-white">AI Vision Model v4</p>
+              <p className="font-body text-sm text-slate-500 dark:text-slate-400">{config.quantitativeProof}</p>
             </div>
           </div>
         </div>
@@ -83,7 +85,7 @@ export function RemovePersonSections() {
       <section className="px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto w-full">
         <div className="text-center mb-12">
           <h3 className="font-heading text-3xl font-bold text-slate-900 dark:text-white mb-4">{config.extraSectionTitle}</h3>
-          <p className="text-slate-600 dark:text-slate-400">{config.extraSectionDesc}</p>
+          <p className="font-body text-slate-600 dark:text-slate-400">{config.extraSectionDesc}</p>
         </div>
         <div className="grid md:grid-cols-3 gap-6">
           {(config.extraSectionItems || []).map((item, i) => (
@@ -103,7 +105,7 @@ export function RemovePersonSections() {
                 <ScanLine className="w-48 h-48" />
              </div>
              <h3 className="font-heading text-2xl font-bold mb-2 relative z-10">{config.extraSection2Title}</h3>
-             <p className="text-purple-100 mb-6 max-w-md relative z-10">{config.extraSection2Desc}</p>
+             <p className="font-body text-purple-100 mb-6 max-w-md relative z-10">{config.extraSection2Desc}</p>
              <div className="space-y-3 relative z-10">
                {(config.extraSection2Items || []).map((item, i) => (
                  <div key={i} className="flex items-center gap-3 bg-white/10 backdrop-blur-sm px-4 py-3 rounded-lg border border-white/20">
@@ -115,8 +117,8 @@ export function RemovePersonSections() {
           </div>
           <div className="bg-white dark:bg-slate-900 shadow-xl dark:shadow-none rounded-3xl p-8 flex flex-col justify-center items-center text-center border border-slate-800">
              <ImageIcon className="w-16 h-16 text-slate-500 dark:text-slate-400 mb-6" />
-             <p className="text-slate-600 dark:text-slate-300 font-medium">100% Local Processing</p>
-             <p className="text-sm text-slate-500 mt-2">No images are sent to any server. Complete privacy.</p>
+             <p className="font-body text-slate-600 dark:text-slate-300 font-medium">100% Local Processing</p>
+             <p className="font-body text-sm text-slate-500 mt-2">No images are sent to any server. Complete privacy.</p>
           </div>
         </div>
       </section>
@@ -124,7 +126,7 @@ export function RemovePersonSections() {
       {/* SECTION 5: FAQ Accordion */}
       <section className="px-4 sm:px-6 lg:px-8 max-w-3xl mx-auto w-full">
         <div className="text-center mb-10">
-          <h3 className="font-heading text-2xl font-bold text-slate-900 dark:text-white">Frequently Asked Questions</h3>
+          <h3 className="font-heading text-2xl font-bold text-slate-900 dark:text-white">{t('longtail.faq', { defaultValue: 'Frequently Asked Questions' })}</h3>
         </div>
         <div className="space-y-4">
           {config.faqs.map((faq, i) => (
@@ -135,7 +137,7 @@ export function RemovePersonSections() {
                   <svg fill="none" height="24" shapeRendering="geometricPrecision" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
                 </span>
               </summary>
-              <p className="text-slate-600 dark:text-slate-300 px-6 pb-6 leading-relaxed">
+              <p className="font-body text-slate-600 dark:text-slate-300 px-6 pb-6 leading-relaxed">
                 {faq.answer}
               </p>
             </details>

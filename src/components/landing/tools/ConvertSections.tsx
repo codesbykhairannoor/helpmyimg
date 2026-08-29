@@ -102,7 +102,7 @@ export const ConvertSections: React.FC = () => {
               <Zap className="w-8 h-8" />
             </div>
             <h3 className="text-xl sm:text-2xl font-bold font-heading mb-4">{tr('feat1Title', 'Lightning Fast')}</h3>
-            <p className="text-slate-400 leading-relaxed text-lg">{tr('feat1Desc', 'Transform huge WebP files into universal JPGs instantly, utilizing the full processing power of your device.')}</p>
+            <p className="font-body text-slate-400 leading-relaxed text-lg">{tr('feat1Desc', 'Transform huge WebP files into universal JPGs instantly, utilizing the full processing power of your device.')}</p>
           </div>
 
           <div className="bg-dark-900 border border-dark-600 p-10 rounded-[2rem] hover:border-[#EC4899]/50 transition-colors group relative overflow-hidden">
@@ -111,7 +111,7 @@ export const ConvertSections: React.FC = () => {
               <LayoutGrid className="w-8 h-8" />
             </div>
             <h3 className="text-xl sm:text-2xl font-bold font-heading mb-4">{tr('feat2Title', 'Bulk Processing')}</h3>
-            <p className="text-slate-400 leading-relaxed text-lg">{tr('feat2Desc', 'Need to convert 500 images? Just drag and drop the entire folder. We handle unlimited batch conversions effortlessly.')}</p>
+            <p className="font-body text-slate-400 leading-relaxed text-lg">{tr('feat2Desc', 'Need to convert 500 images? Just drag and drop the entire folder. We handle unlimited batch conversions effortlessly.')}</p>
           </div>
 
           <div className="bg-dark-900 border border-dark-600 p-10 rounded-[2rem] hover:border-indigo-400/50 transition-colors group relative overflow-hidden">
@@ -120,7 +120,7 @@ export const ConvertSections: React.FC = () => {
               <FileType2 className="w-8 h-8" />
             </div>
             <h3 className="text-xl sm:text-2xl font-bold font-heading mb-4">{tr('feat3Title', 'Broad Support')}</h3>
-            <p className="text-slate-400 leading-relaxed text-lg">{tr('feat3Desc', 'Full support for next-gen formats like WebP alongside classic formats like JPG, PNG, and BMP.')}</p>
+            <p className="font-body text-slate-400 leading-relaxed text-lg">{tr('feat3Desc', 'Full support for next-gen formats like WebP alongside classic formats like JPG, PNG, and BMP.')}</p>
           </div>
         </div>
       </section>
@@ -145,7 +145,7 @@ export const ConvertSections: React.FC = () => {
                 <Upload className="w-10 h-10 text-slate-400 group-hover:text-[#EC4899]" />
               </div>
               <h3 className="text-xl sm:text-2xl font-bold font-heading sm:mb-3">{tr('s1Title', 'Upload')}</h3>
-              <p className="text-lg text-slate-400">{tr('s1Desc', 'Drag and drop your images or folders into the workspace.')}</p>
+              <p className="font-body text-lg text-slate-400">{tr('s1Desc', 'Drag and drop your images or folders into the workspace.')}</p>
             </div>
 
             <div className="text-center group relative z-10 w-full max-w-sm mx-auto md:max-w-none md:w-auto bg-dark-800/40 md:bg-transparent p-8 md:p-0 rounded-3xl border border-dark-600/30 md:border-transparent">
@@ -155,7 +155,7 @@ export const ConvertSections: React.FC = () => {
                 <ArrowRightLeft className="w-10 h-10 text-[#06B6D4]" />
               </div>
               <h3 className="text-xl sm:text-2xl font-bold font-heading sm:mb-3">{tr('s2Title', 'Format')}</h3>
-              <p className="text-lg text-slate-400">{tr('s2Desc', 'Select your desired output format from the dropdown menu.')}</p>
+              <p className="font-body text-lg text-slate-400">{tr('s2Desc', 'Select your desired output format from the dropdown menu.')}</p>
             </div>
 
             <div className="text-center group relative z-10 w-full max-w-sm mx-auto md:max-w-none md:w-auto bg-dark-800/40 md:bg-transparent p-8 md:p-0 rounded-3xl border border-dark-600/30 md:border-transparent">
@@ -165,7 +165,7 @@ export const ConvertSections: React.FC = () => {
                 <Download className="w-10 h-10 text-slate-400 group-hover:text-[#10B981]" />
               </div>
               <h3 className="text-xl sm:text-2xl font-bold font-heading sm:mb-3">{tr('s3Title', 'Export')}</h3>
-              <p className="text-lg text-slate-400">{tr('s3Desc', 'Click export and get your newly formatted files instantly.')}</p>
+              <p className="font-body text-lg text-slate-400">{tr('s3Desc', 'Click export and get your newly formatted files instantly.')}</p>
             </div>
           </div>
         </div>

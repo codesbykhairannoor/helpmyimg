@@ -67,7 +67,7 @@ export const ColorBgSections: React.FC = () => {
                 <Palette className="w-8 h-8" />
               </div>
               <h3 className="text-xl sm:text-2xl font-bold font-heading mb-4 font-heading">{tr('feat1Title', 'Infinite Color Canvas')}</h3>
-              <p className="text-lg sm:text-xl text-slate-400 leading-relaxed">{tr('feat1Desc', 'Choose from our curated palette of conversion-optimized colors, or enter any HEX/RGB code to perfectly match your brand identity.')}</p>
+              <p className="font-body text-lg sm:text-xl text-slate-400 leading-relaxed">{tr('feat1Desc', 'Choose from our curated palette of conversion-optimized colors, or enter any HEX/RGB code to perfectly match your brand identity.')}</p>
             </div>
           </div>
 
@@ -78,7 +78,7 @@ export const ColorBgSections: React.FC = () => {
             </div>
             <div className="mt-8">
               <h3 className="text-xl sm:text-2xl font-bold font-heading mb-3 font-heading">{tr('feat2Title', 'Edge Smoothing')}</h3>
-              <p className="text-lg sm:text-xl text-slate-400 leading-relaxed">{tr('feat2Desc', 'Colors naturally blend with your subject edges, avoiding harsh pixelated halos.')}</p>
+              <p className="font-body text-lg sm:text-xl text-slate-400 leading-relaxed">{tr('feat2Desc', 'Colors naturally blend with your subject edges, avoiding harsh pixelated halos.')}</p>
             </div>
           </div>
 
@@ -89,7 +89,7 @@ export const ColorBgSections: React.FC = () => {
             </div>
             <div className="mt-8">
               <h3 className="text-xl sm:text-2xl font-bold font-heading mb-3 font-heading">{tr('feat3Title', 'Live Preview')}</h3>
-              <p className="text-lg sm:text-xl text-slate-400 leading-relaxed">{tr('feat3Desc', 'See color changes instantly without waiting for reloads or server processing.')}</p>
+              <p className="font-body text-lg sm:text-xl text-slate-400 leading-relaxed">{tr('feat3Desc', 'See color changes instantly without waiting for reloads or server processing.')}</p>
             </div>
           </div>
 
@@ -101,7 +101,7 @@ export const ColorBgSections: React.FC = () => {
                 <Lock className="w-8 h-8" />
               </div>
               <h3 className="text-xl sm:text-2xl font-bold font-heading mb-4 font-heading">{tr('feat4Title', '100% Private Sandbox')}</h3>
-              <p className="text-lg sm:text-xl text-slate-400 leading-relaxed">{tr('feat4Desc', 'The color manipulation is rendered directly on your local device\'s Canvas API. Zero network requests mean zero privacy risks.')}</p>
+              <p className="font-body text-lg sm:text-xl text-slate-400 leading-relaxed">{tr('feat4Desc', 'The color manipulation is rendered directly on your local device\'s Canvas API. Zero network requests mean zero privacy risks.')}</p>
             </div>
           </div>
         </div>
@@ -124,7 +124,7 @@ export const ColorBgSections: React.FC = () => {
               <LayoutGrid className="w-7 h-7" />
             </div>
             <h3 className="text-xl sm:text-2xl font-bold font-heading mb-3 font-heading">{tr('who1Title', 'E-Commerce Catalogs')}</h3>
-            <p className="text-lg sm:text-xl text-slate-400">{tr('who1Desc', 'Standardize product backgrounds with pure white or brand-specific hex codes for consistent store listings.')}</p>
+            <p className="font-body text-lg sm:text-xl text-slate-400">{tr('who1Desc', 'Standardize product backgrounds with pure white or brand-specific hex codes for consistent store listings.')}</p>
           </div>
           
           <div className="bg-dark-800/80 rounded-[2rem] p-8 border border-dark-600 hover:-translate-y-2 transition-transform duration-300">
@@ -132,7 +132,7 @@ export const ColorBgSections: React.FC = () => {
               <ImageIcon className="w-7 h-7" />
             </div>
             <h3 className="text-xl sm:text-2xl font-bold font-heading mb-3 font-heading">{tr('who2Title', 'Profile Portraits')}</h3>
-            <p className="text-lg sm:text-xl text-slate-400">{tr('who2Desc', 'Instantly add vibrant, eye-catching backgrounds to LinkedIn, Twitter, or corporate headshots.')}</p>
+            <p className="font-body text-lg sm:text-xl text-slate-400">{tr('who2Desc', 'Instantly add vibrant, eye-catching backgrounds to LinkedIn, Twitter, or corporate headshots.')}</p>
           </div>
 
           <div className="bg-dark-800/80 rounded-[2rem] p-8 border border-dark-600 hover:-translate-y-2 transition-transform duration-300">
@@ -140,7 +140,7 @@ export const ColorBgSections: React.FC = () => {
               <Droplet className="w-7 h-7" />
             </div>
             <h3 className="text-xl sm:text-2xl font-bold font-heading mb-3 font-heading">{tr('who3Title', 'Marketing Materials')}</h3>
-            <p className="text-lg sm:text-xl text-slate-400">{tr('who3Desc', 'Prepare transparent assets by applying solid chroma key greens or matching ad campaign palettes.')}</p>
+            <p className="font-body text-lg sm:text-xl text-slate-400">{tr('who3Desc', 'Prepare transparent assets by applying solid chroma key greens or matching ad campaign palettes.')}</p>
           </div>
         </div>
       </section>
@@ -160,7 +160,7 @@ export const ColorBgSections: React.FC = () => {
                 <ImageIcon className="w-8 h-8 text-slate-400 group-hover:text-[#05DAED] transition-colors" />
               </div>
               <h3 className="text-xl sm:text-2xl font-bold font-heading mb-2 font-heading">{tr('s1Title', 'Upload Image')}</h3>
-              <p className="text-lg sm:text-xl text-slate-400">{tr('s1Desc', 'Ensure your image has a transparent background first.')}</p>
+              <p className="font-body text-lg sm:text-xl text-slate-400">{tr('s1Desc', 'Ensure your image has a transparent background first.')}</p>
             </div>
 
             <div className="hidden md:block w-16 h-[2px] mt-10 bg-gradient-to-r from-transparent via-dark-500 to-transparent" />
@@ -170,7 +170,7 @@ export const ColorBgSections: React.FC = () => {
                 <Palette className="w-8 h-8 text-[#05DAED]" />
               </div>
               <h3 className="text-xl sm:text-2xl font-bold font-heading mb-2 font-heading">{tr('s2Title', 'Pick a Color')}</h3>
-              <p className="text-lg sm:text-xl text-slate-400">{tr('s2Desc', 'Use the color picker or enter your custom HEX code.')}</p>
+              <p className="font-body text-lg sm:text-xl text-slate-400">{tr('s2Desc', 'Use the color picker or enter your custom HEX code.')}</p>
             </div>
 
             <div className="hidden md:block w-16 h-[2px] mt-10 bg-gradient-to-r from-transparent via-dark-500 to-transparent" />
@@ -180,7 +180,7 @@ export const ColorBgSections: React.FC = () => {
                 <Download className="w-8 h-8 text-[#12DA91]" />
               </div>
               <h3 className="text-xl sm:text-2xl font-bold font-heading mb-2 font-heading">{tr('s3Title', 'Export')}</h3>
-              <p className="text-lg sm:text-xl text-slate-400">{tr('s3Desc', 'Download your newly colored image in full resolution.')}</p>
+              <p className="font-body text-lg sm:text-xl text-slate-400">{tr('s3Desc', 'Download your newly colored image in full resolution.')}</p>
             </div>
           </div>
         </div>

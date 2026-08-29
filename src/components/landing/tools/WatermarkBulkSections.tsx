@@ -1,8 +1,10 @@
 import { Layers, Shield, CopyPlus, LayoutGrid, CheckCircle2, Award } from 'lucide-react';
 import { PSEO_KEYWORD_MATRIX } from '../../../data/pseoKeywords';
 import { useRouter } from '../../../context/RouterContext';
+import { useTranslation } from '../../../context/LanguageContext';
 
 export function WatermarkBulkSections() {
+  const { t } = useTranslation();
   const { route } = useRouter();
   const lang = route.lang;
   const config = PSEO_KEYWORD_MATRIX.find(c => c.tool === 'watermarkbulk' && c.lang === lang)
@@ -21,7 +23,7 @@ export function WatermarkBulkSections() {
         <h2 className="font-heading text-4xl md:text-6xl font-bold text-slate-900 dark:text-slate-900 dark:text-white mb-6 leading-tight">
           {config.extraSectionTitle || config.h1}
         </h2>
-        <p className="text-xl text-slate-600 dark:text-slate-600 dark:text-slate-600 dark:text-slate-300 max-w-3xl mx-auto mb-16">
+        <p className="font-body text-xl text-slate-600 dark:text-slate-600 dark:text-slate-600 dark:text-slate-300 max-w-3xl mx-auto mb-16">
           {config.extraSectionDesc || config.description}
         </p>
 
@@ -47,11 +49,11 @@ export function WatermarkBulkSections() {
            {/* Center Floating Console */}
            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-slate-900/90 backdrop-blur-xl border border-slate-200 dark:border-slate-700 p-6 rounded-2xl shadow-2xl z-20 flex flex-col items-center min-w-[250px]">
               <Layers className="w-8 h-8 text-amber-500 mb-2 animate-bounce" />
-              <p className="text-slate-900 dark:text-white font-bold text-lg mb-1">Batch Processing</p>
+              <p className="font-body text-slate-900 dark:text-white font-bold text-lg mb-1">Batch Processing</p>
               <div className="w-full h-2 bg-white dark:bg-slate-800 shadow-xl dark:shadow-none rounded-full overflow-hidden">
                  <div className="w-full h-full bg-amber-500 animate-pulse" />
               </div>
-              <p className="text-slate-500 dark:text-slate-400 text-xs mt-2 font-mono">Applying 100/100...</p>
+              <p className="font-body text-slate-500 dark:text-slate-400 text-xs mt-2">Applying 100/100...</p>
            </div>
         </div>
       </section>
@@ -62,14 +64,14 @@ export function WatermarkBulkSections() {
            <div className="flex-1 space-y-6">
               <Shield className="w-12 h-12 text-amber-500" />
               <h3 className="font-heading text-3xl font-bold text-slate-900 dark:text-white">{config.extraSection2Title}</h3>
-              <p className="text-slate-600 dark:text-slate-300 text-lg leading-relaxed">{config.extraSectionDesc || config.description}</p>
-              <p className="text-amber-400 font-semibold">{config.quantitativeProof}</p>
+              <p className="font-body text-slate-600 dark:text-slate-300 text-lg leading-relaxed">{config.extraSectionDesc || config.description}</p>
+              <p className="font-body text-amber-400 font-semibold">{config.quantitativeProof}</p>
            </div>
            <div className="w-full md:w-1/3 flex flex-col gap-4">
               {(config.extraSection2Items || []).map((item, i) => (
                 <div key={i} className="bg-slate-50 dark:bg-slate-900/50 p-4 rounded-xl border border-slate-200 dark:border-slate-700/50 flex items-start gap-3">
                    <CheckCircle2 className="w-5 h-5 text-amber-500 shrink-0 mt-0.5" />
-                   <p className="text-slate-700 dark:text-slate-200 text-sm">{item}</p>
+                   <p className="font-body text-slate-700 dark:text-slate-200 text-sm">{item}</p>
                 </div>
               ))}
            </div>
@@ -80,7 +82,7 @@ export function WatermarkBulkSections() {
       <section className="px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto w-full">
         <div className="text-center mb-12">
           <h3 className="font-heading text-3xl font-bold text-slate-900 dark:text-white mb-4">{config.extraSectionTitle}</h3>
-          <p className="text-slate-500 dark:text-slate-400">{config.extraSectionDesc}</p>
+          <p className="font-body text-slate-500 dark:text-slate-400">{config.extraSectionDesc}</p>
         </div>
         <div className="grid md:grid-cols-3 gap-6">
           {(config.extraSectionItems || []).map((item, i) => (
@@ -99,25 +101,25 @@ export function WatermarkBulkSections() {
         <div className="flex flex-col md:flex-row gap-8">
            <div className="flex-1 bg-blue-900/20 border border-blue-500/20 rounded-3xl p-10 flex flex-col items-center justify-center text-center">
              <h4 className="font-heading text-blue-400 font-bold mb-4 uppercase tracking-widest">{config.beforeImageLabel}</h4>
-             <p className="text-slate-600 dark:text-slate-300">Images uploaded directly to social media are instantly scraped by bots and AI models. Your metadata is stripped.</p>
+             <p className="font-body text-slate-600 dark:text-slate-300">Images uploaded directly to social media are instantly scraped by bots and AI models. Your metadata is stripped.</p>
            </div>
            <div className="flex-1 bg-amber-900/20 border border-amber-500/20 rounded-3xl p-10 flex flex-col items-center justify-center text-center">
              <h4 className="font-heading text-amber-500 font-bold mb-4 uppercase tracking-widest">{config.afterImageLabel}</h4>
-             <p className="text-slate-600 dark:text-slate-300">A hard-coded watermark permanently embeds your ownership into the pixel data, ensuring credit across the web.</p>
+             <p className="font-body text-slate-600 dark:text-slate-300">A hard-coded watermark permanently embeds your ownership into the pixel data, ensuring credit across the web.</p>
            </div>
         </div>
       </section>
 
       {/* SECTION 5: Dark Mode FAQ */}
       <section className="px-4 sm:px-6 lg:px-8 max-w-3xl mx-auto w-full text-left">
-        <h3 className="font-heading text-3xl font-bold text-slate-900 dark:text-white mb-10 text-center">Frequently Asked Questions</h3>
+        <h3 className="font-heading text-3xl font-bold text-slate-900 dark:text-white mb-10 text-center">{t('longtail.faq', { defaultValue: 'Frequently Asked Questions' })}</h3>
         <div className="space-y-4">
           {config.faqs.map((faq, i) => (
             <div key={i} className="bg-white dark:bg-slate-800 shadow-md dark:shadow-none rounded-xl p-6 border border-slate-200 dark:border-slate-700">
               <h4 className="font-heading font-bold text-lg text-slate-900 dark:text-white mb-3 flex items-start gap-3">
                 <span className="text-amber-500">Q.</span> {faq.question}
               </h4>
-              <p className="text-slate-500 dark:text-slate-400 pl-8 leading-relaxed">
+              <p className="font-body text-slate-500 dark:text-slate-400 pl-8 leading-relaxed">
                 <span className="text-slate-500 mr-2">A.</span> {faq.answer}
               </p>
             </div>

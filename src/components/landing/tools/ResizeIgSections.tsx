@@ -36,7 +36,7 @@ export const ResizeIgSections: React.FC = () => {
               {config.extraSectionTitle || config.h1}
             </h2>
             
-            <p className="text-lg text-slate-600 dark:text-slate-400 leading-relaxed max-w-lg font-medium">
+            <p className="font-body text-lg text-slate-600 dark:text-slate-400 leading-relaxed max-w-lg font-medium">
               {config.extraSectionDesc || config.description}
             </p>
             
@@ -107,7 +107,7 @@ export const ResizeIgSections: React.FC = () => {
       <section className="relative px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full bg-slate-50 dark:bg-slate-900/40 rounded-[3rem] py-16 md:py-24 border border-slate-200 dark:border-slate-800">
         <div className="text-center mb-16">
           <h2 className="font-heading text-3xl md:text-4xl font-bold text-slate-900 dark:text-white mb-4">No More Cropping.</h2>
-          <p className="text-lg text-slate-600 dark:text-slate-400 italic">"{config.quantitativeProof}"</p>
+          <p className="font-body text-lg text-slate-600 dark:text-slate-400 italic">"{config.quantitativeProof}"</p>
         </div>
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 max-w-4xl mx-auto">
@@ -139,7 +139,7 @@ export const ResizeIgSections: React.FC = () => {
         <section className="relative px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full py-12">
           <div className="text-center mb-12">
             <h2 className="font-heading text-3xl md:text-4xl font-bold text-slate-900 dark:text-white mb-4">{config.extraSectionTitle}</h2>
-            <p className="text-lg text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">{config.extraSectionDesc}</p>
+            <p className="font-body text-lg text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">{config.extraSectionDesc}</p>
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -162,7 +162,7 @@ export const ResizeIgSections: React.FC = () => {
                   </div>
                 </div>
                 <h4 className="font-heading text-xl font-bold text-slate-900 dark:text-white mb-3">{item.name}</h4>
-                <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">{item.text}</p>
+                <p className="font-body text-slate-600 dark:text-slate-400 text-sm leading-relaxed">{item.text}</p>
               </motion.div>
             ))}
           </div>
@@ -175,7 +175,7 @@ export const ResizeIgSections: React.FC = () => {
           <div className="flex flex-col md:flex-row gap-12 items-start">
             <div className="md:w-1/3 sticky top-24">
               <h2 className="font-heading text-3xl font-bold text-slate-900 dark:text-white leading-tight">Common Questions</h2>
-              <p className="mt-4 text-slate-600 dark:text-slate-400">Everything you need to know about preparing photos for Instagram.</p>
+              <p className="font-body mt-4 text-slate-600 dark:text-slate-400">Everything you need to know about preparing photos for Instagram.</p>
             </div>
             <div className="md:w-2/3 grid grid-cols-1 gap-6">
               {config.faqs.map((faq, idx) => (
@@ -188,7 +188,7 @@ export const ResizeIgSections: React.FC = () => {
                   className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-8 rounded-3xl"
                 >
                   <h4 className="font-heading text-xl font-bold text-slate-900 dark:text-slate-100 mb-3">{faq.question}</h4>
-                  <p className="text-slate-600 dark:text-slate-400 leading-relaxed">{faq.answer}</p>
+                  <p className="font-body text-slate-600 dark:text-slate-400 leading-relaxed">{faq.answer}</p>
                 </motion.div>
               ))}
             </div>
