@@ -1638,5 +1638,9 @@
   "longtail.c200.excellent": "Magaling",
   "longtail.c200.good": "Mabuti",
   "longtail.c200.acceptable": "Katanggap-tanggap",
-  "longtail.c200.serverLogs": "Mga Log ng Server"
+  "longtail.c200.serverLogs": "Mga Log ng Server",
+  "seo.title.remove": "Alisin ang Background ng Larawan para sa Shopee & Lazada",
+  "seo.title.compress": "I-compress Larawan to 200KB Libre",
+  "seo.title.convert": "I-convert WEBP to JPG Libre",
+  "seo.title.resize": "I-resize Larawan to 4x6 Libre"
 }

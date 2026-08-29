@@ -270,7 +270,7 @@ for (const lang of LANGS) {
     const toolUrl = `/${lang}/${slug}/`;
     
     // Tools have specific SEO names if they exist, otherwise fallback to home
-    let toolTitle = translations[`seo.jsonld.name.${tool}`] || translations[`tab.${tool}`] || translations[`tool.${tool}`] || translations['hero.title'];
+    let toolTitle = translations[`seo.title.${tool}`] || translations[`seo.jsonld.name.${tool}`] || translations[`tab.${tool}`] || translations[`tool.${tool}`] || translations['hero.title'];
     toolTitle = `${toolTitle} - HelpMyIMG`;
     
     let toolDesc = translations[`seo.jsonld.desc.${tool}`] || homeDesc;
