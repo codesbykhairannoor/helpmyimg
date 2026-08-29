@@ -12,6 +12,7 @@ import { type Language } from '../i18n/translations';
 import { ToolWorkspace } from '../components/workspace/ToolWorkspace';
 import { usePSeoData } from '../hooks/usePSeoData';
 import { DynamicPSeoSections } from '../components/seo/DynamicPSeoSections';
+import { LongTailSections } from '../components/landing/LongTailSections';
 
 export const ToolLandingPage: React.FC = () => {
   const { setLang, lang: currentLang, t } = useTranslation();
@@ -162,13 +163,12 @@ export const ToolLandingPage: React.FC = () => {
           <HomeSections />
         ) : dynamicJsonData ? (
           <DynamicPSeoSections data={dynamicJsonData} />
+        ) : isPseoTool ? (
+          <LongTailSections tool={internalTool} />
         ) : (
           <>
             <LandingSections tool={displayConfig.tool as any} />
-          
-          {/* Tool Specific FAQ Section - Unified 4 Questions Redesign */}
-          {/* Tool Specific FAQ Section - Dynamic Variants */}
-          {!['compress100kb', 'compress50kb', 'resizeig', 'removelogo', 'colorwhite', 'compress200kb', 'resizepassport', 'removeperson', 'convertwebp', 'watermarkbulk', 'blurplate'].includes(internalTool) && (
+            
             <ToolFaqSection 
               toolMapName={toolMapName} 
               variant={
@@ -186,9 +186,8 @@ export const ToolLandingPage: React.FC = () => {
                 toolMapName === 'convert' ? 'split' : 'grid'
               } 
             />
-          )}
-        </>
-      )}
+          </>
+        )}
       </div>
     </div>
   );

@@ -13,10 +13,16 @@ const HeroSplitVariant: React.FC<{ section: PSeoSectionData, flip: boolean }> = 
           <Zap className="w-4 h-4" />
           {section.badgeText}
         </div>
-        <h2 className="text-4xl sm:text-5xl font-heading font-extrabold text-white leading-tight">
+        <h2 
+          className="font-heading font-extrabold text-white leading-tight mt-4 sm:mt-6 tracking-tight"
+          style={{ fontSize: 'clamp(1.35rem, 4vw, 2.5rem)', fontWeight: 800, lineHeight: 1.2 }}
+        >
           {section.title}
         </h2>
-        <p className="text-slate-400 text-lg leading-relaxed">
+        <p 
+          className="text-slate-400 mt-4 max-w-2xl font-body"
+          style={{ fontSize: 'clamp(0.95rem, 3vw, 1.15rem)', lineHeight: 1.8 }}
+        >
           {section.content}
         </p>
       </div>
@@ -34,10 +40,16 @@ const HeroCenterVariant: React.FC<{ section: PSeoSectionData }> = ({ section }) 
       <Target className="w-4 h-4" />
       {section.badgeText}
     </div>
-    <h2 className="text-4xl sm:text-6xl font-heading font-extrabold text-white leading-tight mb-6">
+    <h2 
+      className="font-heading font-extrabold text-white leading-tight mt-4 sm:mt-6 tracking-tight mb-6"
+      style={{ fontSize: 'clamp(1.35rem, 4vw, 2.5rem)', fontWeight: 800, lineHeight: 1.2 }}
+    >
       {section.title}
     </h2>
-    <p className="text-slate-400 text-xl leading-relaxed">
+    <p 
+      className="text-slate-400 mt-4 max-w-2xl mx-auto font-body"
+      style={{ fontSize: 'clamp(0.95rem, 3vw, 1.15rem)', lineHeight: 1.8 }}
+    >
       {section.content}
     </p>
   </section>
@@ -50,8 +62,18 @@ const PrivacyShieldVariant: React.FC<{ section: PSeoSectionData, isDark: boolean
         <Shield className="w-12 h-12" />
       </div>
       <div>
-        <h3 className="text-3xl font-heading font-bold text-white mb-4">{section.title}</h3>
-        <p className="text-slate-400 text-lg leading-relaxed">{section.content}</p>
+        <h3 
+          className="font-heading font-bold text-white mb-4"
+          style={{ fontSize: 'clamp(1.2rem, 3vw, 1.8rem)' }}
+        >
+          {section.title}
+        </h3>
+        <p 
+          className="text-slate-400 font-body"
+          style={{ fontSize: 'clamp(0.95rem, 3vw, 1.15rem)', lineHeight: 1.8 }}
+        >
+          {section.content}
+        </p>
       </div>
     </div>
   </section>
@@ -62,7 +84,12 @@ const HowToStepsVariant: React.FC<{ section: PSeoSectionData }> = ({ section }) 
   return (
     <section className="max-w-6xl mx-auto w-full py-20 px-6">
       <div className="text-center mb-16">
-        <h2 className="text-3xl sm:text-5xl font-heading font-extrabold text-white mb-4">{section.title}</h2>
+        <h2 
+          className="font-heading font-extrabold text-white mt-4 sm:mt-6 tracking-tight mb-4"
+          style={{ fontSize: 'clamp(1.35rem, 4vw, 2.5rem)', fontWeight: 800, lineHeight: 1.2 }}
+        >
+          {section.title}
+        </h2>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
         {steps.map((step, i) => (
@@ -70,7 +97,12 @@ const HowToStepsVariant: React.FC<{ section: PSeoSectionData }> = ({ section }) 
              <div className="absolute -top-5 left-8 w-10 h-10 bg-neon-cyan text-dark-900 font-bold flex items-center justify-center rounded-full text-lg">
                 {i + 1}
              </div>
-             <p className="mt-4 text-slate-300 text-lg">{step.replace(/^\d+\.\s*/, '')}</p>
+             <p 
+               className="mt-4 text-slate-300 font-body"
+               style={{ fontSize: 'clamp(0.95rem, 3vw, 1.15rem)', lineHeight: 1.8 }}
+             >
+               {step.replace(/^\d+\.\s*/, '')}
+             </p>
           </div>
         ))}
       </div>
