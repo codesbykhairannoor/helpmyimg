@@ -17,7 +17,7 @@ export function RemoveLogoSections() {
       {/* SECTION 1: Logo Grid Showcase */}
       <section className="relative px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-500 mb-6">
+          <h2 className="font-heading text-3xl md:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-500 mb-6">
             {config.citationFirst.split('.')[0] + '.'}
           </h2>
           <p className="text-xl text-slate-500 dark:text-slate-400 max-w-3xl mx-auto leading-relaxed">
@@ -62,7 +62,7 @@ export function RemoveLogoSections() {
         <section className="relative px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center bg-gradient-to-br from-blue-900/20 to-indigo-900/20 rounded-[3rem] p-8 md:p-16 border border-blue-500/10">
             <div>
-              <h2 className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-slate-900 dark:text-white mb-6 leading-tight">
+              <h2 className="font-heading text-3xl md:text-4xl font-bold text-slate-900 dark:text-slate-900 dark:text-white mb-6 leading-tight">
                 {config.extraSectionTitle}
               </h2>
               <p className="text-lg text-indigo-200/70 mb-8">
@@ -93,7 +93,7 @@ export function RemoveLogoSections() {
       {/* SECTION 3: Step by step Guide */}
       {config.extraSection2Title && (
         <section className="relative px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto w-full text-center">
-          <h2 className="text-3xl font-bold text-slate-900 dark:text-white mb-4">{config.extraSection2Title}</h2>
+          <h2 className="font-heading text-3xl font-bold text-slate-900 dark:text-white mb-4">{config.extraSection2Title}</h2>
           <p className="text-slate-600 dark:text-slate-400 mb-12">{config.extraSection2Desc}</p>
           
           <div className="flex flex-col md:flex-row gap-6 items-stretch justify-center relative">

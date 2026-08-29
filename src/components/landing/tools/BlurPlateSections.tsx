@@ -19,7 +19,7 @@ export function BlurPlateSections() {
           <ShieldCheck className="w-4 h-4" />
           <span>100% Offline Privacy Guarantee</span>
         </div>
-        <h2 className="text-4xl md:text-6xl font-black text-slate-900 dark:text-slate-900 dark:text-slate-900 dark:text-white mb-6 leading-tight">
+        <h2 className="font-heading text-4xl md:text-6xl font-black text-slate-900 dark:text-slate-900 dark:text-slate-900 dark:text-white mb-6 leading-tight">
           {config.extraSectionTitle || config.h1}
         </h2>
         <p className="text-xl text-slate-600 dark:text-slate-400 max-w-3xl mx-auto mb-16">
@@ -67,7 +67,7 @@ export function BlurPlateSections() {
       {/* SECTION 3: Why Offline Processing Matters */}
       <section className="px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto w-full">
         <div className="text-center mb-12">
-          <h3 className="text-3xl font-bold text-slate-900 dark:text-white mb-4">{config.extraSectionTitle}</h3>
+          <h3 className="font-heading text-3xl font-bold text-slate-900 dark:text-white mb-4">{config.extraSectionTitle}</h3>
           <p className="text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">{config.extraSectionDesc}</p>
         </div>
         <div className="grid md:grid-cols-3 gap-8">
@@ -76,7 +76,7 @@ export function BlurPlateSections() {
               <div className="w-16 h-16 bg-slate-200 dark:bg-slate-700 text-slate-700 dark:text-slate-600 dark:text-slate-300 rounded-full flex items-center justify-center mb-6">
                 {[<FileLock2 />, <CarFront />, <ServerCrash />][i]}
               </div>
-              <h4 className="font-bold text-slate-900 dark:text-white text-lg">{item}</h4>
+              <h4 className="font-heading font-bold text-slate-900 dark:text-white text-lg">{item}</h4>
             </div>
           ))}
         </div>
@@ -85,7 +85,7 @@ export function BlurPlateSections() {
       {/* SECTION 4: Types of Censors */}
       <section className="px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto w-full">
         <div className=" rounded-3xl p-8 md:p-12 text-slate-900 dark:text-white shadow-2xl">
-           <h3 className="text-3xl font-bold mb-4">{config.extraSection2Title}</h3>
+           <h3 className="font-heading text-3xl font-bold mb-4">{config.extraSection2Title}</h3>
            <p className="text-slate-500 dark:text-slate-400 mb-10">{config.extraSection2Desc}</p>
            
            <div className="grid md:grid-cols-3 gap-6">
@@ -105,11 +105,11 @@ export function BlurPlateSections() {
 
       {/* SECTION 5: Trust FAQ */}
       <section className="px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto w-full mb-12">
-        <h3 className="text-3xl font-bold text-slate-900 dark:text-white mb-8 text-center">Privacy FAQ</h3>
+        <h3 className="font-heading text-3xl font-bold text-slate-900 dark:text-white mb-8 text-center">Privacy FAQ</h3>
         <div className="space-y-6">
           {config.faqs.map((faq, i) => (
             <div key={i} className="border-b border-slate-200 dark:border-slate-800 pb-6">
-              <h4 className="font-bold text-lg text-slate-900 dark:text-white mb-2 flex items-center gap-2">
+              <h4 className="font-heading font-bold text-lg text-slate-900 dark:text-white mb-2 flex items-center gap-2">
                 <EyeOff className="w-5 h-5 text-blue-500" />
                 {faq.question}
               </h4>

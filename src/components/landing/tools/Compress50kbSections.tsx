@@ -67,7 +67,7 @@ export const Compress50kbSections: React.FC = () => {
               <Zap className="w-48 h-48 text-violet-500" />
             </div>
             <div className="relative z-10 flex flex-col justify-center h-full max-w-md">
-              <h3 className="text-2xl font-bold text-white mb-4">High-Speed Processing</h3>
+              <h3 className="font-heading text-2xl font-bold text-white mb-4">High-Speed Processing</h3>
               <p className="text-lg text-zinc-400 font-medium italic border-l-4 border-violet-500 pl-4 py-2">
                 "{config.quantitativeProof}"
               </p>
@@ -126,14 +126,14 @@ export const Compress50kbSections: React.FC = () => {
               <div className="w-12 h-12 bg-zinc-800 rounded-lg flex items-center justify-center">
                 <Layers className="w-6 h-6 text-blue-400" />
               </div>
-              <h4 className="text-lg font-bold text-white">Smart Quality Retention</h4>
+              <h4 className="font-heading text-lg font-bold text-white">Smart Quality Retention</h4>
               <p className="text-sm text-zinc-400">Our algorithm automatically adjusts compression curves to retain edge sharpness even at extremely low bitrates.</p>
             </div>
             <div className="space-y-3">
               <div className="w-12 h-12 bg-zinc-800 rounded-lg flex items-center justify-center">
                 <Smartphone className="w-6 h-6 text-emerald-400" />
               </div>
-              <h4 className="text-lg font-bold text-white">Mobile Optimized</h4>
+              <h4 className="font-heading text-lg font-bold text-white">Mobile Optimized</h4>
               <p className="text-sm text-zinc-400">Works flawlessly on iOS and Android browsers without requiring any app installations or backend uploads.</p>
             </div>
           </motion.div>
@@ -145,7 +145,7 @@ export const Compress50kbSections: React.FC = () => {
       {config.extraSectionTitle && (
         <section className="relative px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto w-full">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-white mb-4">{config.extraSectionTitle}</h2>
+            <h2 className="font-heading text-3xl font-bold text-white mb-4">{config.extraSectionTitle}</h2>
             <p className="text-lg text-zinc-400 max-w-2xl mx-auto">{config.extraSectionDesc}</p>
           </div>
           
@@ -177,7 +177,7 @@ export const Compress50kbSections: React.FC = () => {
       {config.faqs && config.faqs.length > 0 && (
         <section className="relative px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto w-full">
           <div className="border border-zinc-800 bg-zinc-900/50 backdrop-blur-xl rounded-[2rem] p-8 md:p-12">
-            <h2 className="text-3xl font-bold text-white mb-8">Frequently Asked Questions</h2>
+            <h2 className="font-heading text-3xl font-bold text-white mb-8">Frequently Asked Questions</h2>
             <div className="space-y-2">
               {config.faqs.map((faq, idx) => (
                 <div key={idx} className="border-b border-zinc-800/50 last:border-0">

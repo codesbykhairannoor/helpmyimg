@@ -18,7 +18,7 @@ export function RemovePersonSections() {
         <div className="w-20 h-20 bg-purple-100 dark:bg-purple-900/30 text-purple-600 dark:text-purple-400 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg shadow-purple-500/20">
           <Eraser className="w-10 h-10" />
         </div>
-        <h2 className="text-4xl md:text-6xl font-bold text-slate-900 dark:text-slate-900 dark:text-slate-900 dark:text-white mb-6 leading-tight">
+        <h2 className="font-heading text-4xl md:text-6xl font-bold text-slate-900 dark:text-slate-900 dark:text-slate-900 dark:text-white mb-6 leading-tight">
           {config.extraSectionTitle || config.h1}
         </h2>
         <p className="text-xl text-slate-600 dark:text-slate-600 dark:text-slate-600 dark:text-slate-300 max-w-3xl mx-auto mb-10 leading-relaxed">
@@ -82,14 +82,14 @@ export function RemovePersonSections() {
       {/* SECTION 3: Why Inpainting is Better */}
       <section className="px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto w-full">
         <div className="text-center mb-12">
-          <h3 className="text-3xl font-bold text-slate-900 dark:text-white mb-4">{config.extraSectionTitle}</h3>
+          <h3 className="font-heading text-3xl font-bold text-slate-900 dark:text-white mb-4">{config.extraSectionTitle}</h3>
           <p className="text-slate-600 dark:text-slate-400">{config.extraSectionDesc}</p>
         </div>
         <div className="grid md:grid-cols-3 gap-6">
           {(config.extraSectionItems || []).map((item, i) => (
             <div key={i} className="bg-white dark:bg-slate-800 rounded-2xl p-6 border border-slate-200 dark:border-slate-700 hover:border-purple-500/50 transition-colors shadow-sm">
               <CheckCircle2 className="w-8 h-8 text-purple-500 mb-4" />
-              <h4 className="font-bold text-slate-900 dark:text-white text-lg">{item}</h4>
+              <h4 className="font-heading font-bold text-slate-900 dark:text-white text-lg">{item}</h4>
             </div>
           ))}
         </div>
@@ -102,7 +102,7 @@ export function RemovePersonSections() {
              <div className="absolute -right-10 -top-10 opacity-20">
                 <ScanLine className="w-48 h-48" />
              </div>
-             <h3 className="text-2xl font-bold mb-2 relative z-10">{config.extraSection2Title}</h3>
+             <h3 className="font-heading text-2xl font-bold mb-2 relative z-10">{config.extraSection2Title}</h3>
              <p className="text-purple-100 mb-6 max-w-md relative z-10">{config.extraSection2Desc}</p>
              <div className="space-y-3 relative z-10">
                {(config.extraSection2Items || []).map((item, i) => (
@@ -124,7 +124,7 @@ export function RemovePersonSections() {
       {/* SECTION 5: FAQ Accordion */}
       <section className="px-4 sm:px-6 lg:px-8 max-w-3xl mx-auto w-full">
         <div className="text-center mb-10">
-          <h3 className="text-2xl font-bold text-slate-900 dark:text-white">Frequently Asked Questions</h3>
+          <h3 className="font-heading text-2xl font-bold text-slate-900 dark:text-white">Frequently Asked Questions</h3>
         </div>
         <div className="space-y-4">
           {config.faqs.map((faq, i) => (

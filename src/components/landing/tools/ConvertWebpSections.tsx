@@ -19,7 +19,7 @@ export function ConvertWebpSections() {
           <RefreshCcw className="w-4 h-4 animate-spin-slow" />
           <span>Local Batch Processor</span>
         </div>
-        <h2 className="text-4xl md:text-6xl font-black text-slate-900 dark:text-slate-900 dark:text-slate-900 dark:text-white mb-6 leading-tight tracking-tight">
+        <h2 className="font-heading text-4xl md:text-6xl font-black text-slate-900 dark:text-slate-900 dark:text-slate-900 dark:text-white mb-6 leading-tight tracking-tight">
           {config.extraSectionTitle || config.h1}
         </h2>
         <p className="text-xl text-slate-600 dark:text-slate-300 max-w-2xl mx-auto mb-12">
@@ -63,7 +63,7 @@ export function ConvertWebpSections() {
       {/* SECTION 2: WEBP vs JPG Technical Table */}
       <section className="px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto w-full">
         <div className="text-center mb-10">
-          <h3 className="text-3xl font-bold text-slate-900 dark:text-white mb-4">{config.extraSectionTitle}</h3>
+          <h3 className="font-heading text-3xl font-bold text-slate-900 dark:text-white mb-4">{config.extraSectionTitle}</h3>
           <p className="text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">{config.extraSectionDesc}</p>
         </div>
         
@@ -106,7 +106,7 @@ export function ConvertWebpSections() {
       <section className="px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto w-full">
         <div className="bg-emerald-50 dark:bg-emerald-900/10 rounded-2xl p-8 border border-emerald-100 dark:border-emerald-800 flex flex-col md:flex-row items-center gap-8">
           <div className="flex-1">
-            <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-4">WebAssembly Engine</h3>
+            <h3 className="font-heading text-2xl font-bold text-slate-900 dark:text-white mb-4">WebAssembly Engine</h3>
             <p className="text-lg text-slate-700 dark:text-slate-300 italic mb-4">"{config.extraSectionDesc || config.description}"</p>
             <div className="flex items-center gap-2 text-emerald-600 dark:text-emerald-400 font-bold text-sm uppercase tracking-wide">
               <Monitor className="w-5 h-5" />
@@ -122,7 +122,7 @@ export function ConvertWebpSections() {
       {/* SECTION 4: Bulleted Benefits */}
       <section className="px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto w-full">
         <div className="text-center mb-10">
-          <h3 className="text-2xl font-bold text-slate-900 dark:text-white">{config.extraSection2Title}</h3>
+          <h3 className="font-heading text-2xl font-bold text-slate-900 dark:text-white">{config.extraSection2Title}</h3>
           <p className="text-slate-600 dark:text-slate-400 mt-2">{config.extraSection2Desc}</p>
         </div>
         <div className="grid md:grid-cols-3 gap-8">
@@ -139,11 +139,11 @@ export function ConvertWebpSections() {
 
       {/* SECTION 5: FAQ Cards */}
       <section className="px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto w-full">
-        <h3 className="text-3xl font-bold text-slate-900 dark:text-white mb-8 text-center">Converter FAQ</h3>
+        <h3 className="font-heading text-3xl font-bold text-slate-900 dark:text-white mb-8 text-center">Converter FAQ</h3>
         <div className="grid md:grid-cols-3 gap-6">
           {config.faqs.map((faq, i) => (
             <div key={i} className="bg-white dark:bg-slate-800 p-6 rounded-2xl shadow-sm border border-slate-200 dark:border-slate-700 flex flex-col">
-              <h4 className="font-bold text-lg text-slate-900 dark:text-white mb-3">{faq.question}</h4>
+              <h4 className="font-heading font-bold text-lg text-slate-900 dark:text-white mb-3">{faq.question}</h4>
               <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed mt-auto">{faq.answer}</p>
             </div>
           ))}

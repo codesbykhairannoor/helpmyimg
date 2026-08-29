@@ -16,7 +16,7 @@ export function ColorWhiteSections() {
       {/* SECTION 1: Product Showcase Slider */}
       <section className="relative w-full overflow-hidden py-10">
         <div className="text-center mb-16 px-4">
-          <h2 className="text-3xl md:text-5xl font-black text-slate-900 dark:text-white tracking-tight">
+          <h2 className="font-heading text-3xl md:text-5xl font-black text-slate-900 dark:text-white tracking-tight">
             {config.extraSectionTitle || "Amazon Ready"}
           </h2>
           <p className="mt-4 text-xl text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">
@@ -59,7 +59,7 @@ export function ColorWhiteSections() {
               <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-orange-100 dark:bg-orange-900/30 text-orange-600 dark:text-orange-400 text-sm font-bold mb-4">
                 <ShoppingBag className="w-4 h-4" /> E-Commerce Optimization
               </span>
-              <h2 className="text-3xl font-bold text-slate-900 dark:text-white">{config.extraSectionTitle}</h2>
+              <h2 className="font-heading text-3xl font-bold text-slate-900 dark:text-white">{config.extraSectionTitle}</h2>
               <p className="mt-3 text-slate-600 dark:text-slate-400">{config.extraSectionDesc}</p>
             </div>
 
@@ -80,7 +80,7 @@ export function ColorWhiteSections() {
       {/* SECTION 3: Why Pure White Matters */}
       {config.extraSection2Title && (
         <section className="relative px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto w-full mb-12 text-center">
-          <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-4">{config.extraSection2Title}</h3>
+          <h3 className="font-heading text-2xl font-bold text-slate-900 dark:text-white mb-4">{config.extraSection2Title}</h3>
           <p className="text-slate-600 dark:text-slate-400 mb-8">{config.extraSection2Desc}</p>
           <div className="flex flex-col gap-4">
             {(config.extraSection2Items || [])?.map((item, idx) => (
@@ -95,11 +95,11 @@ export function ColorWhiteSections() {
 
       {/* SECTION 4: Clean FAQs */}
       <section className="relative px-4 sm:px-6 lg:px-8 max-w-3xl mx-auto w-full mb-16">
-        <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-8 text-center">Frequently Asked Questions</h3>
+        <h3 className="font-heading text-2xl font-bold text-slate-900 dark:text-white mb-8 text-center">Frequently Asked Questions</h3>
         <div className="space-y-4">
           {config.faqs?.map((faq, i) => (
             <div key={i} className="bg-white dark:bg-slate-900 rounded-2xl p-6 shadow-sm border border-slate-100 dark:border-slate-800">
-              <h4 className="font-bold text-slate-900 dark:text-white mb-2">{faq.question}</h4>
+              <h4 className="font-heading font-bold text-slate-900 dark:text-white mb-2">{faq.question}</h4>
               <p className="text-slate-600 dark:text-slate-400">{faq.answer}</p>
             </div>
           ))}

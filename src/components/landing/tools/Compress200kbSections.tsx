@@ -15,7 +15,7 @@ export function Compress200kbSections() {
       
       {/* SECTION 1: Technical Hero */}
       <section className="relative px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto w-full text-center">
-        <h2 className="text-2xl md:text-4xl font-bold text-emerald-400 mb-6 uppercase tracking-wider">
+        <h2 className="font-heading text-2xl md:text-4xl font-bold text-emerald-400 mb-6 uppercase tracking-wider">
           {"[ " + config.h1 + " ]"}
         </h2>
         <div className="bg-black/50 border border-emerald-500/30 rounded-xl p-6 text-emerald-50/80 leading-relaxed">
@@ -28,7 +28,7 @@ export function Compress200kbSections() {
         <section className="relative px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto w-full">
           <div className="mb-8 flex items-center gap-3">
              <Database className="w-6 h-6 text-emerald-400" />
-             <h3 className="text-2xl font-bold text-white uppercase">{config.extraSectionTitle}</h3>
+             <h3 className="font-heading text-2xl font-bold text-white uppercase">{config.extraSectionTitle}</h3>
           </div>
           <p className="text-zinc-400 mb-8">{config.extraSectionDesc}</p>
           
@@ -71,7 +71,7 @@ export function Compress200kbSections() {
                <Server className="w-32 h-32 text-emerald-500/50" />
             </div>
             <div className="md:w-2/3">
-               <h3 className="text-2xl font-bold text-white mb-3">{config.extraSection2Title}</h3>
+               <h3 className="font-heading text-2xl font-bold text-white mb-3">{config.extraSection2Title}</h3>
                <p className="text-emerald-400 mb-6">{config.extraSection2Desc}</p>
                <ul className="space-y-3">
                  {(config.extraSection2Items || [])?.map((item, idx) => (

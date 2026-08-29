@@ -18,7 +18,7 @@ export function ResizePassportSections() {
         <div className="w-20 h-20 bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 rounded-full flex items-center justify-center mx-auto mb-6">
           <FileBadge className="w-10 h-10" />
         </div>
-        <h2 className="text-3xl md:text-5xl font-serif font-bold text-slate-900 dark:text-white mb-6">
+        <h2 className="font-heading text-3xl md:text-5xl font-serif font-bold text-slate-900 dark:text-white mb-6">
           {config.extraSectionTitle || config.h1}
         </h2>
         <div className="bg-white dark:bg-slate-800 p-8 rounded-2xl shadow-sm border border-slate-200 dark:border-slate-700">
@@ -32,7 +32,7 @@ export function ResizePassportSections() {
       {config.extraSectionTitle && (
         <section className="relative px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto w-full">
           <div className="text-center mb-10">
-            <h3 className="text-2xl font-bold text-slate-900 dark:text-white inline-flex items-center gap-3">
+            <h3 className="font-heading text-2xl font-bold text-slate-900 dark:text-white inline-flex items-center gap-3">
               <Globe2 className="w-6 h-6 text-blue-500" />
               {config.extraSectionTitle}
             </h3>
@@ -45,7 +45,7 @@ export function ResizePassportSections() {
                 <div className="flex gap-4 items-start">
                   <div className="mt-1 text-blue-500"><CheckCircle2 className="w-5 h-5"/></div>
                   <div>
-                    <h4 className="font-bold text-slate-900 dark:text-white mb-1">
+                    <h4 className="font-heading font-bold text-slate-900 dark:text-white mb-1">
                        {item.split(':')[0]}
                     </h4>
                     <p className="text-slate-600 dark:text-slate-400 text-sm">
@@ -67,7 +67,7 @@ export function ResizePassportSections() {
                 <ClipboardList className="w-8 h-8" />
              </div>
              <div>
-                <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-2">{config.extraSection2Title}</h3>
+                <h3 className="font-heading text-xl font-bold text-slate-900 dark:text-white mb-2">{config.extraSection2Title}</h3>
                 <p className="text-slate-600 dark:text-slate-400 mb-6">{config.extraSection2Desc}</p>
                 <div className="grid md:grid-cols-2 gap-4">
                   {(config.extraSection2Items || [])?.map((item, idx) => (
@@ -87,13 +87,13 @@ export function ResizePassportSections() {
         <div className="bg-white dark:bg-slate-800 rounded-2xl shadow-sm border border-slate-200 dark:border-slate-700 p-8 md:p-12">
            <div className="flex items-center gap-3 mb-8 pb-4 border-b border-slate-100 dark:border-slate-700">
               <FileText className="w-6 h-6 text-slate-500 dark:text-slate-400" />
-              <h3 className="text-xl font-bold text-slate-900 dark:text-white uppercase tracking-wider">Help & Guidelines</h3>
+              <h3 className="font-heading text-xl font-bold text-slate-900 dark:text-white uppercase tracking-wider">Help & Guidelines</h3>
            </div>
            
            <div className="space-y-8">
               {config.faqs?.map((faq, i) => (
                 <div key={i}>
-                  <h4 className="font-bold text-slate-900 dark:text-slate-100 mb-2">{faq.question}</h4>
+                  <h4 className="font-heading font-bold text-slate-900 dark:text-slate-100 mb-2">{faq.question}</h4>
                   <p className="text-slate-600 dark:text-slate-400 leading-relaxed">{faq.answer}</p>
                 </div>
               ))}

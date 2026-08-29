@@ -32,7 +32,7 @@ export const Compress100kbSections: React.FC = () => {
               <CloudOff className="w-4 h-4" />
               <span>Client-Side Architecture</span>
             </div>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-slate-900 to-slate-600 dark:from-slate-100 dark:to-slate-400 leading-tight">
+            <h2 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-slate-900 to-slate-600 dark:from-slate-100 dark:to-slate-400 leading-tight">
               {config.extraSectionTitle || config.h1}
             </h2>
             <p className="text-lg text-slate-600 dark:text-slate-400 leading-relaxed font-medium">
@@ -126,7 +126,7 @@ export const Compress100kbSections: React.FC = () => {
               transition={{ delay: 0.1 }}
               className="md:col-span-7 space-y-4 text-center md:text-left"
             >
-              <h3 className="text-2xl font-bold text-slate-900 dark:text-slate-100">Proven Performance</h3>
+              <h3 className="font-heading text-2xl font-bold text-slate-900 dark:text-slate-100">Proven Performance</h3>
               <p className="text-xl text-slate-700 dark:text-slate-300 leading-relaxed italic border-l-4 border-indigo-500 pl-4 py-2 bg-white dark:bg-slate-800/30 shadow-sm dark:shadow-none rounded-r-xl">
                 "{config.quantitativeProof}"
               </p>
@@ -175,7 +175,7 @@ export const Compress100kbSections: React.FC = () => {
               <div className={`w-14 h-14 rounded-2xl ${feature.bg} ${feature.border} border flex items-center justify-center mb-6 group-hover:scale-110 transition-transform`}>
                 <feature.icon className={`w-7 h-7 ${feature.color}`} />
               </div>
-              <h3 className="text-xl font-bold text-slate-900 dark:text-slate-100 mb-3">{feature.title}</h3>
+              <h3 className="font-heading text-xl font-bold text-slate-900 dark:text-slate-100 mb-3">{feature.title}</h3>
               <p className="text-slate-600 dark:text-slate-400 leading-relaxed">{feature.desc}</p>
             </motion.div>
           ))}
@@ -186,7 +186,7 @@ export const Compress100kbSections: React.FC = () => {
       {config.extraSectionTitle && (
         <section className="relative px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full py-12">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white">{config.extraSectionTitle}</h2>
+            <h2 className="font-heading text-3xl md:text-4xl font-bold text-slate-900 dark:text-white">{config.extraSectionTitle}</h2>
             <p className="mt-4 text-lg text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">{config.extraSectionDesc}</p>
           </div>
           
@@ -207,7 +207,7 @@ export const Compress100kbSections: React.FC = () => {
                 <div className={`w-16 h-16 mx-auto rounded-2xl flex items-center justify-center mb-6 ${step.bg}`}>
                   <step.icon className={`w-8 h-8 ${step.color}`} />
                 </div>
-                <h4 className="text-xl font-bold text-slate-900 dark:text-white mb-3">{step.title}</h4>
+                <h4 className="font-heading text-xl font-bold text-slate-900 dark:text-white mb-3">{step.title}</h4>
                 <p className="text-slate-600 dark:text-slate-400 leading-relaxed">{step.desc}</p>
                 
                 {idx < 2 && (
@@ -225,7 +225,7 @@ export const Compress100kbSections: React.FC = () => {
       {config.faqs && config.faqs.length > 0 && (
         <section className="relative px-4 sm:px-6 lg:px-8 max-w-3xl mx-auto w-full">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-slate-900 dark:text-slate-100 mb-4">Frequently Asked Questions</h2>
+            <h2 className="font-heading text-3xl font-bold text-slate-900 dark:text-slate-100 mb-4">Frequently Asked Questions</h2>
             <div className="h-1 w-20 bg-indigo-500 mx-auto rounded-full" />
           </div>
           <div className="space-y-4">

@@ -18,7 +18,7 @@ export function WatermarkBulkSections() {
         <div className="w-20 h-20 bg-amber-500/20 text-amber-500 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-[0_0_30px_rgba(245,158,11,0.2)]">
           <CopyPlus className="w-10 h-10" />
         </div>
-        <h2 className="text-4xl md:text-6xl font-bold text-slate-900 dark:text-slate-900 dark:text-white mb-6 leading-tight">
+        <h2 className="font-heading text-4xl md:text-6xl font-bold text-slate-900 dark:text-slate-900 dark:text-white mb-6 leading-tight">
           {config.extraSectionTitle || config.h1}
         </h2>
         <p className="text-xl text-slate-600 dark:text-slate-600 dark:text-slate-600 dark:text-slate-300 max-w-3xl mx-auto mb-16">
@@ -61,7 +61,7 @@ export function WatermarkBulkSections() {
         <div className="bg-gradient-to-r from-white to-slate-50 dark:from-slate-800 dark:to-slate-800/50 shadow-xl dark:shadow-none rounded-3xl p-8 md:p-12 border border-slate-200 dark:border-slate-700 flex flex-col md:flex-row gap-12 items-center">
            <div className="flex-1 space-y-6">
               <Shield className="w-12 h-12 text-amber-500" />
-              <h3 className="text-3xl font-bold text-slate-900 dark:text-white">{config.extraSection2Title}</h3>
+              <h3 className="font-heading text-3xl font-bold text-slate-900 dark:text-white">{config.extraSection2Title}</h3>
               <p className="text-slate-600 dark:text-slate-300 text-lg leading-relaxed">{config.extraSectionDesc || config.description}</p>
               <p className="text-amber-400 font-semibold">{config.quantitativeProof}</p>
            </div>
@@ -79,7 +79,7 @@ export function WatermarkBulkSections() {
       {/* SECTION 3: Features Grid */}
       <section className="px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto w-full">
         <div className="text-center mb-12">
-          <h3 className="text-3xl font-bold text-slate-900 dark:text-white mb-4">{config.extraSectionTitle}</h3>
+          <h3 className="font-heading text-3xl font-bold text-slate-900 dark:text-white mb-4">{config.extraSectionTitle}</h3>
           <p className="text-slate-500 dark:text-slate-400">{config.extraSectionDesc}</p>
         </div>
         <div className="grid md:grid-cols-3 gap-6">
@@ -88,7 +88,7 @@ export function WatermarkBulkSections() {
               <div className="w-16 h-16 bg-white dark:bg-slate-900 shadow-xl dark:shadow-none rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-amber-500/10 transition-colors">
                 {[<LayoutGrid className="text-blue-400" />, <Layers className="text-purple-400" />, <Award className="text-amber-400" />][i]}
               </div>
-              <h4 className="font-bold text-slate-900 dark:text-white text-lg">{item}</h4>
+              <h4 className="font-heading font-bold text-slate-900 dark:text-white text-lg">{item}</h4>
             </div>
           ))}
         </div>
@@ -98,11 +98,11 @@ export function WatermarkBulkSections() {
       <section className="px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto w-full">
         <div className="flex flex-col md:flex-row gap-8">
            <div className="flex-1 bg-blue-900/20 border border-blue-500/20 rounded-3xl p-10 flex flex-col items-center justify-center text-center">
-             <h4 className="text-blue-400 font-bold mb-4 uppercase tracking-widest">{config.beforeImageLabel}</h4>
+             <h4 className="font-heading text-blue-400 font-bold mb-4 uppercase tracking-widest">{config.beforeImageLabel}</h4>
              <p className="text-slate-600 dark:text-slate-300">Images uploaded directly to social media are instantly scraped by bots and AI models. Your metadata is stripped.</p>
            </div>
            <div className="flex-1 bg-amber-900/20 border border-amber-500/20 rounded-3xl p-10 flex flex-col items-center justify-center text-center">
-             <h4 className="text-amber-500 font-bold mb-4 uppercase tracking-widest">{config.afterImageLabel}</h4>
+             <h4 className="font-heading text-amber-500 font-bold mb-4 uppercase tracking-widest">{config.afterImageLabel}</h4>
              <p className="text-slate-600 dark:text-slate-300">A hard-coded watermark permanently embeds your ownership into the pixel data, ensuring credit across the web.</p>
            </div>
         </div>
@@ -110,11 +110,11 @@ export function WatermarkBulkSections() {
 
       {/* SECTION 5: Dark Mode FAQ */}
       <section className="px-4 sm:px-6 lg:px-8 max-w-3xl mx-auto w-full text-left">
-        <h3 className="text-3xl font-bold text-slate-900 dark:text-white mb-10 text-center">Frequently Asked Questions</h3>
+        <h3 className="font-heading text-3xl font-bold text-slate-900 dark:text-white mb-10 text-center">Frequently Asked Questions</h3>
         <div className="space-y-4">
           {config.faqs.map((faq, i) => (
             <div key={i} className="bg-white dark:bg-slate-800 shadow-md dark:shadow-none rounded-xl p-6 border border-slate-200 dark:border-slate-700">
-              <h4 className="font-bold text-lg text-slate-900 dark:text-white mb-3 flex items-start gap-3">
+              <h4 className="font-heading font-bold text-lg text-slate-900 dark:text-white mb-3 flex items-start gap-3">
                 <span className="text-amber-500">Q.</span> {faq.question}
               </h4>
               <p className="text-slate-500 dark:text-slate-400 pl-8 leading-relaxed">
