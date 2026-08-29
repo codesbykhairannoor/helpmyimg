@@ -20,7 +20,7 @@ export function RemoveLogoSections() {
           <h2 className="text-3xl md:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-500 mb-6">
             {config.citationFirst.split('.')[0] + '.'}
           </h2>
-          <p className="text-xl text-slate-400 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-xl text-slate-500 dark:text-slate-400 max-w-3xl mx-auto leading-relaxed">
             {config.citationFirst.split('.').slice(1).join('.')}
           </p>
         </div>
@@ -45,7 +45,7 @@ export function RemoveLogoSections() {
                 <div className={`w-16 h-16 rounded-full bg-gradient-to-br ${item.color} shadow-lg flex items-center justify-center text-white font-bold text-xs`}>
                   {item.name}
                 </div>
-                <div className="absolute bottom-4 text-xs font-semibold text-slate-400">{config.beforeImageLabel}</div>
+                <div className="absolute bottom-4 text-xs font-semibold text-slate-500 dark:text-slate-400">{config.beforeImageLabel}</div>
               </div>
               <div className="absolute inset-0 bg-[url('https://transparenttextures.com/patterns/cubes.png')] opacity-10"></div>
               <div className="relative z-0 w-16 h-16 rounded-full bg-gradient-to-br from-blue-500 to-indigo-500 shadow-2xl flex items-center justify-center text-white font-bold text-xs">
@@ -74,12 +74,12 @@ export function RemoveLogoSections() {
                     <div className="w-8 h-8 rounded-full bg-blue-500/20 flex items-center justify-center text-blue-400 shrink-0">
                       <ShieldCheck className="w-4 h-4" />
                     </div>
-                    <span className="font-medium text-slate-300">{item}</span>
+                    <span className="font-medium text-slate-600 dark:text-slate-300">{item}</span>
                   </li>
                 ))}
               </ul>
             </div>
-            <div className="relative h-[300px] md:h-[400px] rounded-3xl bg-slate-900 border border-slate-800 overflow-hidden flex items-center justify-center">
+            <div className="relative h-[300px] md:h-[400px] rounded-3xl bg-white dark:bg-slate-900 shadow-xl dark:shadow-none border border-slate-800 overflow-hidden flex items-center justify-center">
                <div className="absolute inset-0 opacity-20" style={{ backgroundImage: 'radial-gradient(#3b82f6 1px, transparent 1px)', backgroundSize: '24px 24px' }}></div>
                <PenTool className="w-32 h-32 text-indigo-500/50 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />
                <div className="relative z-10 px-8 py-4 bg-blue-600 rounded-full font-bold text-white shadow-xl shadow-blue-500/20 flex items-center gap-3">
@@ -129,12 +129,12 @@ export function RemoveLogoSections() {
 
         <div className="space-y-6 text-left">
           {config.faqs?.map((faq, i) => (
-            <details key={i} className="group bg-slate-900 border border-slate-800 rounded-2xl cursor-pointer overflow-hidden">
-              <summary className="flex items-center justify-between p-6 font-semibold text-lg text-slate-200 marker:content-none hover:bg-slate-800/50 transition-colors">
+            <details key={i} className="group bg-white dark:bg-slate-900 shadow-xl dark:shadow-none border border-slate-800 rounded-2xl cursor-pointer overflow-hidden">
+              <summary className="flex items-center justify-between p-6 font-semibold text-lg text-slate-700 dark:text-slate-200 marker:content-none hover:bg-slate-800/50 transition-colors">
                 {faq.question}
                 <MoveUpRight className="w-5 h-5 text-slate-500 group-open:rotate-45 transition-transform" />
               </summary>
-              <div className="p-6 pt-0 text-slate-400 leading-relaxed border-t border-slate-800">
+              <div className="p-6 pt-0 text-slate-500 dark:text-slate-400 leading-relaxed border-t border-slate-800">
                 {faq.answer}
               </div>
             </details>

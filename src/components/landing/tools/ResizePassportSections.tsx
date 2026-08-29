@@ -86,7 +86,7 @@ export function ResizePassportSections() {
       <section className="relative px-4 sm:px-6 lg:px-8 max-w-3xl mx-auto w-full mb-12">
         <div className="bg-white dark:bg-slate-800 rounded-2xl shadow-sm border border-slate-200 dark:border-slate-700 p-8 md:p-12">
            <div className="flex items-center gap-3 mb-8 pb-4 border-b border-slate-100 dark:border-slate-700">
-              <FileText className="w-6 h-6 text-slate-400" />
+              <FileText className="w-6 h-6 text-slate-500 dark:text-slate-400" />
               <h3 className="text-xl font-bold text-slate-900 dark:text-white uppercase tracking-wider">Help & Guidelines</h3>
            </div>
            

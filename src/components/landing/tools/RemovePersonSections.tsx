@@ -26,7 +26,7 @@ export function RemovePersonSections() {
         </p>
 
         {/* Interactive Inpainting Showcase */}
-        <div className="relative mx-auto max-w-4xl rounded-2xl overflow-hidden shadow-2xl border border-slate-700/50">
+        <div className="relative mx-auto max-w-4xl rounded-2xl overflow-hidden shadow-2xl border border-slate-200 dark:border-slate-700/50">
           <div className="aspect-video relative overflow-hidden group">
             {/* Background Base */}
             <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=1200')] bg-cover bg-center" />
@@ -113,9 +113,9 @@ export function RemovePersonSections() {
                ))}
              </div>
           </div>
-          <div className="bg-slate-900 rounded-3xl p-8 flex flex-col justify-center items-center text-center border border-slate-800">
-             <ImageIcon className="w-16 h-16 text-slate-400 mb-6" />
-             <p className="text-slate-300 font-medium">100% Local Processing</p>
+          <div className="bg-white dark:bg-slate-900 shadow-xl dark:shadow-none rounded-3xl p-8 flex flex-col justify-center items-center text-center border border-slate-800">
+             <ImageIcon className="w-16 h-16 text-slate-500 dark:text-slate-400 mb-6" />
+             <p className="text-slate-600 dark:text-slate-300 font-medium">100% Local Processing</p>
              <p className="text-sm text-slate-500 mt-2">No images are sent to any server. Complete privacy.</p>
           </div>
         </div>

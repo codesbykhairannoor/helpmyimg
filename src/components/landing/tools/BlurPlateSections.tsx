@@ -86,11 +86,11 @@ export function BlurPlateSections() {
       <section className="px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto w-full">
         <div className=" rounded-3xl p-8 md:p-12 text-slate-900 dark:text-white shadow-2xl">
            <h3 className="text-3xl font-bold mb-4">{config.extraSection2Title}</h3>
-           <p className="text-slate-400 mb-10">{config.extraSection2Desc}</p>
+           <p className="text-slate-500 dark:text-slate-400 mb-10">{config.extraSection2Desc}</p>
            
            <div className="grid md:grid-cols-3 gap-6">
               {(config.extraSection2Items || []).map((item, i) => (
-                <div key={i} className="bg-white dark:bg-slate-800 shadow-md dark:shadow-none rounded-xl p-6 border border-slate-700 hover:border-blue-500 transition-colors">
+                <div key={i} className="bg-white dark:bg-slate-800 shadow-md dark:shadow-none rounded-xl p-6 border border-slate-200 dark:border-slate-700 hover:border-blue-500 transition-colors">
                    <div className="h-12 w-full bg-slate-700 rounded overflow-hidden mb-4 relative">
                       {i === 0 && <div className="absolute inset-0 backdrop-blur-md bg-white/10" />}
                       {i === 1 && <div className="absolute inset-0" style={{ backgroundImage: 'radial-gradient(circle, #334155 20%, transparent 20%)', backgroundSize: '4px 4px' }} />}

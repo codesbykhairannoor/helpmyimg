@@ -59,9 +59,9 @@ export const ResizeIgSections: React.FC = () => {
             className="relative flex justify-center"
           >
             {/* Phone Mockup Representation */}
-            <div className="relative w-72 h-[580px] bg-slate-900 rounded-[3rem] border-[8px] border-slate-800 shadow-2xl overflow-hidden flex flex-col">
+            <div className="relative w-72 h-[580px] bg-white dark:bg-slate-900 shadow-xl dark:shadow-none rounded-[3rem] border-[8px] border-slate-800 shadow-2xl overflow-hidden flex flex-col">
               {/* Top Notch */}
-              <div className="absolute top-0 inset-x-0 h-6 bg-slate-800 rounded-b-3xl mx-16 z-20" />
+              <div className="absolute top-0 inset-x-0 h-6 bg-white dark:bg-slate-800 shadow-xl dark:shadow-none rounded-b-3xl mx-16 z-20" />
               
               {/* Instagram-ish Header */}
               <div className="h-16 bg-white dark:bg-slate-950 flex items-center px-4 border-b border-slate-100 dark:border-slate-800">

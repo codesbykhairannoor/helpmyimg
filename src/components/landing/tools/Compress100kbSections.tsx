@@ -66,7 +66,7 @@ export const Compress100kbSections: React.FC = () => {
               <div className="absolute inset-0 flex items-center justify-center p-8">
                 
                 {/* Before Image Card */}
-                <div className="relative w-48 h-64 dark:bg-slate-800 shadow-md dark:shadow-none rounded-xl shadow-2xl overflow-hidden transform -rotate-12 group-hover:-rotate-6 transition-transform duration-500 border border-slate-700">
+                <div className="relative w-48 h-64 dark:bg-slate-800 shadow-md dark:shadow-none rounded-xl shadow-2xl overflow-hidden transform -rotate-12 group-hover:-rotate-6 transition-transform duration-500 border border-slate-200 dark:border-slate-700">
                   <div className="w-full h-3/5 bg-slate-700 animate-pulse" />
                   <div className="p-4 space-y-3">
                     <div className="w-full h-2 bg-slate-600 rounded-full" />
@@ -211,7 +211,7 @@ export const Compress100kbSections: React.FC = () => {
                 <p className="text-slate-600 dark:text-slate-400 leading-relaxed">{step.desc}</p>
                 
                 {idx < 2 && (
-                  <div className="hidden md:block absolute -right-6 top-1/2 -translate-y-1/2 z-10 text-slate-300 dark:text-slate-700">
+                  <div className="hidden md:block absolute -right-6 top-1/2 -translate-y-1/2 z-10 text-slate-600 dark:text-slate-300 dark:text-slate-700">
                     <ArrowRight className="w-8 h-8" />
                   </div>
                 )}
