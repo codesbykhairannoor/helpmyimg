@@ -1,16 +1,14 @@
 import React, { useState } from 'react';
-import { useTranslation } from 'react-i18next';
 import { ChevronDown, ChevronUp, CheckCircle } from 'lucide-react';
 import { PSEO_KEYWORD_MATRIX } from '../../data/pseoKeywords';
-import { useLanguage } from '../../context/LanguageContext';
+import { useTranslation } from '../../context/LanguageContext';
 
 interface LongTailSectionsProps {
   tool: string;
 }
 
 export const LongTailSections: React.FC<LongTailSectionsProps> = ({ tool }) => {
-  const { t } = useTranslation();
-  const { lang } = useLanguage();
+  const { t, lang } = useTranslation();
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   // Fetch Matrix data for FAQs
