@@ -1,6 +1,7 @@
 import React from 'react';
-import { Helmet } from 'react-helmet-async';
 import { useTranslation } from '../../context/LanguageContext';
+import { SeoHead } from '../../components/seo/SeoHead';
+import { getLocalizedInfoSlug } from '../../utils/infoUrlMapper';
 import { Sparkles, Check, Infinity, Zap, ChevronDown } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
@@ -18,13 +19,17 @@ export const PricingPage: React.FC = () => {
   const gradientPart = titleWords.slice(0, splitIndex).join(' ');
   const solidPart = titleWords.slice(splitIndex).join(' ');
 
+  const localizedSlug = getLocalizedInfoSlug('pricing', lang);
+
   return (
     <>
-      <Helmet>
-        <title>{`${t('footer.pricing')} | HelpMyIMG`}</title>
-        <meta name="description" content={t('pricing.subtitle', { defaultValue: 'Stop paying for cloud AI. HelpMyIMG is 100% free.' })} />
-        <link rel="canonical" href={`https://helpmyimg.com/${lang}/pricing`} />
-      </Helmet>
+      <SeoHead
+        title={`${t('footer.pricing', { defaultValue: 'Pricing' })} - HelpMyIMG`}
+        description={t('pricing.subtitle', { defaultValue: 'HelpMyIMG pricing: 100% free forever, no subscriptions, no credit cards required.' })}
+        canonicalPath={lang === 'en' ? `/${localizedSlug}` : `/${lang}/${localizedSlug}`}
+        lang={lang}
+        infoPage="pricing"
+      />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 md:pt-12 pb-16">
         {/* SECTION 1: HERO */}

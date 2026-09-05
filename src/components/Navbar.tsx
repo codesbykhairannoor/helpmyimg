@@ -283,20 +283,23 @@ export const Navbar: React.FC = () => {
  ].map(({ id, label }) => {
  // Smart shortener for all 30 languages to ensure fit on mobile
  const shortLabel = label.replace(/\s*(Image|Gambar|Background|Latar Belakang|Latar|Photo|Foto|Format|Obraz|Изображение)\s*/gi, '').trim();
-
- return (
- <button 
- key={id} 
- onClick={() => {
  const toolId = id as InternalTool;
  const slug = getLocalizedSlug(toolId, lang);
- navigatePath(lang === 'en' ? `/${slug}` : `/${lang}/${slug}`);
+ const targetHref = lang === 'en' ? `/${slug}` : `/${lang}/${slug}`;
+
+ return (
+ <a 
+ key={id} 
+ href={targetHref}
+ onClick={(e) => {
+ e.preventDefault();
+ navigatePath(targetHref);
  setMobileMenuOpen(false);
  }} 
  className="bg-white dark:bg-dark-800 hover:bg-slate-50 dark:hover:bg-dark-700 border border-slate-200 dark:border-dark-600/50 py-[7px] px-1 rounded-lg font-semibold text-slate-800 dark:text-slate-100 text-[0.72rem] leading-tight uppercase text-center transition-colors cursor-pointer w-full flex items-center justify-center whitespace-nowrap overflow-hidden"
  >
  <span className="truncate">{shortLabel || label}</span>
- </button>
+ </a>
  );
  })}
  </div>

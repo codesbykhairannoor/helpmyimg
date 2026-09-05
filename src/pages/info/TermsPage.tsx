@@ -1,6 +1,7 @@
 import React from 'react';
-import { Helmet } from 'react-helmet-async';
 import { useTranslation } from '../../context/LanguageContext';
+import { SeoHead } from '../../components/seo/SeoHead';
+import { getLocalizedInfoSlug } from '../../utils/infoUrlMapper';
 import { FileText, ArrowRight } from 'lucide-react';
 import { motion } from 'framer-motion';
 
@@ -13,14 +14,17 @@ export const TermsPage: React.FC = () => {
   const gradientPart = titleWords.slice(0, splitIndex).join(' ');
   const solidPart = titleWords.slice(splitIndex).join(' ');
 
+  const localizedSlug = getLocalizedInfoSlug('terms', lang);
+
   return (
     <>
-      <Helmet>
-        <title>{`${t('footer.terms')} | HelpMyIMG`}</title>
-        <meta name="description" content={t('terms.intro')} />
-        <meta name="keywords" content="HelpMyIMG terms of service, usage policy, free AI editor terms, API limits" />
-        <link rel="canonical" href={`https://helpmyimg.com/${lang}/terms`} />
-      </Helmet>
+      <SeoHead
+        title={`${t('footer.terms', { defaultValue: 'Terms of Service' })} - HelpMyIMG`}
+        description={t('terms.intro', { defaultValue: 'HelpMyIMG terms of service and conditions for using our free local image editing tools.' })}
+        canonicalPath={lang === 'en' ? `/${localizedSlug}` : `/${lang}/${localizedSlug}`}
+        lang={lang}
+        infoPage="terms"
+      />
 
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 md:pt-12 pb-16">
         {/* HEADER SECTION */}

@@ -1,6 +1,7 @@
 import React from 'react';
-import { Helmet } from 'react-helmet-async';
 import { useTranslation } from '../../context/LanguageContext';
+import { SeoHead } from '../../components/seo/SeoHead';
+import { getLocalizedInfoSlug } from '../../utils/infoUrlMapper';
 import { Scale, Zap, WifiOff, ChevronDown, CheckCircle2, XCircle } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
@@ -18,13 +19,17 @@ export const ComparePage: React.FC = () => {
   const gradientPart = titleWords.slice(0, splitIndex).join(' ');
   const solidPart = titleWords.slice(splitIndex).join(' ');
 
+  const localizedSlug = getLocalizedInfoSlug('compare', lang);
+
   return (
     <>
-      <Helmet>
-        <title>{`${t('footer.compare')} | HelpMyIMG`}</title>
-        <meta name="description" content={t('compare.subtitle', { defaultValue: 'See how our local WebAssembly engine crushes cloud-based competitors.' })} />
-        <link rel="canonical" href={`https://helpmyimg.com/${lang}/compare`} />
-      </Helmet>
+      <SeoHead
+        title={`${t('footer.compare', { defaultValue: 'Compare' })} - HelpMyIMG`}
+        description={t('compare.subtitle', { defaultValue: 'Compare HelpMyIMG vs cloud-based alternatives like Remove.bg, Canva, and TinyPNG.' })}
+        canonicalPath={lang === 'en' ? `/${localizedSlug}` : `/${lang}/${localizedSlug}`}
+        lang={lang}
+        infoPage="compare"
+      />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 md:pt-12 pb-16">
         {/* SECTION 1: HERO */}

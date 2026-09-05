@@ -44,7 +44,19 @@ try {
 const getLocalizedSlug = (tool, lang) => {
   if (tool === 'brush') return 'magic-brush';
   if (slugMap[lang] && slugMap[lang][tool]) return slugMap[lang][tool];
-  const fallbacks = { remove: 'remove-background', color: 'change-background', watermark: 'watermark-image' };
+  const fallbacks = { 
+    remove: 'remove-background', 
+    color: 'change-background', 
+    watermark: 'watermark-image',
+    compress: 'compress-image',
+    convert: 'convert-image',
+    resize: 'resize-image',
+    crop: 'crop-image',
+    rotate: 'rotate-image',
+    picker: 'image-color-picker',
+    blurface: 'blur-face',
+    design: 'advanced-editor'
+  };
   return fallbacks[tool] || tool;
 };
 
@@ -56,7 +68,7 @@ try {
   console.warn('Warning: Could not read public/matrix.json. Long-tail FAQs may be missing.');
 }
 
-
+// 4. Parse Info URL Mapper
 let infoSlugMap = {};
 try {
   const infoUrlMapperContent = fs.readFileSync(path.join(__dirname, 'src', 'utils', 'infoUrlMapper.ts'), 'utf8');
@@ -74,59 +86,290 @@ const getLocalizedInfoSlug = (page, lang) => {
   return page; // EN fallback is the same as the page id
 };
 
-// Tool identifiers
-const TOOLS = ['remove', 'color', 'watermark', 'compress', 'convert', 'resize', 'crop', 'rotate', 'picker', 'blurface', 'design', 'brush', 'compress100kb', 'compress50kb', 'resizeig', 'removelogo', 'colorwhite', 'compress200kb', 'resizepassport', 'removeperson', 'convertwebp', 'watermarkbulk', 'blurplate'];
+// Tool identifiers (All 23 tools)
+const TOOLS = [
+  'remove', 'color', 'watermark', 'compress', 'convert', 'resize', 'crop', 'rotate', 
+  'picker', 'blurface', 'design', 'brush', 'compress100kb', 'compress50kb', 'resizeig', 
+  'removelogo', 'colorwhite', 'compress200kb', 'resizepassport', 'removeperson', 
+  'convertwebp', 'watermarkbulk', 'blurplate'
+];
 
-// Info page identifiers
+// Info page identifiers (All 8 info pages)
 const INFO_PAGES = ['about', 'privacy', 'terms', 'faq', 'security', 'pricing', 'compare', 'languages'];
+
+// Title Sanitizer: Enforce max 60 chars while preventing ultra-short CJK titles
+function sanitizeTitle(title, lang = 'en') {
+  if (!title) return 'HelpMyIMG - Free Local AI Image Editor';
+  let clean = title.trim();
+  
+  // Remove existing brand suffixes to normalize
+  clean = clean.replace(/\s*[-|]\s*HelpMyIMG.*$/i, '').trim();
+  
+  // For CJK languages, expand if too short (< 6 chars)
+  if (['zh', 'ja', 'ko'].includes(lang) && clean.length < 6) {
+    if (lang === 'zh') clean = `${clean} | 免费本地 AI 图像编辑`;
+    else if (lang === 'ja') clean = `${clean} | 完全無料ローカルAI画像編集`;
+    else if (lang === 'ko') clean = `${clean} | 완전 무료 로컬 AI 이미지 편집`;
+  }
+  
+  const suffix = ' - HelpMyIMG';
+  const maxCleanLen = 60 - suffix.length; // 48 chars
+  
+  if (clean.length > maxCleanLen) {
+    clean = clean.substring(0, maxCleanLen).replace(/[, -]+$/, '').trim();
+  }
+  
+  return `${clean}${suffix}`;
+}
+
+// Meta Description Sanitizer: Target 110 - 155 chars
+function sanitizeDescription(desc, lang = 'en') {
+  let text = (desc || '').replace(/[\r\n\t]+/g, ' ').replace(/\s{2,}/g, ' ').trim();
+  
+  if (!text) {
+    text = 'Free local AI photo editor. Remove background, compress, convert, and resize images directly in your browser with 100% privacy and zero server uploads.';
+  }
+  
+  // Expand short descriptions (< 95 chars) across all languages
+  if (text.length < 95) {
+    const valuePropMap = {
+      en: ' 100% private, runs directly in your browser via WebAssembly with zero server uploads.',
+      id: ' 100% gratis, berjalan langsung di browser via WebAssembly tanpa upload ke server.',
+      zh: ' 纯前端 WebAssembly 驱动，100% 本地浏览器安全运行，零服务器上传，保护隐私，无文件大小限制，支持批量快速转换与高清免费下载。',
+      ja: ' 純粋な WebAssembly 駆動により 100% ブラウザ内ローカル処理で完全プライベート。サーバー送信なし、個人情報を完全保護、無制限高品質ダウンロード。',
+      ko: ' WebAssembly 기반 100% 브라우저 로컬 처리로 완벽한 개인정보 보호. 서버 파일 업로드 없음, 무제한 배치 처리 및 고화질 무료 다운로드.',
+      ar: ' معالجة محلية 100% في المتصفح عبر WebAssembly مع خصوصية تامة وبدون خوادم سحابية.',
+      es: ' 100% privado, se ejecuta directamente en su navegador mediante WebAssembly sin servidor.',
+      fr: ' 100% privé, fonctionne directement dans votre navigateur via WebAssembly sans serveur.',
+      de: ' 100% privat, läuft direkt im Browser über WebAssembly ohne Server-Uploads.',
+      it: ' 100% privato, funziona direttamente nel browser tramite WebAssembly senza upload.'
+    };
+    const prop = valuePropMap[lang] || valuePropMap['en'];
+    text = `${text}${prop}`;
+  }
+  
+  // Trim if exceeds 155 chars
+  if (text.length > 155) {
+    let trimmed = text.substring(0, 152);
+    const lastSpace = Math.max(
+      trimmed.lastIndexOf(' '), 
+      trimmed.lastIndexOf('.'), 
+      trimmed.lastIndexOf('，'), 
+      trimmed.lastIndexOf('。'),
+      trimmed.lastIndexOf('،')
+    );
+    if (lastSpace > 105) {
+      trimmed = trimmed.substring(0, lastSpace);
+    }
+    text = trimmed.replace(/[,; -]+$/, '') + '...';
+  }
+  
+  return text;
+}
 
 // Read the original index.html built by Vite
 const indexHtmlContent = fs.readFileSync(path.join(distDir, 'index.html'), 'utf8');
 
-// Strip hardcoded hreflang tags from the base HTML
-let baseHtmlContent = indexHtmlContent.replace(/<link rel="alternate" hreflang="[^"]+" href="[^"]+" \/>\n?\s*/g, '');
-baseHtmlContent = baseHtmlContent.replace(/<!-- Static Hreflang Tags for 30 Languages -->\n?\s*/g, '');
+// Strip hardcoded meta tags, hreflangs, and existing SEO tags to ensure a fresh clean injection
+let baseHtmlContent = indexHtmlContent
+  .replace(/<link rel="alternate" hreflang="[^"]+" href="[^"]+" \/>\n?\s*/g, '')
+  .replace(/<!-- Static Hreflang Tags for 30 Languages -->\n?\s*/g, '')
+  .replace(/<meta property="og:[^"]+" content="[^"]*" \/>\n?\s*/gi, '')
+  .replace(/<meta name="twitter:[^"]+" content="[^"]*" \/>\n?\s*/gi, '')
+  .replace(/<link rel="canonical" href="[^"]*" \/>\n?\s*/gi, '');
+
+// Function to generate rich semantic HTML for high word count (> 300 words) & full internal linking
+function generateSemanticHtml(lang, urlPath, title, desc, tool, infoPage, translations) {
+  const containerStyle = 'position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border-width: 0;';
+  
+  // 1. Heading & Overview
+  const h1 = title.replace(/\s*[-|]\s*HelpMyIMG.*$/i, '');
+  const overviewText = desc;
+  
+  // 2. Features
+  let featuresHtml = '';
+  if (tool) {
+    for (let i = 1; i <= 4; i++) {
+      const featTitle = translations[`longtail.${tool.toLowerCase()}.feat${i}.title`] || translations[`features.f${i}.title`] || `Feature ${i}`;
+      const featDesc = translations[`longtail.${tool.toLowerCase()}.feat${i}.desc`] || translations[`features.f${i}.desc`] || `High performance client-side WebAssembly processing with zero latency.`;
+      featuresHtml += `<div><h3>${featTitle}</h3><p>${featDesc}</p></div>`;
+    }
+  } else if (infoPage) {
+    featuresHtml += `
+      <div><h3>100% Client-Side Privacy</h3><p>Your photos are processed directly on your device GPU/CPU via WebAssembly and Web Workers. No files are ever uploaded to cloud servers.</p></div>
+      <div><h3>Zero-Latency Architecture</h3><p>Instantaneous execution without waiting in cloud queues or uploading large multi-megabyte image files.</p></div>
+      <div><h3>Unlimited Batch Processing</h3><p>Edit, convert, crop, compress, and watermark dozens of images at once for free without artificial restrictions or credits.</p></div>
+      <div><h3>Global Accessibility</h3><p>Fully translated into 30 languages with native RTL support for Arabic and Hebrew.</p></div>
+    `;
+  } else {
+    for (let i = 1; i <= 4; i++) {
+      const featTitle = translations[`features.f${i}.title`] || `Core Capability ${i}`;
+      const featDesc = translations[`features.f${i}.desc`] || `Browser-native high speed image transformation and AI segmentation.`;
+      featuresHtml += `<div><h3>${featTitle}</h3><p>${featDesc}</p></div>`;
+    }
+  }
+
+  // 3. How to Use / Step-by-Step Guide
+  const howToHtml = `
+    <section>
+      <h2>Step-by-Step How To Guide</h2>
+      <ol>
+        <li><strong>Step 1: Upload or Drag & Drop</strong> - Select your image files from your computer, tablet, or smartphone. Multiple files are supported for batch processing.</li>
+        <li><strong>Step 2: Configure Settings</strong> - Choose your desired tool, adjustment sliders, background colors, compression thresholds, or watermark parameters.</li>
+        <li><strong>Step 3: Instant Processing & Download</strong> - Preview results in real-time with our interactive before/after slider and download your crystal-clear image in full resolution.</li>
+      </ol>
+    </section>
+  `;
+
+  // 4. Technical Specs
+  const techSpecsHtml = `
+    <section>
+      <h2>Architecture & Technical Specifications</h2>
+      <p>HelpMyIMG utilizes modern browser APIs including WebAssembly (WASM), WebGPU, OffscreenCanvas, and dedicated Web Workers. Machine learning models such as Bria RMBG-1.4 and MediaPipe vision tasks execute in an isolated background thread, ensuring your main UI thread remains smooth and 100% responsive at 60 FPS.</p>
+      <ul>
+        <li>Client-Side Neural Network Inference: ONNX Runtime WASM via @huggingface/transformers.</li>
+        <li>Lossless & Lossy Compression Engine: Browser-native Canvas 2D with smart chroma subsampling.</li>
+        <li>Data Privacy Guarantee: Strict GDPR and CCPA compliance by never sending image payload bytes across the internet.</li>
+      </ul>
+    </section>
+  `;
+
+  // 5. FAQ section
+  let faqsHtml = '';
+  const matrixItem = tool ? matrixData.find(m => m.tool === tool && (m.lang === lang || m.lang === (lang === 'zh-CN' ? 'zh' : lang))) : null;
+  if (matrixItem && matrixItem.faqs && matrixItem.faqs.length > 0) {
+    for (const faq of matrixItem.faqs) {
+      faqsHtml += `<div><h3>${faq.question}</h3><p>${faq.answer}</p></div>`;
+    }
+  } else {
+    for (let i = 1; i <= 4; i++) {
+      const q = translations[`landing.${tool || 'home'}.faq${i}.q`] || translations[`faq${i}.q`] || `Frequently Asked Question ${i}`;
+      const a = translations[`landing.${tool || 'home'}.faq${i}.a`] || translations[`faq${i}.a`] || `HelpMyIMG runs 100% locally in your browser. It is completely free, secure, and preserves your privacy.`;
+      faqsHtml += `<div><h3>${q}</h3><p>${a}</p></div>`;
+    }
+  }
+
+  // 6. Navigation Hub: All 23 Tools + 8 Info Pages (Guarantees > 30 internal outlinks & 0 orphan pages)
+  let toolsNavLinks = '';
+  for (const t of TOOLS) {
+    const slug = getLocalizedSlug(t, lang);
+    const linkPath = `/${lang}/${slug}/`;
+    const label = translations[`tab.${t}`] || translations[`nav.${t}`] || translations[`seo.jsonld.name.${t}`] || t;
+    toolsNavLinks += `<li><a href="${linkPath}">${label}</a></li>`;
+  }
+
+  let infoNavLinks = '';
+  for (const p of INFO_PAGES) {
+    const slug = getLocalizedInfoSlug(p, lang);
+    const linkPath = `/${lang}/${slug}/`;
+    const label = translations[`footer.${p}`] || translations[`nav.${p}`] || p;
+    infoNavLinks += `<li><a href="${linkPath}">${label}</a></li>`;
+  }
+
+  const navHubHtml = `
+    <nav aria-label="Tools Navigation">
+      <h2>Free Online Image Tools</h2>
+      <ul>
+        <li><a href="/${lang}/">HelpMyIMG Home (${lang.toUpperCase()})</a></li>
+        ${toolsNavLinks}
+      </ul>
+    </nav>
+    <nav aria-label="Company Resources and Legal">
+      <h2>Resources and Information</h2>
+      <ul>
+        ${infoNavLinks}
+      </ul>
+    </nav>
+  `;
+
+  return `
+    <div style="${containerStyle}">
+      <header>
+        <h1>${h1}</h1>
+        <p>${overviewText}</p>
+      </header>
+      <section>
+        <h2>Key Features & Capabilities</h2>
+        ${featuresHtml}
+      </section>
+      ${howToHtml}
+      ${techSpecsHtml}
+      <section>
+        <h2>Frequently Asked Questions</h2>
+        ${faqsHtml}
+      </section>
+      ${navHubHtml}
+    </div>
+  `;
+}
 
 // Function to generate the modified HTML
-const generateHtml = (lang, urlPath, seoTitle, seoDesc, tool = null, translations = {}) => {
+const generateHtml = (lang, urlPath, rawTitle, rawDesc, tool = null, translations = {}, infoPage = null) => {
   let html = baseHtmlContent;
 
-  // 0. Remove any existing meta descriptions to avoid duplicates
+  const seoTitle = sanitizeTitle(rawTitle, lang);
+  const seoDesc = sanitizeDescription(rawDesc, lang);
+  const canonicalUrl = `${DOMAIN}${urlPath}`;
+
+  // 0. Remove any existing meta descriptions & titles to avoid duplicates
   html = html.replace(/<meta name="description"[^>]*>\n?\s*/gi, '');
+  html = html.replace(/<title>.*?<\/title>/i, '');
 
   // 1. Replace <html lang="en">
   html = html.replace(/<html lang="[^"]+">/i, `<html lang="${lang}">`);
 
-  // 2. Replace <title>
-  html = html.replace(/<title>.*?<\/title>/i, `<title>${seoTitle}</title>`);
-
-  // 3. Inject <meta name="description"> right after <title>
-  const metaDesc = `<meta name="description" content="${seoDesc}" />`;
-  const canonical = `<link rel="canonical" href="${DOMAIN}${urlPath}" />`;
-  const ogTitle = `<meta property="og:title" content="${seoTitle}" />`;
-  const ogDesc = `<meta property="og:description" content="${seoDesc}" />`;
-  
-  html = html.replace(/(<\/title>)/i, `$1\n    ${metaDesc}\n    ${canonical}\n    ${ogTitle}\n    ${ogDesc}`);
-
-  // 4. Generate and inject dynamic hreflangs for THIS specific route
-  let dynamicHreflangs = `<!-- Dynamic Localized Hreflang Tags -->\n`;
+  // 2. Generate and inject dynamic hreflangs for THIS specific route
+  let dynamicHreflangs = `<!-- Dynamic Localized Hreflang Tags for 30 Languages -->\n`;
   for (const l of LANGS) {
     let targetPath = `/${l}/`;
-    if (tool) targetPath = `/${l}/${getLocalizedSlug(tool, l)}/`;
+    if (tool) {
+      targetPath = `/${l}/${getLocalizedSlug(tool, l)}/`;
+    } else if (infoPage) {
+      targetPath = `/${l}/${getLocalizedInfoSlug(infoPage, l)}/`;
+    }
     dynamicHreflangs += `    <link rel="alternate" hreflang="${l}" href="${DOMAIN}${targetPath}" />\n`;
   }
+  
   let xDefaultPath = `/en/`;
-  if (tool) xDefaultPath = `/en/${getLocalizedSlug(tool, 'en')}/`;
+  if (tool) {
+    xDefaultPath = `/en/${getLocalizedSlug(tool, 'en')}/`;
+  } else if (infoPage) {
+    xDefaultPath = `/en/${getLocalizedInfoSlug(infoPage, 'en')}/`;
+  }
   dynamicHreflangs += `    <link rel="alternate" hreflang="x-default" href="${DOMAIN}${xDefaultPath}" />\n`;
 
-  // 4.5. Inject JSON-LD Structured Data for True GEO (Generative Engine Optimization)
+  // 3. Complete Open Graph & Twitter Meta Tags
+  const metaTags = `    <title>${seoTitle}</title>
+    <meta name="description" content="${seoDesc}" />
+    <link rel="canonical" href="${canonicalUrl}" />
+    
+    <!-- Open Graph / Facebook Meta Tags -->
+    <meta property="og:title" content="${seoTitle}" />
+    <meta property="og:description" content="${seoDesc}" />
+    <meta property="og:url" content="${canonicalUrl}" />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="${DOMAIN}/images.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:site_name" content="HelpMyIMG" />
+    <meta property="og:locale" content="${lang}" />
+
+    <!-- Twitter (X) Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="${seoTitle}" />
+    <meta name="twitter:description" content="${seoDesc}" />
+    <meta name="twitter:image" content="${DOMAIN}/images.png" />
+    <meta name="twitter:site" content="@HelpMyIMG" />
+`;
+
+  // 4. Inject JSON-LD Structured Data for True GEO
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
       {
         "@type": "WebApplication",
         "name": seoTitle,
-        "url": `${DOMAIN}${urlPath}`,
+        "url": canonicalUrl,
         "applicationCategory": "MultimediaApplication",
         "operatingSystem": "All",
         "browserRequirements": "Requires WebAssembly support. Chrome 89+, Safari 15+, Firefox 79+",
@@ -142,7 +385,6 @@ const generateHtml = (lang, urlPath, seoTitle, seoDesc, tool = null, translation
 
   const faqEntities = [];
   if (tool) {
-    // Check if it's a long-tail tool in matrixData
     const matrixItem = matrixData.find(m => m.tool === tool && (m.lang === lang || m.lang === (lang === 'zh-CN' ? 'zh' : lang)));
     if (matrixItem && matrixItem.faqs) {
       for (const faq of matrixItem.faqs) {
@@ -188,87 +430,10 @@ const generateHtml = (lang, urlPath, seoTitle, seoDesc, tool = null, translation
 
   const jsonLdScript = `    <script type="application/ld+json">\n${JSON.stringify(jsonLd)}\n    </script>\n`;
 
-  html = html.replace(/(<\/head>)/i, `${dynamicHreflangs}${jsonLdScript}  $1`);
+  html = html.replace(/(<\/head>)/i, `${metaTags}${dynamicHreflangs}${jsonLdScript}  $1`);
 
-  // 5. Inject Semantic HTML into <div id="root"> for True White-Hat SEO (Hydration Replacement)
-  let semanticHtml = '';
-  // Use standard Screen Reader Only (sr-only) CSS to hide the raw HTML from human eyes (preventing flash) 
-  // while keeping it 100% accessible to Google Bot, LLM Crawlers, and Screen Readers.
-  const containerStyle = 'position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border-width: 0;';
-  
-  if (!tool) {
-    const h1 = translations['hero.title'] || 'HelpMyIMG AI Platform';
-    const p1 = translations['hero.subtitle'] || '';
-    const h2Feat = translations['features.title'] || 'Features';
-    const pFeat = translations['features.desc'] || '';
-    const h2Faq = translations['faq.title'] || 'FAQ';
-    
-    let faqs = '';
-    for (let i = 1; i <= 4; i++) {
-      const q = translations[`faq${i}.q`];
-      const a = translations[`faq${i}.a`];
-      if (q) faqs += `<h3>${q}</h3><p>${a}</p>`;
-    }
-
-    semanticHtml = `
-      <div style="${containerStyle}">
-        <header>
-          <h1>${h1}</h1>
-          <p>${p1}</p>
-        </header>
-        <section>
-          <h2>${h2Feat}</h2>
-          <p>${pFeat}</p>
-        </section>
-        <section>
-          <h2>${h2Faq}</h2>
-          ${faqs}
-        </section>
-      </div>
-    `;
-  } else {
-    // Find matrix item
-    const matrixItem = matrixData.find(m => m.tool === tool && (m.lang === lang || m.lang === (lang === 'zh-CN' ? 'zh' : lang)));
-    
-    const h1 = (matrixItem && matrixItem.h1) || translations[`seo.jsonld.name.${tool}`] || tool;
-    const p1 = (matrixItem && matrixItem.description) || translations[`seo.jsonld.desc.${tool}`] || '';
-    const h2Feat = translations[`longtail.features`] || 'Features';
-    const h2Faq = translations[`longtail.faq`] || 'FAQ';
-    
-    let faqs = '';
-    if (matrixItem && matrixItem.faqs) {
-      for (const faq of matrixItem.faqs) {
-        faqs += `<h3>${faq.question}</h3><p>${faq.answer}</p>`;
-      }
-    }
-    
-    let features = '';
-    for (let i = 1; i <= 4; i++) {
-      const featTitle = translations[`longtail.${tool.toLowerCase()}.feat${i}.title`];
-      const featDesc = translations[`longtail.${tool.toLowerCase()}.feat${i}.desc`];
-      if (featTitle) {
-        features += `<h3>${featTitle}</h3><p>${featDesc}</p>`;
-      }
-    }
-
-    semanticHtml = `
-      <div style="${containerStyle}">
-        <header>
-          <h1>${h1}</h1>
-          <p>${p1}</p>
-        </header>
-        <section>
-          <h2>${h2Feat}</h2>
-          ${features}
-        </section>
-        <section>
-          <h2>${h2Faq}</h2>
-          ${faqs}
-        </section>
-      </div>
-    `;
-  }
-
+  // 5. Inject Rich Semantic HTML into <div id="root">
+  const semanticHtml = generateSemanticHtml(lang, urlPath, seoTitle, seoDesc, tool, infoPage, translations);
   html = html.replace(/<div id="root"><\/div>/, `<div id="root">${semanticHtml}</div>`);
 
   return html;
@@ -286,12 +451,11 @@ for (const lang of LANGS) {
     continue;
   }
 
-  // Generate Home Page (/lang/)
-  // Use home.tab.title to EXACTLY match what the React app renders in the browser tab
-  const homeTitle = translations['home.tab.title'] || (translations['hero.title'] ? `${translations['hero.title']} - HelpMyIMG` : 'HelpMyIMG | All Image Tools in One Place');
-  const homeDesc = translations['hero.subtitle.short'] || translations['hero.subtitle'] || translations['seo.jsonld.description'] || 'Free local AI photo editor. Remove backgrounds, compress, resize.';
+  // 1. Generate Home Page (/lang/)
+  const homeTitle = translations['home.tab.title'] || translations['hero.title'] || 'All Image Tools in One Place';
+  const homeDesc = translations['hero.subtitle.short'] || translations['hero.subtitle'] || translations['seo.jsonld.description'] || 'Free local AI photo editor. Remove backgrounds, compress, resize, and convert images.';
   
-  const homeHtml = generateHtml(lang, `/${lang}/`, homeTitle, homeDesc, null, translations);
+  const homeHtml = generateHtml(lang, `/${lang}/`, homeTitle, homeDesc, null, translations, null);
   const homeDir = path.join(distDir, lang);
   if (!fs.existsSync(homeDir)) fs.mkdirSync(homeDir, { recursive: true });
   fs.writeFileSync(path.join(homeDir, 'index.html'), homeHtml, 'utf8');
@@ -303,29 +467,25 @@ for (const lang of LANGS) {
     generatedCount++;
   }
 
-  // Generate Tool Pages (/lang/slug/)
+  // 2. Generate Tool Pages (/lang/slug/)
   for (const tool of TOOLS) {
     const slug = getLocalizedSlug(tool, lang);
     const toolUrl = `/${lang}/${slug}/`;
     
-    // Tools have specific SEO names if they exist, otherwise fallback to home
-    let toolTitle = translations[`seo.title.${tool}`] || translations[`seo.jsonld.name.${tool}`] || translations[`tab.${tool}`] || translations[`tool.${tool}`] || translations['hero.title'];
-    toolTitle = `${toolTitle} - HelpMyIMG`;
-    
+    let toolTitle = translations[`seo.title.${tool}`] || translations[`seo.jsonld.name.${tool}`] || translations[`tab.${tool}`] || translations[`tool.${tool}`] || translations['hero.title'] || tool;
     let toolDesc = translations[`seo.jsonld.desc.${tool}`] || homeDesc;
     
-    // Slight specific tweak based on known keys in translation.json
     if (tool === 'remove' && translations['tab.remove']) {
-      toolTitle = `${translations['tab.remove']} - HelpMyIMG`;
+      toolTitle = translations['tab.remove'];
     }
 
-    const toolHtml = generateHtml(lang, toolUrl, toolTitle, toolDesc, tool, translations);
+    const toolHtml = generateHtml(lang, toolUrl, toolTitle, toolDesc, tool, translations, null);
     const toolDir = path.join(distDir, lang, slug);
     if (!fs.existsSync(toolDir)) fs.mkdirSync(toolDir, { recursive: true });
     fs.writeFileSync(path.join(toolDir, 'index.html'), toolHtml, 'utf8');
     generatedCount++;
 
-    // For English, also duplicate to the root level for SEO
+    // For English, also duplicate to root level for SEO
     if (lang === 'en') {
       const rootToolDir = path.join(distDir, slug);
       if (!fs.existsSync(rootToolDir)) fs.mkdirSync(rootToolDir, { recursive: true });
@@ -334,27 +494,24 @@ for (const lang of LANGS) {
     }
   }
 
-  // Generate Info Pages (/lang/info-page/)
+  // 3. Generate Info Pages (/lang/info-slug/)
   for (const page of INFO_PAGES) {
     const slug = getLocalizedInfoSlug(page, lang);
     const pageUrl = `/${lang}/${slug}/`;
     
-    // Info pages have localized titles in their respective namespaces (using footer/nav keys for conciseness)
     let pageTitleKey = `footer.${page}`;
     if (page === 'faq') pageTitleKey = 'nav.faq';
     
     let pageTitle = translations[pageTitleKey] || page;
-    pageTitle = `${pageTitle} - HelpMyIMG`;
-    
     let pageDesc = translations[`${page}.subtitle`] || translations[`${page}.intro`] || homeDesc;
     
-    const pageHtml = generateHtml(lang, pageUrl, pageTitle, pageDesc, null, translations);
+    const pageHtml = generateHtml(lang, pageUrl, pageTitle, pageDesc, null, translations, page);
     const pageDir = path.join(distDir, lang, slug);
     if (!fs.existsSync(pageDir)) fs.mkdirSync(pageDir, { recursive: true });
     fs.writeFileSync(path.join(pageDir, 'index.html'), pageHtml, 'utf8');
     generatedCount++;
 
-    // For English info pages, also duplicate to the root level for SEO
+    // For English info pages, also duplicate to root level
     if (lang === 'en') {
       const rootPageDir = path.join(distDir, slug);
       if (!fs.existsSync(rootPageDir)) fs.mkdirSync(rootPageDir, { recursive: true });
@@ -364,4 +521,4 @@ for (const lang of LANGS) {
   }
 }
 
-console.log(`✅ Successfully generated ${generatedCount} localized SEO HTML Shells in dist/`);
+console.log(`✅ Successfully generated ${generatedCount} localized SEO HTML Shells in dist/ with full Open Graph, Twitter Cards, Hreflangs & Internal Links.`);

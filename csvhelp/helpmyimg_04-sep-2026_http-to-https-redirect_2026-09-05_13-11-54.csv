@@ -1,0 +1,5 @@
+PR,URL,Title,Content type,Is rendered page,HTTP status code,Organic traffic,Redirect chain URLs,Redirect chain URLs codes,Is redirect loop,No. of all inlinks,No. of redirect inlinks,First found at
+0,http://www.helpmyimg.com/,,text/plain,false,308,0,"https://www.helpmyimg.com/
+https://helpmyimg.com/","308
+200",false,0,0,
+0,http://helpmyimg.com/,,text/plain,false,308,0,https://helpmyimg.com/,200,false,0,0,

@@ -1,6 +1,7 @@
 import React from 'react';
-import { Helmet } from 'react-helmet-async';
 import { useTranslation } from '../../context/LanguageContext';
+import { SeoHead } from '../../components/seo/SeoHead';
+import { getLocalizedInfoSlug } from '../../utils/infoUrlMapper';
 import { ShieldCheck, Lock, EyeOff, ServerOff, Cookie, Activity, Database, CheckSquare } from 'lucide-react';
 import { motion } from 'framer-motion';
 
@@ -13,14 +14,17 @@ export const PrivacyPage: React.FC = () => {
   const gradientPart = titleWords.slice(0, splitIndex).join(' ');
   const solidPart = titleWords.slice(splitIndex).join(' ');
 
+  const localizedSlug = getLocalizedInfoSlug('privacy', lang);
+
   return (
     <>
-      <Helmet>
-        <title>{`${t('footer.privacy')} | HelpMyIMG`}</title>
-        <meta name="description" content={t('privacy.intro')} />
-        <meta name="keywords" content="HelpMyIMG privacy policy, offline image editing privacy, GDPR compliant image editor, zero data collection AI" />
-        <link rel="canonical" href={`https://helpmyimg.com/${lang}/privacy`} />
-      </Helmet>
+      <SeoHead
+        title={`${t('footer.privacy', { defaultValue: 'Privacy Policy' })} - HelpMyIMG`}
+        description={t('privacy.intro', { defaultValue: 'HelpMyIMG privacy policy: 100% in-browser processing with zero server uploads.' })}
+        canonicalPath={lang === 'en' ? `/${localizedSlug}` : `/${lang}/${localizedSlug}`}
+        lang={lang}
+        infoPage="privacy"
+      />
 
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 md:pt-12 pb-16">
         {/* HEADER SECTION */}

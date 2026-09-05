@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import { Helmet } from 'react-helmet-async';
 import { useTranslation } from '../../context/LanguageContext';
+import { SeoHead } from '../../components/seo/SeoHead';
+import { getLocalizedInfoSlug } from '../../utils/infoUrlMapper';
 import { HelpCircle, ChevronDown, MessageCircleQuestion, Zap, Shield, Image as ImageIcon, Settings } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
@@ -32,14 +33,17 @@ export const FaqPage: React.FC = () => {
   const gradientPart = titleWords.slice(0, splitIndex).join(' ');
   const solidPart = titleWords.slice(splitIndex).join(' ');
 
+  const localizedSlug = getLocalizedInfoSlug('faq', lang);
+
   return (
     <>
-      <Helmet>
-        <title>{`${t('nav.faq')} | HelpMyIMG`}</title>
-        <meta name="description" content={t('faq.subtitle')} />
-        <meta name="keywords" content="HelpMyIMG FAQ, help center, offline AI questions, image background remover help" />
-        <link rel="canonical" href={`https://helpmyimg.com/${lang}/faq`} />
-      </Helmet>
+      <SeoHead
+        title={`${t('nav.faq', { defaultValue: 'FAQ' })} - HelpMyIMG`}
+        description={t('faq.subtitle', { defaultValue: 'Frequently asked questions about HelpMyIMG local WebAssembly AI image editor.' })}
+        canonicalPath={lang === 'en' ? `/${localizedSlug}` : `/${lang}/${localizedSlug}`}
+        lang={lang}
+        infoPage="faq"
+      />
 
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 md:pt-12 pb-16">
         {/* HEADER SECTION */}

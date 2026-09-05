@@ -1,6 +1,7 @@
 import React from 'react';
-import { Helmet } from 'react-helmet-async';
 import { useTranslation } from '../../context/LanguageContext';
+import { SeoHead } from '../../components/seo/SeoHead';
+import { getLocalizedInfoSlug } from '../../utils/infoUrlMapper';
 import { Shield, Lock, ServerOff, Database, CheckCircle2, ChevronDown, EyeOff, FileLock2 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
@@ -18,13 +19,17 @@ export const SecurityPage: React.FC = () => {
   const gradientPart = titleWords.slice(0, splitIndex).join(' ');
   const solidPart = titleWords.slice(splitIndex).join(' ');
 
+  const localizedSlug = getLocalizedInfoSlug('security', lang);
+
   return (
     <>
-      <Helmet>
-        <title>{`${t('footer.security')} | HelpMyIMG`}</title>
-        <meta name="description" content={t('security.subtitle', { defaultValue: 'Learn how our Zero-Cloud architecture protects your privacy.' })} />
-        <link rel="canonical" href={`https://helpmyimg.com/${lang}/security`} />
-      </Helmet>
+      <SeoHead
+        title={`${t('footer.security', { defaultValue: 'Security & Trust' })} - HelpMyIMG`}
+        description={t('security.subtitle', { defaultValue: 'Learn how our Zero-Cloud architecture and local WebAssembly protect your image data.' })}
+        canonicalPath={lang === 'en' ? `/${localizedSlug}` : `/${lang}/${localizedSlug}`}
+        lang={lang}
+        infoPage="security"
+      />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 md:pt-12 pb-16">
         {/* SECTION 1: HERO */}

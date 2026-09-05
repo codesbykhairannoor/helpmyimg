@@ -1,6 +1,7 @@
 import React from 'react';
-import { Helmet } from 'react-helmet-async';
 import { useTranslation } from '../../context/LanguageContext';
+import { SeoHead } from '../../components/seo/SeoHead';
+import { getLocalizedInfoSlug } from '../../utils/infoUrlMapper';
 import { Globe2, Languages, MessageCircle, Settings, ChevronDown, CheckCircle2 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { SUPPORTED_LANGUAGES } from '../../i18n/translations';
@@ -19,13 +20,17 @@ export const LanguagesPage: React.FC = () => {
   const gradientPart = titleWords.slice(0, splitIndex).join(' ');
   const solidPart = titleWords.slice(splitIndex).join(' ');
 
+  const localizedSlug = getLocalizedInfoSlug('languages', lang);
+
   return (
     <>
-      <Helmet>
-        <title>{`${t('footer.languages')} | HelpMyIMG`}</title>
-        <meta name="description" content={t('languages.subtitle', { defaultValue: 'HelpMyIMG is natively translated into 30 global languages.' })} />
-        <link rel="canonical" href={`https://helpmyimg.com/${lang}/languages`} />
-      </Helmet>
+      <SeoHead
+        title={`${t('footer.languages', { defaultValue: 'Supported Languages' })} - HelpMyIMG`}
+        description={t('languages.subtitle', { defaultValue: 'HelpMyIMG is natively translated and available in 30 global languages.' })}
+        canonicalPath={lang === 'en' ? `/${localizedSlug}` : `/${lang}/${localizedSlug}`}
+        lang={lang}
+        infoPage="languages"
+      />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 md:pt-12 pb-16">
         {/* SECTION 1: HERO */}
@@ -69,21 +74,30 @@ export const LanguagesPage: React.FC = () => {
             </p>
           </div>
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4">
-            {SUPPORTED_LANGUAGES.map((l) => (
-              <button
-                key={l.code}
-                onClick={() => setLang(l.code as any)}
-                className={`p-4 rounded-2xl border text-center transition-all ${
-                  lang === l.code 
-                    ? 'bg-neon-indigo/20 border-neon-indigo text-white shadow-[0_0_20px_rgba(79,70,229,0.2)]' 
-                    : 'bg-dark-800 border-dark-600 hover:border-neon-indigo/50 hover:bg-dark-700 text-slate-400 hover:text-white'
-                }`}
-              >
-                <div className="text-2xl mb-2">{l.flag}</div>
-                <div className="font-bold text-sm truncate">{l.name}</div>
-                <div className="text-[10px] uppercase tracking-wider opacity-70 mt-1">{l.code}</div>
-              </button>
-            ))}
+            {SUPPORTED_LANGUAGES.map((l) => {
+              const targetSlug = getLocalizedInfoSlug('languages', l.code);
+              const targetHref = l.code === 'en' ? `/${targetSlug}` : `/${l.code}/${targetSlug}`;
+              return (
+                <a
+                  key={l.code}
+                  href={targetHref}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    setLang(l.code as any);
+                    window.history.pushState({}, '', targetHref);
+                  }}
+                  className={`p-4 rounded-2xl border text-center transition-all block ${
+                    lang === l.code 
+                      ? 'bg-neon-indigo/20 border-neon-indigo text-white shadow-[0_0_20px_rgba(79,70,229,0.2)]' 
+                      : 'bg-dark-800 border-dark-600 hover:border-neon-indigo/50 hover:bg-dark-700 text-slate-400 hover:text-white'
+                  }`}
+                >
+                  <div className="text-2xl mb-2">{l.flag}</div>
+                  <div className="font-bold text-sm truncate">{l.name}</div>
+                  <div className="text-[10px] uppercase tracking-wider opacity-70 mt-1">{l.code}</div>
+                </a>
+              );
+            })}
           </div>
         </div>
 
