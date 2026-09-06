@@ -2,7 +2,7 @@ import React from 'react';
 import { useTranslation } from '../../context/LanguageContext';
 import { SeoHead } from '../../components/seo/SeoHead';
 import { getLocalizedInfoSlug } from '../../utils/infoUrlMapper';
-import { Shield, Lock, ServerOff, Database, CheckCircle2, ChevronDown, EyeOff, FileLock2 } from 'lucide-react';
+import { Shield, Lock, ServerOff, Database, CheckCircle2, ChevronDown, EyeOff, FileLock2, GraduationCap, Cpu } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 export const SecurityPage: React.FC = () => {
@@ -157,6 +157,67 @@ export const SecurityPage: React.FC = () => {
             </div>
           </div>
         </div>
+
+        {/* SCIENTIFIC & CRYPTOGRAPHIC PRIVACY FOUNDATIONS */}
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="mb-32 bg-dark-800/60 border border-dark-600 rounded-[40px] p-8 sm:p-14 relative overflow-hidden"
+        >
+          <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-neon-emerald/5 blur-[120px] rounded-full pointer-events-none" />
+          
+          <div className="text-center max-w-3xl mx-auto mb-14">
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-neon-emerald/10 border border-neon-emerald/30 text-neon-emerald text-xs font-mono font-bold mb-4">
+              <GraduationCap className="w-4 h-4" />
+              {t('security.research.tag', { defaultValue: 'RESEARCH & VERIFIABILITY' })}
+            </div>
+            <h2 className="text-3xl md:text-5xl font-heading font-black text-white mb-6">
+              {t('security.research.title', { defaultValue: 'Scientific & Cryptographic Privacy Foundations' })}
+            </h2>
+            <p className="text-lg text-slate-300 leading-relaxed mb-6">
+              {t('security.research.subtitle', { defaultValue: 'Our zero-retention guarantee is not a marketing promise—it is an architectural certainty backed by distributed systems research.' })}
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-8 mb-8">
+            <div className="bg-dark-900/80 border border-dark-600 p-8 rounded-3xl">
+              <div className="w-12 h-12 rounded-2xl bg-neon-cyan/10 border border-neon-cyan/30 flex items-center justify-center text-neon-cyan mb-4">
+                <Cpu className="w-6 h-6" />
+              </div>
+              <h3 className="text-xl font-bold text-white mb-3">
+                {t('security.research.box1.title', { defaultValue: 'Isolated WebAssembly Memory' })}
+              </h3>
+              <p className="text-sm text-slate-400 leading-relaxed mb-4">
+                {t('security.research.desc1', { defaultValue: 'Modern cloud photo editors force users into an insecure client-server paradigm where private files are transmitted over public networks. HelpMyIMG applies the principles of Local-First Software (Kleppmann et al., ACM Onward! 2019), treating the browser runtime as a sovereign computing enclave.' })}
+              </p>
+              <div className="text-xs font-mono text-neon-cyan font-semibold">
+                Reference: Haas et al., ACM PLDI 2017 (Wasm Specification)
+              </div>
+            </div>
+
+            <div className="bg-dark-900/80 border border-dark-600 p-8 rounded-3xl">
+              <div className="w-12 h-12 rounded-2xl bg-neon-emerald/10 border border-neon-emerald/30 flex items-center justify-center text-neon-emerald mb-4">
+                <Shield className="w-6 h-6" />
+              </div>
+              <h3 className="text-xl font-bold text-white mb-3">
+                {t('security.research.box2.title', { defaultValue: 'Zero Network Transmission' })}
+              </h3>
+              <p className="text-sm text-slate-400 leading-relaxed mb-4">
+                {t('security.research.desc2', { defaultValue: 'By deploying sandboxed WebAssembly execution modules, all image buffers remain isolated in local RAM memory and are irrevocably purged upon tab termination.' })}
+              </p>
+              <div className="text-xs font-mono text-neon-emerald font-semibold">
+                Reference: Kleppmann et al., ACM Onward! 2019 (Local-First Software)
+              </div>
+            </div>
+          </div>
+
+          <div className="p-4 rounded-2xl bg-dark-900/60 border border-dark-600/40 text-center">
+            <p className="text-xs text-slate-400 leading-relaxed">
+              📌 {t('home.research.notice', { defaultValue: 'Academic Attribution Notice: Citations and institutional references are provided solely for scholarly transparency and attribution of open algorithmic foundations. They do not imply direct endorsement or review of HelpMyIMG by the referenced authors or institutions.' })}
+            </p>
+          </div>
+        </motion.div>
 
         {/* SECTION 5: ZERO TRUST */}
         <div className="mb-32 text-center">

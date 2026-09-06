@@ -10,7 +10,10 @@ import {
   Cpu,
   HelpCircle,
   Sparkles,
-  ArrowRight
+  ArrowRight,
+  BookOpen,
+  GraduationCap,
+  Microscope
 } from 'lucide-react';
 
 import { getLocalizedSlug } from '../../utils/urlMapper';
@@ -239,6 +242,118 @@ export const HomeSections: React.FC = () => {
 
       {/* NEW: SEO/GEO Competitor Matrix */}
       <CompetitorMatrix />
+
+      {/* NEW: SCIENTIFIC FOUNDATIONS & RESEARCH BIBLIOGRAPHY SECTION */}
+      <section className="max-w-7xl mx-auto w-full" style={{ padding: '80px 24px' }}>
+        <div className="text-center max-w-3xl mx-auto mb-16 px-4">
+          <span className="text-xs font-mono font-bold uppercase tracking-widest text-[#05DAED] bg-[#05DAED]/10 px-3 py-1.5 rounded-full border border-[#05DAED]/30 block w-max mx-auto mb-4">
+            <span className="inline-flex items-center gap-1.5">
+              <GraduationCap className="w-3.5 h-3.5" />
+              {t('home.research.tag', { defaultValue: 'SCIENTIFIC FOUNDATIONS & RESEARCH' })}
+            </span>
+          </span>
+          <h2 
+            className="font-heading font-extrabold text-white"
+            style={{
+              fontSize: 'clamp(1.35rem, 4vw, 2.5rem)',
+              fontWeight: 800,
+              lineHeight: 1.2
+            }}
+          >
+            {t('home.research.title', { defaultValue: 'Algorithmic Principles & Peer-Reviewed Foundations' })}
+          </h2>
+          <p 
+            className="text-slate-400 mt-6 max-w-2xl mx-auto"
+            style={{
+              fontSize: 'clamp(0.95rem, 3vw, 1.15rem)',
+              lineHeight: 1.8
+            }}
+          >
+            {t('home.research.desc', { defaultValue: 'HelpMyIMG is engineered upon open, peer-reviewed computer vision and distributed systems research. Our in-browser pipeline implements mathematical models published by leading academic institutions.' })}
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mb-8">
+          {/* Card 1: Neural Matting */}
+          <div className="glass-panel p-6 sm:p-8 rounded-3xl border-dark-500/60 relative overflow-hidden group hover:border-[#05DAED]/50 transition-all duration-300 transform hover:-translate-y-1 bg-dark-800/40 flex flex-col justify-between">
+            <div>
+              <div className="w-12 h-12 rounded-2xl bg-[#05DAED]/10 flex items-center justify-center text-[#05DAED] mb-4 border border-[#05DAED]/30">
+                <Microscope className="w-6 h-6 stroke-[2.2]" />
+              </div>
+              <h3 className="text-lg font-heading font-bold text-white mb-2">
+                {t('home.research.c1.title', { defaultValue: 'Neural Matting & Saliency' })}
+              </h3>
+              <div className="text-xs font-mono text-[#05DAED] mb-3 font-semibold">
+                {t('home.research.c1.paper', { defaultValue: 'MODNet (AAAI 2022) & DIS / IS-Net (ECCV 2022)' })}
+              </div>
+              <p className="text-slate-400 text-sm leading-relaxed">
+                {t('home.research.c1.desc', { defaultValue: 'Implements objective decomposition and nested residual architectures for trimap-free portrait matting and micro-detail boundary extraction.' })}
+              </p>
+            </div>
+          </div>
+
+          {/* Card 2: Perceptual Quality & SSIM */}
+          <div className="glass-panel p-6 sm:p-8 rounded-3xl border-dark-500/60 relative overflow-hidden group hover:border-[#12DA91]/50 transition-all duration-300 transform hover:-translate-y-1 bg-dark-800/40 flex flex-col justify-between">
+            <div>
+              <div className="w-12 h-12 rounded-2xl bg-[#12DA91]/10 flex items-center justify-center text-[#12DA91] mb-4 border border-[#12DA91]/30">
+                <BookOpen className="w-6 h-6 stroke-[2.2]" />
+              </div>
+              <h3 className="text-lg font-heading font-bold text-white mb-2">
+                {t('home.research.c2.title', { defaultValue: 'Perceptual Quality & SSIM' })}
+              </h3>
+              <div className="text-xs font-mono text-[#12DA91] mb-3 font-semibold">
+                {t('home.research.c2.paper', { defaultValue: 'SSIM Index (Wang et al., IEEE TIP 2004)' })}
+              </div>
+              <p className="text-slate-400 text-sm leading-relaxed">
+                {t('home.research.c2.desc', { defaultValue: 'Applies human visual perception models to optimize DCT quantization in MozJPEG and WebP, preserving structural fidelity while shrinking bytes.' })}
+              </p>
+            </div>
+          </div>
+
+          {/* Card 3: In-Browser WebAssembly */}
+          <div className="glass-panel p-6 sm:p-8 rounded-3xl border-dark-500/60 relative overflow-hidden group hover:border-[#05DAED]/50 transition-all duration-300 transform hover:-translate-y-1 bg-dark-800/40 flex flex-col justify-between">
+            <div>
+              <div className="w-12 h-12 rounded-2xl bg-[#05DAED]/10 flex items-center justify-center text-[#05DAED] mb-4 border border-[#05DAED]/30">
+                <Cpu className="w-6 h-6 stroke-[2.2]" />
+              </div>
+              <h3 className="text-lg font-heading font-bold text-white mb-2">
+                {t('home.research.c3.title', { defaultValue: 'In-Browser WebAssembly' })}
+              </h3>
+              <div className="text-xs font-mono text-[#05DAED] mb-3 font-semibold">
+                {t('home.research.c3.paper', { defaultValue: 'WebAssembly (Haas et al., ACM PLDI 2017)' })}
+              </div>
+              <p className="text-slate-400 text-sm leading-relaxed">
+                {t('home.research.c3.desc', { defaultValue: 'Executes compiled C++/Rust computer vision kernels directly on device CPU/GPU with near-native execution speed and zero latency.' })}
+              </p>
+            </div>
+          </div>
+
+          {/* Card 4: Sub-Millisecond Face Detection */}
+          <div className="glass-panel p-6 sm:p-8 rounded-3xl border-dark-500/60 relative overflow-hidden group hover:border-[#12DA91]/50 transition-all duration-300 transform hover:-translate-y-1 bg-dark-800/40 flex flex-col justify-between">
+            <div>
+              <div className="w-12 h-12 rounded-2xl bg-[#12DA91]/10 flex items-center justify-center text-[#12DA91] mb-4 border border-[#12DA91]/30">
+                <ShieldCheck className="w-6 h-6 stroke-[2.2]" />
+              </div>
+              <h3 className="text-lg font-heading font-bold text-white mb-2">
+                {t('home.research.c4.title', { defaultValue: 'Sub-Millisecond Face Detection' })}
+              </h3>
+              <div className="text-xs font-mono text-[#12DA91] mb-3 font-semibold">
+                {t('home.research.c4.paper', { defaultValue: 'BlazeFace (Google Research, CVPR 2019)' })}
+              </div>
+              <p className="text-slate-400 text-sm leading-relaxed">
+                {t('home.research.c4.desc', { defaultValue: 'Utilizes compact feature extractors and GPU-friendly anchor schemes for ultra-fast facial bounding box inference and privacy obfuscation.' })}
+              </p>
+            </div>
+          </div>
+        </div>
+
+        {/* Academic Attribution Disclaimer */}
+        <div className="glass-panel p-4 sm:p-6 rounded-2xl border-dark-600/40 bg-dark-900/60 max-w-4xl mx-auto text-center">
+          <p className="text-xs text-slate-400 leading-relaxed font-body">
+            📌 <span className="font-semibold text-slate-300">{t('home.research.notice', { defaultValue: 'Academic Attribution Notice: Citations and institutional references are provided solely for scholarly transparency and attribution of open algorithmic foundations. They do not imply direct endorsement or review of HelpMyIMG by the referenced authors or institutions.' })}</span>
+          </p>
+        </div>
+      </section>
 
       {/* 4. CALL TO ACTION BANNER (Luxurious) */}
       <section className="max-w-7xl mx-auto w-full" style={{ padding: '80px 24px' }}>

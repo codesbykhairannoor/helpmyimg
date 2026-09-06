@@ -2,7 +2,7 @@ import React from 'react';
 import { useTranslation } from '../../context/LanguageContext';
 import { SeoHead } from '../../components/seo/SeoHead';
 import { getLocalizedInfoSlug } from '../../utils/infoUrlMapper';
-import { Sparkles, Shield, Cpu, Zap, Globe, Heart, Activity, Code, Server, ZapOff, CheckCircle2 } from 'lucide-react';
+import { Sparkles, Shield, Cpu, Zap, Globe, Heart, Activity, Code, Server, ZapOff, CheckCircle2, GraduationCap, BookOpen, Microscope } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 export const AboutPage: React.FC = () => {
@@ -158,6 +158,91 @@ export const AboutPage: React.FC = () => {
             ))}
           </div>
         </div>
+
+        {/* SCIENTIFIC BIBLIOGRAPHY & RESEARCH HERITAGE */}
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="mb-32 bg-dark-800/60 border border-dark-600 rounded-[40px] p-8 sm:p-14 relative overflow-hidden"
+        >
+          <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-neon-cyan/5 blur-[120px] rounded-full pointer-events-none" />
+          
+          <div className="text-center max-w-3xl mx-auto mb-14">
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-neon-cyan/10 border border-neon-cyan/30 text-neon-cyan text-xs font-mono font-bold mb-4">
+              <GraduationCap className="w-4 h-4" />
+              {t('about.research.tag', { defaultValue: 'SCIENTIFIC BIBLIOGRAPHY' })}
+            </div>
+            <h2 className="text-3xl md:text-5xl font-heading font-black text-white mb-6">
+              {t('about.research.title', { defaultValue: 'Our Algorithmic & Academic Heritage' })}
+            </h2>
+            <p className="text-lg text-slate-300 leading-relaxed">
+              {t('about.research.intro', { defaultValue: 'HelpMyIMG bridges advanced academic machine learning research and everyday creative workflows. By bringing neural network architectures and perceptual compression models directly into client-side WebAssembly, we prove that high-performance image processing does not require cloud servers or data privacy compromises.' })}
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-6 mb-8">
+            {/* Paper 1 */}
+            <div className="bg-dark-900/80 border border-dark-600/80 rounded-3xl p-6 sm:p-8 flex flex-col justify-between hover:border-neon-cyan/40 transition-colors">
+              <div>
+                <div className="w-10 h-10 rounded-xl bg-neon-cyan/10 border border-neon-cyan/30 flex items-center justify-center text-neon-cyan mb-4">
+                  <Microscope className="w-5 h-5" />
+                </div>
+                <h3 className="text-xl font-bold text-white mb-2">
+                  {t('about.research.p1.title', { defaultValue: 'Dichotomous Image Segmentation' })}
+                </h3>
+                <div className="text-xs font-mono text-neon-cyan mb-4">
+                  {t('about.research.p1.authors', { defaultValue: 'Xuebin Qin et al. (ECCV 2022)' })}
+                </div>
+                <p className="text-sm text-slate-400 leading-relaxed">
+                  {t('about.research.p1.desc', { defaultValue: 'Provides the architectural foundation for high-resolution background removal and delicate edge segmentation without server round-trips.' })}
+                </p>
+              </div>
+            </div>
+
+            {/* Paper 2 */}
+            <div className="bg-dark-900/80 border border-dark-600/80 rounded-3xl p-6 sm:p-8 flex flex-col justify-between hover:border-neon-emerald/40 transition-colors">
+              <div>
+                <div className="w-10 h-10 rounded-xl bg-neon-emerald/10 border border-neon-emerald/30 flex items-center justify-center text-neon-emerald mb-4">
+                  <BookOpen className="w-5 h-5" />
+                </div>
+                <h3 className="text-xl font-bold text-white mb-2">
+                  {t('about.research.p2.title', { defaultValue: 'Structural Similarity (SSIM)' })}
+                </h3>
+                <div className="text-xs font-mono text-neon-emerald mb-4">
+                  {t('about.research.p2.authors', { defaultValue: 'Zhou Wang et al. (IEEE TIP 2004)' })}
+                </div>
+                <p className="text-sm text-slate-400 leading-relaxed">
+                  {t('about.research.p2.desc', { defaultValue: 'The gold standard perceptual quality metric used in our image compression and quantization algorithms to safeguard visual clarity.' })}
+                </p>
+              </div>
+            </div>
+
+            {/* Paper 3 */}
+            <div className="bg-dark-900/80 border border-dark-600/80 rounded-3xl p-6 sm:p-8 flex flex-col justify-between hover:border-neon-indigo/40 transition-colors">
+              <div>
+                <div className="w-10 h-10 rounded-xl bg-neon-indigo/10 border border-neon-indigo/30 flex items-center justify-center text-neon-indigo mb-4">
+                  <Shield className="w-5 h-5" />
+                </div>
+                <h3 className="text-xl font-bold text-white mb-2">
+                  {t('about.research.p3.title', { defaultValue: 'Local-First Architecture' })}
+                </h3>
+                <div className="text-xs font-mono text-neon-indigo mb-4">
+                  {t('about.research.p3.authors', { defaultValue: 'Martin Kleppmann et al. (ACM Onward! 2019)' })}
+                </div>
+                <p className="text-sm text-slate-400 leading-relaxed">
+                  {t('about.research.p3.desc', { defaultValue: 'The architectural blueprint guiding our zero-cloud, client-side data ownership model where 100% of computations stay on the user device.' })}
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div className="p-4 rounded-2xl bg-dark-900/60 border border-dark-600/40 text-center">
+            <p className="text-xs text-slate-400 leading-relaxed">
+              📌 {t('home.research.notice', { defaultValue: 'Academic Attribution Notice: Citations and institutional references are provided solely for scholarly transparency and attribution of open algorithmic foundations. They do not imply direct endorsement or review of HelpMyIMG by the referenced authors or institutions.' })}
+            </p>
+          </div>
+        </motion.div>
 
         {/* ENVIRONMENTAL IMPACT SECTION */}
         <motion.div 

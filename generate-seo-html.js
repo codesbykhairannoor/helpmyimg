@@ -234,6 +234,26 @@ function generateSemanticHtml(lang, urlPath, title, desc, tool, infoPage, transl
     </section>
   `;
 
+  // 4b. Scientific Foundations & Research Bibliography
+  const researchTitle = translations['home.research.title'] || 'Algorithmic Principles & Peer-Reviewed Foundations';
+  const researchDesc = translations['home.research.desc'] || 'HelpMyIMG is engineered upon open, peer-reviewed computer vision and distributed systems research.';
+  const noticeText = translations['home.research.notice'] || 'Academic Attribution Notice: Citations and institutional references are provided solely for scholarly transparency and attribution of open algorithmic foundations.';
+
+  const scientificResearchHtml = `
+    <section>
+      <h2>${researchTitle}</h2>
+      <p>${researchDesc}</p>
+      <ul>
+        <li><strong>Neural Matting & Saliency:</strong> Ke et al., "MODNet: Real-Time Trimap-Free Portrait Matting via Objective Decomposition", AAAI 2022 / Qin et al., "Highly Accurate Dichotomous Image Segmentation (IS-Net / DIS)", ECCV 2022.</li>
+        <li><strong>Perceptual Quality & SSIM:</strong> Wang et al., "Image Quality Assessment: From Error Visibility to Structural Similarity (SSIM)", IEEE Transactions on Image Processing (IEEE TIP), 2004.</li>
+        <li><strong>In-Browser WebAssembly Acceleration:</strong> Haas et al., "Bringing the Web up to Speed with WebAssembly", ACM SIGPLAN PLDI 2017.</li>
+        <li><strong>Local-First Privacy Architecture:</strong> Kleppmann et al., "Local-First Software: You Own Your Data, in Spite of the Cloud", ACM SIGPLAN Onward! 2019.</li>
+        <li><strong>Ultra-Fast Neural Face Detection:</strong> Bazarevsky et al., "BlazeFace: Sub-millisecond Neural Face Detection on Mobile GPUs", Google Research, CVPR Workshop 2019.</li>
+      </ul>
+      <p><small>${noticeText}</small></p>
+    </section>
+  `;
+
   // 5. FAQ section
   let faqsHtml = '';
   const matrixItem = tool ? matrixData.find(m => m.tool === tool && (m.lang === lang || m.lang === (lang === 'zh-CN' ? 'zh' : lang))) : null;
@@ -294,6 +314,7 @@ function generateSemanticHtml(lang, urlPath, title, desc, tool, infoPage, transl
       </section>
       ${howToHtml}
       ${techSpecsHtml}
+      ${scientificResearchHtml}
       <section>
         <h2>Frequently Asked Questions</h2>
         ${faqsHtml}
