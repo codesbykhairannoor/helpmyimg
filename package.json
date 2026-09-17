@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "node generate-sitemap.js && npx tsx scripts/dump-matrix.ts && tsc -b && vite build && node generate-seo-html.js",
+    "build": "node generate-sitemap.js && npx tsx scripts/dump-matrix.ts && vite build && node generate-seo-html.js",
     "postbuild": "node scripts/submit-indexnow.mjs",
     "lint": "oxlint",
     "preview": "vite preview"

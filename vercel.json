@@ -14,6 +14,26 @@
       ],
       "destination": "https://helpmyimg.com/:path*",
       "permanent": true
+    },
+    {
+      "source": "/helpmyimg.com/:path*",
+      "destination": "https://helpmyimg.com/:path*",
+      "permanent": true
+    },
+    {
+      "source": "/bg/:path*",
+      "destination": "https://helpmyimg.com/en/:path*",
+      "permanent": true
+    },
+    {
+      "source": "/bg",
+      "destination": "https://helpmyimg.com/en/",
+      "permanent": true
+    },
+    {
+      "source": "/:lang/:tool/:slug+",
+      "destination": "/:lang/:tool/",
+      "permanent": true
     }
   ],
   "rewrites": [

@@ -12,6 +12,7 @@ import { type Language } from '../i18n/translations';
 import { ToolWorkspace } from '../components/workspace/ToolWorkspace';
 import { usePSeoData } from '../hooks/usePSeoData';
 import { DynamicPSeoSections } from '../components/seo/DynamicPSeoSections';
+import { getLocalizedSlug } from '../utils/urlMapper';
 
 export const ToolLandingPage: React.FC = () => {
   const { setLang, lang: currentLang, t } = useTranslation();
@@ -132,10 +133,9 @@ export const ToolLandingPage: React.FC = () => {
         key={`${lang}-${tool || 'home'}`}
         title={dynamicJsonData ? dynamicJsonData.title : displayConfig.title}
         description={dynamicJsonData ? dynamicJsonData.description : displayConfig.description}
-        canonicalPath={`/${lang === 'en' ? '' : lang + '/'}${tool || 'remove-background'}${keywordSlug ? `/${keywordSlug}` : ''}`.replace('//', '/')}
+        canonicalPath={!tool ? `/${lang || 'en'}/` : `/${lang || 'en'}/${getLocalizedSlug(internalTool as any, (lang || 'en') as any)}/`}
         lang={lang}
         internalTool={internalTool}
-        keywordSlug={keywordSlug || undefined}
       />
 
       {/* Hero Section */}

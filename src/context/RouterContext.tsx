@@ -55,12 +55,21 @@ export const RouterProvider: React.FC<{ children: React.ReactNode }> = ({ childr
   const [route, setRoute] = useState<RouteState>(parseUrl());
 
   useEffect(() => {
+    // If user lands on a legacy 3-segment pSEO URL, immediately normalize the URL in the address bar
+    if (route.keywordSlug && route.tool) {
+      const cleanSlug = getLocalizedSlug(route.tool as any, route.lang);
+      const cleanPath = `/${route.lang}/${cleanSlug}/`;
+      if (window.location.pathname !== cleanPath) {
+        window.history.replaceState(null, '', cleanPath);
+      }
+    }
+
     const handlePopState = () => {
       setRoute(parseUrl());
     };
     window.addEventListener('popstate', handlePopState);
     return () => window.removeEventListener('popstate', handlePopState);
-  }, []);
+  }, [route.keywordSlug, route.tool, route.lang]);
 
   const navigate = (newLang: Language, newTool: string | null = null, newPage: RouteState['page'] = 'tool') => {
     let newPath = newLang === 'en' ? '/' : `/${newLang}`;
