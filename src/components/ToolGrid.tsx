@@ -17,7 +17,7 @@ export const ToolGrid: React.FC = () => {
   const getCategoryTitle = () => {
     if (activeFilter === 'all') return t('grid.catAll', { defaultValue: 'All Tools' });
     const cat = categories.find(c => c.id === activeFilter);
-    return cat ? t(cat.labelKey) : 'Tools';
+    return cat ? t(cat.labelKey, { defaultValue: cat.defaultLabel }) : 'Tools';
   };
 
   const filteredTools = useMemo(() => {
@@ -57,7 +57,7 @@ export const ToolGrid: React.FC = () => {
                 : 'bg-dark-800 border border-dark-600 text-slate-300 hover:bg-dark-700 hover:text-white'
             }`}
           >
-            {t(cat.labelKey)}
+            {t(cat.labelKey, { defaultValue: cat.defaultLabel })}
           </button>
         ))}
       </div>
@@ -109,11 +109,11 @@ export const ToolGrid: React.FC = () => {
                 {/* Body Content */}
                 <div className="relative z-10 flex-1">
                   <h3 className="text-lg sm:text-2xl font-bold font-heading text-white mb-3 sm:mb-4 group-hover:text-[#05DAED] transition-colors leading-tight">
-                    {t(tool.titleKey)}
+                    {t(tool.titleKey, { defaultValue: tool.defaultTitle })}
                   </h3>
                   
                   <p className="text-sm sm:text-base text-slate-400 leading-relaxed line-clamp-3">
-                    {t(tool.descKey)}
+                    {t(tool.descKey, { defaultValue: tool.defaultDesc })}
                   </p>
                 </div>
               </a>

@@ -2,6 +2,7 @@ import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
 import LanguageDetector from 'i18next-browser-languagedetector';
 import { type Language, SUPPORTED_LANGUAGES } from './translations';
+import enTranslations from '../../public/locales/en/translation.json';
 
 export function getLanguageFromUrl(): Language {
   const pathname = window.location.pathname.replace(/^\/+/, '');
@@ -13,29 +14,30 @@ export function getLanguageFromUrl(): Language {
 }
 
 export async function fetchTranslation(lang: Language): Promise<Record<string, any>> {
+  if (lang === 'en') {
+    return enTranslations;
+  }
   try {
     const response = await fetch(`/locales/${lang}/translation.json`);
     if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
     return await response.json();
   } catch (error) {
     console.error(`Failed to fetch translation for lang "${lang}", falling back to English:`, error);
-    if (lang === 'en') return {};
-    try {
-      const fallbackResponse = await fetch('/locales/en/translation.json');
-      return await fallbackResponse.json();
-    } catch (fallbackError) {
-      console.error('Failed to fetch English fallback translation:', fallbackError);
-      return {};
-    }
+    return enTranslations;
   }
 }
 
-// Initial placeholder initialization so i18n functions don't crash before loading completes
+// Initial placeholder initialization with full English base so i18n never displays raw keys
 i18n
   .use(LanguageDetector)
   .use(initReactI18next)
   .init({
-    resources: {},
+    resources: {
+      en: {
+        translation: enTranslations
+      }
+    },
+    lng: 'en',
     fallbackLng: 'en',
     keySeparator: false,
     react: { 
@@ -44,10 +46,20 @@ i18n
   });
 
 export async function initI18n(lang: Language) {
-  const initialTranslation = await fetchTranslation(lang);
-  i18n.addResourceBundle(lang, 'translation', initialTranslation, true, true);
-  await i18n.changeLanguage(lang);
+  if (lang === 'en') {
+    await i18n.changeLanguage('en');
+    return;
+  }
+  try {
+    const initialTranslation = await fetchTranslation(lang);
+    i18n.addResourceBundle(lang, 'translation', initialTranslation, true, true);
+    await i18n.changeLanguage(lang);
+  } catch (err) {
+    console.warn(`Could not load translations for "${lang}", staying on fallback:`, err);
+    await i18n.changeLanguage('en');
+  }
 }
 
 export default i18n;
+
 

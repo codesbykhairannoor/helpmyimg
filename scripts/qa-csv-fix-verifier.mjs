@@ -207,7 +207,7 @@ if (fs.existsSync(vercelConfigPath)) {
   
   const hasWwwRedirect = redirects.some(r => r.has && r.has.some(h => h.value === 'www.helpmyimg.com'));
   const hasMalformedRedirect = redirects.some(r => r.source === '/helpmyimg.com/:path*');
-  const hasPseoConsolidation = redirects.some(r => r.source === '/:lang/:tool/:slug+');
+  const hasPseoConsolidation = redirects.some(r => r.source && r.source.includes(':tool') && r.source.includes(':slug'));
   const hasBgRedirect = redirects.some(r => r.source === '/bg/:path*');
   const hasTrailingSlash = vercelJson.trailingSlash === true;
 

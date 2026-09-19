@@ -31,7 +31,7 @@
       "permanent": true
     },
     {
-      "source": "/:lang/:tool/:slug+",
+      "source": "/:lang(ar|cs|da|de|el|en|es|fi|fr|he|hi|hu|id|it|ja|ko|ms|nl|no|pl|pt|ro|ru|sv|th|tl|tr|uk|vi|zh)/:tool/:slug((?!.*\\.).+)",
       "destination": "/:lang/:tool/",
       "permanent": true
     }

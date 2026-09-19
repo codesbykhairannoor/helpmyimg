@@ -90,13 +90,13 @@ export const Navbar: React.FC = () => {
  <div className="hidden lg:flex items-center justify-center flex-1 relative group px-4">
  <nav className="flex items-center gap-2 xl:gap-4 text-sm font-medium text-slate-700 dark:text-slate-300">
  <a href={lang === 'en' ? `/${getLocalizedSlug('remove', lang)}` : `/${lang}/${getLocalizedSlug('remove', lang)}`} onClick={(e) => { e.preventDefault(); navigatePath(lang === 'en' ? `/${getLocalizedSlug('remove', lang)}` : `/${lang}/${getLocalizedSlug('remove', lang)}`); (document.activeElement as HTMLElement)?.blur(); }} className="hover:text-neon-cyan transition-colors font-bold text-[12px] uppercase px-2.5 py-1.5 flex items-center whitespace-nowrap rounded-lg hover:bg-slate-50 dark:hover:bg-dark-800/50">
- {t('nav.removeBg')}
+ {t('nav.removeBg', { defaultValue: 'Remove Background' })}
  </a>
  <a href={lang === 'en' ? `/${getLocalizedSlug('compress', lang)}` : `/${lang}/${getLocalizedSlug('compress', lang)}`} onClick={(e) => { e.preventDefault(); navigatePath(lang === 'en' ? `/${getLocalizedSlug('compress', lang)}` : `/${lang}/${getLocalizedSlug('compress', lang)}`); (document.activeElement as HTMLElement)?.blur(); }} className="hover:text-neon-cyan transition-colors font-bold text-[12px] uppercase px-2.5 py-1.5 flex items-center whitespace-nowrap rounded-lg hover:bg-slate-50 dark:hover:bg-dark-800/50">
- {t('nav.compress', { defaultValue: 'Compress' })}
+ {t('nav.compress', { defaultValue: 'Compress Image' })}
  </a>
  <a href={lang === 'en' ? `/${getLocalizedSlug('resize', lang)}` : `/${lang}/${getLocalizedSlug('resize', lang)}`} onClick={(e) => { e.preventDefault(); navigatePath(lang === 'en' ? `/${getLocalizedSlug('resize', lang)}` : `/${lang}/${getLocalizedSlug('resize', lang)}`); (document.activeElement as HTMLElement)?.blur(); }} className="hover:text-neon-cyan transition-colors font-bold text-[12px] uppercase px-2.5 py-1.5 flex items-center whitespace-nowrap rounded-lg hover:bg-slate-50 dark:hover:bg-dark-800/50">
- {t('nav.resize')}
+ {t('nav.resize', { defaultValue: 'Resize Image' })}
  </a>
  
  {/* Menu Dropdown All Tools */}
@@ -117,7 +117,7 @@ export const Navbar: React.FC = () => {
  return (
  <div key={cat.id} className="flex flex-col">
  <div className="flex items-center gap-2 text-xs font-bold text-cyan-600 dark:text-neon-cyan uppercase border-b border-slate-100 dark:border-dark-700 pb-2 mb-3">
- {t(cat.labelKey)}
+ {t(cat.labelKey, { defaultValue: cat.defaultLabel })}
  </div>
  <div className="flex flex-col gap-1.5">
  {catTools.map(tool => {
@@ -134,7 +134,7 @@ export const Navbar: React.FC = () => {
  >
  <tool.icon strokeWidth={1.5} className="w-5 h-5 flex-shrink-0 text-slate-600 dark:text-slate-400 group-hover/item:text-neon-emerald transition-colors" />
  <span className="text-[11.5px] uppercase text-slate-700 dark:text-slate-200 font-bold truncate group-hover/item:text-neon-emerald transition-colors">
- {t(tool.titleKey)}
+ {t(tool.titleKey, { defaultValue: tool.defaultTitle })}
  </span>
  </a>
  );
@@ -323,7 +323,7 @@ export const Navbar: React.FC = () => {
  return (
  <div key={cat.id} className="space-y-0">
  <div className="text-[0.65rem] font-extrabold text-cyan-600 dark:text-neon-cyan mb-2 pb-1.5 border-b border-dashed border-slate-200 dark:border-dark-600 uppercase">
- {t(cat.labelKey)}
+ {t(cat.labelKey, { defaultValue: cat.defaultLabel })}
  </div>
  <div className="grid grid-cols-2 gap-1.5">
  {catTools.map(tool => (
@@ -338,7 +338,7 @@ export const Navbar: React.FC = () => {
  className="flex items-center gap-2 bg-white dark:bg-dark-800 border border-slate-200 dark:border-dark-600/50 px-[11px] py-[9px] rounded-lg font-semibold text-slate-700 dark:text-slate-200 text-[0.72rem] text-left hover:border-cyan-500 dark:hover:border-neon-cyan transition-colors"
  >
  <tool.icon className="w-[13px] h-[13px] text-cyan-600 dark:text-neon-cyan shrink-0" strokeWidth={2.5} />
- <span className="truncate uppercase">{t(tool.titleKey)}</span>
+ <span className="truncate uppercase">{t(tool.titleKey, { defaultValue: tool.defaultTitle })}</span>
  </a>
  ))}
  </div>
