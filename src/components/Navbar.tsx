@@ -89,22 +89,22 @@ export const Navbar: React.FC = () => {
  {/* Tengah: Navigation Links (Desktop) */}
  <div className="hidden lg:flex items-center justify-center flex-1 relative group px-4">
  <nav className="flex items-center gap-2 xl:gap-4 text-sm font-medium text-slate-700 dark:text-slate-300">
- <a href={lang === 'en' ? `/${getLocalizedSlug('remove', lang)}` : `/${lang}/${getLocalizedSlug('remove', lang)}`} onClick={(e) => { e.preventDefault(); navigatePath(lang === 'en' ? `/${getLocalizedSlug('remove', lang)}` : `/${lang}/${getLocalizedSlug('remove', lang)}`); (document.activeElement as HTMLElement)?.blur(); }} className="hover:text-neon-cyan transition-colors font-bold text-[12px] uppercase px-2.5 py-1.5 flex items-center whitespace-nowrap rounded-lg hover:bg-slate-50 dark:hover:bg-dark-800/50">
+ <a href={lang === 'en' ? `/${getLocalizedSlug('remove', lang)}` : `/${lang}/${getLocalizedSlug('remove', lang)}`} onClick={(e) => { e.preventDefault(); navigatePath(lang === 'en' ? `/${getLocalizedSlug('remove', lang)}` : `/${lang}/${getLocalizedSlug('remove', lang)}`); (document.activeElement as HTMLElement)?.blur(); }} className="hover:text-neon-cyan transition-colors font-bold text-[13.5px] uppercase px-2.5 py-1.5 flex items-center whitespace-nowrap rounded-lg hover:bg-slate-50 dark:hover:bg-dark-800/50">
  {t('nav.removeBg', { defaultValue: 'Remove Background' })}
  </a>
- <a href={lang === 'en' ? `/${getLocalizedSlug('compress', lang)}` : `/${lang}/${getLocalizedSlug('compress', lang)}`} onClick={(e) => { e.preventDefault(); navigatePath(lang === 'en' ? `/${getLocalizedSlug('compress', lang)}` : `/${lang}/${getLocalizedSlug('compress', lang)}`); (document.activeElement as HTMLElement)?.blur(); }} className="hover:text-neon-cyan transition-colors font-bold text-[12px] uppercase px-2.5 py-1.5 flex items-center whitespace-nowrap rounded-lg hover:bg-slate-50 dark:hover:bg-dark-800/50">
+ <a href={lang === 'en' ? `/${getLocalizedSlug('compress', lang)}` : `/${lang}/${getLocalizedSlug('compress', lang)}`} onClick={(e) => { e.preventDefault(); navigatePath(lang === 'en' ? `/${getLocalizedSlug('compress', lang)}` : `/${lang}/${getLocalizedSlug('compress', lang)}`); (document.activeElement as HTMLElement)?.blur(); }} className="hover:text-neon-cyan transition-colors font-bold text-[13.5px] uppercase px-2.5 py-1.5 flex items-center whitespace-nowrap rounded-lg hover:bg-slate-50 dark:hover:bg-dark-800/50">
  {t('nav.compress', { defaultValue: 'Compress Image' })}
  </a>
- <a href={lang === 'en' ? `/${getLocalizedSlug('resize', lang)}` : `/${lang}/${getLocalizedSlug('resize', lang)}`} onClick={(e) => { e.preventDefault(); navigatePath(lang === 'en' ? `/${getLocalizedSlug('resize', lang)}` : `/${lang}/${getLocalizedSlug('resize', lang)}`); (document.activeElement as HTMLElement)?.blur(); }} className="hover:text-neon-cyan transition-colors font-bold text-[12px] uppercase px-2.5 py-1.5 flex items-center whitespace-nowrap rounded-lg hover:bg-slate-50 dark:hover:bg-dark-800/50">
+ <a href={lang === 'en' ? `/${getLocalizedSlug('resize', lang)}` : `/${lang}/${getLocalizedSlug('resize', lang)}`} onClick={(e) => { e.preventDefault(); navigatePath(lang === 'en' ? `/${getLocalizedSlug('resize', lang)}` : `/${lang}/${getLocalizedSlug('resize', lang)}`); (document.activeElement as HTMLElement)?.blur(); }} className="hover:text-neon-cyan transition-colors font-bold text-[13.5px] uppercase px-2.5 py-1.5 flex items-center whitespace-nowrap rounded-lg hover:bg-slate-50 dark:hover:bg-dark-800/50">
  {t('nav.resize', { defaultValue: 'Resize Image' })}
  </a>
  
  {/* Menu Dropdown All Tools */}
  <div className="relative group/dropdown ml-1">
- <button className="flex items-center gap-2 bg-neon-cyan/10 hover:bg-neon-cyan/20 border border-neon-cyan/30 text-cyan-800 dark:text-neon-cyan px-3.5 py-1.5 rounded-lg transition-all duration-200 font-bold text-[12px] uppercase ">
- <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><rect width="7" height="7" x="3" y="3" rx="1"/><rect width="7" height="7" x="14" y="3" rx="1"/><rect width="7" height="7" x="14" y="14" rx="1"/><rect width="7" height="7" x="3" y="14" rx="1"/></svg>
+ <button className="flex items-center gap-2 bg-neon-cyan/10 hover:bg-neon-cyan/20 border border-neon-cyan/30 text-cyan-800 dark:text-neon-cyan px-3.5 py-1.5 rounded-lg transition-all duration-200 font-bold text-[13.5px] uppercase ">
+ <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><rect width="7" height="7" x="3" y="3" rx="1"/><rect width="7" height="7" x="14" y="3" rx="1"/><rect width="7" height="7" x="14" y="14" rx="1"/><rect width="7" height="7" x="3" y="14" rx="1"/></svg>
  {t('nav.tools') === 'AI Tools' ? 'All Photo Tools' : (t('nav.tools', { defaultValue: 'All Photo Tools' }))} 
- <ChevronDown className="w-3.5 h-3.5 group-hover/dropdown:rotate-180 transition-transform duration-200" />
+ <ChevronDown className="w-4 h-4 group-hover/dropdown:rotate-180 transition-transform duration-200" />
  </button>
  
  {/* Premium Full-Width Mega Menu (4 Columns) */}
@@ -116,7 +116,7 @@ export const Navbar: React.FC = () => {
  
  return (
  <div key={cat.id} className="flex flex-col">
- <div className="flex items-center gap-2 text-xs font-bold text-cyan-600 dark:text-neon-cyan uppercase border-b border-slate-100 dark:border-dark-700 pb-2 mb-3">
+ <div className="flex items-center gap-2 text-[13.5px] font-bold text-cyan-600 dark:text-neon-cyan uppercase border-b border-slate-100 dark:border-dark-700 pb-2 mb-3">
  {t(cat.labelKey, { defaultValue: cat.defaultLabel })}
  </div>
  <div className="flex flex-col gap-1.5">
@@ -133,7 +133,7 @@ export const Navbar: React.FC = () => {
  className="flex items-center gap-3.5 py-2 px-3 -mx-3 rounded-xl hover:bg-slate-50 dark:hover:bg-dark-800 transition-colors group/item"
  >
  <tool.icon strokeWidth={1.5} className="w-5 h-5 flex-shrink-0 text-slate-600 dark:text-slate-400 group-hover/item:text-neon-emerald transition-colors" />
- <span className="text-[11.5px] uppercase text-slate-700 dark:text-slate-200 font-bold truncate group-hover/item:text-neon-emerald transition-colors">
+ <span className="text-[13.5px] uppercase text-slate-700 dark:text-slate-200 font-bold truncate group-hover/item:text-neon-emerald transition-colors">
  {t(tool.titleKey, { defaultValue: tool.defaultTitle })}
  </span>
  </a>
@@ -173,12 +173,12 @@ export const Navbar: React.FC = () => {
  setLangOpen(!langOpen);
  setSearchQuery('');
  }}
- className="flex items-center gap-2 bg-slate-100 dark:bg-dark-800 hover:bg-slate-200 dark:hover:bg-dark-700 border border-slate-200 dark:border-dark-500/60 px-3 h-9 rounded-xl text-[13px] font-medium text-slate-700 dark:text-slate-200 transition-all duration-200 shadow-sm"
+ className="flex items-center gap-2 bg-slate-100 dark:bg-dark-800 hover:bg-slate-200 dark:hover:bg-dark-700 border border-slate-200 dark:border-dark-500/60 px-3 h-9 rounded-xl text-[14.5px] font-semibold text-slate-700 dark:text-slate-200 transition-all duration-200 shadow-sm"
  aria-label="Pilih Bahasa"
  >
  <Globe className="w-4 h-4 text-cyan-600 dark:text-neon-cyan" />
  <span>{currentLang.flag}</span>
- <span className="hidden sm:inline uppercase font-mono text-[13px]">{currentLang.code}</span>
+ <span className="hidden sm:inline uppercase font-mono text-[14px] font-bold">{currentLang.code}</span>
  <ChevronDown className={`w-3.5 h-3.5 text-slate-400 transition-transform duration-200 ${langOpen ? 'rotate-180' : ''}`} />
  </button>
 
@@ -196,7 +196,7 @@ export const Navbar: React.FC = () => {
  transition={{ duration: 0.15 }}
  className="absolute right-0 mt-2 w-64 sm:w-72 bg-dark-800 border border-dark-500/80 rounded-2xl shadow-2xl py-2 z-[60] max-h-96 flex flex-col overflow-hidden"
  >
- <div className="px-3 py-1.5 text-xs font-semibold text-slate-400 uppercase border-b border-dark-600/50 mb-1 flex items-center justify-between">
+ <div className="px-3 py-1.5 text-[13.5px] font-semibold text-slate-400 uppercase border-b border-dark-600/50 mb-1 flex items-center justify-between">
  <span>{t('nav.selectLang', { defaultValue: 'Select Language / Locale' })}</span>
  <span className="text-neon-cyan font-mono">{filteredLangs.length}</span>
  </div>
@@ -208,7 +208,7 @@ export const Navbar: React.FC = () => {
  placeholder={t('nav.searchLang', { defaultValue: '🔍 Search locale (e.g., Korea, ES, RU)...' })}
  value={searchQuery}
  onChange={(e) => setSearchQuery(e.target.value)}
- className="w-full bg-dark-800 text-xs text-white px-2.5 py-1.5 rounded-lg border border-dark-500 focus:outline-none focus:border-neon-cyan transition-colors"
+ className="w-full bg-dark-800 text-[13.5px] text-white px-2.5 py-1.5 rounded-lg border border-dark-500 focus:outline-none focus:border-neon-cyan transition-colors"
  autoFocus
  />
  </div>
@@ -227,7 +227,7 @@ export const Navbar: React.FC = () => {
  e.preventDefault();
  handleLangChange(l.code as Language);
  }}
- className={`w-full flex items-center justify-between px-3.5 py-2 text-sm transition-colors ${
+ className={`w-full flex items-center justify-between px-3.5 py-2 text-[15px] transition-colors ${
  lang === l.code
  ? 'bg-neon-cyan/15 text-neon-cyan font-semibold'
  : 'text-slate-300 hover:bg-dark-700 hover:text-white'
@@ -236,7 +236,7 @@ export const Navbar: React.FC = () => {
  <span className="flex items-center gap-2.5">
  <span className="text-base">{l.flag}</span>
  <span>{l.name}</span>
- <span className="text-xs font-mono text-slate-500 uppercase">({l.code})</span>
+ <span className="text-[13px] font-mono text-slate-500 uppercase">({l.code})</span>
  </span>
  {lang === l.code && (
  <span className="w-1.5 h-1.5 rounded-full bg-neon-cyan shadow-glow-cyan" />
@@ -296,7 +296,7 @@ export const Navbar: React.FC = () => {
  navigatePath(targetHref);
  setMobileMenuOpen(false);
  }} 
- className="bg-white dark:bg-dark-800 hover:bg-slate-50 dark:hover:bg-dark-700 border border-slate-200 dark:border-dark-600/50 py-[7px] px-1 rounded-lg font-semibold text-slate-800 dark:text-slate-100 text-[0.72rem] leading-tight uppercase text-center transition-colors cursor-pointer w-full flex items-center justify-center whitespace-nowrap overflow-hidden"
+ className="bg-white dark:bg-dark-800 hover:bg-slate-50 dark:hover:bg-dark-700 border border-slate-200 dark:border-dark-600/50 py-[7px] px-1 rounded-lg font-bold text-slate-800 dark:text-slate-100 text-[0.84rem] leading-tight uppercase text-center transition-colors cursor-pointer w-full flex items-center justify-center whitespace-nowrap overflow-hidden"
  >
  <span className="truncate">{shortLabel || label}</span>
  </a>
@@ -307,7 +307,7 @@ export const Navbar: React.FC = () => {
  {/* Accordion: All Tools */}
  <button
  onClick={() => setIsMobileAllOpen(!isMobileAllOpen)}
- className="w-full bg-gradient-to-r from-cyan-500 to-emerald-500 text-white py-[9px] px-4 rounded-lg font-[800] text-[0.84rem] leading-tight uppercase flex items-center justify-between shadow-sm transition-all"
+ className="w-full bg-gradient-to-r from-cyan-500 to-emerald-500 text-white py-[10px] px-4 rounded-lg font-[800] text-[0.95rem] leading-tight uppercase flex items-center justify-between shadow-sm transition-all"
  style={{ marginBottom: isMobileAllOpen ? '16px' : '0' }}
  >
  <span className="!text-white">{t('nav.tools') === 'AI Tools' ? 'All Photo Tools' : (t('nav.tools', { defaultValue: 'All Photo Tools' }))}</span>
@@ -322,7 +322,7 @@ export const Navbar: React.FC = () => {
 
  return (
  <div key={cat.id} className="space-y-0">
- <div className="text-[0.65rem] font-extrabold text-cyan-600 dark:text-neon-cyan mb-2 pb-1.5 border-b border-dashed border-slate-200 dark:border-dark-600 uppercase">
+ <div className="text-[0.76rem] font-extrabold text-cyan-600 dark:text-neon-cyan mb-2 pb-1.5 border-b border-dashed border-slate-200 dark:border-dark-600 uppercase">
  {t(cat.labelKey, { defaultValue: cat.defaultLabel })}
  </div>
  <div className="grid grid-cols-2 gap-1.5">
@@ -335,9 +335,9 @@ export const Navbar: React.FC = () => {
  navigatePath(lang === 'en' ? `/${getLocalizedSlug(tool.id, lang)}` : `/${lang}/${getLocalizedSlug(tool.id, lang)}`);
  setMobileMenuOpen(false);
  }}
- className="flex items-center gap-2 bg-white dark:bg-dark-800 border border-slate-200 dark:border-dark-600/50 px-[11px] py-[9px] rounded-lg font-semibold text-slate-700 dark:text-slate-200 text-[0.72rem] text-left hover:border-cyan-500 dark:hover:border-neon-cyan transition-colors"
+ className="flex items-center gap-2 bg-white dark:bg-dark-800 border border-slate-200 dark:border-dark-600/50 px-[11px] py-[9px] rounded-lg font-bold text-slate-700 dark:text-slate-200 text-[0.84rem] text-left hover:border-cyan-500 dark:hover:border-neon-cyan transition-colors"
  >
- <tool.icon className="w-[13px] h-[13px] text-cyan-600 dark:text-neon-cyan shrink-0" strokeWidth={2.5} />
+ <tool.icon className="w-[14px] h-[14px] text-cyan-600 dark:text-neon-cyan shrink-0" strokeWidth={2.5} />
  <span className="truncate uppercase">{t(tool.titleKey, { defaultValue: tool.defaultTitle })}</span>
  </a>
  ))}
