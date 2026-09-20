@@ -82,6 +82,9 @@ interface ColorBgControlProps {
   onUploadOther?: () => void;
   isProcessing: boolean;
   batchCount?: number;
+  status?: 'idle' | 'queued' | 'processing' | 'done' | 'error';
+  onProcessNow?: () => void;
+  hasProcessedAi?: boolean;
 }
 
 export const ColorBgControl: React.FC<ColorBgControlProps> = ({
@@ -102,9 +105,15 @@ export const ColorBgControl: React.FC<ColorBgControlProps> = ({
   onUploadOther,
   isProcessing,
   batchCount = 0,
+  status = 'idle',
+  onProcessNow,
+  hasProcessedAi = true,
 }) => {
   const { t } = useTranslation();
   const fileInputRef = useRef<HTMLInputElement>(null);
+
+  const shouldShowProcessButton =
+    !hasProcessedAi || status === 'idle' || status === 'error' || status === 'processing';
 
   const officialColors = [
     { label: t('color.off.red', { defaultValue: 'Merah Paspor' }), hex: '#DB1514' },
@@ -119,6 +128,33 @@ export const ColorBgControl: React.FC<ColorBgControlProps> = ({
 
   return (
     <div className="space-y-6">
+      {/* Tombol Utama: Ganti / Hapus Background Sekarang (Manual Trigger) */}
+      {onProcessNow && (shouldShowProcessButton || (status === 'done' && hasProcessedAi)) && (
+        <div className="space-y-2">
+          <button
+            type="button"
+            onClick={onProcessNow}
+            disabled={isProcessing || status === 'processing' || batchCount === 0}
+            className="w-full flex items-center justify-center gap-2.5 py-3.5 px-4 rounded-xl bg-gradient-to-r from-neon-cyan via-neon-emerald to-neon-indigo hover:opacity-95 text-dark-900 font-extrabold shadow-glow-cyan transition-all duration-200 transform hover:-translate-y-0.5 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none disabled:shadow-none text-sm tracking-wide cursor-pointer"
+          >
+            {isProcessing || status === 'processing' ? (
+              <>
+                <RefreshCw className="w-4 h-4 text-dark-900 animate-spin shrink-0" />
+                <span>{t('work.processing', { defaultValue: 'Processing AI Cutout...' })}</span>
+              </>
+            ) : (
+              <>
+                <Sparkles className="w-4 h-4 text-dark-900 shrink-0" />
+                <span>
+                  {!hasProcessedAi || status === 'idle'
+                    ? t('color.applyNow', { defaultValue: '⚡ Ganti Background Sekarang' })
+                    : t('work.reprocessAi', { defaultValue: '⚡ Re-run AI Cutout' })}
+                </span>
+              </>
+            )}
+          </button>
+        </div>
+      )}
       {/* Hidden File Input for Custom Background Image */}
       <input
         ref={fileInputRef}

@@ -405,7 +405,20 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({ initialTab: rawIni
                     }
                   }}
                   onUploadOther={handleUploadOther}
-                  isProcessing={currentItem?.status === 'processing'}
+                  isProcessing={
+                    currentItem?.status === 'processing' ||
+                    currentItem?.status === 'queued' ||
+                    batchItems.some((i) => i.status === 'processing' || i.status === 'queued')
+                  }
+                  status={currentItem?.status || 'idle'}
+                  onProcessNow={() => {
+                    if (currentItem) {
+                      processSingleItem(currentItem);
+                    }
+                  }}
+                  hasProcessedAi={Boolean(
+                    currentItem?.transparentUrl && currentItem?.transparentUrl !== currentItem?.originalUrl
+                  )}
                   batchCount={batchItems.length}
                 />
               )}
