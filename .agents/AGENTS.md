@@ -17,3 +17,6 @@
 - **Clean & Minimal Loading:** Use simple, standard circular spinning indicators (e.g. `Loader2` with `animate-spin`). Never use complex, bloated, or futuristic overlays (matrix grids, laser scanning beams, HUD cards) unless explicitly requested.
 - **Zero Artificial Delays:** Never add artificial `setTimeout` or minimum elapsed timers to slow down processing. Always execute at full native device speed.
 - **Browser Subagent Efficiency:** Minimize screenshot taking during automated browser verification to avoid subagent slowdowns.
+
+## Git & Repository Rules
+- **Always Push to GitHub:** Whenever committing changes to the repository, always execute `git push origin main` immediately so remote is always up-to-date.
