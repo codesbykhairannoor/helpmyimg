@@ -351,17 +351,13 @@ export function useWorkspaceState(initialTab: string) {
         file: f,
         originalUrl: url,
         transparentUrl: null,
-        processedUrl: null,
+        processedUrl: url,
         initialFile: f,
         initialOriginalUrl: url,
         modelType: 'rmbg',
-        status: ['remove', 'color', 'colorwhite', 'removelogo', 'removeperson', 'brush'].includes(initialTab)
-          ? 'queued'
-          : 'idle',
+        status: 'idle',
         progress: 0,
-        progressStep: ['remove', 'color', 'colorwhite', 'removelogo', 'removeperson', 'brush'].includes(initialTab)
-          ? t('work.startAi', { defaultValue: 'Memulai AI...' })
-          : t('work.waiting'),
+        progressStep: t('work.waiting', { defaultValue: 'Ready to process' }),
       };
     });
 
@@ -403,8 +399,18 @@ export function useWorkspaceState(initialTab: string) {
   // --- AI Queue Execution ---
   const processSingleItem = useCallback(
     async (item: BatchItem) => {
+      const startTime = Date.now();
       setBatchItems((prev) =>
-        prev.map((i) => (i.id === item.id ? { ...i, status: 'processing', progressStep: t('work.startAi') } : i))
+        prev.map((i) =>
+          i.id === item.id
+            ? {
+                ...i,
+                status: 'processing',
+                progress: 25,
+                progressStep: t('work.step.init', { defaultValue: 'Initializing ONNX AI pipeline & tensors...' }),
+              }
+            : i
+        )
       );
 
       try {
@@ -414,11 +420,17 @@ export function useWorkspaceState(initialTab: string) {
           80,
           (step, pct) => {
             setBatchItems((prev) =>
-              prev.map((i) => (i.id === item.id ? { ...i, progress: pct, progressStep: step } : i))
+              prev.map((i) => (i.id === item.id ? { ...i, progress: Math.max(pct, 30), progressStep: step } : i))
             );
           },
           imageTypeRef.current
         );
+
+        // Ensure smooth visual scanning animation (minimum 600ms so laser scan is visible & rewarding)
+        const elapsed = Date.now() - startTime;
+        if (elapsed < 600) {
+          await new Promise((r) => setTimeout(r, 600 - elapsed));
+        }
 
         const transUrl = URL.createObjectURL(resultBlob);
         setBatchItems((prev) =>
@@ -442,29 +454,7 @@ export function useWorkspaceState(initialTab: string) {
     const processQueue = async () => {
       if (isProcessingRef.current) return;
 
-      const nextItem = batchItems.find(
-        (i) =>
-          i.status === 'queued' &&
-          ![
-            'watermark',
-            'watermarkbulk',
-            'compress',
-            'compress100kb',
-            'compress50kb',
-            'compress200kb',
-            'convert',
-            'convertwebp',
-            'resize',
-            'resizeig',
-            'resizepassport',
-            'crop',
-            'rotate',
-            'picker',
-            'blurface',
-            'blurplate',
-            'design',
-          ].includes(initialTab)
-      );
+      const nextItem = batchItems.find((i) => i.status === 'queued');
 
       if (nextItem) {
         isProcessingRef.current = true;
@@ -476,30 +466,7 @@ export function useWorkspaceState(initialTab: string) {
     };
 
     processQueue();
-  }, [batchItems, initialTab, processSingleItem]);
-
-  // Auto-queue for transparent tabs
-  useEffect(() => {
-    if (['remove', 'color', 'colorwhite', 'removelogo', 'removeperson', 'brush'].includes(initialTab)) {
-      setBatchItems((prev) =>
-        prev.map((item) => {
-          if (
-            (!item.transparentUrl || item.transparentUrl === item.originalUrl || item.status === 'idle') &&
-            item.status !== 'processing' &&
-            item.status !== 'queued' &&
-            item.status !== 'error'
-          ) {
-            return {
-              ...item,
-              status: 'queued',
-              progressStep: t('work.startAi', { defaultValue: 'Memulai AI...' }),
-            };
-          }
-          return item;
-        })
-      );
-    }
-  }, [initialTab, batchItems.length, t]);
+  }, [batchItems, processSingleItem]);
 
   // Apply Current Effect to Canvas
   const applyCurrentEffect = async () => {
