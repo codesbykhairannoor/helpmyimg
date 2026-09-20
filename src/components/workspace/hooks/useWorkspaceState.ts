@@ -3,6 +3,7 @@
 
 import { useState, useRef, useEffect, useCallback } from 'react';
 import type { TabType, BatchItem, ColorInfo, WatermarkPosition } from '../types';
+import { buildColorInfo, extractDominantColors } from '../../../utils/colorUtils';
 
 // Core State
 import { useWorkspaceCore } from './useWorkspaceCore';
@@ -25,17 +26,31 @@ import { useDesign } from '../tools/design/useDesign';
 import { ColorBgEngine } from '../tools/colorBg/colorBgEngine';
 import { WatermarkEngine } from '../tools/watermark/watermarkEngine';
 import { BlurEngine } from '../tools/blur/blurEngine';
-import { CompressEngine } from '../tools/compress/compressEngine';
-import { ConvertEngine } from '../tools/convert/convertEngine';
-import { ResizeEngine } from '../tools/resize/resizeEngine';
-import { CropEngine } from '../tools/crop/cropEngine';
-import { RotateEngine } from '../tools/rotate/rotateEngine';
-import { ColorPickerEngine } from '../tools/colorPicker/colorPickerEngine';
 
 export function useWorkspaceState(initialTab: TabType = 'remove', keywordSlug?: string) {
   // 1. Core Batch & File Management
   const core = useWorkspaceCore(initialTab);
-  const { t, batchItems, setBatchItems, selectedIndex, setSelectedIndex, currentItem } = core;
+  const {
+    t,
+    batchItems,
+    setBatchItems,
+    selectedIndex,
+    setSelectedIndex,
+    currentItem,
+    isDragging,
+    setIsDragging,
+    isZipping,
+    setIsZipping,
+    toastMessage,
+    setToastMessage,
+    fileInputRef,
+    canvasRef,
+    handleFiles,
+    handleReset,
+    handleUploadOther,
+    handleDownloadSingle,
+    handleDownloadZip,
+  } = core;
 
   // 2. Individual Tool State Hooks
   const initialColor =
@@ -58,6 +73,8 @@ export function useWorkspaceState(initialTab: TabType = 'remove', keywordSlug?: 
   const blur = useBlur(10);
   const design = useDesign();
 
+  const [imageElement, setImageElement] = useState<HTMLImageElement | null>(null);
+
   // Processing Queue Refs
   const [isProcessingQueue, setIsProcessingQueue] = useState(false);
   const [isApplyingEffect, setIsApplyingEffect] = useState(false);
@@ -79,21 +96,26 @@ export function useWorkspaceState(initialTab: TabType = 'remove', keywordSlug?: 
     }
   }, [keywordSlug]);
 
-  // Load natural dimensions when currentItem changes
+  // Load natural dimensions and imageElement when currentItem changes
   useEffect(() => {
-    if (!currentItem) return;
+    if (!currentItem) {
+      setImageElement(null);
+      return;
+    }
     const img = new Image();
+    img.crossOrigin = 'anonymous';
     img.onload = () => {
+      setImageElement(img);
       resize.setOriginalDimensions({ width: img.naturalWidth, height: img.naturalHeight });
       if (resize.resizeWidth === 0 && resize.resizeHeight === 0) {
         resize.setResizeWidth(img.naturalWidth);
         resize.setResizeHeight(img.naturalHeight);
       }
     };
-    img.src = currentItem.originalUrl;
-  }, [currentItem?.id]);
+    img.src = currentItem.processedUrl || currentItem.originalUrl;
+  }, [currentItem?.id, currentItem?.processedUrl]);
 
-  // --- Background Removal Queue Execution ---
+  // --- Background Removal Execution for a Single Item ---
   const processSingleItem = useCallback(
     async (item: BatchItem) => {
       setBatchItems((prev) =>
@@ -288,62 +310,148 @@ export function useWorkspaceState(initialTab: TabType = 'remove', keywordSlug?: 
     selectedIndex,
   ]);
 
-  // Handle manual removal trigger
-  const handleProcessNow = useCallback(() => {
-    if (!currentItem) return;
-    setBatchItems((prev) =>
-      prev.map((i) => (i.id === currentItem.id ? { ...i, status: 'queued', progress: 5 } : i))
-    );
-  }, [currentItem, setBatchItems]);
+  // --- Brush & Color Picker Canvas Handlers ---
+  const handleCanvasMouseDown = (e: React.MouseEvent<HTMLCanvasElement>) => {
+    if (initialTab === 'picker') {
+      handleCanvasClick(e);
+      return;
+    }
+    if (initialTab !== 'brush' || !canvasRef.current || !currentItem?.processedUrl) return;
+    isDrawingRef.current = true;
+    drawBrush(e);
+  };
 
-  // Handle batch removal trigger
-  const handleProcessBatch = useCallback(() => {
-    setBatchItems((prev) => prev.map((i) => ({ ...i, status: 'queued', progress: 5 })));
-  }, [setBatchItems]);
+  const handleCanvasClick = (e: React.MouseEvent<HTMLCanvasElement>) => {
+    if (initialTab !== 'picker' || !canvasRef.current || !currentItem) return;
+    const canvas = canvasRef.current;
+    const ctx = canvas.getContext('2d');
+    if (!ctx) return;
 
-  // Execute manual actions for specific utility tools
-  const handleExecuteUtility = useCallback(
-    async (toolType: TabType) => {
-      if (!currentItem) return;
-      try {
-        let resultBlob: Blob | null = null;
+    const rect = canvas.getBoundingClientRect();
+    const scaleX = canvas.width / rect.width;
+    const scaleY = canvas.height / rect.height;
+    const x = Math.floor((e.clientX - rect.left) * scaleX);
+    const y = Math.floor((e.clientY - rect.top) * scaleY);
 
-        if (toolType === 'compress' || toolType.startsWith('compress')) {
-          resultBlob = await compress.compressFile(currentItem.file);
-        } else if (toolType === 'convert' || toolType.startsWith('convert')) {
-          resultBlob = await convert.convertFile(currentItem.file);
-        } else if (toolType === 'resize' || toolType.startsWith('resize')) {
-          resultBlob = await resize.resizeFile(currentItem.file);
-        } else if (toolType === 'crop') {
-          resultBlob = await crop.cropFile(currentItem.file);
-        } else if (toolType === 'rotate') {
-          resultBlob = await rotate.rotateFile(currentItem.file);
-        }
-
-        if (resultBlob) {
-          const url = URL.createObjectURL(resultBlob);
-          setBatchItems((prev) =>
-            prev.map((i) => (i.id === currentItem.id ? { ...i, processedUrl: url, status: 'done', progress: 100 } : i))
-          );
-          core.setToastMessage(t('editor.processSuccess', { defaultValue: 'Processed successfully!' }));
-        }
-      } catch (err: any) {
-        console.error('Execute Utility Error:', err);
-        core.setToastMessage(err.message || 'Operation failed');
+    if (x >= 0 && x < canvas.width && y >= 0 && y < canvas.height) {
+      const pixel = ctx.getImageData(x, y, 1, 1).data;
+      const [r, g, b, a] = pixel;
+      if (a > 0) {
+        const info = buildColorInfo(r, g, b);
+        colorPicker.setPickedColor(info);
       }
-    },
-    [currentItem, compress, convert, resize, crop, rotate, setBatchItems, core, t]
-  );
+    }
+  };
+
+  const handleCanvasMouseMove = (e: React.MouseEvent<HTMLCanvasElement>) => {
+    if (!isDrawingRef.current) return;
+    drawBrush(e);
+  };
+
+  const handleCanvasMouseUp = () => {
+    if (!isDrawingRef.current || !canvasRef.current) return;
+    isDrawingRef.current = false;
+    canvasRef.current.toBlob((blob) => {
+      if (blob) {
+        const url = URL.createObjectURL(blob);
+        setBatchItems((prev) =>
+          prev.map((i, idx) => (idx === selectedIndex ? { ...i, processedUrl: url, transparentUrl: url } : i))
+        );
+      }
+    }, 'image/png');
+  };
+
+  const drawBrush = (e: React.MouseEvent<HTMLCanvasElement>) => {
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d');
+    if (!ctx) return;
+
+    const rect = canvas.getBoundingClientRect();
+    const scaleX = canvas.width / rect.width;
+    const scaleY = canvas.height / rect.height;
+    const x = (e.clientX - rect.left) * scaleX;
+    const y = (e.clientY - rect.top) * scaleY;
+
+    const doDraw = (img?: HTMLImageElement) => {
+      ctx.save();
+      ctx.beginPath();
+      ctx.arc(x, y, brush.brushSize / 2, 0, Math.PI * 2);
+
+      if (brush.brushMode === 'erase') {
+        ctx.globalCompositeOperation = 'destination-out';
+        ctx.fillStyle = 'rgba(0,0,0,1)';
+        ctx.fill();
+      } else if (img) {
+        ctx.clip();
+        ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+      }
+      ctx.restore();
+    };
+
+    if (brush.brushMode === 'restore') {
+      const origImg = new Image();
+      origImg.onload = () => doDraw(origImg);
+      origImg.src = currentItem!.originalUrl;
+    } else {
+      doDraw();
+    }
+  };
+
+  // Render Canvas for Brush / Picker
+  useEffect(() => {
+    if ((initialTab === 'brush' || initialTab === 'picker') && currentItem?.processedUrl && canvasRef.current) {
+      const img = new Image();
+      img.src = currentItem.processedUrl;
+      img.onload = () => {
+        const canvas = canvasRef.current!;
+        canvas.width = img.width;
+        canvas.height = img.height;
+        const ctx = canvas.getContext('2d')!;
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        ctx.drawImage(img, 0, 0);
+
+        if (initialTab === 'picker') {
+          const colors = extractDominantColors(canvas, 8);
+          colorPicker.setDominantColors(colors);
+        }
+      };
+    }
+  }, [initialTab, currentItem?.processedUrl]);
 
   return {
-    ...core,
+    t,
+    batchItems,
+    setBatchItems,
+    selectedIndex,
+    setSelectedIndex,
+    currentItem,
+    isDragging,
+    setIsDragging,
+    isZipping,
+    setIsZipping,
+    toastMessage,
+    showToast: setToastMessage,
+    isApplyingEffect,
+    imageElement,
+    setImageElement,
+    fileInputRef,
+    canvasRef,
+    // Handlers
+    handleFiles,
+    processSingleItem,
+    handleUploadOther,
+    handleResetCurrent: handleReset,
+    handleZipDownload: handleDownloadZip,
+    handleDownloadSingle,
+    handleCanvasMouseDown,
+    handleCanvasMouseMove,
+    handleCanvasMouseUp,
     // Remove Background
     imageType: removeBg.imageType,
     setImageType: removeBg.setImageType,
     imageTypeRef: removeBg.imageTypeRef,
     detectedType: removeBg.detectedType,
-    handleProcessNow,
-    handleProcessBatch,
     // Color Background
     initialColor,
     bgMode: colorBg.bgMode,
@@ -401,6 +509,7 @@ export function useWorkspaceState(initialTab: TabType = 'remove', keywordSlug?: 
     resizeMode: resize.resizeMode,
     setResizeMode: resize.setResizeMode,
     originalDimensions: resize.originalDimensions,
+    setOriginalDimensions: resize.setOriginalDimensions,
     // Crop
     cropX: crop.cropX,
     setCropX: crop.setCropX,
@@ -423,6 +532,7 @@ export function useWorkspaceState(initialTab: TabType = 'remove', keywordSlug?: 
     pickedColor: colorPicker.pickedColor,
     setPickedColor: colorPicker.setPickedColor,
     dominantColors: colorPicker.dominantColors,
+    setDominantColors: colorPicker.setDominantColors,
     // Blur
     blurBoxes: blur.blurBoxes,
     setBlurBoxes: blur.setBlurBoxes,
@@ -434,7 +544,6 @@ export function useWorkspaceState(initialTab: TabType = 'remove', keywordSlug?: 
     // Queue & Execution
     isProcessingQueue,
     isApplyingEffect,
-    handleExecuteUtility,
     applyCurrentEffect,
   };
 }
