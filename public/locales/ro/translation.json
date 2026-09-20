@@ -1742,5 +1742,13 @@
   "editor.applying": "Se aplică efectul...",
   "work.action.batch": "✨ Procesează totul",
   "work.action.photos": "Fotografii",
-  "color.applyNow": "⚡ Schimbați fundalul acum"
+  "color.applyNow": "⚡ Schimbați fundalul acum",
+  "remove.modeAutoActive": "Adaptive Auto",
+  "remove.modeLogoActive": "Modul Vector",
+  "remove.modeAiActive": "Modul Neural AI",
+  "remove.modeAuto": "✨ Auto",
+  "remove.modeAutoDesc": "Adaptiv",
+  "remove.detectedType": "Detectare automată:",
+  "remove.detectedLogo": "🏷️ Logo / Grafic vectorial (0 ms)",
+  "remove.detectedPhoto": "📷 Fotografie naturală / Portret (AI)"
 }

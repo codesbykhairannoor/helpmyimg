@@ -1742,5 +1742,13 @@
   "editor.applying": "Effect toepassen...",
   "work.action.batch": "✨ Verwerk alles",
   "work.action.photos": "Foto's",
-  "color.applyNow": "⚡ Verander nu de achtergrond"
+  "color.applyNow": "⚡ Verander nu de achtergrond",
+  "remove.modeAutoActive": "Adaptieve auto",
+  "remove.modeLogoActive": "Vector-modus",
+  "remove.modeAiActive": "AI neurale modus",
+  "remove.modeAuto": "✨ Automatisch",
+  "remove.modeAutoDesc": "Adaptief",
+  "remove.detectedType": "Automatische detectie:",
+  "remove.detectedLogo": "🏷️ Logo/vectorafbeelding (0 ms)",
+  "remove.detectedPhoto": "📷 Natuurlijke foto / portret (AI)"
 }

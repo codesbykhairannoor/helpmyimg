@@ -1742,5 +1742,13 @@
   "editor.applying": "Εφαρμογή εφέ...",
   "work.action.batch": "✨ Επεξεργασία όλων",
   "work.action.photos": "Φωτογραφίες",
-  "color.applyNow": "⚡ Αλλάξτε το φόντο τώρα"
+  "color.applyNow": "⚡ Αλλάξτε το φόντο τώρα",
+  "remove.modeAutoActive": "Adaptive Auto",
+  "remove.modeLogoActive": "Διανυσματική λειτουργία",
+  "remove.modeAiActive": "Νευρική λειτουργία AI",
+  "remove.modeAuto": "✨ Αυτόματο",
+  "remove.modeAutoDesc": "Προσαρμοστικό",
+  "remove.detectedType": "Αυτόματη ανίχνευση:",
+  "remove.detectedLogo": "🏷️ Λογότυπο / διανυσματικό γραφικό (0ms)",
+  "remove.detectedPhoto": "📷 Φυσική φωτογραφία / Πορτρέτο (AI)"
 }

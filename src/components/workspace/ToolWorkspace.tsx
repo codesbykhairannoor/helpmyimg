@@ -355,6 +355,7 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({ initialTab: rawIni
                   }}
                   batchCount={batchItems.length}
                   imageType={imageType}
+                  detectedType={currentItem?.detectedType}
                   setImageType={(newType) => {
                     setImageType(newType);
                     imageTypeRef.current = newType;

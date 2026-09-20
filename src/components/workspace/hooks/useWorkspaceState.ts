@@ -8,8 +8,9 @@ import { aiService } from '../../../services/aiService';
 import { processImage, smartCropImage } from '../../../utils/imageOperations';
 import { buildColorInfo, extractDominantColors } from '../../../utils/colorUtils';
 import { PRESET_SCENES, GRADIENT_PRESETS } from '../tools/ColorBgControl';
+import { detectImageType } from '../../../utils/imageClassifier';
 import JSZip from 'jszip';
-import type { BatchItem, ColorInfo, WatermarkPosition, BlurBox, BgMode } from '../types';
+import type { BatchItem, ColorInfo, WatermarkPosition, BlurBox, BgMode, CutoutMode } from '../types';
 
 export function useWorkspaceState(initialTab: string) {
   const { t } = useTranslation();
@@ -21,7 +22,7 @@ export function useWorkspaceState(initialTab: string) {
   const [selectedIndex, setSelectedIndex] = useState<number>(0);
   const [isDragging, setIsDragging] = useState(false);
   const [_isProcessingQueue, setIsProcessingQueue] = useState(false);
-  const [imageType, setImageType] = useState<'photo' | 'logo' | 'general'>('photo');
+  const [imageType, setImageType] = useState<CutoutMode>('auto');
 
   // Background Changing States
   const initialColor =
@@ -97,7 +98,7 @@ export function useWorkspaceState(initialTab: string) {
   const [imageElement, setImageElement] = useState<HTMLImageElement | null>(null);
 
   // --- REFS ---
-  const imageTypeRef = useRef<'photo' | 'logo' | 'general'>('photo');
+  const imageTypeRef = useRef<CutoutMode>('auto');
   const prevBatchItemsRef = useRef<BatchItem[]>([]);
   const fileInputRef = useRef<HTMLInputElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -343,23 +344,33 @@ export function useWorkspaceState(initialTab: string) {
     const fileArray = Array.from(files).slice(0, 10);
     if (fileArray.length === 0) return;
 
-    const newItems: BatchItem[] = fileArray.map((f) => {
-      const url = URL.createObjectURL(f);
-      return {
-        id: `img_${Date.now()}_${Math.random().toString(36).substring(2, 7)}`,
-        name: f.name,
-        file: f,
-        originalUrl: url,
-        transparentUrl: null,
-        processedUrl: url,
-        initialFile: f,
-        initialOriginalUrl: url,
-        modelType: 'rmbg',
-        status: 'idle',
-        progress: 0,
-        progressStep: t('work.waiting', { defaultValue: 'Ready to process' }),
-      };
-    });
+    const newItems: BatchItem[] = await Promise.all(
+      fileArray.map(async (f) => {
+        const url = URL.createObjectURL(f);
+        let detected: 'photo' | 'logo' = 'photo';
+        try {
+          const res = await detectImageType(f);
+          detected = res.type;
+        } catch {
+          // fallback
+        }
+        return {
+          id: `img_${Date.now()}_${Math.random().toString(36).substring(2, 7)}`,
+          name: f.name,
+          file: f,
+          originalUrl: url,
+          transparentUrl: null,
+          processedUrl: url,
+          initialFile: f,
+          initialOriginalUrl: url,
+          modelType: 'rmbg',
+          status: 'idle',
+          progress: 0,
+          progressStep: t('work.waiting', { defaultValue: 'Ready to process' }),
+          detectedType: detected,
+        };
+      })
+    );
 
     setBatchItems((prev) => {
       const merged = [...prev, ...newItems];

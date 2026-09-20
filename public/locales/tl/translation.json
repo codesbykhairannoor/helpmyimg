@@ -1742,5 +1742,13 @@
   "editor.applying": "Inilapat ang Epekto...",
   "work.action.batch": "✨ Iproseso Lahat",
   "work.action.photos": "Mga larawan",
-  "color.applyNow": "⚡ Baguhin ang Background Ngayon"
+  "color.applyNow": "⚡ Baguhin ang Background Ngayon",
+  "remove.modeAutoActive": "Adaptive Auto",
+  "remove.modeLogoActive": "Vector Mode",
+  "remove.modeAiActive": "AI Neural Mode",
+  "remove.modeAuto": "✨ Auto",
+  "remove.modeAutoDesc": "Adaptive",
+  "remove.detectedType": "Auto Detection:",
+  "remove.detectedLogo": "🏷️ Logo / Vector Graphic (0ms)",
+  "remove.detectedPhoto": "📷 Natural na Larawan / Portrait (AI)"
 }

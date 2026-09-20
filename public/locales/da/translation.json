@@ -1742,5 +1742,13 @@
   "editor.applying": "Anvender effekt...",
   "work.action.batch": "✨ Behandle alle",
   "work.action.photos": "Fotos",
-  "color.applyNow": "⚡ Skift baggrund nu"
+  "color.applyNow": "⚡ Skift baggrund nu",
+  "remove.modeAutoActive": "Adaptiv auto",
+  "remove.modeLogoActive": "Vektortilstand",
+  "remove.modeAiActive": "AI neural tilstand",
+  "remove.modeAuto": "✨ Auto",
+  "remove.modeAutoDesc": "Adaptiv",
+  "remove.detectedType": "Automatisk registrering:",
+  "remove.detectedLogo": "🏷️ Logo / vektorgrafik (0ms)",
+  "remove.detectedPhoto": "📷 Naturligt foto/portræt (AI)"
 }

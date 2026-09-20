@@ -1742,5 +1742,13 @@
   "editor.applying": "Tillämpar effekt...",
   "work.action.batch": "✨ Bearbeta alla",
   "work.action.photos": "Foton",
-  "color.applyNow": "⚡ Byt bakgrund nu"
+  "color.applyNow": "⚡ Byt bakgrund nu",
+  "remove.modeAutoActive": "Adaptiv automatisk",
+  "remove.modeLogoActive": "Vektorläge",
+  "remove.modeAiActive": "AI neuralt läge",
+  "remove.modeAuto": "✨ Auto",
+  "remove.modeAutoDesc": "Adaptiv",
+  "remove.detectedType": "Automatisk upptäckt:",
+  "remove.detectedLogo": "🏷️ Logotyp / vektorgrafik (0ms)",
+  "remove.detectedPhoto": "📷 Naturligt foto/porträtt (AI)"
 }

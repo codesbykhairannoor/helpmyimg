@@ -1742,5 +1742,13 @@
   "editor.applying": "Effekt anwenden...",
   "work.action.batch": "✨ Alles verarbeiten",
   "work.action.photos": "Fotos",
-  "color.applyNow": "⚡ Ändern Sie jetzt den Hintergrund"
+  "color.applyNow": "⚡ Ändern Sie jetzt den Hintergrund",
+  "remove.modeAutoActive": "Adaptives Auto",
+  "remove.modeLogoActive": "Vektormodus",
+  "remove.modeAiActive": "KI-Neuronaler Modus",
+  "remove.modeAuto": "✨ Automatisch",
+  "remove.modeAutoDesc": "Adaptiv",
+  "remove.detectedType": "Automatische Erkennung:",
+  "remove.detectedLogo": "🏷️ Logo / Vektorgrafik (0 ms)",
+  "remove.detectedPhoto": "📷 Natürliches Foto / Porträt (KI)"
 }

@@ -1740,7 +1740,14 @@
   "work.step.init": "Initializing ONNX AI pipeline & tensors...",
   "work.step.segment": "Segmenting foreground subject & alpha mask...",
   "work.step.refine": "Refining ultra-crisp hair & edge transparency...",
-  "work.reprocessAi": "⚡ Re-run AI Cutout",
   "work.processing": "Processing AI Cutout...",
-  "editor.applying": "Applying Effect..."
+  "editor.applying": "Applying Effect...",
+  "remove.modeAutoActive": "Adaptive Auto",
+  "remove.modeLogoActive": "Vector Mode",
+  "remove.modeAiActive": "AI Neural Mode",
+  "remove.modeAuto": "✨ Auto",
+  "remove.modeAutoDesc": "Adaptive",
+  "remove.detectedType": "Auto Detection:",
+  "remove.detectedLogo": "🏷️ Logo / Vector Graphic (0ms)",
+  "remove.detectedPhoto": "📷 Natural Photo / Portrait (AI)"
 }

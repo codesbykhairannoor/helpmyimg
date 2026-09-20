@@ -1742,5 +1742,13 @@
   "editor.applying": "מפעיל אפקט...",
   "work.action.batch": "✨ עבד הכל",
   "work.action.photos": "תמונות",
-  "color.applyNow": "⚡ שנה רקע עכשיו"
+  "color.applyNow": "⚡ שנה רקע עכשיו",
+  "remove.modeAutoActive": "אוטומטי אדפטיבי",
+  "remove.modeLogoActive": "מצב וקטור",
+  "remove.modeAiActive": "מצב עצבי בינה מלאכותית",
+  "remove.modeAuto": "✨ אוטומטי",
+  "remove.modeAutoDesc": "הסתגלות",
+  "remove.detectedType": "זיהוי אוטומטי:",
+  "remove.detectedLogo": "🏷️ לוגו / גרפיקה וקטורית (0ms)",
+  "remove.detectedPhoto": "📷 צילום טבעי / פורטרט (AI)"
 }

@@ -1742,5 +1742,13 @@
   "editor.applying": "กำลังใช้เอฟเฟกต์...",
   "work.action.batch": "✨ประมวลผลทั้งหมด",
   "work.action.photos": "ภาพถ่าย",
-  "color.applyNow": "⚡ เปลี่ยนพื้นหลังทันที"
+  "color.applyNow": "⚡ เปลี่ยนพื้นหลังทันที",
+  "remove.modeAutoActive": "Adaptive Auto",
+  "remove.modeLogoActive": "Vector Mode",
+  "remove.modeAiActive": "AI Neural Mode",
+  "remove.modeAuto": "✨ Auto",
+  "remove.modeAutoDesc": "Adaptive",
+  "remove.detectedType": "Auto Detection:",
+  "remove.detectedLogo": "🏷️ Logo / Vector Graphic (0ms)",
+  "remove.detectedPhoto": "📷 Natural Photo / Portrait (AI)"
 }

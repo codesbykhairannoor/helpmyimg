@@ -1809,5 +1809,13 @@
   "work.reprocessAi": "⚡ Proses Ulang AI Cutout",
   "work.processing": "Memproses Potongan AI...",
   "editor.applying": "Menerapkan Efek...",
-  "color.applyNow": "⚡ Ganti Background Sekarang"
+  "color.applyNow": "⚡ Ganti Background Sekarang",
+  "remove.modeAutoActive": "Otomatis Adaptif",
+  "remove.modeLogoActive": "Mode Vektor",
+  "remove.modeAiActive": "Mode AI Neural",
+  "remove.modeAuto": "✨ Auto",
+  "remove.modeAutoDesc": "Adaptif",
+  "remove.detectedType": "Deteksi Otomatis:",
+  "remove.detectedLogo": "🏷️ Logo / Grafis Vektor (0ms)",
+  "remove.detectedPhoto": "📷 Foto / Potret Natural (AI)"
 }

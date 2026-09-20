@@ -1742,5 +1742,13 @@
   "editor.applying": "Bruker effekt...",
   "work.action.batch": "✨ Behandle alle",
   "work.action.photos": "Bilder",
-  "color.applyNow": "⚡ Endre bakgrunn nå"
+  "color.applyNow": "⚡ Endre bakgrunn nå",
+  "remove.modeAutoActive": "Adaptive Auto",
+  "remove.modeLogoActive": "Vector Mode",
+  "remove.modeAiActive": "AI Neural Mode",
+  "remove.modeAuto": "✨ Auto",
+  "remove.modeAutoDesc": "Adaptive",
+  "remove.detectedType": "Auto Detection:",
+  "remove.detectedLogo": "🏷️ Logo / Vector Graphic (0ms)",
+  "remove.detectedPhoto": "📷 Natural Photo / Portrait (AI)"
 }

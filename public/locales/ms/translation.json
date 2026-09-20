@@ -1742,5 +1742,13 @@
   "editor.applying": "Menggunakan Kesan...",
   "work.action.batch": "✨ Proses Semua",
   "work.action.photos": "Foto",
-  "color.applyNow": "⚡ Tukar Latar Belakang Sekarang"
+  "color.applyNow": "⚡ Tukar Latar Belakang Sekarang",
+  "remove.modeAutoActive": "Auto Suai",
+  "remove.modeLogoActive": "Mod Vektor",
+  "remove.modeAiActive": "Mod Neural AI",
+  "remove.modeAuto": "✨ Auto",
+  "remove.modeAutoDesc": "Adaptif",
+  "remove.detectedType": "Pengesanan Auto:",
+  "remove.detectedLogo": "🏷️ Logo / Grafik Vektor (0ms)",
+  "remove.detectedPhoto": "📷 Foto / Potret Semulajadi (AI)"
 }

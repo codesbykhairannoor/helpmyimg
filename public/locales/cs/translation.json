@@ -1742,5 +1742,13 @@
   "editor.applying": "Používání efektu...",
   "work.action.batch": "✨ Zpracovat vše",
   "work.action.photos": "Fotografie",
-  "color.applyNow": "⚡ Změňte pozadí hned teď"
+  "color.applyNow": "⚡ Změňte pozadí hned teď",
+  "remove.modeAutoActive": "Adaptivní auto",
+  "remove.modeLogoActive": "Vektorový režim",
+  "remove.modeAiActive": "AI Neural Mode",
+  "remove.modeAuto": "✨ Auto",
+  "remove.modeAutoDesc": "Adaptivní",
+  "remove.detectedType": "Automatická detekce:",
+  "remove.detectedLogo": "🏷️ Logo / vektorová grafika (0 ms)",
+  "remove.detectedPhoto": "📷 Přirozená fotografie / Portrét (AI)"
 }

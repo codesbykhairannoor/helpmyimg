@@ -1742,5 +1742,13 @@
   "editor.applying": "Áp dụng hiệu ứng...",
   "work.action.batch": "✨ Xử lý tất cả",
   "work.action.photos": "Ảnh",
-  "color.applyNow": "⚡ Thay đổi hình nền ngay"
+  "color.applyNow": "⚡ Thay đổi hình nền ngay",
+  "remove.modeAutoActive": "Tự động thích ứng",
+  "remove.modeLogoActive": "Chế độ vectơ",
+  "remove.modeAiActive": "Chế độ thần kinh AI",
+  "remove.modeAuto": "✨ Ô tô",
+  "remove.modeAutoDesc": "Thích ứng",
+  "remove.detectedType": "Tự động phát hiện:",
+  "remove.detectedLogo": "🏷️ Logo / Đồ họa Vector (0ms)",
+  "remove.detectedPhoto": "📷 Ảnh tự nhiên / Chân dung (AI)"
 }

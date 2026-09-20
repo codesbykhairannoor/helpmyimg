@@ -1747,5 +1747,13 @@
   "editor.applying": "Stosowanie efektu...",
   "work.action.batch": "✨ Przetwarzaj wszystko",
   "work.action.photos": "Zdjęcia",
-  "color.applyNow": "⚡ Zmień teraz tło"
+  "color.applyNow": "⚡ Zmień teraz tło",
+  "remove.modeAutoActive": "Adaptacyjny automat",
+  "remove.modeLogoActive": "Tryb wektorowy",
+  "remove.modeAiActive": "Tryb neuronowy AI",
+  "remove.modeAuto": "✨Auto",
+  "remove.modeAutoDesc": "Adaptacyjny",
+  "remove.detectedType": "Automatyczne wykrywanie:",
+  "remove.detectedLogo": "🏷️ Logo / grafika wektorowa (0ms)",
+  "remove.detectedPhoto": "📷 Naturalne zdjęcie / portret (AI)"
 }

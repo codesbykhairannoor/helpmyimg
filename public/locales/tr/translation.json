@@ -1742,5 +1742,13 @@
   "editor.applying": "Efekt uygulanıyor...",
   "work.action.batch": "✨ Tümünü İşle",
   "work.action.photos": "Fotoğraflar",
-  "color.applyNow": "⚡ Arka Planı Şimdi Değiştirin"
+  "color.applyNow": "⚡ Arka Planı Şimdi Değiştirin",
+  "remove.modeAutoActive": "Uyarlanabilir Otomatik",
+  "remove.modeLogoActive": "Vektör Modu",
+  "remove.modeAiActive": "Yapay Zeka Sinir Modu",
+  "remove.modeAuto": "✨ Otomatik",
+  "remove.modeAutoDesc": "Uyarlanabilir",
+  "remove.detectedType": "Otomatik Algılama:",
+  "remove.detectedLogo": "🏷️ Logo / Vektör Grafiği (0ms)",
+  "remove.detectedPhoto": "📷 Doğal Fotoğraf / Portre (AI)"
 }

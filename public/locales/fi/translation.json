@@ -1742,5 +1742,13 @@
   "editor.applying": "Otetaan tehostetta käyttöön...",
   "work.action.batch": "✨ Käsittele kaikki",
   "work.action.photos": "Valokuvat",
-  "color.applyNow": "⚡ Vaihda taustaa nyt"
+  "color.applyNow": "⚡ Vaihda taustaa nyt",
+  "remove.modeAutoActive": "Mukautuva automaatti",
+  "remove.modeLogoActive": "Vektoritila",
+  "remove.modeAiActive": "AI-hermotila",
+  "remove.modeAuto": "✨ Automaattinen",
+  "remove.modeAutoDesc": "Mukautuva",
+  "remove.detectedType": "Automaattinen tunnistus:",
+  "remove.detectedLogo": "🏷️ Logo / vektorigrafiikka (0ms)",
+  "remove.detectedPhoto": "📷 Luonnollinen valokuva / muotokuva (AI)"
 }

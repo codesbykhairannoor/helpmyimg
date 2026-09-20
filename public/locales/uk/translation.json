@@ -1742,5 +1742,13 @@
   "editor.applying": "Застосування ефекту...",
   "work.action.batch": "✨ Обробити все",
   "work.action.photos": "Фотографії",
-  "color.applyNow": "⚡ Змініть фон зараз"
+  "color.applyNow": "⚡ Змініть фон зараз",
+  "remove.modeAutoActive": "Адаптивний авто",
+  "remove.modeLogoActive": "Векторний режим",
+  "remove.modeAiActive": "Нейронний режим ШІ",
+  "remove.modeAuto": "✨ Авто",
+  "remove.modeAutoDesc": "Адаптивний",
+  "remove.detectedType": "Автоматичне визначення:",
+  "remove.detectedLogo": "🏷️ Логотип / векторна графіка (0 мс)",
+  "remove.detectedPhoto": "📷 Природна фотографія / портрет (AI)"
 }

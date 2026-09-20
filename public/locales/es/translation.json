@@ -1742,5 +1742,13 @@
   "editor.applying": "Aplicando efecto...",
   "work.action.batch": "✨ Procesar todo",
   "work.action.photos": "Fotos",
-  "color.applyNow": "⚡ Cambiar fondo ahora"
+  "color.applyNow": "⚡ Cambiar fondo ahora",
+  "remove.modeAutoActive": "Auto adaptativo",
+  "remove.modeLogoActive": "Modo vectorial",
+  "remove.modeAiActive": "Modo neuronal de IA",
+  "remove.modeAuto": "✨Automático",
+  "remove.modeAutoDesc": "Adaptada",
+  "remove.detectedType": "Detección automática:",
+  "remove.detectedLogo": "🏷️ Logotipo / Gráfico vectorial (0ms)",
+  "remove.detectedPhoto": "📷 Foto natural / Retrato (IA)"
 }

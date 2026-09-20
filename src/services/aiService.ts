@@ -1,4 +1,5 @@
 import AIWorker from '../workers/aiWorker?worker';
+import { detectImageType } from '../utils/imageClassifier';
 
 class AIService {
   private worker: Worker | null = null;
@@ -32,23 +33,36 @@ class AIService {
   }
 
   /**
-   * Menghapus background gambar secara asinkron menggunakan Web Worker.
+   * Menghapus background gambar secara asinkron menggunakan Web Worker atau Color-Key.
+   * Mendukung mode 'auto' adaptif yang mendeteksi jenis gambar secara instan (<3ms).
    */
   public async removeBackgroundAsync(
     file: File | Blob,
     _modelType: 'rmbg' | 'isnet' = 'rmbg',
     _blurRadius: number = 80,
     onProgress?: (step: string, percentage: number) => void,
-    imageType: 'photo' | 'logo' | 'general' = 'photo',
+    imageType: 'auto' | 'photo' | 'logo' = 'auto',
     colorTolerance: number = 45
   ): Promise<Blob> {
     try {
-      // ===== LOGO MODE: Gunakan Color-Key Flood Fill =====
-      if (imageType === 'logo') {
-        return await this.removeBackgroundByColorKey(file, colorTolerance);
+      // 1. Jika mode 'auto', jalankan deteksi matematis otomatis (<3ms)
+      let resolvedType: 'photo' | 'logo' = 'photo';
+      if (imageType === 'auto') {
+        const classification = await detectImageType(file);
+        resolvedType = classification.type;
+      } else {
+        resolvedType = imageType;
       }
 
-      // ===== PHOTO MODE: Gunakan AI Web Worker =====
+      // ===== LOGO / FLAT GRAPHIC: Gunakan Color-Key Vector Precision =====
+      if (resolvedType === 'logo') {
+        if (onProgress) onProgress('Memproses presisi vektor logo...', 50);
+        const result = await this.removeBackgroundByColorKey(file, colorTolerance);
+        if (onProgress) onProgress('Selesai', 100);
+        return result;
+      }
+
+      // ===== NATURAL PHOTO / COMPLEX SCENE: Gunakan Neural AI Web Worker =====
       if (!this.worker) this.initWorker();
       this.onProgressCallback = onProgress || null;
       

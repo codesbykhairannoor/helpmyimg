@@ -1742,5 +1742,13 @@
   "editor.applying": "효과 적용 중...",
   "work.action.batch": "✨ 모두 처리",
   "work.action.photos": "사진",
-  "color.applyNow": "⚡ 지금 배경 변경"
+  "color.applyNow": "⚡ 지금 배경 변경",
+  "remove.modeAutoActive": "적응형 자동",
+  "remove.modeLogoActive": "벡터 모드",
+  "remove.modeAiActive": "AI 신경 모드",
+  "remove.modeAuto": "✨ 자동",
+  "remove.modeAutoDesc": "적응형",
+  "remove.detectedType": "자동 감지:",
+  "remove.detectedLogo": "🏷️ 로고 / 벡터 그래픽(0ms)",
+  "remove.detectedPhoto": "📷 자연 사진/인물(AI)"
 }

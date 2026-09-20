@@ -1756,5 +1756,13 @@
   "editor.applying": "جارٍ تطبيق التأثير...",
   "work.action.batch": "✨ معالجة الكل",
   "work.action.photos": "صور",
-  "color.applyNow": "⚡ تغيير الخلفية الآن"
+  "color.applyNow": "⚡ تغيير الخلفية الآن",
+  "remove.modeAutoActive": "التكيف التلقائي",
+  "remove.modeLogoActive": "وضع المتجهات",
+  "remove.modeAiActive": "الوضع العصبي للذكاء الاصطناعي",
+  "remove.modeAuto": "✨ تلقائي",
+  "remove.modeAutoDesc": "التكيف",
+  "remove.detectedType": "الكشف التلقائي:",
+  "remove.detectedLogo": "🏷️ شعار / رسم متجه (0 مللي ثانية)",
+  "remove.detectedPhoto": "📷 صورة طبيعية/صورة شخصية (AI)"
 }

@@ -1742,5 +1742,13 @@
   "editor.applying": "प्रभाव लागू किया जा रहा है...",
   "work.action.batch": "✨ सभी को प्रोसेस करें",
   "work.action.photos": "तस्वीरें",
-  "color.applyNow": "⚡अभी पृष्ठभूमि बदलें"
+  "color.applyNow": "⚡अभी पृष्ठभूमि बदलें",
+  "remove.modeAutoActive": "अनुकूली ऑटो",
+  "remove.modeLogoActive": "वेक्टर मोड",
+  "remove.modeAiActive": "एआई न्यूरल मोड",
+  "remove.modeAuto": "✨ ऑटो",
+  "remove.modeAutoDesc": "अनुकूली",
+  "remove.detectedType": "स्वतः पहचान:",
+  "remove.detectedLogo": "🏷️ लोगो / वेक्टर ग्राफ़िक (0ms)",
+  "remove.detectedPhoto": "📷 प्राकृतिक फोटो / पोर्ट्रेट (एआई)"
 }

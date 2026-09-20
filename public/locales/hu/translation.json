@@ -1742,5 +1742,13 @@
   "editor.applying": "Hatás alkalmazása...",
   "work.action.batch": "✨ Az összes feldolgozása",
   "work.action.photos": "Fényképek",
-  "color.applyNow": "⚡ Háttér módosítása most"
+  "color.applyNow": "⚡ Háttér módosítása most",
+  "remove.modeAutoActive": "Adaptív auto",
+  "remove.modeLogoActive": "Vector mód",
+  "remove.modeAiActive": "AI neurális mód",
+  "remove.modeAuto": "✨ Auto",
+  "remove.modeAutoDesc": "Adaptív",
+  "remove.detectedType": "Automatikus felismerés:",
+  "remove.detectedLogo": "🏷️ logó / vektorgrafika (0 ms)",
+  "remove.detectedPhoto": "📷 Természetes fotó/portré (AI)"
 }

@@ -33,6 +33,8 @@ export type TabType =
   | 'blurplate' 
   | 'design';
 
+export type CutoutMode = 'auto' | 'photo' | 'logo';
+
 export interface BatchItem {
   id: string;
   name: string;
@@ -53,6 +55,7 @@ export interface BatchItem {
   initialFile?: Blob;
   initialOriginalUrl?: string;
   initialDimensions?: { width: number; height: number };
+  detectedType?: 'photo' | 'logo';
 }
 
 export interface ToolWorkspaceProps {

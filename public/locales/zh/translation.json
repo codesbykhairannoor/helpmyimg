@@ -1742,5 +1742,13 @@
   "editor.applying": "应用效果...",
   "work.action.batch": "✨ 处理全部",
   "work.action.photos": "照片",
-  "color.applyNow": "⚡ 立即更改背景"
+  "color.applyNow": "⚡ 立即更改背景",
+  "remove.modeAutoActive": "自适应自动",
+  "remove.modeLogoActive": "矢量模式",
+  "remove.modeAiActive": "AI神经模式",
+  "remove.modeAuto": "✨ 汽车",
+  "remove.modeAutoDesc": "自适应",
+  "remove.detectedType": "自动检测：",
+  "remove.detectedLogo": "🏷️ 徽标/矢量图形（0ms）",
+  "remove.detectedPhoto": "📷 自然照片/肖像（AI）"
 }

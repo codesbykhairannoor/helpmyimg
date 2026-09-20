@@ -1742,5 +1742,13 @@
   "editor.applying": "エフェクトを適用中...",
   "work.action.batch": "✨すべてを処理",
   "work.action.photos": "写真",
-  "color.applyNow": "⚡ 今すぐ背景を変更してください"
+  "color.applyNow": "⚡ 今すぐ背景を変更してください",
+  "remove.modeAutoActive": "アダプティブオート",
+  "remove.modeLogoActive": "ベクトルモード",
+  "remove.modeAiActive": "AIニューラルモード",
+  "remove.modeAuto": "✨オート",
+  "remove.modeAutoDesc": "アダプティブ",
+  "remove.detectedType": "自動検出:",
+  "remove.detectedLogo": "🏷️ ロゴ / ベクター グラフィック (0ms)",
+  "remove.detectedPhoto": "📷 自然写真・ポートレート（AI）"
 }
