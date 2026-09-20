@@ -5,7 +5,7 @@ import React, { useState, useRef, useEffect, useCallback, Suspense } from 'react
 import { useRouter } from '../../context/RouterContext';
 import { useTranslation } from '../../context/LanguageContext';
 import { aiService } from '../../services/aiService';
-import { Upload, Download, Loader2, Sparkles, Archive, Trash2, Settings2, ChevronDown } from 'lucide-react';
+import { Upload, Download, Loader2, Sparkles, Archive, Trash2, Settings2, ChevronDown, RotateCcw, RefreshCw } from 'lucide-react';
 import JSZip from 'jszip';
 import { motion, AnimatePresence } from 'framer-motion';
 import { trackEvent } from '../../utils/analytics';
@@ -224,6 +224,50 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({ initialTab: rawIni
     }
   };
 
+  const handleUploadOther = useCallback(() => {
+    setBatchItems([]);
+    setSelectedIndex(0);
+    setPickedColor(null);
+    setDominantColors([]);
+    setSelectedColor(initialColor);
+    setRotationDeg(0);
+    setFlipH(false);
+    setFlipV(false);
+    setCropX(0);
+    setCropY(0);
+    setBlurBoxes([]);
+    if (fileInputRef.current) {
+      fileInputRef.current.value = '';
+      fileInputRef.current.click();
+    }
+  }, [initialColor]);
+
+  const handleResetCurrent = useCallback(() => {
+    if (!currentItem) return;
+    setSelectedColor(initialColor);
+    setRotationDeg(0);
+    setFlipH(false);
+    setFlipV(false);
+    setCropX(0);
+    setCropY(0);
+    setCompressQuality(0.8);
+    setWatermarkText('');
+    setBatchItems((prev) =>
+      prev.map((item, idx) =>
+        idx === selectedIndex
+          ? {
+              ...item,
+              processedUrl: item.transparentUrl || item.originalUrl,
+              rotateBaseUrl: undefined,
+              compressBlob: undefined,
+              compressUrl: undefined,
+              status: 'done'
+            }
+          : item
+      )
+    );
+  }, [currentItem, initialColor, selectedIndex]);
+
   const [compressQuality, setCompressQuality] = useState(0.8);
   const [convertFormat, setConvertFormat] = useState<'image/png' | 'image/jpeg' | 'image/webp' | 'image/gif' | 'image/bmp' | 'image/x-icon' | 'image/avif' | 'image/svg+xml'>('image/jpeg');
   const [resizeWidth, setResizeWidth] = useState(0);
@@ -416,10 +460,12 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({ initialTab: rawIni
 
   // Menerapkan perubahan efek pada gambar terpilih
   const applyCurrentEffect = async () => {
-    if (!currentItem || !currentItem.transparentUrl) return;
+    if (!currentItem) return;
 
-    // Jika tab tidak menggunakan AI tapi item ini belum pernah diproses AI (karena di-bypass)
-    // We intentionally removed auto-processing here so the user can manually trigger it.
+    const transSrc = (initialTab === 'rotate' && currentItem.rotateBaseUrl)
+      ? currentItem.rotateBaseUrl
+      : (currentItem.transparentUrl || currentItem.processedUrl || currentItem.originalUrl);
+    if (!transSrc) return;
 
     const origImg = new Image();
     const transImg = new Image();
@@ -433,9 +479,6 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({ initialTab: rawIni
     };
 
     try {
-      const transSrc = (initialTab === 'rotate' && currentItem.rotateBaseUrl)
-        ? currentItem.rotateBaseUrl
-        : (currentItem.transparentUrl || currentItem.originalUrl);
       await Promise.all([
         loadImg(origImg, currentItem.originalUrl),
         loadImg(transImg, transSrc),
@@ -695,14 +738,6 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({ initialTab: rawIni
     }
   }, [initialTab, currentItem?.processedUrl]);
 
-  const handleUploadOther = useCallback(() => {
-    setBatchItems([]);
-    setSelectedIndex(0);
-    setTimeout(() => {
-      fileInputRef.current?.click();
-    }, 50);
-  }, []);
-
   return (
     <section id="workspace" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 md:py-8">
 
@@ -748,10 +783,23 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({ initialTab: rawIni
 
                 <h3 className="text-lg md:text-2xl font-heading font-extrabold text-white mb-2 px-2 tracking-tight">
                   {currentItem?.status === 'error' ? (
-                    <>
-                      <span className="font-bold text-red-600 block mb-1">⚠️ {t('work.failedAi')}</span>
-                      <span className="text-xs md:text-sm text-gray-600 block">{batchItems[selectedIndex].errorMessage || t('work.errorHint')}</span>
-                    </>
+                    <div className="space-y-3">
+                      <span className="font-bold text-red-400 block mb-1">⚠️ {t('work.failedAi', { defaultValue: 'AI Processing Failed' })}</span>
+                      <span className="text-xs md:text-sm text-slate-300 block font-normal max-w-sm mx-auto">{batchItems[selectedIndex]?.errorMessage || t('work.errorHint', { defaultValue: 'Tip: Try using a smaller resolution image, or click retry below.' })}</span>
+                      <button
+                        type="button"
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          if (currentItem) {
+                            processSingleItem(currentItem);
+                          }
+                        }}
+                        className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-neon-cyan/20 hover:bg-neon-cyan/30 text-neon-cyan border border-neon-cyan/40 text-xs font-bold transition-all shadow-sm cursor-pointer"
+                      >
+                        <RefreshCw className="w-4 h-4" />
+                        <span>{t('work.action.retry', { defaultValue: 'Retry Processing' })}</span>
+                      </button>
+                    </div>
                   ) : t('dropzone.title', { defaultValue: 'Upload Photos Here' }).replace(/^[⚡✨🔄\s]+/u, '')}
                 </h3>
                 <p className="text-xs md:text-sm text-slate-400 max-w-md mx-auto mb-6 px-4 leading-relaxed font-body">
@@ -764,7 +812,7 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({ initialTab: rawIni
                 </div>
 
                 <div className="md:absolute md:bottom-4 left-0 right-0 text-center text-[10px] md:text-xs text-slate-400/80 font-medium px-4">
-                  {t('dropzone.privacy')}
+                  {t('dropzone.privacy', { defaultValue: '🔒 100% Private: AI processing runs locally in your browser' })}
                 </div>
               </div>
             ) : (
@@ -933,30 +981,41 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({ initialTab: rawIni
           </div>
 
           {/* Sidebar Kontrol Alat (4 Kolom di Desktop) */}
-          <div className="lg:col-span-5 xl:col-span-4 glass-panel p-6 flex flex-col space-y-6 max-h-[85vh]">
+          <div className="lg:col-span-5 xl:col-span-4 glass-panel p-6 flex flex-col space-y-6 h-fit">
 
-                <div className="flex flex-col gap-4 border-b border-dark-600/60 pb-4 shrink-0">
-              <div className="flex items-center justify-between">
+            <div className="flex flex-col gap-3 border-b border-dark-600/60 pb-4 shrink-0">
+              <div className="flex items-center justify-between flex-wrap gap-2">
                 <h3 className="font-heading font-extrabold text-white text-lg flex items-center gap-2">
                   <Sparkles className="w-5 h-5 text-neon-cyan" />
-                  <span>{t('editor.settings')}</span>
+                  <span>{t('editor.settings', { defaultValue: 'Tool Settings' })}</span>
                 </h3>
-                <span className="text-xs px-2.5 py-1 rounded-lg bg-neon-cyan/15 text-neon-cyan font-mono font-bold border border-neon-cyan/30">
-                  {initialTab === 'remove' && t('work.badge.remove')}
-                  {initialTab === 'color' && t('work.badge.color')}
-                  {initialTab === 'brush' && t('work.badge.brush')}
-                  {initialTab === 'watermark' && t('work.badge.watermark')}
-                  {initialTab === 'compress' && t('work.badge.compress')}
-                  {initialTab === 'convert' && t('work.badge.convert')}
-                  {initialTab === 'resize' && t('work.badge.resize')}
-                  {initialTab === 'crop' && t('work.badge.crop')}
-                  {initialTab === 'rotate' && t('work.badge.rotate')}
-                  {initialTab === 'picker' && t('work.badge.picker')}
-                </span>
+                <div className="flex items-center gap-2">
+                  <button
+                    type="button"
+                    onClick={handleUploadOther}
+                    title={t('editor.resetAll', { defaultValue: 'Upload Other Photos / Reset' })}
+                    className="flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-dark-700/80 hover:bg-dark-600 hover:border-neon-cyan/40 text-slate-300 hover:text-white text-xs font-semibold border border-dark-500 transition-all shadow-sm cursor-pointer"
+                  >
+                    <RotateCcw className="w-3.5 h-3.5 text-neon-cyan" />
+                    <span>{t('editor.reset', { defaultValue: 'Reset / Upload' })}</span>
+                  </button>
+                  <span className="text-xs px-2.5 py-1 rounded-lg bg-neon-cyan/15 text-neon-cyan font-mono font-bold border border-neon-cyan/30">
+                    {initialTab === 'remove' && t('work.badge.remove', { defaultValue: 'Remove Background' })}
+                    {initialTab === 'color' && t('work.badge.color', { defaultValue: 'Passport Color' })}
+                    {initialTab === 'brush' && t('work.badge.brush', { defaultValue: 'Magic Brush' })}
+                    {initialTab === 'watermark' && t('work.badge.watermark', { defaultValue: 'Watermark' })}
+                    {initialTab === 'compress' && t('work.badge.compress', { defaultValue: 'Compress' })}
+                    {initialTab === 'convert' && t('work.badge.convert', { defaultValue: 'Convert' })}
+                    {initialTab === 'resize' && t('work.badge.resize', { defaultValue: 'Resize' })}
+                    {initialTab === 'crop' && t('work.badge.crop', { defaultValue: 'Crop' })}
+                    {initialTab === 'rotate' && t('work.badge.rotate', { defaultValue: 'Rotate' })}
+                    {initialTab === 'picker' && t('work.badge.picker', { defaultValue: 'Color Picker' })}
+                  </span>
+                </div>
               </div>
             </div>
 
-            <div className="flex-1 overflow-y-auto custom-scrollbar pr-2 pb-2">
+            <div className="flex-1 space-y-6">
               <Suspense fallback={
                 <div className="flex justify-center items-center h-32">
                   <Loader2 className="w-8 h-8 text-neon-cyan animate-spin" />

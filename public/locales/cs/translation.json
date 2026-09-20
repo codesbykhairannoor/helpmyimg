@@ -1715,5 +1715,10 @@
   "security.research.box1.title": "Izolovaná paměť WebAssembly",
   "security.research.box1.desc": "Lineární sandboxing paměti zabraňuje jakékoli neoprávněné odchozí soketové komunikaci během transformace pixelů.",
   "security.research.box2.title": "Nulový síťový přenos",
-  "security.research.box2.desc": "Síťovým rozhraním prošlo 0 bajtů užitečného zatížení obrazu, což splňuje nejpřísnější článek 5 GDPR a normy HIPAA."
+  "security.research.box2.desc": "Síťovým rozhraním prošlo 0 bajtů užitečného zatížení obrazu, což splňuje nejpřísnější článek 5 GDPR a normy HIPAA.",
+  "work.failedAi": "Zpracování AI se nezdařilo",
+  "work.errorHint": "Tip: Zkuste použít obrázek v menším rozlišení nebo klikněte níže na tlačítko Opakovat.",
+  "work.action.retry": "Opakujte zpracování AI",
+  "work.waiting": "Čekání ve frontě...",
+  "editor.resetAll": "Nahrát další fotografie"
 }

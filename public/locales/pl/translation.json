@@ -1713,5 +1713,17 @@
   "security.research.box1.title": "Izolowana pamięć zestawu WebAssembly",
   "security.research.box1.desc": "Liniowa piaskownica pamięci zapobiega nieautoryzowanej komunikacji wychodzącej przez gniazdo podczas transformacji pikseli.",
   "security.research.box2.title": "Zerowa transmisja sieciowa",
-  "security.research.box2.desc": "0 bajtów ładunku obrazu przechodzi przez interfejs sieciowy, co spełnia najbardziej rygorystyczne standardy zgodności z art. 5 RODO i ustawą HIPAA."
+  "security.research.box2.desc": "0 bajtów ładunku obrazu przechodzi przez interfejs sieciowy, co spełnia najbardziej rygorystyczne standardy zgodności z art. 5 RODO i ustawą HIPAA.",
+  "work.failedAi": "Przetwarzanie AI nie powiodło się",
+  "work.errorHint": "Wskazówka: spróbuj użyć obrazu w mniejszej rozdzielczości lub kliknij opcję Ponów próbę poniżej.",
+  "work.action.retry": "Ponów próbę przetwarzania AI",
+  "work.waiting": "Czekam w kolejce...",
+  "work.queued": "W kolejce",
+  "work.exportSettingsTitle": "Opcje eksportu i pobierania",
+  "work.settings": "Eksportuj ustawienia",
+  "work.batchRename": "Zmień nazwę plików",
+  "work.renameFile": "Niestandardowa nazwa pliku",
+  "work.zipName": "Nazwa archiwum ZIP",
+  "work.zipNamePlaceholder": "Wprowadź nazwę pliku ZIP...",
+  "editor.resetAll": "Prześlij inne zdjęcia"
 }

@@ -1708,5 +1708,17 @@
   "security.research.box1.title": "Memorie WebAssembly izolată",
   "security.research.box1.desc": "Sandbox-ul liniar al memoriei previne orice comunicare neautorizată cu socket de ieșire în timpul transformării pixelilor.",
   "security.research.box2.title": "Zero transmisie în rețea",
-  "security.research.box2.desc": "0 octeți de încărcare utilă a imaginii traversează vreodată interfața de rețea, satisfăcând cele mai stricte standarde de conformitate cu articolul 5 GDPR și HIPAA."
+  "security.research.box2.desc": "0 octeți de încărcare utilă a imaginii traversează vreodată interfața de rețea, satisfăcând cele mai stricte standarde de conformitate cu articolul 5 GDPR și HIPAA.",
+  "work.failedAi": "Procesarea AI a eșuat",
+  "work.errorHint": "Sfat: Încercați să utilizați o imagine cu rezoluție mai mică sau faceți clic pe Reîncercați mai jos.",
+  "work.action.retry": "Reîncercați Procesarea AI",
+  "work.waiting": "Aștept la coadă...",
+  "work.queued": "În coadă",
+  "work.exportSettingsTitle": "Opțiuni de export și descărcare",
+  "work.settings": "Setări de export",
+  "work.batchRename": "Redenumiți fișierele",
+  "work.renameFile": "Nume de fișier personalizat",
+  "work.zipName": "Nume arhivă ZIP",
+  "work.zipNamePlaceholder": "Introduceți numele fișierului ZIP...",
+  "editor.resetAll": "Încărcați alte fotografii"
 }

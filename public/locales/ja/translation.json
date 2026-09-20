@@ -1708,5 +1708,17 @@
   "security.research.box1.title": "分離された WebAssembly メモリ",
   "security.research.box1.desc": "リニア メモリ サンドボックスにより、ピクセル変換中の不正なアウトバウンド ソケット通信が防止されます。",
   "security.research.box2.title": "ゼロネットワーク伝送",
-  "security.research.box2.desc": "0 バイトの画像ペイロードがネットワーク インターフェイスを通過することはなく、最も厳格な GDPR 第 5 条および HIPAA 準拠基準を満たしています。"
+  "security.research.box2.desc": "0 バイトの画像ペイロードがネットワーク インターフェイスを通過することはなく、最も厳格な GDPR 第 5 条および HIPAA 準拠基準を満たしています。",
+  "work.failedAi": "AI処理に失敗しました",
+  "work.errorHint": "ヒント: 解像度の低い画像を使用してみるか、下の [再試行] をクリックしてください。",
+  "work.action.retry": "AI処理をリトライする",
+  "work.waiting": "列に並んで待っています...",
+  "work.queued": "キューに入れられました",
+  "work.exportSettingsTitle": "エクスポートとダウンロードのオプション",
+  "work.settings": "設定のエクスポート",
+  "work.batchRename": "ファイル名の変更",
+  "work.renameFile": "カスタムファイル名",
+  "work.zipName": "ZIP アーカイブ名",
+  "work.zipNamePlaceholder": "ZIP ファイル名を入力してください...",
+  "editor.resetAll": "他の写真をアップロードする"
 }

@@ -1708,5 +1708,17 @@
   "security.research.box1.title": "Bộ nhớ WebAssugging bị cô lập",
   "security.research.box1.desc": "Hộp cát bộ nhớ tuyến tính ngăn chặn mọi giao tiếp ổ cắm ra ngoài trái phép trong quá trình chuyển đổi pixel.",
   "security.research.box2.title": "Truyền mạng bằng không",
-  "security.research.box2.desc": "0 byte tải trọng hình ảnh từng truyền qua giao diện mạng, đáp ứng các tiêu chuẩn tuân thủ Điều 5 và HIPAA nghiêm ngặt nhất của GDPR."
+  "security.research.box2.desc": "0 byte tải trọng hình ảnh từng truyền qua giao diện mạng, đáp ứng các tiêu chuẩn tuân thủ Điều 5 và HIPAA nghiêm ngặt nhất của GDPR.",
+  "work.failedAi": "Xử lý AI không thành công",
+  "work.errorHint": "Mẹo: Hãy thử sử dụng hình ảnh có độ phân giải nhỏ hơn hoặc nhấp vào thử lại bên dưới.",
+  "work.action.retry": "Thử lại quá trình xử lý AI",
+  "work.waiting": "Đang xếp hàng chờ...",
+  "work.queued": "Đã xếp hàng",
+  "work.exportSettingsTitle": "Tùy chọn xuất và tải xuống",
+  "work.settings": "Xuất cài đặt",
+  "work.batchRename": "Đổi tên tập tin",
+  "work.renameFile": "Tên tệp tùy chỉnh",
+  "work.zipName": "Tên lưu trữ ZIP",
+  "work.zipNamePlaceholder": "Nhập tên tệp ZIP...",
+  "editor.resetAll": "Tải ảnh khác lên"
 }

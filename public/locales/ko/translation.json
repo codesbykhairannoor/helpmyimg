@@ -1708,5 +1708,17 @@
   "security.research.box1.title": "격리된 웹어셈블리 메모리",
   "security.research.box1.desc": "선형 메모리 샌드박싱은 픽셀 변환 중에 무단 아웃바운드 소켓 통신을 방지합니다.",
   "security.research.box2.title": "제로 네트워크 전송",
-  "security.research.box2.desc": "0바이트의 이미지 페이로드가 네트워크 인터페이스를 통과하여 가장 엄격한 GDPR 제5조 및 HIPAA 규정 준수 표준을 충족합니다."
+  "security.research.box2.desc": "0바이트의 이미지 페이로드가 네트워크 인터페이스를 통과하여 가장 엄격한 GDPR 제5조 및 HIPAA 규정 준수 표준을 충족합니다.",
+  "work.failedAi": "AI 처리 실패",
+  "work.errorHint": "도움말: 더 낮은 해상도의 이미지를 사용하거나 아래에서 다시 시도를 클릭하세요.",
+  "work.action.retry": "AI 처리 재시도",
+  "work.waiting": "대기열에서 기다리고 있습니다...",
+  "work.queued": "대기 중",
+  "work.exportSettingsTitle": "내보내기 및 다운로드 옵션",
+  "work.settings": "내보내기 설정",
+  "work.batchRename": "파일 이름 바꾸기",
+  "work.renameFile": "사용자 정의 파일 이름",
+  "work.zipName": "ZIP 아카이브 이름",
+  "work.zipNamePlaceholder": "ZIP 파일 이름을 입력하세요...",
+  "editor.resetAll": "다른 사진 업로드"
 }

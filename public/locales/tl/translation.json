@@ -1708,5 +1708,17 @@
   "security.research.box1.title": "Nakahiwalay na WebAssembly Memory",
   "security.research.box1.desc": "Pinipigilan ng linear memory sandboxing ang anumang hindi awtorisadong outbound socket na komunikasyon sa panahon ng pagbabago ng pixel.",
   "security.research.box2.title": "Zero Network Transmission",
-  "security.research.box2.desc": "0 byte ng payload ng larawan ang dumaan sa interface ng network, na nakakatugon sa pinakamahigpit na mga pamantayan sa pagsunod sa Artikulo 5 ng GDPR at HIPAA."
+  "security.research.box2.desc": "0 byte ng payload ng larawan ang dumaan sa interface ng network, na nakakatugon sa pinakamahigpit na mga pamantayan sa pagsunod sa Artikulo 5 ng GDPR at HIPAA.",
+  "work.failedAi": "Nabigo ang Pagproseso ng AI",
+  "work.errorHint": "Tip: Subukang gumamit ng mas maliit na resolution na larawan, o i-click ang subukang muli sa ibaba.",
+  "work.action.retry": "Subukan muli ang Pagproseso ng AI",
+  "work.waiting": "Naghihintay sa pila...",
+  "work.queued": "Nakapila",
+  "work.exportSettingsTitle": "Mga Opsyon sa Pag-export at Pag-download",
+  "work.settings": "I-export ang Mga Setting",
+  "work.batchRename": "Palitan ang pangalan ng mga File",
+  "work.renameFile": "Custom na Pangalan ng File",
+  "work.zipName": "Pangalan ng ZIP Archive",
+  "work.zipNamePlaceholder": "Ilagay ang ZIP filename...",
+  "editor.resetAll": "Mag-upload ng Iba Pang Mga Larawan"
 }

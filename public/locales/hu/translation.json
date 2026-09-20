@@ -1708,5 +1708,17 @@
   "security.research.box1.title": "Elszigetelt WebAssembly memória",
   "security.research.box1.desc": "A lineáris memória sandbox megakadályozza a jogosulatlan kimenő socket kommunikációt a pixel transzformáció során.",
   "security.research.box2.title": "Nulla hálózati átvitel",
-  "security.research.box2.desc": "A hálózati interfészen 0 bájt hasznos adatmennyiség halad át, ami megfelel a legszigorúbb GDPR 5. cikk és a HIPAA megfelelőségi szabványoknak."
+  "security.research.box2.desc": "A hálózati interfészen 0 bájt hasznos adatmennyiség halad át, ami megfelel a legszigorúbb GDPR 5. cikk és a HIPAA megfelelőségi szabványoknak.",
+  "work.failedAi": "A mesterséges intelligencia feldolgozása sikertelen",
+  "work.errorHint": "Tipp: Próbáljon meg kisebb felbontású képet használni, vagy kattintson alább az újrapróbálkozás lehetőségre.",
+  "work.action.retry": "Próbálja újra az AI-feldolgozást",
+  "work.waiting": "Várakozás a sorban...",
+  "work.queued": "Sorban",
+  "work.exportSettingsTitle": "Exportálási és letöltési lehetőségek",
+  "work.settings": "Beállítások exportálása",
+  "work.batchRename": "Fájlok átnevezése",
+  "work.renameFile": "Egyéni fájlnév",
+  "work.zipName": "ZIP archívum neve",
+  "work.zipNamePlaceholder": "Írja be a ZIP fájlnevet...",
+  "editor.resetAll": "Más fényképek feltöltése"
 }

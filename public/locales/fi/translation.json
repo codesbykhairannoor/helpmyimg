@@ -1708,5 +1708,17 @@
   "security.research.box1.title": "Eristetty WebAssembly-muisti",
   "security.research.box1.desc": "Lineaarinen muistin hiekkalaatikko estää luvattoman lähtevän socket-viestinnän pikselimuunnoksen aikana.",
   "security.research.box2.title": "Nolla verkkosiirtoa",
-  "security.research.box2.desc": "0 tavua kuvan hyötykuormaa kulkee koskaan verkkoliitännän läpi, mikä täyttää tiukimmat GDPR-artikla 5 ja HIPAA-yhteensopivuusstandardit."
+  "security.research.box2.desc": "0 tavua kuvan hyötykuormaa kulkee koskaan verkkoliitännän läpi, mikä täyttää tiukimmat GDPR-artikla 5 ja HIPAA-yhteensopivuusstandardit.",
+  "work.failedAi": "Tekoälyn käsittely epäonnistui",
+  "work.errorHint": "Vinkki: kokeile pienemmän resoluution kuvaa tai napsauta alla yritä uudelleen.",
+  "work.action.retry": "Yritä tekoälyn käsittelyä uudelleen",
+  "work.waiting": "Odotetaan jonossa...",
+  "work.queued": "Jonossa",
+  "work.exportSettingsTitle": "Vienti- ja latausasetukset",
+  "work.settings": "Vie asetukset",
+  "work.batchRename": "Nimeä tiedostot uudelleen",
+  "work.renameFile": "Mukautettu tiedostonimi",
+  "work.zipName": "ZIP-arkiston nimi",
+  "work.zipNamePlaceholder": "Anna ZIP-tiedoston nimi...",
+  "editor.resetAll": "Lataa muita kuvia"
 }

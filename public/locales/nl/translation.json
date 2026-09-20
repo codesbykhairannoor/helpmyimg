@@ -1708,5 +1708,17 @@
   "security.research.box1.title": "Geïsoleerd WebAssembly-geheugen",
   "security.research.box1.desc": "Lineaire geheugensandboxing voorkomt ongeautoriseerde uitgaande socketcommunicatie tijdens pixeltransformatie.",
   "security.research.box2.title": "Geen netwerktransmissie",
-  "security.research.box2.desc": "0 bytes aan beeldlading passeren ooit de netwerkinterface en voldoen aan de strengste AVG-artikel 5- en HIPAA-nalevingsnormen."
+  "security.research.box2.desc": "0 bytes aan beeldlading passeren ooit de netwerkinterface en voldoen aan de strengste AVG-artikel 5- en HIPAA-nalevingsnormen.",
+  "work.failedAi": "AI-verwerking mislukt",
+  "work.errorHint": "Tip: Probeer een afbeelding met een kleinere resolutie te gebruiken of klik hieronder op Opnieuw proberen.",
+  "work.action.retry": "Probeer AI-verwerking opnieuw",
+  "work.waiting": "Wachten in de rij...",
+  "work.queued": "In de wachtrij",
+  "work.exportSettingsTitle": "Export- en downloadopties",
+  "work.settings": "Instellingen exporteren",
+  "work.batchRename": "Bestanden hernoemen",
+  "work.renameFile": "Aangepaste bestandsnaam",
+  "work.zipName": "ZIP-archiefnaam",
+  "work.zipNamePlaceholder": "Voer ZIP-bestandsnaam in...",
+  "editor.resetAll": "Upload andere foto's"
 }

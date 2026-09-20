@@ -1708,5 +1708,17 @@
   "security.research.box1.title": "Memoria de WebAssembly aislada",
   "security.research.box1.desc": "La zona de pruebas de memoria lineal evita cualquier comunicación de socket saliente no autorizada durante la transformación de píxeles.",
   "security.research.box2.title": "Transmisión de red cero",
-  "security.research.box2.desc": "0 bytes de carga útil de imágenes atraviesan la interfaz de red, cumpliendo con los estándares más estrictos del Artículo 5 del RGPD y de HIPAA."
+  "security.research.box2.desc": "0 bytes de carga útil de imágenes atraviesan la interfaz de red, cumpliendo con los estándares más estrictos del Artículo 5 del RGPD y de HIPAA.",
+  "work.failedAi": "Error en el procesamiento de IA",
+  "work.errorHint": "Consejo: Intente utilizar una imagen de menor resolución o haga clic en Reintentar a continuación.",
+  "work.action.retry": "Reintentar el procesamiento de IA",
+  "work.waiting": "Esperando en cola...",
+  "work.queued": "En cola",
+  "work.exportSettingsTitle": "Opciones de exportación y descarga",
+  "work.settings": "Configuración de exportación",
+  "work.batchRename": "Cambiar nombre de archivos",
+  "work.renameFile": "Nombre de archivo personalizado",
+  "work.zipName": "Nombre del archivo ZIP",
+  "work.zipNamePlaceholder": "Introduzca el nombre del archivo ZIP...",
+  "editor.resetAll": "Subir otras fotos"
 }

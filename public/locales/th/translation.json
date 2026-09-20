@@ -1708,5 +1708,17 @@
   "security.research.box1.title": "หน่วยความจำ WebAssembly ที่แยกออกมา",
   "security.research.box1.desc": "แซนด์บ็อกซ์หน่วยความจำเชิงเส้นป้องกันการสื่อสารซ็อกเก็ตขาออกที่ไม่ได้รับอนุญาตในระหว่างการแปลงพิกเซล",
   "security.research.box2.title": "การส่งผ่านเครือข่ายเป็นศูนย์",
-  "security.research.box2.desc": "เพย์โหลดรูปภาพขนาด 0 ไบต์เคยเคลื่อนที่ผ่านอินเทอร์เฟซเครือข่าย ซึ่งเป็นไปตามมาตรฐาน GDPR Article 5 และ HIPAA ที่เข้มงวดที่สุด"
+  "security.research.box2.desc": "เพย์โหลดรูปภาพขนาด 0 ไบต์เคยเคลื่อนที่ผ่านอินเทอร์เฟซเครือข่าย ซึ่งเป็นไปตามมาตรฐาน GDPR Article 5 และ HIPAA ที่เข้มงวดที่สุด",
+  "work.failedAi": "การประมวลผล AI ล้มเหลว",
+  "work.errorHint": "เคล็ดลับ: ลองใช้รูปภาพที่มีความละเอียดน้อยลง หรือคลิกลองอีกครั้งด้านล่าง",
+  "work.action.retry": "ลองประมวลผล AI อีกครั้ง",
+  "work.waiting": "กำลังรอคิว...",
+  "work.queued": "เข้าคิว",
+  "work.exportSettingsTitle": "ตัวเลือกการส่งออกและดาวน์โหลด",
+  "work.settings": "การตั้งค่าการส่งออก",
+  "work.batchRename": "เปลี่ยนชื่อไฟล์",
+  "work.renameFile": "ชื่อไฟล์ที่กำหนดเอง",
+  "work.zipName": "ชื่อไฟล์ ZIP",
+  "work.zipNamePlaceholder": "ป้อนชื่อไฟล์ ZIP...",
+  "editor.resetAll": "อัปโหลดรูปภาพอื่น ๆ"
 }

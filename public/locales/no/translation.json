@@ -1708,5 +1708,17 @@
   "security.research.box1.title": "Isolert WebAssembly-minne",
   "security.research.box1.desc": "Lineær minnesandboxing forhindrer all uautorisert utgående socketkommunikasjon under pikseltransformasjon.",
   "security.research.box2.title": "Null nettverksoverføring",
-  "security.research.box2.desc": "0 byte med bildenyttelast går gjennom nettverksgrensesnittet, og tilfredsstiller de strengeste GDPR artikkel 5 og HIPAA-overholdelsesstandarder."
+  "security.research.box2.desc": "0 byte med bildenyttelast går gjennom nettverksgrensesnittet, og tilfredsstiller de strengeste GDPR artikkel 5 og HIPAA-overholdelsesstandarder.",
+  "work.failedAi": "AI-behandling mislyktes",
+  "work.errorHint": "Tips: Prøv å bruke et bilde med mindre oppløsning, eller klikk prøv på nytt nedenfor.",
+  "work.action.retry": "Prøv AI-behandling på nytt",
+  "work.waiting": "Venter i kø...",
+  "work.queued": "I kø",
+  "work.exportSettingsTitle": "Eksporter og nedlastingsalternativer",
+  "work.settings": "Eksportinnstillinger",
+  "work.batchRename": "Gi nytt navn til filer",
+  "work.renameFile": "Egendefinert filnavn",
+  "work.zipName": "ZIP-arkivnavn",
+  "work.zipNamePlaceholder": "Skriv inn ZIP-filnavn...",
+  "editor.resetAll": "Last opp andre bilder"
 }

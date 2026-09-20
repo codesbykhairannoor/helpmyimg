@@ -1781,5 +1781,13 @@
   "security.research.box1.title": "Memori WebAssembly Terisolasi",
   "security.research.box1.desc": "Sandbox memori linier mencegah komunikasi soket keluar yang tidak sah selama transformasi piksel.",
   "security.research.box2.title": "Transmisi Jaringan Nol",
-  "security.research.box2.desc": "0 byte muatan gambar yang pernah melintasi antarmuka jaringan, memenuhi standar kepatuhan Pasal 5 GDPR dan HIPAA yang paling ketat."
+  "security.research.box2.desc": "0 byte muatan gambar yang pernah melintasi antarmuka jaringan, memenuhi standar kepatuhan Pasal 5 GDPR dan HIPAA yang paling ketat.",
+  "work.queued": "Mengantri",
+  "work.exportSettingsTitle": "Opsi Ekspor & Unduh",
+  "work.settings": "Pengaturan Ekspor",
+  "work.batchRename": "Ganti Nama File",
+  "work.renameFile": "Nama File Khusus",
+  "work.zipName": "Nama Arsip ZIP",
+  "work.zipNamePlaceholder": "Masukkan nama file ZIP...",
+  "editor.resetAll": "Unggah Foto Lainnya"
 }

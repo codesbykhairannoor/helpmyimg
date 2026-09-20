@@ -28,7 +28,7 @@
   "editor.settings": "Tool Settings",
   "editor.download": "Download HD (Free)",
   "editor.downloadBatch": "📦 Download All (ZIP)",
-  "editor.reset": "Upload Other Photos",
+  "editor.reset": "Reset / Upload",
   "work.badge.remove": "Remove Background",
   "work.badge.blur": "Blur Background",
   "work.badge.color": "Passport Color",
@@ -1707,5 +1707,17 @@
   "security.research.box1.title": "Isolated WebAssembly Memory",
   "security.research.box1.desc": "Linear memory sandboxing prevents any unauthorized outbound socket communication during pixel transformation.",
   "security.research.box2.title": "Zero Network Transmission",
-  "security.research.box2.desc": "0 bytes of image payload ever traverse the network interface, satisfying the most stringent GDPR Article 5 and HIPAA compliance standards."
+  "security.research.box2.desc": "0 bytes of image payload ever traverse the network interface, satisfying the most stringent GDPR Article 5 and HIPAA compliance standards.",
+  "work.failedAi": "AI Processing Failed",
+  "work.errorHint": "Tip: Try using a smaller resolution image, or click retry below.",
+  "work.action.retry": "Retry AI Processing",
+  "work.waiting": "Waiting in queue...",
+  "work.queued": "Queued",
+  "work.exportSettingsTitle": "Export & Download Options",
+  "work.settings": "Export Settings",
+  "work.batchRename": "Rename Files",
+  "work.renameFile": "Custom File Name",
+  "work.zipName": "ZIP Archive Name",
+  "work.zipNamePlaceholder": "Enter ZIP filename...",
+  "editor.resetAll": "Upload Other Photos"
 }

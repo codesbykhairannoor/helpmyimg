@@ -1708,5 +1708,17 @@
   "security.research.box1.title": "זיכרון WebAssembly מבודד",
   "security.research.box1.desc": "ארגז חול של זיכרון ליניארי מונע כל תקשורת שקע יוצאת לא מורשית במהלך טרנספורמציה של פיקסלים.",
   "security.research.box2.title": "אפס שידור רשת",
-  "security.research.box2.desc": "0 בתים של מטען תמונה עוברים אי פעם את ממשק הרשת, ועומדים בתקנים המחמירים ביותר של GDPR סעיף 5 ו-HIPAA."
+  "security.research.box2.desc": "0 בתים של מטען תמונה עוברים אי פעם את ממשק הרשת, ועומדים בתקנים המחמירים ביותר של GDPR סעיף 5 ו-HIPAA.",
+  "work.failedAi": "עיבוד AI נכשל",
+  "work.errorHint": "טיפ: נסה להשתמש בתמונה ברזולוציה קטנה יותר, או לחץ על נסה שוב למטה.",
+  "work.action.retry": "נסה שוב עיבוד AI",
+  "work.waiting": "מחכה בתור...",
+  "work.queued": "בתור",
+  "work.exportSettingsTitle": "אפשרויות ייצוא והורדה",
+  "work.settings": "ייצוא הגדרות",
+  "work.batchRename": "שנה שם קבצים",
+  "work.renameFile": "שם קובץ מותאם אישית",
+  "work.zipName": "שם ארכיון ZIP",
+  "work.zipNamePlaceholder": "הזן שם קובץ ZIP...",
+  "editor.resetAll": "העלה תמונות אחרות"
 }

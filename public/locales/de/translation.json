@@ -1708,5 +1708,17 @@
   "security.research.box1.title": "Isolierter WebAssembly-Speicher",
   "security.research.box1.desc": "Lineare Speicher-Sandboxing verhindert jede unbefugte ausgehende Socket-Kommunikation während der Pixeltransformation.",
   "security.research.box2.title": "Keine Netzwerkübertragung",
-  "security.research.box2.desc": "0 Byte Bildnutzlast durchlaufen jemals die Netzwerkschnittstelle und erfüllen die strengsten DSGVO-Artikel 5- und HIPAA-Konformitätsstandards."
+  "security.research.box2.desc": "0 Byte Bildnutzlast durchlaufen jemals die Netzwerkschnittstelle und erfüllen die strengsten DSGVO-Artikel 5- und HIPAA-Konformitätsstandards.",
+  "work.failedAi": "KI-Verarbeitung fehlgeschlagen",
+  "work.errorHint": "Tipp: Versuchen Sie es mit einem Bild mit kleinerer Auflösung oder klicken Sie unten auf „Wiederholen“.",
+  "work.action.retry": "Versuchen Sie die KI-Verarbeitung erneut",
+  "work.waiting": "Warten in der Warteschlange...",
+  "work.queued": "In der Warteschlange",
+  "work.exportSettingsTitle": "Export- und Download-Optionen",
+  "work.settings": "Exporteinstellungen",
+  "work.batchRename": "Dateien umbenennen",
+  "work.renameFile": "Benutzerdefinierter Dateiname",
+  "work.zipName": "ZIP-Archivname",
+  "work.zipNamePlaceholder": "ZIP-Dateinamen eingeben...",
+  "editor.resetAll": "Laden Sie andere Fotos hoch"
 }

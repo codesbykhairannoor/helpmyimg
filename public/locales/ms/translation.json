@@ -1708,5 +1708,17 @@
   "security.research.box1.title": "Memori WebAssembly Terpencil",
   "security.research.box1.desc": "Kotak pasir memori linear menghalang sebarang komunikasi soket keluar tanpa kebenaran semasa transformasi piksel.",
   "security.research.box2.title": "Penghantaran Rangkaian Sifar",
-  "security.research.box2.desc": "0 bait muatan imej pernah merentasi antara muka rangkaian, memenuhi piawaian pematuhan Perkara 5 GDPR dan HIPAA yang paling ketat."
+  "security.research.box2.desc": "0 bait muatan imej pernah merentasi antara muka rangkaian, memenuhi piawaian pematuhan Perkara 5 GDPR dan HIPAA yang paling ketat.",
+  "work.failedAi": "Pemprosesan AI Gagal",
+  "work.errorHint": "Petua: Cuba gunakan imej peleraian yang lebih kecil atau klik cuba semula di bawah.",
+  "work.action.retry": "Cuba semula Pemprosesan AI",
+  "work.waiting": "Menunggu dalam barisan...",
+  "work.queued": "Beratur",
+  "work.exportSettingsTitle": "Pilihan Eksport & Muat Turun",
+  "work.settings": "Tetapan Eksport",
+  "work.batchRename": "Namakan semula Fail",
+  "work.renameFile": "Nama Fail Tersuai",
+  "work.zipName": "Nama Arkib ZIP",
+  "work.zipNamePlaceholder": "Masukkan nama fail ZIP...",
+  "editor.resetAll": "Muat Naik Foto Lain"
 }

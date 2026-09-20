@@ -2,8 +2,6 @@ import { AutoModel, AutoProcessor, env, RawImage } from '@huggingface/transforme
 
 // Nonaktifkan proxy file lokal agar tidak terjadi CORS error di Web Worker
 env.allowLocalModels = false;
-// Gunakan CDN publik untuk ONNX WASM agar dist Vercel super ringan (< 3MB)
-env.backends.onnx.wasm.wasmPaths = 'https://cdn.jsdelivr.net/npm/onnxruntime-web@1.19.2/dist/';
 
 let model: any = null;
 let processor: any = null;

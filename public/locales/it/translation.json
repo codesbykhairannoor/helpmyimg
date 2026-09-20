@@ -1708,5 +1708,17 @@
   "security.research.box1.title": "Memoria WebAssembly isolata",
   "security.research.box1.desc": "Il sandboxing della memoria lineare impedisce qualsiasi comunicazione socket in uscita non autorizzata durante la trasformazione dei pixel.",
   "security.research.box2.title": "Trasmissione di rete zero",
-  "security.research.box2.desc": "0 byte di payload dell'immagine attraversano mai l'interfaccia di rete, soddisfacendo i più severi standard di conformità dell'Articolo 5 del GDPR e dell'HIPAA."
+  "security.research.box2.desc": "0 byte di payload dell'immagine attraversano mai l'interfaccia di rete, soddisfacendo i più severi standard di conformità dell'Articolo 5 del GDPR e dell'HIPAA.",
+  "work.failedAi": "Elaborazione AI non riuscita",
+  "work.errorHint": "Suggerimento: prova a utilizzare un'immagine con una risoluzione inferiore oppure fai clic su Riprova di seguito.",
+  "work.action.retry": "Riprovare l'elaborazione AI",
+  "work.waiting": "Aspettando in coda...",
+  "work.queued": "In coda",
+  "work.exportSettingsTitle": "Opzioni di esportazione e download",
+  "work.settings": "Impostazioni di esportazione",
+  "work.batchRename": "Rinominare i file",
+  "work.renameFile": "Nome file personalizzato",
+  "work.zipName": "Nome dell'archivio ZIP",
+  "work.zipNamePlaceholder": "Inserisci il nome del file ZIP...",
+  "editor.resetAll": "Carica altre foto"
 }

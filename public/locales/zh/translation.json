@@ -1708,5 +1708,17 @@
   "security.research.box1.title": "隔离的 WebAssembly 内存",
   "security.research.box1.desc": "线性内存沙箱可防止像素转换过程中任何未经授权的出站套接字通信。",
   "security.research.box2.title": "零网络传输",
-  "security.research.box2.desc": "0 字节的图像有效负载穿过网络接口，满足最严格的 GDPR 第 5 条和 HIPAA 合规标准。"
+  "security.research.box2.desc": "0 字节的图像有效负载穿过网络接口，满足最严格的 GDPR 第 5 条和 HIPAA 合规标准。",
+  "work.failedAi": "AI处理失败",
+  "work.errorHint": "提示：尝试使用较小分辨率的图像，或单击下面的“重试”。",
+  "work.action.retry": "重试AI处理",
+  "work.waiting": "排队等候...",
+  "work.queued": "排队",
+  "work.exportSettingsTitle": "导出和下载选项",
+  "work.settings": "导出设置",
+  "work.batchRename": "重命名文件",
+  "work.renameFile": "自定义文件名",
+  "work.zipName": "ZIP 存档名称",
+  "work.zipNamePlaceholder": "输入 ZIP 文件名...",
+  "editor.resetAll": "上传其他照片"
 }

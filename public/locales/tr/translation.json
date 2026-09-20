@@ -1708,5 +1708,17 @@
   "security.research.box1.title": "Yalıtılmış WebAssembly Belleği",
   "security.research.box1.desc": "Doğrusal bellek korumalı alanı, piksel dönüşümü sırasında yetkisiz giden soket iletişimini önler.",
   "security.research.box2.title": "Sıfır Ağ İletimi",
-  "security.research.box2.desc": "0 baytlık görüntü yükü ağ arayüzünden geçerek en katı GDPR Madde 5 ve HIPAA uyumluluk standartlarını karşılar."
+  "security.research.box2.desc": "0 baytlık görüntü yükü ağ arayüzünden geçerek en katı GDPR Madde 5 ve HIPAA uyumluluk standartlarını karşılar.",
+  "work.failedAi": "Yapay Zeka İşleme Başarısız",
+  "work.errorHint": "İpucu: Daha küçük çözünürlüklü bir görsel kullanmayı deneyin veya aşağıdaki yeniden dene seçeneğini tıklayın.",
+  "work.action.retry": "Yapay Zeka İşlemeyi Yeniden Deneyin",
+  "work.waiting": "Sırada beklemek...",
+  "work.queued": "Sıraya alındı",
+  "work.exportSettingsTitle": "Dışa Aktarma ve İndirme Seçenekleri",
+  "work.settings": "Ayarları Dışa Aktarma",
+  "work.batchRename": "Dosyaları Yeniden Adlandır",
+  "work.renameFile": "Özel Dosya Adı",
+  "work.zipName": "ZIP Arşiv Adı",
+  "work.zipNamePlaceholder": "ZIP dosya adını girin...",
+  "editor.resetAll": "Diğer Fotoğrafları Yükle"
 }
