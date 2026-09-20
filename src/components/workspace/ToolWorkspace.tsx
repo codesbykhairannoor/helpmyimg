@@ -395,11 +395,17 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({ initialTab: rawIni
                   setBrushSize={setBrushSize}
                   onResetBrush={() => {
                     if (currentItem) {
+                      const targetUrl =
+                        currentItem.initialTransparentUrl ||
+                        currentItem.transparentUrl ||
+                        currentItem.initialOriginalUrl ||
+                        currentItem.originalUrl;
                       setBatchItems((prev) =>
                         prev.map((i, idx) =>
-                          idx === selectedIndex ? { ...i, processedUrl: i.transparentUrl } : i
+                          idx === selectedIndex ? { ...i, processedUrl: targetUrl } : i
                         )
                       );
+                      showToast(t('brush.resetSuccess', { defaultValue: 'Goresan kuas berhasil di-reset!' }));
                     }
                   }}
                   onReset={handleResetCurrent}

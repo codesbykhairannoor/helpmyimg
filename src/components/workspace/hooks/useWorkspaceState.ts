@@ -145,6 +145,7 @@ export function useWorkspaceState(initialTab: TabType = 'remove', keywordSlug?: 
                   ...i,
                   status: 'done',
                   transparentUrl,
+                  initialTransparentUrl: transparentUrl,
                   processedUrl: transparentUrl,
                   progress: 100,
                 }
@@ -407,7 +408,7 @@ export function useWorkspaceState(initialTab: TabType = 'remove', keywordSlug?: 
       if (blob) {
         const url = URL.createObjectURL(blob);
         setBatchItems((prev) =>
-          prev.map((i, idx) => (idx === selectedIndex ? { ...i, processedUrl: url, transparentUrl: url } : i))
+          prev.map((i, idx) => (idx === selectedIndex ? { ...i, processedUrl: url } : i))
         );
       }
     }, 'image/png');

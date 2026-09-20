@@ -107,7 +107,7 @@ export const BlurBoxOverlay: React.FC<BlurBoxOverlayProps> = ({
     });
     setCurrentBox({ x, y, w: 0, h: 0 });
     try {
-      (e.target as HTMLElement).setPointerCapture(e.pointerId);
+      containerRef.current?.setPointerCapture(e.pointerId);
     } catch (err) {}
   };
 
@@ -128,7 +128,7 @@ export const BlurBoxOverlay: React.FC<BlurBoxOverlayProps> = ({
       initialBox: { ...box },
     });
     try {
-      (e.target as HTMLElement).setPointerCapture(e.pointerId);
+      containerRef.current?.setPointerCapture(e.pointerId);
     } catch (err) {}
   };
 
@@ -162,8 +162,9 @@ export const BlurBoxOverlay: React.FC<BlurBoxOverlayProps> = ({
           let newX = activeAction.initialBox!.x + naturalDx;
           let newY = activeAction.initialBox!.y + naturalDy;
 
-          newX = Math.max(0, Math.min(newX, nw - b.width));
-          newY = Math.max(0, Math.min(newY, nh - b.height));
+          // Free unrestricted dragging across the entire width and height of the image
+          newX = Math.max(0, Math.min(newX, Math.max(0, nw - 10)));
+          newY = Math.max(0, Math.min(newY, Math.max(0, nh - 10)));
 
           return { ...b, x: newX, y: newY };
         })
@@ -200,7 +201,13 @@ export const BlurBoxOverlay: React.FC<BlurBoxOverlayProps> = ({
             bottomEdge = Math.min(nh, Math.max(newY + 15, init.y + init.height + naturalDy));
           }
 
-          return { ...b, x: newX, y: newY, width: rightEdge - newX, height: bottomEdge - newY };
+          return {
+            ...b,
+            x: newX,
+            y: newY,
+            width: Math.max(15, rightEdge - newX),
+            height: Math.max(15, bottomEdge - newY),
+          };
         })
       );
     }
@@ -236,7 +243,7 @@ export const BlurBoxOverlay: React.FC<BlurBoxOverlayProps> = ({
 
     setActiveAction(null);
     try {
-      (e.target as HTMLElement).releasePointerCapture(e.pointerId);
+      containerRef.current?.releasePointerCapture(e.pointerId);
     } catch (err) {}
   };
 

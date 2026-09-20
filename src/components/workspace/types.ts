@@ -54,6 +54,7 @@ export interface BatchItem {
   rotateBaseFile?: Blob;
   initialFile?: Blob;
   initialOriginalUrl?: string;
+  initialTransparentUrl?: string | null;
   initialDimensions?: { width: number; height: number };
 }
 

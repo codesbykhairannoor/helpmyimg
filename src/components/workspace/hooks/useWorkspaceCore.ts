@@ -50,11 +50,25 @@ export function useWorkspaceCore(initialTab: TabType = 'remove'): UseWorkspaceCo
     }
   }, [toastMessage]);
 
+  const isReplacingRef = useRef(false);
+
   // Handle file uploads
   const handleFiles = useCallback(
-    async (files: FileList | File[]) => {
+    async (files: FileList | File[], forceReplace?: boolean) => {
       const fileArray = Array.from(files).slice(0, 10);
       if (fileArray.length === 0) return;
+
+      const isReplacing = forceReplace ?? isReplacingRef.current;
+      isReplacingRef.current = false;
+
+      // Revoke old URLs if replacing
+      if (isReplacing) {
+        batchItems.forEach((i) => {
+          if (i.originalUrl) URL.revokeObjectURL(i.originalUrl);
+          if (i.transparentUrl && i.transparentUrl !== i.originalUrl) URL.revokeObjectURL(i.transparentUrl);
+          if (i.processedUrl && i.processedUrl !== i.originalUrl) URL.revokeObjectURL(i.processedUrl);
+        });
+      }
 
       const newItems: BatchItem[] = fileArray.map((f) => {
         const url = URL.createObjectURL(f);
@@ -75,7 +89,8 @@ export function useWorkspaceCore(initialTab: TabType = 'remove'): UseWorkspaceCo
       });
 
       setBatchItems((prev) => {
-        const merged = [...prev, ...newItems];
+        const baseList = isReplacing ? [] : prev;
+        const merged = [...baseList, ...newItems];
         // For non-cutout utility tabs, instantly mark as ready/done for direct preview
         if (
           [
@@ -107,9 +122,9 @@ export function useWorkspaceCore(initialTab: TabType = 'remove'): UseWorkspaceCo
         return merged;
       });
 
-      if (batchItems.length === 0) setSelectedIndex(0);
+      if (isReplacing || batchItems.length === 0) setSelectedIndex(0);
     },
-    [batchItems.length, initialTab, t]
+    [batchItems, initialTab, t]
   );
 
   // Reset current item back to original unedited state (Keep file in workspace)
@@ -133,8 +148,9 @@ export function useWorkspaceCore(initialTab: TabType = 'remove'): UseWorkspaceCo
     setToastMessage(t('editor.resetSuccess', { defaultValue: 'Gambar dikembalikan ke kondisi awal.' }));
   }, [currentItem, initialTab, t]);
 
-  // Upload other image (Triggers file input)
+  // Upload other image (Replaces current active photo cleanly)
   const handleUploadOther = useCallback(() => {
+    isReplacingRef.current = true;
     if (fileInputRef.current) {
       fileInputRef.current.value = '';
       fileInputRef.current.click();

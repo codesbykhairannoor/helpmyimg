@@ -43,21 +43,21 @@ export const BlurFaceControl: React.FC<BlurFaceControlProps> = ({
     const nw = imageElement?.naturalWidth || 800;
     const nh = imageElement?.naturalHeight || 600;
 
-    let bw = Math.round(nw * 0.3);
-    let bh = Math.round(nh * 0.3);
+    let bw = Math.round(nw * 0.24);
+    let bh = Math.round(nh * 0.24);
     let bx = Math.round((nw - bw) / 2);
     let by = Math.round((nh - bh) / 2);
 
     if (preset === 'face') {
-      bw = Math.round(nw * 0.32);
-      bh = Math.round(nh * 0.35);
+      bw = Math.round(nw * 0.25);
+      bh = Math.round(nh * 0.26);
       bx = Math.round((nw - bw) / 2);
       by = Math.round(nh * 0.12);
     } else if (preset === 'plate') {
-      bw = Math.round(nw * 0.45);
-      bh = Math.round(nh * 0.18);
+      bw = Math.round(nw * 0.34);
+      bh = Math.round(nh * 0.12);
       bx = Math.round((nw - bw) / 2);
-      by = Math.round(nh * 0.72);
+      by = Math.round(nh * 0.75);
     }
 
     setBoxes((prev) => [
@@ -232,11 +232,11 @@ export const BlurFaceControl: React.FC<BlurFaceControlProps> = ({
               type="button"
               onClick={onUploadOther}
               disabled={isProcessing}
-              title={t('editor.uploadOtherDesc', { defaultValue: 'Pilih dan unggah foto baru dari perangkat' })}
+              title={t('editor.replacePhotoDesc', { defaultValue: 'Ganti foto ini dengan foto baru dari perangkat' })}
               className="flex items-center justify-center gap-1.5 py-3 px-2.5 rounded-xl bg-dark-800 hover:bg-dark-700 text-slate-300 hover:text-white font-bold text-xs transition-all border border-dark-600 cursor-pointer disabled:opacity-50"
             >
               <Upload className="w-3.5 h-3.5 text-neon-emerald shrink-0" />
-              <span className="truncate">{t('editor.uploadOther', { defaultValue: 'Upload Lain' })}</span>
+              <span className="truncate">{t('editor.replacePhoto', { defaultValue: 'Ganti Foto' })}</span>
             </button>
           </div>
         )}

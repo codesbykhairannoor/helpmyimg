@@ -30,47 +30,48 @@ export const BrushControl: React.FC<BrushControlProps> = ({
 }) => {
   const { t } = useTranslation();
 
-
   return (
     <div className="space-y-6">
-
-
       {/* Toggle Restore / Erase */}
       <div className="space-y-2.5">
         <span className="text-xs font-semibold text-slate-400 uppercase tracking-wider">
-          {t('brush.mode')}
+          {t('brush.mode', { defaultValue: 'Mode Kuas Manual' })}
         </span>
         <div className="grid grid-cols-2 gap-3">
           <button
+            type="button"
             onClick={() => setBrushMode('restore')}
-            className={`py-3 px-3.5 rounded-xl text-sm font-bold border flex items-center justify-center gap-2 transition-all duration-200 ${
+            className={`py-3 px-3.5 rounded-xl text-xs font-bold border flex items-center justify-center gap-2 transition-all duration-200 cursor-pointer ${
               brushMode === 'restore'
                 ? 'bg-neon-emerald/20 border-neon-emerald text-neon-emerald shadow-[0_0_15px_hsla(150,80%,48%,0.3)]'
                 : 'bg-dark-800 border-dark-600 text-slate-300 hover:bg-dark-700'
             }`}
           >
             <Brush className="w-4 h-4" />
-            <span>{t('brush.restore')}</span>
+            <span>{t('brush.restore', { defaultValue: 'Pulihkan Objek' })}</span>
           </button>
 
           <button
+            type="button"
             onClick={() => setBrushMode('erase')}
-            className={`py-3 px-3.5 rounded-xl text-sm font-bold border flex items-center justify-center gap-2 transition-all duration-200 ${
+            className={`py-3 px-3.5 rounded-xl text-xs font-bold border flex items-center justify-center gap-2 transition-all duration-200 cursor-pointer ${
               brushMode === 'erase'
                 ? 'bg-neon-pink/20 border-neon-pink text-neon-pink shadow-[0_0_15px_hsla(330,85%,60%,0.3)]'
                 : 'bg-dark-800 border-dark-600 text-slate-300 hover:bg-dark-700'
             }`}
           >
             <Eraser className="w-4 h-4" />
-            <span>{t('brush.erase')}</span>
+            <span>{t('brush.erase', { defaultValue: 'Hapus / Gosok' })}</span>
           </button>
         </div>
       </div>
 
       {/* Slider Ukuran Kuas */}
       <div className="space-y-3">
-        <div className="flex justify-between items-center text-sm">
-          <span className="font-medium text-slate-200">{t('brush.size')}</span>
+        <div className="flex justify-between items-center text-xs">
+          <span className="font-semibold text-slate-300">
+            {t('brush.size', { defaultValue: 'Ukuran Diameter Kuas' })}
+          </span>
           <span className="font-mono text-neon-pink font-bold bg-dark-900 px-2.5 py-0.5 rounded-lg border border-dark-600">
             {brushSize} px
           </span>
@@ -87,12 +88,13 @@ export const BrushControl: React.FC<BrushControlProps> = ({
 
       {/* Tombol Reset Kuas */}
       <button
+        type="button"
         onClick={onResetBrush}
         disabled={isProcessing}
-        className="w-full py-2.5 px-4 rounded-xl bg-dark-800 hover:bg-dark-700 border border-dark-500 text-slate-300 text-xs font-medium flex items-center justify-center gap-2 transition-colors disabled:opacity-50"
+        className="w-full py-3 px-4 rounded-xl bg-dark-800 hover:bg-dark-700 border border-dark-500 text-slate-200 hover:text-white text-xs font-bold flex items-center justify-center gap-2 transition-all duration-150 disabled:opacity-50 cursor-pointer shadow-sm active:scale-98"
       >
-        <RotateCcw className="w-3.5 h-3.5" />
-        <span>{t('brush.resetMask')}</span>
+        <RotateCcw className="w-3.5 h-3.5 text-neon-pink" />
+        <span>{t('brush.resetMask', { defaultValue: 'Reset Goresan Kuas' })}</span>
       </button>
 
       {/* Standardized 2-Button Action Grid */}
@@ -113,11 +115,11 @@ export const BrushControl: React.FC<BrushControlProps> = ({
             type="button"
             onClick={onUploadOther}
             disabled={isProcessing}
-            title={t('editor.uploadOtherDesc', { defaultValue: 'Pilih dan unggah foto baru dari perangkat' })}
+            title={t('editor.replacePhotoDesc', { defaultValue: 'Ganti foto ini dengan foto baru dari perangkat' })}
             className="flex items-center justify-center gap-1.5 py-3 px-2.5 rounded-xl bg-dark-800 hover:bg-dark-700 text-slate-300 hover:text-white font-bold text-xs transition-all border border-dark-600 cursor-pointer disabled:opacity-50"
           >
             <Upload className="w-3.5 h-3.5 text-neon-emerald shrink-0" />
-            <span className="truncate">{t('editor.uploadOther', { defaultValue: 'Upload Lain' })}</span>
+            <span className="truncate">{t('editor.replacePhoto', { defaultValue: 'Ganti Foto' })}</span>
           </button>
         </div>
       )}
