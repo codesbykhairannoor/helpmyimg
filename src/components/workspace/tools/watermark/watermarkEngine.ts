@@ -1,5 +1,5 @@
 // src/components/workspace/tools/watermark/watermarkEngine.ts
-// Engine dedicated to Text & Image Watermark stamping
+// Engine dedicated to Text & Image Watermark stamping with Tiled Grid Pattern support
 
 import type { WatermarkPosition } from '../../types';
 
@@ -23,8 +23,8 @@ export class WatermarkEngine {
     options: WatermarkOptions
   ): HTMLCanvasElement {
     const canvas = document.createElement('canvas');
-    canvas.width = baseImage.width;
-    canvas.height = baseImage.height;
+    canvas.width = baseImage.width || 800;
+    canvas.height = baseImage.height || 600;
     const ctx = canvas.getContext('2d');
 
     if (!ctx) return canvas;
@@ -34,9 +34,9 @@ export class WatermarkEngine {
 
     const {
       type = 'text',
-      text = '',
+      text = 'HelpMyIMG',
       color = '#ffffff',
-      opacity = 0.5,
+      opacity = 0.6,
       position = 'center',
       image = null,
       scale = 1,
@@ -48,131 +48,139 @@ export class WatermarkEngine {
 
     const w = canvas.width;
     const h = canvas.height;
+    const baseDimension = Math.sqrt(w * h);
+    const diag = Math.sqrt(w * w + h * h);
 
-    // Calculate watermark position
-    let x = w / 2;
-    let y = h / 2;
-
-    if (type === 'text' && text) {
-      const fontSize = Math.max(16, Math.round((w / 25) * scale));
-      ctx.font = `bold ${fontSize}px sans-serif`;
+    if (type === 'text') {
+      const activeText = text && text.trim().length > 0 ? text : 'HelpMyIMG';
+      const fontSize = Math.max(16, Math.round((baseDimension / 25) * Math.max(0.2, scale)));
+      ctx.font = `bold ${fontSize}px "Inter", -apple-system, BlinkMacSystemFont, sans-serif`;
       ctx.fillStyle = color;
       ctx.textAlign = 'center';
       ctx.textBaseline = 'middle';
 
-      if (position === 'tiled') {
-        const textMetrics = ctx.measureText(text);
-        const textWidth = Math.max(textMetrics.width, fontSize * 2);
-        const stepX = textWidth + fontSize * 3;
-        const stepY = fontSize * 4;
-        const angle = rotation !== 0 ? (rotation * Math.PI) / 180 : (-25 * Math.PI) / 180;
+      // Drop shadow for crisp visibility on any background
+      ctx.shadowColor = 'rgba(0, 0, 0, 0.6)';
+      ctx.shadowBlur = Math.max(2, fontSize / 8);
+      ctx.shadowOffsetX = Math.max(1, fontSize / 16);
+      ctx.shadowOffsetY = Math.max(1, fontSize / 16);
 
-        for (let row = -1; row * stepY < h + stepY * 2; row++) {
-          const offsetX = (row % 2) * (stepX / 2);
-          for (let col = -1; col * stepX < w + stepX * 2; col++) {
-            const tileX = col * stepX + offsetX;
-            const tileY = row * stepY;
-            ctx.save();
-            ctx.translate(tileX, tileY);
-            ctx.rotate(angle);
-            ctx.fillText(text, 0, 0);
-            ctx.restore();
+      const textMetrics = ctx.measureText(activeText);
+      const textWidth = Math.max(textMetrics.width, fontSize * 2);
+      const textHeight = fontSize;
+
+      if (position === 'tiled') {
+        const stepX = Math.max(80, textWidth * 1.6);
+        const stepY = Math.max(50, textHeight * 3.5);
+
+        ctx.save();
+        ctx.translate(w / 2, h / 2);
+        // Default -25 deg tilt for tiled watermark unless user sets a custom rotation
+        const angle = rotation !== 0 ? (rotation * Math.PI) / 180 : (-25 * Math.PI) / 180;
+        ctx.rotate(angle);
+
+        const limit = diag / 2;
+        const startX = -Math.ceil(limit / stepX) * stepX - stepX;
+        const endX = Math.ceil(limit / stepX) * stepX + stepX;
+        const startY = -Math.ceil(limit / stepY) * stepY - stepY;
+        const endY = Math.ceil(limit / stepY) * stepY + stepY;
+
+        for (let y = startY; y <= endY; y += stepY) {
+          const rowIdx = Math.round(y / stepY);
+          const rowOffset = rowIdx % 2 !== 0 ? stepX / 2 : 0;
+          for (let x = startX; x <= endX; x += stepX) {
+            ctx.fillText(activeText, x + rowOffset, y);
           }
         }
+        ctx.restore();
       } else {
         let x = w / 2;
         let y = h / 2;
+        const padding = Math.max(16, baseDimension * 0.04);
 
-        switch (position) {
-          case 'top-left':
-            x = fontSize * 2;
-            y = fontSize * 2;
-            ctx.textAlign = 'left';
-            break;
-          case 'top-right':
-            x = w - fontSize * 2;
-            y = fontSize * 2;
-            ctx.textAlign = 'right';
-            break;
-          case 'bottom-left':
-            x = fontSize * 2;
-            y = h - fontSize * 2;
-            ctx.textAlign = 'left';
-            break;
-          case 'bottom-right':
-            x = w - fontSize * 2;
-            y = h - fontSize * 2;
-            ctx.textAlign = 'right';
-            break;
-          case 'center':
-          default:
-            x = w / 2;
-            y = h / 2;
-            break;
+        if (position === 'bottom-right') {
+          x = w - textWidth / 2 - padding;
+          y = h - textHeight / 2 - padding;
+        } else if (position === 'bottom-left') {
+          x = textWidth / 2 + padding;
+          y = h - textHeight / 2 - padding;
+        } else if (position === 'top-right') {
+          x = w - textWidth / 2 - padding;
+          y = textHeight / 2 + padding;
+        } else if (position === 'top-left') {
+          x = textWidth / 2 + padding;
+          y = textHeight / 2 + padding;
+        } else {
+          // center
+          x = w / 2;
+          y = h / 2;
         }
 
+        ctx.save();
         ctx.translate(x, y);
         if (rotation !== 0) {
           ctx.rotate((rotation * Math.PI) / 180);
         }
-        ctx.fillText(text, 0, 0);
+        ctx.fillText(activeText, 0, 0);
+        ctx.restore();
       }
     } else if (type === 'image' && image) {
-      const imgW = (w / 5) * scale;
-      const imgH = (image.height / image.width) * imgW;
+      const maxWmWidth = Math.max(30, (baseDimension / 6) * Math.max(0.2, scale));
+      const scaleRatio = maxWmWidth / (image.width || 100);
+      const imgW = (image.width || 100) * scaleRatio;
+      const imgH = (image.height || 100) * scaleRatio;
 
       if (position === 'tiled') {
         const stepX = imgW * 1.8;
         const stepY = imgH * 1.8;
-        const angle = rotation !== 0 ? (rotation * Math.PI) / 180 : 0;
 
-        for (let row = -1; row * stepY < h + stepY * 2; row++) {
-          const offsetX = (row % 2) * (stepX / 2);
-          for (let col = -1; col * stepX < w + stepX * 2; col++) {
-            const tileX = col * stepX + offsetX;
-            const tileY = row * stepY;
-            ctx.save();
-            ctx.translate(tileX + imgW / 2, tileY + imgH / 2);
-            if (angle !== 0) {
-              ctx.rotate(angle);
-            }
-            ctx.drawImage(image, -imgW / 2, -imgH / 2, imgW, imgH);
-            ctx.restore();
+        ctx.save();
+        ctx.translate(w / 2, h / 2);
+        const angle = (rotation * Math.PI) / 180;
+        if (angle !== 0) {
+          ctx.rotate(angle);
+        }
+
+        const limit = diag / 2;
+        const startX = -Math.ceil(limit / stepX) * stepX - stepX;
+        const endX = Math.ceil(limit / stepX) * stepX + stepX;
+        const startY = -Math.ceil(limit / stepY) * stepY - stepY;
+        const endY = Math.ceil(limit / stepY) * stepY + stepY;
+
+        for (let y = startY; y <= endY; y += stepY) {
+          const rowIdx = Math.round(y / stepY);
+          const rowOffset = rowIdx % 2 !== 0 ? stepX / 2 : 0;
+          for (let x = startX; x <= endX; x += stepX) {
+            ctx.drawImage(image, x + rowOffset - imgW / 2, y - imgH / 2, imgW, imgH);
           }
         }
+        ctx.restore();
       } else {
         let x = (w - imgW) / 2;
         let y = (h - imgH) / 2;
+        const padding = Math.max(16, baseDimension * 0.04);
 
-        switch (position) {
-          case 'top-left':
-            x = 20;
-            y = 20;
-            break;
-          case 'top-right':
-            x = w - imgW - 20;
-            y = 20;
-            break;
-          case 'bottom-left':
-            x = 20;
-            y = h - imgH - 20;
-            break;
-          case 'bottom-right':
-            x = w - imgW - 20;
-            y = h - imgH - 20;
-            break;
-          case 'center':
-          default:
-            x = (w - imgW) / 2;
-            y = (h - imgH) / 2;
-            break;
+        if (position === 'bottom-right') {
+          x = w - imgW - padding;
+          y = h - imgH - padding;
+        } else if (position === 'bottom-left') {
+          x = padding;
+          y = h - imgH - padding;
+        } else if (position === 'top-right') {
+          x = w - imgW - padding;
+          y = padding;
+        } else if (position === 'top-left') {
+          x = padding;
+          y = padding;
         }
 
+        ctx.save();
         ctx.translate(x + imgW / 2, y + imgH / 2);
         if (rotation !== 0) {
           ctx.rotate((rotation * Math.PI) / 180);
         }
         ctx.drawImage(image, -imgW / 2, -imgH / 2, imgW, imgH);
+        ctx.restore();
       }
     }
 
