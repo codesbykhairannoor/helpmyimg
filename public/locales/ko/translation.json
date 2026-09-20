@@ -1754,5 +1754,8 @@
   "editor.resetOriginal": "원본으로 재설정",
   "editor.resetDesc": "이 사진을 자르지 않은 원래 상태로 복원하세요.",
   "editor.uploadOther": "다른 이미지 업로드",
-  "editor.uploadOtherDesc": "기기에서 새 사진을 선택하고 업로드하세요."
+  "editor.uploadOtherDesc": "기기에서 새 사진을 선택하고 업로드하세요.",
+  "work.step.downloading": "AI 모델({{pct}}) 다운로드 중...",
+  "work.step.vector": "벡터 로고 정밀도 처리...",
+  "editor.resetSuccess": "이미지가 원래 상태로 복원되었습니다."
 }

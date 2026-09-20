@@ -1754,5 +1754,8 @@
   "editor.resetOriginal": "重置为原始状态",
   "editor.resetDesc": "将此照片恢复到原始未剪切状态",
   "editor.uploadOther": "上传其他图片",
-  "editor.uploadOtherDesc": "从设备中选择并上传新照片"
+  "editor.uploadOtherDesc": "从设备中选择并上传新照片",
+  "work.step.downloading": "正在下载 AI 模型 ({{pct}})...",
+  "work.step.vector": "加工矢量标志精度...",
+  "editor.resetSuccess": "图像恢复到原始状态。"
 }

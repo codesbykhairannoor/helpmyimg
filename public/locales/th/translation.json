@@ -1754,5 +1754,8 @@
   "editor.resetOriginal": "รีเซ็ตเป็นต้นฉบับ",
   "editor.resetDesc": "คืนค่ารูปภาพนี้ให้เป็นสถานะเดิมที่ไม่ได้เจียระไน",
   "editor.uploadOther": "อัปโหลดภาพอื่น ๆ",
-  "editor.uploadOtherDesc": "เลือกและอัปโหลดรูปภาพใหม่จากอุปกรณ์"
+  "editor.uploadOtherDesc": "เลือกและอัปโหลดรูปภาพใหม่จากอุปกรณ์",
+  "work.step.downloading": "กำลังดาวน์โหลดโมเดล AI ({{pct}})...",
+  "work.step.vector": "กำลังประมวลผลความแม่นยำของโลโก้เวกเตอร์...",
+  "editor.resetSuccess": "ภาพกลับคืนสู่สภาพเดิม"
 }

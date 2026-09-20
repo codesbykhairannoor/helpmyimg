@@ -1754,5 +1754,8 @@
   "editor.resetOriginal": "I-reset sa Orihinal",
   "editor.resetDesc": "Ibalik ang larawang ito sa orihinal na hindi pinutol na estado",
   "editor.uploadOther": "Mag-upload ng Ibang Larawan",
-  "editor.uploadOtherDesc": "Pumili at mag-upload ng bagong larawan mula sa device"
+  "editor.uploadOtherDesc": "Pumili at mag-upload ng bagong larawan mula sa device",
+  "work.step.downloading": "Dina-download ang AI Model ({{pct}})...",
+  "work.step.vector": "Pinoproseso ang katumpakan ng logo ng vector...",
+  "editor.resetSuccess": "Ang imahe ay naibalik sa orihinal na estado."
 }

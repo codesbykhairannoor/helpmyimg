@@ -1803,11 +1803,11 @@
   "color.off.pink": "Pastel Pink",
   "color.off.green": "Mint Green",
   "color.off.sky": "Sky Blue",
-  "work.step.init": "Menginisialisasi pipeline AI ONNX...",
+  "work.step.init": "Inisialisasi AI & model...",
   "work.step.segment": "Menganalisis subjek & topeng alfa...",
   "work.step.refine": "Menyempurnakan detail rambut & tepi...",
   "work.reprocessAi": "⚡ Proses Ulang AI Cutout",
-  "work.processing": "Memproses Potongan AI...",
+  "work.processing": "Memproses gambar dengan AI...",
   "editor.applying": "Menerapkan Efek...",
   "color.applyNow": "⚡ Ganti Background Sekarang",
   "remove.modeAutoActive": "Otomatis Adaptif",
@@ -1819,7 +1819,10 @@
   "remove.detectedLogo": "🏷️ Logo / Grafis Vektor (0ms)",
   "remove.detectedPhoto": "📷 Foto / Potret Natural (AI)",
   "editor.resetOriginal": "Reset ke Asli",
-  "editor.resetDesc": "Kembalikan foto ini ke kondisi asli tanpa potongan",
-  "editor.uploadOther": "Upload Gambar Lain",
-  "editor.uploadOtherDesc": "Pilih dan unggah foto baru dari perangkat"
+  "editor.resetDesc": "Kembalikan foto ini ke kondisi asli tanpa perubahan",
+  "editor.uploadOther": "Upload Lain",
+  "editor.uploadOtherDesc": "Pilih dan unggah foto baru dari perangkat",
+  "work.step.downloading": "Mengunduh Memori AI ({{pct}})...",
+  "work.step.vector": "Memproses presisi vektor logo...",
+  "editor.resetSuccess": "Gambar dikembalikan ke kondisi awal."
 }

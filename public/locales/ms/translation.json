@@ -1754,5 +1754,8 @@
   "editor.resetOriginal": "Tetapkan semula kepada Asal",
   "editor.resetDesc": "Pulihkan foto ini kepada keadaan asal tidak dipotong",
   "editor.uploadOther": "Muat Naik Imej Lain",
-  "editor.uploadOtherDesc": "Pilih dan muat naik foto baharu daripada peranti"
+  "editor.uploadOtherDesc": "Pilih dan muat naik foto baharu daripada peranti",
+  "work.step.downloading": "Memuat turun Model AI ({{pct}})...",
+  "work.step.vector": "Memproses ketepatan logo vektor...",
+  "editor.resetSuccess": "Imej dipulihkan kepada keadaan asal."
 }

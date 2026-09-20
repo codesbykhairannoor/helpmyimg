@@ -1754,5 +1754,8 @@
   "editor.resetOriginal": "Resetați la original",
   "editor.resetDesc": "Restabiliți această fotografie la starea originală netăiată",
   "editor.uploadOther": "Încărcați o altă imagine",
-  "editor.uploadOtherDesc": "Alegeți și încărcați o fotografie nouă de pe dispozitiv"
+  "editor.uploadOtherDesc": "Alegeți și încărcați o fotografie nouă de pe dispozitiv",
+  "work.step.downloading": "Se descarcă modelul AI ({{pct}})...",
+  "work.step.vector": "Se procesează precizia logo-ului vectorial...",
+  "editor.resetSuccess": "Imaginea a revenit la starea originală."
 }

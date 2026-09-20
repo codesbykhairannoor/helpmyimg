@@ -168,6 +168,7 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({ initialTab: rawIni
     handleFiles,
     processSingleItem,
     handleUploadOther,
+    handleResetCurrent,
     handleCanvasMouseDown,
     handleCanvasMouseMove,
     handleCanvasMouseUp,
@@ -271,23 +272,7 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({ initialTab: rawIni
               <div className="flex items-center gap-2">
                 <button
                   type="button"
-                  onClick={() => {
-                    if (currentItem?.originalUrl) {
-                      setBatchItems((prev) =>
-                        prev.map((item) =>
-                          item.id === currentItem.id
-                            ? {
-                                ...item,
-                                transparentUrl: null,
-                                processedUrl: item.originalUrl,
-                                status: 'idle',
-                                progress: 0,
-                              }
-                            : item
-                        )
-                      );
-                    }
-                  }}
+                  onClick={handleResetCurrent}
                   title={t('editor.resetDesc', { defaultValue: 'Kembalikan foto ini ke kondisi asli tanpa potongan' })}
                   className="flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-dark-700/80 hover:bg-dark-600 hover:border-neon-cyan/40 text-slate-300 hover:text-white text-xs font-semibold border border-dark-500 transition-all shadow-sm cursor-pointer"
                 >
@@ -337,23 +322,7 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({ initialTab: rawIni
                   batchUrls={batchItems
                     .filter((i) => i.status === 'done' && i.transparentUrl)
                     .map((i) => ({ name: i.name, url: i.transparentUrl! }))}
-                  onReset={() => {
-                    if (currentItem?.originalUrl) {
-                      setBatchItems((prev) =>
-                        prev.map((item) =>
-                          item.id === currentItem.id
-                            ? {
-                                ...item,
-                                transparentUrl: null,
-                                processedUrl: item.originalUrl,
-                                status: 'idle',
-                                progress: 0,
-                              }
-                            : item
-                        )
-                      );
-                    }
-                  }}
+                  onReset={handleResetCurrent}
                   isProcessing={
                     currentItem?.status === 'processing' ||
                     currentItem?.status === 'queued' ||
@@ -403,24 +372,7 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({ initialTab: rawIni
                   setSelectedPreset={setSelectedPreset}
                   bgBlur={bgBlur}
                   setBgBlur={setBgBlur}
-                  onReset={() => {
-                    setBgMode('color');
-                    setSelectedColor(initialColor);
-                    setBgBlur(0);
-                    if (currentItem) {
-                      setBatchItems((prev) =>
-                        prev.map((item) =>
-                          item.id === currentItem.id
-                            ? {
-                                ...item,
-                                processedUrl: item.transparentUrl || item.originalUrl,
-                                status: 'done',
-                              }
-                            : item
-                        )
-                      );
-                    }
-                  }}
+                  onReset={handleResetCurrent}
                   onUploadOther={handleUploadOther}
                   isProcessing={
                     currentItem?.status === 'processing' ||
@@ -455,15 +407,7 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({ initialTab: rawIni
                       );
                     }
                   }}
-                  onReset={() => {
-                    if (currentItem) {
-                      setBatchItems((prev) =>
-                        prev.map((i, idx) =>
-                          idx === selectedIndex ? { ...i, processedUrl: i.transparentUrl || i.originalUrl } : i
-                        )
-                      );
-                    }
-                  }}
+                  onReset={handleResetCurrent}
                   onUploadOther={handleUploadOther}
                   isProcessing={currentItem?.status === 'processing'}
                   batchCount={batchItems.length}
@@ -515,23 +459,7 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({ initialTab: rawIni
                       await new Promise((r) => setTimeout(r, 60));
                     }
                   }}
-                  onReset={() => {
-                    setWatermarkText('');
-                    setWatermarkImage(null);
-                    if (currentItem) {
-                      setBatchItems((prev) =>
-                        prev.map((item) =>
-                          item.id === currentItem.id
-                            ? {
-                                ...item,
-                                processedUrl: item.transparentUrl || item.originalUrl,
-                                status: 'done',
-                              }
-                            : item
-                        )
-                      );
-                    }
-                  }}
+                  onReset={handleResetCurrent}
                   onUploadOther={handleUploadOther}
                   isProcessing={currentItem?.status === 'processing'}
                 />
@@ -632,24 +560,7 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({ initialTab: rawIni
                       a.click();
                     }
                   }}
-                  onReset={() => {
-                    setCompressQuality(0.8);
-                    if (currentItem) {
-                      setBatchItems((prev) =>
-                        prev.map((item) =>
-                          item.id === currentItem.id
-                            ? {
-                                ...item,
-                                compressBlob: undefined,
-                                compressUrl: undefined,
-                                processedUrl: item.transparentUrl || item.originalUrl,
-                                status: 'done',
-                              }
-                            : item
-                        )
-                      );
-                    }
-                  }}
+                  onReset={handleResetCurrent}
                   onUploadOther={handleUploadOther}
                   isProcessing={currentItem?.status === 'processing'}
                 />
@@ -733,9 +644,7 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({ initialTab: rawIni
                       await new Promise((r) => setTimeout(r, 60));
                     }
                   }}
-                  onReset={() => {
-                    setConvertFormat('image/jpeg');
-                  }}
+                  onReset={handleResetCurrent}
                   isProcessing={currentItem?.status === 'processing'}
                 />
               )}
@@ -813,35 +722,7 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({ initialTab: rawIni
                       }
                     }
                   }}
-                  onReset={() => {
-                    if (currentItem && currentItem.initialDimensions) {
-                      setOriginalDimensions(currentItem.initialDimensions);
-                      setResizeWidth(currentItem.initialDimensions.width);
-                      setResizeHeight(currentItem.initialDimensions.height);
-                    } else {
-                      setResizeWidth(originalDimensions.width);
-                      setResizeHeight(originalDimensions.height);
-                    }
-                    setResizeMaintainRatio(false);
-                    if (currentItem) {
-                      const targetFile = currentItem.initialFile || currentItem.file;
-                      const targetUrl = currentItem.initialOriginalUrl || currentItem.originalUrl;
-                      setBatchItems((prev) =>
-                        prev.map((item) =>
-                          item.id === currentItem.id
-                            ? {
-                                ...item,
-                                file: targetFile,
-                                originalUrl: targetUrl,
-                                transparentUrl: item.transparentUrl ? targetUrl : null,
-                                processedUrl: targetUrl,
-                                status: 'done',
-                              }
-                            : item
-                        )
-                      );
-                    }
-                  }}
+                  onReset={handleResetCurrent}
                   onUploadOther={handleUploadOther}
                   batchCount={batchItems.length}
                   isProcessing={currentItem?.status === 'processing'}
@@ -917,12 +798,7 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({ initialTab: rawIni
                       }
                     }
                   }}
-                  onReset={() => {
-                    setCropX(0);
-                    setCropY(0);
-                    setCropWidth(originalDimensions.width);
-                    setCropHeight(originalDimensions.height);
-                  }}
+                  onReset={handleResetCurrent}
                   onUploadOther={handleUploadOther}
                   batchCount={batchItems.length}
                   isProcessing={currentItem?.status === 'processing'}
@@ -979,29 +855,7 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({ initialTab: rawIni
                       }
                     }
                   }}
-                  onReset={() => {
-                    setRotationDeg(0);
-                    setFlipH(false);
-                    setFlipV(false);
-                    if (currentItem?.rotateBaseUrl) {
-                      setBatchItems((prev) =>
-                        prev.map((item) =>
-                          item.id === currentItem.id
-                            ? {
-                                ...item,
-                                file: item.rotateBaseFile || item.file,
-                                originalUrl: item.rotateBaseUrl || item.originalUrl,
-                                transparentUrl: item.transparentUrl
-                                  ? item.rotateBaseUrl || item.transparentUrl
-                                  : null,
-                                processedUrl: item.rotateBaseUrl || item.processedUrl,
-                                status: 'done',
-                              }
-                            : item
-                        )
-                      );
-                    }
-                  }}
+                  onReset={handleResetCurrent}
                   onUploadOther={handleUploadOther}
                   batchCount={batchItems.length}
                   isProcessing={currentItem?.status === 'processing'}
@@ -1013,7 +867,7 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({ initialTab: rawIni
                   pickedColor={pickedColor}
                   dominantColors={dominantColors}
                   onSelectColor={(hex) => setPickedColor(hexToColorInfo(hex))}
-                  onReset={() => {}}
+                  onReset={handleResetCurrent}
                   onUploadOther={handleUploadOther}
                   batchCount={batchItems.length}
                   isProcessing={false}
@@ -1086,27 +940,7 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({ initialTab: rawIni
                       }
                     }
                   }}
-                  onReset={() => {
-                    setBlurBoxes([]);
-                    if (currentItem) {
-                      const targetFile = currentItem.initialFile || currentItem.file;
-                      const targetUrl = currentItem.initialOriginalUrl || currentItem.originalUrl;
-                      setBatchItems((prev) =>
-                        prev.map((item) =>
-                          item.id === currentItem.id
-                            ? {
-                                ...item,
-                                file: targetFile,
-                                originalUrl: targetUrl,
-                                transparentUrl: item.transparentUrl ? targetUrl : null,
-                                processedUrl: targetUrl,
-                                status: 'done',
-                              }
-                            : item
-                        )
-                      );
-                    }
-                  }}
+                  onReset={handleResetCurrent}
                   onUploadOther={handleUploadOther}
                   batchCount={batchItems.length}
                   isProcessing={false}

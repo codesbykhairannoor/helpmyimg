@@ -1754,5 +1754,8 @@
   "editor.resetOriginal": "Tilbakestill til original",
   "editor.resetDesc": "Gjenopprett dette bildet til original uklippet tilstand",
   "editor.uploadOther": "Last opp annet bilde",
-  "editor.uploadOtherDesc": "Velg og last opp et nytt bilde fra enheten"
+  "editor.uploadOtherDesc": "Velg og last opp et nytt bilde fra enheten",
+  "work.step.downloading": "Laster ned AI-modell ({{pct}})...",
+  "work.step.vector": "Behandler vektorlogopresisjon...",
+  "editor.resetSuccess": "Bildet er gjenopprettet til opprinnelig tilstand."
 }

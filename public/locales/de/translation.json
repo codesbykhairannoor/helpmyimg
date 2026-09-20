@@ -1754,5 +1754,8 @@
   "editor.resetOriginal": "Auf Original zurücksetzen",
   "editor.resetDesc": "Stellen Sie den ursprünglichen, ungeschnittenen Zustand dieses Fotos wieder her",
   "editor.uploadOther": "Anderes Bild hochladen",
-  "editor.uploadOtherDesc": "Wählen Sie ein neues Foto aus und laden Sie es vom Gerät hoch"
+  "editor.uploadOtherDesc": "Wählen Sie ein neues Foto aus und laden Sie es vom Gerät hoch",
+  "work.step.downloading": "KI-Modell ({{pct}}) wird heruntergeladen...",
+  "work.step.vector": "Vektor-Logo-Präzision wird verarbeitet...",
+  "editor.resetSuccess": "Bild im Originalzustand wiederhergestellt."
 }

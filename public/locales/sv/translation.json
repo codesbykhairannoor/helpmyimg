@@ -1754,5 +1754,8 @@
   "editor.resetOriginal": "Återställ till original",
   "editor.resetDesc": "Återställ det här fotot till det ursprungliga oklippta tillståndet",
   "editor.uploadOther": "Ladda upp annan bild",
-  "editor.uploadOtherDesc": "Välj och ladda upp ett nytt foto från enheten"
+  "editor.uploadOtherDesc": "Välj och ladda upp ett nytt foto från enheten",
+  "work.step.downloading": "Laddar ner AI-modell ({{pct}})...",
+  "work.step.vector": "Bearbetar precision för vektorlogotyp...",
+  "editor.resetSuccess": "Bilden återställd till originaltillstånd."
 }

@@ -1754,5 +1754,8 @@
   "editor.resetOriginal": "Terugzetten naar origineel",
   "editor.resetDesc": "Herstel deze foto in de originele, ongesneden staat",
   "editor.uploadOther": "Upload andere afbeelding",
-  "editor.uploadOtherDesc": "Kies en upload een nieuwe foto vanaf het apparaat"
+  "editor.uploadOtherDesc": "Kies en upload een nieuwe foto vanaf het apparaat",
+  "work.step.downloading": "AI-model downloaden ({{pct}})...",
+  "work.step.vector": "Precisie van vectorlogo verwerken...",
+  "editor.resetSuccess": "Afbeelding hersteld in originele staat."
 }

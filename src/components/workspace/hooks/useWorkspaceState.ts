@@ -107,13 +107,13 @@ export function useWorkspaceState(initialTab: TabType = 'remove', keywordSlug?: 
     img.onload = () => {
       setImageElement(img);
       resize.setOriginalDimensions({ width: img.naturalWidth, height: img.naturalHeight });
-      if (resize.resizeWidth === 0 && resize.resizeHeight === 0) {
+      if (resize.resizeWidth === 0 || resize.resizeHeight === 0) {
         resize.setResizeWidth(img.naturalWidth);
         resize.setResizeHeight(img.naturalHeight);
       }
     };
-    img.src = currentItem.processedUrl || currentItem.originalUrl;
-  }, [currentItem?.id, currentItem?.processedUrl]);
+    img.src = currentItem.originalUrl;
+  }, [currentItem?.id, currentItem?.originalUrl]);
 
   // --- Background Removal Execution for a Single Item ---
   const processSingleItem = useCallback(
@@ -228,6 +228,33 @@ export function useWorkspaceState(initialTab: TabType = 'remove', keywordSlug?: 
         });
       } else if (initialTab === 'blurface' || initialTab === 'blurplate') {
         resultCanvas = BlurEngine.applyBlurBoxes(img, blur.blurBoxes, blur.blurIntensity);
+      } else if (initialTab === 'resize' || initialTab === 'resizeig' || initialTab === 'resizepassport') {
+        const targetW = resize.resizeWidth > 0 ? resize.resizeWidth : img.width;
+        const targetH = resize.resizeHeight > 0 ? resize.resizeHeight : img.height;
+        resultCanvas = document.createElement('canvas');
+        resultCanvas.width = targetW;
+        resultCanvas.height = targetH;
+        const ctx = resultCanvas.getContext('2d')!;
+        ctx.imageSmoothingEnabled = true;
+        ctx.imageSmoothingQuality = 'high';
+        ctx.drawImage(img, 0, 0, targetW, targetH);
+      } else if (initialTab === 'rotate') {
+        const rad = (rotate.rotationDeg * Math.PI) / 180;
+        const sin = Math.abs(Math.sin(rad));
+        const cos = Math.abs(Math.cos(rad));
+        const newW = Math.max(1, Math.round(img.width * cos + img.height * sin));
+        const newH = Math.max(1, Math.round(img.width * sin + img.height * cos));
+
+        resultCanvas = document.createElement('canvas');
+        resultCanvas.width = newW;
+        resultCanvas.height = newH;
+        const ctx = resultCanvas.getContext('2d')!;
+        ctx.imageSmoothingEnabled = true;
+        ctx.imageSmoothingQuality = 'high';
+        ctx.translate(newW / 2, newH / 2);
+        ctx.rotate(rad);
+        ctx.scale(rotate.flipH ? -1 : 1, rotate.flipV ? -1 : 1);
+        ctx.drawImage(img, -img.width / 2, -img.height / 2);
       } else if (initialTab === 'picker') {
         resultCanvas = document.createElement('canvas');
         resultCanvas.width = img.width;
@@ -274,6 +301,13 @@ export function useWorkspaceState(initialTab: TabType = 'remove', keywordSlug?: 
     watermark.watermarkRotation,
     blur.blurBoxes,
     blur.blurIntensity,
+    resize.resizeWidth,
+    resize.resizeHeight,
+    resize.maintainRatio,
+    resize.resizeMode,
+    rotate.rotationDeg,
+    rotate.flipH,
+    rotate.flipV,
     colorPicker,
     setBatchItems,
   ]);
@@ -305,7 +339,15 @@ export function useWorkspaceState(initialTab: TabType = 'remove', keywordSlug?: 
     watermark.watermarkRotation,
     blur.blurBoxes,
     blur.blurIntensity,
+    resize.resizeWidth,
+    resize.resizeHeight,
+    resize.maintainRatio,
+    resize.resizeMode,
+    rotate.rotationDeg,
+    rotate.flipH,
+    rotate.flipV,
     currentItem?.transparentUrl,
+    currentItem?.originalUrl,
     selectedIndex,
   ]);
 
@@ -418,6 +460,45 @@ export function useWorkspaceState(initialTab: TabType = 'remove', keywordSlug?: 
     }
   }, [initialTab, currentItem?.processedUrl]);
 
+  // Enhanced Reset handler that resets batchItem state AND tool parameters
+  const handleEnhancedReset = useCallback(() => {
+    handleReset();
+    if (!currentItem) return;
+
+    // Reset sub-tool states
+    const img = new Image();
+    img.crossOrigin = 'anonymous';
+    img.onload = () => {
+      resize.setResizeWidth(img.naturalWidth);
+      resize.setResizeHeight(img.naturalHeight);
+      resize.setOriginalDimensions({ width: img.naturalWidth, height: img.naturalHeight });
+    };
+    img.src = currentItem.originalUrl;
+    resize.setMaintainRatio(true);
+    resize.setResizeMode('standard');
+
+    rotate.setRotationDeg(0);
+    rotate.setFlipH(false);
+    rotate.setFlipV(false);
+
+    colorBg.setSelectedColor(initialColor);
+    colorBg.setBgMode('color');
+    colorBg.setSelectedGradient(null);
+    colorBg.setCustomBgUrl(null);
+    colorBg.setBgBlur(0);
+
+    watermark.setWatermarkText('');
+    watermark.setWatermarkImage(null);
+    watermark.setWatermarkOpacity(0.8);
+    watermark.setWatermarkRotation(0);
+    watermark.setWatermarkScale(0.2);
+
+    blur.setBlurBoxes([]);
+    blur.setBlurIntensity(20);
+
+    brush.resetBrush();
+  }, [handleReset, currentItem, initialColor, resize, rotate, colorBg, watermark, blur, brush]);
+
   return {
     t,
     batchItems,
@@ -440,7 +521,7 @@ export function useWorkspaceState(initialTab: TabType = 'remove', keywordSlug?: 
     handleFiles,
     processSingleItem,
     handleUploadOther,
-    handleResetCurrent: handleReset,
+    handleResetCurrent: handleEnhancedReset,
     handleZipDownload: handleDownloadZip,
     handleDownloadSingle,
     handleCanvasMouseDown,

@@ -1754,5 +1754,8 @@
   "editor.resetOriginal": "אפס למקור",
   "editor.resetDesc": "שחזר תמונה זו למצב המקורי לא חתוך",
   "editor.uploadOther": "העלה תמונה אחרת",
-  "editor.uploadOtherDesc": "בחר והעלה תמונה חדשה מהמכשיר"
+  "editor.uploadOtherDesc": "בחר והעלה תמונה חדשה מהמכשיר",
+  "work.step.downloading": "מוריד מודל AI ({{pct}})...",
+  "work.step.vector": "מעבד דיוק לוגו וקטור...",
+  "editor.resetSuccess": "התמונה שוחזרה למצב המקורי."
 }

@@ -115,22 +115,23 @@ export function useWorkspaceCore(initialTab: TabType = 'remove'): UseWorkspaceCo
   // Reset current item back to original unedited state (Keep file in workspace)
   const handleReset = useCallback(() => {
     if (!currentItem) return;
+    const isRemoveTab = initialTab === 'remove';
     setBatchItems((prev) =>
       prev.map((i) =>
         i.id === currentItem.id
           ? {
               ...i,
               processedUrl: i.originalUrl,
-              transparentUrl: null,
-              status: 'idle',
-              progress: 0,
+              transparentUrl: isRemoveTab ? null : i.originalUrl,
+              status: isRemoveTab ? 'idle' : 'done',
+              progress: isRemoveTab ? 0 : 100,
               progressStep: t('work.waiting', { defaultValue: 'Ready to process' }),
             }
           : i
       )
     );
     setToastMessage(t('editor.resetSuccess', { defaultValue: 'Gambar dikembalikan ke kondisi awal.' }));
-  }, [currentItem, t]);
+  }, [currentItem, initialTab, t]);
 
   // Upload other image (Triggers file input)
   const handleUploadOther = useCallback(() => {

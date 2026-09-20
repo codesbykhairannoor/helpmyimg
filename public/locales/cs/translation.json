@@ -1754,5 +1754,8 @@
   "editor.resetOriginal": "Obnovit původní",
   "editor.resetDesc": "Obnovte tuto fotografii do původního nerozřezaného stavu",
   "editor.uploadOther": "Nahrát jiný obrázek",
-  "editor.uploadOtherDesc": "Vyberte a nahrajte novou fotografii ze zařízení"
+  "editor.uploadOtherDesc": "Vyberte a nahrajte novou fotografii ze zařízení",
+  "work.step.downloading": "Stahování modelu AI ({{pct}})...",
+  "work.step.vector": "Přesnost zpracování vektorového loga...",
+  "editor.resetSuccess": "Obrázek obnoven do původního stavu."
 }

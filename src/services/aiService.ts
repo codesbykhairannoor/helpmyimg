@@ -46,9 +46,9 @@ class AIService {
     try {
       // ===== LOGO / FLAT GRAPHIC: Gunakan Color-Key Vector Precision =====
       if (imageType === 'logo') {
-        if (onProgress) onProgress('Memproses presisi vektor logo...', 50);
+        if (onProgress) onProgress('vector', 50);
         const result = await this.removeBackgroundByColorKey(file, colorTolerance);
-        if (onProgress) onProgress('Selesai', 100);
+        if (onProgress) onProgress('ready', 100);
         return result;
       }
 

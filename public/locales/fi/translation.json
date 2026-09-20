@@ -1754,5 +1754,8 @@
   "editor.resetOriginal": "Palauta alkuperäiseen",
   "editor.resetDesc": "Palauta tämä valokuva alkuperäiseen leikkaamattomaan tilaan",
   "editor.uploadOther": "Lataa toinen kuva",
-  "editor.uploadOtherDesc": "Valitse ja lähetä uusi kuva laitteesta"
+  "editor.uploadOtherDesc": "Valitse ja lähetä uusi kuva laitteesta",
+  "work.step.downloading": "Ladataan tekoälymallia ({{pct}})...",
+  "work.step.vector": "Käsitellään vektorilogon tarkkuutta...",
+  "editor.resetSuccess": "Kuva palautettu alkuperäiseen tilaan."
 }

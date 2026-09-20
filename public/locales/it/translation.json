@@ -1754,5 +1754,8 @@
   "editor.resetOriginal": "Ripristina originale",
   "editor.resetDesc": "Ripristina questa foto allo stato originale non tagliato",
   "editor.uploadOther": "Carica un'altra immagine",
-  "editor.uploadOtherDesc": "Scegli e carica una nuova foto dal dispositivo"
+  "editor.uploadOtherDesc": "Scegli e carica una nuova foto dal dispositivo",
+  "work.step.downloading": "Download del modello AI ({{pct}})...",
+  "work.step.vector": "Elaborazione della precisione del logo vettoriale...",
+  "editor.resetSuccess": "Immagine ripristinata allo stato originale."
 }

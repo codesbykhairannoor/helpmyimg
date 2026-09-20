@@ -1754,5 +1754,8 @@
   "editor.resetOriginal": "मूल पर रीसेट करें",
   "editor.resetDesc": "इस फ़ोटो को बिना काटे मूल स्थिति में पुनर्स्थापित करें",
   "editor.uploadOther": "अन्य छवि अपलोड करें",
-  "editor.uploadOtherDesc": "डिवाइस से एक नई फ़ोटो चुनें और अपलोड करें"
+  "editor.uploadOtherDesc": "डिवाइस से एक नई फ़ोटो चुनें और अपलोड करें",
+  "work.step.downloading": "AI मॉडल ({{pct}}) डाउनलोड हो रहा है...",
+  "work.step.vector": "वेक्टर लोगो परिशुद्धता से प्रसंस्करण किया जा रहा है...",
+  "editor.resetSuccess": "छवि को मूल स्थिति में पुनर्स्थापित किया गया."
 }

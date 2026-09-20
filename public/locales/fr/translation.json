@@ -1754,5 +1754,8 @@
   "editor.resetOriginal": "Réinitialiser à l'original",
   "editor.resetDesc": "Restaurer cette photo à son état d'origine non coupé",
   "editor.uploadOther": "Télécharger une autre image",
-  "editor.uploadOtherDesc": "Choisissez et téléchargez une nouvelle photo depuis l'appareil"
+  "editor.uploadOtherDesc": "Choisissez et téléchargez une nouvelle photo depuis l'appareil",
+  "work.step.downloading": "Téléchargement du modèle d'IA ({{pct}})...",
+  "work.step.vector": "Traitement de la précision du logo vectoriel...",
+  "editor.resetSuccess": "Image restaurée à son état d'origine."
 }

@@ -1737,10 +1737,10 @@
   "color.off.pink": "Pastel Pink",
   "color.off.green": "Mint Green",
   "color.off.sky": "Sky Blue",
-  "work.step.init": "Initializing ONNX AI pipeline & tensors...",
+  "work.step.init": "Initializing AI pipeline & model...",
   "work.step.segment": "Segmenting foreground subject & alpha mask...",
   "work.step.refine": "Refining ultra-crisp hair & edge transparency...",
-  "work.processing": "Processing AI Cutout...",
+  "work.processing": "Processing image with AI...",
   "editor.applying": "Applying Effect...",
   "remove.modeAutoActive": "Adaptive Auto",
   "remove.modeLogoActive": "Vector Mode",
@@ -1751,7 +1751,10 @@
   "remove.detectedLogo": "🏷️ Logo / Vector Graphic (0ms)",
   "remove.detectedPhoto": "📷 Natural Photo / Portrait (AI)",
   "editor.resetOriginal": "Reset to Original",
-  "editor.resetDesc": "Restore this photo to original uncut state",
-  "editor.uploadOther": "Upload Other Image",
-  "editor.uploadOtherDesc": "Pick and upload a new photo from device"
+  "editor.resetDesc": "Restore this photo to original state without changes",
+  "editor.uploadOther": "Upload Other",
+  "editor.uploadOtherDesc": "Pick and upload a new photo from device",
+  "work.step.downloading": "Downloading AI Model ({{pct}})...",
+  "work.step.vector": "Processing vector logo precision...",
+  "editor.resetSuccess": "Image restored to original state."
 }

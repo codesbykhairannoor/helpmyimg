@@ -1754,5 +1754,8 @@
   "editor.resetOriginal": "Visszaállítás eredetire",
   "editor.resetDesc": "Állítsa vissza ezt a fényképet az eredeti, vágatlan állapotba",
   "editor.uploadOther": "Másik kép feltöltése",
-  "editor.uploadOtherDesc": "Válasszon ki és töltsön fel egy új fényképet az eszközről"
+  "editor.uploadOtherDesc": "Válasszon ki és töltsön fel egy új fényképet az eszközről",
+  "work.step.downloading": "AI-modell ({{pct}}) letöltése...",
+  "work.step.vector": "Vektoros logó pontos feldolgozása...",
+  "editor.resetSuccess": "A kép visszaállítva az eredeti állapotba."
 }

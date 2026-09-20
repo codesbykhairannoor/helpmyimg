@@ -21,7 +21,7 @@ async function initModel(onProgress: (status: string, progress: number) => void)
 
   isInitializing = true;
   try {
-    onProgress('Mengunduh Memori AI...', 0);
+    onProgress('downloading:0', 0);
     
     // Load state-of-the-art Bria RMBG-1.4 model (8-bit Quantized)
     model = await AutoModel.from_pretrained('briaai/RMBG-1.4', {
@@ -30,9 +30,10 @@ async function initModel(onProgress: (status: string, progress: number) => void)
       dtype: 'q8',
       progress_callback: (data: any) => {
          if (data.status === 'progress') {
-            onProgress(`Mengunduh Memori AI...`, Math.round(data.progress));
+            const pct = Math.round(data.progress || 0);
+            onProgress(`downloading:${pct}`, pct);
          } else if (data.status === 'ready') {
-            onProgress(`Model siap.`, 100);
+            onProgress(`ready`, 100);
          }
       }
     });
@@ -80,7 +81,7 @@ self.onmessage = async (e: MessageEvent) => {
         self.postMessage({ type: 'PROGRESS', id, payload: { status, progress } });
       });
 
-      self.postMessage({ type: 'PROGRESS', id, payload: { status: 'Memproses AI...', progress: 100 } });
+      self.postMessage({ type: 'PROGRESS', id, payload: { status: 'processing', progress: 100 } });
       
       let image: RawImage;
       if (payload.imageBlob) {

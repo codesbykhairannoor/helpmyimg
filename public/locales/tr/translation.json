@@ -1754,5 +1754,8 @@
   "editor.resetOriginal": "Orijinale Sıfırla",
   "editor.resetDesc": "Bu fotoğrafı orijinal kesilmemiş durumuna geri yükleyin",
   "editor.uploadOther": "Başka Resim Yükle",
-  "editor.uploadOtherDesc": "Cihazdan yeni bir fotoğraf seçip yükleyin"
+  "editor.uploadOtherDesc": "Cihazdan yeni bir fotoğraf seçip yükleyin",
+  "work.step.downloading": "AI Modeli İndiriliyor ({{pct}})...",
+  "work.step.vector": "Vektör logo hassasiyeti işleniyor...",
+  "editor.resetSuccess": "Resim orijinal durumuna geri yüklendi."
 }

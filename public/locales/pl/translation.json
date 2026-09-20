@@ -1759,5 +1759,8 @@
   "editor.resetOriginal": "Zresetuj do oryginału",
   "editor.resetDesc": "Przywróć to zdjęcie do pierwotnego, nieobciętego stanu",
   "editor.uploadOther": "Prześlij inny obraz",
-  "editor.uploadOtherDesc": "Wybierz i prześlij nowe zdjęcie z urządzenia"
+  "editor.uploadOtherDesc": "Wybierz i prześlij nowe zdjęcie z urządzenia",
+  "work.step.downloading": "Pobieranie modelu AI ({{pct}})...",
+  "work.step.vector": "Precyzja przetwarzania logo wektorowego...",
+  "editor.resetSuccess": "Obraz przywrócony do stanu pierwotnego."
 }

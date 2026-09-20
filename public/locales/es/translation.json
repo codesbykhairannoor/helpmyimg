@@ -1754,5 +1754,8 @@
   "editor.resetOriginal": "Restablecer al original",
   "editor.resetDesc": "Restaurar esta foto al estado original sin cortes",
   "editor.uploadOther": "Subir otra imagen",
-  "editor.uploadOtherDesc": "Elija y cargue una nueva foto desde el dispositivo"
+  "editor.uploadOtherDesc": "Elija y cargue una nueva foto desde el dispositivo",
+  "work.step.downloading": "Descargando modelo AI ({{pct}})...",
+  "work.step.vector": "Procesamiento de precisión de logotipo vectorial...",
+  "editor.resetSuccess": "Imagen restaurada a su estado original."
 }

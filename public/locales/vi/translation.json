@@ -1754,5 +1754,8 @@
   "editor.resetOriginal": "Đặt lại về bản gốc",
   "editor.resetDesc": "Khôi phục ảnh này về trạng thái ban đầu chưa cắt",
   "editor.uploadOther": "Tải lên hình ảnh khác",
-  "editor.uploadOtherDesc": "Chọn và tải ảnh mới lên từ thiết bị"
+  "editor.uploadOtherDesc": "Chọn và tải ảnh mới lên từ thiết bị",
+  "work.step.downloading": "Đang tải xuống Mô hình AI ({{pct}})...",
+  "work.step.vector": "Đang xử lý độ chính xác của logo vector...",
+  "editor.resetSuccess": "Hình ảnh được khôi phục về trạng thái ban đầu."
 }

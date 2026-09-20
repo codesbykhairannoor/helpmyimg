@@ -1,7 +1,7 @@
 // src/components/workspace/tools/ResizeControl.tsx
 import React from 'react';
 import { useTranslation } from '../../../context/LanguageContext';
-import { RefreshCw, Link as LinkIcon, Unlink } from 'lucide-react';
+import { RotateCcw, Upload, Link as LinkIcon, Unlink } from 'lucide-react';
 
 interface ResizeControlProps {
   originalWidth: number;
@@ -151,27 +151,32 @@ export const ResizeControl: React.FC<ResizeControlProps> = ({
           </div>
       </div>
 
-      <div className="space-y-3 pt-2">
-        <button
-          onClick={onReset}
-          disabled={isProcessing}
-          className="w-full flex items-center justify-center gap-2 py-3 px-4 rounded-xl border border-dark-600 bg-dark-800 text-slate-300 font-semibold hover:bg-dark-700 hover:text-white transition-colors disabled:opacity-50 text-sm"
-        >
-          <RefreshCw className="w-4 h-4 text-emerald-400 shrink-0" />
-          <span>{t('btn.reset', { defaultValue: 'Atur Ulang / Kembalikan' })}</span>
-        </button>
-
-        {batchCount === 1 && (
+      {/* Standardized 2-Button Action Grid */}
+      {batchCount >= 1 && (
+        <div className="grid grid-cols-2 gap-2.5 pt-3 border-t border-dark-700/80 mt-2">
           <button
-            onClick={onUploadOther || onReset}
+            type="button"
+            onClick={onReset}
             disabled={isProcessing}
-            className="w-full flex items-center justify-center gap-2 py-3 px-4 rounded-xl border border-dark-600 bg-dark-800 text-slate-300 font-semibold hover:bg-dark-700 hover:text-white transition-colors disabled:opacity-50 text-sm"
+            title={t('editor.resetDesc', { defaultValue: 'Kembalikan foto ini ke kondisi asli tanpa perubahan' })}
+            className="flex items-center justify-center gap-1.5 py-3 px-2.5 rounded-xl bg-dark-800 hover:bg-dark-700 text-slate-300 hover:text-white font-bold text-xs transition-all border border-dark-600 cursor-pointer disabled:opacity-50"
           >
-            <RefreshCw className="w-4 h-4 text-neon-cyan shrink-0" />
-            <span>{t('editor.reset')}</span>
+            <RotateCcw className="w-3.5 h-3.5 text-neon-cyan shrink-0" />
+            <span className="truncate">{t('editor.resetOriginal', { defaultValue: 'Reset ke Asli' })}</span>
           </button>
-        )}
-      </div>
+
+          <button
+            type="button"
+            onClick={onUploadOther}
+            disabled={isProcessing}
+            title={t('editor.uploadOtherDesc', { defaultValue: 'Pilih dan unggah foto baru dari perangkat' })}
+            className="flex items-center justify-center gap-1.5 py-3 px-2.5 rounded-xl bg-dark-800 hover:bg-dark-700 text-slate-300 hover:text-white font-bold text-xs transition-all border border-dark-600 cursor-pointer disabled:opacity-50"
+          >
+            <Upload className="w-3.5 h-3.5 text-neon-emerald shrink-0" />
+            <span className="truncate">{t('editor.uploadOther', { defaultValue: 'Upload Lain' })}</span>
+          </button>
+        </div>
+      )}
     </div>
   );
 };

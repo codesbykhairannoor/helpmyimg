@@ -1754,5 +1754,8 @@
   "editor.resetOriginal": "Nulstil til original",
   "editor.resetDesc": "Gendan dette foto til den oprindelige uklippede tilstand",
   "editor.uploadOther": "Upload andet billede",
-  "editor.uploadOtherDesc": "Vælg og upload et nyt billede fra enheden"
+  "editor.uploadOtherDesc": "Vælg og upload et nyt billede fra enheden",
+  "work.step.downloading": "Downloader AI-model ({{pct}})...",
+  "work.step.vector": "Behandler vektorlogopræcision...",
+  "editor.resetSuccess": "Billedet er gendannet til original tilstand."
 }

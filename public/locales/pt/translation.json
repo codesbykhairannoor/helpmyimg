@@ -1754,5 +1754,8 @@
   "editor.resetOriginal": "Redefinir para original",
   "editor.resetDesc": "Restaure esta foto ao estado original sem cortes",
   "editor.uploadOther": "Carregar outra imagem",
-  "editor.uploadOtherDesc": "Escolha e carregue uma nova foto do dispositivo"
+  "editor.uploadOtherDesc": "Escolha e carregue uma nova foto do dispositivo",
+  "work.step.downloading": "Baixando modelo de IA ({{pct}})...",
+  "work.step.vector": "Processando precisão de logotipo vetorial...",
+  "editor.resetSuccess": "Imagem restaurada ao estado original."
 }

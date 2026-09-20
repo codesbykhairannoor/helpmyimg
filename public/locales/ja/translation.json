@@ -1754,5 +1754,8 @@
   "editor.resetOriginal": "オリジナルにリセット",
   "editor.resetDesc": "この写真を元のカットされていない状態に復元します",
   "editor.uploadOther": "他の画像をアップロードする",
-  "editor.uploadOtherDesc": "デバイスから新しい写真を選択してアップロードします"
+  "editor.uploadOtherDesc": "デバイスから新しい写真を選択してアップロードします",
+  "work.step.downloading": "AI モデル ({{pct}}) をダウンロードしています...",
+  "work.step.vector": "ベクトルのロゴの精度を処理します。",
+  "editor.resetSuccess": "画像は元の状態に復元されました。"
 }
