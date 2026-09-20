@@ -26,9 +26,9 @@ export interface UseWatermarkReturn {
 }
 
 export function useWatermark(): UseWatermarkReturn {
-  const [watermarkText, setWatermarkText] = useState('');
+  const [watermarkText, setWatermarkText] = useState('HelpMyIMG');
   const [watermarkColor, setWatermarkColor] = useState('#ffffff');
-  const [watermarkOpacity, setWatermarkOpacity] = useState(0.5);
+  const [watermarkOpacity, setWatermarkOpacity] = useState(0.6);
   const [watermarkPosition, setWatermarkPosition] = useState<WatermarkPosition>('center');
   const [watermarkType, setWatermarkType] = useState<'text' | 'image'>('text');
   const [watermarkImage, setWatermarkImage] = useState<HTMLImageElement | null>(null);
