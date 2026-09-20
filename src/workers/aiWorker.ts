@@ -24,17 +24,39 @@ async function initModel(onProgress: (status: string, progress: number) => void)
   try {
     onProgress('Menginisialisasi Bria RMBG-1.4...', 0);
     
-    model = await AutoModel.from_pretrained('briaai/RMBG-1.4', {
-      // @ts-ignore
-      config: { model_type: 'custom' },
-      progress_callback: (data: any) => {
-         if (data.status === 'progress') {
-            onProgress(`Mengunduh Memori AI...`, Math.round(data.progress));
-         } else if (data.status === 'ready') {
-            onProgress(`Model siap.`, 100);
-         }
-      }
-    });
+    // Try WebGPU first, fallback to wasm
+    const isWebGPUSupported = typeof navigator !== 'undefined' && 'gpu' in navigator;
+    const device = isWebGPUSupported ? 'webgpu' : 'wasm';
+
+    try {
+      model = await AutoModel.from_pretrained('briaai/RMBG-1.4', {
+        // @ts-ignore
+        config: { model_type: 'custom' },
+        dtype: 'q8',
+        device: device,
+        progress_callback: (data: any) => {
+           if (data.status === 'progress') {
+              onProgress(`Mengunduh Memori AI...`, Math.round(data.progress));
+           } else if (data.status === 'ready') {
+              onProgress(`Model siap.`, 100);
+           }
+        }
+      });
+    } catch (e) {
+      // Fallback if WebGPU fails
+      model = await AutoModel.from_pretrained('briaai/RMBG-1.4', {
+        // @ts-ignore
+        config: { model_type: 'custom' },
+        dtype: 'q8',
+        progress_callback: (data: any) => {
+           if (data.status === 'progress') {
+              onProgress(`Mengunduh Memori AI...`, Math.round(data.progress));
+           } else if (data.status === 'ready') {
+              onProgress(`Model siap.`, 100);
+           }
+        }
+      });
+    }
 
     processor = await AutoProcessor.from_pretrained('briaai/RMBG-1.4', {
       config: {

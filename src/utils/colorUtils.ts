@@ -41,8 +41,12 @@ export function rgbToCmyk(r: number, g: number, b: number): [number, number, num
   ];
 }
 
+export function rgbToHex(r: number, g: number, b: number): string {
+  return '#' + [r, g, b].map(v => v.toString(16).padStart(2, '0')).join('');
+}
+
 export function buildColorInfo(r: number, g: number, b: number): ColorInfo {
-  const hex = '#' + [r, g, b].map(v => v.toString(16).padStart(2, '0')).join('');
+  const hex = rgbToHex(r, g, b);
   const [h, s, l] = rgbToHsl(r, g, b);
   const [c, m, y, k] = rgbToCmyk(r, g, b);
   return { hex, r, g, b, h, s, l, c, m, y, k };
