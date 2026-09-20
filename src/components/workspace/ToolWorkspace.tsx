@@ -243,6 +243,9 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({ initialTab: rawIni
                 blurBoxes={blurBoxes}
                 setBlurBoxes={setBlurBoxes}
                 blurIntensity={blurIntensity}
+                resizeWidth={resizeWidth}
+                resizeHeight={resizeHeight}
+                resizeMode={resizeMode}
               />
 
               <BatchThumbnails
@@ -270,15 +273,6 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({ initialTab: rawIni
                 <span>{t('editor.settings', { defaultValue: 'Tool Settings' })}</span>
               </h3>
               <div className="flex items-center gap-2">
-                <button
-                  type="button"
-                  onClick={handleResetCurrent}
-                  title={t('editor.resetDesc', { defaultValue: 'Kembalikan foto ini ke kondisi asli tanpa potongan' })}
-                  className="flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-dark-700/80 hover:bg-dark-600 hover:border-neon-cyan/40 text-slate-300 hover:text-white text-xs font-semibold border border-dark-500 transition-all shadow-sm cursor-pointer"
-                >
-                  <RotateCcw className="w-3.5 h-3.5 text-neon-cyan" />
-                  <span>{t('editor.resetOriginal', { defaultValue: 'Reset ke Asli' })}</span>
-                </button>
                 <span className="text-xs px-2.5 py-1 rounded-lg bg-neon-cyan/15 text-neon-cyan font-mono font-bold border border-neon-cyan/30">
                   {(initialTab === 'remove' || initialTab === 'removelogo' || initialTab === 'removeperson') &&
                     t('work.badge.remove', { defaultValue: 'Remove Background' })}

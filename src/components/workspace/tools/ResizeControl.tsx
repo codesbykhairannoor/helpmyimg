@@ -82,19 +82,33 @@ export const ResizeControl: React.FC<ResizeControlProps> = ({
         
         <div className="space-y-4 animate-in fade-in zoom-in duration-200">
             {/* Quick Presets */}
-            <div className="flex flex-wrap gap-2 mb-2">
-              <button onClick={() => { setResizeWidth(1080); setResizeHeight(1080); setMaintainRatio(false); }} className="px-2.5 py-1 rounded-lg bg-dark-800 border border-dark-600 hover:border-neon-green text-xs font-semibold text-slate-300 transition-colors">
-                1:1
-              </button>
-              <button onClick={() => { setResizeWidth(1920); setResizeHeight(1080); setMaintainRatio(false); }} className="px-2.5 py-1 rounded-lg bg-dark-800 border border-dark-600 hover:border-neon-green text-xs font-semibold text-slate-300 transition-colors">
-                16:9
-              </button>
-              <button onClick={() => { setResizeWidth(1440); setResizeHeight(1080); setMaintainRatio(false); }} className="px-2.5 py-1 rounded-lg bg-dark-800 border border-dark-600 hover:border-neon-green text-xs font-semibold text-slate-300 transition-colors">
-                4:3
-              </button>
-              <button onClick={() => { setResizeWidth(1080); setResizeHeight(1920); setMaintainRatio(false); }} className="px-2.5 py-1 rounded-lg bg-dark-800 border border-dark-600 hover:border-neon-green text-xs font-semibold text-slate-300 transition-colors">
-                9:16
-              </button>
+            <div className="grid grid-cols-4 gap-2 mb-2">
+              {[
+                { label: '1:1', w: 1080, h: 1080 },
+                { label: '16:9', w: 1920, h: 1080 },
+                { label: '4:3', w: 1440, h: 1080 },
+                { label: '9:16', w: 1080, h: 1920 },
+              ].map((preset) => {
+                const isActive = resizeWidth === preset.w && resizeHeight === preset.h;
+                return (
+                  <button
+                    key={preset.label}
+                    type="button"
+                    onClick={() => {
+                      setResizeWidth(preset.w);
+                      setResizeHeight(preset.h);
+                      setMaintainRatio(false);
+                    }}
+                    className={`py-1.5 px-2 rounded-lg border text-xs font-bold transition-all cursor-pointer text-center ${
+                      isActive
+                        ? 'bg-neon-cyan/20 border-neon-cyan text-neon-cyan shadow-glow-cyan'
+                        : 'bg-dark-800 border-dark-600 hover:border-slate-400 text-slate-300 hover:text-white'
+                    }`}
+                  >
+                    {preset.label}
+                  </button>
+                );
+              })}
             </div>
 
             <div className="flex items-center gap-4">

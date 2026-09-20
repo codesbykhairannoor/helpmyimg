@@ -3,7 +3,7 @@
 
 import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { AlertTriangle, RefreshCw, RotateCcw } from 'lucide-react';
+import { AlertTriangle, RefreshCw, RotateCcw, Upload } from 'lucide-react';
 import { useTranslation } from '../../../context/LanguageContext';
 import { AiScanOverlay } from './AiScanOverlay';
 import { ImageCompareSlider } from '../tools/ImageCompareSlider';
@@ -42,6 +42,10 @@ interface WorkspaceViewportProps {
   blurBoxes: BlurBox[];
   setBlurBoxes: React.Dispatch<React.SetStateAction<BlurBox[]>>;
   blurIntensity: number;
+  // Resize states for instant real-time live preview
+  resizeWidth?: number;
+  resizeHeight?: number;
+  resizeMode?: 'standard' | 'smart';
 }
 
 export const WorkspaceViewport: React.FC<WorkspaceViewportProps> = ({
@@ -69,6 +73,9 @@ export const WorkspaceViewport: React.FC<WorkspaceViewportProps> = ({
   blurBoxes,
   setBlurBoxes,
   blurIntensity,
+  resizeWidth = 0,
+  resizeHeight = 0,
+  resizeMode = 'standard',
 }) => {
   const { t } = useTranslation();
 
@@ -146,8 +153,8 @@ export const WorkspaceViewport: React.FC<WorkspaceViewportProps> = ({
                 onClick={onUploadOther}
                 className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-dark-700 hover:bg-dark-600 text-slate-300 border border-dark-500 text-xs font-semibold transition-all cursor-pointer"
               >
-                <RotateCcw className="w-3.5 h-3.5" />
-                <span>{t('editor.reset', { defaultValue: 'Reset / Upload' })}</span>
+                <Upload className="w-3.5 h-3.5 text-neon-emerald" />
+                <span>{t('editor.uploadOther', { defaultValue: 'Upload Lain' })}</span>
               </button>
             </div>
           </div>
@@ -175,6 +182,39 @@ export const WorkspaceViewport: React.FC<WorkspaceViewportProps> = ({
                   originalSize={currentItem.compressSourceSize || currentItem.file?.size}
                   compressedSize={currentItem.compressBlob.size}
                 />
+              ) : (initialTab === 'resize' || initialTab === 'resizeig' || initialTab === 'resizepassport') &&
+                resizeWidth > 0 &&
+                resizeHeight > 0 ? (
+                /* Real-time Instantaneous 0ms GPU Live Resize Preview */
+                <div
+                  className="relative max-h-full max-w-full flex items-center justify-center p-3 transition-all duration-150 ease-out"
+                  style={{
+                    aspectRatio: `${resizeWidth} / ${resizeHeight}`,
+                    width: resizeWidth >= resizeHeight ? '100%' : 'auto',
+                    height: resizeHeight > resizeWidth ? '100%' : 'auto',
+                    maxHeight: '100%',
+                    maxWidth: '100%',
+                  }}
+                >
+                  <img
+                    ref={setImageElement as React.Ref<HTMLImageElement>}
+                    src={currentItem.transparentUrl || currentItem.originalUrl}
+                    alt="Resize Live Preview"
+                    className={`w-full h-full rounded-lg shadow-2xl transition-all duration-150 ${
+                      resizeMode === 'smart' ? 'object-cover' : 'object-fill'
+                    }`}
+                  />
+                  {/* Floating Live Dimension HUD Badge */}
+                  <div className="absolute top-5 left-5 px-3 py-1 rounded-full bg-dark-900/90 border border-neon-cyan/50 text-neon-cyan font-mono text-xs font-bold shadow-2xl backdrop-blur-md pointer-events-none flex items-center gap-1.5 whitespace-nowrap z-10 animate-in fade-in zoom-in-95 duration-100">
+                    <span className="text-neon-cyan">📐</span>
+                    <span>
+                      {resizeWidth} × {resizeHeight} px
+                    </span>
+                    <span className="text-slate-400 font-normal">
+                      ({resizeMode === 'smart' ? 'Smart Auto' : 'Squish'})
+                    </span>
+                  </div>
+                </div>
               ) : (
                 <motion.img
                   key={currentItem.id}

@@ -237,7 +237,18 @@ export function useWorkspaceState(initialTab: TabType = 'remove', keywordSlug?: 
         const ctx = resultCanvas.getContext('2d')!;
         ctx.imageSmoothingEnabled = true;
         ctx.imageSmoothingQuality = 'high';
-        ctx.drawImage(img, 0, 0, targetW, targetH);
+        if (resize.resizeMode === 'smart') {
+          // Smart Auto mode: preserve aspect ratio, cover canvas centered
+          const scale = Math.max(targetW / img.width, targetH / img.height);
+          const scaledW = img.width * scale;
+          const scaledH = img.height * scale;
+          const offsetX = (targetW - scaledW) / 2;
+          const offsetY = (targetH - scaledH) / 2;
+          ctx.drawImage(img, offsetX, offsetY, scaledW, scaledH);
+        } else {
+          // Standard squish mode: stretch to exact targetW x targetH
+          ctx.drawImage(img, 0, 0, targetW, targetH);
+        }
       } else if (initialTab === 'rotate') {
         const rad = (rotate.rotationDeg * Math.PI) / 180;
         const sin = Math.abs(Math.sin(rad));
