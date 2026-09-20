@@ -67,7 +67,7 @@ class AIService {
           }
         });
         
-        this.worker!.postMessage({ type: 'REMOVE_BG', id, payload: { imageUrl: objectUrl } });
+        this.worker!.postMessage({ type: 'REMOVE_BG', id, payload: { imageBlob: file, imageUrl: objectUrl } });
       });
       
     } catch (error: any) {

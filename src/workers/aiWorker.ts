@@ -81,7 +81,14 @@ self.onmessage = async (e: MessageEvent) => {
 
       self.postMessage({ type: 'PROGRESS', id, payload: { status: 'ai_processing', progress: 100 } });
       
-      const image = await RawImage.fromURL(imageUrl);
+      let image: RawImage;
+      if (payload.imageBlob) {
+        image = await RawImage.fromBlob(payload.imageBlob);
+      } else if (payload.imageUrl) {
+        image = await RawImage.fromURL(payload.imageUrl);
+      } else {
+        throw new Error("No image data provided.");
+      }
       
       const { pixel_values } = await processor(image);
       const { output } = await model({ input: pixel_values });

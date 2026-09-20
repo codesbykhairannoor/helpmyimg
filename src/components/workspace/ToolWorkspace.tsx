@@ -1222,14 +1222,28 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({ initialTab: rawIni
                     }}
                     isProcessing={currentItem?.status === 'processing' || currentItem?.status === 'queued' || batchItems.some(i => i.status === 'processing' || i.status === 'queued')}
                     status={currentItem?.status || 'idle'}
-                    onProcessNow={() => currentItem && setBatchItems(prev => prev.map(i => i.id === currentItem.id ? { ...i, status: 'queued', progressStep: t('work.queued', { defaultValue: 'Queued' }) } : i))}
+                    onProcessNow={() => {
+                      if (currentItem) {
+                        processSingleItem(currentItem);
+                      }
+                    }}
                     onProcessBatch={() => {
-                      setBatchItems(prev => prev.map(i => i.status === 'idle' ? { ...i, status: 'queued', progressStep: t('work.queued', { defaultValue: 'Queued' }) } : i));
+                      batchItems.forEach((item) => {
+                        processSingleItem(item);
+                      });
                     }}
                     batchCount={batchItems.length}
                     imageType={imageType}
-                    setImageType={setImageType}
-                    hasProcessedAi={currentItem?.transparentUrl !== currentItem?.originalUrl}
+                    setImageType={(newType) => {
+                      setImageType(newType);
+                      imageTypeRef.current = newType;
+                      if (currentItem) {
+                        setTimeout(() => {
+                          processSingleItem(currentItem);
+                        }, 20);
+                      }
+                    }}
+                    hasProcessedAi={Boolean(currentItem?.transparentUrl && currentItem?.transparentUrl !== currentItem?.originalUrl)}
                     onUploadOther={handleUploadOther}
                   />
                 )}
