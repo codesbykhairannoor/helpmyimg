@@ -1,5 +1,4 @@
 import AIWorker from '../workers/aiWorker?worker';
-import { detectImageType } from '../utils/imageClassifier';
 
 class AIService {
   private worker: Worker | null = null;
@@ -41,21 +40,12 @@ class AIService {
     _modelType: 'rmbg' | 'isnet' = 'rmbg',
     _blurRadius: number = 80,
     onProgress?: (step: string, percentage: number) => void,
-    imageType: 'auto' | 'photo' | 'logo' = 'auto',
+    imageType: 'photo' | 'logo' = 'photo',
     colorTolerance: number = 45
   ): Promise<Blob> {
     try {
-      // 1. Jika mode 'auto', jalankan deteksi matematis otomatis (<3ms)
-      let resolvedType: 'photo' | 'logo' = 'photo';
-      if (imageType === 'auto') {
-        const classification = await detectImageType(file);
-        resolvedType = classification.type;
-      } else {
-        resolvedType = imageType;
-      }
-
       // ===== LOGO / FLAT GRAPHIC: Gunakan Color-Key Vector Precision =====
-      if (resolvedType === 'logo') {
+      if (imageType === 'logo') {
         if (onProgress) onProgress('Memproses presisi vektor logo...', 50);
         const result = await this.removeBackgroundByColorKey(file, colorTolerance);
         if (onProgress) onProgress('Selesai', 100);

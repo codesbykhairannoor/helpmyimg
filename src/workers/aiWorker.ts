@@ -22,56 +22,21 @@ async function initModel(onProgress: (status: string, progress: number) => void)
 
   isInitializing = true;
   try {
-    onProgress('Menginisialisasi Bria RMBG-1.4...', 0);
+    onProgress('Menginisialisasi MODNet AI (6 MB)...', 0);
     
-    // Try WebGPU first, fallback to wasm
-    const isWebGPUSupported = typeof navigator !== 'undefined' && 'gpu' in navigator;
-    const device = isWebGPUSupported ? 'webgpu' : 'wasm';
-
-    try {
-      model = await AutoModel.from_pretrained('briaai/RMBG-1.4', {
-        // @ts-ignore
-        config: { model_type: 'custom' },
-        dtype: 'q8',
-        device: device,
-        progress_callback: (data: any) => {
-           if (data.status === 'progress') {
-              onProgress(`Mengunduh Memori AI...`, Math.round(data.progress));
-           } else if (data.status === 'ready') {
-              onProgress(`Model siap.`, 100);
-           }
-        }
-      });
-    } catch (e) {
-      // Fallback if WebGPU fails
-      model = await AutoModel.from_pretrained('briaai/RMBG-1.4', {
-        // @ts-ignore
-        config: { model_type: 'custom' },
-        dtype: 'q8',
-        progress_callback: (data: any) => {
-           if (data.status === 'progress') {
-              onProgress(`Mengunduh Memori AI...`, Math.round(data.progress));
-           } else if (data.status === 'ready') {
-              onProgress(`Model siap.`, 100);
-           }
-        }
-      });
-    }
-
-    processor = await AutoProcessor.from_pretrained('briaai/RMBG-1.4', {
-      config: {
-        do_normalize: true,
-        do_pad: false,
-        do_rescale: true,
-        do_resize: true,
-        image_mean: [0.5, 0.5, 0.5],
-        feature_extractor_type: "ImageFeatureExtractor",
-        image_std: [1, 1, 1],
-        resample: 2,
-        rescale_factor: 0.00392156862745098,
-        size: { width: 1024, height: 1024 }
+    // Load lightweight 6.32MB MODNet model
+    model = await AutoModel.from_pretrained('Xenova/modnet', {
+      dtype: 'q8',
+      progress_callback: (data: any) => {
+         if (data.status === 'progress') {
+            onProgress(`Mengunduh Memori AI...`, Math.round(data.progress));
+         } else if (data.status === 'ready') {
+            onProgress(`Model siap.`, 100);
+         }
       }
     });
+
+    processor = await AutoProcessor.from_pretrained('Xenova/modnet');
     
     return { model, processor };
   } finally {
@@ -113,9 +78,11 @@ self.onmessage = async (e: MessageEvent) => {
       }
       
       const { pixel_values } = await processor(image);
-      const { output } = await model({ input: pixel_values });
+      const modelOutput = await model({ input: pixel_values });
+      const rawTensor = modelOutput.output || modelOutput[0] || modelOutput;
+      const tensor3D = rawTensor[0] || rawTensor;
 
-      const mask = await RawImage.fromTensor(output[0].mul(255).to('uint8')).resize(image.width, image.height);
+      const mask = await RawImage.fromTensor(tensor3D.mul(255).to('uint8')).resize(image.width, image.height);
       
       // Buat canvas offline menggunakan OffscreenCanvas (didukung di worker)
       const canvas = new OffscreenCanvas(image.width, image.height);

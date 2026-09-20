@@ -132,7 +132,7 @@ export function useWorkspaceState(initialTab: TabType = 'remove', keywordSlug?: 
       );
 
       try {
-        const { transparentUrl, detectedType } = await removeBg.processItem(item, (step, pct) => {
+        const { transparentUrl } = await removeBg.processItem(item, (step, pct) => {
           setBatchItems((prev) =>
             prev.map((i) => (i.id === item.id ? { ...i, progress: Math.max(pct, 30), progressStep: step } : i))
           );
@@ -147,7 +147,6 @@ export function useWorkspaceState(initialTab: TabType = 'remove', keywordSlug?: 
                   transparentUrl,
                   processedUrl: transparentUrl,
                   progress: 100,
-                  detectedType,
                 }
               : i
           )
@@ -451,7 +450,6 @@ export function useWorkspaceState(initialTab: TabType = 'remove', keywordSlug?: 
     imageType: removeBg.imageType,
     setImageType: removeBg.setImageType,
     imageTypeRef: removeBg.imageTypeRef,
-    detectedType: removeBg.detectedType,
     // Color Background
     initialColor,
     bgMode: colorBg.bgMode,

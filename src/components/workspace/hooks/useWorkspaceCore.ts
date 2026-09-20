@@ -3,7 +3,6 @@
 
 import { useState, useRef, useEffect, useCallback } from 'react';
 import { useTranslation } from '../../../context/LanguageContext';
-import { detectImageType } from '../../../utils/imageClassifier';
 import type { BatchItem, TabType } from '../types';
 
 export interface UseWorkspaceCoreReturn {
@@ -57,34 +56,23 @@ export function useWorkspaceCore(initialTab: TabType = 'remove'): UseWorkspaceCo
       const fileArray = Array.from(files).slice(0, 10);
       if (fileArray.length === 0) return;
 
-      const newItems: BatchItem[] = await Promise.all(
-        fileArray.map(async (f) => {
-          const url = URL.createObjectURL(f);
-          let detected: 'photo' | 'logo' = 'photo';
-          try {
-            const res = await detectImageType(f);
-            detected = res.type;
-          } catch {
-            // fallback
-          }
-
-          return {
-            id: `img_${Date.now()}_${Math.random().toString(36).substring(2, 7)}`,
-            name: f.name,
-            file: f,
-            originalUrl: url,
-            transparentUrl: null,
-            processedUrl: url,
-            initialFile: f,
-            initialOriginalUrl: url,
-            modelType: 'rmbg',
-            status: 'idle',
-            progress: 0,
-            progressStep: t('work.waiting', { defaultValue: 'Ready to process' }),
-            detectedType: detected,
-          };
-        })
-      );
+      const newItems: BatchItem[] = fileArray.map((f) => {
+        const url = URL.createObjectURL(f);
+        return {
+          id: `img_${Date.now()}_${Math.random().toString(36).substring(2, 7)}`,
+          name: f.name,
+          file: f,
+          originalUrl: url,
+          transparentUrl: null,
+          processedUrl: url,
+          initialFile: f,
+          initialOriginalUrl: url,
+          modelType: 'rmbg',
+          status: 'idle',
+          progress: 0,
+          progressStep: t('work.waiting', { defaultValue: 'Ready to process' }),
+        };
+      });
 
       setBatchItems((prev) => {
         const merged = [...prev, ...newItems];

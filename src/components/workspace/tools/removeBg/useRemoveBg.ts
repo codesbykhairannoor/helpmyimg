@@ -9,17 +9,14 @@ export interface UseRemoveBgReturn {
   imageType: CutoutMode;
   setImageType: (val: CutoutMode) => void;
   imageTypeRef: React.MutableRefObject<CutoutMode>;
-  detectedType: 'photo' | 'logo';
-  setDetectedType: (val: 'photo' | 'logo') => void;
   processItem: (
     item: BatchItem,
     updateProgress?: (step: string, progress: number) => void
-  ) => Promise<{ transparentUrl: string; detectedType: 'photo' | 'logo' }>;
+  ) => Promise<{ transparentUrl: string }>;
 }
 
-export function useRemoveBg(initialMode: CutoutMode = 'auto'): UseRemoveBgReturn {
+export function useRemoveBg(initialMode: CutoutMode = 'photo'): UseRemoveBgReturn {
   const [imageType, setImageType] = useState<CutoutMode>(initialMode);
-  const [detectedType, setDetectedType] = useState<'photo' | 'logo'>('photo');
   const imageTypeRef = useRef<CutoutMode>(initialMode);
 
   useEffect(() => {
@@ -30,7 +27,7 @@ export function useRemoveBg(initialMode: CutoutMode = 'auto'): UseRemoveBgReturn
     async (
       item: BatchItem,
       updateProgress?: (step: string, progress: number) => void
-    ): Promise<{ transparentUrl: string; detectedType: 'photo' | 'logo' }> => {
+    ): Promise<{ transparentUrl: string }> => {
       const result = await RemoveBgEngine.process(item.file, {
         mode: imageTypeRef.current,
         onProgress: (step, pct) => {
@@ -38,8 +35,7 @@ export function useRemoveBg(initialMode: CutoutMode = 'auto'): UseRemoveBgReturn
         },
       });
 
-      setDetectedType(result.detectedType);
-      return { transparentUrl: result.url, detectedType: result.detectedType };
+      return { transparentUrl: result.url };
     },
     []
   );
@@ -48,8 +44,6 @@ export function useRemoveBg(initialMode: CutoutMode = 'auto'): UseRemoveBgReturn
     imageType,
     setImageType,
     imageTypeRef,
-    detectedType,
-    setDetectedType,
     processItem,
   };
 }
