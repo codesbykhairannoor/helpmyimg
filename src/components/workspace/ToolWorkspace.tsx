@@ -86,6 +86,89 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({ initialTab: rawIni
   const { route } = useRouter();
   const { keywordSlug } = route;
 
+  // --- STATE DECLARATIONS (ALL DEFINED AT THE TOP) ---
+  const [batchItems, setBatchItems] = useState<BatchItem[]>([]);
+  const [selectedIndex, setSelectedIndex] = useState<number>(0);
+  const [isDragging, setIsDragging] = useState(false);
+  const [_isProcessingQueue, setIsProcessingQueue] = useState(false);
+  const [imageType, setImageType] = useState<'photo' | 'logo' | 'general'>('photo');
+
+  // Background Changing States
+  const initialColor = (initialTab === 'colorwhite') ? '#FFFFFF' : (keywordSlug && keywordSlug.toLowerCase().includes('biru') ? '#00529C' : '#DB1514');
+  const [bgMode, setBgMode] = useState<BgMode>('color');
+  const [selectedColor, setSelectedColor] = useState(initialColor);
+  const [selectedGradient, setSelectedGradient] = useState(GRADIENT_PRESETS[0].value);
+  const [customBgFile, setCustomBgFile] = useState<File | null>(null);
+  const [customBgUrl, setCustomBgUrl] = useState<string | null>(null);
+  const [customBgImageElement, setCustomBgImageElement] = useState<HTMLImageElement | null>(null);
+  const [selectedPreset, setSelectedPreset] = useState<string>(PRESET_SCENES[0].id);
+  const [presetBgImageElement, setPresetBgImageElement] = useState<HTMLImageElement | null>(null);
+  const [bgBlur, setBgBlur] = useState<number>(0);
+
+  // Brush States
+  const [brushMode, setBrushMode] = useState<'restore' | 'erase'>('restore');
+  const [brushSize, setBrushSize] = useState(25);
+
+  // Watermark States
+  const [watermarkText, setWatermarkText] = useState('');
+  const [watermarkColor, setWatermarkColor] = useState('#ffffff');
+  const [watermarkOpacity, setWatermarkOpacity] = useState(0.5);
+  const [watermarkPosition, setWatermarkPosition] = useState<WatermarkPosition>('center');
+  const [watermarkType, setWatermarkType] = useState<'text' | 'image'>('text');
+  const [watermarkImage, setWatermarkImage] = useState<HTMLImageElement | null>(null);
+  const [watermarkScale, setWatermarkScale] = useState(1);
+  const [watermarkRotation, setWatermarkRotation] = useState(0);
+
+  // Export & Zip States
+  const [customZipName, setCustomZipName] = useState('');
+  const [isZipping, setIsZipping] = useState(false);
+  const [showExportOptions, setShowExportOptions] = useState(false);
+  const [toastMessage, setToastMessage] = useState<string | null>(null);
+
+  // Compression, Conversion & Resize States
+  const [compressQuality, setCompressQuality] = useState(0.8);
+  const [convertFormat, setConvertFormat] = useState<'image/png' | 'image/jpeg' | 'image/webp' | 'image/gif' | 'image/bmp' | 'image/x-icon' | 'image/avif' | 'image/svg+xml'>('image/jpeg');
+  const [resizeWidth, setResizeWidth] = useState(0);
+  const [resizeHeight, setResizeHeight] = useState(0);
+  const [resizeMaintainRatio, setResizeMaintainRatio] = useState(false);
+  const [resizeMode, setResizeMode] = useState<'standard' | 'smart'>('standard');
+  const [originalDimensions, setOriginalDimensions] = useState({ width: 0, height: 0 });
+
+  // Crop States
+  const [cropX, setCropX] = useState(0);
+  const [cropY, setCropY] = useState(0);
+  const [cropWidth, setCropWidth] = useState(0);
+  const [cropHeight, setCropHeight] = useState(0);
+  const [cropRadius, setCropRadius] = useState(0);
+
+  // Rotate States
+  const [rotationDeg, setRotationDeg] = useState(0);
+  const [flipH, setFlipH] = useState(false);
+  const [flipV, setFlipV] = useState(false);
+
+  // Picker & Blur Face States
+  const [pickedColor, setPickedColor] = useState<ColorInfo | null>(null);
+  const [dominantColors, setDominantColors] = useState<string[]>([]);
+  const [blurBoxes, setBlurBoxes] = useState<BlurBox[]>([]);
+  const [blurIntensity, setBlurIntensity] = useState(10);
+  const [imageElement, setImageElement] = useState<HTMLImageElement | null>(null);
+
+  // --- REFS ---
+  const imageTypeRef = useRef<'photo' | 'logo' | 'general'>('photo');
+  const prevBatchItemsRef = useRef<BatchItem[]>([]);
+  const fileInputRef = useRef<HTMLInputElement>(null);
+  const canvasRef = useRef<HTMLCanvasElement>(null);
+  const isDrawingRef = useRef(false);
+  const isProcessingRef = useRef(false);
+  const debounceTimerRef = useRef<NodeJS.Timeout | null>(null);
+  const effectSequenceRef = useRef(0);
+
+  // Keep imageTypeRef in sync with state
+  useEffect(() => { imageTypeRef.current = imageType; }, [imageType]);
+
+  const currentItem = batchItems[selectedIndex] || null;
+
+  // Sync keywordSlug to tool settings
   useEffect(() => {
     if (keywordSlug) {
       const lower = keywordSlug.toLowerCase();
@@ -103,18 +186,17 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({ initialTab: rawIni
     }
   }, [keywordSlug]);
 
-  const [batchItems, setBatchItems] = useState<BatchItem[]>([]);
-  const [selectedIndex, setSelectedIndex] = useState<number>(0);
-  const [isDragging, setIsDragging] = useState(false);
-  const [_isProcessingQueue, setIsProcessingQueue] = useState(false);
-  const [imageType, setImageType] = useState<'photo' | 'logo' | 'general'>('photo');
-  const imageTypeRef = useRef<'photo' | 'logo' | 'general'>('photo');
+  // Pre-load preset background scene image
+  useEffect(() => {
+    const scene = PRESET_SCENES.find(s => s.id === selectedPreset) || PRESET_SCENES[0];
+    if (scene) {
+      const img = new Image();
+      img.onload = () => setPresetBgImageElement(img);
+      img.src = scene.dataUrl;
+    }
+  }, [selectedPreset]);
 
-  // Keep ref in sync with state
-  useEffect(() => { imageTypeRef.current = imageType; }, [imageType]);
-
-  // --- MEMORY GC / LEAK PREVENTION ---
-  const prevBatchItemsRef = useRef<BatchItem[]>([]);
+  // Clean memory URLs
   useEffect(() => {
     const prevItems = prevBatchItemsRef.current;
     const currentUrls = new Set<string>();
@@ -138,7 +220,7 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({ initialTab: rawIni
 
   useEffect(() => {
     return () => {
-      // Complete cleanup on unmount (e.g. changing tabs)
+      // Complete cleanup on unmount
       const items = prevBatchItemsRef.current;
       items.forEach(item => {
         if (item.originalUrl) URL.revokeObjectURL(item.originalUrl);
@@ -146,38 +228,11 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({ initialTab: rawIni
         if (item.processedUrl) URL.revokeObjectURL(item.processedUrl);
         if (item.compressUrl) URL.revokeObjectURL(item.compressUrl);
       });
-      // Also cleanup watermark image if it exists
-      setWatermarkImage(prev => {
-        if (prev && prev.src && prev.src.startsWith('blob:')) {
-          URL.revokeObjectURL(prev.src);
-        }
-        return prev;
-      });
+      if (customBgUrl) {
+        URL.revokeObjectURL(customBgUrl);
+      }
     };
-  }, []);
-  // ------------------------------------
-
-  // Parameter Alat
-  const initialColor = (initialTab === 'colorwhite') ? '#FFFFFF' : (keywordSlug && keywordSlug.toLowerCase().includes('biru') ? '#00529C' : '#DB1514');
-  const [bgMode, setBgMode] = useState<BgMode>('color');
-  const [selectedColor, setSelectedColor] = useState(initialColor);
-  const [selectedGradient, setSelectedGradient] = useState(GRADIENT_PRESETS[0].value);
-  const [customBgFile, setCustomBgFile] = useState<File | null>(null);
-  const [customBgUrl, setCustomBgUrl] = useState<string | null>(null);
-  const [customBgImageElement, setCustomBgImageElement] = useState<HTMLImageElement | null>(null);
-  const [selectedPreset, setSelectedPreset] = useState<string>(PRESET_SCENES[0].id);
-  const [presetBgImageElement, setPresetBgImageElement] = useState<HTMLImageElement | null>(null);
-  const [bgBlur, setBgBlur] = useState<number>(0);
-
-  // Pre-load preset background scene image
-  useEffect(() => {
-    const scene = PRESET_SCENES.find(s => s.id === selectedPreset) || PRESET_SCENES[0];
-    if (scene) {
-      const img = new Image();
-      img.onload = () => setPresetBgImageElement(img);
-      img.src = scene.dataUrl;
-    }
-  }, [selectedPreset]);
+  }, [customBgUrl]);
 
   const handleUploadCustomBg = useCallback((file: File) => {
     if (customBgUrl) {
@@ -204,26 +259,6 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({ initialTab: rawIni
     setBgMode('color');
   }, [customBgUrl]);
 
-  const [brushMode, setBrushMode] = useState<'restore' | 'erase'>('restore');
-  const [brushSize, setBrushSize] = useState(25);
-  
-  const [watermarkText, setWatermarkText] = useState('');
-  const [watermarkColor, setWatermarkColor] = useState('#ffffff');
-  const [watermarkOpacity, setWatermarkOpacity] = useState(0.5);
-  const [watermarkPosition, setWatermarkPosition] = useState<WatermarkPosition>('center');
-  const [watermarkType, setWatermarkType] = useState<'text' | 'image'>('text');
-  const [watermarkImage, setWatermarkImage] = useState<HTMLImageElement | null>(null);
-  const [watermarkScale, setWatermarkScale] = useState(1);
-  const [watermarkRotation, setWatermarkRotation] = useState(0);
-
-  const [customZipName, setCustomZipName] = useState('');
-  const [isZipping, setIsZipping] = useState(false);
-  const [showExportOptions, setShowExportOptions] = useState(false);
-
-  // --- Handlers ---
-  
-  const [toastMessage, setToastMessage] = useState<string | null>(null);
-
   const showToast = useCallback((msg: string) => {
     setToastMessage(msg);
     setTimeout(() => setToastMessage(null), 3000);
@@ -244,7 +279,6 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({ initialTab: rawIni
         const res = await fetch(url);
         const blob = await res.blob();
         
-        // Ensure filename has an extension
         let fname = item.name;
         if (!fname.includes('.')) {
           const ext = blob.type.split('/')[1] || 'png';
@@ -316,41 +350,6 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({ initialTab: rawIni
     );
   }, [currentItem, initialColor, selectedIndex]);
 
-  const [compressQuality, setCompressQuality] = useState(0.8);
-  const [convertFormat, setConvertFormat] = useState<'image/png' | 'image/jpeg' | 'image/webp' | 'image/gif' | 'image/bmp' | 'image/x-icon' | 'image/avif' | 'image/svg+xml'>('image/jpeg');
-  const [resizeWidth, setResizeWidth] = useState(0);
-  const [resizeHeight, setResizeHeight] = useState(0);
-  const [resizeMaintainRatio, setResizeMaintainRatio] = useState(false);
-  const [resizeMode, setResizeMode] = useState<'standard' | 'smart'>('standard');
-  
-  const [originalDimensions, setOriginalDimensions] = useState({ width: 0, height: 0 });
-
-  // Crop State
-  const [cropX, setCropX] = useState(0);
-  const [cropY, setCropY] = useState(0);
-  const [cropWidth, setCropWidth] = useState(0);
-  const [cropHeight, setCropHeight] = useState(0);
-  const [cropRadius, setCropRadius] = useState(0);
-
-  // Rotate State
-  const [rotationDeg, setRotationDeg] = useState(0);
-  const [flipH, setFlipH] = useState(false);
-  const [flipV, setFlipV] = useState(false);
-
-  // Picker State
-  const [pickedColor, setPickedColor] = useState<ColorInfo | null>(null);
-  const [dominantColors, setDominantColors] = useState<string[]>([]);
-  // --- Blur Face State ---
-  const [blurBoxes, setBlurBoxes] = useState<BlurBox[]>([]);
-  const [blurIntensity, setBlurIntensity] = useState(10);
-
-  const fileInputRef = useRef<HTMLInputElement>(null);
-  const canvasRef = useRef<HTMLCanvasElement>(null);
-  const [imageElement, setImageElement] = useState<HTMLImageElement | null>(null);
-  const isDrawingRef = useRef(false);
-
-  const currentItem = batchItems[selectedIndex] || null;
-
   useEffect(() => {
     if (currentItem && currentItem.originalUrl) {
       const img = new Image();
@@ -362,11 +361,9 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({ initialTab: rawIni
             initialDimensions: { width: img.width, height: img.height }
           } : item));
         }
-        // Set initial values or reset if dimensions changed to prevent out of bounds
         setResizeWidth(img.width);
         setResizeHeight(img.height);
         
-        // Reset crop box to full image size whenever a new image loads or is transformed
         setCropX(0);
         setCropY(0);
         setCropWidth(img.width);
@@ -433,8 +430,6 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({ initialTab: rawIni
   };
 
   // --- AI Queue System ---
-  const isProcessingRef = useRef(false);
-
   const processSingleItem = useCallback(async (item: BatchItem) => {
     setBatchItems((prev) =>
       prev.map((i) => (i.id === item.id ? { ...i, status: 'processing', progressStep: t('work.startAi') } : i))
@@ -643,9 +638,6 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({ initialTab: rawIni
       previousImageType.current = imageType;
     }
   }, [imageType]);
-
-  const debounceTimerRef = useRef<NodeJS.Timeout | null>(null);
-  const effectSequenceRef = useRef(0);
 
   useEffect(() => {
     if (debounceTimerRef.current) clearTimeout(debounceTimerRef.current);
