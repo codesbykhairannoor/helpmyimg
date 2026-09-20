@@ -13,7 +13,6 @@ async function initModel(onProgress: (status: string, progress: number) => void)
   if (model && processor) return { model, processor };
   
   if (isInitializing) {
-    // Tunggu sampai inisialisasi sebelumnya selesai
     while (isInitializing) {
       await new Promise(r => setTimeout(r, 100));
     }
@@ -22,10 +21,12 @@ async function initModel(onProgress: (status: string, progress: number) => void)
 
   isInitializing = true;
   try {
-    onProgress('Menginisialisasi MODNet AI (6 MB)...', 0);
+    onProgress('Mengunduh Memori AI...', 0);
     
-    // Load lightweight 6.32MB MODNet model
-    model = await AutoModel.from_pretrained('Xenova/modnet', {
+    // Load state-of-the-art Bria RMBG-1.4 model (8-bit Quantized)
+    model = await AutoModel.from_pretrained('briaai/RMBG-1.4', {
+      // @ts-ignore
+      config: { model_type: 'custom' },
       dtype: 'q8',
       progress_callback: (data: any) => {
          if (data.status === 'progress') {
@@ -36,7 +37,20 @@ async function initModel(onProgress: (status: string, progress: number) => void)
       }
     });
 
-    processor = await AutoProcessor.from_pretrained('Xenova/modnet');
+    processor = await AutoProcessor.from_pretrained('briaai/RMBG-1.4', {
+      config: {
+        do_normalize: true,
+        do_pad: false,
+        do_rescale: true,
+        do_resize: true,
+        image_mean: [0.5, 0.5, 0.5],
+        feature_extractor_type: "ImageFeatureExtractor",
+        image_std: [1, 1, 1],
+        resample: 2,
+        rescale_factor: 0.00392156862745098,
+        size: { width: 1024, height: 1024 }
+      }
+    });
     
     return { model, processor };
   } finally {
@@ -60,13 +74,13 @@ self.onmessage = async (e: MessageEvent) => {
   
   else if (type === 'REMOVE_BG') {
     try {
-      const { imageUrl } = payload; // Menggunakan URL / base64 karena File/Blob tak selalu bisa di pass mudah jika ada masalah kloning
+      const { imageUrl } = payload;
 
       const { model, processor } = await initModel((status, progress) => {
         self.postMessage({ type: 'PROGRESS', id, payload: { status, progress } });
       });
 
-      self.postMessage({ type: 'PROGRESS', id, payload: { status: 'ai_processing', progress: 100 } });
+      self.postMessage({ type: 'PROGRESS', id, payload: { status: 'Memproses AI...', progress: 100 } });
       
       let image: RawImage;
       if (payload.imageBlob) {
@@ -84,7 +98,7 @@ self.onmessage = async (e: MessageEvent) => {
 
       const mask = await RawImage.fromTensor(tensor3D.mul(255).to('uint8')).resize(image.width, image.height);
       
-      // Buat canvas offline menggunakan OffscreenCanvas (didukung di worker)
+      // Buat canvas offline menggunakan OffscreenCanvas
       const canvas = new OffscreenCanvas(image.width, image.height);
       const ctx = canvas.getContext('2d');
       if (!ctx) throw new Error("Gagal membuat konteks OffscreenCanvas.");
