@@ -60,7 +60,7 @@ export function useWorkspaceState(initialTab: TabType = 'remove', keywordSlug?: 
       ? '#00529C'
       : '#DB1514';
 
-  const removeBg = useRemoveBg('auto');
+  const removeBg = useRemoveBg('photo');
   const colorBg = useColorBg(initialColor);
   const brush = useBrush('restore', 25);
   const watermark = useWatermark();
