@@ -5,7 +5,7 @@ import React, { useState, useRef, useEffect, useCallback, Suspense } from 'react
 import { useRouter } from '../../context/RouterContext';
 import { useTranslation } from '../../context/LanguageContext';
 import { aiService } from '../../services/aiService';
-import { Upload, Download, Loader2, Sparkles, Archive, Trash2, Settings2, ChevronDown, RotateCcw, RefreshCw } from 'lucide-react';
+import { Upload, Download, Loader2, Sparkles, Archive, Trash2, Settings2, ChevronDown, RotateCcw, RefreshCw, AlertTriangle } from 'lucide-react';
 import JSZip from 'jszip';
 import { motion, AnimatePresence } from 'framer-motion';
 import { trackEvent } from '../../utils/analytics';
@@ -837,6 +837,40 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({ initialTab: rawIni
                         <span className="text-xs font-mono text-neon-cyan font-bold">
                           {currentItem.progress}%
                         </span>
+                      </div>
+                    </div>
+                  )}
+
+                  {currentItem?.status === 'error' && (
+                    <div className="absolute inset-0 bg-dark-900/90 backdrop-blur-md flex flex-col items-center justify-center z-20 space-y-4 p-6 text-center">
+                      <div className="w-14 h-14 rounded-2xl bg-red-500/20 border border-red-500/40 flex items-center justify-center text-red-400 shadow-lg">
+                        <AlertTriangle className="w-7 h-7" />
+                      </div>
+                      <div className="space-y-1.5 max-w-sm">
+                        <h4 className="font-heading font-bold text-white text-base">
+                          {t('work.failedAi', { defaultValue: 'AI Processing Failed' })}
+                        </h4>
+                        <p className="text-xs text-slate-400 leading-relaxed">
+                          {currentItem.errorMessage || t('work.errorHint', { defaultValue: 'Tip: Try using a smaller resolution image, or click retry below.' })}
+                        </p>
+                      </div>
+                      <div className="flex items-center gap-3 pt-2">
+                        <button
+                          type="button"
+                          onClick={() => processSingleItem(currentItem)}
+                          className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-neon-cyan/20 hover:bg-neon-cyan/30 text-neon-cyan border border-neon-cyan/40 text-xs font-bold transition-all shadow-sm cursor-pointer"
+                        >
+                          <RefreshCw className="w-3.5 h-3.5" />
+                          <span>{t('work.action.retry', { defaultValue: 'Retry Processing' })}</span>
+                        </button>
+                        <button
+                          type="button"
+                          onClick={handleUploadOther}
+                          className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-dark-700 hover:bg-dark-600 text-slate-300 border border-dark-500 text-xs font-semibold transition-all cursor-pointer"
+                        >
+                          <RotateCcw className="w-3.5 h-3.5" />
+                          <span>{t('editor.reset', { defaultValue: 'Reset / Upload' })}</span>
+                        </button>
                       </div>
                     </div>
                   )}
