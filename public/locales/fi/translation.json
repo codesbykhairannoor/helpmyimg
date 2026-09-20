@@ -1739,5 +1739,8 @@
   "work.step.refine": "Hiusten ja reunojen läpinäkyvyyden parantaminen...",
   "work.reprocessAi": "⚡ Suorita AI Cutout uudelleen",
   "work.processing": "Käsitellään tekoälyn katkaisua...",
-  "editor.applying": "Otetaan tehostetta käyttöön..."
+  "editor.applying": "Otetaan tehostetta käyttöön...",
+  "work.action.batch": "✨ Käsittele kaikki",
+  "work.action.photos": "Valokuvat",
+  "color.applyNow": "⚡ Vaihda taustaa nyt"
 }

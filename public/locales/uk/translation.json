@@ -1739,5 +1739,8 @@
   "work.step.refine": "Очищення ультрачіткого волосся та прозорості країв...",
   "work.reprocessAi": "⚡ Повторно запустіть AI Cutout",
   "work.processing": "Обробка штучного інтелекту...",
-  "editor.applying": "Застосування ефекту..."
+  "editor.applying": "Застосування ефекту...",
+  "work.action.batch": "✨ Обробити все",
+  "work.action.photos": "Фотографії",
+  "color.applyNow": "⚡ Змініть фон зараз"
 }

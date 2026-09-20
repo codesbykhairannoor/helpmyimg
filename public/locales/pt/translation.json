@@ -1739,5 +1739,8 @@
   "work.step.refine": "Refinando cabelos ultra-nítidos e transparência nas bordas...",
   "work.reprocessAi": "⚡ Execute novamente o AI Cutout",
   "work.processing": "Processando recorte de IA...",
-  "editor.applying": "Aplicando efeito..."
+  "editor.applying": "Aplicando efeito...",
+  "work.action.batch": "✨ Processar tudo",
+  "work.action.photos": "Fotos",
+  "color.applyNow": "⚡ Alterar plano de fundo agora"
 }

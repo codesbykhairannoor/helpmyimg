@@ -1744,5 +1744,8 @@
   "work.step.refine": "Udoskonalanie wyjątkowo wyraźnych włosów i przezroczystości krawędzi...",
   "work.reprocessAi": "⚡ Uruchom ponownie wycinanie AI",
   "work.processing": "Przetwarzam wycięcie AI...",
-  "editor.applying": "Stosowanie efektu..."
+  "editor.applying": "Stosowanie efektu...",
+  "work.action.batch": "✨ Przetwarzaj wszystko",
+  "work.action.photos": "Zdjęcia",
+  "color.applyNow": "⚡ Zmień teraz tło"
 }

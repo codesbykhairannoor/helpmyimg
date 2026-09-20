@@ -1739,5 +1739,8 @@
   "work.step.refine": "Verfijnt ultrahelder haar en transparantie van de randen...",
   "work.reprocessAi": "⚡ Voer AI-uitsparing opnieuw uit",
   "work.processing": "AI-knipsel verwerken...",
-  "editor.applying": "Effect toepassen..."
+  "editor.applying": "Effect toepassen...",
+  "work.action.batch": "✨ Verwerk alles",
+  "work.action.photos": "Foto's",
+  "color.applyNow": "⚡ Verander nu de achtergrond"
 }

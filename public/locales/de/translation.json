@@ -1739,5 +1739,8 @@
   "work.step.refine": "Verfeinert ultra-knackiges Haar und Kantentransparenz...",
   "work.reprocessAi": "⚡ Führen Sie AI Cutout erneut aus",
   "work.processing": "AI-Ausschnitt wird verarbeitet...",
-  "editor.applying": "Effekt anwenden..."
+  "editor.applying": "Effekt anwenden...",
+  "work.action.batch": "✨ Alles verarbeiten",
+  "work.action.photos": "Fotos",
+  "color.applyNow": "⚡ Ändern Sie jetzt den Hintergrund"
 }

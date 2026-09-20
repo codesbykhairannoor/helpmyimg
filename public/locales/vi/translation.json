@@ -1739,5 +1739,8 @@
   "work.step.refine": "Tinh chỉnh tóc siêu sắc & độ trong suốt của cạnh...",
   "work.reprocessAi": "⚡ Chạy lại AI Cutout",
   "work.processing": "Đang xử lý phần cắt AI...",
-  "editor.applying": "Áp dụng hiệu ứng..."
+  "editor.applying": "Áp dụng hiệu ứng...",
+  "work.action.batch": "✨ Xử lý tất cả",
+  "work.action.photos": "Ảnh",
+  "color.applyNow": "⚡ Thay đổi hình nền ngay"
 }

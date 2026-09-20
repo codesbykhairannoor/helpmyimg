@@ -1739,5 +1739,8 @@
   "work.step.refine": "Τελειοποιώντας εξαιρετικά τραγανά μαλλιά και διαφάνεια στις άκρες...",
   "work.reprocessAi": "⚡ Εκτελέστε ξανά το AI Cutout",
   "work.processing": "Επεξεργασία AI Cutout...",
-  "editor.applying": "Εφαρμογή εφέ..."
+  "editor.applying": "Εφαρμογή εφέ...",
+  "work.action.batch": "✨ Επεξεργασία όλων",
+  "work.action.photos": "Φωτογραφίες",
+  "color.applyNow": "⚡ Αλλάξτε το φόντο τώρα"
 }

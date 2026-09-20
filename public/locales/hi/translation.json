@@ -1739,5 +1739,8 @@
   "work.step.refine": "अति कुरकुरा बाल और किनारे की पारदर्शिता को निखारना...",
   "work.reprocessAi": "⚡एआई कटआउट को पुनः चलाएँ",
   "work.processing": "AI कटआउट संसाधित किया जा रहा है...",
-  "editor.applying": "प्रभाव लागू किया जा रहा है..."
+  "editor.applying": "प्रभाव लागू किया जा रहा है...",
+  "work.action.batch": "✨ सभी को प्रोसेस करें",
+  "work.action.photos": "तस्वीरें",
+  "color.applyNow": "⚡अभी पृष्ठभूमि बदलें"
 }

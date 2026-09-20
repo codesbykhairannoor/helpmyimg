@@ -1739,5 +1739,8 @@
   "work.step.refine": "Raffinerer ultraskarpt hår og kanttransparens...",
   "work.reprocessAi": "⚡ Kjør AI Cutout på nytt",
   "work.processing": "Behandler AI Cutout...",
-  "editor.applying": "Bruker effekt..."
+  "editor.applying": "Bruker effekt...",
+  "work.action.batch": "✨ Behandle alle",
+  "work.action.photos": "Bilder",
+  "color.applyNow": "⚡ Endre bakgrunn nå"
 }

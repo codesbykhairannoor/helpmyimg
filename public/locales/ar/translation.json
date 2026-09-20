@@ -1753,5 +1753,8 @@
   "work.step.refine": "صقل الشعر فائق النعومة وشفافية الحواف...",
   "work.reprocessAi": "⚡ إعادة تشغيل AI Cutout",
   "work.processing": "معالجة انقطاع الذكاء الاصطناعي...",
-  "editor.applying": "جارٍ تطبيق التأثير..."
+  "editor.applying": "جارٍ تطبيق التأثير...",
+  "work.action.batch": "✨ معالجة الكل",
+  "work.action.photos": "صور",
+  "color.applyNow": "⚡ تغيير الخلفية الآن"
 }

@@ -1739,5 +1739,8 @@
   "work.step.refine": "精炼超脆毛发和边缘透明度...",
   "work.reprocessAi": "⚡ 重新运行 AI Cutout",
   "work.processing": "正在处理 AI 抠图...",
-  "editor.applying": "应用效果..."
+  "editor.applying": "应用效果...",
+  "work.action.batch": "✨ 处理全部",
+  "work.action.photos": "照片",
+  "color.applyNow": "⚡ 立即更改背景"
 }

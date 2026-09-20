@@ -1739,5 +1739,8 @@
   "work.step.refine": "Rafinarea părului ultra-crocant și transparența marginilor...",
   "work.reprocessAi": "⚡ Reluați AI Cutout",
   "work.processing": "Se procesează decuparea AI...",
-  "editor.applying": "Se aplică efectul..."
+  "editor.applying": "Se aplică efectul...",
+  "work.action.batch": "✨ Procesează totul",
+  "work.action.photos": "Fotografii",
+  "color.applyNow": "⚡ Schimbați fundalul acum"
 }

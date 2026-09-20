@@ -1739,5 +1739,8 @@
   "work.step.refine": "Perfezionamento dei capelli ultra-croccanti e trasparenza dei bordi...",
   "work.reprocessAi": "⚡ Esegui nuovamente Ritaglio AI",
   "work.processing": "Elaborazione ritaglio AI...",
-  "editor.applying": "Applicazione dell'effetto..."
+  "editor.applying": "Applicazione dell'effetto...",
+  "work.action.batch": "✨ Elabora tutto",
+  "work.action.photos": "Foto",
+  "color.applyNow": "⚡ Cambia sfondo adesso"
 }

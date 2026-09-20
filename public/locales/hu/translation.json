@@ -1739,5 +1739,8 @@
   "work.step.refine": "Rendkívül éles haj és élek átlátszóságának finomítása...",
   "work.reprocessAi": "⚡ Futtassa újra az AI kivágást",
   "work.processing": "AI kivágás feldolgozása...",
-  "editor.applying": "Hatás alkalmazása..."
+  "editor.applying": "Hatás alkalmazása...",
+  "work.action.batch": "✨ Az összes feldolgozása",
+  "work.action.photos": "Fényképek",
+  "color.applyNow": "⚡ Háttér módosítása most"
 }

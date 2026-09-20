@@ -1739,5 +1739,8 @@
   "work.step.refine": "Zjemňuje ultra lesklé vlasy a průhlednost okrajů...",
   "work.reprocessAi": "⚡ Znovu spusťte AI Cutout",
   "work.processing": "Zpracovává se AI výřez...",
-  "editor.applying": "Používání efektu..."
+  "editor.applying": "Používání efektu...",
+  "work.action.batch": "✨ Zpracovat vše",
+  "work.action.photos": "Fotografie",
+  "color.applyNow": "⚡ Změňte pozadí hned teď"
 }

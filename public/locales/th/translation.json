@@ -1739,5 +1739,8 @@
   "work.step.refine": "ปรับแต่งเส้นผมที่คมชัดเป็นพิเศษและความโปร่งใสของขอบ...",
   "work.reprocessAi": "⚡ เรียกใช้ AI Cutout อีกครั้ง",
   "work.processing": "กำลังประมวลผลคัตเอาท์ AI...",
-  "editor.applying": "กำลังใช้เอฟเฟกต์..."
+  "editor.applying": "กำลังใช้เอฟเฟกต์...",
+  "work.action.batch": "✨ประมวลผลทั้งหมด",
+  "work.action.photos": "ภาพถ่าย",
+  "color.applyNow": "⚡ เปลี่ยนพื้นหลังทันที"
 }

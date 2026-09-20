@@ -22,6 +22,7 @@ interface RemoveBgControlProps {
 }
 
 export const RemoveBgControl: React.FC<RemoveBgControlProps> = ({
+  currentTransparentUrl,
   onReset,
   onUploadOther,
   isProcessing,
@@ -47,7 +48,7 @@ export const RemoveBgControl: React.FC<RemoveBgControlProps> = ({
         <div className="space-y-4 bg-dark-800/50 p-5 rounded-2xl border border-dark-600/80 shadow-inner">
           <label className="text-sm font-bold text-white flex items-center gap-2 mb-1">
             <Sparkles className="w-4 h-4 text-neon-cyan" />
-            <span>{t('remove.modeTitle')}</span>
+            <span>{t('remove.modeTitle', { defaultValue: 'Cutout Mode' })}</span>
           </label>
           
           <div className="flex bg-dark-900/60 p-1 rounded-xl border border-dark-700">
@@ -60,8 +61,8 @@ export const RemoveBgControl: React.FC<RemoveBgControlProps> = ({
               }`}
             >
               <ImageIcon className={`w-5 h-5 ${imageType === 'photo' ? 'text-neon-cyan' : 'opacity-70'}`} />
-              <span className={`text-xs font-bold ${imageType === 'photo' ? 'text-white' : ''}`}>{t('remove.modeAi')}</span>
-              <span className="text-[9px] text-slate-500 font-medium text-center">{t('remove.modeAiDesc')}</span>
+              <span className={`text-xs font-bold ${imageType === 'photo' ? 'text-white' : ''}`}>{t('remove.modeAi', { defaultValue: 'Standard AI' })}</span>
+              <span className="text-[9px] text-slate-500 font-medium text-center">{t('remove.modeAiDesc', { defaultValue: 'Photo, Object, Human' })}</span>
             </button>
             <button
               onClick={() => setImageType('logo')}
@@ -72,46 +73,48 @@ export const RemoveBgControl: React.FC<RemoveBgControlProps> = ({
               }`}
             >
               <PaintBucket className={`w-5 h-5 ${imageType === 'logo' ? 'text-neon-pink' : 'opacity-70'}`} />
-              <span className={`text-xs font-bold ${imageType === 'logo' ? 'text-white' : ''}`}>{t('remove.modeLogo')}</span>
-              <span className="text-[9px] text-slate-500 font-medium text-center">{t('remove.modeLogoDesc')}</span>
+              <span className={`text-xs font-bold ${imageType === 'logo' ? 'text-white' : ''}`}>{t('remove.modeLogo', { defaultValue: 'Non-AI' })}</span>
+              <span className="text-[9px] text-slate-500 font-medium text-center">{t('remove.modeLogoDesc', { defaultValue: 'Logo & Solid Graphics' })}</span>
             </button>
           </div>
         </div>
       )}
 
-      {/* Tombol Action saat Status Idle (Belum Diproses) atau Dibypass */}
-      {(shouldShowActionButtons || (status === 'done' && hasProcessedAi)) && (
-        <div className="space-y-3">
-          <button
-            onClick={onProcessNow}
-            disabled={isProcessing || status === 'processing' || batchCount === 0}
-            className="w-full flex items-center justify-center gap-2.5 py-3.5 px-4 rounded-xl bg-gradient-to-r from-neon-cyan via-neon-emerald to-neon-indigo hover:opacity-95 text-dark-900 font-extrabold shadow-glow-cyan transition-all duration-200 transform hover:-translate-y-0.5 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none disabled:shadow-none text-sm tracking-wide cursor-pointer"
-          >
-            {isProcessing || status === 'processing' ? (
-              <>
-                <RefreshCw className="w-4 h-4 text-dark-900 animate-spin shrink-0" />
-                <span>{t('work.processing', { defaultValue: 'Processing AI Cutout...' })}</span>
-              </>
-            ) : (
-              <>
-                <Sparkles className="w-4 h-4 text-dark-900 shrink-0" />
-                <span>{status === 'done' ? t('work.reprocessAi', { defaultValue: '⚡ Re-run AI Cutout' }) : t('work.startAi', { defaultValue: 'Remove Background Now' })}</span>
-              </>
-            )}
-          </button>
-
-          {batchCount > 1 && onProcessBatch && (
-            <button
-              onClick={onProcessBatch}
-              disabled={isProcessing || batchCount === 0}
-              className="w-full flex items-center justify-center gap-2 py-3.5 px-4 rounded-xl bg-dark-700 hover:bg-dark-600 border border-neon-cyan/50 text-white font-extrabold text-sm tracking-wide transition-all cursor-pointer"
-            >
-              <Sparkles className="w-4 h-4 text-neon-cyan shrink-0" />
-              <span>{t('work.action.batch')} ({batchCount} {t('work.action.photos')})</span>
-            </button>
+      {/* Tombol Action Utama (Selalu Muncul & Jelas) */}
+      <div className="space-y-3">
+        <button
+          onClick={onProcessNow}
+          disabled={isProcessing || status === 'processing' || batchCount === 0}
+          className="w-full flex items-center justify-center gap-2.5 py-3.5 px-4 rounded-xl bg-gradient-to-r from-neon-cyan via-neon-emerald to-neon-indigo hover:opacity-95 text-dark-900 font-extrabold shadow-glow-cyan transition-all duration-200 transform hover:-translate-y-0.5 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none disabled:shadow-none text-sm tracking-wide cursor-pointer"
+        >
+          {isProcessing || status === 'processing' ? (
+            <>
+              <RefreshCw className="w-4 h-4 text-dark-900 animate-spin shrink-0" />
+              <span>{t('work.processing', { defaultValue: 'Processing AI Cutout...' })}</span>
+            </>
+          ) : (
+            <>
+              <Sparkles className="w-4 h-4 text-dark-900 shrink-0" />
+              <span>
+                {hasProcessedAi && currentTransparentUrl
+                  ? t('work.reprocessAi', { defaultValue: '⚡ Re-run AI Cutout' })
+                  : t('work.startAi', { defaultValue: 'Remove Background Now' })}
+              </span>
+            </>
           )}
-        </div>
-      )}
+        </button>
+
+        {batchCount > 1 && onProcessBatch && (
+          <button
+            onClick={onProcessBatch}
+            disabled={isProcessing || batchCount === 0}
+            className="w-full flex items-center justify-center gap-2 py-3.5 px-4 rounded-xl bg-dark-700 hover:bg-dark-600 border border-neon-cyan/50 text-white font-extrabold text-sm tracking-wide transition-all cursor-pointer"
+          >
+            <Sparkles className="w-4 h-4 text-neon-cyan shrink-0" />
+            <span>{t('work.action.batch', { defaultValue: '✨ Process All' })} ({batchCount} {t('work.action.photos', { defaultValue: 'Photos' })})</span>
+          </button>
+        )}
+      </div>
 
       {status === 'error' && (
         <div className="flex flex-col items-center justify-center py-6 gap-3 bg-red-900/20 border border-red-500/30 rounded-xl p-4 text-center mt-2">

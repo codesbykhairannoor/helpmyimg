@@ -1739,5 +1739,8 @@
   "work.step.refine": "매우 선명한 모발 및 가장자리 투명도 개선...",
   "work.reprocessAi": "⚡ AI 컷아웃 다시 실행",
   "work.processing": "AI 컷아웃 처리 중...",
-  "editor.applying": "효과 적용 중..."
+  "editor.applying": "효과 적용 중...",
+  "work.action.batch": "✨ 모두 처리",
+  "work.action.photos": "사진",
+  "color.applyNow": "⚡ 지금 배경 변경"
 }

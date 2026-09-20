@@ -1739,5 +1739,8 @@
   "work.step.refine": "Делает волосы невероятно четкими и прозрачными по краям...",
   "work.reprocessAi": "⚡ Перезапустите AI Cutout.",
   "work.processing": "Обработка выреза AI...",
-  "editor.applying": "Применение эффекта..."
+  "editor.applying": "Применение эффекта...",
+  "work.action.batch": "✨ Обработать все",
+  "work.action.photos": "Фотографии",
+  "color.applyNow": "⚡ Измените фон прямо сейчас"
 }

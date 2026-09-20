@@ -1739,5 +1739,8 @@
   "work.step.refine": "Affiner les cheveux ultra-craquants et la transparence des bords...",
   "work.reprocessAi": "⚡ Réexécutez AI Cutout",
   "work.processing": "Traitement de la découpe de l'IA...",
-  "editor.applying": "Application de l'effet..."
+  "editor.applying": "Application de l'effet...",
+  "work.action.batch": "✨ Tout traiter",
+  "work.action.photos": "Photos",
+  "color.applyNow": "⚡ Changer l'arrière-plan maintenant"
 }

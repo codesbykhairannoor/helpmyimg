@@ -426,12 +426,6 @@ export function useWorkspaceState(initialTab: string) {
           imageTypeRef.current
         );
 
-        // Ensure smooth visual scanning animation (minimum 600ms so laser scan is visible & rewarding)
-        const elapsed = Date.now() - startTime;
-        if (elapsed < 600) {
-          await new Promise((r) => setTimeout(r, 600 - elapsed));
-        }
-
         const transUrl = URL.createObjectURL(resultBlob);
         setBatchItems((prev) =>
           prev.map((i) =>
@@ -471,6 +465,19 @@ export function useWorkspaceState(initialTab: string) {
   // Apply Current Effect to Canvas
   const applyCurrentEffect = async () => {
     if (!currentItem) return;
+
+    // Do not run effect on raw images in cutout/background modes before AI/manual processing
+    if (
+      (initialTab === 'remove' ||
+        initialTab === 'removelogo' ||
+        initialTab === 'removeperson' ||
+        initialTab === 'color' ||
+        initialTab === 'colorwhite') &&
+      !currentItem.transparentUrl
+    ) {
+      setIsApplyingEffect(false);
+      return;
+    }
 
     const transSrc =
       initialTab === 'rotate' && currentItem.rotateBaseUrl

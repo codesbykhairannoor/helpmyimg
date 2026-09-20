@@ -1739,5 +1739,8 @@
   "work.step.refine": "洗練された超クリスプな髪とエッジの透明感...",
   "work.reprocessAi": "⚡ AI カットアウトの再実行",
   "work.processing": "AI カットアウトを処理中...",
-  "editor.applying": "エフェクトを適用中..."
+  "editor.applying": "エフェクトを適用中...",
+  "work.action.batch": "✨すべてを処理",
+  "work.action.photos": "写真",
+  "color.applyNow": "⚡ 今すぐ背景を変更してください"
 }

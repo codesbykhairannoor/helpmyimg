@@ -1739,5 +1739,8 @@
   "work.step.refine": "Forfiner ultra-sprødt hår og kantgennemsigtighed...",
   "work.reprocessAi": "⚡ Kør AI Cutout igen",
   "work.processing": "Behandler AI Cutout...",
-  "editor.applying": "Anvender effekt..."
+  "editor.applying": "Anvender effekt...",
+  "work.action.batch": "✨ Behandle alle",
+  "work.action.photos": "Fotos",
+  "color.applyNow": "⚡ Skift baggrund nu"
 }

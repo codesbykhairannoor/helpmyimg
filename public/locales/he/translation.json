@@ -1739,5 +1739,8 @@
   "work.step.refine": "עידון שיער חד במיוחד ושקיפות קצוות...",
   "work.reprocessAi": "⚡ הפעל מחדש AI Cutout",
   "work.processing": "מעבד Cutout של AI...",
-  "editor.applying": "מפעיל אפקט..."
+  "editor.applying": "מפעיל אפקט...",
+  "work.action.batch": "✨ עבד הכל",
+  "work.action.photos": "תמונות",
+  "color.applyNow": "⚡ שנה רקע עכשיו"
 }

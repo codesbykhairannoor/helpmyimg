@@ -1739,5 +1739,8 @@
   "work.step.refine": "Förfinar extremt skarpt hår & kanttransparens...",
   "work.reprocessAi": "⚡ Kör AI Cutout igen",
   "work.processing": "Bearbetar AI Cutout...",
-  "editor.applying": "Tillämpar effekt..."
+  "editor.applying": "Tillämpar effekt...",
+  "work.action.batch": "✨ Bearbeta alla",
+  "work.action.photos": "Foton",
+  "color.applyNow": "⚡ Byt bakgrund nu"
 }

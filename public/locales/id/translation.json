@@ -1806,7 +1806,8 @@
   "work.step.init": "Menginisialisasi pipeline AI ONNX...",
   "work.step.segment": "Menganalisis subjek & topeng alfa...",
   "work.step.refine": "Menyempurnakan detail rambut & tepi...",
-  "work.reprocessAi": "⚡ Proses Ulang AI",
+  "work.reprocessAi": "⚡ Proses Ulang AI Cutout",
   "work.processing": "Memproses Potongan AI...",
-  "editor.applying": "Menerapkan Efek..."
+  "editor.applying": "Menerapkan Efek...",
+  "color.applyNow": "⚡ Ganti Background Sekarang"
 }

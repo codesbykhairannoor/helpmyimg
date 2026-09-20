@@ -1739,5 +1739,8 @@
   "work.step.refine": "Ultra canlı saç ve kenar şeffaflığını iyileştirmek...",
   "work.reprocessAi": "⚡ AI Cutout'u yeniden çalıştırın",
   "work.processing": "Yapay Zeka Kesimi işleniyor...",
-  "editor.applying": "Efekt uygulanıyor..."
+  "editor.applying": "Efekt uygulanıyor...",
+  "work.action.batch": "✨ Tümünü İşle",
+  "work.action.photos": "Fotoğraflar",
+  "color.applyNow": "⚡ Arka Planı Şimdi Değiştirin"
 }
