@@ -235,9 +235,7 @@ export const WorkspaceViewport: React.FC<WorkspaceViewportProps> = ({
                   }}
                   transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
                   src={
-                    initialTab === 'blurface'
-                      ? currentItem.originalUrl
-                      : currentItem.processedUrl || currentItem.originalUrl
+                    currentItem.processedUrl || currentItem.originalUrl
                   }
                   alt="Image Preview"
                   className="max-h-full max-w-full shadow-2xl rounded-lg object-contain"
@@ -256,7 +254,7 @@ export const WorkspaceViewport: React.FC<WorkspaceViewportProps> = ({
                   onCropChange={onCropChange}
                 />
               )}
-              {initialTab === 'blurface' && (
+              {(initialTab === 'blurface' || initialTab === 'blurplate') && (
                 <BlurBoxOverlay
                   imageElement={imageElement}
                   boxes={blurBoxes}

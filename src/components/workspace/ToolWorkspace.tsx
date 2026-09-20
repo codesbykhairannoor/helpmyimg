@@ -22,6 +22,7 @@ import { CropControl } from './tools/CropControl';
 import { RotateControl } from './tools/RotateControl';
 import { ColorPickerControl } from './tools/ColorPickerControl';
 import { BlurFaceControl } from './tools/BlurFaceControl';
+import { BlurEngine } from './tools/blur/blurEngine';
 import { DesignEditorControl } from './tools/DesignEditorControl';
 
 import { processImage, cropImage, rotateImage, smartCropImage, applyWatermark } from '../../utils/imageOperations';
@@ -868,7 +869,7 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({ initialTab: rawIni
                 />
               )}
 
-              {initialTab === 'blurface' && (
+              {(initialTab === 'blurface' || initialTab === 'blurplate') && (
                 <BlurFaceControl
                   imageElement={imageElement}
                   boxes={blurBoxes}
@@ -876,59 +877,33 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({ initialTab: rawIni
                   blurIntensity={blurIntensity}
                   setBlurIntensity={setBlurIntensity}
                   onApply={async () => {
-                    if (imageElement && currentItem?.file) {
+                    if (imageElement && currentItem) {
                       try {
-                        const canvas = document.createElement('canvas');
-                        canvas.width = imageElement.naturalWidth;
-                        canvas.height = imageElement.naturalHeight;
-                        const ctx = canvas.getContext('2d');
-                        if (!ctx) return;
-
-                        ctx.drawImage(imageElement, 0, 0);
-
-                        blurBoxes.forEach((box) => {
-                          ctx.save();
-                          ctx.filter = `blur(${blurIntensity}px)`;
-                          ctx.drawImage(
-                            imageElement,
-                            box.x,
-                            box.y,
-                            box.width,
-                            box.height,
-                            box.x,
-                            box.y,
-                            box.width,
-                            box.height
-                          );
-                          ctx.restore();
-                        });
-
-                        canvas.toBlob(
-                          (blob) => {
-                            if (!blob) return;
-                            const url = URL.createObjectURL(blob);
-                            const newFile = new File([blob], currentItem.name, {
-                              type: blob.type || 'image/jpeg',
-                            });
-                            setBatchItems((prev) =>
-                              prev.map((item) =>
-                                item.id === currentItem.id
-                                  ? {
-                                      ...item,
-                                      file: newFile,
-                                      originalUrl: url,
-                                      transparentUrl: item.transparentUrl ? url : null,
-                                      processedUrl: url,
-                                      status: 'done',
-                                    }
-                                  : item
-                              )
-                            );
-                            setBlurBoxes([]);
-                          },
-                          currentItem.file.type || 'image/jpeg',
-                          0.95
+                        const resultCanvas = BlurEngine.applyBlurBoxes(imageElement, blurBoxes, blurIntensity);
+                        const blob = await new Promise<Blob | null>((resolve) =>
+                          resultCanvas.toBlob(resolve, currentItem.file?.type || 'image/png', 0.95)
                         );
+                        if (!blob) return;
+                        const url = URL.createObjectURL(blob);
+                        const newFile = new File([blob], currentItem.name, {
+                          type: blob.type || 'image/png',
+                        });
+                        setBatchItems((prev) =>
+                          prev.map((item) =>
+                            item.id === currentItem.id
+                              ? {
+                                  ...item,
+                                  file: newFile,
+                                  originalUrl: url,
+                                  transparentUrl: item.transparentUrl ? url : null,
+                                  processedUrl: url,
+                                  status: 'done',
+                                }
+                              : item
+                          )
+                        );
+                        setBlurBoxes([]);
+                        showToast(t('blur.appliedSuccess', { defaultValue: 'Sensor area berhasil diterapkan!' }));
                       } catch (err) {
                         console.error('Blur failed', err);
                       }
@@ -937,7 +912,7 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({ initialTab: rawIni
                   onReset={handleResetCurrent}
                   onUploadOther={handleUploadOther}
                   batchCount={batchItems.length}
-                  isProcessing={false}
+                  isProcessing={currentItem?.status === 'processing'}
                 />
               )}
 
