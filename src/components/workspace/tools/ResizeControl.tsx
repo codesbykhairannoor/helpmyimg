@@ -70,13 +70,13 @@ export const ResizeControl: React.FC<ResizeControlProps> = ({
             onClick={() => setResizeMode('standard')}
             className={`flex-1 py-1.5 text-xs font-bold rounded-lg transition-colors ${resizeMode === 'standard' ? 'bg-dark-600 text-white shadow-sm' : 'text-slate-400 hover:text-slate-200'}`}
           >
-            Standard (Squish)
+            {t('resize.modeStandard', { defaultValue: 'Standar (Regang)' })}
           </button>
           <button
             onClick={() => setResizeMode('smart')}
             className={`flex-1 py-1.5 text-xs font-bold rounded-lg transition-colors flex items-center justify-center gap-1 ${resizeMode === 'smart' ? 'bg-gradient-to-r from-neon-cyan to-neon-indigo text-dark-900 shadow-glow-cyan' : 'text-slate-400 hover:text-slate-200'}`}
           >
-            <span className="text-[10px]">✨</span> Smart Auto
+            <span className="text-[10px]">✨</span> {t('resize.modeSmart', { defaultValue: 'Otomatis Pintar' })}
           </button>
         </div>
         
@@ -114,7 +114,7 @@ export const ResizeControl: React.FC<ResizeControlProps> = ({
             <div className="flex items-center gap-4">
               <div className="flex-1 space-y-1">
                 <div className="flex justify-between items-center mb-1">
-                  <label className="text-xs text-slate-400 font-medium">Width</label>
+                  <label className="text-xs text-slate-400 font-medium">{t('resize.width', { defaultValue: 'Lebar' })}</label>
                   <select 
                     value={unit} 
                     onChange={(e) => setUnit(e.target.value)}
@@ -142,14 +142,14 @@ export const ResizeControl: React.FC<ResizeControlProps> = ({
                 className={`p-2 rounded-lg mt-5 transition-colors ${
                   maintainRatio ? 'bg-neon-green/20 text-neon-green' : 'bg-dark-700 text-slate-400'
                 }`}
-                title={maintainRatio ? t('resize.lock') : t('resize.unlock')}
+                title={maintainRatio ? t('resize.lock', { defaultValue: 'Kunci Rasio' }) : t('resize.unlock', { defaultValue: 'Buka Kunci Rasio' })}
               >
                 {maintainRatio ? <LinkIcon className="w-4 h-4" /> : <Unlink className="w-4 h-4" />}
               </button>
 
               <div className="flex-1 space-y-1">
                 <div className="flex justify-between items-center mb-1">
-                   <label className="text-xs text-slate-400 font-medium">Height</label>
+                   <label className="text-xs text-slate-400 font-medium">{t('resize.height', { defaultValue: 'Tinggi' })}</label>
                    {/* Dummy space for symmetry with width unit selector */}
                    <span className="text-xs font-bold text-transparent px-2">px</span>
                 </div>
@@ -183,11 +183,11 @@ export const ResizeControl: React.FC<ResizeControlProps> = ({
             type="button"
             onClick={onUploadOther}
             disabled={isProcessing}
-            title={t('editor.uploadOtherDesc', { defaultValue: 'Pilih dan unggah foto baru dari perangkat' })}
+            title={t('editor.replacePhotoDesc', { defaultValue: 'Ganti foto ini dengan foto baru dari perangkat' })}
             className="flex items-center justify-center gap-1.5 py-3 px-2.5 rounded-xl bg-dark-800 hover:bg-dark-700 text-slate-300 hover:text-white font-bold text-xs transition-all border border-dark-600 cursor-pointer disabled:opacity-50"
           >
             <Upload className="w-3.5 h-3.5 text-neon-emerald shrink-0" />
-            <span className="truncate">{t('editor.uploadOther', { defaultValue: 'Upload Lain' })}</span>
+            <span className="truncate">{t('editor.replacePhoto', { defaultValue: 'Ganti Foto' })}</span>
           </button>
         </div>
       )}

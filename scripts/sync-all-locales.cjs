@@ -46,52 +46,72 @@ const KEYS_TO_SYNC = {
   'brush.size': 'Brush Size',
   'brush.resetMask': 'Reset Brush Strokes',
   'brush.resetSuccess': 'Brush strokes reset successfully!',
+  'brush.title': 'Manual Retouch Brush',
+  'brush.desc': 'Manually restore or erase parts of your image for pixel-perfect edges.',
 
-  // Action Buttons
-  'editor.resetOriginal': 'Reset to Original',
-  'editor.resetDesc': 'Restore this photo to original unedited state',
-  'editor.replacePhoto': 'Replace Photo',
-  'editor.replacePhotoDesc': 'Replace this photo with a new photo from your device',
-  'editor.uploadOther': 'Replace Photo',
-  'editor.uploadOtherDesc': 'Replace this photo with a new photo from your device',
-  'editor.resetSuccess': 'Image restored to initial state.',
-  'editor.download': 'Download HD (Free)',
-  'editor.downloadBatch': '📦 Download All (ZIP)',
-  'editor.settings': 'Tool Settings',
-  'editor.exportSettings': 'Export Settings',
-  'editor.exportOptions': 'Export & Download Options',
+  // Resize Tool
+  'resize.modeStandard': 'Standard (Squish)',
+  'resize.modeSmart': 'Smart Auto',
+  'resize.width': 'Width',
+  'resize.height': 'Height',
+  'resize.lock': 'Lock aspect ratio',
+  'resize.unlock': 'Unlock aspect ratio',
+  'resize.dimensions': 'Dimensions',
 
-  // Work Badges & Titles
-  'work.badge.remove': 'Remove Background',
-  'work.badge.color': 'Change Background',
-  'work.badge.brush': 'Magic Brush',
-  'work.badge.watermark': 'Watermark',
-  'work.badge.compress': 'Compress Photo',
-  'work.badge.convert': 'Convert Format',
-  'work.badge.resize': 'Resize Image',
-  'work.badge.crop': 'Crop Photo',
-  'work.badge.rotate': 'Rotate & Flip',
-  'work.badge.picker': 'Color Picker',
-  'work.badge.blurface': 'Blur Face',
-  'work.badge.design': 'Design Editor',
-  'work.exportSettingsTitle': 'Export & Download Options',
-  'work.settings': 'Export Settings',
-  'work.batchRename': 'Rename Files',
-  'work.renameFile': 'Rename File',
-  'work.zipPlaceholder': 'Custom ZIP Name',
-  'work.singleDownload': 'Download HD (Free)',
-  'work.batchDownload': 'Download All (ZIP)',
+  // Crop Tool
+  'crop.title': 'Crop Photo',
+  'crop.presets': 'Crop Presets',
+  'crop.offset': 'Position',
+  'crop.width': 'Width',
+  'crop.height': 'Height',
+  'crop.radius': 'Corner Radius',
+
+  // Rotate Tool
+  'rotate.title': 'Rotate & Flip',
+  'rotate.quickRotate': 'Quick Rotation',
+  'rotate.customAngle': 'Custom Angle',
+  'rotate.flip': 'Flip Orientation',
+  'rotate.flipH': 'Flip Horizontal',
+  'rotate.flipV': 'Flip Vertical',
+  'rotate.angle': 'Rotation Angle',
+
+  // Convert Tool
+  'convert.format': 'Select Target Format',
+  'convert.processAll': 'Convert All ({{count}})',
+
+  // Compress Tool
+  'compress.quality': 'Compression Quality',
+  'compress.process': 'Compress Now',
+  'compress.processAll': 'Compress All ({{count}})',
+  'compress.maxCompress': 'Max Compress',
+  'compress.balanced': 'Balanced',
+  'compress.highQuality': 'High Quality',
+
+  // Color Background Tool
+  'color.off.red': 'Passport Red',
+  'color.off.blue': 'Passport Blue',
+  'color.off.white': 'Pure White',
+  'color.off.black': 'Studio Dark',
+  'color.off.gray': 'Soft Gray',
+  'color.off.pink': 'Pastel Pink',
+  'color.off.green': 'Mint Green',
+  'color.off.sky': 'Sky Blue',
+  'color.custom': 'Custom Color',
+  'color.official': 'Select Official Color',
+  'color.gradientTitle': 'Modern Studio Gradients',
+  'color.applyNow': '⚡ Change Background Now',
+  'color.bgBlur': 'Background Blur (DSLR Effect)',
 
   // Blur Face & License Plate Tool
   'blur.options': 'Blur Face & Privacy Areas',
   'blur.desc': 'Draw a box directly over the photo or use the quick preset buttons below.',
   'blur.typeBlur': 'Blur (Smooth)',
   'blur.typePixelate': 'Pixelate (Mosaic)',
-  'blur.quickAdd': 'Quick Add Sensor Area',
+  'blur.quickAdd': 'Quick Add Box',
   'blur.presetDefault': 'New Box',
   'blur.presetFace': 'Blur Face',
   'blur.presetPlate': 'License Plate',
-  'blur.intensity': 'Sensor Intensity',
+  'blur.intensity': 'Blur Intensity',
   'blur.activeAreas': 'Active Areas',
   'blur.clearAll': 'Clear All',
   'blur.applyNow': 'Apply Permanent Blur',
@@ -117,9 +137,52 @@ const KEYS_TO_SYNC = {
   'watermark.position': 'Watermark Position',
   'watermark.processAll': 'Watermark All ({{count}})',
 
+  // Color Picker Tool
+  'picker.title': 'Color Picker & Extractor',
+  'picker.instruction': 'Click anywhere on the image to inspect and extract color codes.',
+  'picker.clickedColor': 'Selected Color Code',
+  'picker.noColor': 'Click on the photo above to pick a color',
+  'picker.palette': 'Dominant Color Palette',
+
+  // Action Buttons & Badges
+  'editor.resetOriginal': 'Reset to Original',
+  'editor.resetDesc': 'Restore this photo to original unedited state',
+  'editor.replacePhoto': 'Replace Photo',
+  'editor.replacePhotoDesc': 'Replace this photo with a new photo from your device',
+  'editor.uploadOther': 'Replace Photo',
+  'editor.uploadOtherDesc': 'Replace this photo with a new photo from your device',
+  'editor.resetSuccess': 'Image restored to initial state.',
+  'editor.download': 'Download HD (Free)',
+  'editor.downloadBatch': '📦 Download All (ZIP)',
+  'editor.settings': 'Tool Settings',
+  'editor.exportSettings': 'Export Settings',
+  'editor.exportOptions': 'Export & Download Options',
+
+  'work.badge.remove': 'Remove Background',
+  'work.badge.color': 'Change Background',
+  'work.badge.brush': 'Magic Brush',
+  'work.badge.watermark': 'Watermark',
+  'work.badge.compress': 'Compress Photo',
+  'work.badge.convert': 'Convert Format',
+  'work.badge.resize': 'Resize Image',
+  'work.badge.crop': 'Crop Photo',
+  'work.badge.rotate': 'Rotate & Flip',
+  'work.badge.picker': 'Color Picker',
+  'work.badge.blurface': 'Blur Face',
+  'work.badge.design': 'Design Editor',
+  'work.badge.blur': 'Blur Background',
+  'work.exportSettingsTitle': 'Export & Download Options',
+  'work.settings': 'Export Settings',
+  'work.batchRename': 'Rename Files',
+  'work.renameFile': 'Rename File',
+  'work.zipPlaceholder': 'Custom ZIP Name',
+  'work.singleDownload': 'Download HD (Free)',
+  'work.batchDownload': 'Download All (ZIP)',
+  'nav.resize': 'Resize Image',
+
   // Clean & Concise Landing Titles (No Keyword Stuffing / No "Zero Upload" / No "Carga Cero")
-  'landing.default.title.remove': 'Free AI Background Remover',
-  'landing.default.title.blur': 'Free Studio Bokeh Blur',
+  'landing.default.title.remove': 'Free AI Background Remover Online',
+  'landing.default.title.blur': 'Free Studio Bokeh Blur Online',
   'landing.default.title.color': 'Free Passport Photo Background Color',
   'landing.default.title.watermark': 'Free Watermark Maker Online',
   'landing.default.title.compress': 'Free Image Compressor Online',
@@ -130,7 +193,7 @@ const KEYS_TO_SYNC = {
   'landing.default.title.picker': 'Free Image Color Picker',
   'landing.default.title.blurface': 'Free Face & License Plate Blur',
   'landing.default.title.design': 'Free Online Photo Editor',
-  'landing.default.title.home': 'Free Bulk AI Photo Editor',
+  'landing.default.title.home': 'Free Bulk AI Photo Editor Online',
 
   // Clean & Concise Landing Descriptions
   'landing.default.desc.remove': 'Remove image backgrounds instantly in your browser. 100% private, fast, and completely free.',
@@ -156,42 +219,61 @@ const ID_OVERRIDES = {
   'brush.size': 'Ukuran Kuas',
   'brush.resetMask': 'Reset Goresan Kuas',
   'brush.resetSuccess': 'Goresan kuas berhasil di-reset!',
-  'editor.resetOriginal': 'Reset ke Asli',
-  'editor.resetDesc': 'Kembalikan foto ini ke kondisi asli tanpa perubahan',
-  'editor.replacePhoto': 'Ganti Foto',
-  'editor.replacePhotoDesc': 'Ganti foto ini dengan foto baru dari perangkat',
-  'editor.uploadOther': 'Ganti Foto',
-  'editor.uploadOtherDesc': 'Ganti foto ini dengan foto baru dari perangkat',
-  'editor.resetSuccess': 'Gambar dikembalikan ke kondisi awal.',
-  'editor.download': 'Download HD (Gratis)',
-  'editor.downloadBatch': '📦 Download Semua (ZIP)',
-  'editor.settings': 'Pengaturan Alat',
-  'editor.exportSettings': 'Pengaturan Ekspor',
-  'editor.exportOptions': 'Opsi Ekspor & Unduhan',
-  'work.badge.remove': 'Hapus Background',
-  'work.badge.color': 'Ganti Background',
-  'work.badge.brush': 'Kuas Ajaib',
-  'work.badge.watermark': 'Watermark',
-  'work.badge.compress': 'Kompres Foto',
-  'work.badge.convert': 'Ubah Format',
-  'work.badge.resize': 'Ubah Ukuran',
-  'work.badge.crop': 'Potong Foto',
-  'work.badge.rotate': 'Putar & Balik',
-  'work.badge.picker': 'Ambil Warna',
-  'work.badge.blurface': 'Sensor Wajah',
-  'work.badge.design': 'Editor Desain',
-  'work.exportSettingsTitle': 'Opsi Ekspor & Unduhan',
-  'work.settings': 'Pengaturan Ekspor',
-  'work.batchRename': 'Ganti Nama File',
-  'work.renameFile': 'Ganti Nama File',
-  'work.zipPlaceholder': 'Nama File ZIP Kustom',
-  'work.singleDownload': 'Download HD (Gratis)',
-  'work.batchDownload': 'Download Semua (ZIP)',
+  'brush.title': 'Kuas Retouch Manual',
+  'brush.desc': 'Pulihkan atau hapus bagian foto secara manual untuk tepian yang rapi.',
+
+  'resize.modeStandard': 'Standar (Regang)',
+  'resize.modeSmart': 'Otomatis Pintar',
+  'resize.width': 'Lebar',
+  'resize.height': 'Tinggi',
+  'resize.lock': 'Kunci rasio aspek',
+  'resize.unlock': 'Buka kunci rasio aspek',
+  'resize.dimensions': 'Dimensi',
+
+  'crop.title': 'Potong Foto',
+  'crop.presets': 'Preset Potong',
+  'crop.offset': 'Posisi',
+  'crop.width': 'Lebar',
+  'crop.height': 'Tinggi',
+  'crop.radius': 'Lengkungan Sudut',
+
+  'rotate.title': 'Putar & Balik',
+  'rotate.quickRotate': 'Rotasi Cepat',
+  'rotate.customAngle': 'Sudut Kustom',
+  'rotate.flip': 'Balik Orientasi',
+  'rotate.flipH': 'Balik Horizontal',
+  'rotate.flipV': 'Balik Vertikal',
+  'rotate.angle': 'Sudut Rotasi',
+
+  'convert.format': 'Pilih Format Tujuan',
+  'convert.processAll': 'Konversi Semua ({{count}})',
+
+  'compress.quality': 'Kualitas Kompresi',
+  'compress.process': 'Kompres Sekarang',
+  'compress.processAll': 'Kompres Semua ({{count}})',
+  'compress.maxCompress': 'Kompres Maksimal',
+  'compress.balanced': 'Seimbang',
+  'compress.highQuality': 'Kualitas Tinggi',
+
+  'color.off.red': 'Merah Paspor',
+  'color.off.blue': 'Biru Paspor',
+  'color.off.white': 'Putih Bersih',
+  'color.off.black': 'Hitam Studio',
+  'color.off.gray': 'Abu Soft',
+  'color.off.pink': 'Pastel Pink',
+  'color.off.green': 'Mint Green',
+  'color.off.sky': 'Sky Blue',
+  'color.custom': 'Warna Kustom',
+  'color.official': 'Pilih Warna Resmi',
+  'color.gradientTitle': 'Gradasi Studio Modern',
+  'color.applyNow': '⚡ Ganti Background Sekarang',
+  'color.bgBlur': 'Blur Latar Belakang (Efek DSLR)',
+
   'blur.options': 'Sensor Wajah & Area Privat',
   'blur.desc': 'Tarik kotak langsung di atas foto atau gunakan tombol preset di bawah.',
   'blur.typeBlur': 'Blur (Halus)',
   'blur.typePixelate': 'Pixelate (Mosaik)',
-  'blur.quickAdd': 'Tambah Cepat Area Sensor',
+  'blur.quickAdd': 'Tambah Cepat Kotak',
   'blur.presetDefault': 'Kotak Baru',
   'blur.presetFace': 'Sensor Wajah',
   'blur.presetPlate': 'Plat Nomor',
@@ -200,6 +282,7 @@ const ID_OVERRIDES = {
   'blur.clearAll': 'Hapus Semua',
   'blur.applyNow': 'Terapkan Sensor Permanen',
   'blur.appliedSuccess': 'Sensor area berhasil diterapkan!',
+
   'watermark.pos.center': 'Tengah',
   'watermark.pos.tl': 'Kiri Atas',
   'watermark.pos.tr': 'Kanan Atas',
@@ -218,6 +301,48 @@ const ID_OVERRIDES = {
   'watermark.rotation': 'Rotasi',
   'watermark.position': 'Posisi Watermark',
   'watermark.processAll': 'Beri Watermark Semua ({{count}})',
+
+  'picker.title': 'Pengambil Warna & Palet',
+  'picker.instruction': 'Klik bagian mana saja pada foto untuk mengambil kode warna.',
+  'picker.clickedColor': 'Kode Warna Terpilih',
+  'picker.noColor': 'Klik foto di atas untuk mengambil warna',
+  'picker.palette': 'Palet Warna Dominan',
+
+  'editor.resetOriginal': 'Reset ke Asli',
+  'editor.resetDesc': 'Kembalikan foto ini ke kondisi asli tanpa perubahan',
+  'editor.replacePhoto': 'Ganti Foto',
+  'editor.replacePhotoDesc': 'Ganti foto ini dengan foto baru dari perangkat',
+  'editor.uploadOther': 'Ganti Foto',
+  'editor.uploadOtherDesc': 'Ganti foto ini dengan foto baru dari perangkat',
+  'editor.resetSuccess': 'Gambar dikembalikan ke kondisi awal.',
+  'editor.download': 'Download HD (Gratis)',
+  'editor.downloadBatch': '📦 Download Semua (ZIP)',
+  'editor.settings': 'Pengaturan Alat',
+  'editor.exportSettings': 'Pengaturan Ekspor',
+  'editor.exportOptions': 'Opsi Ekspor & Unduhan',
+
+  'work.badge.remove': 'Hapus Background',
+  'work.badge.color': 'Ganti Background',
+  'work.badge.brush': 'Kuas Ajaib',
+  'work.badge.watermark': 'Watermark',
+  'work.badge.compress': 'Kompres Foto',
+  'work.badge.convert': 'Ubah Format',
+  'work.badge.resize': 'Ubah Ukuran',
+  'work.badge.crop': 'Potong Foto',
+  'work.badge.rotate': 'Putar & Balik',
+  'work.badge.picker': 'Ambil Warna',
+  'work.badge.blurface': 'Sensor Wajah',
+  'work.badge.design': 'Editor Desain',
+  'work.badge.blur': 'Blur Background',
+  'work.exportSettingsTitle': 'Opsi Ekspor & Unduhan',
+  'work.settings': 'Pengaturan Ekspor',
+  'work.batchRename': 'Ganti Nama File',
+  'work.renameFile': 'Ganti Nama File',
+  'work.zipPlaceholder': 'Nama File ZIP Kustom',
+  'work.singleDownload': 'Download HD (Gratis)',
+  'work.batchDownload': 'Download Semua (ZIP)',
+  'nav.resize': 'Ubah Ukuran',
+
   'landing.default.title.remove': 'Hapus Background Foto Online Gratis',
   'landing.default.title.blur': 'Blur Background Foto Bokeh Gratis',
   'landing.default.title.color': 'Ganti Warna Background Pas Foto',
@@ -231,6 +356,7 @@ const ID_OVERRIDES = {
   'landing.default.title.blurface': 'Sensor Wajah & Plat Nomor Online Gratis',
   'landing.default.title.design': 'Editor Desain Foto Online Gratis',
   'landing.default.title.home': 'Studio Edit Foto AI Online Gratis',
+
   'landing.default.desc.remove': 'Hapus latar belakang gambar secara instan langsung di browser. 100% privat, cepat, dan gratis.',
   'landing.default.desc.blur': 'Terapkan efek blur bokeh studio DSLR pada background foto dalam hitungan detik.',
   'landing.default.desc.color': 'Ubah warna latar belakang foto ke standar paspor resmi atau gradien studio modern.',
@@ -244,6 +370,167 @@ const ID_OVERRIDES = {
   'landing.default.desc.blurface': 'Lindungi privasi dengan memburamkan atau menyensor wajah dan plat nomor kendaraan.',
   'landing.default.desc.design': 'Perindah foto dengan filter canggih, teks, anotasi, dan alat grafis lengkap.',
   'landing.default.desc.home': 'Studio edit foto AI massal: hapus background, ubah ukuran, kompres, dan edit foto secara lokal.',
+};
+
+// Spanish translations override for natural, professional European & Latin American Spanish
+const ES_OVERRIDES = {
+  'brush.mode': 'Modo Pincel',
+  'brush.restore': '🟢 Restaurar',
+  'brush.erase': '🔴 Borrar',
+  'brush.size': 'Tamaño del Pincel',
+  'brush.resetMask': 'Restablecer Trazos de Pincel',
+  'brush.resetSuccess': '¡Trazos de pincel restablecidos con éxito!',
+  'brush.title': 'Pincel de Retoque Manual',
+  'brush.desc': 'Restaure o borre manualmente partes de su imagen para bordes perfectos.',
+
+  'resize.modeStandard': 'Estándar (Ajuste libre)',
+  'resize.modeSmart': 'Automático Inteligente',
+  'resize.width': 'Ancho',
+  'resize.height': 'Alto',
+  'resize.lock': 'Bloquear proporción',
+  'resize.unlock': 'Desbloquear proporción',
+  'resize.dimensions': 'Dimensiones',
+
+  'crop.title': 'Recortar Foto',
+  'crop.presets': 'Proporciones Predefinidas',
+  'crop.offset': 'Posición',
+  'crop.width': 'Ancho',
+  'crop.height': 'Alto',
+  'crop.radius': 'Radio de Esquinas',
+
+  'rotate.title': 'Girar y Voltear',
+  'rotate.quickRotate': 'Rotación Rápida',
+  'rotate.customAngle': 'Ángulo Personalizado',
+  'rotate.flip': 'Voltear Orientación',
+  'rotate.flipH': 'Voltear Horizontal',
+  'rotate.flipV': 'Voltear Vertical',
+  'rotate.angle': 'Ángulo de Rotación',
+
+  'convert.format': 'Seleccionar Formato de Destino',
+  'convert.processAll': 'Convertir Todo ({{count}})',
+
+  'compress.quality': 'Calidad de Compresión',
+  'compress.process': 'Comprimir Ahora',
+  'compress.processAll': 'Comprimir Todo ({{count}})',
+  'compress.maxCompress': 'Máxima Compresión',
+  'compress.balanced': 'Equilibrado',
+  'compress.highQuality': 'Alta Calidad',
+
+  'color.off.red': 'Rojo Pasaporte',
+  'color.off.blue': 'Azul Pasaporte',
+  'color.off.white': 'Blanco Puro',
+  'color.off.black': 'Negro Estudio',
+  'color.off.gray': 'Gris Suave',
+  'color.off.pink': 'Rosa Pastel',
+  'color.off.green': 'Verde Menta',
+  'color.off.sky': 'Azul Cielo',
+  'color.custom': 'Color Personalizado',
+  'color.official': 'Seleccionar Color Oficial',
+  'color.gradientTitle': 'Degradados de Estudio Modernos',
+  'color.applyNow': '⚡ Cambiar Fondo Ahora',
+  'color.bgBlur': 'Desenfoque de Fondo (Efecto DSLR)',
+
+  'blur.options': 'Desenfocar Rostros y Privacidad',
+  'blur.desc': 'Dibuja un recuadro directamente sobre la foto o usa los botones rápidos.',
+  'blur.typeBlur': 'Desenfoque (Suave)',
+  'blur.typePixelate': 'Pixelar (Mosaico)',
+  'blur.quickAdd': 'Agregar Recuadro Rápido',
+  'blur.presetDefault': 'Nuevo Recuadro',
+  'blur.presetFace': 'Desenfocar Rostro',
+  'blur.presetPlate': 'Matrícula',
+  'blur.intensity': 'Intensidad de Desenfoque',
+  'blur.activeAreas': 'Áreas Activas',
+  'blur.clearAll': 'Borrar Todo',
+  'blur.applyNow': 'Aplicar Desenfoque Permanente',
+  'blur.appliedSuccess': '¡Desenfoque de privacidad aplicado con éxito!',
+
+  'watermark.pos.center': 'Centro',
+  'watermark.pos.tl': 'Superior Izquierda',
+  'watermark.pos.tr': 'Superior Derecha',
+  'watermark.pos.bl': 'Inferior Izquierda',
+  'watermark.pos.br': 'Inferior Derecha',
+  'watermark.pos.tiled': 'Patrón Repetido',
+  'watermark.type.text': 'Texto',
+  'watermark.type.image': 'Imagen / Logo',
+  'watermark.textLabel': 'Texto de Marca de Agua',
+  'watermark.uploadLabel': 'Subir Logo de Marca de Agua',
+  'watermark.changeLogo': 'Cambiar Logo',
+  'watermark.selectLogo': 'Seleccionar Logo PNG',
+  'watermark.color': 'Color del Texto',
+  'watermark.opacity': 'Opacidad',
+  'watermark.scale': 'Escala',
+  'watermark.rotation': 'Rotación',
+  'watermark.position': 'Posición de Marca de Agua',
+  'watermark.processAll': 'Aplicar a Todo ({{count}})',
+
+  'picker.title': 'Selector y Extractor de Color',
+  'picker.instruction': 'Haz clic en cualquier parte de la imagen para extraer códigos de color.',
+  'picker.clickedColor': 'Código de Color Seleccionado',
+  'picker.noColor': 'Haz clic en la foto para seleccionar un color',
+  'picker.palette': 'Paleta de Colores Dominantes',
+
+  'editor.resetOriginal': 'Restablecer al Original',
+  'editor.resetDesc': 'Restaurar esta foto a su estado original sin cambios',
+  'editor.replacePhoto': 'Cambiar Foto',
+  'editor.replacePhotoDesc': 'Reemplazar esta foto por una nueva desde tu dispositivo',
+  'editor.uploadOther': 'Cambiar Foto',
+  'editor.uploadOtherDesc': 'Reemplazar esta foto por una nueva desde tu dispositivo',
+  'editor.resetSuccess': 'Imagen restaurada al estado inicial.',
+  'editor.download': 'Descargar HD (Gratis)',
+  'editor.downloadBatch': '📦 Descargar Todo (ZIP)',
+  'editor.settings': 'Ajustes de Herramienta',
+  'editor.exportSettings': 'Configuración de Exportación',
+  'editor.exportOptions': 'Opciones de Exportación y Descarga',
+
+  'work.badge.remove': 'Quitar Fondo',
+  'work.badge.color': 'Cambiar Fondo',
+  'work.badge.brush': 'Pincel Mágico',
+  'work.badge.watermark': 'Marca de Agua',
+  'work.badge.compress': 'Comprimir Foto',
+  'work.badge.convert': 'Convertir Formato',
+  'work.badge.resize': 'Redimensionar Foto',
+  'work.badge.crop': 'Recortar Foto',
+  'work.badge.rotate': 'Girar y Voltear',
+  'work.badge.picker': 'Selector de Color',
+  'work.badge.blurface': 'Desenfocar Rostro',
+  'work.badge.design': 'Editor de Diseño',
+  'work.badge.blur': 'Fondo Borroso',
+  'work.exportSettingsTitle': 'Opciones de Exportación y Descarga',
+  'work.settings': 'Configuración de Exportación',
+  'work.batchRename': 'Renombrar Archivos',
+  'work.renameFile': 'Renombrar Archivo',
+  'work.zipPlaceholder': 'Nombre de Archivo ZIP',
+  'work.singleDownload': 'Descargar HD (Gratis)',
+  'work.batchDownload': 'Descargar Todo (ZIP)',
+  'nav.resize': 'Redimensionar',
+
+  'landing.default.title.remove': 'Eliminar Fondo de Fotos con IA Gratis',
+  'landing.default.title.blur': 'Desenfoque Bokeh de Fotos Gratis',
+  'landing.default.title.color': 'Cambiar Fondo de Foto de Pasaporte Gratis',
+  'landing.default.title.watermark': 'Crear Marcas de Agua Online Gratis',
+  'landing.default.title.compress': 'Comprimir Imágenes Online Gratis',
+  'landing.default.title.convert': 'Convertir Formato de Imágenes Gratis',
+  'landing.default.title.resize': 'Redimensionar Imágenes Online Gratis',
+  'landing.default.title.crop': 'Recortar Fotos Online Gratis',
+  'landing.default.title.rotate': 'Girar y Voltear Fotos Online Gratis',
+  'landing.default.title.picker': 'Selector de Color de Imágenes Gratis',
+  'landing.default.title.blurface': 'Desenfocar Rostros y Matrículas Online Gratis',
+  'landing.default.title.design': 'Editor de Fotos Online Gratis',
+  'landing.default.title.home': 'Editor de Fotos con IA por Lotes Gratis',
+
+  'landing.default.desc.remove': 'Elimina fondos de imágenes al instante en tu navegador. 100% privado, rápido y gratis.',
+  'landing.default.desc.blur': 'Crea efectos de desenfoque bokeh de estudio DSLR al instante en cualquier fondo.',
+  'landing.default.desc.color': 'Cambia los colores de fondo a estándares oficiales de pasaporte o degradados modernos.',
+  'landing.default.desc.watermark': 'Añade marcas de agua de texto y logotipo a tus fotos por lotes para proteger tus derechos de autor.',
+  'landing.default.desc.compress': 'Comprime el tamaño de archivo de las imágenes manteniendo la máxima calidad visual.',
+  'landing.default.desc.convert': 'Convierte imágenes entre formatos PNG, JPG y WEBP al instante en tu navegador.',
+  'landing.default.desc.resize': 'Redimensiona las medidas de tus fotos con ancho, alto y proporción personalizados.',
+  'landing.default.desc.crop': 'Recorta fotos a proporciones exactas, avatares circulares o tamaños personalizados.',
+  'landing.default.desc.rotate': 'Gira y voltea fotos horizontal o verticalmente con vista previa en tiempo real.',
+  'landing.default.desc.picker': 'Extrae paletas de colores y códigos hexadecimales exactos de cualquier imagen.',
+  'landing.default.desc.blurface': 'Protege la privacidad desenfocando o pixelando rostros y matrículas de vehículos.',
+  'landing.default.desc.design': 'Edita fotos online con filtros avanzados, anotaciones y herramientas gráficas.',
+  'landing.default.desc.home': 'Tu editor de fotos con IA local: quita fondos, redimensiona, comprime y edita fotos por lotes.',
 };
 
 async function syncAllLocales() {
@@ -288,11 +575,27 @@ async function syncAllLocales() {
       continue;
     }
 
+    if (lang === 'es') {
+      for (const key of keys) {
+        json[key] = ES_OVERRIDES[key] || KEYS_TO_SYNC[key];
+      }
+      // Additional cleanup for Spanish
+      if (json['brush.title']) json['brush.title'] = 'Pincel de Retoque Manual';
+      if (json['work.badge.brush']) json['work.badge.brush'] = 'Pincel Mágico';
+      if (json['work.badge.watermark']) json['work.badge.watermark'] = 'Marca de Agua';
+      if (json['work.badge.blurface']) json['work.badge.blurface'] = 'Desenfocar Rostro';
+      if (json['work.badge.resize']) json['work.badge.resize'] = 'Redimensionar Foto';
+
+      fs.writeFileSync(filePath, JSON.stringify(json, null, 2) + '\n', 'utf8');
+      console.log(`✓ Synchronized es (Spanish - Native Overrides)`);
+      continue;
+    }
+
     const targetCode = LANG_MAP[lang];
     try {
       // Clean texts without emojis for translation
       const cleanValues = englishValues.map((v) =>
-        v.replace(/^🟢\s*/, '').replace(/^🔴\s*/, '').replace(/^📦\s*/, '')
+        v.replace(/^🟢\s*/, '').replace(/^🔴\s*/, '').replace(/^📦\s*/, '').replace(/^⚡\s*/, '')
       );
 
       const res = await translate(cleanValues, { from: 'en', to: targetCode });
@@ -304,6 +607,7 @@ async function syncAllLocales() {
         if (KEYS_TO_SYNC[key].startsWith('🟢')) text = `🟢 ${text}`;
         if (KEYS_TO_SYNC[key].startsWith('🔴')) text = `🔴 ${text}`;
         if (KEYS_TO_SYNC[key].startsWith('📦')) text = `📦 ${text}`;
+        if (KEYS_TO_SYNC[key].startsWith('⚡')) text = `⚡ ${text}`;
 
         // Clean up any remaining English fallbacks like (Restore) or (Erase)
         text = text.replace(/\s*\((Restore|Erase)\)/gi, '');
@@ -314,7 +618,6 @@ async function syncAllLocales() {
       // Specific cleanup in json for common dirty keys
       if (json['brush.restore']) json['brush.restore'] = json['brush.restore'].replace(/\s*\(Restore\)/gi, '');
       if (json['brush.erase']) json['brush.erase'] = json['brush.erase'].replace(/\s*\(Erase\)/gi, '');
-      if (json['work.badge.brush'] && lang === 'es') json['work.badge.brush'] = 'Pincel Mágico';
 
       fs.writeFileSync(filePath, JSON.stringify(json, null, 2) + '\n', 'utf8');
       console.log(`✓ Synchronized ${lang} (${targetCode})`);

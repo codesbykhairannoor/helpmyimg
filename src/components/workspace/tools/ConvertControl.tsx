@@ -128,11 +128,11 @@ export const ConvertControl: React.FC<ConvertControlProps> = ({
               type="button"
               onClick={onUploadOther}
               disabled={isProcessing}
-              title={t('editor.uploadOtherDesc', { defaultValue: 'Pilih dan unggah foto baru dari perangkat' })}
+              title={t('editor.replacePhotoDesc', { defaultValue: 'Ganti foto ini dengan foto baru dari perangkat' })}
               className="flex items-center justify-center gap-1.5 py-3 px-2.5 rounded-xl bg-dark-800 hover:bg-dark-700 text-slate-300 hover:text-white font-bold text-xs transition-all border border-dark-600 cursor-pointer disabled:opacity-50"
             >
               <Upload className="w-3.5 h-3.5 text-neon-emerald shrink-0" />
-              <span className="truncate">{t('editor.uploadOther', { defaultValue: 'Upload Lain' })}</span>
+              <span className="truncate">{t('editor.replacePhoto', { defaultValue: 'Ganti Foto' })}</span>
             </button>
           </div>
         )}
