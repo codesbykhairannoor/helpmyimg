@@ -1733,5 +1733,11 @@
   "color.off.gray": "ソフトグレー",
   "color.off.pink": "パステルピンク",
   "color.off.green": "ミントグリーン",
-  "color.off.sky": "スカイブルー"
+  "color.off.sky": "スカイブルー",
+  "work.step.init": "ONNX AI パイプラインとテンソルを初期化しています...",
+  "work.step.segment": "前景の被写体とアルファマスクをセグメント化しています...",
+  "work.step.refine": "洗練された超クリスプな髪とエッジの透明感...",
+  "work.reprocessAi": "⚡ AI カットアウトの再実行",
+  "work.processing": "AI カットアウトを処理中...",
+  "editor.applying": "エフェクトを適用中..."
 }

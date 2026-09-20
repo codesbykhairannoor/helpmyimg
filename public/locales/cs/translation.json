@@ -1733,5 +1733,11 @@
   "color.off.gray": "Měkká šedá",
   "color.off.pink": "Pastelově růžová",
   "color.off.green": "Mátově zelená",
-  "color.off.sky": "nebesky modrá"
+  "color.off.sky": "nebesky modrá",
+  "work.step.init": "Inicializace ONNX AI potrubí a tenzorů...",
+  "work.step.segment": "Segmentace předmětu v popředí a masky alfa...",
+  "work.step.refine": "Zjemňuje ultra lesklé vlasy a průhlednost okrajů...",
+  "work.reprocessAi": "⚡ Znovu spusťte AI Cutout",
+  "work.processing": "Zpracovává se AI výřez...",
+  "editor.applying": "Používání efektu..."
 }

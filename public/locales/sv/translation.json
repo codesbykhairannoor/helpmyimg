@@ -1733,5 +1733,11 @@
   "color.off.gray": "Mjuk grå",
   "color.off.pink": "Pastellrosa",
   "color.off.green": "Mintgrön",
-  "color.off.sky": "Himmelsblå"
+  "color.off.sky": "Himmelsblå",
+  "work.step.init": "Initierar ONNX AI pipeline och tensorer...",
+  "work.step.segment": "Segmenterar förgrundsmotiv och alfamask...",
+  "work.step.refine": "Förfinar extremt skarpt hår & kanttransparens...",
+  "work.reprocessAi": "⚡ Kör AI Cutout igen",
+  "work.processing": "Bearbetar AI Cutout...",
+  "editor.applying": "Tillämpar effekt..."
 }

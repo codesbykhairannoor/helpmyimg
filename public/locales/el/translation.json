@@ -1733,5 +1733,11 @@
   "color.off.gray": "Απαλό Γκρι",
   "color.off.pink": "Παστέλ Ροζ",
   "color.off.green": "Πράσινο Μέντα",
-  "color.off.sky": "Μπλε του ουρανού"
+  "color.off.sky": "Μπλε του ουρανού",
+  "work.step.init": "Εκκίνηση αγωγού και τανυστών ONNX AI...",
+  "work.step.segment": "Τμηματοποίηση θέματος πρώτου πλάνου και μάσκας άλφα...",
+  "work.step.refine": "Τελειοποιώντας εξαιρετικά τραγανά μαλλιά και διαφάνεια στις άκρες...",
+  "work.reprocessAi": "⚡ Εκτελέστε ξανά το AI Cutout",
+  "work.processing": "Επεξεργασία AI Cutout...",
+  "editor.applying": "Εφαρμογή εφέ..."
 }

@@ -1732,5 +1732,11 @@
   "color.off.gray": "Soft Gray",
   "color.off.pink": "Pastel Pink",
   "color.off.green": "Mint Green",
-  "color.off.sky": "Sky Blue"
+  "color.off.sky": "Sky Blue",
+  "work.step.init": "Initializing ONNX AI pipeline & tensors...",
+  "work.step.segment": "Segmenting foreground subject & alpha mask...",
+  "work.step.refine": "Refining ultra-crisp hair & edge transparency...",
+  "work.reprocessAi": "⚡ Re-run AI Cutout",
+  "work.processing": "Processing AI Cutout...",
+  "editor.applying": "Applying Effect..."
 }

@@ -1733,5 +1733,11 @@
   "color.off.gray": "Màu xám mềm",
   "color.off.pink": "Hồng phấn",
   "color.off.green": "Xanh bạc hà",
-  "color.off.sky": "Bầu trời xanh"
+  "color.off.sky": "Bầu trời xanh",
+  "work.step.init": "Đang khởi tạo đường dẫn và tensor ONNX AI...",
+  "work.step.segment": "Phân đoạn chủ thể tiền cảnh và mặt nạ alpha...",
+  "work.step.refine": "Tinh chỉnh tóc siêu sắc & độ trong suốt của cạnh...",
+  "work.reprocessAi": "⚡ Chạy lại AI Cutout",
+  "work.processing": "Đang xử lý phần cắt AI...",
+  "editor.applying": "Áp dụng hiệu ứng..."
 }

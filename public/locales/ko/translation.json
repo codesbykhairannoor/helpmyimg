@@ -1733,5 +1733,11 @@
   "color.off.gray": "소프트 그레이",
   "color.off.pink": "파스텔 핑크",
   "color.off.green": "민트 그린",
-  "color.off.sky": "하늘색"
+  "color.off.sky": "하늘색",
+  "work.step.init": "ONNX AI 파이프라인 및 텐서 초기화 중...",
+  "work.step.segment": "전경 피사체 및 알파 마스크 분할 중...",
+  "work.step.refine": "매우 선명한 모발 및 가장자리 투명도 개선...",
+  "work.reprocessAi": "⚡ AI 컷아웃 다시 실행",
+  "work.processing": "AI 컷아웃 처리 중...",
+  "editor.applying": "효과 적용 중..."
 }

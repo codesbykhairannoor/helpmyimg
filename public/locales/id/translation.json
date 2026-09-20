@@ -1802,5 +1802,11 @@
   "color.off.gray": "Abu Soft",
   "color.off.pink": "Pastel Pink",
   "color.off.green": "Mint Green",
-  "color.off.sky": "Sky Blue"
+  "color.off.sky": "Sky Blue",
+  "work.step.init": "Menginisialisasi pipeline AI ONNX...",
+  "work.step.segment": "Menganalisis subjek & topeng alfa...",
+  "work.step.refine": "Menyempurnakan detail rambut & tepi...",
+  "work.reprocessAi": "⚡ Proses Ulang AI",
+  "work.processing": "Memproses Potongan AI...",
+  "editor.applying": "Menerapkan Efek..."
 }

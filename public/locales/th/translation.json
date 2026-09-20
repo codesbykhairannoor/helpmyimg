@@ -1733,5 +1733,11 @@
   "color.off.gray": "สีเทาอ่อน",
   "color.off.pink": "ชมพูพาสเทล",
   "color.off.green": "มิ้นท์กรีน",
-  "color.off.sky": "ฟ้า"
+  "color.off.sky": "ฟ้า",
+  "work.step.init": "กำลังเริ่มต้นไปป์ไลน์และเทนเซอร์ ONNX AI...",
+  "work.step.segment": "กำลังแบ่งกลุ่มวัตถุเบื้องหน้าและมาส์กอัลฟ่า...",
+  "work.step.refine": "ปรับแต่งเส้นผมที่คมชัดเป็นพิเศษและความโปร่งใสของขอบ...",
+  "work.reprocessAi": "⚡ เรียกใช้ AI Cutout อีกครั้ง",
+  "work.processing": "กำลังประมวลผลคัตเอาท์ AI...",
+  "editor.applying": "กำลังใช้เอฟเฟกต์..."
 }

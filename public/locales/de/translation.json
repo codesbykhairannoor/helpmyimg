@@ -1733,5 +1733,11 @@
   "color.off.gray": "Weiches Grau",
   "color.off.pink": "Pastellrosa",
   "color.off.green": "Mintgrün",
-  "color.off.sky": "Himmelblau"
+  "color.off.sky": "Himmelblau",
+  "work.step.init": "ONNX AI-Pipeline und Tensoren werden initialisiert ...",
+  "work.step.segment": "Vordergrundmotiv und Alphamaske segmentieren ...",
+  "work.step.refine": "Verfeinert ultra-knackiges Haar und Kantentransparenz...",
+  "work.reprocessAi": "⚡ Führen Sie AI Cutout erneut aus",
+  "work.processing": "AI-Ausschnitt wird verarbeitet...",
+  "editor.applying": "Effekt anwenden..."
 }

@@ -1733,5 +1733,11 @@
   "color.off.gray": "Cinza Suave",
   "color.off.pink": "Rosa Pastel",
   "color.off.green": "Verde Menta",
-  "color.off.sky": "Azul celeste"
+  "color.off.sky": "Azul celeste",
+  "work.step.init": "Inicializando pipeline e tensores ONNX AI...",
+  "work.step.segment": "Segmentando assunto em primeiro plano e máscara alfa...",
+  "work.step.refine": "Refinando cabelos ultra-nítidos e transparência nas bordas...",
+  "work.reprocessAi": "⚡ Execute novamente o AI Cutout",
+  "work.processing": "Processando recorte de IA...",
+  "editor.applying": "Aplicando efeito..."
 }

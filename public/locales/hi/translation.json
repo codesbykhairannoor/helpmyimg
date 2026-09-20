@@ -1733,5 +1733,11 @@
   "color.off.gray": "नरम ग्रे",
   "color.off.pink": "पेस्टल गुलाबी",
   "color.off.green": "पुदीना हरा",
-  "color.off.sky": "आसमानी नीला"
+  "color.off.sky": "आसमानी नीला",
+  "work.step.init": "ONNX AI पाइपलाइन और टेंसर आरंभ किया जा रहा है...",
+  "work.step.segment": "अग्रभूमि विषय और अल्फा मास्क को विभाजित करना...",
+  "work.step.refine": "अति कुरकुरा बाल और किनारे की पारदर्शिता को निखारना...",
+  "work.reprocessAi": "⚡एआई कटआउट को पुनः चलाएँ",
+  "work.processing": "AI कटआउट संसाधित किया जा रहा है...",
+  "editor.applying": "प्रभाव लागू किया जा रहा है..."
 }

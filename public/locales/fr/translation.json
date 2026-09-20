@@ -1733,5 +1733,11 @@
   "color.off.gray": "Gris doux",
   "color.off.pink": "Rose pastel",
   "color.off.green": "Vert Menthe",
-  "color.off.sky": "Bleu ciel"
+  "color.off.sky": "Bleu ciel",
+  "work.step.init": "Initialisation du pipeline et des tenseurs ONNX AI...",
+  "work.step.segment": "Segmentation du sujet de premier plan et du masque alpha...",
+  "work.step.refine": "Affiner les cheveux ultra-craquants et la transparence des bords...",
+  "work.reprocessAi": "⚡ Réexécutez AI Cutout",
+  "work.processing": "Traitement de la découpe de l'IA...",
+  "editor.applying": "Application de l'effet..."
 }

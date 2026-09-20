@@ -1733,5 +1733,11 @@
   "color.off.gray": "Pehmeä harmaa",
   "color.off.pink": "Pastelli pinkki",
   "color.off.green": "Mintunvihreä",
-  "color.off.sky": "Taivaansininen"
+  "color.off.sky": "Taivaansininen",
+  "work.step.init": "Alustetaan ONNX AI -putkea ja tensoreja...",
+  "work.step.segment": "Segmentoidaan etualan aihetta ja alfamaskia...",
+  "work.step.refine": "Hiusten ja reunojen läpinäkyvyyden parantaminen...",
+  "work.reprocessAi": "⚡ Suorita AI Cutout uudelleen",
+  "work.processing": "Käsitellään tekoälyn katkaisua...",
+  "editor.applying": "Otetaan tehostetta käyttöön..."
 }

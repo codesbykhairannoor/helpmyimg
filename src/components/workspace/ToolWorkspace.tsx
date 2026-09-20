@@ -5,7 +5,7 @@ import React, { useState, useRef, useEffect, useCallback, Suspense } from 'react
 import { useRouter } from '../../context/RouterContext';
 import { useTranslation } from '../../context/LanguageContext';
 import { aiService } from '../../services/aiService';
-import { Upload, Download, Loader2, Sparkles, Archive, Trash2, Settings2, ChevronDown, RotateCcw, RefreshCw, AlertTriangle } from 'lucide-react';
+import { Upload, Download, Loader2, Sparkles, Archive, Trash2, Settings2, ChevronDown, RotateCcw, RefreshCw, AlertTriangle, Zap, Cpu } from 'lucide-react';
 import JSZip from 'jszip';
 import { motion, AnimatePresence } from 'framer-motion';
 import { trackEvent } from '../../utils/analytics';
@@ -124,6 +124,7 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({ initialTab: rawIni
   const [isZipping, setIsZipping] = useState(false);
   const [showExportOptions, setShowExportOptions] = useState(false);
   const [toastMessage, setToastMessage] = useState<string | null>(null);
+  const [isApplyingEffect, setIsApplyingEffect] = useState(false);
 
   // Compression, Conversion & Resize States
   const [compressQuality, setCompressQuality] = useState(0.8);
@@ -510,6 +511,8 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({ initialTab: rawIni
       : (currentItem.transparentUrl || currentItem.processedUrl || currentItem.originalUrl);
     if (!transSrc) return;
 
+    setIsApplyingEffect(true);
+
     const origImg = new Image();
     const transImg = new Image();
     
@@ -528,6 +531,7 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({ initialTab: rawIni
       ]);
     } catch (err) {
       console.error(err);
+      setIsApplyingEffect(false);
       return;
     }
 
@@ -603,15 +607,19 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({ initialTab: rawIni
         }
       } catch (err) {
         console.error('Auto-resize failed', err);
+      } finally {
+        setIsApplyingEffect(false);
       }
       return; // Early return for resize since blob is already handled
     } else {
+      setIsApplyingEffect(false);
       return;
     }
 
     if (resultCanvas) {
       const currentSeq = ++effectSequenceRef.current;
       resultCanvas.toBlob((blob) => {
+        setIsApplyingEffect(false);
         if (blob && currentSeq === effectSequenceRef.current) {
           const url = URL.createObjectURL(blob);
           setBatchItems((prev) =>
@@ -628,6 +636,8 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({ initialTab: rawIni
           );
         }
       }, 'image/png');
+    } else {
+      setIsApplyingEffect(false);
     }
   };
 
@@ -877,25 +887,105 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({ initialTab: rawIni
                 <div className={`w-full rounded-3xl border border-dark-500/80 bg-dark-900/90 shadow-glass overflow-hidden relative flex items-center justify-center checkerboard-bg transition-all duration-150 ${
                   initialTab === 'design' ? 'h-[75vh] md:h-auto md:aspect-[4/3]' : 'h-[420px] sm:h-[480px] md:h-[540px] lg:h-auto lg:aspect-[4/3]'
                 }`}>
+                  {/* AI Neural Scanning Animation & HUD Overlay */}
                   {currentItem?.status === 'processing' && (
-                    <div className="absolute inset-0 bg-dark-900 md:bg-dark-900/80 md:backdrop-blur-md flex flex-col items-center justify-center z-20 space-y-4 p-6 text-center">
-                      <div className="w-16 h-16 rounded-full border-4 border-neon-cyan/30 border-t-neon-cyan animate-spin" />
-                      <div className="space-y-1">
-                        <h4 className="font-heading font-bold text-white text-lg">
-                          {currentItem.progressStep === 'ai_processing' ? t('work.startAi') : currentItem.progressStep}
-                        </h4>
-                        <div className="w-64 h-2 bg-dark-700 rounded-full overflow-hidden mx-auto">
-                          <div
-                            className="h-full bg-gradient-to-r from-neon-cyan to-neon-indigo transition-all duration-300"
-                            style={{ width: `${currentItem.progress}%` }}
-                          />
+                    <div className="absolute inset-0 z-30 flex items-center justify-center overflow-hidden select-none">
+                      {/* Holographic Matrix Grid & Cyber Accents */}
+                      <div className="absolute inset-0 bg-dark-950/75 md:backdrop-blur-sm bg-[linear-gradient(to_right,#00f0ff0d_1px,transparent_1px),linear-gradient(to_bottom,#00f0ff0d_1px,transparent_1px)] bg-[size:32px_32px]" />
+
+                      {/* 4 Cybernetic Corner Brackets */}
+                      <div className="absolute top-4 left-4 w-7 h-7 border-t-2 border-l-2 border-neon-cyan/80 rounded-tl-md shadow-[0_0_10px_#00f0ff]" />
+                      <div className="absolute top-4 right-4 w-7 h-7 border-t-2 border-r-2 border-neon-cyan/80 rounded-tr-md shadow-[0_0_10px_#00f0ff]" />
+                      <div className="absolute bottom-4 left-4 w-7 h-7 border-b-2 border-l-2 border-neon-cyan/80 rounded-bl-md shadow-[0_0_10px_#00f0ff]" />
+                      <div className="absolute bottom-4 right-4 w-7 h-7 border-b-2 border-r-2 border-neon-cyan/80 rounded-br-md shadow-[0_0_10px_#00f0ff]" />
+
+                      {/* Animated Neon Laser Scanning Beam */}
+                      <motion.div
+                        animate={{ top: ['4%', '92%', '4%'] }}
+                        transition={{ duration: 2.2, repeat: Infinity, ease: 'easeInOut' }}
+                        className="absolute inset-x-0 h-1 bg-gradient-to-r from-transparent via-neon-cyan to-transparent shadow-[0_0_24px_4px_#00f0ff] z-40 pointer-events-none"
+                      >
+                        <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-0.5 rounded-full bg-dark-900/95 border border-neon-cyan/80 text-[10px] font-mono text-neon-cyan font-bold tracking-widest shadow-glow-cyan flex items-center gap-1.5 whitespace-nowrap">
+                          <span className="w-1.5 h-1.5 rounded-full bg-neon-cyan animate-ping" />
+                          <span>AI SCANNING // NEURAL MATTING</span>
                         </div>
-                        <span className="text-xs font-mono text-neon-cyan font-bold">
-                          {currentItem.progress}%
-                        </span>
-                      </div>
+                      </motion.div>
+
+                      {/* Glassmorphic Central AI Status HUD Card */}
+                      <motion.div
+                        initial={{ opacity: 0, scale: 0.92 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        className="relative z-40 max-w-sm w-[90%] p-6 md:p-8 rounded-3xl bg-dark-900/90 border border-neon-cyan/40 backdrop-blur-xl shadow-[0_0_60px_rgba(0,240,255,0.25)] text-center space-y-4"
+                      >
+                        <div className="relative w-16 h-16 mx-auto flex items-center justify-center">
+                          <div className="absolute inset-0 rounded-full border-2 border-neon-cyan/30 border-t-neon-cyan animate-spin" />
+                          <div className="absolute inset-1 rounded-full border-2 border-neon-pink/20 border-b-neon-pink animate-spin" style={{ animationDirection: 'reverse', animationDuration: '3s' }} />
+                          <Sparkles className="w-7 h-7 text-neon-cyan animate-pulse" />
+                        </div>
+
+                        <div className="space-y-1.5">
+                          <h4 className="font-heading font-black text-white text-lg tracking-wide bg-gradient-to-r from-white via-neon-cyan to-neon-indigo bg-clip-text text-transparent">
+                            {currentItem.progressStep === 'ai_processing' ? t('work.startAi', { defaultValue: 'AI Neural Matting Active' }) : currentItem.progressStep}
+                          </h4>
+                          <p className="text-xs text-slate-300 font-medium">
+                            {currentItem.progress < 30
+                              ? t('work.step.init', { defaultValue: 'Initializing ONNX AI pipeline & tensors...' })
+                              : currentItem.progress < 70
+                              ? t('work.step.segment', { defaultValue: 'Segmenting foreground subject & alpha mask...' })
+                              : t('work.step.refine', { defaultValue: 'Refining ultra-crisp hair & edge transparency...' })}
+                          </p>
+                        </div>
+
+                        {/* High-Tech Progress Bar */}
+                        <div className="space-y-2">
+                          <div className="w-full h-2.5 bg-dark-800 rounded-full overflow-hidden p-0.5 border border-dark-600">
+                            <motion.div
+                              className="h-full rounded-full bg-gradient-to-r from-neon-cyan via-neon-emerald to-neon-indigo shadow-[0_0_12px_#00f0ff] transition-all duration-300"
+                              style={{ width: `${Math.max(currentItem.progress, 15)}%` }}
+                            />
+                          </div>
+                          <div className="flex items-center justify-between text-[11px] font-mono font-bold px-1">
+                            <span className="text-neon-cyan flex items-center gap-1.5">
+                              <span className="w-2 h-2 rounded-full bg-neon-cyan animate-pulse" />
+                              {currentItem.progress}%
+                            </span>
+                            <span className="text-slate-400">WebGPU / WASM Local Engine</span>
+                          </div>
+                        </div>
+                      </motion.div>
                     </div>
                   )}
+
+                  {/* Top-Edge Laser Sweep & Floating Pill when Applying Background/Effect */}
+                  <AnimatePresence>
+                    {isApplyingEffect && (
+                      <>
+                        <motion.div
+                          initial={{ opacity: 0 }}
+                          animate={{ opacity: 1 }}
+                          exit={{ opacity: 0 }}
+                          className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-neon-cyan via-neon-emerald to-neon-pink shadow-glow-cyan z-30 overflow-hidden"
+                        >
+                          <motion.div
+                            animate={{ x: ['-100%', '100%'] }}
+                            transition={{ repeat: Infinity, duration: 0.8, ease: 'linear' }}
+                            className="w-1/2 h-full bg-white blur-xs"
+                          />
+                        </motion.div>
+                        <motion.div
+                          initial={{ opacity: 0, y: -8, scale: 0.95 }}
+                          animate={{ opacity: 1, y: 0, scale: 1 }}
+                          exit={{ opacity: 0, y: -8, scale: 0.95 }}
+                          className="absolute top-4 right-4 z-30 px-3.5 py-1.5 rounded-full bg-dark-900/90 border border-neon-cyan/50 backdrop-blur-md flex items-center gap-2 shadow-glow-cyan"
+                        >
+                          <RefreshCw className="w-3.5 h-3.5 text-neon-cyan animate-spin" />
+                          <span className="text-xs font-bold text-white font-heading tracking-wide">
+                            {t('editor.applying', { defaultValue: 'Applying Effect...' })}
+                          </span>
+                        </motion.div>
+                      </>
+                    )}
+                  </AnimatePresence>
 
                   {currentItem?.status === 'error' && (
                     <div className="absolute inset-0 bg-dark-900/90 backdrop-blur-md flex flex-col items-center justify-center z-20 space-y-4 p-6 text-center">

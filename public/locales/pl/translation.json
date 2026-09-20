@@ -1738,5 +1738,11 @@
   "color.off.gray": "Miękki szary",
   "color.off.pink": "Pastelowy róż",
   "color.off.green": "Miętowa zieleń",
-  "color.off.sky": "Błękit nieba"
+  "color.off.sky": "Błękit nieba",
+  "work.step.init": "Inicjowanie potoku i tensorów ONNX AI...",
+  "work.step.segment": "Segmentacja obiektu na pierwszym planie i maska ​​alfa...",
+  "work.step.refine": "Udoskonalanie wyjątkowo wyraźnych włosów i przezroczystości krawędzi...",
+  "work.reprocessAi": "⚡ Uruchom ponownie wycinanie AI",
+  "work.processing": "Przetwarzam wycięcie AI...",
+  "editor.applying": "Stosowanie efektu..."
 }

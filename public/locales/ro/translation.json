@@ -1733,5 +1733,11 @@
   "color.off.gray": "Gri moale",
   "color.off.pink": "Roz pastel",
   "color.off.green": "Verde menta",
-  "color.off.sky": "Sky Blue"
+  "color.off.sky": "Sky Blue",
+  "work.step.init": "Se inițializează conducta și tensorii ONNX AI...",
+  "work.step.segment": "Segmentează subiectul din prim-plan și masca alfa...",
+  "work.step.refine": "Rafinarea părului ultra-crocant și transparența marginilor...",
+  "work.reprocessAi": "⚡ Reluați AI Cutout",
+  "work.processing": "Se procesează decuparea AI...",
+  "editor.applying": "Se aplică efectul..."
 }

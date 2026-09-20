@@ -1733,5 +1733,11 @@
   "color.off.gray": "Grigio tenue",
   "color.off.pink": "Rosa pastello",
   "color.off.green": "Verde menta",
-  "color.off.sky": "Cielo blu"
+  "color.off.sky": "Cielo blu",
+  "work.step.init": "Inizializzazione della pipeline e dei tensori AI ONNX in corso...",
+  "work.step.segment": "Segmentazione del soggetto in primo piano e della maschera alfa...",
+  "work.step.refine": "Perfezionamento dei capelli ultra-croccanti e trasparenza dei bordi...",
+  "work.reprocessAi": "⚡ Esegui nuovamente Ritaglio AI",
+  "work.processing": "Elaborazione ritaglio AI...",
+  "editor.applying": "Applicazione dell'effetto..."
 }

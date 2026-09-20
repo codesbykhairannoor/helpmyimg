@@ -84,11 +84,20 @@ export const RemoveBgControl: React.FC<RemoveBgControlProps> = ({
         <div className="space-y-3">
           <button
             onClick={onProcessNow}
-            disabled={isProcessing || batchCount === 0}
-            className="w-full flex items-center justify-center gap-2.5 py-3.5 px-4 rounded-xl bg-gradient-to-r from-neon-cyan via-neon-emerald to-neon-indigo hover:opacity-95 text-dark-900 font-extrabold shadow-glow-cyan transition-all duration-200 transform hover:-translate-y-0.5 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none disabled:shadow-none text-sm tracking-wide"
+            disabled={isProcessing || status === 'processing' || batchCount === 0}
+            className="w-full flex items-center justify-center gap-2.5 py-3.5 px-4 rounded-xl bg-gradient-to-r from-neon-cyan via-neon-emerald to-neon-indigo hover:opacity-95 text-dark-900 font-extrabold shadow-glow-cyan transition-all duration-200 transform hover:-translate-y-0.5 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none disabled:shadow-none text-sm tracking-wide cursor-pointer"
           >
-            <Sparkles className="w-4 h-4 text-dark-900 shrink-0" />
-            <span>{t('work.startAi', { defaultValue: 'Remove Background Now' })}</span>
+            {isProcessing || status === 'processing' ? (
+              <>
+                <RefreshCw className="w-4 h-4 text-dark-900 animate-spin shrink-0" />
+                <span>{t('work.processing', { defaultValue: 'Processing AI Cutout...' })}</span>
+              </>
+            ) : (
+              <>
+                <Sparkles className="w-4 h-4 text-dark-900 shrink-0" />
+                <span>{status === 'done' ? t('work.reprocessAi', { defaultValue: '⚡ Re-run AI Cutout' }) : t('work.startAi', { defaultValue: 'Remove Background Now' })}</span>
+              </>
+            )}
           </button>
 
           {batchCount > 1 && onProcessBatch && (

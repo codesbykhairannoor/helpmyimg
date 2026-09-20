@@ -1733,5 +1733,11 @@
   "color.off.gray": "柔和的灰色",
   "color.off.pink": "淡粉色",
   "color.off.green": "薄荷绿",
-  "color.off.sky": "天蓝色"
+  "color.off.sky": "天蓝色",
+  "work.step.init": "正在初始化 ONNX AI 管道和张量...",
+  "work.step.segment": "分割前景主题和 Alpha 蒙版...",
+  "work.step.refine": "精炼超脆毛发和边缘透明度...",
+  "work.reprocessAi": "⚡ 重新运行 AI Cutout",
+  "work.processing": "正在处理 AI 抠图...",
+  "editor.applying": "应用效果..."
 }

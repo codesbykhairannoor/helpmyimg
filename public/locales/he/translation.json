@@ -1733,5 +1733,11 @@
   "color.off.gray": "אפור רך",
   "color.off.pink": "ורוד פסטל",
   "color.off.green": "ירוק מנטה",
-  "color.off.sky": "כחול שמיים"
+  "color.off.sky": "כחול שמיים",
+  "work.step.init": "אתחול הצינור והטנסורים של ONNX AI...",
+  "work.step.segment": "פילוח נושא החזית ומסיכת אלפא...",
+  "work.step.refine": "עידון שיער חד במיוחד ושקיפות קצוות...",
+  "work.reprocessAi": "⚡ הפעל מחדש AI Cutout",
+  "work.processing": "מעבד Cutout של AI...",
+  "editor.applying": "מפעיל אפקט..."
 }

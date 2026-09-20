@@ -1733,5 +1733,11 @@
   "color.off.gray": "Kelabu Lembut",
   "color.off.pink": "Merah Jambu Pastel",
   "color.off.green": "Hijau Pudina",
-  "color.off.sky": "Biru Langit"
+  "color.off.sky": "Biru Langit",
+  "work.step.init": "Memulakan saluran paip & tensor ONNX AI...",
+  "work.step.segment": "Membahagikan subjek latar depan & topeng alfa...",
+  "work.step.refine": "Menapis rambut ultra-rangup & ketelusan tepi...",
+  "work.reprocessAi": "⚡ Jalankan semula Potongan AI",
+  "work.processing": "Memproses Potongan AI...",
+  "editor.applying": "Menggunakan Kesan..."
 }

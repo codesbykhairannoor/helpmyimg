@@ -1733,5 +1733,11 @@
   "color.off.gray": "Yumuşak Gri",
   "color.off.pink": "Pastel Pembe",
   "color.off.green": "Nane Yeşili",
-  "color.off.sky": "Gök Mavisi"
+  "color.off.sky": "Gök Mavisi",
+  "work.step.init": "ONNX AI işlem hattı ve tensörleri başlatılıyor...",
+  "work.step.segment": "Ön plandaki konu ve alfa maskesi bölümlere ayrılıyor...",
+  "work.step.refine": "Ultra canlı saç ve kenar şeffaflığını iyileştirmek...",
+  "work.reprocessAi": "⚡ AI Cutout'u yeniden çalıştırın",
+  "work.processing": "Yapay Zeka Kesimi işleniyor...",
+  "editor.applying": "Efekt uygulanıyor..."
 }

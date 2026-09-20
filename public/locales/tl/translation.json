@@ -1733,5 +1733,11 @@
   "color.off.gray": "Malambot na Gray",
   "color.off.pink": "Pastel Pink",
   "color.off.green": "Mint Green",
-  "color.off.sky": "Asul na Langit"
+  "color.off.sky": "Asul na Langit",
+  "work.step.init": "Sinisimulan ang ONNX AI pipeline at tensor...",
+  "work.step.segment": "Pinag-segment ang foreground na paksa at alpha mask...",
+  "work.step.refine": "Pinipino ang ultra-crisp na buhok at transparency ng gilid...",
+  "work.reprocessAi": "⚡ Muling patakbuhin ang AI Cutout",
+  "work.processing": "Pinoproseso ang AI Cutout...",
+  "editor.applying": "Inilapat ang Epekto..."
 }

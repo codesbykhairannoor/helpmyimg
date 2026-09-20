@@ -1733,5 +1733,11 @@
   "color.off.gray": "Zacht grijs",
   "color.off.pink": "Pastelroze",
   "color.off.green": "Muntgroen",
-  "color.off.sky": "Hemelsblauw"
+  "color.off.sky": "Hemelsblauw",
+  "work.step.init": "Initialiseren van ONNX AI-pijplijn en tensors...",
+  "work.step.segment": "Voorgrondonderwerp en alfamasker segmenteren...",
+  "work.step.refine": "Verfijnt ultrahelder haar en transparantie van de randen...",
+  "work.reprocessAi": "⚡ Voer AI-uitsparing opnieuw uit",
+  "work.processing": "AI-knipsel verwerken...",
+  "editor.applying": "Effect toepassen..."
 }

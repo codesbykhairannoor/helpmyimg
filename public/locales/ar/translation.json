@@ -1747,5 +1747,11 @@
   "color.off.gray": "رمادي ناعم",
   "color.off.pink": "الباستيل الوردي",
   "color.off.green": "النعناع الأخضر",
-  "color.off.sky": "السماء الزرقاء"
+  "color.off.sky": "السماء الزرقاء",
+  "work.step.init": "تهيئة خط أنابيب وموترات ONNX AI...",
+  "work.step.segment": "تجزئة الموضوع الأمامي وقناع ألفا...",
+  "work.step.refine": "صقل الشعر فائق النعومة وشفافية الحواف...",
+  "work.reprocessAi": "⚡ إعادة تشغيل AI Cutout",
+  "work.processing": "معالجة انقطاع الذكاء الاصطناعي...",
+  "editor.applying": "جارٍ تطبيق التأثير..."
 }
