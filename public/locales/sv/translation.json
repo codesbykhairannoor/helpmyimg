@@ -1750,5 +1750,9 @@
   "remove.modeAutoDesc": "Adaptiv",
   "remove.detectedType": "Automatisk upptäckt:",
   "remove.detectedLogo": "🏷️ Logotyp / vektorgrafik (0ms)",
-  "remove.detectedPhoto": "📷 Naturligt foto/porträtt (AI)"
+  "remove.detectedPhoto": "📷 Naturligt foto/porträtt (AI)",
+  "editor.resetOriginal": "Återställ till original",
+  "editor.resetDesc": "Återställ det här fotot till det ursprungliga oklippta tillståndet",
+  "editor.uploadOther": "Ladda upp annan bild",
+  "editor.uploadOtherDesc": "Välj och ladda upp ett nytt foto från enheten"
 }

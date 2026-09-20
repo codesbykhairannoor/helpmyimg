@@ -1750,5 +1750,9 @@
   "remove.modeAutoDesc": "Προσαρμοστικό",
   "remove.detectedType": "Αυτόματη ανίχνευση:",
   "remove.detectedLogo": "🏷️ Λογότυπο / διανυσματικό γραφικό (0ms)",
-  "remove.detectedPhoto": "📷 Φυσική φωτογραφία / Πορτρέτο (AI)"
+  "remove.detectedPhoto": "📷 Φυσική φωτογραφία / Πορτρέτο (AI)",
+  "editor.resetOriginal": "Επαναφορά στο αρχικό",
+  "editor.resetDesc": "Επαναφέρετε αυτήν τη φωτογραφία στην αρχική άκοπη κατάσταση",
+  "editor.uploadOther": "Ανεβάστε άλλη εικόνα",
+  "editor.uploadOtherDesc": "Επιλέξτε και ανεβάστε μια νέα φωτογραφία από τη συσκευή"
 }

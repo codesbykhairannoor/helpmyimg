@@ -1750,5 +1750,9 @@
   "remove.modeAutoDesc": "Adaptive",
   "remove.detectedType": "Auto Detection:",
   "remove.detectedLogo": "🏷️ Logo / Vector Graphic (0ms)",
-  "remove.detectedPhoto": "📷 Natural na Larawan / Portrait (AI)"
+  "remove.detectedPhoto": "📷 Natural na Larawan / Portrait (AI)",
+  "editor.resetOriginal": "I-reset sa Orihinal",
+  "editor.resetDesc": "Ibalik ang larawang ito sa orihinal na hindi pinutol na estado",
+  "editor.uploadOther": "Mag-upload ng Ibang Larawan",
+  "editor.uploadOtherDesc": "Pumili at mag-upload ng bagong larawan mula sa device"
 }

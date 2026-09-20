@@ -1755,5 +1755,9 @@
   "remove.modeAutoDesc": "Adaptacyjny",
   "remove.detectedType": "Automatyczne wykrywanie:",
   "remove.detectedLogo": "🏷️ Logo / grafika wektorowa (0ms)",
-  "remove.detectedPhoto": "📷 Naturalne zdjęcie / portret (AI)"
+  "remove.detectedPhoto": "📷 Naturalne zdjęcie / portret (AI)",
+  "editor.resetOriginal": "Zresetuj do oryginału",
+  "editor.resetDesc": "Przywróć to zdjęcie do pierwotnego, nieobciętego stanu",
+  "editor.uploadOther": "Prześlij inny obraz",
+  "editor.uploadOtherDesc": "Wybierz i prześlij nowe zdjęcie z urządzenia"
 }

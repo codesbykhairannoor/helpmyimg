@@ -1750,5 +1750,9 @@
   "remove.modeAutoDesc": "Adaptative",
   "remove.detectedType": "Détection automatique :",
   "remove.detectedLogo": "🏷️ Logo / Graphique vectoriel (0 ms)",
-  "remove.detectedPhoto": "📷 Photo / Portrait Naturel (IA)"
+  "remove.detectedPhoto": "📷 Photo / Portrait Naturel (IA)",
+  "editor.resetOriginal": "Réinitialiser à l'original",
+  "editor.resetDesc": "Restaurer cette photo à son état d'origine non coupé",
+  "editor.uploadOther": "Télécharger une autre image",
+  "editor.uploadOtherDesc": "Choisissez et téléchargez une nouvelle photo depuis l'appareil"
 }

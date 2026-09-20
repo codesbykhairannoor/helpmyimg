@@ -1750,5 +1750,9 @@
   "remove.modeAutoDesc": "Mukautuva",
   "remove.detectedType": "Automaattinen tunnistus:",
   "remove.detectedLogo": "🏷️ Logo / vektorigrafiikka (0ms)",
-  "remove.detectedPhoto": "📷 Luonnollinen valokuva / muotokuva (AI)"
+  "remove.detectedPhoto": "📷 Luonnollinen valokuva / muotokuva (AI)",
+  "editor.resetOriginal": "Palauta alkuperäiseen",
+  "editor.resetDesc": "Palauta tämä valokuva alkuperäiseen leikkaamattomaan tilaan",
+  "editor.uploadOther": "Lataa toinen kuva",
+  "editor.uploadOtherDesc": "Valitse ja lähetä uusi kuva laitteesta"
 }

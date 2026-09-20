@@ -1750,5 +1750,9 @@
   "remove.modeAutoDesc": "自适应",
   "remove.detectedType": "自动检测：",
   "remove.detectedLogo": "🏷️ 徽标/矢量图形（0ms）",
-  "remove.detectedPhoto": "📷 自然照片/肖像（AI）"
+  "remove.detectedPhoto": "📷 自然照片/肖像（AI）",
+  "editor.resetOriginal": "重置为原始状态",
+  "editor.resetDesc": "将此照片恢复到原始未剪切状态",
+  "editor.uploadOther": "上传其他图片",
+  "editor.uploadOtherDesc": "从设备中选择并上传新照片"
 }

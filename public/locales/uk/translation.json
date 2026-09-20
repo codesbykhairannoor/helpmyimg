@@ -1750,5 +1750,9 @@
   "remove.modeAutoDesc": "Адаптивний",
   "remove.detectedType": "Автоматичне визначення:",
   "remove.detectedLogo": "🏷️ Логотип / векторна графіка (0 мс)",
-  "remove.detectedPhoto": "📷 Природна фотографія / портрет (AI)"
+  "remove.detectedPhoto": "📷 Природна фотографія / портрет (AI)",
+  "editor.resetOriginal": "Скинути до оригіналу",
+  "editor.resetDesc": "Відновити цю фотографію до початкового необрізаного стану",
+  "editor.uploadOther": "Завантажте інше зображення",
+  "editor.uploadOtherDesc": "Виберіть і завантажте нове фото з пристрою"
 }

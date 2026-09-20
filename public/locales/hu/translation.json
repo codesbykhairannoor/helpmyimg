@@ -1750,5 +1750,9 @@
   "remove.modeAutoDesc": "Adaptív",
   "remove.detectedType": "Automatikus felismerés:",
   "remove.detectedLogo": "🏷️ logó / vektorgrafika (0 ms)",
-  "remove.detectedPhoto": "📷 Természetes fotó/portré (AI)"
+  "remove.detectedPhoto": "📷 Természetes fotó/portré (AI)",
+  "editor.resetOriginal": "Visszaállítás eredetire",
+  "editor.resetDesc": "Állítsa vissza ezt a fényképet az eredeti, vágatlan állapotba",
+  "editor.uploadOther": "Másik kép feltöltése",
+  "editor.uploadOtherDesc": "Válasszon ki és töltsön fel egy új fényképet az eszközről"
 }

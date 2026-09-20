@@ -1764,5 +1764,9 @@
   "remove.modeAutoDesc": "التكيف",
   "remove.detectedType": "الكشف التلقائي:",
   "remove.detectedLogo": "🏷️ شعار / رسم متجه (0 مللي ثانية)",
-  "remove.detectedPhoto": "📷 صورة طبيعية/صورة شخصية (AI)"
+  "remove.detectedPhoto": "📷 صورة طبيعية/صورة شخصية (AI)",
+  "editor.resetOriginal": "إعادة التعيين إلى الأصل",
+  "editor.resetDesc": "قم باستعادة هذه الصورة إلى حالتها الأصلية غير المقطوعة",
+  "editor.uploadOther": "تحميل صورة أخرى",
+  "editor.uploadOtherDesc": "اختر وتحميل صورة جديدة من الجهاز"
 }

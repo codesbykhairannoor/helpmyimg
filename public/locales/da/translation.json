@@ -1750,5 +1750,9 @@
   "remove.modeAutoDesc": "Adaptiv",
   "remove.detectedType": "Automatisk registrering:",
   "remove.detectedLogo": "🏷️ Logo / vektorgrafik (0ms)",
-  "remove.detectedPhoto": "📷 Naturligt foto/portræt (AI)"
+  "remove.detectedPhoto": "📷 Naturligt foto/portræt (AI)",
+  "editor.resetOriginal": "Nulstil til original",
+  "editor.resetDesc": "Gendan dette foto til den oprindelige uklippede tilstand",
+  "editor.uploadOther": "Upload andet billede",
+  "editor.uploadOtherDesc": "Vælg og upload et nyt billede fra enheden"
 }

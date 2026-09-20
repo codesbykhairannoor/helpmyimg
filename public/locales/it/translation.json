@@ -1750,5 +1750,9 @@
   "remove.modeAutoDesc": "Adattivo",
   "remove.detectedType": "Rilevamento automatico:",
   "remove.detectedLogo": "🏷️ Logo/Grafica vettoriale (0ms)",
-  "remove.detectedPhoto": "📷 Foto naturale/Ritratto (AI)"
+  "remove.detectedPhoto": "📷 Foto naturale/Ritratto (AI)",
+  "editor.resetOriginal": "Ripristina originale",
+  "editor.resetDesc": "Ripristina questa foto allo stato originale non tagliato",
+  "editor.uploadOther": "Carica un'altra immagine",
+  "editor.uploadOtherDesc": "Scegli e carica una nuova foto dal dispositivo"
 }

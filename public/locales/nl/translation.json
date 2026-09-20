@@ -1750,5 +1750,9 @@
   "remove.modeAutoDesc": "Adaptief",
   "remove.detectedType": "Automatische detectie:",
   "remove.detectedLogo": "🏷️ Logo/vectorafbeelding (0 ms)",
-  "remove.detectedPhoto": "📷 Natuurlijke foto / portret (AI)"
+  "remove.detectedPhoto": "📷 Natuurlijke foto / portret (AI)",
+  "editor.resetOriginal": "Terugzetten naar origineel",
+  "editor.resetDesc": "Herstel deze foto in de originele, ongesneden staat",
+  "editor.uploadOther": "Upload andere afbeelding",
+  "editor.uploadOtherDesc": "Kies en upload een nieuwe foto vanaf het apparaat"
 }

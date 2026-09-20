@@ -1750,5 +1750,9 @@
   "remove.modeAutoDesc": "Adaptivní",
   "remove.detectedType": "Automatická detekce:",
   "remove.detectedLogo": "🏷️ Logo / vektorová grafika (0 ms)",
-  "remove.detectedPhoto": "📷 Přirozená fotografie / Portrét (AI)"
+  "remove.detectedPhoto": "📷 Přirozená fotografie / Portrét (AI)",
+  "editor.resetOriginal": "Obnovit původní",
+  "editor.resetDesc": "Obnovte tuto fotografii do původního nerozřezaného stavu",
+  "editor.uploadOther": "Nahrát jiný obrázek",
+  "editor.uploadOtherDesc": "Vyberte a nahrajte novou fotografii ze zařízení"
 }

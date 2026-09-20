@@ -1750,5 +1750,9 @@
   "remove.modeAutoDesc": "Adaptif",
   "remove.detectedType": "Pengesanan Auto:",
   "remove.detectedLogo": "🏷️ Logo / Grafik Vektor (0ms)",
-  "remove.detectedPhoto": "📷 Foto / Potret Semulajadi (AI)"
+  "remove.detectedPhoto": "📷 Foto / Potret Semulajadi (AI)",
+  "editor.resetOriginal": "Tetapkan semula kepada Asal",
+  "editor.resetDesc": "Pulihkan foto ini kepada keadaan asal tidak dipotong",
+  "editor.uploadOther": "Muat Naik Imej Lain",
+  "editor.uploadOtherDesc": "Pilih dan muat naik foto baharu daripada peranti"
 }

@@ -1749,5 +1749,9 @@
   "remove.modeAutoDesc": "Adaptive",
   "remove.detectedType": "Auto Detection:",
   "remove.detectedLogo": "🏷️ Logo / Vector Graphic (0ms)",
-  "remove.detectedPhoto": "📷 Natural Photo / Portrait (AI)"
+  "remove.detectedPhoto": "📷 Natural Photo / Portrait (AI)",
+  "editor.resetOriginal": "Reset to Original",
+  "editor.resetDesc": "Restore this photo to original uncut state",
+  "editor.uploadOther": "Upload Other Image",
+  "editor.uploadOtherDesc": "Pick and upload a new photo from device"
 }

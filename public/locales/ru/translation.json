@@ -1750,5 +1750,9 @@
   "remove.modeAutoDesc": "Адаптивный",
   "remove.detectedType": "Автоматическое обнаружение:",
   "remove.detectedLogo": "🏷️ Логотип/векторная графика (0 мс)",
-  "remove.detectedPhoto": "📷 Естественная фотография/портрет (AI)"
+  "remove.detectedPhoto": "📷 Естественная фотография/портрет (AI)",
+  "editor.resetOriginal": "Сбросить до исходного значения",
+  "editor.resetDesc": "Восстановите эту фотографию в исходное необрезанное состояние.",
+  "editor.uploadOther": "Загрузить другое изображение",
+  "editor.uploadOtherDesc": "Выберите и загрузите новую фотографию с устройства."
 }

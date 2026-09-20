@@ -271,12 +271,28 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({ initialTab: rawIni
               <div className="flex items-center gap-2">
                 <button
                   type="button"
-                  onClick={handleUploadOther}
-                  title={t('editor.resetAll', { defaultValue: 'Upload Other Photos / Reset' })}
+                  onClick={() => {
+                    if (currentItem?.originalUrl) {
+                      setBatchItems((prev) =>
+                        prev.map((item) =>
+                          item.id === currentItem.id
+                            ? {
+                                ...item,
+                                transparentUrl: null,
+                                processedUrl: item.originalUrl,
+                                status: 'idle',
+                                progress: 0,
+                              }
+                            : item
+                        )
+                      );
+                    }
+                  }}
+                  title={t('editor.resetDesc', { defaultValue: 'Kembalikan foto ini ke kondisi asli tanpa potongan' })}
                   className="flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-dark-700/80 hover:bg-dark-600 hover:border-neon-cyan/40 text-slate-300 hover:text-white text-xs font-semibold border border-dark-500 transition-all shadow-sm cursor-pointer"
                 >
                   <RotateCcw className="w-3.5 h-3.5 text-neon-cyan" />
-                  <span>{t('editor.reset', { defaultValue: 'Reset / Upload' })}</span>
+                  <span>{t('editor.resetOriginal', { defaultValue: 'Reset ke Asli' })}</span>
                 </button>
                 <span className="text-xs px-2.5 py-1 rounded-lg bg-neon-cyan/15 text-neon-cyan font-mono font-bold border border-neon-cyan/30">
                   {(initialTab === 'remove' || initialTab === 'removelogo' || initialTab === 'removeperson') &&
@@ -330,7 +346,8 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({ initialTab: rawIni
                                 ...item,
                                 transparentUrl: null,
                                 processedUrl: item.originalUrl,
-                                status: 'done',
+                                status: 'idle',
+                                progress: 0,
                               }
                             : item
                         )

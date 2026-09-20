@@ -1750,5 +1750,9 @@
   "remove.modeAutoDesc": "Uyarlanabilir",
   "remove.detectedType": "Otomatik Algılama:",
   "remove.detectedLogo": "🏷️ Logo / Vektör Grafiği (0ms)",
-  "remove.detectedPhoto": "📷 Doğal Fotoğraf / Portre (AI)"
+  "remove.detectedPhoto": "📷 Doğal Fotoğraf / Portre (AI)",
+  "editor.resetOriginal": "Orijinale Sıfırla",
+  "editor.resetDesc": "Bu fotoğrafı orijinal kesilmemiş durumuna geri yükleyin",
+  "editor.uploadOther": "Başka Resim Yükle",
+  "editor.uploadOtherDesc": "Cihazdan yeni bir fotoğraf seçip yükleyin"
 }

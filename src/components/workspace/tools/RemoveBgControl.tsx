@@ -3,7 +3,7 @@
 
 import React from 'react';
 import { useTranslation } from '../../../context/LanguageContext';
-import { RefreshCw, Sparkles, Image as ImageIcon, PaintBucket } from 'lucide-react';
+import { RefreshCw, Sparkles, Image as ImageIcon, PaintBucket, RotateCcw, Upload } from 'lucide-react';
 
 interface RemoveBgControlProps {
   currentTransparentUrl?: string | null;
@@ -176,16 +176,31 @@ export const RemoveBgControl: React.FC<RemoveBgControlProps> = ({
         </div>
       )}
 
-      {/* Tombol Unggah Foto Lain / Upload Other Photos (Muncul HANYA saat tepat 1 foto terupload) */}
-      {batchCount === 1 && (
-        <div className="pt-3 border-t border-dark-700/80 mt-2">
+      {/* Tombol Reset ke Asli & Upload Gambar Lain (Dua Opsi Berbeda & Terpisah) */}
+      {batchCount >= 1 && (
+        <div className="grid grid-cols-2 gap-2.5 pt-3 border-t border-dark-700/80 mt-2">
+          {/* Opsi 1: Reset ke Asli (Foto tetap ada di workspace, dibersihkan seperti awal upload) */}
           <button
-            onClick={onUploadOther || onReset}
+            type="button"
+            onClick={onReset}
             disabled={isProcessing}
-            className="w-full flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-dark-800 hover:bg-dark-700 text-slate-300 hover:text-white font-medium text-sm transition-colors border border-dark-600 cursor-pointer disabled:opacity-50"
+            title={t('editor.resetDesc', { defaultValue: 'Kembalikan foto ini ke kondisi asli tanpa potongan' })}
+            className="flex items-center justify-center gap-1.5 py-3 px-2.5 rounded-xl bg-dark-800 hover:bg-dark-700 text-slate-300 hover:text-white font-bold text-xs transition-all border border-dark-600 cursor-pointer disabled:opacity-50"
           >
-            <RefreshCw className="w-4 h-4 text-neon-cyan" />
-            <span>{t('editor.reset')}</span>
+            <RotateCcw className="w-3.5 h-3.5 text-neon-cyan shrink-0" />
+            <span className="truncate">{t('editor.resetOriginal', { defaultValue: 'Reset ke Asli' })}</span>
+          </button>
+
+          {/* Opsi 2: Upload Gambar Lain (Pilih foto baru dari komputer) */}
+          <button
+            type="button"
+            onClick={onUploadOther}
+            disabled={isProcessing}
+            title={t('editor.uploadOtherDesc', { defaultValue: 'Pilih dan unggah foto baru dari perangkat' })}
+            className="flex items-center justify-center gap-1.5 py-3 px-2.5 rounded-xl bg-dark-800 hover:bg-dark-700 text-slate-300 hover:text-white font-bold text-xs transition-all border border-dark-600 cursor-pointer disabled:opacity-50"
+          >
+            <Upload className="w-3.5 h-3.5 text-neon-emerald shrink-0" />
+            <span className="truncate">{t('editor.uploadOther', { defaultValue: 'Upload Lain' })}</span>
           </button>
         </div>
       )}

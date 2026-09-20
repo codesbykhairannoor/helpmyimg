@@ -1817,5 +1817,9 @@
   "remove.modeAutoDesc": "Adaptif",
   "remove.detectedType": "Deteksi Otomatis:",
   "remove.detectedLogo": "🏷️ Logo / Grafis Vektor (0ms)",
-  "remove.detectedPhoto": "📷 Foto / Potret Natural (AI)"
+  "remove.detectedPhoto": "📷 Foto / Potret Natural (AI)",
+  "editor.resetOriginal": "Reset ke Asli",
+  "editor.resetDesc": "Kembalikan foto ini ke kondisi asli tanpa potongan",
+  "editor.uploadOther": "Upload Gambar Lain",
+  "editor.uploadOtherDesc": "Pilih dan unggah foto baru dari perangkat"
 }

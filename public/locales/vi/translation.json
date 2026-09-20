@@ -1750,5 +1750,9 @@
   "remove.modeAutoDesc": "Thích ứng",
   "remove.detectedType": "Tự động phát hiện:",
   "remove.detectedLogo": "🏷️ Logo / Đồ họa Vector (0ms)",
-  "remove.detectedPhoto": "📷 Ảnh tự nhiên / Chân dung (AI)"
+  "remove.detectedPhoto": "📷 Ảnh tự nhiên / Chân dung (AI)",
+  "editor.resetOriginal": "Đặt lại về bản gốc",
+  "editor.resetDesc": "Khôi phục ảnh này về trạng thái ban đầu chưa cắt",
+  "editor.uploadOther": "Tải lên hình ảnh khác",
+  "editor.uploadOtherDesc": "Chọn và tải ảnh mới lên từ thiết bị"
 }

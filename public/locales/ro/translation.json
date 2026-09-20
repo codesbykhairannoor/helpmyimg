@@ -1750,5 +1750,9 @@
   "remove.modeAutoDesc": "Adaptiv",
   "remove.detectedType": "Detectare automată:",
   "remove.detectedLogo": "🏷️ Logo / Grafic vectorial (0 ms)",
-  "remove.detectedPhoto": "📷 Fotografie naturală / Portret (AI)"
+  "remove.detectedPhoto": "📷 Fotografie naturală / Portret (AI)",
+  "editor.resetOriginal": "Resetați la original",
+  "editor.resetDesc": "Restabiliți această fotografie la starea originală netăiată",
+  "editor.uploadOther": "Încărcați o altă imagine",
+  "editor.uploadOtherDesc": "Alegeți și încărcați o fotografie nouă de pe dispozitiv"
 }

@@ -1750,5 +1750,9 @@
   "remove.modeAutoDesc": "적응형",
   "remove.detectedType": "자동 감지:",
   "remove.detectedLogo": "🏷️ 로고 / 벡터 그래픽(0ms)",
-  "remove.detectedPhoto": "📷 자연 사진/인물(AI)"
+  "remove.detectedPhoto": "📷 자연 사진/인물(AI)",
+  "editor.resetOriginal": "원본으로 재설정",
+  "editor.resetDesc": "이 사진을 자르지 않은 원래 상태로 복원하세요.",
+  "editor.uploadOther": "다른 이미지 업로드",
+  "editor.uploadOtherDesc": "기기에서 새 사진을 선택하고 업로드하세요."
 }

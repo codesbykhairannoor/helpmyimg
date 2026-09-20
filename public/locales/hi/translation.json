@@ -1750,5 +1750,9 @@
   "remove.modeAutoDesc": "अनुकूली",
   "remove.detectedType": "स्वतः पहचान:",
   "remove.detectedLogo": "🏷️ लोगो / वेक्टर ग्राफ़िक (0ms)",
-  "remove.detectedPhoto": "📷 प्राकृतिक फोटो / पोर्ट्रेट (एआई)"
+  "remove.detectedPhoto": "📷 प्राकृतिक फोटो / पोर्ट्रेट (एआई)",
+  "editor.resetOriginal": "मूल पर रीसेट करें",
+  "editor.resetDesc": "इस फ़ोटो को बिना काटे मूल स्थिति में पुनर्स्थापित करें",
+  "editor.uploadOther": "अन्य छवि अपलोड करें",
+  "editor.uploadOtherDesc": "डिवाइस से एक नई फ़ोटो चुनें और अपलोड करें"
 }

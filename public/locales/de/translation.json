@@ -1750,5 +1750,9 @@
   "remove.modeAutoDesc": "Adaptiv",
   "remove.detectedType": "Automatische Erkennung:",
   "remove.detectedLogo": "🏷️ Logo / Vektorgrafik (0 ms)",
-  "remove.detectedPhoto": "📷 Natürliches Foto / Porträt (KI)"
+  "remove.detectedPhoto": "📷 Natürliches Foto / Porträt (KI)",
+  "editor.resetOriginal": "Auf Original zurücksetzen",
+  "editor.resetDesc": "Stellen Sie den ursprünglichen, ungeschnittenen Zustand dieses Fotos wieder her",
+  "editor.uploadOther": "Anderes Bild hochladen",
+  "editor.uploadOtherDesc": "Wählen Sie ein neues Foto aus und laden Sie es vom Gerät hoch"
 }
