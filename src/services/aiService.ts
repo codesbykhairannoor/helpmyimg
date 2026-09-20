@@ -237,6 +237,67 @@ class AIService {
     return canvas;
   }
 
+  public applyCustomBackground(
+    transparentImg: HTMLImageElement | ImageBitmap | HTMLCanvasElement,
+    bgType: 'color' | 'gradient' | 'image' | 'preset',
+    bgValue: string,
+    bgImgElement?: HTMLImageElement | null,
+    bgBlur: number = 0
+  ): HTMLCanvasElement {
+    const canvas = document.createElement('canvas');
+    canvas.width = transparentImg.width;
+    canvas.height = transparentImg.height;
+    const ctx = canvas.getContext('2d')!;
+
+    if ((bgType === 'image' || bgType === 'preset') && bgImgElement && bgImgElement.complete && bgImgElement.naturalWidth > 0) {
+      ctx.save();
+      if (bgBlur > 0) {
+        ctx.filter = `blur(${bgBlur}px)`;
+      }
+
+      // Calculate aspect ratio cover fit
+      const imgRatio = bgImgElement.naturalWidth / bgImgElement.naturalHeight;
+      const canvasRatio = canvas.width / canvas.height;
+      let drawW = canvas.width;
+      let drawH = canvas.height;
+      let drawX = 0;
+      let drawY = 0;
+
+      if (imgRatio > canvasRatio) {
+        drawW = canvas.height * imgRatio;
+        drawX = (canvas.width - drawW) / 2;
+      } else {
+        drawH = canvas.width / imgRatio;
+        drawY = (canvas.height - drawH) / 2;
+      }
+
+      const margin = bgBlur > 0 ? bgBlur * 2.5 : 0;
+      ctx.drawImage(bgImgElement, drawX - margin, drawY - margin, drawW + margin * 2, drawH + margin * 2);
+      ctx.restore();
+    } else if (bgType === 'gradient') {
+      const grad = ctx.createLinearGradient(0, 0, canvas.width, canvas.height);
+      const colors = bgValue.split(',').map(c => c.trim());
+      if (colors.length >= 2) {
+        grad.addColorStop(0, colors[0]);
+        grad.addColorStop(1, colors[1]);
+      } else {
+        grad.addColorStop(0, '#3b82f6');
+        grad.addColorStop(1, '#9333ea');
+      }
+      ctx.fillStyle = grad;
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+    } else {
+      // Solid color
+      ctx.fillStyle = bgValue || '#FFFFFF';
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+    }
+
+    // Draw the transparent foreground subject on top
+    ctx.drawImage(transparentImg, 0, 0);
+
+    return canvas;
+  }
+
 
   public applyWatermark(
     originalImg: HTMLImageElement | ImageBitmap | HTMLCanvasElement,

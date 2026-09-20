@@ -12,7 +12,7 @@ import { trackEvent } from '../../utils/analytics';
 
 import { RemoveBgControl } from './tools/RemoveBgControl';
 
-import { ColorBgControl } from './tools/ColorBgControl';
+import { ColorBgControl, PRESET_SCENES, GRADIENT_PRESETS, type BgMode } from './tools/ColorBgControl';
 import { BrushControl } from './tools/BrushControl';
 import { WatermarkControl } from './tools/WatermarkControl';
 import { CompressControl } from './tools/CompressControl';
@@ -35,7 +35,7 @@ export type { ColorInfo };
 import type { WatermarkPosition } from './tools/WatermarkControl';
 export type { WatermarkPosition };
 
-export type TabType = 'remove' | 'color' | 'brush' | 'watermark' | 'compress' | 'compress100kb' | 'convert' | 'resize' | 'crop' | 'rotate' | 'picker' | 'blurface' | 'design';
+export type TabType = 'remove' | 'color' | 'colorwhite' | 'removelogo' | 'removeperson' | 'brush' | 'watermark' | 'watermarkbulk' | 'compress' | 'compress100kb' | 'compress50kb' | 'compress200kb' | 'convert' | 'convertwebp' | 'resize' | 'resizeig' | 'resizepassport' | 'crop' | 'rotate' | 'picker' | 'blurface' | 'blurplate' | 'design';
 
 export interface BatchItem {
   id: string;
@@ -158,8 +158,52 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({ initialTab: rawIni
   // ------------------------------------
 
   // Parameter Alat
-  const initialColor = keywordSlug && keywordSlug.toLowerCase().includes('biru') ? '#00529C' : '#DB1514';
+  const initialColor = (initialTab === 'colorwhite') ? '#FFFFFF' : (keywordSlug && keywordSlug.toLowerCase().includes('biru') ? '#00529C' : '#DB1514');
+  const [bgMode, setBgMode] = useState<BgMode>('color');
   const [selectedColor, setSelectedColor] = useState(initialColor);
+  const [selectedGradient, setSelectedGradient] = useState(GRADIENT_PRESETS[0].value);
+  const [customBgFile, setCustomBgFile] = useState<File | null>(null);
+  const [customBgUrl, setCustomBgUrl] = useState<string | null>(null);
+  const [customBgImageElement, setCustomBgImageElement] = useState<HTMLImageElement | null>(null);
+  const [selectedPreset, setSelectedPreset] = useState<string>(PRESET_SCENES[0].id);
+  const [presetBgImageElement, setPresetBgImageElement] = useState<HTMLImageElement | null>(null);
+  const [bgBlur, setBgBlur] = useState<number>(0);
+
+  // Pre-load preset background scene image
+  useEffect(() => {
+    const scene = PRESET_SCENES.find(s => s.id === selectedPreset) || PRESET_SCENES[0];
+    if (scene) {
+      const img = new Image();
+      img.onload = () => setPresetBgImageElement(img);
+      img.src = scene.dataUrl;
+    }
+  }, [selectedPreset]);
+
+  const handleUploadCustomBg = useCallback((file: File) => {
+    if (customBgUrl) {
+      URL.revokeObjectURL(customBgUrl);
+    }
+    const url = URL.createObjectURL(file);
+    const img = new Image();
+    img.onload = () => {
+      setCustomBgFile(file);
+      setCustomBgUrl(url);
+      setCustomBgImageElement(img);
+      setBgMode('image');
+    };
+    img.src = url;
+  }, [customBgUrl]);
+
+  const handleClearCustomBg = useCallback(() => {
+    if (customBgUrl) {
+      URL.revokeObjectURL(customBgUrl);
+    }
+    setCustomBgFile(null);
+    setCustomBgUrl(null);
+    setCustomBgImageElement(null);
+    setBgMode('color');
+  }, [customBgUrl]);
+
   const [brushMode, setBrushMode] = useState<'restore' | 'erase'>('restore');
   const [brushSize, setBrushSize] = useState(25);
   
@@ -229,7 +273,9 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({ initialTab: rawIni
     setSelectedIndex(0);
     setPickedColor(null);
     setDominantColors([]);
+    setBgMode('color');
     setSelectedColor(initialColor);
+    setBgBlur(0);
     setRotationDeg(0);
     setFlipH(false);
     setFlipV(false);
@@ -244,7 +290,9 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({ initialTab: rawIni
 
   const handleResetCurrent = useCallback(() => {
     if (!currentItem) return;
+    setBgMode('color');
     setSelectedColor(initialColor);
+    setBgBlur(0);
     setRotationDeg(0);
     setFlipH(false);
     setFlipV(false);
@@ -361,9 +409,9 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({ initialTab: rawIni
         initialFile: f,
         initialOriginalUrl: url,
         modelType: 'rmbg',
-        status: ['remove', 'color', 'brush'].includes(initialTab) ? 'queued' : 'idle',
+        status: ['remove', 'color', 'colorwhite', 'removelogo', 'removeperson', 'brush'].includes(initialTab) ? 'queued' : 'idle',
         progress: 0,
-        progressStep: ['remove', 'color', 'brush'].includes(initialTab) ? t('work.startAi', { defaultValue: 'Memulai AI...' }) : t('work.waiting'),
+        progressStep: ['remove', 'color', 'colorwhite', 'removelogo', 'removeperson', 'brush'].includes(initialTab) ? t('work.startAi', { defaultValue: 'Memulai AI...' }) : t('work.waiting'),
       };
     });
 
@@ -371,7 +419,7 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({ initialTab: rawIni
       const merged = [...prev, ...newItems];
       
       // Bypass AI instantly for some tools, otherwise leave as idle or queued
-      if (['watermark', 'compress', 'convert', 'resize', 'crop', 'rotate', 'picker', 'blurface', 'design'].includes(initialTab)) {
+      if (['watermark', 'watermarkbulk', 'compress', 'compress100kb', 'compress50kb', 'compress200kb', 'convert', 'convertwebp', 'resize', 'resizeig', 'resizepassport', 'crop', 'rotate', 'picker', 'blurface', 'blurplate', 'design'].includes(initialTab)) {
         return merged.map(i => 
           newItems.some(n => n.id === i.id) 
             ? { ...i, status: 'done', transparentUrl: i.originalUrl, processedUrl: i.originalUrl, progress: 100, progressStep: 'Instan' }
@@ -425,7 +473,7 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({ initialTab: rawIni
       const nextItem = batchItems.find(
         (i) =>
           i.status === 'queued' &&
-          !['watermark', 'compress', 'convert', 'resize', 'crop', 'rotate', 'picker', 'blurface', 'design'].includes(initialTab)
+          !['watermark', 'watermarkbulk', 'compress', 'compress100kb', 'compress50kb', 'compress200kb', 'convert', 'convertwebp', 'resize', 'resizeig', 'resizepassport', 'crop', 'rotate', 'picker', 'blurface', 'blurplate', 'design'].includes(initialTab)
       );
 
       if (nextItem) {
@@ -442,7 +490,7 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({ initialTab: rawIni
 
   // Otomatis hapus background jika masuk ke tab color/remove/brush tapi item belum transparan
   useEffect(() => {
-    if (['remove', 'color', 'brush'].includes(initialTab)) {
+    if (['remove', 'color', 'colorwhite', 'removelogo', 'removeperson', 'brush'].includes(initialTab)) {
       setBatchItems((prev) =>
         prev.map((item) => {
           if ((!item.transparentUrl || item.transparentUrl === item.originalUrl || item.status === 'idle') && item.status !== 'processing' && item.status !== 'queued' && item.status !== 'error') {
@@ -491,15 +539,24 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({ initialTab: rawIni
     let resultCanvas: HTMLCanvasElement | null = null;
     let refinedTransImg: HTMLImageElement | HTMLCanvasElement = transImg;
 
-    if (initialTab === 'remove' || initialTab === 'brush') {
+    if (initialTab === 'remove' || initialTab === 'removelogo' || initialTab === 'removeperson' || initialTab === 'brush') {
       resultCanvas = document.createElement('canvas');
       resultCanvas.width = refinedTransImg.width;
       resultCanvas.height = refinedTransImg.height;
       const ctx = resultCanvas.getContext('2d')!;
       ctx.drawImage(refinedTransImg, 0, 0);
-    } else if (initialTab === 'color') {
-      resultCanvas = aiService.applyColorBackground(refinedTransImg, selectedColor);
-    } else if (initialTab === 'watermark') {
+    } else if (initialTab === 'color' || initialTab === 'colorwhite') {
+      let bgVal = selectedColor;
+      let bgImgEl: HTMLImageElement | null = null;
+      if (bgMode === 'gradient') {
+        bgVal = selectedGradient;
+      } else if (bgMode === 'image') {
+        bgImgEl = customBgImageElement;
+      } else if (bgMode === 'preset') {
+        bgImgEl = presetBgImageElement;
+      }
+      resultCanvas = aiService.applyCustomBackground(refinedTransImg, bgMode, bgVal, bgImgEl, bgBlur);
+    } else if (initialTab === 'watermark' || initialTab === 'watermarkbulk') {
       // Watermark applied to the original image!
       resultCanvas = aiService.applyWatermark(
         origImg, 
@@ -512,7 +569,7 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({ initialTab: rawIni
         watermarkScale,
         watermarkRotation
       );
-    } else if (initialTab === 'resize' && resizeWidth > 0 && resizeHeight > 0) {
+    } else if ((initialTab === 'resize' || initialTab === 'resizeig' || initialTab === 'resizepassport') && resizeWidth > 0 && resizeHeight > 0) {
       const currentSeq = ++effectSequenceRef.current;
       try {
         let sourceBlob = currentItem.file;
@@ -592,7 +649,7 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({ initialTab: rawIni
 
   useEffect(() => {
     if (debounceTimerRef.current) clearTimeout(debounceTimerRef.current);
-    const delay = initialTab === 'resize' ? 500 : 50;
+    const delay = (initialTab === 'resize' || initialTab === 'resizeig' || initialTab === 'resizepassport') ? 500 : 50;
     debounceTimerRef.current = setTimeout(() => {
       applyCurrentEffect();
     }, delay);
@@ -602,7 +659,14 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({ initialTab: rawIni
     };
   }, [
     initialTab,
+    bgMode,
     selectedColor,
+    selectedGradient,
+    customBgUrl,
+    customBgImageElement,
+    selectedPreset,
+    presetBgImageElement,
+    bgBlur,
     brushMode,
     watermarkType,
     watermarkText,
@@ -1034,16 +1098,18 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({ initialTab: rawIni
                     <span>{t('editor.reset', { defaultValue: 'Reset / Upload' })}</span>
                   </button>
                   <span className="text-xs px-2.5 py-1 rounded-lg bg-neon-cyan/15 text-neon-cyan font-mono font-bold border border-neon-cyan/30">
-                    {initialTab === 'remove' && t('work.badge.remove', { defaultValue: 'Remove Background' })}
-                    {initialTab === 'color' && t('work.badge.color', { defaultValue: 'Passport Color' })}
+                    {(initialTab === 'remove' || initialTab === 'removelogo' || initialTab === 'removeperson') && t('work.badge.remove', { defaultValue: 'Remove Background' })}
+                    {(initialTab === 'color' || initialTab === 'colorwhite') && t('work.badge.color', { defaultValue: 'Change Background' })}
                     {initialTab === 'brush' && t('work.badge.brush', { defaultValue: 'Magic Brush' })}
-                    {initialTab === 'watermark' && t('work.badge.watermark', { defaultValue: 'Watermark' })}
-                    {initialTab === 'compress' && t('work.badge.compress', { defaultValue: 'Compress' })}
-                    {initialTab === 'convert' && t('work.badge.convert', { defaultValue: 'Convert' })}
-                    {initialTab === 'resize' && t('work.badge.resize', { defaultValue: 'Resize' })}
+                    {(initialTab === 'watermark' || initialTab === 'watermarkbulk') && t('work.badge.watermark', { defaultValue: 'Watermark' })}
+                    {(initialTab === 'compress' || initialTab === 'compress100kb' || initialTab === 'compress50kb' || initialTab === 'compress200kb') && t('work.badge.compress', { defaultValue: 'Compress' })}
+                    {(initialTab === 'convert' || initialTab === 'convertwebp') && t('work.badge.convert', { defaultValue: 'Convert' })}
+                    {(initialTab === 'resize' || initialTab === 'resizeig' || initialTab === 'resizepassport') && t('work.badge.resize', { defaultValue: 'Resize' })}
                     {initialTab === 'crop' && t('work.badge.crop', { defaultValue: 'Crop' })}
                     {initialTab === 'rotate' && t('work.badge.rotate', { defaultValue: 'Rotate' })}
                     {initialTab === 'picker' && t('work.badge.picker', { defaultValue: 'Color Picker' })}
+                    {(initialTab === 'blurface' || initialTab === 'blurplate') && t('work.badge.blurface', { defaultValue: 'Blur Face' })}
+                    {initialTab === 'design' && t('work.badge.design', { defaultValue: 'Design Editor' })}
                   </span>
                 </div>
               </div>
@@ -1055,7 +1121,7 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({ initialTab: rawIni
                   <Loader2 className="w-8 h-8 text-neon-cyan animate-spin" />
                 </div>
               }>
-                {initialTab === 'remove' && (
+                {(initialTab === 'remove' || initialTab === 'removelogo' || initialTab === 'removeperson') && (
                   <RemoveBgControl
                     currentTransparentUrl={currentItem?.processedUrl || null}
                     currentFileName={currentItem?.name}
@@ -1086,13 +1152,25 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({ initialTab: rawIni
                   />
                 )}
 
-                {initialTab === 'color' && (
+                {(initialTab === 'color' || initialTab === 'colorwhite') && (
                   <ColorBgControl
+                    bgMode={bgMode}
+                    setBgMode={setBgMode}
                     selectedColor={selectedColor}
                     setSelectedColor={setSelectedColor}
-
+                    selectedGradient={selectedGradient}
+                    setSelectedGradient={setSelectedGradient}
+                    customBgUrl={customBgUrl}
+                    onUploadCustomBg={handleUploadCustomBg}
+                    onClearCustomBg={handleClearCustomBg}
+                    selectedPreset={selectedPreset}
+                    setSelectedPreset={setSelectedPreset}
+                    bgBlur={bgBlur}
+                    setBgBlur={setBgBlur}
                     onReset={() => {
-                      setSelectedColor('#ffffff');
+                      setBgMode('color');
+                      setSelectedColor(initialColor);
+                      setBgBlur(0);
                       if (currentItem) {
                         setBatchItems(prev => prev.map(item => item.id === currentItem.id ? {
                           ...item,
