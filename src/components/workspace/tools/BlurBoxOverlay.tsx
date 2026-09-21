@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect, useCallback } from 'react';
 import type { BlurBox } from './BlurFaceControl';
 import { X, ShieldCheck } from 'lucide-react';
 
@@ -20,6 +20,23 @@ export const BlurBoxOverlay: React.FC<BlurBoxOverlayProps> = ({
   blurIntensity: _blurIntensity,
 }) => {
   const containerRef = useRef<HTMLDivElement>(null);
+  const [, setTick] = useState(0);
+
+  // Force re-render on resize so imgLayout updates
+  const forceUpdate = useCallback(() => setTick((t) => t + 1), []);
+
+  useEffect(() => {
+    window.addEventListener('resize', forceUpdate);
+    const ro = containerRef.current ? new ResizeObserver(forceUpdate) : null;
+    if (containerRef.current && ro) ro.observe(containerRef.current);
+    if (imageElement) imageElement.addEventListener('load', forceUpdate);
+
+    return () => {
+      window.removeEventListener('resize', forceUpdate);
+      if (ro) ro.disconnect();
+      if (imageElement) imageElement.removeEventListener('load', forceUpdate);
+    };
+  }, [forceUpdate, imageElement]);
 
   // Interaction state
   const [activeAction, setActiveAction] = useState<{
@@ -38,16 +55,60 @@ export const BlurBoxOverlay: React.FC<BlurBoxOverlayProps> = ({
   const nw = originalWidth || imageElement?.naturalWidth || 800;
   const nh = originalHeight || imageElement?.naturalHeight || 600;
 
+  const getZoom = () => {
+    if (typeof document === 'undefined') return 1;
+    const zoom = parseFloat(getComputedStyle(document.body).zoom);
+    return !isNaN(zoom) && zoom > 0 ? zoom : 1;
+  };
+
+  const getLayout = () => {
+    const zoom = getZoom();
+    const vpRect = containerRef.current?.getBoundingClientRect();
+    const imgRect = imageElement?.getBoundingClientRect();
+
+    if (vpRect && imgRect && imgRect.width > 0 && imgRect.height > 0) {
+      return {
+        left: (imgRect.left - vpRect.left) / zoom,
+        top: (imgRect.top - vpRect.top) / zoom,
+        width: imgRect.width / zoom,
+        height: imgRect.height / zoom,
+        imgRect,
+      };
+    }
+
+    const w = containerRef.current?.clientWidth || 700;
+    const h = containerRef.current?.clientHeight || 525;
+    return {
+      left: 0,
+      top: 0,
+      width: w,
+      height: h,
+      imgRect: vpRect,
+    };
+  };
+
+  const layout = getLayout();
+
   const handlePointerDownContainer = (e: React.PointerEvent<HTMLDivElement>) => {
     if (activeAction) return;
     if (e.target !== containerRef.current) return;
     if (!containerRef.current) return;
 
-    const rect = containerRef.current.getBoundingClientRect();
-    if (rect.width <= 0 || rect.height <= 0) return;
+    const imgRect = imageElement?.getBoundingClientRect() || containerRef.current.getBoundingClientRect();
+    if (!imgRect || imgRect.width <= 0 || imgRect.height <= 0) return;
 
-    const fracX = Math.max(0, Math.min(1, (e.clientX - rect.left) / rect.width));
-    const fracY = Math.max(0, Math.min(1, (e.clientY - rect.top) / rect.height));
+    // Check if pointer is on the image
+    if (
+      e.clientX < imgRect.left - 5 ||
+      e.clientX > imgRect.right + 5 ||
+      e.clientY < imgRect.top - 5 ||
+      e.clientY > imgRect.bottom + 5
+    ) {
+      return;
+    }
+
+    const fracX = Math.max(0, Math.min(1, (e.clientX - imgRect.left) / imgRect.width));
+    const fracY = Math.max(0, Math.min(1, (e.clientY - imgRect.top) / imgRect.height));
 
     setActiveAction({
       type: 'draw',
@@ -86,12 +147,12 @@ export const BlurBoxOverlay: React.FC<BlurBoxOverlayProps> = ({
 
   const handlePointerMove = (e: React.PointerEvent<HTMLDivElement>) => {
     if (!activeAction || !containerRef.current) return;
-    const rect = containerRef.current.getBoundingClientRect();
-    if (rect.width <= 0 || rect.height <= 0) return;
+    const imgRect = imageElement?.getBoundingClientRect() || containerRef.current.getBoundingClientRect();
+    if (!imgRect || imgRect.width <= 0 || imgRect.height <= 0) return;
 
     if (activeAction.type === 'draw' && activeAction.startFracX !== undefined && activeAction.startFracY !== undefined) {
-      const fracX = Math.max(0, Math.min(1, (e.clientX - rect.left) / rect.width));
-      const fracY = Math.max(0, Math.min(1, (e.clientY - rect.top) / rect.height));
+      const fracX = Math.max(0, Math.min(1, (e.clientX - imgRect.left) / imgRect.width));
+      const fracY = Math.max(0, Math.min(1, (e.clientY - imgRect.top) / imgRect.height));
 
       const leftFrac = Math.min(activeAction.startFracX, fracX);
       const topFrac = Math.min(activeAction.startFracY, fracY);
@@ -105,8 +166,8 @@ export const BlurBoxOverlay: React.FC<BlurBoxOverlayProps> = ({
         h: heightFrac * nh,
       });
     } else if (activeAction.type === 'drag' && activeAction.initialBox && activeAction.id) {
-      const naturalDx = ((e.clientX - activeAction.startClientX) / rect.width) * nw;
-      const naturalDy = ((e.clientY - activeAction.startClientY) / rect.height) * nh;
+      const naturalDx = ((e.clientX - activeAction.startClientX) / imgRect.width) * nw;
+      const naturalDy = ((e.clientY - activeAction.startClientY) / imgRect.height) * nh;
 
       setBoxes((prev) =>
         prev.map((b) => {
@@ -122,8 +183,8 @@ export const BlurBoxOverlay: React.FC<BlurBoxOverlayProps> = ({
       activeAction.id &&
       activeAction.handle
     ) {
-      const naturalDx = ((e.clientX - activeAction.startClientX) / rect.width) * nw;
-      const naturalDy = ((e.clientY - activeAction.startClientY) / rect.height) * nh;
+      const naturalDx = ((e.clientX - activeAction.startClientX) / imgRect.width) * nw;
+      const naturalDy = ((e.clientY - activeAction.startClientY) / imgRect.height) * nh;
 
       setBoxes((prev) =>
         prev.map((b) => {
@@ -207,10 +268,10 @@ export const BlurBoxOverlay: React.FC<BlurBoxOverlayProps> = ({
     >
       {/* Existing Boxes */}
       {boxes.map((box) => {
-        const leftPct = (box.x / nw) * 100;
-        const topPct = (box.y / nh) * 100;
-        const widthPct = (box.width / nw) * 100;
-        const heightPct = (box.height / nh) * 100;
+        const left = layout.left + (box.x / nw) * layout.width;
+        const top = layout.top + (box.y / nh) * layout.height;
+        const width = (box.width / nw) * layout.width;
+        const height = (box.height / nh) * layout.height;
 
         const isPixelate = box.type === 'pixelate';
 
@@ -219,12 +280,10 @@ export const BlurBoxOverlay: React.FC<BlurBoxOverlayProps> = ({
             key={box.id}
             className="absolute border-2 border-neon-cyan/90 group cursor-move select-none rounded-lg shadow-glow-cyan/40 transition-shadow box-border"
             style={{
-              left: `${leftPct}%`,
-              top: `${topPct}%`,
-              width: `${widthPct}%`,
-              height: `${heightPct}%`,
-              minWidth: '20px',
-              minHeight: '20px',
+              left: `${left}px`,
+              top: `${top}px`,
+              width: `${Math.max(24, width)}px`,
+              height: `${Math.max(24, height)}px`,
               backgroundColor: isPixelate ? 'rgba(6, 182, 212, 0.1)' : 'rgba(56, 189, 248, 0.1)',
             }}
             onPointerDown={(e) => handlePointerDownBox(e, box)}
@@ -267,10 +326,10 @@ export const BlurBoxOverlay: React.FC<BlurBoxOverlayProps> = ({
         <div
           className="absolute border-2 border-dashed border-neon-cyan bg-neon-cyan/20 pointer-events-none rounded-lg shadow-glow-cyan box-border"
           style={{
-            left: `${(currentBox.x / nw) * 100}%`,
-            top: `${(currentBox.y / nh) * 100}%`,
-            width: `${(currentBox.w / nw) * 100}%`,
-            height: `${(currentBox.h / nw) * 100}%`,
+            left: `${layout.left + (currentBox.x / nw) * layout.width}px`,
+            top: `${layout.top + (currentBox.y / nh) * layout.height}px`,
+            width: `${(currentBox.w / nw) * layout.width}px`,
+            height: `${(currentBox.h / nh) * layout.height}px`,
           }}
         />
       )}

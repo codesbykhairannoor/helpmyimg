@@ -178,22 +178,21 @@ export const WorkspaceViewport: React.FC<WorkspaceViewportProps> = ({
 
         {/* Interactive Canvas for Brush & Color Picker */}
         {initialTab === 'brush' || initialTab === 'picker' ? (
-          <div className="relative inline-flex items-center justify-center max-h-full max-w-full">
+          <>
             <canvas
               ref={canvasRef}
               onMouseDown={onCanvasMouseDown}
               onMouseMove={(e) => {
                 if (initialTab === 'brush') {
-                  const rect = e.currentTarget.getBoundingClientRect();
-                  if (rect.width > 0 && rect.height > 0) {
-                    const fracX = Math.max(0, Math.min(1, (e.clientX - rect.left) / rect.width));
-                    const fracY = Math.max(0, Math.min(1, (e.clientY - rect.top) / rect.height));
-                    const pctX = fracX * 100;
-                    const pctY = fracY * 100;
-                    setCursorPos({ x: pctX, y: pctY });
+                  const zoom = getPageZoom();
+                  const vpRect = viewportContainerRef.current?.getBoundingClientRect();
+                  if (vpRect) {
+                    const x = (e.clientX - vpRect.left) / zoom;
+                    const y = (e.clientY - vpRect.top) / zoom;
+                    setCursorPos({ x, y });
                     if (brushCursorRef.current) {
-                      brushCursorRef.current.style.left = `${pctX}%`;
-                      brushCursorRef.current.style.top = `${pctY}%`;
+                      brushCursorRef.current.style.left = `${x}px`;
+                      brushCursorRef.current.style.top = `${y}px`;
                     }
                   }
                 }
@@ -201,17 +200,16 @@ export const WorkspaceViewport: React.FC<WorkspaceViewportProps> = ({
               }}
               onMouseEnter={(e) => {
                 if (initialTab === 'brush') {
-                  const rect = e.currentTarget.getBoundingClientRect();
-                  if (rect.width > 0 && rect.height > 0) {
-                    const fracX = Math.max(0, Math.min(1, (e.clientX - rect.left) / rect.width));
-                    const fracY = Math.max(0, Math.min(1, (e.clientY - rect.top) / rect.height));
-                    const pctX = fracX * 100;
-                    const pctY = fracY * 100;
-                    setCursorPos({ x: pctX, y: pctY });
+                  const zoom = getPageZoom();
+                  const vpRect = viewportContainerRef.current?.getBoundingClientRect();
+                  if (vpRect) {
+                    const x = (e.clientX - vpRect.left) / zoom;
+                    const y = (e.clientY - vpRect.top) / zoom;
+                    setCursorPos({ x, y });
                     setIsBrushHovering(true);
                     if (brushCursorRef.current) {
-                      brushCursorRef.current.style.left = `${pctX}%`;
-                      brushCursorRef.current.style.top = `${pctY}%`;
+                      brushCursorRef.current.style.left = `${x}px`;
+                      brushCursorRef.current.style.top = `${y}px`;
                     }
                   }
                 }
@@ -231,14 +229,14 @@ export const WorkspaceViewport: React.FC<WorkspaceViewportProps> = ({
                 maxHeight: '100%',
               }}
             />
-            {/* Dynamic Real-time Brush Size Hover Indicator Ring (Positioned Absolutely in Canvas Wrapper) */}
+            {/* Dynamic Real-time Brush Size Hover Indicator Ring */}
             {initialTab === 'brush' && isBrushHovering && (
               <div
                 ref={brushCursorRef}
-                className="pointer-events-none absolute z-40 rounded-full select-none"
+                className="pointer-events-none absolute z-50 rounded-full select-none"
                 style={{
-                  left: `${cursorPos.x}%`,
-                  top: `${cursorPos.y}%`,
+                  left: `${cursorPos.x}px`,
+                  top: `${cursorPos.y}px`,
                   width: `${brushSize}px`,
                   height: `${brushSize}px`,
                   transform: 'translate(-50%, -50%)',
@@ -261,7 +259,7 @@ export const WorkspaceViewport: React.FC<WorkspaceViewportProps> = ({
                 />
               </div>
             )}
-          </div>
+          </>
         ) : (
           (currentItem?.processedUrl || currentItem?.originalUrl) && (
             <>
@@ -307,65 +305,53 @@ export const WorkspaceViewport: React.FC<WorkspaceViewportProps> = ({
                   </div>
                 </div>
               ) : (
-                <div
-                  className="relative max-h-full max-w-full flex items-center justify-center select-none"
-                  style={{
-                    aspectRatio:
-                      originalDimensions.width > 0 && originalDimensions.height > 0
-                        ? (initialTab === 'rotate' && Math.abs(rotationDeg % 180) === 90
-                            ? `${originalDimensions.height} / ${originalDimensions.width}`
-                            : `${originalDimensions.width} / ${originalDimensions.height}`)
-                        : 'auto',
+                <motion.img
+                  key={currentItem.id}
+                  ref={setImageElement as React.Ref<HTMLImageElement>}
+                  initial={{ opacity: 0, scale: 0.95 }}
+                  animate={{
+                    opacity: 1,
+                    scale:
+                      initialTab === 'rotate' &&
+                      Math.abs(rotationDeg % 180) === 90 &&
+                      originalDimensions.width > originalDimensions.height &&
+                      originalDimensions.height > 0
+                        ? Math.min(1, originalDimensions.height / originalDimensions.width)
+                        : 1,
+                    rotate: initialTab === 'rotate' ? rotationDeg : 0,
+                    scaleX: initialTab === 'rotate' ? (flipH ? -1 : 1) : 1,
+                    scaleY: initialTab === 'rotate' ? (flipV ? -1 : 1) : 1,
                   }}
-                >
-                  <motion.img
-                    key={currentItem.id}
-                    ref={setImageElement as React.Ref<HTMLImageElement>}
-                    initial={{ opacity: 0, scale: 0.95 }}
-                    animate={{
-                      opacity: 1,
-                      scale:
-                        initialTab === 'rotate' &&
-                        Math.abs(rotationDeg % 180) === 90 &&
-                        originalDimensions.width > originalDimensions.height &&
-                        originalDimensions.height > 0
-                          ? Math.min(1, originalDimensions.height / originalDimensions.width)
-                          : 1,
-                      rotate: initialTab === 'rotate' ? rotationDeg : 0,
-                      scaleX: initialTab === 'rotate' ? (flipH ? -1 : 1) : 1,
-                      scaleY: initialTab === 'rotate' ? (flipV ? -1 : 1) : 1,
-                    }}
-                    transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
-                    src={
-                      currentItem.processedUrl || currentItem.originalUrl
-                    }
-                    alt="Image Preview"
-                    className="w-full h-full max-h-full max-w-full shadow-2xl rounded-lg object-contain block"
-                  />
-                  {initialTab === 'crop' && (
-                    <InteractiveCropOverlay
-                      imageElement={imageElement}
-                      originalWidth={originalDimensions.width}
-                      originalHeight={originalDimensions.height}
-                      cropX={cropX}
-                      cropY={cropY}
-                      cropWidth={cropWidth}
-                      cropHeight={cropHeight}
-                      cropRadius={cropRadius}
-                      onCropChange={onCropChange}
-                    />
-                  )}
-                  {(initialTab === 'blurface' || initialTab === 'blurplate') && (
-                    <BlurBoxOverlay
-                      imageElement={imageElement}
-                      originalWidth={originalDimensions.width}
-                      originalHeight={originalDimensions.height}
-                      boxes={blurBoxes}
-                      setBoxes={setBlurBoxes}
-                      blurIntensity={blurIntensity}
-                    />
-                  )}
-                </div>
+                  transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
+                  src={
+                    currentItem.processedUrl || currentItem.originalUrl
+                  }
+                  alt="Image Preview"
+                  className="max-h-full max-w-full shadow-2xl rounded-lg object-contain"
+                />
+              )}
+              {initialTab === 'crop' && (
+                <InteractiveCropOverlay
+                  imageElement={imageElement}
+                  originalWidth={originalDimensions.width}
+                  originalHeight={originalDimensions.height}
+                  cropX={cropX}
+                  cropY={cropY}
+                  cropWidth={cropWidth}
+                  cropHeight={cropHeight}
+                  cropRadius={cropRadius}
+                  onCropChange={onCropChange}
+                />
+              )}
+              {(initialTab === 'blurface' || initialTab === 'blurplate') && (
+                <BlurBoxOverlay
+                  imageElement={imageElement}
+                  originalWidth={originalDimensions.width}
+                  originalHeight={originalDimensions.height}
+                  boxes={blurBoxes}
+                  setBoxes={setBlurBoxes}
+                  blurIntensity={blurIntensity}
+                />
               )}
             </>
           )
