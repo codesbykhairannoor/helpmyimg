@@ -46,6 +46,9 @@ interface WorkspaceViewportProps {
   resizeWidth?: number;
   resizeHeight?: number;
   resizeMode?: 'standard' | 'smart';
+  // Brush states for dynamic hover cursor
+  brushSize?: number;
+  brushMode?: 'restore' | 'erase';
 }
 
 export const WorkspaceViewport: React.FC<WorkspaceViewportProps> = ({
@@ -76,8 +79,13 @@ export const WorkspaceViewport: React.FC<WorkspaceViewportProps> = ({
   resizeWidth = 0,
   resizeHeight = 0,
   resizeMode = 'standard',
+  brushSize = 25,
+  brushMode = 'restore',
 }) => {
   const { t } = useTranslation();
+  const brushCursorRef = useRef<HTMLDivElement>(null);
+  const [isBrushHovering, setIsBrushHovering] = useState(false);
+  const [cursorPos, setCursorPos] = useState({ x: -1000, y: -1000 });
 
   return (
     <div className="space-y-4 lg:static">
@@ -162,16 +170,68 @@ export const WorkspaceViewport: React.FC<WorkspaceViewportProps> = ({
 
         {/* Interactive Canvas for Brush & Color Picker */}
         {initialTab === 'brush' || initialTab === 'picker' ? (
-          <canvas
-            ref={canvasRef}
-            onMouseDown={onCanvasMouseDown}
-            onMouseMove={onCanvasMouseMove}
-            onMouseUp={onCanvasMouseUp}
-            onMouseLeave={onCanvasMouseUp}
-            className={`max-h-full max-w-full object-contain shadow-2xl rounded-lg ${
-              initialTab === 'picker' ? 'cursor-picker' : 'cursor-brush'
-            }`}
-          />
+          <div className="relative max-h-full max-w-full flex items-center justify-center">
+            <canvas
+              ref={canvasRef}
+              onMouseDown={onCanvasMouseDown}
+              onMouseMove={(e) => {
+                if (initialTab === 'brush') {
+                  if (brushCursorRef.current) {
+                    brushCursorRef.current.style.left = `${e.clientX}px`;
+                    brushCursorRef.current.style.top = `${e.clientY}px`;
+                  }
+                }
+                onCanvasMouseMove(e);
+              }}
+              onMouseEnter={(e) => {
+                if (initialTab === 'brush') {
+                  setCursorPos({ x: e.clientX, y: e.clientY });
+                  setIsBrushHovering(true);
+                  if (brushCursorRef.current) {
+                    brushCursorRef.current.style.left = `${e.clientX}px`;
+                    brushCursorRef.current.style.top = `${e.clientY}px`;
+                  }
+                }
+              }}
+              onMouseLeave={() => {
+                setIsBrushHovering(false);
+                onCanvasMouseUp();
+              }}
+              onMouseUp={onCanvasMouseUp}
+              className={`max-h-full max-w-full object-contain shadow-2xl rounded-lg ${
+                initialTab === 'picker' ? 'cursor-picker' : 'cursor-none'
+              }`}
+            />
+            {/* Dynamic Real-time Brush Size Hover Indicator Ring */}
+            {initialTab === 'brush' && isBrushHovering && (
+              <div
+                ref={brushCursorRef}
+                className="pointer-events-none fixed -translate-x-1/2 -translate-y-1/2 z-50 rounded-full select-none transition-[width,height] duration-75 ease-out"
+                style={{
+                  left: `${cursorPos.x}px`,
+                  top: `${cursorPos.y}px`,
+                  width: `${brushSize}px`,
+                  height: `${brushSize}px`,
+                  border: brushMode === 'restore' ? '2px solid #10b981' : '2px solid #f43f5e',
+                  backgroundColor:
+                    brushMode === 'restore' ? 'rgba(16, 185, 129, 0.18)' : 'rgba(244, 63, 94, 0.18)',
+                  boxShadow:
+                    brushMode === 'restore'
+                      ? '0 0 12px rgba(16, 185, 129, 0.7), inset 0 0 6px rgba(16, 185, 129, 0.3)'
+                      : '0 0 12px rgba(244, 63, 94, 0.7), inset 0 0 6px rgba(244, 63, 94, 0.3)',
+                }}
+              >
+                {/* Center crosshair pinpoint dot */}
+                <div
+                  className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-1.5 h-1.5 rounded-full"
+                  style={{
+                    backgroundColor: brushMode === 'restore' ? '#10b981' : '#f43f5e',
+                    boxShadow: '0 0 3px rgba(0, 0, 0, 0.8)',
+                  }}
+                />
+              </div>
+            )}
+          </div>
         ) : (
           (currentItem?.processedUrl || currentItem?.originalUrl) && (
             <>

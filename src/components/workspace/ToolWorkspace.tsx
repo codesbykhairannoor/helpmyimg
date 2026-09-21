@@ -247,6 +247,8 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({ initialTab: rawIni
                 resizeWidth={resizeWidth}
                 resizeHeight={resizeHeight}
                 resizeMode={resizeMode}
+                brushSize={brushSize}
+                brushMode={brushMode}
               />
 
               <BatchThumbnails

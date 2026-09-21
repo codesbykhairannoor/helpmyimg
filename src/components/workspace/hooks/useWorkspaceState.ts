@@ -80,6 +80,8 @@ export function useWorkspaceState(initialTab: TabType = 'remove', keywordSlug?: 
   const [isApplyingEffect, setIsApplyingEffect] = useState(false);
   const isProcessingRef = useRef(false);
   const isDrawingRef = useRef(false);
+  const lastPointRef = useRef<{ x: number; y: number } | null>(null);
+  const restoreImageRef = useRef<HTMLImageElement | null>(null);
   const effectSequenceRef = useRef(0);
   const debounceTimerRef = useRef<NodeJS.Timeout | null>(null);
 
@@ -368,6 +370,20 @@ export function useWorkspaceState(initialTab: TabType = 'remove', keywordSlug?: 
     selectedIndex,
   ]);
 
+  // Preload original image for instantaneous 0ms restore brush strokes
+  useEffect(() => {
+    if (currentItem?.originalUrl) {
+      const img = new Image();
+      img.crossOrigin = 'anonymous';
+      img.onload = () => {
+        restoreImageRef.current = img;
+      };
+      img.src = currentItem.originalUrl;
+    } else {
+      restoreImageRef.current = null;
+    }
+  }, [currentItem?.originalUrl]);
+
   // --- Brush & Color Picker Canvas Handlers ---
   const handleCanvasMouseDown = (e: React.MouseEvent<HTMLCanvasElement>) => {
     if (initialTab === 'picker') {
@@ -376,6 +392,7 @@ export function useWorkspaceState(initialTab: TabType = 'remove', keywordSlug?: 
     }
     if (initialTab !== 'brush' || !canvasRef.current || !currentItem?.processedUrl) return;
     isDrawingRef.current = true;
+    lastPointRef.current = null;
     drawBrush(e);
   };
 
@@ -409,6 +426,7 @@ export function useWorkspaceState(initialTab: TabType = 'remove', keywordSlug?: 
   const handleCanvasMouseUp = () => {
     if (!isDrawingRef.current || !canvasRef.current) return;
     isDrawingRef.current = false;
+    lastPointRef.current = null;
     canvasRef.current.toBlob((blob) => {
       if (blob) {
         const url = URL.createObjectURL(blob);
@@ -428,13 +446,21 @@ export function useWorkspaceState(initialTab: TabType = 'remove', keywordSlug?: 
     const rect = canvas.getBoundingClientRect();
     const scaleX = canvas.width / rect.width;
     const scaleY = canvas.height / rect.height;
-    const x = (e.clientX - rect.left) * scaleX;
-    const y = (e.clientY - rect.top) * scaleY;
+    const currentX = (e.clientX - rect.left) * scaleX;
+    const currentY = (e.clientY - rect.top) * scaleY;
 
-    const doDraw = (img?: HTMLImageElement) => {
+    // Scale radius in canvas coordinates so that on screen it matches brush.brushSize exactly
+    const canvasRadius = Math.max(1, (brush.brushSize / 2) * scaleX);
+
+    const start = lastPointRef.current || { x: currentX, y: currentY };
+    const dist = Math.hypot(currentX - start.x, currentY - start.y);
+    const step = Math.max(1, canvasRadius * 0.25);
+    const steps = Math.ceil(dist / step);
+
+    const renderCircle = (cx: number, cy: number, img?: HTMLImageElement | null) => {
       ctx.save();
       ctx.beginPath();
-      ctx.arc(x, y, brush.brushSize / 2, 0, Math.PI * 2);
+      ctx.arc(cx, cy, canvasRadius, 0, Math.PI * 2);
 
       if (brush.brushMode === 'erase') {
         ctx.globalCompositeOperation = 'destination-out';
@@ -447,13 +473,16 @@ export function useWorkspaceState(initialTab: TabType = 'remove', keywordSlug?: 
       ctx.restore();
     };
 
-    if (brush.brushMode === 'restore') {
-      const origImg = new Image();
-      origImg.onload = () => doDraw(origImg);
-      origImg.src = currentItem!.originalUrl;
-    } else {
-      doDraw();
+    const targetImg = restoreImageRef.current;
+
+    for (let i = 0; i <= steps; i++) {
+      const t = steps === 0 ? 1 : i / steps;
+      const px = start.x + (currentX - start.x) * t;
+      const py = start.y + (currentY - start.y) * t;
+      renderCircle(px, py, targetImg);
     }
+
+    lastPointRef.current = { x: currentX, y: currentY };
   };
 
   // Render Canvas for Brush / Picker

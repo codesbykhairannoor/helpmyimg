@@ -72,9 +72,25 @@ export const BrushControl: React.FC<BrushControlProps> = ({
           <span className="font-semibold text-slate-300">
             {t('brush.size', { defaultValue: 'Ukuran Diameter Kuas' })}
           </span>
-          <span className="font-mono text-neon-pink font-bold bg-dark-900 px-2.5 py-0.5 rounded-lg border border-dark-600">
-            {brushSize} px
-          </span>
+          <div className="flex items-center gap-2">
+            <span
+              className="inline-block rounded-full border transition-all duration-150"
+              style={{
+                width: `${Math.min(22, Math.max(8, brushSize / 2.5))}px`,
+                height: `${Math.min(22, Math.max(8, brushSize / 2.5))}px`,
+                borderColor: brushMode === 'restore' ? '#10b981' : '#f43f5e',
+                backgroundColor: brushMode === 'restore' ? 'rgba(16, 185, 129, 0.25)' : 'rgba(244, 63, 94, 0.25)',
+              }}
+              title={`${brushSize}px preview`}
+            />
+            <span
+              className={`font-mono font-bold bg-dark-900 px-2.5 py-0.5 rounded-lg border border-dark-600 ${
+                brushMode === 'restore' ? 'text-neon-emerald' : 'text-neon-pink'
+              }`}
+            >
+              {brushSize} px
+            </span>
+          </div>
         </div>
         <input
           type="range"
@@ -82,7 +98,9 @@ export const BrushControl: React.FC<BrushControlProps> = ({
           max="100"
           value={brushSize}
           onChange={(e) => setBrushSize(Number(e.target.value))}
-          className="w-full h-2 bg-dark-900 rounded-lg appearance-none cursor-pointer accent-neon-pink"
+          className={`w-full h-2 bg-dark-900 rounded-lg appearance-none cursor-pointer ${
+            brushMode === 'restore' ? 'accent-neon-emerald' : 'accent-neon-pink'
+          }`}
         />
       </div>
 
