@@ -9,6 +9,7 @@ export interface BlurBoxOverlayProps {
   boxes: BlurBox[];
   setBoxes: React.Dispatch<React.SetStateAction<BlurBox[]>>;
   blurIntensity: number;
+  activeType?: 'blur' | 'pixelate';
 }
 
 export const BlurBoxOverlay: React.FC<BlurBoxOverlayProps> = ({
@@ -17,7 +18,8 @@ export const BlurBoxOverlay: React.FC<BlurBoxOverlayProps> = ({
   originalHeight,
   boxes,
   setBoxes,
-  blurIntensity: _blurIntensity,
+  blurIntensity,
+  activeType = 'blur',
 }) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const [, setTick] = useState(0);
@@ -25,18 +27,39 @@ export const BlurBoxOverlay: React.FC<BlurBoxOverlayProps> = ({
   // Force re-render on resize so imgLayout updates
   const forceUpdate = useCallback(() => setTick((t) => t + 1), []);
 
+  const getTargetImage = useCallback((): HTMLImageElement | null => {
+    if (imageElement && imageElement.isConnected && imageElement.getBoundingClientRect().width > 0) {
+      return imageElement;
+    }
+    if (typeof document !== 'undefined') {
+      const domImg = document.getElementById('workspace-preview-image') as HTMLImageElement | null;
+      if (domImg && domImg.isConnected && domImg.getBoundingClientRect().width > 0) {
+        return domImg;
+      }
+    }
+    return null;
+  }, [imageElement]);
+
   useEffect(() => {
     window.addEventListener('resize', forceUpdate);
     const ro = containerRef.current ? new ResizeObserver(forceUpdate) : null;
     if (containerRef.current && ro) ro.observe(containerRef.current);
-    if (imageElement) imageElement.addEventListener('load', forceUpdate);
+
+    const targetImg = getTargetImage();
+    let imgRo: ResizeObserver | null = null;
+    if (targetImg) {
+      targetImg.addEventListener('load', forceUpdate);
+      imgRo = new ResizeObserver(forceUpdate);
+      imgRo.observe(targetImg);
+    }
 
     return () => {
       window.removeEventListener('resize', forceUpdate);
       if (ro) ro.disconnect();
-      if (imageElement) imageElement.removeEventListener('load', forceUpdate);
+      if (imgRo) imgRo.disconnect();
+      if (targetImg) targetImg.removeEventListener('load', forceUpdate);
     };
-  }, [forceUpdate, imageElement]);
+  }, [forceUpdate, getTargetImage]);
 
   // Interaction state
   const [activeAction, setActiveAction] = useState<{
@@ -52,8 +75,9 @@ export const BlurBoxOverlay: React.FC<BlurBoxOverlayProps> = ({
 
   const [currentBox, setCurrentBox] = useState<{ x: number; y: number; w: number; h: number } | null>(null);
 
-  const nw = originalWidth || imageElement?.naturalWidth || 800;
-  const nh = originalHeight || imageElement?.naturalHeight || 600;
+  const targetImg = getTargetImage();
+  const nw = originalWidth || targetImg?.naturalWidth || 800;
+  const nh = originalHeight || targetImg?.naturalHeight || 600;
 
   const getZoom = () => {
     if (typeof document === 'undefined') return 1;
@@ -64,7 +88,8 @@ export const BlurBoxOverlay: React.FC<BlurBoxOverlayProps> = ({
   const getLayout = () => {
     const zoom = getZoom();
     const vpRect = containerRef.current?.getBoundingClientRect();
-    const imgRect = imageElement?.getBoundingClientRect();
+    const curTargetImg = getTargetImage();
+    const imgRect = curTargetImg?.getBoundingClientRect();
 
     if (vpRect && imgRect && imgRect.width > 0 && imgRect.height > 0) {
       return {
@@ -93,19 +118,24 @@ export const BlurBoxOverlay: React.FC<BlurBoxOverlayProps> = ({
     if (activeAction) return;
     if (e.target !== containerRef.current) return;
     if (!containerRef.current) return;
+    if (e.button !== 0) return;
 
-    const imgRect = imageElement?.getBoundingClientRect() || containerRef.current.getBoundingClientRect();
+    const curTargetImg = getTargetImage();
+    const imgRect = curTargetImg?.getBoundingClientRect();
     if (!imgRect || imgRect.width <= 0 || imgRect.height <= 0) return;
 
-    // Check if pointer is on the image
+    // Check if pointer is on or near the image (margin 20px)
+    const margin = 20;
     if (
-      e.clientX < imgRect.left - 5 ||
-      e.clientX > imgRect.right + 5 ||
-      e.clientY < imgRect.top - 5 ||
-      e.clientY > imgRect.bottom + 5
+      e.clientX < imgRect.left - margin ||
+      e.clientX > imgRect.right + margin ||
+      e.clientY < imgRect.top - margin ||
+      e.clientY > imgRect.bottom + margin
     ) {
       return;
     }
+
+    e.preventDefault();
 
     const fracX = Math.max(0, Math.min(1, (e.clientX - imgRect.left) / imgRect.width));
     const fracY = Math.max(0, Math.min(1, (e.clientY - imgRect.top) / imgRect.height));
@@ -130,7 +160,9 @@ export const BlurBoxOverlay: React.FC<BlurBoxOverlayProps> = ({
     handleType?: 'tl' | 'tr' | 'bl' | 'br'
   ) => {
     e.stopPropagation();
+    e.preventDefault();
     if (!containerRef.current) return;
+    if (e.button !== 0) return;
 
     setActiveAction({
       id: box.id,
@@ -147,8 +179,11 @@ export const BlurBoxOverlay: React.FC<BlurBoxOverlayProps> = ({
 
   const handlePointerMove = (e: React.PointerEvent<HTMLDivElement>) => {
     if (!activeAction || !containerRef.current) return;
-    const imgRect = imageElement?.getBoundingClientRect() || containerRef.current.getBoundingClientRect();
+    const curTargetImg = getTargetImage();
+    const imgRect = curTargetImg?.getBoundingClientRect();
     if (!imgRect || imgRect.width <= 0 || imgRect.height <= 0) return;
+
+    e.preventDefault();
 
     if (activeAction.type === 'draw' && activeAction.startFracX !== undefined && activeAction.startFracY !== undefined) {
       const fracX = Math.max(0, Math.min(1, (e.clientX - imgRect.left) / imgRect.width));
@@ -172,8 +207,8 @@ export const BlurBoxOverlay: React.FC<BlurBoxOverlayProps> = ({
       setBoxes((prev) =>
         prev.map((b) => {
           if (b.id !== activeAction.id) return b;
-          const newX = Math.max(0, Math.min(nw - b.width, activeAction.initialBox!.x + naturalDx));
-          const newY = Math.max(0, Math.min(nh - b.height, activeAction.initialBox!.y + naturalDy));
+          const newX = Math.max(0, Math.min(Math.max(0, nw - b.width), activeAction.initialBox!.x + naturalDx));
+          const newY = Math.max(0, Math.min(Math.max(0, nh - b.height), activeAction.initialBox!.y + naturalDy));
           return { ...b, x: newX, y: newY };
         })
       );
@@ -196,24 +231,24 @@ export const BlurBoxOverlay: React.FC<BlurBoxOverlayProps> = ({
           let bottomEdge = init.y + init.height;
 
           if (activeAction.handle!.includes('l')) {
-            newX = Math.max(0, Math.min(init.x + naturalDx, rightEdge - 15));
+            newX = Math.max(0, Math.min(init.x + naturalDx, rightEdge - 20));
           }
           if (activeAction.handle!.includes('r')) {
-            rightEdge = Math.min(nw, Math.max(newX + 15, init.x + init.width + naturalDx));
+            rightEdge = Math.min(nw, Math.max(newX + 20, init.x + init.width + naturalDx));
           }
           if (activeAction.handle!.includes('t')) {
-            newY = Math.max(0, Math.min(init.y + naturalDy, bottomEdge - 15));
+            newY = Math.max(0, Math.min(init.y + naturalDy, bottomEdge - 20));
           }
           if (activeAction.handle!.includes('b')) {
-            bottomEdge = Math.min(nh, Math.max(newY + 15, init.y + init.height + naturalDy));
+            bottomEdge = Math.min(nh, Math.max(newY + 20, init.y + init.height + naturalDy));
           }
 
           return {
             ...b,
             x: newX,
             y: newY,
-            width: Math.max(15, rightEdge - newX),
-            height: Math.max(15, bottomEdge - newY),
+            width: Math.max(20, rightEdge - newX),
+            height: Math.max(20, bottomEdge - newY),
           };
         })
       );
@@ -224,7 +259,7 @@ export const BlurBoxOverlay: React.FC<BlurBoxOverlayProps> = ({
     if (!activeAction) return;
 
     if (activeAction.type === 'draw' && currentBox) {
-      if (currentBox.w > 12 && currentBox.h > 12) {
+      if (currentBox.w > 15 && currentBox.h > 15) {
         setBoxes((prev) => [
           ...prev,
           {
@@ -233,7 +268,7 @@ export const BlurBoxOverlay: React.FC<BlurBoxOverlayProps> = ({
             y: Math.max(0, currentBox.y),
             width: Math.max(20, currentBox.w),
             height: Math.max(20, currentBox.h),
-            type: 'blur',
+            type: activeType,
           },
         ]);
       }
@@ -284,10 +319,34 @@ export const BlurBoxOverlay: React.FC<BlurBoxOverlayProps> = ({
               top: `${top}px`,
               width: `${Math.max(24, width)}px`,
               height: `${Math.max(24, height)}px`,
-              backgroundColor: isPixelate ? 'rgba(6, 182, 212, 0.1)' : 'rgba(56, 189, 248, 0.1)',
             }}
             onPointerDown={(e) => handlePointerDownBox(e, box)}
           >
+            {/* Live Blur / Pixelate Backdrop Effect */}
+            <div
+              className="absolute inset-0 rounded-lg pointer-events-none"
+              style={{
+                backdropFilter: isPixelate
+                  ? 'contrast(160%) brightness(85%) blur(1.5px)'
+                  : `blur(${Math.max(4, Math.round(blurIntensity * 0.4))}px)`,
+                WebkitBackdropFilter: isPixelate
+                  ? 'contrast(160%) brightness(85%) blur(1.5px)'
+                  : `blur(${Math.max(4, Math.round(blurIntensity * 0.4))}px)`,
+                backgroundColor: isPixelate ? 'rgba(6, 182, 212, 0.18)' : 'rgba(56, 189, 248, 0.12)',
+              }}
+            />
+            {isPixelate && (
+              <div
+                className="absolute inset-0 rounded-lg pointer-events-none opacity-45"
+                style={{
+                  backgroundImage:
+                    'linear-gradient(45deg, #000 25%, transparent 25%, transparent 75%, #000 75%, #000), linear-gradient(45deg, #000 25%, transparent 25%, transparent 75%, #000 75%, #000)',
+                  backgroundSize: '10px 10px',
+                  backgroundPosition: '0 0, 5px 5px',
+                }}
+              />
+            )}
+
             {/* Corner Handles */}
             {handles.map((h) => (
               <div
@@ -305,15 +364,17 @@ export const BlurBoxOverlay: React.FC<BlurBoxOverlayProps> = ({
                 e.stopPropagation();
                 handleRemove(box.id);
               }}
-              onPointerDown={(e) => e.stopPropagation()}
-              className="absolute -top-3.5 -right-3.5 w-7 h-7 bg-red-500 hover:bg-red-600 text-white rounded-full flex items-center justify-center shadow-lg border border-white/50 z-30 transition-transform active:scale-90 cursor-pointer"
+              onPointerDown={(e) => {
+                e.stopPropagation();
+              }}
+              className="absolute -top-3.5 -right-3.5 w-7 h-7 bg-red-500 hover:bg-red-600 text-white rounded-full flex items-center justify-center shadow-lg border border-white/50 z-40 transition-transform active:scale-90 cursor-pointer"
               title="Hapus area sensor ini"
             >
               <X className="w-4 h-4" />
             </button>
 
             {/* Quick Tag Label */}
-            <div className="absolute bottom-1 left-1.5 px-1.5 py-0.5 rounded bg-dark-900/80 text-[9px] font-mono font-bold text-neon-cyan border border-neon-cyan/30 pointer-events-none flex items-center gap-1">
+            <div className="absolute bottom-1 left-1.5 px-1.5 py-0.5 rounded bg-dark-900/85 text-[9px] font-mono font-bold text-neon-cyan border border-neon-cyan/30 pointer-events-none flex items-center gap-1 z-20">
               <ShieldCheck className="w-2.5 h-2.5 text-neon-emerald" />
               <span>{isPixelate ? 'PIXELATE' : 'BLUR'}</span>
             </div>

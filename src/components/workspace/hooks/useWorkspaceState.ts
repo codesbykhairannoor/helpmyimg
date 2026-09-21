@@ -98,7 +98,7 @@ export function useWorkspaceState(initialTab: TabType = 'remove', keywordSlug?: 
     }
   }, [keywordSlug]);
 
-  // Load natural dimensions and imageElement when currentItem changes
+  // Load natural dimensions when currentItem changes
   useEffect(() => {
     if (!currentItem) {
       setImageElement(null);
@@ -107,7 +107,8 @@ export function useWorkspaceState(initialTab: TabType = 'remove', keywordSlug?: 
     const img = new Image();
     img.crossOrigin = 'anonymous';
     img.onload = () => {
-      setImageElement(img);
+      // NOTE: imageElement must be set by the actual rendered DOM element (<motion.img>)
+      // in WorkspaceViewport to provide real getBoundingClientRect() on-screen dimensions.
       resize.setOriginalDimensions({ width: img.naturalWidth, height: img.naturalHeight });
       resize.setResizeWidth(img.naturalWidth);
       resize.setResizeHeight(img.naturalHeight);

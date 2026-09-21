@@ -925,36 +925,52 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({ initialTab: rawIni
                   blurIntensity={blurIntensity}
                   setBlurIntensity={setBlurIntensity}
                   onApply={async () => {
-                    if (imageElement && currentItem) {
-                      try {
-                        const resultCanvas = BlurEngine.applyBlurBoxes(imageElement, blurBoxes, blurIntensity);
-                        const blob = await new Promise<Blob | null>((resolve) =>
-                          resultCanvas.toBlob(resolve, currentItem.file?.type || 'image/png', 0.95)
-                        );
-                        if (!blob) return;
-                        const url = URL.createObjectURL(blob);
-                        const newFile = new File([blob], currentItem.name, {
-                          type: blob.type || 'image/png',
-                        });
-                        setBatchItems((prev) =>
-                          prev.map((item) =>
-                            item.id === currentItem.id
-                              ? {
-                                  ...item,
-                                  file: newFile,
-                                  originalUrl: url,
-                                  transparentUrl: item.transparentUrl ? url : null,
-                                  processedUrl: url,
-                                  status: 'done',
-                                }
-                              : item
-                          )
-                        );
-                        setBlurBoxes([]);
-                        showToast(t('blur.appliedSuccess', { defaultValue: 'Sensor area berhasil diterapkan!' }));
-                      } catch (err) {
-                        console.error('Blur failed', err);
+                    if (!currentItem) return;
+                    try {
+                      let targetImg: HTMLImageElement | HTMLCanvasElement | null = imageElement;
+                      if (!targetImg || !('naturalWidth' in targetImg) || targetImg.naturalWidth <= 0) {
+                        targetImg = document.getElementById('workspace-preview-image') as HTMLImageElement | null;
                       }
+                      if (!targetImg || targetImg.naturalWidth <= 0) {
+                        const src = currentItem.processedUrl || currentItem.transparentUrl || currentItem.originalUrl;
+                        const loaded = new Image();
+                        loaded.crossOrigin = 'anonymous';
+                        loaded.src = src;
+                        await new Promise((resolve, reject) => {
+                          if (loaded.complete && loaded.naturalWidth > 0) return resolve(true);
+                          loaded.onload = () => resolve(true);
+                          loaded.onerror = reject;
+                        });
+                        targetImg = loaded;
+                      }
+
+                      const resultCanvas = BlurEngine.applyBlurBoxes(targetImg, blurBoxes, blurIntensity);
+                      const blob = await new Promise<Blob | null>((resolve) =>
+                        resultCanvas.toBlob(resolve, currentItem.file?.type || 'image/png', 0.95)
+                      );
+                      if (!blob) return;
+                      const url = URL.createObjectURL(blob);
+                      const newFile = new File([blob], currentItem.name, {
+                        type: blob.type || 'image/png',
+                      });
+                      setBatchItems((prev) =>
+                        prev.map((item) =>
+                          item.id === currentItem.id
+                            ? {
+                                ...item,
+                                file: newFile,
+                                originalUrl: url,
+                                transparentUrl: item.transparentUrl ? url : null,
+                                processedUrl: url,
+                                status: 'done',
+                              }
+                            : item
+                        )
+                      );
+                      setBlurBoxes([]);
+                      showToast(t('blur.appliedSuccess', { defaultValue: 'Sensor area berhasil diterapkan!' }));
+                    } catch (err) {
+                      console.error('Blur failed', err);
                     }
                   }}
                   onReset={handleResetCurrent}

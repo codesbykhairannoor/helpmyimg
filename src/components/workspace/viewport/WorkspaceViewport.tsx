@@ -307,8 +307,15 @@ export const WorkspaceViewport: React.FC<WorkspaceViewportProps> = ({
               ) : (
                 <motion.img
                   key={currentItem.id}
-                  ref={setImageElement as React.Ref<HTMLImageElement>}
-                  initial={{ opacity: 0, scale: 0.95 }}
+                  id="workspace-preview-image"
+                  crossOrigin="anonymous"
+                  ref={(el) => {
+                    if (el) setImageElement(el);
+                  }}
+                  onLoad={(e) => {
+                    setImageElement(e.currentTarget);
+                  }}
+                  initial={{ opacity: 0 }}
                   animate={{
                     opacity: 1,
                     scale:
@@ -322,7 +329,7 @@ export const WorkspaceViewport: React.FC<WorkspaceViewportProps> = ({
                     scaleX: initialTab === 'rotate' ? (flipH ? -1 : 1) : 1,
                     scaleY: initialTab === 'rotate' ? (flipV ? -1 : 1) : 1,
                   }}
-                  transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
+                  transition={{ duration: 0.15, ease: [0.16, 1, 0.3, 1] }}
                   src={
                     currentItem.processedUrl || currentItem.originalUrl
                   }
