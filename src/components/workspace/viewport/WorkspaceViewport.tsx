@@ -1,7 +1,7 @@
 // src/components/workspace/viewport/WorkspaceViewport.tsx
 // Main Canvas & Image Viewport with AI Scanner and Interactive Overlays
 
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { AlertTriangle, RefreshCw, Upload } from 'lucide-react';
 import { useTranslation } from '../../../context/LanguageContext';
@@ -83,13 +83,60 @@ export const WorkspaceViewport: React.FC<WorkspaceViewportProps> = ({
   brushMode = 'restore',
 }) => {
   const { t } = useTranslation();
+  const viewportContainerRef = useRef<HTMLDivElement>(null);
   const brushCursorRef = useRef<HTMLDivElement>(null);
   const [isBrushHovering, setIsBrushHovering] = useState(false);
   const [cursorPos, setCursorPos] = useState({ x: -1000, y: -1000 });
+  const [canvasDisplaySize, setCanvasDisplaySize] = useState<{ width: number; height: number } | null>(null);
+
+  const updateCanvasDimensions = useCallback(() => {
+    if (!viewportContainerRef.current) return;
+    const container = viewportContainerRef.current;
+    const cw = container.clientWidth;
+    const ch = container.clientHeight;
+    if (cw <= 0 || ch <= 0) return;
+
+    const nw = canvasRef.current?.width || originalDimensions.width || imageElement?.naturalWidth || 800;
+    const nh = canvasRef.current?.height || originalDimensions.height || imageElement?.naturalHeight || 600;
+    if (!nw || !nh) return;
+
+    const imageRatio = nw / nh;
+    const containerRatio = cw / ch;
+
+    let renderW: number, renderH: number;
+    if (containerRatio > imageRatio) {
+      renderH = ch;
+      renderW = ch * imageRatio;
+    } else {
+      renderW = cw;
+      renderH = cw / imageRatio;
+    }
+
+    setCanvasDisplaySize({
+      width: Math.round(renderW),
+      height: Math.round(renderH),
+    });
+  }, [originalDimensions.width, originalDimensions.height, imageElement, canvasRef]);
+
+  useEffect(() => {
+    updateCanvasDimensions();
+    const container = viewportContainerRef.current;
+    let observer: ResizeObserver | null = null;
+    if (container) {
+      observer = new ResizeObserver(updateCanvasDimensions);
+      observer.observe(container);
+    }
+    window.addEventListener('resize', updateCanvasDimensions);
+    return () => {
+      window.removeEventListener('resize', updateCanvasDimensions);
+      if (observer) observer.disconnect();
+    };
+  }, [updateCanvasDimensions, currentItem?.processedUrl]);
 
   return (
     <div className="space-y-4 lg:static">
       <div
+        ref={viewportContainerRef}
         className={`w-full rounded-3xl border border-dark-500/80 bg-dark-900/90 shadow-glass overflow-hidden relative flex items-center justify-center checkerboard-bg transition-all duration-150 ${
           initialTab === 'design'
             ? 'h-[75vh] md:h-auto md:aspect-[4/3]'
@@ -202,17 +249,10 @@ export const WorkspaceViewport: React.FC<WorkspaceViewportProps> = ({
                 initialTab === 'picker' ? 'cursor-picker' : 'cursor-none'
               }`}
               style={{
-                aspectRatio: `${originalDimensions.width || 800} / ${originalDimensions.height || 600}`,
+                width: canvasDisplaySize ? `${canvasDisplaySize.width}px` : 'auto',
+                height: canvasDisplaySize ? `${canvasDisplaySize.height}px` : 'auto',
                 maxWidth: '100%',
                 maxHeight: '100%',
-                width:
-                  (originalDimensions.width || 800) >= (originalDimensions.height || 600)
-                    ? '100%'
-                    : 'auto',
-                height:
-                  (originalDimensions.height || 600) > (originalDimensions.width || 800)
-                    ? '100%'
-                    : 'auto',
                 display: 'block',
               }}
             />
