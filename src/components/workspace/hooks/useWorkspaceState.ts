@@ -109,10 +109,8 @@ export function useWorkspaceState(initialTab: TabType = 'remove', keywordSlug?: 
     img.onload = () => {
       setImageElement(img);
       resize.setOriginalDimensions({ width: img.naturalWidth, height: img.naturalHeight });
-      if (resize.resizeWidth === 0 || resize.resizeHeight === 0) {
-        resize.setResizeWidth(img.naturalWidth);
-        resize.setResizeHeight(img.naturalHeight);
-      }
+      resize.setResizeWidth(img.naturalWidth);
+      resize.setResizeHeight(img.naturalHeight);
       // Initialize Crop Box to cover full image by default
       crop.setCropX(0);
       crop.setCropY(0);
@@ -191,8 +189,17 @@ export function useWorkspaceState(initialTab: TabType = 'remove', keywordSlug?: 
   const applyCurrentEffect = useCallback(async () => {
     if (!currentItem) return;
 
-    // For background removal, don't auto-apply if not processed
-    if (initialTab === 'remove' && currentItem.status === 'idle') return;
+    // Only live-composite background color and watermark previews.
+    // Resize, Rotate, Crop, and Brush should NEVER auto-mutate processedUrl in the background!
+    const isLiveCompositeTab =
+      initialTab === 'color' ||
+      initialTab === 'colorwhite' ||
+      initialTab === 'watermark' ||
+      initialTab === 'watermarkbulk';
+
+    if (!isLiveCompositeTab) {
+      return;
+    }
 
     const baseSrc = currentItem.transparentUrl || currentItem.originalUrl;
     if (!baseSrc) return;
@@ -234,57 +241,8 @@ export function useWorkspaceState(initialTab: TabType = 'remove', keywordSlug?: 
           scale: watermark.watermarkScale,
           rotation: watermark.watermarkRotation,
         });
-      } else if (initialTab === 'blurface' || initialTab === 'blurplate') {
-        resultCanvas = BlurEngine.applyBlurBoxes(img, blur.blurBoxes, blur.blurIntensity);
-      } else if (initialTab === 'resize' || initialTab === 'resizeig' || initialTab === 'resizepassport') {
-        const targetW = resize.resizeWidth > 0 ? resize.resizeWidth : img.width;
-        const targetH = resize.resizeHeight > 0 ? resize.resizeHeight : img.height;
-        resultCanvas = document.createElement('canvas');
-        resultCanvas.width = targetW;
-        resultCanvas.height = targetH;
-        const ctx = resultCanvas.getContext('2d')!;
-        ctx.imageSmoothingEnabled = true;
-        ctx.imageSmoothingQuality = 'high';
-        if (resize.resizeMode === 'smart') {
-          // Smart Auto mode: preserve aspect ratio, cover canvas centered
-          const scale = Math.max(targetW / img.width, targetH / img.height);
-          const scaledW = img.width * scale;
-          const scaledH = img.height * scale;
-          const offsetX = (targetW - scaledW) / 2;
-          const offsetY = (targetH - scaledH) / 2;
-          ctx.drawImage(img, offsetX, offsetY, scaledW, scaledH);
-        } else {
-          // Standard squish mode: stretch to exact targetW x targetH
-          ctx.drawImage(img, 0, 0, targetW, targetH);
-        }
-      } else if (initialTab === 'rotate') {
-        const rad = (rotate.rotationDeg * Math.PI) / 180;
-        const sin = Math.abs(Math.sin(rad));
-        const cos = Math.abs(Math.cos(rad));
-        const newW = Math.max(1, Math.round(img.width * cos + img.height * sin));
-        const newH = Math.max(1, Math.round(img.width * sin + img.height * cos));
-
-        resultCanvas = document.createElement('canvas');
-        resultCanvas.width = newW;
-        resultCanvas.height = newH;
-        const ctx = resultCanvas.getContext('2d')!;
-        ctx.imageSmoothingEnabled = true;
-        ctx.imageSmoothingQuality = 'high';
-        ctx.translate(newW / 2, newH / 2);
-        ctx.rotate(rad);
-        ctx.scale(rotate.flipH ? -1 : 1, rotate.flipV ? -1 : 1);
-        ctx.drawImage(img, -img.width / 2, -img.height / 2);
-      } else if (initialTab === 'picker') {
-        resultCanvas = document.createElement('canvas');
-        resultCanvas.width = img.width;
-        resultCanvas.height = img.height;
-        resultCanvas.getContext('2d')?.drawImage(img, 0, 0);
-        colorPicker.extractPalette(resultCanvas);
       } else {
-        resultCanvas = document.createElement('canvas');
-        resultCanvas.width = img.width;
-        resultCanvas.height = img.height;
-        resultCanvas.getContext('2d')?.drawImage(img, 0, 0);
+        return;
       }
 
       const blob = await new Promise<Blob | null>((resolve) => resultCanvas.toBlob(resolve, 'image/png'));
@@ -437,6 +395,17 @@ export function useWorkspaceState(initialTab: TabType = 'remove', keywordSlug?: 
     }, 'image/png');
   };
 
+  // Ensure drawing stops cleanly if user releases mouse anywhere on the page
+  useEffect(() => {
+    const handleGlobalMouseUp = () => {
+      if (isDrawingRef.current) {
+        handleCanvasMouseUp();
+      }
+    };
+    window.addEventListener('mouseup', handleGlobalMouseUp);
+    return () => window.removeEventListener('mouseup', handleGlobalMouseUp);
+  }, []);
+
   const drawBrush = (e: React.MouseEvent<HTMLCanvasElement>) => {
     const canvas = canvasRef.current;
     if (!canvas) return;
@@ -452,7 +421,8 @@ export function useWorkspaceState(initialTab: TabType = 'remove', keywordSlug?: 
     const currentY = Math.max(0, Math.min(canvas.height, (e.clientY - rect.top) * scaleY));
 
     // Scale radius in canvas coordinates so that on screen it matches brush.brushSize exactly
-    const canvasRadius = Math.max(1, (brush.brushSize / 2) * scaleX);
+    const scale = (scaleX + scaleY) / 2;
+    const canvasRadius = Math.max(1, (brush.brushSize / 2) * scale);
 
     const start = lastPointRef.current || { x: currentX, y: currentY };
     const dist = Math.hypot(currentX - start.x, currentY - start.y);
@@ -489,9 +459,10 @@ export function useWorkspaceState(initialTab: TabType = 'remove', keywordSlug?: 
 
   // Render Canvas for Brush / Picker
   useEffect(() => {
-    if ((initialTab === 'brush' || initialTab === 'picker') && currentItem?.processedUrl && canvasRef.current) {
+    const imageSource = currentItem?.processedUrl || currentItem?.originalUrl;
+    if ((initialTab === 'brush' || initialTab === 'picker') && imageSource && canvasRef.current) {
       const img = new Image();
-      img.src = currentItem.processedUrl;
+      img.src = imageSource;
       img.onload = () => {
         const canvas = canvasRef.current!;
         canvas.width = img.width;
@@ -506,7 +477,7 @@ export function useWorkspaceState(initialTab: TabType = 'remove', keywordSlug?: 
         }
       };
     }
-  }, [initialTab, currentItem?.processedUrl]);
+  }, [initialTab, currentItem?.processedUrl, currentItem?.originalUrl]);
 
   // Enhanced Reset handler that resets batchItem state AND tool parameters
   const handleEnhancedReset = useCallback(() => {

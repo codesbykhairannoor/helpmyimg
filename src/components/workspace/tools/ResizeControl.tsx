@@ -32,7 +32,7 @@ export const ResizeControl: React.FC<ResizeControlProps> = ({
   setMaintainRatio,
   resizeMode,
   setResizeMode,
-  onApply: _onApply,
+  onApply,
   onUploadOther,
   onReset,
   isProcessing,
@@ -164,6 +164,20 @@ export const ResizeControl: React.FC<ResizeControlProps> = ({
             </div>
           </div>
       </div>
+
+      {/* Action Button */}
+      {onApply && (
+        <div className="space-y-3 pt-2">
+          <button
+            type="button"
+            onClick={onApply}
+            disabled={isProcessing || resizeWidth <= 0 || resizeHeight <= 0}
+            className="w-full flex items-center justify-center gap-2.5 py-3.5 px-4 rounded-xl bg-gradient-to-r from-neon-cyan via-neon-emerald to-neon-indigo hover:opacity-95 text-dark-900 font-extrabold shadow-glow-cyan transition-all duration-200 transform hover:-translate-y-0.5 disabled:opacity-50 text-sm tracking-wide cursor-pointer"
+          >
+            <span>{isProcessing ? t('btn.processing') : t('resize.apply', { defaultValue: 'Terapkan Ukuran Baru' })}</span>
+          </button>
+        </div>
+      )}
 
       {/* Standardized 2-Button Action Grid */}
       {batchCount >= 1 && (

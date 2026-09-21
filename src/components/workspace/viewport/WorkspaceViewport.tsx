@@ -1,7 +1,7 @@
 // src/components/workspace/viewport/WorkspaceViewport.tsx
 // Main Canvas & Image Viewport with AI Scanner and Interactive Overlays
 
-import React, { useState, useRef, useEffect, useCallback } from 'react';
+import React, { useState, useRef, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { AlertTriangle, RefreshCw, Upload } from 'lucide-react';
 import { useTranslation } from '../../../context/LanguageContext';
@@ -87,51 +87,12 @@ export const WorkspaceViewport: React.FC<WorkspaceViewportProps> = ({
   const brushCursorRef = useRef<HTMLDivElement>(null);
   const [isBrushHovering, setIsBrushHovering] = useState(false);
   const [cursorPos, setCursorPos] = useState({ x: -1000, y: -1000 });
-  const [canvasDisplaySize, setCanvasDisplaySize] = useState<{ width: number; height: number } | null>(null);
 
-  const updateCanvasDimensions = useCallback(() => {
-    if (!viewportContainerRef.current) return;
-    const container = viewportContainerRef.current;
-    const cw = container.clientWidth;
-    const ch = container.clientHeight;
-    if (cw <= 0 || ch <= 0) return;
-
-    const nw = canvasRef.current?.width || originalDimensions.width || imageElement?.naturalWidth || 800;
-    const nh = canvasRef.current?.height || originalDimensions.height || imageElement?.naturalHeight || 600;
-    if (!nw || !nh) return;
-
-    const imageRatio = nw / nh;
-    const containerRatio = cw / ch;
-
-    let renderW: number, renderH: number;
-    if (containerRatio > imageRatio) {
-      renderH = ch;
-      renderW = ch * imageRatio;
-    } else {
-      renderW = cw;
-      renderH = cw / imageRatio;
-    }
-
-    setCanvasDisplaySize({
-      width: Math.round(renderW),
-      height: Math.round(renderH),
-    });
-  }, [originalDimensions.width, originalDimensions.height, imageElement, canvasRef]);
-
-  useEffect(() => {
-    updateCanvasDimensions();
-    const container = viewportContainerRef.current;
-    let observer: ResizeObserver | null = null;
-    if (container) {
-      observer = new ResizeObserver(updateCanvasDimensions);
-      observer.observe(container);
-    }
-    window.addEventListener('resize', updateCanvasDimensions);
-    return () => {
-      window.removeEventListener('resize', updateCanvasDimensions);
-      if (observer) observer.disconnect();
-    };
-  }, [updateCanvasDimensions, currentItem?.processedUrl]);
+  const getPageZoom = useCallback(() => {
+    if (typeof document === 'undefined') return 1;
+    const zoom = parseFloat(getComputedStyle(document.body).zoom);
+    return !isNaN(zoom) && zoom > 0 ? zoom : 1;
+  }, []);
 
   return (
     <div className="space-y-4 lg:static">
@@ -223,20 +184,27 @@ export const WorkspaceViewport: React.FC<WorkspaceViewportProps> = ({
               onMouseDown={onCanvasMouseDown}
               onMouseMove={(e) => {
                 if (initialTab === 'brush') {
+                  const zoom = getPageZoom();
+                  const x = e.clientX / zoom;
+                  const y = e.clientY / zoom;
+                  setCursorPos({ x, y });
                   if (brushCursorRef.current) {
-                    brushCursorRef.current.style.left = `${e.clientX}px`;
-                    brushCursorRef.current.style.top = `${e.clientY}px`;
+                    brushCursorRef.current.style.left = `${x}px`;
+                    brushCursorRef.current.style.top = `${y}px`;
                   }
                 }
                 onCanvasMouseMove(e);
               }}
               onMouseEnter={(e) => {
                 if (initialTab === 'brush') {
-                  setCursorPos({ x: e.clientX, y: e.clientY });
+                  const zoom = getPageZoom();
+                  const x = e.clientX / zoom;
+                  const y = e.clientY / zoom;
+                  setCursorPos({ x, y });
                   setIsBrushHovering(true);
                   if (brushCursorRef.current) {
-                    brushCursorRef.current.style.left = `${e.clientX}px`;
-                    brushCursorRef.current.style.top = `${e.clientY}px`;
+                    brushCursorRef.current.style.left = `${x}px`;
+                    brushCursorRef.current.style.top = `${y}px`;
                   }
                 }
               }}
@@ -245,34 +213,34 @@ export const WorkspaceViewport: React.FC<WorkspaceViewportProps> = ({
                 onCanvasMouseUp();
               }}
               onMouseUp={onCanvasMouseUp}
-              className={`shadow-2xl rounded-lg ${
+              className={`shadow-2xl rounded-lg block max-h-full max-w-full object-contain ${
                 initialTab === 'picker' ? 'cursor-picker' : 'cursor-none'
               }`}
               style={{
-                width: canvasDisplaySize ? `${canvasDisplaySize.width}px` : 'auto',
-                height: canvasDisplaySize ? `${canvasDisplaySize.height}px` : 'auto',
+                width: 'auto',
+                height: 'auto',
                 maxWidth: '100%',
                 maxHeight: '100%',
-                display: 'block',
               }}
             />
-            {/* Dynamic Real-time Brush Size Hover Indicator Ring */}
+            {/* Dynamic Real-time Brush Size Hover Indicator Ring (Zoom & Center Compensated) */}
             {initialTab === 'brush' && isBrushHovering && (
               <div
                 ref={brushCursorRef}
-                className="pointer-events-none fixed -translate-x-1/2 -translate-y-1/2 z-50 rounded-full select-none transition-[width,height] duration-75 ease-out"
+                className="pointer-events-none fixed z-50 rounded-full select-none"
                 style={{
                   left: `${cursorPos.x}px`,
                   top: `${cursorPos.y}px`,
-                  width: `${brushSize}px`,
-                  height: `${brushSize}px`,
-                  border: brushMode === 'restore' ? '2px solid #10b981' : '2px solid #f43f5e',
+                  width: `${brushSize / getPageZoom()}px`,
+                  height: `${brushSize / getPageZoom()}px`,
+                  transform: 'translate(-50%, -50%)',
+                  border: brushMode === 'restore' ? '2.5px solid #10b981' : '2.5px solid #f43f5e',
                   backgroundColor:
-                    brushMode === 'restore' ? 'rgba(16, 185, 129, 0.18)' : 'rgba(244, 63, 94, 0.18)',
+                    brushMode === 'restore' ? 'rgba(16, 185, 129, 0.22)' : 'rgba(244, 63, 94, 0.22)',
                   boxShadow:
                     brushMode === 'restore'
-                      ? '0 0 12px rgba(16, 185, 129, 0.7), inset 0 0 6px rgba(16, 185, 129, 0.3)'
-                      : '0 0 12px rgba(244, 63, 94, 0.7), inset 0 0 6px rgba(244, 63, 94, 0.3)',
+                      ? '0 0 14px rgba(16, 185, 129, 0.8), inset 0 0 6px rgba(16, 185, 129, 0.4)'
+                      : '0 0 14px rgba(244, 63, 94, 0.8), inset 0 0 6px rgba(244, 63, 94, 0.4)',
                 }}
               >
                 {/* Center crosshair pinpoint dot */}
@@ -280,7 +248,7 @@ export const WorkspaceViewport: React.FC<WorkspaceViewportProps> = ({
                   className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-1.5 h-1.5 rounded-full"
                   style={{
                     backgroundColor: brushMode === 'restore' ? '#10b981' : '#f43f5e',
-                    boxShadow: '0 0 3px rgba(0, 0, 0, 0.8)',
+                    boxShadow: '0 0 3px rgba(0, 0, 0, 0.9)',
                   }}
                 />
               </div>
@@ -298,7 +266,8 @@ export const WorkspaceViewport: React.FC<WorkspaceViewportProps> = ({
                 />
               ) : (initialTab === 'resize' || initialTab === 'resizeig' || initialTab === 'resizepassport') &&
                 resizeWidth > 0 &&
-                resizeHeight > 0 ? (
+                resizeHeight > 0 &&
+                (resizeWidth !== originalDimensions.width || resizeHeight !== originalDimensions.height) ? (
                 /* Real-time Instantaneous 0ms GPU Live Resize Preview */
                 <div
                   className="relative max-h-full max-w-full flex items-center justify-center p-3 transition-all duration-150 ease-out"
