@@ -444,10 +444,12 @@ export function useWorkspaceState(initialTab: TabType = 'remove', keywordSlug?: 
     if (!ctx) return;
 
     const rect = canvas.getBoundingClientRect();
+    if (rect.width <= 0 || rect.height <= 0) return;
+
     const scaleX = canvas.width / rect.width;
     const scaleY = canvas.height / rect.height;
-    const currentX = (e.clientX - rect.left) * scaleX;
-    const currentY = (e.clientY - rect.top) * scaleY;
+    const currentX = Math.max(0, Math.min(canvas.width, (e.clientX - rect.left) * scaleX));
+    const currentY = Math.max(0, Math.min(canvas.height, (e.clientY - rect.top) * scaleY));
 
     // Scale radius in canvas coordinates so that on screen it matches brush.brushSize exactly
     const canvasRadius = Math.max(1, (brush.brushSize / 2) * scaleX);

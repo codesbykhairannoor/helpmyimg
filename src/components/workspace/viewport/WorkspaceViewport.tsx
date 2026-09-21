@@ -170,7 +170,7 @@ export const WorkspaceViewport: React.FC<WorkspaceViewportProps> = ({
 
         {/* Interactive Canvas for Brush & Color Picker */}
         {initialTab === 'brush' || initialTab === 'picker' ? (
-          <div className="relative max-h-full max-w-full flex items-center justify-center">
+          <>
             <canvas
               ref={canvasRef}
               onMouseDown={onCanvasMouseDown}
@@ -198,9 +198,23 @@ export const WorkspaceViewport: React.FC<WorkspaceViewportProps> = ({
                 onCanvasMouseUp();
               }}
               onMouseUp={onCanvasMouseUp}
-              className={`max-h-full max-w-full object-contain shadow-2xl rounded-lg ${
+              className={`shadow-2xl rounded-lg ${
                 initialTab === 'picker' ? 'cursor-picker' : 'cursor-none'
               }`}
+              style={{
+                aspectRatio: `${originalDimensions.width || 800} / ${originalDimensions.height || 600}`,
+                maxWidth: '100%',
+                maxHeight: '100%',
+                width:
+                  (originalDimensions.width || 800) >= (originalDimensions.height || 600)
+                    ? '100%'
+                    : 'auto',
+                height:
+                  (originalDimensions.height || 600) > (originalDimensions.width || 800)
+                    ? '100%'
+                    : 'auto',
+                display: 'block',
+              }}
             />
             {/* Dynamic Real-time Brush Size Hover Indicator Ring */}
             {initialTab === 'brush' && isBrushHovering && (
@@ -231,7 +245,7 @@ export const WorkspaceViewport: React.FC<WorkspaceViewportProps> = ({
                 />
               </div>
             )}
-          </div>
+          </>
         ) : (
           (currentItem?.processedUrl || currentItem?.originalUrl) && (
             <>
