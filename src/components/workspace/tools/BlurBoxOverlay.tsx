@@ -17,7 +17,7 @@ export const BlurBoxOverlay: React.FC<BlurBoxOverlayProps> = ({
   originalHeight,
   boxes,
   setBoxes,
-  blurIntensity,
+  blurIntensity: _blurIntensity,
 }) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const [scale, setScale] = useState({ x: 1, y: 1 });

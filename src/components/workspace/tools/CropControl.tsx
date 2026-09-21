@@ -1,6 +1,6 @@
 import React from 'react';
 import { useTranslation } from '../../../context/LanguageContext';
-import { Crop, RefreshCw, RotateCcw, Upload } from 'lucide-react';
+import { Crop, RotateCcw, Upload } from 'lucide-react';
 
 interface CropControlProps {
   originalWidth: number;

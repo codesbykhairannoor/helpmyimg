@@ -673,7 +673,6 @@ export function useWorkspaceState(initialTab: TabType = 'remove', keywordSlug?: 
     setIsEditorOpen: design.setIsEditorOpen,
     // Queue & Execution
     isProcessingQueue,
-    isApplyingEffect,
     applyCurrentEffect,
   };
 }

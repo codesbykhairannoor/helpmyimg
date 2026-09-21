@@ -2,7 +2,7 @@
 // Ruang Kerja Utama: Drag-and-Drop Batch Upload, Canvas Viewport, Navigasi Tab Utilitas & Engine Selector
 
 import React, { Suspense } from 'react';
-import { Loader2, Sparkles, RotateCcw, Download } from 'lucide-react';
+import { Loader2, Sparkles, Download } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 import { useWorkspaceState } from './hooks/useWorkspaceState';
@@ -23,7 +23,6 @@ import { RotateControl } from './tools/RotateControl';
 import { ColorPickerControl } from './tools/ColorPickerControl';
 import { BlurFaceControl } from './tools/BlurFaceControl';
 import { BlurEngine } from './tools/blur/blurEngine';
-import { DesignEditorControl } from './tools/DesignEditorControl';
 
 import { processImage, cropImage, rotateImage, smartCropImage, applyWatermark } from '../../utils/imageOperations';
 import { hexToColorInfo } from '../../utils/colorUtils';
@@ -77,7 +76,6 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({ initialTab: rawIni
     setImageType,
     imageTypeRef,
     // Background
-    initialColor,
     bgMode,
     setBgMode,
     selectedColor,

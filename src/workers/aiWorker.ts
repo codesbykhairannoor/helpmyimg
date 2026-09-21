@@ -75,8 +75,6 @@ self.onmessage = async (e: MessageEvent) => {
   
   else if (type === 'REMOVE_BG') {
     try {
-      const { imageUrl } = payload;
-
       const { model, processor } = await initModel((status, progress) => {
         self.postMessage({ type: 'PROGRESS', id, payload: { status, progress } });
       });

@@ -1,9 +1,9 @@
 // src/components/workspace/viewport/WorkspaceViewport.tsx
 // Main Canvas & Image Viewport with AI Scanner and Interactive Overlays
 
-import React from 'react';
+import React, { useState, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { AlertTriangle, RefreshCw, RotateCcw, Upload } from 'lucide-react';
+import { AlertTriangle, RefreshCw, Upload } from 'lucide-react';
 import { useTranslation } from '../../../context/LanguageContext';
 import { AiScanOverlay } from './AiScanOverlay';
 import { ImageCompareSlider } from '../tools/ImageCompareSlider';
