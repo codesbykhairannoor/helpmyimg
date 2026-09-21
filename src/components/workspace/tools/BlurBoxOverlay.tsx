@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef, useCallback } from 'react';
+import React, { useState, useRef } from 'react';
 import type { BlurBox } from './BlurFaceControl';
 import { X, ShieldCheck } from 'lucide-react';
 
@@ -20,115 +20,45 @@ export const BlurBoxOverlay: React.FC<BlurBoxOverlayProps> = ({
   blurIntensity: _blurIntensity,
 }) => {
   const containerRef = useRef<HTMLDivElement>(null);
-  const [scale, setScale] = useState({ x: 1, y: 1 });
-  const [offset, setOffset] = useState({ x: 0, y: 0 });
 
   // Interaction state
   const [activeAction, setActiveAction] = useState<{
     id?: string;
     type: 'draw' | 'drag' | 'resize';
     handle?: 'tl' | 'tr' | 'bl' | 'br';
-    startX: number;
-    startY: number;
+    startClientX: number;
+    startClientY: number;
+    startFracX?: number;
+    startFracY?: number;
     initialBox?: BlurBox;
   } | null>(null);
 
   const [currentBox, setCurrentBox] = useState<{ x: number; y: number; w: number; h: number } | null>(null);
 
-  const updateDimensions = useCallback(() => {
-    if (!containerRef.current) return;
-    const container = containerRef.current;
-    const containerW = container.clientWidth;
-    const containerH = container.clientHeight;
-    if (containerW <= 0 || containerH <= 0) return;
-
-    const nw = originalWidth || imageElement?.naturalWidth || 800;
-    const nh = originalHeight || imageElement?.naturalHeight || 600;
-    if (!nw || !nh) return;
-
-    const imageRatio = nw / nh;
-    const containerRatio = containerW / containerH;
-
-    let renderW: number, renderH: number;
-    if (containerRatio > imageRatio) {
-      renderH = containerH;
-      renderW = containerH * imageRatio;
-    } else {
-      renderW = containerW;
-      renderH = containerW / imageRatio;
-    }
-
-    const left = (containerW - renderW) / 2;
-    const top = (containerH - renderH) / 2;
-    const scaleX = renderW / nw;
-    const scaleY = renderH / nh;
-
-    if (scaleX > 0 && scaleY > 0) {
-      setScale({ x: scaleX, y: scaleY });
-      setOffset({ x: left, y: top });
-    }
-  }, [containerRef, imageElement, originalWidth, originalHeight]);
-
-  useEffect(() => {
-    updateDimensions();
-    window.addEventListener('resize', updateDimensions);
-    const container = containerRef.current;
-    let observer: ResizeObserver | null = null;
-    if (container) {
-      observer = new ResizeObserver(updateDimensions);
-      observer.observe(container);
-    }
-    if (imageElement) {
-      imageElement.addEventListener('load', updateDimensions);
-    }
-
-    return () => {
-      window.removeEventListener('resize', updateDimensions);
-      if (observer) observer.disconnect();
-      if (imageElement) {
-        imageElement.removeEventListener('load', updateDimensions);
-      }
-    };
-  }, [updateDimensions, imageElement]);
-
-  const getClientCoords = (e: React.PointerEvent | PointerEvent) => {
-    if (!containerRef.current) return { x: 0, y: 0 };
-    const rect = containerRef.current.getBoundingClientRect();
-    return {
-      x: e.clientX - rect.left,
-      y: e.clientY - rect.top,
-    };
-  };
+  const nw = originalWidth || imageElement?.naturalWidth || 800;
+  const nh = originalHeight || imageElement?.naturalHeight || 600;
 
   const handlePointerDownContainer = (e: React.PointerEvent<HTMLDivElement>) => {
     if (activeAction) return;
-
-    // Check if clicked directly on container (not on a box or handle)
     if (e.target !== containerRef.current) return;
+    if (!containerRef.current) return;
 
-    const { x, y } = getClientCoords(e);
+    const rect = containerRef.current.getBoundingClientRect();
+    if (rect.width <= 0 || rect.height <= 0) return;
 
-    const nw = originalWidth || imageElement?.naturalWidth || 800;
-    const nh = originalHeight || imageElement?.naturalHeight || 600;
-
-    // Ensure click is within image bounds
-    if (
-      x < offset.x ||
-      y < offset.y ||
-      x > offset.x + nw * scale.x ||
-      y > offset.y + nh * scale.y
-    ) {
-      return;
-    }
+    const fracX = Math.max(0, Math.min(1, (e.clientX - rect.left) / rect.width));
+    const fracY = Math.max(0, Math.min(1, (e.clientY - rect.top) / rect.height));
 
     setActiveAction({
       type: 'draw',
-      startX: x,
-      startY: y,
+      startClientX: e.clientX,
+      startClientY: e.clientY,
+      startFracX: fracX,
+      startFracY: fracY,
     });
-    setCurrentBox({ x, y, w: 0, h: 0 });
+    setCurrentBox({ x: fracX * nw, y: fracY * nh, w: 0, h: 0 });
     try {
-      containerRef.current?.setPointerCapture(e.pointerId);
+      containerRef.current.setPointerCapture(e.pointerId);
     } catch (err) {}
   };
 
@@ -139,54 +69,50 @@ export const BlurBoxOverlay: React.FC<BlurBoxOverlayProps> = ({
     handleType?: 'tl' | 'tr' | 'bl' | 'br'
   ) => {
     e.stopPropagation();
-    const { x, y } = getClientCoords(e);
+    if (!containerRef.current) return;
+
     setActiveAction({
       id: box.id,
       type: isHandle ? 'resize' : 'drag',
       handle: handleType,
-      startX: x,
-      startY: y,
+      startClientX: e.clientX,
+      startClientY: e.clientY,
       initialBox: { ...box },
     });
     try {
-      containerRef.current?.setPointerCapture(e.pointerId);
+      containerRef.current.setPointerCapture(e.pointerId);
     } catch (err) {}
   };
 
   const handlePointerMove = (e: React.PointerEvent<HTMLDivElement>) => {
     if (!activeAction || !containerRef.current) return;
-    const { x, y } = getClientCoords(e);
-    const dx = x - activeAction.startX;
-    const dy = y - activeAction.startY;
+    const rect = containerRef.current.getBoundingClientRect();
+    if (rect.width <= 0 || rect.height <= 0) return;
 
-    const safeScaleX = scale.x > 0 ? scale.x : 1;
-    const safeScaleY = scale.y > 0 ? scale.y : 1;
+    if (activeAction.type === 'draw' && activeAction.startFracX !== undefined && activeAction.startFracY !== undefined) {
+      const fracX = Math.max(0, Math.min(1, (e.clientX - rect.left) / rect.width));
+      const fracY = Math.max(0, Math.min(1, (e.clientY - rect.top) / rect.height));
 
-    const nw = originalWidth || imageElement?.naturalWidth || 800;
-    const nh = originalHeight || imageElement?.naturalHeight || 600;
+      const leftFrac = Math.min(activeAction.startFracX, fracX);
+      const topFrac = Math.min(activeAction.startFracY, fracY);
+      const widthFrac = Math.abs(fracX - activeAction.startFracX);
+      const heightFrac = Math.abs(fracY - activeAction.startFracY);
 
-    if (activeAction.type === 'draw') {
       setCurrentBox({
-        x: Math.min(activeAction.startX, x),
-        y: Math.min(activeAction.startY, y),
-        w: Math.abs(x - activeAction.startX),
-        h: Math.abs(y - activeAction.startY),
+        x: leftFrac * nw,
+        y: topFrac * nh,
+        w: widthFrac * nw,
+        h: heightFrac * nh,
       });
     } else if (activeAction.type === 'drag' && activeAction.initialBox && activeAction.id) {
-      const naturalDx = dx / safeScaleX;
-      const naturalDy = dy / safeScaleY;
+      const naturalDx = ((e.clientX - activeAction.startClientX) / rect.width) * nw;
+      const naturalDy = ((e.clientY - activeAction.startClientY) / rect.height) * nh;
 
       setBoxes((prev) =>
         prev.map((b) => {
           if (b.id !== activeAction.id) return b;
-
-          let newX = activeAction.initialBox!.x + naturalDx;
-          let newY = activeAction.initialBox!.y + naturalDy;
-
-          // Free unrestricted dragging across the entire width and height of the image
-          newX = Math.max(0, Math.min(newX, Math.max(0, nw - 10)));
-          newY = Math.max(0, Math.min(newY, Math.max(0, nh - 10)));
-
+          const newX = Math.max(0, Math.min(nw - b.width, activeAction.initialBox!.x + naturalDx));
+          const newY = Math.max(0, Math.min(nh - b.height, activeAction.initialBox!.y + naturalDy));
           return { ...b, x: newX, y: newY };
         })
       );
@@ -196,8 +122,8 @@ export const BlurBoxOverlay: React.FC<BlurBoxOverlayProps> = ({
       activeAction.id &&
       activeAction.handle
     ) {
-      const naturalDx = dx / safeScaleX;
-      const naturalDy = dy / safeScaleY;
+      const naturalDx = ((e.clientX - activeAction.startClientX) / rect.width) * nw;
+      const naturalDy = ((e.clientY - activeAction.startClientY) / rect.height) * nh;
 
       setBoxes((prev) =>
         prev.map((b) => {
@@ -205,7 +131,6 @@ export const BlurBoxOverlay: React.FC<BlurBoxOverlayProps> = ({
           const init = activeAction.initialBox!;
           let newX = init.x;
           let newY = init.y;
-
           let rightEdge = init.x + init.width;
           let bottomEdge = init.y + init.height;
 
@@ -238,23 +163,15 @@ export const BlurBoxOverlay: React.FC<BlurBoxOverlayProps> = ({
     if (!activeAction) return;
 
     if (activeAction.type === 'draw' && currentBox) {
-      const safeScaleX = scale.x > 0 ? scale.x : 1;
-      const safeScaleY = scale.y > 0 ? scale.y : 1;
-
       if (currentBox.w > 12 && currentBox.h > 12) {
-        const naturalX = (currentBox.x - offset.x) / safeScaleX;
-        const naturalY = (currentBox.y - offset.y) / safeScaleY;
-        const naturalW = currentBox.w / safeScaleX;
-        const naturalH = currentBox.h / safeScaleY;
-
         setBoxes((prev) => [
           ...prev,
           {
             id: `box_${Date.now()}_${Math.random().toString(36).substr(2, 4)}`,
-            x: Math.max(0, naturalX),
-            y: Math.max(0, naturalY),
-            width: Math.max(20, naturalW),
-            height: Math.max(20, naturalH),
+            x: Math.max(0, currentBox.x),
+            y: Math.max(0, currentBox.y),
+            width: Math.max(20, currentBox.w),
+            height: Math.max(20, currentBox.h),
             type: 'blur',
           },
         ]);
@@ -282,7 +199,7 @@ export const BlurBoxOverlay: React.FC<BlurBoxOverlayProps> = ({
   return (
     <div
       ref={containerRef}
-      className="absolute inset-0 z-20 cursor-crosshair touch-none"
+      className="absolute inset-0 z-20 cursor-crosshair touch-none select-none"
       onPointerDown={handlePointerDownContainer}
       onPointerMove={handlePointerMove}
       onPointerUp={handlePointerUp}
@@ -290,22 +207,24 @@ export const BlurBoxOverlay: React.FC<BlurBoxOverlayProps> = ({
     >
       {/* Existing Boxes */}
       {boxes.map((box) => {
-        const left = offset.x + box.x * scale.x;
-        const top = offset.y + box.y * scale.y;
-        const width = box.width * scale.x;
-        const height = box.height * scale.y;
+        const leftPct = (box.x / nw) * 100;
+        const topPct = (box.y / nh) * 100;
+        const widthPct = (box.width / nw) * 100;
+        const heightPct = (box.height / nh) * 100;
 
         const isPixelate = box.type === 'pixelate';
 
         return (
           <div
             key={box.id}
-            className="absolute border-2 border-neon-cyan/90 group cursor-move select-none rounded-lg shadow-glow-cyan/40 transition-shadow"
+            className="absolute border-2 border-neon-cyan/90 group cursor-move select-none rounded-lg shadow-glow-cyan/40 transition-shadow box-border"
             style={{
-              left: `${left}px`,
-              top: `${top}px`,
-              width: `${Math.max(24, width)}px`,
-              height: `${Math.max(24, height)}px`,
+              left: `${leftPct}%`,
+              top: `${topPct}%`,
+              width: `${widthPct}%`,
+              height: `${heightPct}%`,
+              minWidth: '20px',
+              minHeight: '20px',
               backgroundColor: isPixelate ? 'rgba(6, 182, 212, 0.1)' : 'rgba(56, 189, 248, 0.1)',
             }}
             onPointerDown={(e) => handlePointerDownBox(e, box)}
@@ -346,12 +265,12 @@ export const BlurBoxOverlay: React.FC<BlurBoxOverlayProps> = ({
       {/* Current Drawing Box */}
       {currentBox && activeAction?.type === 'draw' && (
         <div
-          className="absolute border-2 border-dashed border-neon-cyan bg-neon-cyan/20 pointer-events-none rounded-lg shadow-glow-cyan"
+          className="absolute border-2 border-dashed border-neon-cyan bg-neon-cyan/20 pointer-events-none rounded-lg shadow-glow-cyan box-border"
           style={{
-            left: `${currentBox.x}px`,
-            top: `${currentBox.y}px`,
-            width: `${currentBox.w}px`,
-            height: `${currentBox.h}px`,
+            left: `${(currentBox.x / nw) * 100}%`,
+            top: `${(currentBox.y / nh) * 100}%`,
+            width: `${(currentBox.w / nw) * 100}%`,
+            height: `${(currentBox.h / nw) * 100}%`,
           }}
         />
       )}

@@ -361,10 +361,11 @@ export function useWorkspaceState(initialTab: TabType = 'remove', keywordSlug?: 
     if (!ctx) return;
 
     const rect = canvas.getBoundingClientRect();
-    const scaleX = canvas.width / rect.width;
-    const scaleY = canvas.height / rect.height;
-    const x = Math.floor((e.clientX - rect.left) * scaleX);
-    const y = Math.floor((e.clientY - rect.top) * scaleY);
+    if (rect.width <= 0 || rect.height <= 0) return;
+    const fracX = Math.max(0, Math.min(1, (e.clientX - rect.left) / rect.width));
+    const fracY = Math.max(0, Math.min(1, (e.clientY - rect.top) / rect.height));
+    const x = Math.floor(fracX * canvas.width);
+    const y = Math.floor(fracY * canvas.height);
 
     if (x >= 0 && x < canvas.width && y >= 0 && y < canvas.height) {
       const pixel = ctx.getImageData(x, y, 1, 1).data;
@@ -415,13 +416,15 @@ export function useWorkspaceState(initialTab: TabType = 'remove', keywordSlug?: 
     const rect = canvas.getBoundingClientRect();
     if (rect.width <= 0 || rect.height <= 0) return;
 
-    const scaleX = canvas.width / rect.width;
-    const scaleY = canvas.height / rect.height;
-    const currentX = Math.max(0, Math.min(canvas.width, (e.clientX - rect.left) * scaleX));
-    const currentY = Math.max(0, Math.min(canvas.height, (e.clientY - rect.top) * scaleY));
+    const fracX = Math.max(0, Math.min(1, (e.clientX - rect.left) / rect.width));
+    const fracY = Math.max(0, Math.min(1, (e.clientY - rect.top) / rect.height));
+    const currentX = fracX * canvas.width;
+    const currentY = fracY * canvas.height;
 
-    // Scale radius in canvas coordinates so that on screen it matches brush.brushSize exactly
-    const scale = (scaleX + scaleY) / 2;
+    // Scale radius in canvas coordinates so that on screen it matches brush.brushSize exactly in CSS pixels
+    const displayWidth = canvas.clientWidth > 0 ? canvas.clientWidth : rect.width;
+    const displayHeight = canvas.clientHeight > 0 ? canvas.clientHeight : rect.height;
+    const scale = ((canvas.width / displayWidth) + (canvas.height / displayHeight)) / 2;
     const canvasRadius = Math.max(1, (brush.brushSize / 2) * scale);
 
     const start = lastPointRef.current || { x: currentX, y: currentY };

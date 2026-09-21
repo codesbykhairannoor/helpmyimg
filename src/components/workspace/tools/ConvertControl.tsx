@@ -5,6 +5,7 @@ import { Image as ImageIcon, RefreshCw, RotateCcw, Upload, ArrowRight } from 'lu
 interface ConvertControlProps {
   format: 'image/png' | 'image/jpeg' | 'image/webp' | 'image/gif' | 'image/bmp' | 'image/x-icon' | 'image/avif' | 'image/svg+xml';
   setFormat: (f: 'image/png' | 'image/jpeg' | 'image/webp' | 'image/gif' | 'image/bmp' | 'image/x-icon' | 'image/avif' | 'image/svg+xml') => void;
+  sourceFormat?: string;
   onConvert?: () => void;
   onDownload?: () => void;
   onProcessBatch?: () => void;
@@ -17,6 +18,7 @@ interface ConvertControlProps {
 export const ConvertControl: React.FC<ConvertControlProps> = ({
   format,
   setFormat,
+  sourceFormat,
   onConvert,
   onDownload,
   onProcessBatch,
@@ -84,7 +86,7 @@ export const ConvertControl: React.FC<ConvertControlProps> = ({
       <div className="p-3.5 rounded-2xl bg-dark-800/80 border border-dark-600/70 flex items-center justify-between gap-3">
         <div className="flex items-center gap-2">
           <span className="px-2.5 py-1 rounded-lg bg-dark-700 border border-dark-500 text-xs font-mono font-bold text-slate-300 uppercase">
-            ORIGINAL
+            {sourceFormat || 'ORIGINAL'}
           </span>
           <ArrowRight className="w-4 h-4 text-neon-cyan shrink-0" />
           <span className="px-2.5 py-1 rounded-lg bg-neon-cyan/20 border border-neon-cyan/60 text-xs font-mono font-bold text-neon-cyan uppercase shadow-sm">

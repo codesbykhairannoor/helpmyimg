@@ -141,8 +141,12 @@ export const InteractiveCropOverlay: React.FC<InteractiveCropOverlayProps> = ({
     if (!isDragging || !dragHandle) return;
     e.preventDefault();
 
-    const dx = (e.clientX - dragStartRef.current.x) / scaleX;
-    const dy = (e.clientY - dragStartRef.current.y) / scaleY;
+    const cRect = containerRef.current?.getBoundingClientRect();
+    const activeScaleX = cRect && cRect.width > 0 && originalWidth > 0 ? (cRect.width / originalWidth) : (scaleX > 0 ? scaleX : 1);
+    const activeScaleY = cRect && cRect.height > 0 && originalHeight > 0 ? (cRect.height / originalHeight) : (scaleY > 0 ? scaleY : 1);
+
+    const dx = (e.clientX - dragStartRef.current.x) / activeScaleX;
+    const dy = (e.clientY - dragStartRef.current.y) / activeScaleY;
 
     let { cx, cy, cw, ch } = dragStartRef.current;
 

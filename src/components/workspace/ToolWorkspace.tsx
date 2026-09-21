@@ -173,6 +173,29 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({ initialTab: rawIni
     handleCanvasMouseUp,
   } = state;
 
+  const detectedSourceFormat = (() => {
+    if (!currentItem) return 'ORIGINAL';
+    if (currentItem.name) {
+      const ext = currentItem.name.split('.').pop()?.trim().toUpperCase();
+      if (ext && ext !== currentItem.name.toUpperCase() && ext.length <= 5) {
+        if (ext === 'JPEG') return 'JPG';
+        return ext;
+      }
+    }
+    if (currentItem.file?.type) {
+      const mime = currentItem.file.type.toLowerCase();
+      if (mime.includes('jpeg') || mime.includes('jpg')) return 'JPG';
+      if (mime.includes('png')) return 'PNG';
+      if (mime.includes('webp')) return 'WEBP';
+      if (mime.includes('avif')) return 'AVIF';
+      if (mime.includes('gif')) return 'GIF';
+      if (mime.includes('bmp')) return 'BMP';
+      if (mime.includes('svg')) return 'SVG';
+      if (mime.includes('icon') || mime.includes('ico')) return 'ICO';
+    }
+    return 'ORIGINAL';
+  })();
+
   return (
     <section id="workspace" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 md:py-8">
       {/* Grid Workspace: Viewport Kiri & Panel Kontrol Kanan */}
@@ -572,6 +595,7 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({ initialTab: rawIni
               {initialTab === 'convert' && (
                 <ConvertControl
                   format={convertFormat}
+                  sourceFormat={detectedSourceFormat}
                   setFormat={(newF) => {
                     setConvertFormat(newF);
                     if (currentItem && currentItem.status === 'done') {
