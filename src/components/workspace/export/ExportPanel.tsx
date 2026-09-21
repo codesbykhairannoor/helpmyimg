@@ -192,7 +192,11 @@ export const ExportPanel: React.FC<ExportPanelProps> = ({
             className="flex-1 px-4 py-3.5 bg-gradient-to-r from-neon-cyan via-neon-emerald to-neon-indigo text-dark-900 font-extrabold rounded-xl text-sm flex items-center justify-center gap-2 shadow-glow-cyan transition-all disabled:opacity-50 disabled:cursor-not-allowed transform hover:-translate-y-0.5 hover:opacity-95 cursor-pointer"
           >
             <Download className="w-5 h-5" />
-            <span>{t('editor.download', { defaultValue: 'Download Image' })}</span>
+            <span>
+              {initialTab === 'convert' && batchItems[0]?.status !== 'done'
+                ? t('convert.convertFirst', { defaultValue: 'Konversi Dahulu untuk Download' })
+                : t('editor.download', { defaultValue: 'Download HD (Gratis)' })}
+            </span>
           </button>
         )}
       </div>

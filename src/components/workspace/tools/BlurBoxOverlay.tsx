@@ -1,9 +1,11 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
 import type { BlurBox } from './BlurFaceControl';
 import { X, ShieldCheck } from 'lucide-react';
 
 export interface BlurBoxOverlayProps {
   imageElement: HTMLImageElement | null;
+  originalWidth?: number;
+  originalHeight?: number;
   boxes: BlurBox[];
   setBoxes: React.Dispatch<React.SetStateAction<BlurBox[]>>;
   blurIntensity: number;
@@ -11,6 +13,8 @@ export interface BlurBoxOverlayProps {
 
 export const BlurBoxOverlay: React.FC<BlurBoxOverlayProps> = ({
   imageElement,
+  originalWidth,
+  originalHeight,
   boxes,
   setBoxes,
   blurIntensity,
@@ -31,44 +35,61 @@ export const BlurBoxOverlay: React.FC<BlurBoxOverlayProps> = ({
 
   const [currentBox, setCurrentBox] = useState<{ x: number; y: number; w: number; h: number } | null>(null);
 
+  const updateDimensions = useCallback(() => {
+    if (!containerRef.current) return;
+    const container = containerRef.current;
+    const containerW = container.clientWidth;
+    const containerH = container.clientHeight;
+    if (containerW <= 0 || containerH <= 0) return;
+
+    const nw = originalWidth || imageElement?.naturalWidth || 800;
+    const nh = originalHeight || imageElement?.naturalHeight || 600;
+    if (!nw || !nh) return;
+
+    const imageRatio = nw / nh;
+    const containerRatio = containerW / containerH;
+
+    let renderW: number, renderH: number;
+    if (containerRatio > imageRatio) {
+      renderH = containerH;
+      renderW = containerH * imageRatio;
+    } else {
+      renderW = containerW;
+      renderH = containerW / imageRatio;
+    }
+
+    const left = (containerW - renderW) / 2;
+    const top = (containerH - renderH) / 2;
+    const scaleX = renderW / nw;
+    const scaleY = renderH / nh;
+
+    if (scaleX > 0 && scaleY > 0) {
+      setScale({ x: scaleX, y: scaleY });
+      setOffset({ x: left, y: top });
+    }
+  }, [containerRef, imageElement, originalWidth, originalHeight]);
+
   useEffect(() => {
-    const updateDimensions = () => {
-      if (imageElement && containerRef.current) {
-        const containerRect = containerRef.current.getBoundingClientRect();
-        const imgRect = imageElement.getBoundingClientRect();
-
-        const nw = imageElement.naturalWidth || imgRect.width || 1;
-        const nh = imageElement.naturalHeight || imgRect.height || 1;
-
-        const scaleX = imgRect.width / nw;
-        const scaleY = imgRect.height / nh;
-
-        if (scaleX > 0 && !isNaN(scaleX) && scaleY > 0 && !isNaN(scaleY)) {
-          setScale({ x: scaleX, y: scaleY });
-          setOffset({
-            x: imgRect.left - containerRect.left,
-            y: imgRect.top - containerRect.top,
-          });
-        }
-      }
-    };
-
     updateDimensions();
     window.addEventListener('resize', updateDimensions);
-    const observer = new ResizeObserver(updateDimensions);
+    const container = containerRef.current;
+    let observer: ResizeObserver | null = null;
+    if (container) {
+      observer = new ResizeObserver(updateDimensions);
+      observer.observe(container);
+    }
     if (imageElement) {
-      observer.observe(imageElement);
       imageElement.addEventListener('load', updateDimensions);
     }
 
     return () => {
       window.removeEventListener('resize', updateDimensions);
+      if (observer) observer.disconnect();
       if (imageElement) {
-        observer.unobserve(imageElement);
         imageElement.removeEventListener('load', updateDimensions);
       }
     };
-  }, [imageElement]);
+  }, [updateDimensions, imageElement]);
 
   const getClientCoords = (e: React.PointerEvent | PointerEvent) => {
     if (!containerRef.current) return { x: 0, y: 0 };
@@ -87,8 +108,8 @@ export const BlurBoxOverlay: React.FC<BlurBoxOverlayProps> = ({
 
     const { x, y } = getClientCoords(e);
 
-    const nw = imageElement?.naturalWidth || 800;
-    const nh = imageElement?.naturalHeight || 600;
+    const nw = originalWidth || imageElement?.naturalWidth || 800;
+    const nh = originalHeight || imageElement?.naturalHeight || 600;
 
     // Ensure click is within image bounds
     if (
@@ -141,8 +162,8 @@ export const BlurBoxOverlay: React.FC<BlurBoxOverlayProps> = ({
     const safeScaleX = scale.x > 0 ? scale.x : 1;
     const safeScaleY = scale.y > 0 ? scale.y : 1;
 
-    const nw = imageElement?.naturalWidth || 800;
-    const nh = imageElement?.naturalHeight || 600;
+    const nw = originalWidth || imageElement?.naturalWidth || 800;
+    const nh = originalHeight || imageElement?.naturalHeight || 600;
 
     if (activeAction.type === 'draw') {
       setCurrentBox({
@@ -285,13 +306,7 @@ export const BlurBoxOverlay: React.FC<BlurBoxOverlayProps> = ({
               top: `${top}px`,
               width: `${Math.max(24, width)}px`,
               height: `${Math.max(24, height)}px`,
-              backdropFilter: isPixelate ? undefined : `blur(${Math.max(4, blurIntensity)}px)`,
-              WebkitBackdropFilter: isPixelate ? undefined : `blur(${Math.max(4, blurIntensity)}px)`,
-              backgroundColor: isPixelate ? 'rgba(0, 0, 0, 0.65)' : 'rgba(255, 255, 255, 0.08)',
-              backgroundImage: isPixelate
-                ? 'radial-gradient(rgba(255, 255, 255, 0.4) 1px, transparent 0)'
-                : undefined,
-              backgroundSize: isPixelate ? '6px 6px' : undefined,
+              backgroundColor: isPixelate ? 'rgba(6, 182, 212, 0.1)' : 'rgba(56, 189, 248, 0.1)',
             }}
             onPointerDown={(e) => handlePointerDownBox(e, box)}
           >

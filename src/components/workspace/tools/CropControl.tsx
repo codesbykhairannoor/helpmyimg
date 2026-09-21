@@ -43,8 +43,17 @@ export const CropControl: React.FC<CropControlProps> = ({
 }) => {
   const { t } = useTranslation();
 
+  // Auto-init crop dimensions if they are 0
+  React.useEffect(() => {
+    if (originalWidth > 0 && originalHeight > 0) {
+      if (cropWidth <= 0) setCropWidth(originalWidth);
+      if (cropHeight <= 0) setCropHeight(originalHeight);
+    }
+  }, [originalWidth, originalHeight, cropWidth, cropHeight, setCropWidth, setCropHeight]);
+
   // Presets
   const presets = [
+    { label: t('crop.preset.full', { defaultValue: 'Full' }), w: originalWidth, h: originalHeight },
     { label: '1:1', w: Math.min(originalWidth, originalHeight), h: Math.min(originalWidth, originalHeight) },
     { label: '4:3', w: originalWidth, h: Math.round(originalWidth * 3 / 4) },
     { label: '16:9', w: originalWidth, h: Math.round(originalWidth * 9 / 16) },
@@ -112,7 +121,7 @@ export const CropControl: React.FC<CropControlProps> = ({
             <label className="text-xs text-slate-400 font-medium">{t('crop.width')} (px)</label>
             <input
               type="number"
-              value={cropWidth || ''}
+              value={cropWidth > 0 ? cropWidth : (originalWidth || '')}
               min={1}
               max={originalWidth - cropX}
               onChange={(e) => setCropWidth(Math.max(1, Math.min(parseInt(e.target.value) || 1, originalWidth - cropX)))}
@@ -123,7 +132,7 @@ export const CropControl: React.FC<CropControlProps> = ({
             <label className="text-xs text-slate-400 font-medium">{t('crop.height')} (px)</label>
             <input
               type="number"
-              value={cropHeight || ''}
+              value={cropHeight > 0 ? cropHeight : (originalHeight || '')}
               min={1}
               max={originalHeight - cropY}
               onChange={(e) => setCropHeight(Math.max(1, Math.min(parseInt(e.target.value) || 1, originalHeight - cropY)))}

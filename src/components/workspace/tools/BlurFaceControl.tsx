@@ -13,6 +13,8 @@ export interface BlurBox {
 
 export interface BlurFaceControlProps {
   imageElement: HTMLImageElement | null;
+  originalWidth?: number;
+  originalHeight?: number;
   boxes: BlurBox[];
   setBoxes: React.Dispatch<React.SetStateAction<BlurBox[]>>;
   blurIntensity: number;
@@ -26,6 +28,8 @@ export interface BlurFaceControlProps {
 
 export const BlurFaceControl: React.FC<BlurFaceControlProps> = ({
   imageElement,
+  originalWidth,
+  originalHeight,
   boxes,
   setBoxes,
   blurIntensity,
@@ -40,8 +44,8 @@ export const BlurFaceControl: React.FC<BlurFaceControlProps> = ({
   const [selectedType, setSelectedType] = useState<'blur' | 'pixelate'>('blur');
 
   const handleAddBox = (type: 'blur' | 'pixelate', preset: 'center' | 'face' | 'plate' = 'center') => {
-    const nw = imageElement?.naturalWidth || 800;
-    const nh = imageElement?.naturalHeight || 600;
+    const nw = originalWidth || imageElement?.naturalWidth || 800;
+    const nh = originalHeight || imageElement?.naturalHeight || 600;
 
     let bw = Math.round(nw * 0.24);
     let bh = Math.round(nh * 0.24);

@@ -104,13 +104,22 @@ export const InteractiveCropOverlay: React.FC<InteractiveCropOverlayProps> = ({
     }
   }, [cropX, cropY, cropWidth, cropHeight, isDragging]);
 
+  // Auto-initialize crop box to full image if not initialized yet
+  useEffect(() => {
+    if (originalWidth > 0 && originalHeight > 0 && (cropWidth <= 0 || cropHeight <= 0)) {
+      onCropChange(0, 0, originalWidth, originalHeight);
+    }
+  }, [originalWidth, originalHeight, cropWidth, cropHeight, onCropChange]);
+
   const currentCrop = localCrop || { x: cropX, y: cropY, w: cropWidth, h: cropHeight };
+  const safeW = currentCrop.w > 0 ? currentCrop.w : (originalWidth > 0 ? originalWidth : 100);
+  const safeH = currentCrop.h > 0 ? currentCrop.h : (originalHeight > 0 ? originalHeight : 100);
 
   // Actual bounding box in container coordinates
   const boxX = renderRect.left + currentCrop.x * scaleX;
   const boxY = renderRect.top + currentCrop.y * scaleY;
-  const boxW = currentCrop.w * scaleX;
-  const boxH = currentCrop.h * scaleY;
+  const boxW = safeW * scaleX;
+  const boxH = safeH * scaleY;
 
   const handlePointerDown = (e: React.PointerEvent, handle: string) => {
     e.stopPropagation();

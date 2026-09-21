@@ -180,6 +180,11 @@ const KEYS_TO_SYNC = {
   'work.batchDownload': 'Download All (ZIP)',
   'nav.resize': 'Resize Image',
 
+  'convert.convertNow': 'Convert Now',
+  'convert.convertFirst': 'Convert First to Download',
+  'convert.success': 'Image converted successfully!',
+  'crop.preset.full': 'Full',
+
   // Clean & Concise Landing Titles (No Keyword Stuffing / No "Zero Upload" / No "Carga Cero")
   'landing.default.title.remove': 'Free AI Background Remover Online',
   'landing.default.title.blur': 'Free Studio Bokeh Blur Online',
@@ -232,6 +237,7 @@ const ID_OVERRIDES = {
 
   'crop.title': 'Potong Foto',
   'crop.presets': 'Preset Potong',
+  'crop.preset.full': 'Penuh',
   'crop.offset': 'Posisi',
   'crop.width': 'Lebar',
   'crop.height': 'Tinggi',
@@ -246,6 +252,9 @@ const ID_OVERRIDES = {
   'rotate.angle': 'Sudut Rotasi',
 
   'convert.format': 'Pilih Format Tujuan',
+  'convert.convertNow': 'Konversi Sekarang',
+  'convert.convertFirst': 'Konversi Dahulu untuk Download',
+  'convert.success': 'Foto berhasil dikonversi!',
   'convert.processAll': 'Konversi Semua ({{count}})',
 
   'compress.quality': 'Kualitas Kompresi',
@@ -392,7 +401,8 @@ const ES_OVERRIDES = {
   'resize.dimensions': 'Dimensiones',
 
   'crop.title': 'Recortar Foto',
-  'crop.presets': 'Proporciones Predefinidas',
+  'crop.presets': 'Ajustes Predefinidos',
+  'crop.preset.full': 'Completo',
   'crop.offset': 'Posición',
   'crop.width': 'Ancho',
   'crop.height': 'Alto',
@@ -407,6 +417,9 @@ const ES_OVERRIDES = {
   'rotate.angle': 'Ángulo de Rotación',
 
   'convert.format': 'Seleccionar Formato de Destino',
+  'convert.convertNow': 'Convertir ahora',
+  'convert.convertFirst': 'Convierte primero para descargar',
+  'convert.success': '¡Imagen convertida con éxito!',
   'convert.processAll': 'Convertir Todo ({{count}})',
 
   'compress.quality': 'Calidad de Compresión',
@@ -533,12 +546,148 @@ const ES_OVERRIDES = {
   'landing.default.desc.home': 'Tu editor de fotos con IA local: quita fondos, redimensiona, comprime y edita fotos por lotes.',
 };
 
+// German translations override for clean, natural German terminology (No bloated keyword strings)
+const DE_OVERRIDES = {
+  'landing.default.title.remove': 'Kostenloser KI-Hintergrundentferner',
+  'landing.default.title.blur': 'Kostenloser Bokeh-Unschärfe-Effekt',
+  'landing.default.title.color': 'Passfoto-Hintergrundfarbe ändern',
+  'landing.default.title.watermark': 'Kostenloser Wasserzeichen-Ersteller',
+  'landing.default.title.compress': 'Kostenloser Bildkompressor online',
+  'landing.default.title.convert': 'Kostenloser Bildformat-Konverter',
+  'landing.default.title.resize': 'Kostenlose Bildgrößenänderung',
+  'landing.default.title.crop': 'Kostenloses Foto-Zuschneidetool',
+  'landing.default.title.rotate': 'Foto drehen & spiegeln online',
+  'landing.default.title.picker': 'Kostenloser Bild-Farbwähler',
+  'landing.default.title.blurface': 'Gesichter & Kennzeichen zensieren',
+  'landing.default.title.design': 'Kostenloser Online-Fotoeditor',
+  'landing.default.title.home': 'Kostenloser KI-Fotoeditor online',
+
+  'landing.default.desc.remove': 'Hintergrund von Bildern direkt im Browser entfernen. 100% privat, schnell und kostenlos.',
+  'landing.default.desc.blur': 'DSLR-Bokeh-Unschärfeeffekt in Sekundenschnelle auf jeden Hintergrund anwenden.',
+  'landing.default.desc.color': 'Passfoto-Hintergrundfarben nach offiziellen Standards oder mit modernen Farbverläufen anpassen.',
+  'landing.default.desc.watermark': 'Eigene Wasserzeichen und Logos stapelweise hinzufügen, um das Urheberrecht zu schützen.',
+  'landing.default.desc.compress': 'Dateigröße von Bildern präzise verringern bei gleichzeitig hoher visueller Bildqualität.',
+  'landing.default.desc.convert': 'Bilder blitzschnell zwischen PNG, JPG und WEBP direkt im Browser konvertieren.',
+  'landing.default.desc.resize': 'Bildabmessungen präzise mit individueller Breite, Höhe und Seitenverhältnis anpassen.',
+  'landing.default.desc.crop': 'Fotos auf exakte Proportionen, Kreis-Avatare oder Social-Media-Maße zuschneiden.',
+  'landing.default.desc.rotate': 'Fotos horizontal oder vertikal drehen und spiegeln mit sofortiger Live-Vorschau.',
+  'landing.default.desc.picker': 'Farbpaletten und exakte Hex-Codes aus beliebigen Fotos auslesen.',
+  'landing.default.desc.blurface': 'Privatsphäre schützen durch Verpixeln oder Verwischen von Gesichtern und Kennzeichen.',
+  'landing.default.desc.design': 'Fotos online mit Filtern, Texten, Anmerkungen und Designtools bearbeiten.',
+  'landing.default.desc.home': 'Ihr lokaler KI-Fotoeditor: Hintergründe entfernen, skalieren, komprimieren und bearbeiten.',
+
+  'brush.mode': 'Manueller Pinselmodus',
+  'brush.restore': '🟢 Wiederherstellen',
+  'brush.erase': '🔴 Löschen',
+  'brush.size': 'Pinselgröße',
+  'brush.resetMask': 'Pinselstriche zurücksetzen',
+  'brush.resetSuccess': 'Pinselstriche erfolgreich zurückgesetzt!',
+  'brush.title': 'Manueller Retusche-Pinsel',
+  'brush.desc': 'Bildbereiche für saubere Kanten manuell wiederherstellen oder löschen.',
+
+  'resize.modeStandard': 'Standard (Strecken)',
+  'resize.modeSmart': 'Smart Auto (Zentriert)',
+  'resize.width': 'Breite',
+  'resize.height': 'Höhe',
+  'resize.lock': 'Seitenverhältnis sperren',
+  'resize.unlock': 'Seitenverhältnis entsperren',
+  'resize.dimensions': 'Abmessungen',
+
+  'crop.title': 'Foto zuschneiden',
+  'crop.presets': 'Zuschnitt-Vorlagen',
+  'crop.preset.full': 'Vollbild',
+  'crop.offset': 'Position',
+  'crop.width': 'Breite',
+  'crop.height': 'Höhe',
+  'crop.radius': 'Eckenrundung',
+
+  'rotate.title': 'Drehen & Spiegeln',
+  'rotate.quickRotate': 'Schnelldrehung',
+  'rotate.customAngle': 'Freier Winkel',
+  'rotate.flip': 'Ausrichtung spiegeln',
+  'rotate.flipH': 'Horizontal spiegeln',
+  'rotate.flipV': 'Vertikal spiegeln',
+  'rotate.angle': 'Drehwinkel',
+
+  'convert.format': 'Zielformat auswählen',
+  'convert.convertNow': 'Jetzt konvertieren',
+  'convert.convertFirst': 'Zuerst konvertieren zum Herunterladen',
+  'convert.success': 'Bild erfolgreich konvertiert!',
+  'convert.processAll': 'Alle konvertieren ({{count}})',
+
+  'compress.quality': 'Komprimierungsqualität',
+  'compress.process': 'Jetzt komprimieren',
+  'compress.processAll': 'Alle komprimieren ({{count}})',
+  'compress.maxCompress': 'Maximale Komprimierung',
+  'compress.balanced': 'Ausgewogen',
+  'compress.highQuality': 'Hohe Qualität',
+
+  'color.off.red': 'Pass-Rot',
+  'color.off.blue': 'Pass-Blau',
+  'color.off.white': 'Reines Weiß',
+  'color.off.black': 'Studio-Schwarz',
+  'color.off.gray': 'Sanftes Grau',
+  'color.off.pink': 'Pastellrosa',
+  'color.off.green': 'Mintgrün',
+  'color.off.sky': 'Himmelblau',
+  'color.custom': 'Eigene Farbe',
+  'color.official': 'Offizielle Farbe wählen',
+  'color.gradientTitle': 'Moderne Studio-Farbverläufe',
+  'color.applyNow': '⚡ Hintergrund jetzt ändern',
+  'color.bgBlur': 'Hintergrund-Unschärfe (DSLR-Effekt)',
+
+  'blur.options': 'Gesicht & Kennzeichen zensieren',
+  'blur.desc': 'Kasten direkt auf das Foto ziehen oder Vorlagen nutzen.',
+  'blur.intensity': 'Zensur-Stärke',
+  'blur.activeAreas': 'Aktive Bereiche',
+  'blur.clearAll': 'Alle entfernen',
+  'blur.applyNow': 'Dauerhaft zensieren',
+  'blur.appliedSuccess': 'Zensur erfolgreich angewendet!',
+
+  'editor.resetOriginal': 'Auf Original zurücksetzen',
+  'editor.resetDesc': 'Foto unverändert in den Originalzustand zurücksetzen',
+  'editor.replacePhoto': 'Foto ersetzen',
+  'editor.replacePhotoDesc': 'Dieses Foto durch ein neues Bild vom Gerät ersetzen',
+  'editor.uploadOther': 'Foto ersetzen',
+  'editor.uploadOtherDesc': 'Dieses Foto durch ein neues Bild vom Gerät ersetzen',
+  'editor.resetSuccess': 'Bild wurde auf den Ausgangszustand zurückgesetzt.',
+  'editor.download': 'HD herunterladen (Kostenlos)',
+  'editor.downloadBatch': '📦 Alles herunterladen (ZIP)',
+  'editor.settings': 'Werkzeugeinstellungen',
+  'editor.exportSettings': 'Exporteinstellungen',
+  'editor.exportOptions': 'Export- & Download-Optionen',
+
+  'work.badge.remove': 'Hintergrund entfernen',
+  'work.badge.color': 'Hintergrund ändern',
+  'work.badge.brush': 'Magischer Pinsel',
+  'work.badge.watermark': 'Wasserzeichen',
+  'work.badge.compress': 'Bild komprimieren',
+  'work.badge.convert': 'Format ändern',
+  'work.badge.resize': 'Größe ändern',
+  'work.badge.crop': 'Foto zuschneiden',
+  'work.badge.rotate': 'Drehen & Spiegeln',
+  'work.badge.picker': 'Farbe pipettieren',
+  'work.badge.blurface': 'Gesicht zensieren',
+  'work.badge.design': 'Design-Editor',
+  'work.badge.blur': 'Hintergrund weichzeichnen',
+  'work.exportSettingsTitle': 'Export- & Download-Optionen',
+  'work.settings': 'Exporteinstellungen',
+  'work.batchRename': 'Dateien umbenennen',
+  'work.renameFile': 'Datei umbenennen',
+  'work.zipPlaceholder': 'Eigener ZIP-Name',
+  'work.singleDownload': 'HD herunterladen (Kostenlos)',
+  'work.batchDownload': 'Alles herunterladen (ZIP)',
+  'nav.resize': 'Größe ändern',
+};
+
 async function syncAllLocales() {
   const localesDir = path.resolve(__dirname, '../public/locales');
   const languages = Object.keys(LANG_MAP);
 
   const keys = Object.keys(KEYS_TO_SYNC);
   const englishValues = keys.map((k) => KEYS_TO_SYNC[k]);
+
+  const CORE_TOOLS = ['remove', 'blur', 'color', 'watermark', 'compress', 'convert', 'resize', 'crop', 'rotate', 'picker', 'blurface', 'design', 'home'];
 
   console.log(`Starting translation sync for ${languages.length} languages and ${keys.length} keys...`);
 
@@ -561,6 +710,11 @@ async function syncAllLocales() {
       for (const key of keys) {
         json[key] = KEYS_TO_SYNC[key];
       }
+      for (const tool of CORE_TOOLS) {
+        if (json[`landing.default.title.${tool}`]) {
+          json[`seo.title.${tool}`] = json[`landing.default.title.${tool}`];
+        }
+      }
       fs.writeFileSync(filePath, JSON.stringify(json, null, 2) + '\n', 'utf8');
       console.log(`✓ Synchronized en (English)`);
       continue;
@@ -569,6 +723,11 @@ async function syncAllLocales() {
     if (lang === 'id') {
       for (const key of keys) {
         json[key] = ID_OVERRIDES[key] || KEYS_TO_SYNC[key];
+      }
+      for (const tool of CORE_TOOLS) {
+        if (json[`landing.default.title.${tool}`]) {
+          json[`seo.title.${tool}`] = json[`landing.default.title.${tool}`];
+        }
       }
       fs.writeFileSync(filePath, JSON.stringify(json, null, 2) + '\n', 'utf8');
       console.log(`✓ Synchronized id (Indonesian)`);
@@ -579,15 +738,33 @@ async function syncAllLocales() {
       for (const key of keys) {
         json[key] = ES_OVERRIDES[key] || KEYS_TO_SYNC[key];
       }
-      // Additional cleanup for Spanish
       if (json['brush.title']) json['brush.title'] = 'Pincel de Retoque Manual';
       if (json['work.badge.brush']) json['work.badge.brush'] = 'Pincel Mágico';
       if (json['work.badge.watermark']) json['work.badge.watermark'] = 'Marca de Agua';
       if (json['work.badge.blurface']) json['work.badge.blurface'] = 'Desenfocar Rostro';
       if (json['work.badge.resize']) json['work.badge.resize'] = 'Redimensionar Foto';
 
+      for (const tool of CORE_TOOLS) {
+        if (json[`landing.default.title.${tool}`]) {
+          json[`seo.title.${tool}`] = json[`landing.default.title.${tool}`];
+        }
+      }
       fs.writeFileSync(filePath, JSON.stringify(json, null, 2) + '\n', 'utf8');
       console.log(`✓ Synchronized es (Spanish - Native Overrides)`);
+      continue;
+    }
+
+    if (lang === 'de') {
+      for (const key of keys) {
+        json[key] = DE_OVERRIDES[key] || KEYS_TO_SYNC[key];
+      }
+      for (const tool of CORE_TOOLS) {
+        if (json[`landing.default.title.${tool}`]) {
+          json[`seo.title.${tool}`] = json[`landing.default.title.${tool}`];
+        }
+      }
+      fs.writeFileSync(filePath, JSON.stringify(json, null, 2) + '\n', 'utf8');
+      console.log(`✓ Synchronized de (German - Native Overrides)`);
       continue;
     }
 
@@ -618,6 +795,12 @@ async function syncAllLocales() {
       // Specific cleanup in json for common dirty keys
       if (json['brush.restore']) json['brush.restore'] = json['brush.restore'].replace(/\s*\(Restore\)/gi, '');
       if (json['brush.erase']) json['brush.erase'] = json['brush.erase'].replace(/\s*\(Erase\)/gi, '');
+
+      for (const tool of CORE_TOOLS) {
+        if (json[`landing.default.title.${tool}`]) {
+          json[`seo.title.${tool}`] = json[`landing.default.title.${tool}`];
+        }
+      }
 
       fs.writeFileSync(filePath, JSON.stringify(json, null, 2) + '\n', 'utf8');
       console.log(`✓ Synchronized ${lang} (${targetCode})`);

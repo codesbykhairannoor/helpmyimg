@@ -126,8 +126,14 @@ self.onmessage = async (e: MessageEvent) => {
           rgbaData[i * 4 + 2] = image.data[i];
         }
         
-        // Aplikasikan alpha channel langsung dari mask data (1 channel grayscale)
-        rgbaData[i * 4 + 3] = mask.data[i]; 
+        // Aplikasikan alpha channel langsung dari mask data dengan noise-suppression untuk logo & grafis
+        let alpha = mask.data[i];
+        if (alpha < 20) {
+          alpha = 0;
+        } else if (alpha > 238) {
+          alpha = 255;
+        }
+        rgbaData[i * 4 + 3] = alpha;
       }
 
       const imgDataObj = new ImageData(rgbaData, image.width, image.height);

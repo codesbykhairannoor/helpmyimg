@@ -257,6 +257,8 @@ export const WorkspaceViewport: React.FC<WorkspaceViewportProps> = ({
               {(initialTab === 'blurface' || initialTab === 'blurplate') && (
                 <BlurBoxOverlay
                   imageElement={imageElement}
+                  originalWidth={originalDimensions.width}
+                  originalHeight={originalDimensions.height}
                   boxes={blurBoxes}
                   setBoxes={setBlurBoxes}
                   blurIntensity={blurIntensity}

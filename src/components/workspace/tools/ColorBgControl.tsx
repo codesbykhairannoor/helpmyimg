@@ -3,7 +3,8 @@
 
 import React, { useRef } from 'react';
 import { useTranslation } from '../../../context/LanguageContext';
-import { Palette, RefreshCw, Check, Upload, Image as ImageIcon, Sparkles, Sliders, X, RotateCcw } from 'lucide-react';
+import { Palette, RefreshCw, Check, Upload, Image as ImageIcon, Sparkles, Sliders, X, RotateCcw, PaintBucket } from 'lucide-react';
+import type { CutoutMode } from '../types';
 
 export type BgMode = 'color' | 'gradient' | 'image' | 'preset';
 
@@ -85,6 +86,8 @@ interface ColorBgControlProps {
   status?: 'idle' | 'queued' | 'processing' | 'done' | 'error';
   onProcessNow?: () => void;
   hasProcessedAi?: boolean;
+  imageType?: CutoutMode;
+  setImageType?: (val: CutoutMode) => void;
 }
 
 export const ColorBgControl: React.FC<ColorBgControlProps> = ({
@@ -108,6 +111,8 @@ export const ColorBgControl: React.FC<ColorBgControlProps> = ({
   status = 'idle',
   onProcessNow,
   hasProcessedAi = true,
+  imageType = 'photo',
+  setImageType,
 }) => {
   const { t } = useTranslation();
   const fileInputRef = useRef<HTMLInputElement>(null);
@@ -127,7 +132,56 @@ export const ColorBgControl: React.FC<ColorBgControlProps> = ({
   ];
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-5">
+      {/* Mode Selection UI: Photo AI vs Logo Vector */}
+      {setImageType && (
+        <div className="space-y-2.5 bg-dark-800/50 p-3.5 rounded-2xl border border-dark-600/80 shadow-inner">
+          <div className="flex items-center justify-between text-xs font-bold text-white">
+            <span className="flex items-center gap-1.5">
+              <Sparkles className="w-3.5 h-3.5 text-neon-cyan" />
+              <span>{t('remove.modeTitle', { defaultValue: 'Cutout Engine' })}</span>
+            </span>
+            <span className="text-[10px] text-neon-cyan font-mono font-semibold px-2 py-0.5 rounded-full bg-neon-cyan/10 border border-neon-cyan/30">
+              {imageType === 'logo'
+                ? t('remove.modeLogoActive', { defaultValue: 'Vector Mode' })
+                : t('remove.modeAiActive', { defaultValue: 'AI Neural Mode' })}
+            </span>
+          </div>
+
+          <div className="grid grid-cols-2 gap-2 bg-dark-900/70 p-1.5 rounded-xl border border-dark-700">
+            {/* Photo AI */}
+            <button
+              type="button"
+              onClick={() => setImageType('photo')}
+              className={`flex flex-col items-center justify-center gap-1 py-2 px-2 rounded-lg transition-all cursor-pointer ${
+                imageType === 'photo'
+                  ? 'bg-gradient-to-b from-dark-700 to-dark-800 shadow-md border border-neon-cyan/50 text-white'
+                  : 'hover:bg-dark-800/50 text-slate-400 hover:text-slate-200 border border-transparent'
+              }`}
+            >
+              <ImageIcon className={`w-4 h-4 ${imageType === 'photo' ? 'text-neon-cyan' : 'opacity-70'}`} />
+              <span className="text-xs font-bold truncate">{t('remove.modeAi', { defaultValue: 'Photo AI' })}</span>
+              <span className="text-[9px] text-slate-400 font-medium text-center truncate">{t('remove.modeAiDesc', { defaultValue: 'Human & Portrait' })}</span>
+            </button>
+
+            {/* Logo Vector */}
+            <button
+              type="button"
+              onClick={() => setImageType('logo')}
+              className={`flex flex-col items-center justify-center gap-1 py-2 px-2 rounded-lg transition-all cursor-pointer ${
+                imageType === 'logo'
+                  ? 'bg-gradient-to-b from-dark-700 to-dark-800 shadow-md border border-neon-pink/50 text-white'
+                  : 'hover:bg-dark-800/50 text-slate-400 hover:text-slate-200 border border-transparent'
+              }`}
+            >
+              <PaintBucket className={`w-4 h-4 ${imageType === 'logo' ? 'text-neon-pink' : 'opacity-70'}`} />
+              <span className="text-xs font-bold truncate">{t('remove.modeLogo', { defaultValue: 'Logo / Vector' })}</span>
+              <span className="text-[9px] text-slate-400 font-medium text-center truncate">{t('remove.modeLogoDesc', { defaultValue: 'Graphics & Flat Bg' })}</span>
+            </button>
+          </div>
+        </div>
+      )}
+
       {/* Tombol Utama: Ganti / Hapus Background Sekarang (Manual Trigger) */}
       {onProcessNow && (shouldShowProcessButton || (status === 'done' && hasProcessedAi)) && (
         <div className="space-y-2">

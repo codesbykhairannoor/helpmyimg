@@ -98,15 +98,34 @@ export const ConvertControl: React.FC<ConvertControlProps> = ({
 
       {/* Action Buttons */}
       <div className="space-y-3 pt-1">
-        {onProcessBatch && batchCount > 1 && (
+        {/* Main Action Button: Convert Now / Convert All */}
+        {batchCount > 1 ? (
           <button
             type="button"
             onClick={handleProcessBatch}
             disabled={isProcessing || batchCount === 0}
-            className="w-full flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-dark-700 hover:bg-dark-600 border border-neon-cyan/50 text-white font-extrabold text-xs tracking-wide transition-all duration-200 disabled:opacity-50 cursor-pointer"
+            className="w-full flex items-center justify-center gap-2 py-3.5 px-4 rounded-xl bg-gradient-to-r from-neon-cyan via-neon-emerald to-neon-indigo text-dark-900 font-extrabold text-sm tracking-wide shadow-glow-cyan transition-all duration-200 hover:-translate-y-0.5 disabled:opacity-50 disabled:transform-none cursor-pointer"
           >
-            <RefreshCw className={`w-3.5 h-3.5 shrink-0 ${isProcessing ? 'animate-spin' : ''}`} />
-            <span>{t('convert.processAll', { count: String(batchCount) }) === 'convert.processAll' ? `Convert All (${batchCount})` : t('convert.processAll', { count: String(batchCount) })}</span>
+            <RefreshCw className={`w-4 h-4 shrink-0 ${isProcessing ? 'animate-spin' : ''}`} />
+            <span>
+              {isProcessing
+                ? t('work.processing', { defaultValue: 'Converting...' })
+                : t('convert.processAll', { count: String(batchCount), defaultValue: `Convert All (${batchCount})` })}
+            </span>
+          </button>
+        ) : (
+          <button
+            type="button"
+            onClick={handleConvert}
+            disabled={isProcessing || batchCount === 0}
+            className="w-full flex items-center justify-center gap-2 py-3.5 px-4 rounded-xl bg-gradient-to-r from-neon-cyan via-neon-emerald to-neon-indigo text-dark-900 font-extrabold text-sm tracking-wide shadow-glow-cyan transition-all duration-200 hover:-translate-y-0.5 disabled:opacity-50 disabled:transform-none cursor-pointer"
+          >
+            <RefreshCw className={`w-4 h-4 shrink-0 ${isProcessing ? 'animate-spin' : ''}`} />
+            <span>
+              {isProcessing
+                ? t('work.processing', { defaultValue: 'Converting...' })
+                : t('convert.convertNow', { defaultValue: 'Convert Now' })}
+            </span>
           </button>
         )}
 

@@ -102,8 +102,12 @@ function sanitizeTitle(title, lang = 'en') {
   if (!title) return 'HelpMyIMG - Free Local AI Image Editor';
   let clean = title.trim();
   
-  // Remove existing brand suffixes to normalize
-  clean = clean.replace(/\s*[-|]\s*HelpMyIMG.*$/i, '').trim();
+  // Strip robotic keyword-stuffing slogans and suffixes
+  clean = clean
+    .replace(/\s*[-|–—]\s*(Kein Upload|Carga cero|Zero Upload|Zero Server Upload|100% Client-Side|100% DSGVO-Konform|Offline).*$/i, '')
+    .replace(/\s*[-|–—]\s*(Bildgröße lokal komprimieren|comprime el tamaño de la imagen localmente|elimine el fondo de la imagen localmente).*$/i, '')
+    .replace(/\s*[-|–—]\s*HelpMyIMG.*$/i, '')
+    .trim();
   
   // For CJK languages, expand if too short (< 6 chars)
   if (['zh', 'ja', 'ko'].includes(lang) && clean.length < 6) {
@@ -493,12 +497,8 @@ for (const lang of LANGS) {
     const slug = getLocalizedSlug(tool, lang);
     const toolUrl = `/${lang}/${slug}/`;
     
-    let toolTitle = translations[`seo.title.${tool}`] || translations[`seo.jsonld.name.${tool}`] || translations[`tab.${tool}`] || translations[`tool.${tool}`] || translations['hero.title'] || tool;
-    let toolDesc = translations[`seo.jsonld.desc.${tool}`] || homeDesc;
-    
-    if (tool === 'remove' && translations['tab.remove']) {
-      toolTitle = translations['tab.remove'];
-    }
+    let toolTitle = translations[`landing.default.title.${tool}`] || translations[`seo.title.${tool}`] || translations[`seo.jsonld.name.${tool}`] || translations[`tab.${tool}`] || translations[`tool.${tool}`] || translations['hero.title'] || tool;
+    let toolDesc = translations[`landing.default.desc.${tool}`] || translations[`seo.jsonld.desc.${tool}`] || homeDesc;
 
     const toolHtml = generateHtml(lang, toolUrl, toolTitle, toolDesc, tool, translations, null);
     const toolDir = path.join(distDir, lang, slug);

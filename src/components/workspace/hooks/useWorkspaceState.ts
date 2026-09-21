@@ -111,6 +111,11 @@ export function useWorkspaceState(initialTab: TabType = 'remove', keywordSlug?: 
         resize.setResizeWidth(img.naturalWidth);
         resize.setResizeHeight(img.naturalHeight);
       }
+      // Initialize Crop Box to cover full image by default
+      crop.setCropX(0);
+      crop.setCropY(0);
+      crop.setCropWidth(img.naturalWidth);
+      crop.setCropHeight(img.naturalHeight);
     };
     img.src = currentItem.originalUrl;
   }, [currentItem?.id, currentItem?.originalUrl]);
@@ -484,6 +489,11 @@ export function useWorkspaceState(initialTab: TabType = 'remove', keywordSlug?: 
       resize.setResizeWidth(img.naturalWidth);
       resize.setResizeHeight(img.naturalHeight);
       resize.setOriginalDimensions({ width: img.naturalWidth, height: img.naturalHeight });
+      crop.setCropX(0);
+      crop.setCropY(0);
+      crop.setCropWidth(img.naturalWidth);
+      crop.setCropHeight(img.naturalHeight);
+      crop.setCropRadius(0);
     };
     img.src = currentItem.originalUrl;
     resize.setMaintainRatio(true);
@@ -509,7 +519,7 @@ export function useWorkspaceState(initialTab: TabType = 'remove', keywordSlug?: 
     blur.setBlurIntensity(20);
 
     brush.resetBrush();
-  }, [handleReset, currentItem, initialColor, resize, rotate, colorBg, watermark, blur, brush]);
+  }, [handleReset, currentItem, initialColor, resize, crop, rotate, colorBg, watermark, blur, brush]);
 
   return {
     t,

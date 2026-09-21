@@ -91,6 +91,14 @@ export function useWorkspaceCore(initialTab: TabType = 'remove'): UseWorkspaceCo
       setBatchItems((prev) => {
         const baseList = isReplacing ? [] : prev;
         const merged = [...baseList, ...newItems];
+        if (['convert', 'convertwebp'].includes(initialTab)) {
+          return merged.map((i) =>
+            newItems.some((n) => n.id === i.id)
+              ? { ...i, status: 'idle', transparentUrl: i.originalUrl, processedUrl: null, progress: 0 }
+              : i
+          );
+        }
+
         // For non-cutout utility tabs, instantly mark as ready/done for direct preview
         if (
           [
@@ -100,8 +108,6 @@ export function useWorkspaceCore(initialTab: TabType = 'remove'): UseWorkspaceCo
             'compress100kb',
             'compress50kb',
             'compress200kb',
-            'convert',
-            'convertwebp',
             'resize',
             'resizeig',
             'resizepassport',

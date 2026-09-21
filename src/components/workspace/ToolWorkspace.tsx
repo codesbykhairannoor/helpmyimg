@@ -384,6 +384,8 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({ initialTab: rawIni
                     currentItem?.transparentUrl && currentItem?.transparentUrl !== currentItem?.originalUrl
                   )}
                   batchCount={batchItems.length}
+                  imageType={imageType}
+                  setImageType={setImageType}
                 />
               )}
 
@@ -570,9 +572,21 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({ initialTab: rawIni
               {initialTab === 'convert' && (
                 <ConvertControl
                   format={convertFormat}
-                  setFormat={setConvertFormat}
+                  setFormat={(newF) => {
+                    setConvertFormat(newF);
+                    if (currentItem && currentItem.status === 'done') {
+                      setBatchItems((prev) =>
+                        prev.map((it) => (it.id === currentItem.id ? { ...it, status: 'idle' } : it))
+                      );
+                    }
+                  }}
                   onConvert={async () => {
                     if (currentItem?.file) {
+                      setBatchItems((prev) =>
+                        prev.map((item) =>
+                          item.id === currentItem.id ? { ...item, status: 'processing' } : item
+                        )
+                      );
                       try {
                         const blob = await processImage(currentItem.file, {
                           mimeType: convertFormat,
@@ -600,6 +614,7 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({ initialTab: rawIni
                               : item
                           )
                         );
+                        showToast(t('convert.success', { defaultValue: 'Foto berhasil dikonversi!' }));
                       } catch (err: any) {
                         console.error('Convert failed', err);
                         setBatchItems((prev) =>
@@ -609,6 +624,7 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({ initialTab: rawIni
                               : item
                           )
                         );
+                        showToast(t('convert.failed', { defaultValue: 'Gagal mengonversi foto.' }));
                       }
                     }
                   }}
@@ -878,6 +894,8 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({ initialTab: rawIni
               {(initialTab === 'blurface' || initialTab === 'blurplate') && (
                 <BlurFaceControl
                   imageElement={imageElement}
+                  originalWidth={originalDimensions.width}
+                  originalHeight={originalDimensions.height}
                   boxes={blurBoxes}
                   setBoxes={setBlurBoxes}
                   blurIntensity={blurIntensity}
