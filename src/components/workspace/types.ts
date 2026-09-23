@@ -60,4 +60,5 @@ export interface BatchItem {
 
 export interface ToolWorkspaceProps {
   initialTab?: TabType | string;
+  onActiveChange?: (hasActiveFiles: boolean) => void;
 }

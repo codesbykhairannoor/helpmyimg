@@ -30,7 +30,10 @@ import type { TabType, BatchItem, ColorInfo, WatermarkPosition, ToolWorkspacePro
 
 export type { TabType, BatchItem, ColorInfo, WatermarkPosition, ToolWorkspaceProps };
 
-export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({ initialTab: rawInitialTab = 'remove' }) => {
+export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({ 
+  initialTab: rawInitialTab = 'remove',
+  onActiveChange,
+}) => {
   const resolveBaseTab = (tab: string): TabType => {
     switch (tab) {
       case 'colorwhite':
@@ -62,6 +65,10 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({ initialTab: rawIni
 
   const initialTab = resolveBaseTab(rawInitialTab);
   const state = useWorkspaceState(initialTab);
+
+  React.useEffect(() => {
+    onActiveChange?.(state.batchItems.length > 0);
+  }, [state.batchItems.length, onActiveChange]);
 
   const {
     t,

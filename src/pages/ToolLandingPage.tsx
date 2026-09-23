@@ -118,6 +118,12 @@ export const ToolLandingPage: React.FC = () => {
     ? t('brush.desc')
     : t('landing.default.desc.remove'));
 
+  const [hasActiveFiles, setHasActiveFiles] = React.useState(false);
+
+  useEffect(() => {
+    setHasActiveFiles(false);
+  }, [tool]);
+
   const toolMapName = internalTool;
   const displayConfig = {
     title: defaultTitle,
@@ -127,7 +133,6 @@ export const ToolLandingPage: React.FC = () => {
   };
 
   return (
-
     <div className="min-h-screen bg-dark-900 text-slate-900 dark:text-slate-100 transition-colors duration-300">
       <SeoHead
         key={`${lang}-${tool || 'home'}`}
@@ -138,54 +143,58 @@ export const ToolLandingPage: React.FC = () => {
         internalTool={internalTool}
       />
 
-      {/* Hero Section */}
-      <Hero 
-        title={dynamicJsonData ? dynamicJsonData.h1 : (!tool ? undefined : displayConfig.h1)} 
-        description={dynamicJsonData ? dynamicJsonData.description : (!tool ? undefined : displayConfig.description)} 
-      />
-
+      {/* Hero Section - Hidden in Workspace/Edit Mode to maximize vertical screen space */}
+      {!hasActiveFiles && (
+        <Hero 
+          title={dynamicJsonData ? dynamicJsonData.h1 : (!tool ? undefined : displayConfig.h1)} 
+          description={dynamicJsonData ? dynamicJsonData.description : (!tool ? undefined : displayConfig.description)} 
+        />
+      )}
 
       {/* CORE TOOL WORKSPACE ATAU HOMEPAGE GRID */}
-      <div className="-mt-4 relative z-10">
+      <div className={hasActiveFiles ? "pt-2 md:pt-4 relative z-10" : "-mt-4 relative z-10"}>
         {!tool ? (
           <ToolGrid />
         ) : (
-          <ToolWorkspace initialTab={displayConfig.tool as any} />
+          <ToolWorkspace 
+            initialTab={displayConfig.tool as any} 
+            onActiveChange={setHasActiveFiles}
+          />
         )}
       </div>
-      
 
-
-      {/* SECTIONS & FAQ: Home Domination vs Tool Specific */}
-      <div className="mt-32 sm:mt-40">
-        {!tool ? (
-          <HomeSections />
-        ) : dynamicJsonData ? (
-          <DynamicPSeoSections data={dynamicJsonData} />
-        ) : (
-          <>
-            <LandingSections tool={displayConfig.tool as any} />
-            
-            <ToolFaqSection 
-              toolMapName={toolMapName} 
-              variant={
-                toolMapName === 'remove' ? 'grid' :
-                toolMapName === 'compress' ? 'cards' :
-                toolMapName === 'color' ? 'accordion' :
-                toolMapName === 'resize' ? 'split' :
-                toolMapName === 'crop' ? 'cards' :
-                toolMapName === 'rotate' ? 'accordion' :
-                toolMapName === 'watermark' ? 'split' :
-                toolMapName === 'design' ? 'grid' :
-                toolMapName === 'picker' ? 'cards' :
-                toolMapName === 'brush' ? 'accordion' :
-                toolMapName === 'blurface' ? 'accordion' :
-                toolMapName === 'convert' ? 'split' : 'grid'
-              } 
-            />
-          </>
-        )}
-      </div>
+      {/* SECTIONS & FAQ: Hidden in Workspace/Edit Mode for clean distraction-free workspace */}
+      {!hasActiveFiles && (
+        <div className="mt-32 sm:mt-40">
+          {!tool ? (
+            <HomeSections />
+          ) : dynamicJsonData ? (
+            <DynamicPSeoSections data={dynamicJsonData} />
+          ) : (
+            <>
+              <LandingSections tool={displayConfig.tool as any} />
+              
+              <ToolFaqSection 
+                toolMapName={toolMapName} 
+                variant={
+                  toolMapName === 'remove' ? 'grid' :
+                  toolMapName === 'compress' ? 'cards' :
+                  toolMapName === 'color' ? 'accordion' :
+                  toolMapName === 'resize' ? 'split' :
+                  toolMapName === 'crop' ? 'cards' :
+                  toolMapName === 'rotate' ? 'accordion' :
+                  toolMapName === 'watermark' ? 'split' :
+                  toolMapName === 'design' ? 'grid' :
+                  toolMapName === 'picker' ? 'cards' :
+                  toolMapName === 'brush' ? 'accordion' :
+                  toolMapName === 'blurface' ? 'accordion' :
+                  toolMapName === 'convert' ? 'split' : 'grid'
+                } 
+              />
+            </>
+          )}
+        </div>
+      )}
     </div>
   );
 };
