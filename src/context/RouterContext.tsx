@@ -14,11 +14,14 @@ interface RouterContextType {
   route: RouteState;
   navigate: (newLang: Language, newTool?: string | null, newPage?: RouteState['page']) => void;
   navigatePath: (path: string) => void;
+  hasActiveFiles: boolean;
+  setHasActiveFiles: (hasActive: boolean) => void;
 }
 
 const RouterContext = createContext<RouterContextType | undefined>(undefined);
 
 export const RouterProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
+  const [hasActiveFiles, setHasActiveFiles] = useState(false);
   const parseUrl = (): RouteState => {
     const pathname = window.location.pathname.replace(/^\/+/, '');
     const segments = pathname.split('/').filter(Boolean);
@@ -71,6 +74,11 @@ export const RouterProvider: React.FC<{ children: React.ReactNode }> = ({ childr
     return () => window.removeEventListener('popstate', handlePopState);
   }, [route.keywordSlug, route.tool, route.lang]);
 
+  // Reset active files on tool/page navigation
+  useEffect(() => {
+    setHasActiveFiles(false);
+  }, [route.tool, route.page]);
+
   const navigate = (newLang: Language, newTool: string | null = null, newPage: RouteState['page'] = 'tool') => {
     let newPath = newLang === 'en' ? '/' : `/${newLang}`;
     
@@ -112,7 +120,7 @@ export const RouterProvider: React.FC<{ children: React.ReactNode }> = ({ childr
   };
 
   return (
-    <RouterContext.Provider value={{ route, navigate, navigatePath }}>
+    <RouterContext.Provider value={{ route, navigate, navigatePath, hasActiveFiles, setHasActiveFiles }}>
       {children}
     </RouterContext.Provider>
   );

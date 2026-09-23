@@ -16,7 +16,7 @@ import { getLocalizedSlug } from '../utils/urlMapper';
 
 export const ToolLandingPage: React.FC = () => {
   const { setLang, lang: currentLang, t } = useTranslation();
-  const { route } = useRouter();
+  const { route, hasActiveFiles, setHasActiveFiles } = useRouter();
   let { lang, tool, keywordSlug } = route;
 
   // Sync language dari URL ke context
@@ -118,11 +118,9 @@ export const ToolLandingPage: React.FC = () => {
     ? t('brush.desc')
     : t('landing.default.desc.remove'));
 
-  const [hasActiveFiles, setHasActiveFiles] = React.useState(false);
-
   useEffect(() => {
     setHasActiveFiles(false);
-  }, [tool]);
+  }, [tool, setHasActiveFiles]);
 
   const toolMapName = internalTool;
   const displayConfig = {

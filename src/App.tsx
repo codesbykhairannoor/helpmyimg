@@ -57,8 +57,10 @@ const MainContent = () => {
       break;
   }
 
+  const { hasActiveFiles } = useRouter();
+
   return (
-    <main className="flex-1 w-full flex flex-col gap-8 md:gap-16 pt-12 pb-16 min-h-screen">
+    <main className={`flex-1 w-full flex flex-col min-h-screen ${hasActiveFiles ? 'gap-0 pt-0 pb-4' : 'gap-8 md:gap-16 pt-12 pb-16'}`}>
       <div className="relative">
         <div className="fixed top-1/2 left-0 w-[500px] h-[500px] -translate-x-1/2 -translate-y-1/2 bg-[radial-gradient(circle_at_center,rgba(5,218,237,0.12)_0%,transparent_60%)] rounded-full pointer-events-none -z-10" />
         <div className="fixed top-1/3 right-0 w-[600px] h-[600px] translate-x-1/3 -translate-y-1/2 bg-[radial-gradient(circle_at_center,rgba(79,70,229,0.1)_0%,transparent_60%)] rounded-full pointer-events-none -z-10" />
@@ -68,18 +70,26 @@ const MainContent = () => {
   );
 };
 
+const AppLayout = () => {
+  const { hasActiveFiles } = useRouter();
+
+  return (
+    <div className="min-h-screen bg-dark-900 text-slate-900 dark:text-slate-100 font-body flex flex-col transition-colors duration-300 selection:bg-[#05DAED]/30 selection:text-[#05DAED]">
+      <JsonLd />
+      <Navbar />
+      <MainContent />
+      {!hasActiveFiles && <Footer />}
+    </div>
+  );
+};
+
 function App() {
   return (
     <HelmetProvider>
       <ThemeProvider>
         <LanguageProvider>
           <RouterProvider>
-            <div className="min-h-screen bg-dark-900 text-slate-900 dark:text-slate-100 font-body flex flex-col transition-colors duration-300 selection:bg-[#05DAED]/30 selection:text-[#05DAED]">
-              <JsonLd />
-              <Navbar />
-              <MainContent />
-              <Footer />
-            </div>
+            <AppLayout />
           </RouterProvider>
         </LanguageProvider>
       </ThemeProvider>
