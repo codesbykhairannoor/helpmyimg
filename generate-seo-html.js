@@ -1154,8 +1154,361 @@ function generateSemanticHtml(lang, urlPath, title, desc, tool, infoPage, transl
           </section>
         </article>
       `;
+    } else if (infoPage === 'faq') {
+      // FAQ Page Template with all 12 Q&As categorized
+      const faqCategories = [
+        { name: translations['faq.cat.general'] || 'General', iconColor: 'text-[#05DAED]', items: [1, 2, 3] },
+        { name: translations['faq.cat.privacy'] || 'Privacy & Security', iconColor: 'text-[#12DA91]', items: [4, 5, 6] },
+        { name: translations['faq.cat.tech'] || 'Technology', iconColor: 'text-[#05DAED]', items: [7, 8, 9] },
+        { name: translations['faq.cat.usage'] || 'Usage & Limits', iconColor: 'text-[#12DA91]', items: [10, 11, 12] }
+      ];
+
+      let allFaqsHtml = '';
+      for (const cat of faqCategories) {
+        let catFaqsHtml = '';
+        for (const idx of cat.items) {
+          const q = translations[`faq.q${idx}`];
+          const a = translations[`faq.a${idx}`];
+          if (q && a) {
+            catFaqsHtml += `
+              <div class="p-6 rounded-2xl bg-slate-900/50 border border-slate-800 flex flex-col gap-2">
+                <h3 class="text-base font-bold text-white font-heading">${q}</h3>
+                <p class="text-sm text-slate-300 leading-relaxed">${a}</p>
+              </div>
+            `;
+          }
+        }
+        if (catFaqsHtml) {
+          allFaqsHtml += `
+            <div class="flex flex-col gap-4">
+              <h2 class="text-xl font-bold ${cat.iconColor} font-heading tracking-wide border-b border-slate-800 pb-2">${cat.name}</h2>
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                ${catFaqsHtml}
+              </div>
+            </div>
+          `;
+        }
+      }
+
+      infoContentHtml = `
+        <article class="flex flex-col gap-10">
+          <section class="flex flex-col gap-4 text-center">
+            <span class="text-xs uppercase font-semibold text-[#05DAED] tracking-wider">${translations['faq.badge'] || 'HELP CENTER & FAQ'}</span>
+            <h1 class="text-3xl md:text-5xl font-extrabold text-white tracking-tight leading-tight">${translations['faq.title'] || h1}</h1>
+            <p class="text-lg text-slate-300 leading-relaxed max-w-3xl mx-auto">${translations['faq.subtitle'] || overviewText}</p>
+          </section>
+
+          <section class="flex flex-col gap-8">
+            ${allFaqsHtml}
+          </section>
+
+          <section class="p-8 rounded-3xl bg-gradient-to-r from-neon-cyan/10 via-neon-emerald/10 to-transparent border border-neon-cyan/30 text-center flex flex-col gap-3">
+            <h3 class="text-xl font-bold text-white font-heading">${translations['faq.more.title'] || 'Still have questions?'}</h3>
+            <p class="text-sm text-slate-300 max-w-xl mx-auto">${translations['faq.more.desc'] || 'We are here to help. Reach out to our community or explore our privacy-first local image editing suite.'}</p>
+          </section>
+        </article>
+      `;
+    } else if (infoPage === 'pricing') {
+      // Pricing Page Template with Tier Cards, Features, Cost Comparison & FAQs
+      let featuresListHtml = '';
+      for (let i = 1; i <= 6; i++) {
+        const feat = translations[`pricing.f${i}`];
+        if (feat) {
+          featuresListHtml += `<li class="flex items-center gap-2"><span class="text-[#12DA91] font-bold">✓</span> ${feat}</li>`;
+        }
+      }
+
+      let pricingFaqsHtml = '';
+      for (let i = 1; i <= 3; i++) {
+        const q = translations[`pricing.faq${i}.q`];
+        const a = translations[`pricing.faq${i}.a`];
+        if (q && a) {
+          pricingFaqsHtml += `
+            <div class="p-5 rounded-xl bg-slate-900/40 border border-slate-800 flex flex-col gap-2">
+              <h3 class="text-sm font-bold text-white font-heading">${q}</h3>
+              <p class="text-xs text-slate-400 leading-relaxed">${a}</p>
+            </div>
+          `;
+        }
+      }
+
+      infoContentHtml = `
+        <article class="flex flex-col gap-10">
+          <section class="flex flex-col gap-4 text-center">
+            <span class="text-xs uppercase font-semibold text-[#12DA91] tracking-wider">${translations['pricing.badge'] || 'PRICING & PLANS'}</span>
+            <h1 class="text-3xl md:text-5xl font-extrabold text-white tracking-tight leading-tight">${translations['pricing.title'] || h1}</h1>
+            <p class="text-lg text-slate-300 leading-relaxed max-w-3xl mx-auto">${translations['pricing.subtitle'] || overviewText}</p>
+            <div class="inline-flex items-center justify-center gap-2 px-6 py-2 rounded-xl bg-neon-emerald/10 border border-neon-emerald/30 text-neon-emerald text-sm font-bold mx-auto">
+              ${translations['info.freePromo'] || '100% Free Forever • Zero Subscriptions • No Credit Card'}
+            </div>
+          </section>
+
+          <section class="p-8 md:p-10 rounded-3xl bg-slate-900/80 border border-slate-700/80 flex flex-col gap-6 max-w-2xl mx-auto w-full text-center">
+            <span class="text-sm uppercase font-mono tracking-widest text-[#05DAED] font-bold">${translations['pricing.tierName'] || 'Enterprise Tier'}</span>
+            <div class="flex items-baseline justify-center gap-2">
+              <span class="text-5xl font-extrabold text-white">$0</span>
+              <span class="text-slate-400 font-medium">${translations['pricing.period'] || '/ forever'}</span>
+            </div>
+            <ul class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-left text-sm text-slate-200 mt-4">
+              ${featuresListHtml}
+            </ul>
+          </section>
+
+          <section class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="p-6 rounded-2xl bg-slate-900/50 border border-slate-800 flex flex-col gap-2">
+              <h2 class="text-xl font-bold text-white font-heading">${translations['pricing.s3.title'] || 'Cost Comparison'}</h2>
+              <p class="text-sm text-slate-300 leading-relaxed">${translations['pricing.s3.c1.name'] || 'Cloud Services'}: $30 - $120 / month</p>
+              <p class="text-sm text-slate-300 leading-relaxed">${translations['pricing.s3.c2.name'] || 'Traditional Software'}: $240 / year</p>
+              <p class="text-sm text-[#12DA91] font-bold leading-relaxed">${translations['pricing.s3.c3.name'] || 'HelpMyIMG'}: $0 Free Forever</p>
+            </div>
+            <div class="p-6 rounded-2xl bg-slate-900/50 border border-slate-800 flex flex-col gap-2">
+              <h2 class="text-xl font-bold text-white font-heading">${translations['pricing.s4.title'] || 'Why Is It Free?'}</h2>
+              <p class="text-sm text-slate-300 leading-relaxed">${translations['pricing.s4.desc1'] || ''}</p>
+              <p class="text-sm text-slate-300 leading-relaxed">${translations['pricing.s4.desc2'] || ''}</p>
+              <div class="mt-2 p-3 rounded-lg bg-dark-800 border border-dark-600 text-xs text-slate-300">
+                <strong class="text-white">${translations['pricing.s4.boxTitle'] || 'Zero Cloud Computing Bills'}:</strong> ${translations['pricing.s4.boxDesc'] || 'Because processing happens on your device, we have zero server GPU costs.'}
+              </div>
+            </div>
+          </section>
+
+          <section class="flex flex-col gap-6">
+            <div class="p-6 rounded-2xl bg-slate-900/50 border border-slate-800 flex flex-col gap-2">
+              <h2 class="text-xl font-bold text-white font-heading">${translations['pricing.s5.title'] || 'Enterprise Quality Standards'}</h2>
+              <p class="text-sm text-slate-300 leading-relaxed">${translations['pricing.s5.desc'] || ''}</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+              ${pricingFaqsHtml}
+            </div>
+          </section>
+        </article>
+      `;
+    } else if (infoPage === 'compare') {
+      // Compare Page Template with Head-to-Head Matrix & Competitor Breakdown
+      let compareRowsHtml = '';
+      for (let i = 1; i <= 5; i++) {
+        const label = translations[`compare.row${i}.label`];
+        const ours = translations[`compare.row${i}.ours`];
+        const t1 = translations[`compare.row${i}.t1`];
+        const t2 = translations[`compare.row${i}.t2`];
+        if (label) {
+          compareRowsHtml += `
+            <tr class="border-b border-slate-800">
+              <td class="p-4 font-semibold text-white">${label}</td>
+              <td class="p-4 text-[#12DA91] font-bold">✓ ${ours || ''}</td>
+              <td class="p-4 text-slate-400">${t1 || ''}</td>
+              <td class="p-4 text-slate-500">${t2 || ''}</td>
+            </tr>
+          `;
+        }
+      }
+
+      let compareFaqsHtml = '';
+      for (let i = 1; i <= 3; i++) {
+        const q = translations[`compare.faq${i}.q`];
+        const a = translations[`compare.faq${i}.a`];
+        if (q && a) {
+          compareFaqsHtml += `
+            <div class="p-5 rounded-xl bg-slate-900/40 border border-slate-800 flex flex-col gap-2">
+              <h3 class="text-sm font-bold text-white font-heading">${q}</h3>
+              <p class="text-xs text-slate-400 leading-relaxed">${a}</p>
+            </div>
+          `;
+        }
+      }
+
+      infoContentHtml = `
+        <article class="flex flex-col gap-10">
+          <section class="flex flex-col gap-4 text-center">
+            <span class="text-xs uppercase font-semibold text-[#A855F7] tracking-wider">${translations['compare.badge'] || 'HEAD-TO-HEAD COMPARISON'}</span>
+            <h1 class="text-3xl md:text-5xl font-extrabold text-white tracking-tight leading-tight">${translations['compare.title'] || h1}</h1>
+            <p class="text-lg text-slate-300 leading-relaxed max-w-3xl mx-auto">${translations['compare.subtitle'] || overviewText}</p>
+          </section>
+
+          <div class="overflow-x-auto rounded-2xl border border-slate-800 bg-slate-900/60">
+            <table class="w-full text-left border-collapse text-sm">
+              <thead>
+                <tr class="border-b border-slate-800 bg-slate-900/90 text-slate-300">
+                  <th class="p-4 font-bold text-white">Feature</th>
+                  <th class="p-4 font-bold text-[#05DAED]">HelpMyIMG (Local WASM)</th>
+                  <th class="p-4 font-bold text-slate-400">Cloud Competitors (Remove.bg / Canva)</th>
+                  <th class="p-4 font-bold text-slate-400">Traditional Software</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-slate-800 text-slate-300">
+                ${compareRowsHtml}
+              </tbody>
+            </table>
+          </div>
+
+          <section class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="p-6 rounded-2xl bg-slate-900/50 border border-slate-800 flex flex-col gap-2">
+              <h2 class="text-xl font-bold text-white font-heading">${translations['compare.s3.title'] || 'Speed & Latency Elimination'}</h2>
+              <p class="text-sm text-slate-300 leading-relaxed">${translations['compare.s3.desc'] || ''}</p>
+            </div>
+            <div class="p-6 rounded-2xl bg-slate-900/50 border border-slate-800 flex flex-col gap-2">
+              <h2 class="text-xl font-bold text-white font-heading">${translations['compare.s4.title'] || '100% Offline Capability'}</h2>
+              <p class="text-sm text-slate-300 leading-relaxed">${translations['compare.s4.desc'] || ''}</p>
+            </div>
+          </section>
+
+          <section class="flex flex-col gap-6">
+            <div class="p-6 rounded-2xl bg-slate-900/50 border border-slate-800 flex flex-col gap-2">
+              <h2 class="text-xl font-bold text-white font-heading">${translations['compare.s5.title'] || 'Security & Compliance Comparison'}</h2>
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-2">
+                <div class="p-4 rounded-xl bg-dark-800 border border-dark-600">
+                  <strong class="text-[#05DAED] text-sm">${translations['compare.s5.t1'] || 'Zero-Knowledge Architecture'}:</strong>
+                  <p class="text-xs text-slate-300 mt-1">${translations['compare.s5.c1'] || ''}</p>
+                </div>
+                <div class="p-4 rounded-xl bg-dark-800 border border-dark-600">
+                  <strong class="text-slate-300 text-sm">${translations['compare.s5.t2'] || 'Cloud Leak Risk'}:</strong>
+                  <p class="text-xs text-slate-400 mt-1">${translations['compare.s5.c2'] || ''}</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+              ${compareFaqsHtml}
+            </div>
+          </section>
+        </article>
+      `;
+    } else if (infoPage === 'security') {
+      // Security Page Template
+      let secFaqsHtml = '';
+      for (let i = 1; i <= 3; i++) {
+        const q = translations[`security.faq${i}.q`];
+        const a = translations[`security.faq${i}.a`];
+        if (q && a) {
+          secFaqsHtml += `
+            <div class="p-5 rounded-xl bg-slate-900/40 border border-slate-800 flex flex-col gap-2">
+              <h3 class="text-sm font-bold text-white font-heading">${q}</h3>
+              <p class="text-xs text-slate-400 leading-relaxed">${a}</p>
+            </div>
+          `;
+        }
+      }
+
+      infoContentHtml = `
+        <article class="flex flex-col gap-10">
+          <section class="flex flex-col gap-4 text-center">
+            <span class="text-xs uppercase font-semibold text-[#05DAED] tracking-wider">${translations['security.badge'] || 'SECURITY ARCHITECTURE'}</span>
+            <h1 class="text-3xl md:text-5xl font-extrabold text-white tracking-tight leading-tight">${translations['security.title'] || h1}</h1>
+            <p class="text-lg text-slate-300 leading-relaxed max-w-3xl mx-auto">${translations['security.subtitle'] || overviewText}</p>
+          </section>
+
+          <section class="p-8 rounded-3xl bg-slate-900/70 border border-slate-800 flex flex-col gap-4">
+            <h2 class="text-2xl font-bold text-white font-heading">${translations['security.s2.title'] || 'Local Processing Guarantee'}</h2>
+            <p class="text-sm text-slate-300 leading-relaxed">${translations['security.s2.desc'] || ''}</p>
+            <ul class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-2">
+              <li class="p-4 rounded-xl bg-dark-800/60 border border-dark-600 text-sm text-slate-200">🔒 ${translations['security.s2.bullet1'] || 'Air-gapped memory sandbox'}</li>
+              <li class="p-4 rounded-xl bg-dark-800/60 border border-dark-600 text-sm text-slate-200">🛡️ ${translations['security.s2.bullet2'] || 'Zero server transit'}</li>
+              <li class="p-4 rounded-xl bg-dark-800/60 border border-dark-600 text-sm text-slate-200">⚡ ${translations['security.s2.bullet3'] || 'Instant memory purge upon tab close'}</li>
+            </ul>
+          </section>
+
+          <section class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="p-6 rounded-2xl bg-slate-900/50 border border-slate-800 flex flex-col gap-2">
+              <h3 class="text-base font-bold text-[#05DAED] font-heading">${translations['security.s3.b1.title'] || 'Hardware-Level Isolation'}</h3>
+              <p class="text-xs text-slate-400 leading-relaxed">${translations['security.s3.b1.desc'] || ''}</p>
+            </div>
+            <div class="p-6 rounded-2xl bg-slate-900/50 border border-slate-800 flex flex-col gap-2">
+              <h3 class="text-base font-bold text-[#05DAED] font-heading">${translations['security.s3.b2.title'] || 'WASM Sandboxing'}</h3>
+              <p class="text-xs text-slate-400 leading-relaxed">${translations['security.s3.b2.desc'] || ''}</p>
+            </div>
+            <div class="p-6 rounded-2xl bg-slate-900/50 border border-slate-800 flex flex-col gap-2">
+              <h3 class="text-base font-bold text-[#05DAED] font-heading">${translations['security.s3.b3.title'] || 'Zero Data Retention'}</h3>
+              <p class="text-xs text-slate-400 leading-relaxed">${translations['security.s3.b3.desc'] || ''}</p>
+            </div>
+          </section>
+
+          <section class="p-8 rounded-3xl bg-dark-800/40 border border-dark-600/60 flex flex-col gap-3">
+            <span class="text-xs font-mono font-bold text-[#12DA91] uppercase">${translations['security.research.tag'] || 'ACADEMIC VERIFICATION'}</span>
+            <h3 class="text-xl font-bold text-white font-heading">${translations['security.research.title'] || 'Formal Cryptographic & Security Verification'}</h3>
+            <p class="text-sm text-slate-300 leading-relaxed">${translations['security.research.desc1'] || ''}</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-2">
+              <div class="p-4 rounded-xl bg-dark-900/60 border border-dark-600">
+                <strong class="text-white text-sm">${translations['security.research.box1.title'] || 'W3C WebAssembly Specification'}:</strong>
+                <p class="text-xs text-slate-400 mt-1">${translations['security.research.box1.desc'] || ''}</p>
+              </div>
+              <div class="p-4 rounded-xl bg-dark-900/60 border border-dark-600">
+                <strong class="text-white text-sm">${translations['security.research.box2.title'] || 'ISO/IEC 27001 Data Privacy Alignment'}:</strong>
+                <p class="text-xs text-slate-400 mt-1">${translations['security.research.box2.desc'] || ''}</p>
+              </div>
+            </div>
+          </section>
+
+          <section class="grid grid-cols-1 md:grid-cols-3 gap-4">
+            ${secFaqsHtml}
+          </section>
+        </article>
+      `;
+    } else if (infoPage === 'languages') {
+      // Languages Page Template
+      let langLinksHtml = '';
+      for (const l of LANGS) {
+        const nativeName = translations[`lang.${l}`] || l.toUpperCase();
+        const slug = getLocalizedInfoSlug('languages', l);
+        langLinksHtml += `
+          <a href="/${l}/${slug}/" class="p-3 rounded-xl bg-dark-800/80 border border-dark-600 hover:border-[#05DAED]/50 transition-colors flex items-center justify-between text-xs font-bold text-slate-200">
+            <span>${nativeName}</span>
+            <span class="text-[10px] font-mono text-[#05DAED] uppercase">${l}</span>
+          </a>
+        `;
+      }
+
+      let langFaqsHtml = '';
+      for (let i = 1; i <= 3; i++) {
+        const q = translations[`languages.faq${i}.q`];
+        const a = translations[`languages.faq${i}.a`];
+        if (q && a) {
+          langFaqsHtml += `
+            <div class="p-5 rounded-xl bg-slate-900/40 border border-slate-800 flex flex-col gap-2">
+              <h3 class="text-sm font-bold text-white font-heading">${q}</h3>
+              <p class="text-xs text-slate-400 leading-relaxed">${a}</p>
+            </div>
+          `;
+        }
+      }
+
+      infoContentHtml = `
+        <article class="flex flex-col gap-10">
+          <section class="flex flex-col gap-4 text-center">
+            <span class="text-xs uppercase font-semibold text-[#05DAED] tracking-wider">${translations['languages.badge'] || 'GLOBAL LOCALIZATION'}</span>
+            <h1 class="text-3xl md:text-5xl font-extrabold text-white tracking-tight leading-tight">${translations['languages.title'] || h1}</h1>
+            <p class="text-lg text-slate-300 leading-relaxed max-w-3xl mx-auto">${translations['languages.subtitle'] || overviewText}</p>
+          </section>
+
+          <section class="p-8 rounded-3xl bg-slate-900/70 border border-slate-800 flex flex-col gap-6">
+            <h2 class="text-2xl font-bold text-white font-heading">${translations['languages.s2.title'] || 'Supported Global Languages'}</h2>
+            <p class="text-sm text-slate-300">${translations['languages.s2.desc'] || 'HelpMyIMG is natively localized for 30 global languages with zero machine-translated English fallbacks.'}</p>
+            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3">
+              ${langLinksHtml}
+            </div>
+          </section>
+
+          <section class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="p-6 rounded-2xl bg-slate-900/50 border border-slate-800 flex flex-col gap-2">
+              <h2 class="text-xl font-bold text-white font-heading">${translations['languages.s3.title'] || 'Right-to-Left (RTL) & Accessibility'}</h2>
+              <p class="text-sm text-slate-300 leading-relaxed">${translations['languages.s3.desc'] || ''}</p>
+              <ul class="list-disc list-inside space-y-1 text-xs text-slate-400 mt-2">
+                <li>${translations['languages.s3.l1'] || 'Full Arabic & Hebrew RTL mirroring.'}</li>
+                <li>${translations['languages.s3.l2'] || 'Localized typography and font pairings.'}</li>
+                <li>${translations['languages.s3.l3'] || 'Screen reader accessible aria-labels in 30 languages.'}</li>
+              </ul>
+            </div>
+            <div class="p-6 rounded-2xl bg-slate-900/50 border border-slate-800 flex flex-col gap-2">
+              <h2 class="text-xl font-bold text-white font-heading">${translations['languages.s4.title'] || 'Universal Performance Anywhere'}</h2>
+              <p class="text-sm text-slate-300 leading-relaxed">${translations['languages.s4.desc'] || ''}</p>
+            </div>
+          </section>
+
+          <section class="grid grid-cols-1 md:grid-cols-3 gap-4">
+            ${langFaqsHtml}
+          </section>
+        </article>
+      `;
     } else {
-      // General Info Page Template (Terms, Security, Pricing, Compare, FAQ, Languages)
+      // Terms and Fallback Info Pages
       let sectionsHtml = '';
       for (let i = 1; i <= 6; i++) {
         const secTitle = translations[`${infoPage}.s${i}.title`];
@@ -1164,7 +1517,7 @@ function generateSemanticHtml(lang, urlPath, title, desc, tool, infoPage, transl
         if (secTitle && secDesc1) {
           sectionsHtml += `
             <div class="p-6 rounded-2xl bg-slate-900/50 border border-slate-800 flex flex-col gap-2">
-              <h2 class="text-xl font-bold text-white">${secTitle}</h2>
+              <h2 class="text-xl font-bold text-white font-heading">${secTitle}</h2>
               <p class="text-sm text-slate-300 leading-relaxed">${secDesc1}</p>
               ${secDesc2 ? `<p class="text-sm text-slate-300 leading-relaxed">${secDesc2}</p>` : ''}
             </div>
