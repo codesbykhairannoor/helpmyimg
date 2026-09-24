@@ -1,0 +1,44 @@
+name: QA Automated Health & SEO Audit
+
+on:
+  schedule:
+    # Runs daily at 02:00 UTC (09:00 WIB)
+    - cron: '0 2 * * *'
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+    # Allows 1-click manual trigger from GitHub Actions tab
+
+jobs:
+  qa-audit:
+    name: Run Automated QA SEO, GEO & Sitemap Audit
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+
+      - name: Install Dependencies
+        run: npm ci
+
+      - name: Build Project & Generate Sitemaps
+        run: npm run build
+
+      - name: Run QA SEO & GEO Test Suite
+        run: node qa-seo-geo.cjs
+
+      - name: Run Comprehensive QA CSV Fix Verifier (960 Shells)
+        run: node scripts/qa-csv-fix-verifier.mjs
+
+      - name: Verify Robots.txt & Sitemaps Integrity
+        run: |
+          test -f dist/robots.txt || (echo "dist/robots.txt missing" && exit 1)
+          test -f public/sitemap.xml || (echo "public/sitemap.xml missing" && exit 1)
+          echo "✅ All QA and SEO Health checks passed with 100% success!"

@@ -40,28 +40,37 @@ const __dirname = path.dirname(__filename);
 const DOMAIN = 'https://helpmyimg.com';
 const INDEXING_API_ENDPOINT = 'https://indexing.googleapis.com/v3/urlNotifications:publish';
 
-function findServiceAccountKey() {
+function loadServiceAccount() {
+  // 1. Check if provided via Environment Variable (GitHub Actions CI/CD)
+  if (process.env.GOOGLE_SERVICE_ACCOUNT_KEY) {
+    try {
+      return JSON.parse(process.env.GOOGLE_SERVICE_ACCOUNT_KEY);
+    } catch (e) {
+      console.error(`❌ Failed to parse GOOGLE_SERVICE_ACCOUNT_KEY environment variable: ${e.message}`);
+      process.exit(1);
+    }
+  }
+
+  // 2. Otherwise search for local key file
   const defaultPath = path.join(__dirname, '../google-service-account.json');
-  if (fs.existsSync(defaultPath)) return defaultPath;
+  if (fs.existsSync(defaultPath)) {
+    return JSON.parse(fs.readFileSync(defaultPath, 'utf8'));
+  }
 
   const rootDir = path.join(__dirname, '..');
   const files = fs.readdirSync(rootDir);
   const candidate = files.find(f => (f.startsWith('helpmyimg-') || f.includes('serviceaccount') || f.includes('gserviceaccount')) && f.endsWith('.json'));
-  if (candidate) return path.join(rootDir, candidate);
-  return null;
-}
+  if (candidate) {
+    return JSON.parse(fs.readFileSync(path.join(rootDir, candidate), 'utf8'));
+  }
 
-const SERVICE_ACCOUNT_PATH = findServiceAccountKey();
-
-// Check for service account file
-if (!SERVICE_ACCOUNT_PATH || !fs.existsSync(SERVICE_ACCOUNT_PATH)) {
   console.error(`
-❌ SETUP REQUIRED: google-service-account.json (or helpmyimg-*.json) not found.
+❌ SETUP REQUIRED: google-service-account.json (or helpmyimg-*.json or GOOGLE_SERVICE_ACCOUNT_KEY secret) not found.
 
 To use the Google Indexing API:
 1. Create a Service Account in Google Cloud Console
 2. Download the JSON key file
-3. Save it in the project root
+3. Save it in the project root OR add as GitHub Secret: GOOGLE_SERVICE_ACCOUNT_KEY
 4. Add the service account email as OWNER in Google Search Console
 
 See script header for full instructions.
@@ -69,7 +78,7 @@ See script header for full instructions.
   process.exit(1);
 }
 
-const serviceAccount = JSON.parse(fs.readFileSync(SERVICE_ACCOUNT_PATH, 'utf8'));
+const serviceAccount = loadServiceAccount();
 
 /**
  * Generate a JWT access token using the service account private key
