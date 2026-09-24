@@ -31,8 +31,28 @@
       "permanent": true
     },
     {
+      "source": "/en-US/:path*",
+      "destination": "https://helpmyimg.com/en/:path*",
+      "permanent": true
+    },
+    {
+      "source": "/en-US",
+      "destination": "https://helpmyimg.com/en/",
+      "permanent": true
+    },
+    {
+      "source": "/zh-CN/:path*",
+      "destination": "https://helpmyimg.com/zh/:path*",
+      "permanent": true
+    },
+    {
+      "source": "/pt-BR/:path*",
+      "destination": "https://helpmyimg.com/pt/:path*",
+      "permanent": true
+    },
+    {
       "source": "/:lang(ar|cs|da|de|el|en|es|fi|fr|he|hi|hu|id|it|ja|ko|ms|nl|no|pl|pt|ro|ru|sv|th|tl|tr|uk|vi|zh)/:tool/:slug((?!.*\\.).+)",
-      "destination": "/:lang/:tool/",
+      "destination": "https://helpmyimg.com/:lang/:tool/",
       "permanent": true
     }
   ],
