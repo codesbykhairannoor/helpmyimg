@@ -181,8 +181,8 @@ for (const file of htmlFiles) {
   }
 }
 
-// Check if critical pages like /en/, /en/about/, etc. have adequate inlinks (canonical-url-has-no-in check)
-const criticalPages = ['/en/', '/id/', '/es/', '/de/', '/fr/', '/ja/', '/en/about/', '/en/privacy/', '/en/terms/', '/en/faq/'];
+// Check if critical pages like /, /id/, etc. have adequate inlinks (canonical-url-has-no-in check)
+const criticalPages = ['/', '/id/', '/es/', '/de/', '/fr/', '/ja/', '/about/', '/privacy/', '/terms/', '/faq/'];
 let canonicalInlinkErrors = 0;
 for (const p of criticalPages) {
   const count = linkTargetCounts.get(p) || 0;
@@ -221,17 +221,20 @@ if (fs.existsSync(vercelConfigPath)) {
 }
 
 // 11. Check Master Sitemap Cleanliness
-const sitemapCorePath = path.join(__dirname, '..', 'public', 'sitemaps', 'sitemap-core.xml');
+const sitemapsDir = path.join(__dirname, '..', 'public', 'sitemaps');
 let sitemapUrlsCount = 0;
-if (fs.existsSync(sitemapCorePath)) {
-  const sitemapXml = fs.readFileSync(sitemapCorePath, 'utf8');
-  const locMatches = sitemapXml.match(/<loc>https:\/\/helpmyimg\.com\/[^<]+<\/loc>/g) || [];
-  sitemapUrlsCount = locMatches.length;
+if (fs.existsSync(sitemapsDir)) {
+  const shardFiles = fs.readdirSync(sitemapsDir).filter(f => f.startsWith('sitemap-') && f.endsWith('.xml'));
+  for (const f of shardFiles) {
+    const sitemapXml = fs.readFileSync(path.join(sitemapsDir, f), 'utf8');
+    const locMatches = sitemapXml.match(/<loc>https:\/\/helpmyimg\.com\/[^<]*<\/loc>/g) || [];
+    sitemapUrlsCount += locMatches.length;
+  }
   if (sitemapUrlsCount !== 960) {
-    warnings.push(`Sitemap core contains ${sitemapUrlsCount} URLs (expected 960 clean URLs).`);
+    warnings.push(`Sitemaps contain ${sitemapUrlsCount} URLs (expected 960 clean URLs).`);
   }
 } else {
-  errors.push(`sitemap-core.xml not found!`);
+  errors.push(`sitemaps directory not found!`);
 }
 
 console.log('====================================================');

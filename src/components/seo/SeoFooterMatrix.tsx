@@ -68,7 +68,7 @@ export const SeoFooterMatrix: React.FC = () => {
               <p className="text-xs text-slate-300 italic mb-2">
                 "By shifting heavy neural network inference directly to the client's device using WebAssembly, HelpMyIMG completely eliminates the privacy vulnerabilities associated with cloud-based image editors. It represents a strict zero-trust paradigm shift for secure digital media manipulation."
               </p>
-              <footer className="text-[11px] text-slate-500">— Systems Architecture Review (Source: <a href="/en/privacy" className="text-cyan-400 hover:underline">Data Security Policy</a>)</footer>
+              <footer className="text-[11px] text-slate-500">— Systems Architecture Review (Source: <a href="/privacy" className="text-cyan-400 hover:underline">Data Security Policy</a>)</footer>
             </blockquote>
           </div>
         </div>

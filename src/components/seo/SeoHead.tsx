@@ -34,11 +34,11 @@ export const SeoHead: React.FC<SeoHeadProps> = ({
 }) => {
   const fullUrl = `${DOMAIN}${canonicalPath.startsWith('/') ? canonicalPath : '/' + canonicalPath}`;
   
-  let defaultUrl = `${DOMAIN}/en/`;
+  let defaultUrl = `${DOMAIN}/`;
   if (infoPage) {
-    defaultUrl = `${DOMAIN}/en/${getLocalizedInfoSlug(infoPage, 'en')}/`;
+    defaultUrl = `${DOMAIN}/${getLocalizedInfoSlug(infoPage, 'en')}/`;
   } else if (internalTool) {
-    defaultUrl = `${DOMAIN}/en/${getLocalizedSlug(internalTool as InternalTool, 'en')}/${keywordSlug ? `${keywordSlug}/` : ''}`;
+    defaultUrl = `${DOMAIN}/${getLocalizedSlug(internalTool as InternalTool, 'en')}/${keywordSlug ? `${keywordSlug}/` : ''}`;
   }
 
   const schemas: Record<string, unknown>[] = [
@@ -136,12 +136,12 @@ export const SeoHead: React.FC<SeoHeadProps> = ({
 
       {/* Hreflang Alternate Links for 30 Languages */}
       {SUPPORTED_LANGS.map((l) => {
-        let lPath = `/${l}/`;
+        let lPath = l === 'en' ? '/' : `/${l}/`;
         if (infoPage) {
-          lPath = `/${l}/${getLocalizedInfoSlug(infoPage, l)}/`;
+          lPath = l === 'en' ? `/${getLocalizedInfoSlug(infoPage, 'en')}/` : `/${l}/${getLocalizedInfoSlug(infoPage, l)}/`;
         } else if (internalTool) {
           const pathSlug = getLocalizedSlug(internalTool as InternalTool, l);
-          lPath = `/${l}/${pathSlug}/${keywordSlug ? `${keywordSlug}/` : ''}`;
+          lPath = l === 'en' ? `/${pathSlug}/${keywordSlug ? `${keywordSlug}/` : ''}` : `/${l}/${pathSlug}/${keywordSlug ? `${keywordSlug}/` : ''}`;
         }
         return (
           <link

@@ -136,7 +136,7 @@ export const ToolLandingPage: React.FC = () => {
         key={`${lang}-${tool || 'home'}`}
         title={dynamicJsonData ? dynamicJsonData.title : displayConfig.title}
         description={dynamicJsonData ? dynamicJsonData.description : displayConfig.description}
-        canonicalPath={!tool ? `/${lang || 'en'}/` : `/${lang || 'en'}/${getLocalizedSlug(internalTool as any, (lang || 'en') as any)}/`}
+        canonicalPath={lang === 'en' ? (!tool ? '/' : `/${getLocalizedSlug(internalTool as any, 'en')}/`) : (!tool ? `/${lang}/` : `/${lang}/${getLocalizedSlug(internalTool as any, lang as any)}/`)}
         lang={lang}
         internalTool={internalTool}
       />

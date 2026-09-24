@@ -116,18 +116,30 @@ for (const lang of LANGS) {
   const langUrls = [];
 
   // Home page
-  langUrls.push(`${DOMAIN}/${lang}/`);
+  if (lang === 'en') {
+    langUrls.push(`${DOMAIN}/`);
+  } else {
+    langUrls.push(`${DOMAIN}/${lang}/`);
+  }
 
   // Tool pages
   for (const tool of baseTools) {
     const slug = getLocalizedSlug(tool, lang);
-    langUrls.push(`${DOMAIN}/${lang}/${slug}/`);
+    if (lang === 'en') {
+      langUrls.push(`${DOMAIN}/${slug}/`);
+    } else {
+      langUrls.push(`${DOMAIN}/${lang}/${slug}/`);
+    }
   }
 
   // Info pages
   for (const page of infoPages) {
     const slug = getLocalizedInfoSlug(page, lang);
-    langUrls.push(`${DOMAIN}/${lang}/${slug}/`);
+    if (lang === 'en') {
+      langUrls.push(`${DOMAIN}/${slug}/`);
+    } else {
+      langUrls.push(`${DOMAIN}/${lang}/${slug}/`);
+    }
   }
 
   allUrls.push(...langUrls);

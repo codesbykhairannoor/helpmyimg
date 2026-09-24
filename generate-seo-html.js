@@ -885,7 +885,7 @@ function generateSemanticHtml(lang, urlPath, title, desc, tool, infoPage, transl
   let toolsNavLinks = '';
   for (const t of TOOLS) {
     const slug = getLocalizedSlug(t, lang);
-    const linkPath = `/${lang}/${slug}/`;
+    const linkPath = lang === 'en' ? `/${slug}/` : `/${lang}/${slug}/`;
     const label = translations[`tab.${t}`] || translations[`nav.${t}`] || translations[`seo.jsonld.name.${t}`] || t;
     toolsNavLinks += `<li><a href="${linkPath}" class="text-slate-400 hover:text-[#05DAED] transition-colors">${label}</a></li>\n`;
   }
@@ -893,17 +893,22 @@ function generateSemanticHtml(lang, urlPath, title, desc, tool, infoPage, transl
   let infoNavLinks = '';
   for (const p of INFO_PAGES) {
     const slug = getLocalizedInfoSlug(p, lang);
-    const linkPath = `/${lang}/${slug}/`;
+    const linkPath = lang === 'en' ? `/${slug}/` : `/${lang}/${slug}/`;
     const label = translations[`footer.${p}`] || translations[`nav.${p}`] || p;
     infoNavLinks += `<li><a href="${linkPath}" class="text-slate-400 hover:text-[#05DAED] transition-colors">${label}</a></li>\n`;
   }
 
   // Pre-rendered Navbar - Matches React src/components/Navbar.tsx
+  const homeLink = lang === 'en' ? '/' : `/${lang}/`;
+  const removeLink = lang === 'en' ? `/${getLocalizedSlug('remove', 'en')}/` : `/${lang}/${getLocalizedSlug('remove', lang)}/`;
+  const compressLink = lang === 'en' ? `/${getLocalizedSlug('compress', 'en')}/` : `/${lang}/${getLocalizedSlug('compress', lang)}/`;
+  const resizeLink = lang === 'en' ? `/${getLocalizedSlug('resize', 'en')}/` : `/${lang}/${getLocalizedSlug('resize', lang)}/`;
+
   const navbarHtml = `
     <header class="sticky top-0 z-50 w-full border-b border-slate-200 dark:border-dark-500/40 bg-white dark:bg-dark-900 shadow-sm dark:shadow-none">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-[60px] flex items-center justify-between">
         <div class="flex items-center justify-start flex-shrink-0">
-          <a href="/${lang}/" class="flex items-center gap-2.5 group">
+          <a href="${homeLink}" class="flex items-center gap-2.5 group">
             <div class="w-[38px] h-[38px] flex-shrink-0 transition-all duration-300 drop-shadow-glow-cyan">
               <img src="/logobaru.png" alt="HelpMyIMG Logo" width="38" height="38" decoding="async" class="w-full h-full object-contain" />
             </div>
@@ -916,13 +921,13 @@ function generateSemanticHtml(lang, urlPath, title, desc, tool, infoPage, transl
         </div>
         <div class="hidden lg:flex items-center justify-center flex-1 relative px-4">
           <nav class="flex items-center gap-2 xl:gap-4 text-sm font-medium text-slate-700 dark:text-slate-300">
-            <a href="/${lang}/${getLocalizedSlug('remove', lang)}/" class="hover:text-neon-cyan transition-colors font-bold text-[13.5px] uppercase px-2.5 py-1.5 flex items-center whitespace-nowrap rounded-lg">
+            <a href="${removeLink}" class="hover:text-neon-cyan transition-colors font-bold text-[13.5px] uppercase px-2.5 py-1.5 flex items-center whitespace-nowrap rounded-lg">
               ${translations['nav.removeBg'] || 'Remove Background'}
             </a>
-            <a href="/${lang}/${getLocalizedSlug('compress', lang)}/" class="hover:text-neon-cyan transition-colors font-bold text-[13.5px] uppercase px-2.5 py-1.5 flex items-center whitespace-nowrap rounded-lg">
+            <a href="${compressLink}" class="hover:text-neon-cyan transition-colors font-bold text-[13.5px] uppercase px-2.5 py-1.5 flex items-center whitespace-nowrap rounded-lg">
               ${translations['nav.compress'] || 'Compress Image'}
             </a>
-            <a href="/${lang}/${getLocalizedSlug('resize', lang)}/" class="hover:text-neon-cyan transition-colors font-bold text-[13.5px] uppercase px-2.5 py-1.5 flex items-center whitespace-nowrap rounded-lg">
+            <a href="${resizeLink}" class="hover:text-neon-cyan transition-colors font-bold text-[13.5px] uppercase px-2.5 py-1.5 flex items-center whitespace-nowrap rounded-lg">
               ${translations['nav.resize'] || 'Resize Image'}
             </a>
             <div class="relative ml-1">
@@ -985,15 +990,15 @@ function generateSemanticHtml(lang, urlPath, title, desc, tool, infoPage, transl
             <p class="text-xs text-slate-400 leading-relaxed">
               HelpMyIMG is natively localized in 30 languages with zero external telemetry.
             </p>
-            <a href="/${lang}/languages/" class="text-xs text-[#05DAED] hover:underline">${translations['languages.badge'] || 'View All 30 Languages →'}</a>
+            <a href="${lang === 'en' ? '/languages/' : `/${lang}/languages/`}" class="text-xs text-[#05DAED] hover:underline">${translations['languages.badge'] || 'View All 30 Languages →'}</a>
           </div>
         </div>
         <div class="border-t border-slate-800/80 pt-8 mt-10 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
           <p>© 2026 HelpMyIMG. ${sec.rightsReserved}</p>
           <div class="flex gap-4">
-            <a href="/${lang}/${getLocalizedInfoSlug('privacy', lang)}/" class="hover:underline">${translations['footer.privacy'] || 'Privacy'}</a>
-            <a href="/${lang}/${getLocalizedInfoSlug('terms', lang)}/" class="hover:underline">${translations['footer.terms'] || 'Terms'}</a>
-            <a href="/${lang}/${getLocalizedInfoSlug('security', lang)}/" class="hover:underline">${translations['footer.security'] || 'Security'}</a>
+            <a href="${lang === 'en' ? `/${getLocalizedInfoSlug('privacy', 'en')}/` : `/${lang}/${getLocalizedInfoSlug('privacy', lang)}/`}" class="hover:underline">${translations['footer.privacy'] || 'Privacy'}</a>
+            <a href="${lang === 'en' ? `/${getLocalizedInfoSlug('terms', 'en')}/` : `/${lang}/${getLocalizedInfoSlug('terms', lang)}/`}" class="hover:underline">${translations['footer.terms'] || 'Terms'}</a>
+            <a href="${lang === 'en' ? `/${getLocalizedInfoSlug('security', 'en')}/` : `/${lang}/${getLocalizedInfoSlug('security', lang)}/`}" class="hover:underline">${translations['footer.security'] || 'Security'}</a>
           </div>
         </div>
       </div>
@@ -2028,20 +2033,20 @@ const generateHtml = (lang, urlPath, rawTitle, rawDesc, tool = null, translation
   // 2. Generate and inject dynamic hreflangs for THIS specific route
   let dynamicHreflangs = `<!-- Dynamic Localized Hreflang Tags for 30 Languages -->\n`;
   for (const l of LANGS) {
-    let targetPath = `/${l}/`;
+    let targetPath = l === 'en' ? `/` : `/${l}/`;
     if (tool) {
-      targetPath = `/${l}/${getLocalizedSlug(tool, l)}/`;
+      targetPath = l === 'en' ? `/${getLocalizedSlug(tool, 'en')}/` : `/${l}/${getLocalizedSlug(tool, l)}/`;
     } else if (infoPage) {
-      targetPath = `/${l}/${getLocalizedInfoSlug(infoPage, l)}/`;
+      targetPath = l === 'en' ? `/${getLocalizedInfoSlug(infoPage, 'en')}/` : `/${l}/${getLocalizedInfoSlug(infoPage, l)}/`;
     }
     dynamicHreflangs += `    <link rel="alternate" hreflang="${l}" href="${DOMAIN}${targetPath}" />\n`;
   }
   
-  let xDefaultPath = `/en/`;
+  let xDefaultPath = `/`;
   if (tool) {
-    xDefaultPath = `/en/${getLocalizedSlug(tool, 'en')}/`;
+    xDefaultPath = `/${getLocalizedSlug(tool, 'en')}/`;
   } else if (infoPage) {
-    xDefaultPath = `/en/${getLocalizedInfoSlug(infoPage, 'en')}/`;
+    xDefaultPath = `/${getLocalizedInfoSlug(infoPage, 'en')}/`;
   }
   dynamicHreflangs += `    <link rel="alternate" hreflang="x-default" href="${DOMAIN}${xDefaultPath}" />\n`;
 
@@ -2146,7 +2151,7 @@ const generateHtml = (lang, urlPath, rawTitle, rawDesc, tool = null, translation
       "@type": "BreadcrumbList",
       "itemListElement": [
         { "@type": "ListItem", "position": 1, "name": "HelpMyIMG", "item": DOMAIN },
-        { "@type": "ListItem", "position": 2, "name": "Tools", "item": `${DOMAIN}/${lang}/` },
+        { "@type": "ListItem", "position": 2, "name": "Tools", "item": `${DOMAIN}${lang === 'en' ? '/' : `/${lang}/`}` },
         { "@type": "ListItem", "position": 3, "name": toolLabel, "item": canonicalUrl }
       ]
     });
@@ -2239,67 +2244,72 @@ for (const lang of LANGS) {
     continue;
   }
 
-  // 1. Generate Home Page (/lang/)
+  // 1. Generate Home Page
   const homeTitle = translations['home.tab.title'] || translations['hero.title'] || 'All Image Tools in One Place';
   const homeDesc = translations['hero.subtitle.short'] || translations['hero.subtitle'] || translations['seo.jsonld.description'] || 'Free local AI photo editor. Remove backgrounds, compress, resize, and convert images.';
   
-  const homeHtml = generateHtml(lang, `/${lang}/`, homeTitle, homeDesc, null, translations, null);
-  const homeDir = path.join(distDir, lang);
-  if (!fs.existsSync(homeDir)) fs.mkdirSync(homeDir, { recursive: true });
-  fs.writeFileSync(path.join(homeDir, 'index.html'), homeHtml, 'utf8');
-  generatedCount++;
-
-  // For English, also overwrite the base root index.html for root domain SEO
   if (lang === 'en') {
+    // English is the default language at root URL: https://helpmyimg.com/
+    const homeHtml = generateHtml('en', `/`, homeTitle, homeDesc, null, translations, null);
     fs.writeFileSync(path.join(distDir, 'index.html'), homeHtml, 'utf8');
+    generatedCount++;
+  } else {
+    // Other languages get subfolder: https://helpmyimg.com/${lang}/
+    const homeHtml = generateHtml(lang, `/${lang}/`, homeTitle, homeDesc, null, translations, null);
+    const homeDir = path.join(distDir, lang);
+    if (!fs.existsSync(homeDir)) fs.mkdirSync(homeDir, { recursive: true });
+    fs.writeFileSync(path.join(homeDir, 'index.html'), homeHtml, 'utf8');
     generatedCount++;
   }
 
-  // 2. Generate Tool Pages (/lang/slug/)
+  // 2. Generate Tool Pages
   for (const tool of TOOLS) {
     const slug = getLocalizedSlug(tool, lang);
-    const toolUrl = `/${lang}/${slug}/`;
-    
     let toolTitle = translations[`landing.default.title.${tool}`] || translations[`seo.title.${tool}`] || translations[`seo.jsonld.name.${tool}`] || translations[`tab.${tool}`] || translations[`tool.${tool}`] || translations['hero.title'] || tool;
     let toolDesc = translations[`landing.default.desc.${tool}`] || translations[`seo.jsonld.desc.${tool}`] || homeDesc;
 
-    const toolHtml = generateHtml(lang, toolUrl, toolTitle, toolDesc, tool, translations, null);
-    const toolDir = path.join(distDir, lang, slug);
-    if (!fs.existsSync(toolDir)) fs.mkdirSync(toolDir, { recursive: true });
-    fs.writeFileSync(path.join(toolDir, 'index.html'), toolHtml, 'utf8');
-    generatedCount++;
-
-    // For English, also duplicate to root level for SEO
     if (lang === 'en') {
+      // English tools are at root: https://helpmyimg.com/${slug}/
+      const toolUrl = `/${slug}/`;
+      const toolHtml = generateHtml('en', toolUrl, toolTitle, toolDesc, tool, translations, null);
       const rootToolDir = path.join(distDir, slug);
       if (!fs.existsSync(rootToolDir)) fs.mkdirSync(rootToolDir, { recursive: true });
       fs.writeFileSync(path.join(rootToolDir, 'index.html'), toolHtml, 'utf8');
       generatedCount++;
+    } else {
+      // Other languages are at https://helpmyimg.com/${lang}/${slug}/
+      const toolUrl = `/${lang}/${slug}/`;
+      const toolHtml = generateHtml(lang, toolUrl, toolTitle, toolDesc, tool, translations, null);
+      const toolDir = path.join(distDir, lang, slug);
+      if (!fs.existsSync(toolDir)) fs.mkdirSync(toolDir, { recursive: true });
+      fs.writeFileSync(path.join(toolDir, 'index.html'), toolHtml, 'utf8');
+      generatedCount++;
     }
   }
 
-  // 3. Generate Info Pages (/lang/info-slug/)
+  // 3. Generate Info Pages
   for (const page of INFO_PAGES) {
     const slug = getLocalizedInfoSlug(page, lang);
-    const pageUrl = `/${lang}/${slug}/`;
-    
     let pageTitleKey = `footer.${page}`;
     if (page === 'faq') pageTitleKey = 'nav.faq';
-    
     let pageTitle = translations[pageTitleKey] || page;
     let pageDesc = translations[`${page}.subtitle`] || translations[`${page}.intro`] || homeDesc;
-    
-    const pageHtml = generateHtml(lang, pageUrl, pageTitle, pageDesc, null, translations, page);
-    const pageDir = path.join(distDir, lang, slug);
-    if (!fs.existsSync(pageDir)) fs.mkdirSync(pageDir, { recursive: true });
-    fs.writeFileSync(path.join(pageDir, 'index.html'), pageHtml, 'utf8');
-    generatedCount++;
 
-    // For English info pages, also duplicate to root level
     if (lang === 'en') {
+      // English info pages are at root: https://helpmyimg.com/${slug}/
+      const pageUrl = `/${slug}/`;
+      const pageHtml = generateHtml('en', pageUrl, pageTitle, pageDesc, null, translations, page);
       const rootPageDir = path.join(distDir, slug);
       if (!fs.existsSync(rootPageDir)) fs.mkdirSync(rootPageDir, { recursive: true });
       fs.writeFileSync(path.join(rootPageDir, 'index.html'), pageHtml, 'utf8');
+      generatedCount++;
+    } else {
+      // Other languages are at https://helpmyimg.com/${lang}/${slug}/
+      const pageUrl = `/${lang}/${slug}/`;
+      const pageHtml = generateHtml(lang, pageUrl, pageTitle, pageDesc, null, translations, page);
+      const pageDir = path.join(distDir, lang, slug);
+      if (!fs.existsSync(pageDir)) fs.mkdirSync(pageDir, { recursive: true });
+      fs.writeFileSync(path.join(pageDir, 'index.html'), pageHtml, 'utf8');
       generatedCount++;
     }
   }

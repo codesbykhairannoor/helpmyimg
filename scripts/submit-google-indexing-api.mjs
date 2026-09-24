@@ -51,39 +51,25 @@ function findServiceAccountKey() {
   return null;
 }
 
-let serviceAccount;
+const SERVICE_ACCOUNT_PATH = findServiceAccountKey();
 
-if (process.env.GOOGLE_SERVICE_ACCOUNT_KEY) {
-  try {
-    serviceAccount = JSON.parse(process.env.GOOGLE_SERVICE_ACCOUNT_KEY);
-  } catch (err) {
-    console.error('❌ Failed to parse GOOGLE_SERVICE_ACCOUNT_KEY environment variable:', err.message);
-  }
-}
-
-if (!serviceAccount) {
-  const SERVICE_ACCOUNT_PATH = findServiceAccountKey();
-  if (SERVICE_ACCOUNT_PATH && fs.existsSync(SERVICE_ACCOUNT_PATH)) {
-    try {
-      serviceAccount = JSON.parse(fs.readFileSync(SERVICE_ACCOUNT_PATH, 'utf8'));
-    } catch (err) {
-      console.error('❌ Failed to read service account file:', err.message);
-    }
-  }
-}
-
-// Check for valid service account credentials
-if (!serviceAccount || !serviceAccount.client_email || !serviceAccount.private_key) {
+// Check for service account file
+if (!SERVICE_ACCOUNT_PATH || !fs.existsSync(SERVICE_ACCOUNT_PATH)) {
   console.error(`
-❌ SETUP REQUIRED: Service account credentials not found.
+❌ SETUP REQUIRED: google-service-account.json (or helpmyimg-*.json) not found.
 
-Options:
-1. Save JSON key as google-service-account.json (or helpmyimg-*.json) in project root.
-2. OR set GOOGLE_SERVICE_ACCOUNT_KEY environment variable (e.g. in GitHub Actions Secrets).
-3. Ensure service account email is added as OWNER in Google Search Console.
+To use the Google Indexing API:
+1. Create a Service Account in Google Cloud Console
+2. Download the JSON key file
+3. Save it in the project root
+4. Add the service account email as OWNER in Google Search Console
+
+See script header for full instructions.
 `);
   process.exit(1);
 }
+
+const serviceAccount = JSON.parse(fs.readFileSync(SERVICE_ACCOUNT_PATH, 'utf8'));
 
 /**
  * Generate a JWT access token using the service account private key
@@ -206,38 +192,38 @@ async function main() {
     process.exit(1);
   }
 
-  // Priority URL list — submit highest-value pages first
+  // Priority URL list — submit highest-value pages first (English is default at root)
   const priorityUrls = [
     // English homepage and main tools (highest value)
-    `${DOMAIN}/en/`,
-    `${DOMAIN}/en/remove-background/`,
-    `${DOMAIN}/en/compress-image/`,
-    `${DOMAIN}/en/convert-image/`,
-    `${DOMAIN}/en/resize-image/`,
-    `${DOMAIN}/en/change-background/`,
-    `${DOMAIN}/en/crop-image/`,
-    `${DOMAIN}/en/rotate-image/`,
-    `${DOMAIN}/en/watermark-image/`,
-    `${DOMAIN}/en/blur-face/`,
-    `${DOMAIN}/en/image-color-picker/`,
-    `${DOMAIN}/en/advanced-editor/`,
+    `${DOMAIN}/`,
+    `${DOMAIN}/remove-background/`,
+    `${DOMAIN}/compress-image/`,
+    `${DOMAIN}/convert-image/`,
+    `${DOMAIN}/resize-image/`,
+    `${DOMAIN}/change-background/`,
+    `${DOMAIN}/crop-image/`,
+    `${DOMAIN}/rotate-image/`,
+    `${DOMAIN}/watermark-image/`,
+    `${DOMAIN}/blur-face/`,
+    `${DOMAIN}/image-color-picker/`,
+    `${DOMAIN}/advanced-editor/`,
     // Long-tail English tools
-    `${DOMAIN}/en/compress-image-to-100kb/`,
-    `${DOMAIN}/en/compress-image-to-50kb/`,
-    `${DOMAIN}/en/compress-image-to-200kb/`,
-    `${DOMAIN}/en/resize-image-for-instagram/`,
-    `${DOMAIN}/en/passport-photo/`,
-    `${DOMAIN}/en/remove-logo/`,
-    `${DOMAIN}/en/remove-person/`,
-    `${DOMAIN}/en/convert-to-webp/`,
-    `${DOMAIN}/en/bulk-watermark/`,
-    `${DOMAIN}/en/blur-license-plate/`,
-    `${DOMAIN}/en/change-background-to-white/`,
-    `${DOMAIN}/en/magic-brush/`,
+    `${DOMAIN}/compress-image-to-100kb/`,
+    `${DOMAIN}/compress-image-to-50kb/`,
+    `${DOMAIN}/compress-image-to-200kb/`,
+    `${DOMAIN}/resize-image-for-instagram/`,
+    `${DOMAIN}/passport-photo/`,
+    `${DOMAIN}/remove-logo/`,
+    `${DOMAIN}/remove-person/`,
+    `${DOMAIN}/convert-to-webp/`,
+    `${DOMAIN}/bulk-watermark/`,
+    `${DOMAIN}/blur-license-plate/`,
+    `${DOMAIN}/change-background-to-white/`,
+    `${DOMAIN}/magic-brush/`,
     // English info pages
-    `${DOMAIN}/en/about/`,
-    `${DOMAIN}/en/faq/`,
-    `${DOMAIN}/en/pricing/`,
+    `${DOMAIN}/about/`,
+    `${DOMAIN}/faq/`,
+    `${DOMAIN}/pricing/`,
   ];
 
   // Read sitemaps to get all remaining URLs

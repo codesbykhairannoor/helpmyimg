@@ -21,23 +21,33 @@
       "permanent": true
     },
     {
+      "source": "/en/:path*",
+      "destination": "https://helpmyimg.com/:path*",
+      "permanent": true
+    },
+    {
+      "source": "/en",
+      "destination": "https://helpmyimg.com/",
+      "permanent": true
+    },
+    {
       "source": "/bg/:path*",
-      "destination": "https://helpmyimg.com/en/:path*",
+      "destination": "https://helpmyimg.com/:path*",
       "permanent": true
     },
     {
       "source": "/bg",
-      "destination": "https://helpmyimg.com/en/",
+      "destination": "https://helpmyimg.com/",
       "permanent": true
     },
     {
       "source": "/en-US/:path*",
-      "destination": "https://helpmyimg.com/en/:path*",
+      "destination": "https://helpmyimg.com/:path*",
       "permanent": true
     },
     {
       "source": "/en-US",
-      "destination": "https://helpmyimg.com/en/",
+      "destination": "https://helpmyimg.com/",
       "permanent": true
     },
     {
@@ -51,7 +61,7 @@
       "permanent": true
     },
     {
-      "source": "/:lang(ar|cs|da|de|el|en|es|fi|fr|he|hi|hu|id|it|ja|ko|ms|nl|no|pl|pt|ro|ru|sv|th|tl|tr|uk|vi|zh)/:tool/:slug((?!.*\\.).+)",
+      "source": "/:lang(ar|cs|da|de|el|es|fi|fr|he|hi|hu|id|it|ja|ko|ms|nl|no|pl|pt|ro|ru|sv|th|tl|tr|uk|vi|zh)/:tool/:slug((?!.*\\.).+)",
       "destination": "https://helpmyimg.com/:lang/:tool/",
       "permanent": true
     }
