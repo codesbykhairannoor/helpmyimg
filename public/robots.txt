@@ -1,21 +1,266 @@
+# ==============================================================================
+# HelpMyIMG (https://helpmyimg.com) — Modern Robots Exclusion Protocol
+# 100% In-Browser, Zero-Cloud, Client-Side Neural Image Processing
+# Compliant with RFC 9309, Google Search Central, Bing Webmaster, and GEO Standards
+# ==============================================================================
+
+# ------------------------------------------------------------------------------
+# 1. GLOBAL DEFAULT CRAWLER POLICY
+# Applies to all compliant web crawlers and indexers
+# ------------------------------------------------------------------------------
 User-agent: *
 Allow: /
-
-# Welcome AI Search Engines & LLM Crawlers (Perplexity, ChatGPT Search, Claude, Gemini)
-User-agent: GPTBot
-Allow: /
-User-agent: PerplexityBot
-Allow: /
-User-agent: ClaudeBot
-Allow: /
-User-agent: Google-Extended
-Allow: /
-User-agent: Applebot
-Allow: /
-
-# LLMs.txt for AI Agents & Search Overviews
+Allow: /assets/
+Allow: /locales/
+Allow: /sitemaps/
+Allow: /images.png
+Allow: /logobaru.png
+Allow: /logo.webp
+Allow: /favicon.svg
+Allow: /favicon.png
 Allow: /llms.txt
+Allow: /llms-full.txt
+Allow: /ai.txt
 Allow: /llm.txt
 Allow: /llm-*.txt
 
+# Disallow non-public or technical system paths
+Disallow: /_vercel/
+Disallow: /api/
+Disallow: /admin/
+Disallow: /*.json$
+Allow: /locales/*.json$
+Allow: /matrix.json$
+
+# ------------------------------------------------------------------------------
+# 2. MAJOR SEARCH ENGINE CRAWLERS (Traditional & Mobile Search)
+# Explicitly welcome high-value global search engines
+# ------------------------------------------------------------------------------
+# Google (Search, Mobile, Images, Live Inspection)
+User-agent: Googlebot
+User-agent: Googlebot-Image
+User-agent: Googlebot-News
+User-agent: Googlebot-Video
+User-agent: Google-InspectionTool
+User-agent: Storebot-Google
+User-agent: GoogleOther
+Allow: /
+
+# Microsoft Bing & Copilot
+User-agent: Bingbot
+User-agent: msnbot
+User-agent: BingPreview
+Allow: /
+
+# Yandex (Russia & Eastern Europe)
+User-agent: Yandex
+User-agent: YandexBot
+User-agent: YandexImages
+User-agent: YandexMobileBot
+Allow: /
+
+# Baidu (China & East Asia)
+User-agent: Baiduspider
+User-agent: Baiduspider-image
+Allow: /
+
+# DuckDuckGo
+User-agent: DuckDuckBot
+Allow: /
+
+# Apple (Siri, Spotlight, and Safari Suggested Sites)
+User-agent: Applebot
+Allow: /
+
+# Naver (South Korea)
+User-agent: Yeti
+Allow: /
+
+# Seznam (Czech Republic)
+User-agent: SeznamBot
+Allow: /
+
+# Yahoo
+User-agent: Slurp
+Allow: /
+
+# Qwant (European Privacy Search)
+User-agent: Qwantify
+Allow: /
+
+# Sogou (China)
+User-agent: Sogou web spider
+Allow: /
+
+# CocCoc (Vietnam)
+User-agent: CocCocBot
+Allow: /
+
+# ------------------------------------------------------------------------------
+# 3. AI SEARCH ENGINES, GENERATIVE ENGINES (GEO) & LLM RETRIEVAL BOTS
+# 100% Unrestricted access for AI synthesis, Answer Engines, and Citations
+# (Princeton & Georgia Tech GEO Framework Compliance)
+# ------------------------------------------------------------------------------
+# OpenAI (ChatGPT, SearchGPT, Real-time Web Retrieval)
+User-agent: GPTBot
+User-agent: OAI-SearchBot
+User-agent: ChatGPT-User
+Allow: /
+
+# Anthropic (Claude & Claude Web Retrieval)
+User-agent: ClaudeBot
+User-agent: anthropic-ai
+User-agent: Claude-Web
+Allow: /
+
+# Perplexity AI (Perplexity Answer Engine & Citations)
+User-agent: PerplexityBot
+Allow: /
+
+# Google AI & Gemini (Google AI Overviews & Vertex AI)
+User-agent: Google-Extended
+Allow: /
+
+# Apple Intelligence (Apple Siri AI & Intelligence Systems)
+User-agent: Applebot-Extended
+Allow: /
+
+# Meta AI (Llama, Meta AI Search)
+User-agent: FacebookBot
+User-agent: Meta-ExternalAgent
+User-agent: Meta-ExternalFetcher
+Allow: /
+
+# Cohere AI
+User-agent: cohere-ai
+Allow: /
+
+# Mistral AI
+User-agent: MistralBot
+Allow: /
+
+# ByteDance / Doubao
+User-agent: Bytespider
+Allow: /
+
+# Amazon AI & Alexa
+User-agent: Amazonbot
+Allow: /
+
+# You.com Search & AI
+User-agent: YouBot
+Allow: /
+
+# Diffbot (Knowledge Graph Extraction)
+User-agent: Diffbot
+Allow: /
+
+# ------------------------------------------------------------------------------
+# 4. LLM & AI AGENT KNOWLEDGE BASE DISCOVERY (llms.txt Standard)
+# Structured markdown documentation specifically formatted for LLM context windows
+# ------------------------------------------------------------------------------
+User-agent: *
+Allow: /llms.txt
+Allow: /llms-full.txt
+Allow: /ai.txt
+Allow: /llm.txt
+Allow: /llm-ar.txt
+Allow: /llm-cs.txt
+Allow: /llm-da.txt
+Allow: /llm-de.txt
+Allow: /llm-el.txt
+Allow: /llm-en.txt
+Allow: /llm-es.txt
+Allow: /llm-fi.txt
+Allow: /llm-fr.txt
+Allow: /llm-he.txt
+Allow: /llm-hi.txt
+Allow: /llm-hu.txt
+Allow: /llm-id.txt
+Allow: /llm-it.txt
+Allow: /llm-ja.txt
+Allow: /llm-ko.txt
+Allow: /llm-ms.txt
+Allow: /llm-nl.txt
+Allow: /llm-no.txt
+Allow: /llm-pl.txt
+Allow: /llm-pt.txt
+Allow: /llm-ro.txt
+Allow: /llm-ru.txt
+Allow: /llm-sv.txt
+Allow: /llm-th.txt
+Allow: /llm-tl.txt
+Allow: /llm-tr.txt
+Allow: /llm-uk.txt
+Allow: /llm-vi.txt
+Allow: /llm-zh.txt
+
+# ------------------------------------------------------------------------------
+# 5. SEO AUDIT & DIAGNOSTIC TOOLS (Allowed for Quality Assurance)
+# ------------------------------------------------------------------------------
+User-agent: Screaming Frog SEO Spider
+User-agent: SiteAuditBot
+User-agent: SemrushBot
+User-agent: AhrefsBot
+User-agent: MozDotCom
+Allow: /
+
+# ------------------------------------------------------------------------------
+# 6. MALICIOUS BOTS, BANDWIDTH SCRAPERS & SPAM HARVESTERS (BLOCKED)
+# Disallow rogue bots that do not contribute to organic search or user discovery
+# ------------------------------------------------------------------------------
+User-agent: MegaIndex.ru
+User-agent: megaIndex.ru
+User-agent: BLEXBot
+User-agent: spbot
+User-agent: DotBot
+User-agent: MJ12bot
+User-agent: HTTrack
+User-agent: EmailCollector
+User-agent: WebReaper
+User-agent: WebCopier
+User-agent: Rogerbot
+Disallow: /
+
+# ------------------------------------------------------------------------------
+# 7. SITEMAPS (MASTER INDEX & 30 LOCALIZED LANGUAGE SHARDS)
+# ------------------------------------------------------------------------------
+# Master Index (points to all sub-sitemaps)
 Sitemap: https://helpmyimg.com/sitemap.xml
+
+# Language Shards (Crawl budget optimization across 30 languages)
+Sitemap: https://helpmyimg.com/sitemaps/sitemap-en.xml
+Sitemap: https://helpmyimg.com/sitemaps/sitemap-id.xml
+Sitemap: https://helpmyimg.com/sitemaps/sitemap-ar.xml
+Sitemap: https://helpmyimg.com/sitemaps/sitemap-cs.xml
+Sitemap: https://helpmyimg.com/sitemaps/sitemap-da.xml
+Sitemap: https://helpmyimg.com/sitemaps/sitemap-de.xml
+Sitemap: https://helpmyimg.com/sitemaps/sitemap-el.xml
+Sitemap: https://helpmyimg.com/sitemaps/sitemap-es.xml
+Sitemap: https://helpmyimg.com/sitemaps/sitemap-fi.xml
+Sitemap: https://helpmyimg.com/sitemaps/sitemap-fr.xml
+Sitemap: https://helpmyimg.com/sitemaps/sitemap-he.xml
+Sitemap: https://helpmyimg.com/sitemaps/sitemap-hi.xml
+Sitemap: https://helpmyimg.com/sitemaps/sitemap-hu.xml
+Sitemap: https://helpmyimg.com/sitemaps/sitemap-it.xml
+Sitemap: https://helpmyimg.com/sitemaps/sitemap-ja.xml
+Sitemap: https://helpmyimg.com/sitemaps/sitemap-ko.xml
+Sitemap: https://helpmyimg.com/sitemaps/sitemap-ms.xml
+Sitemap: https://helpmyimg.com/sitemaps/sitemap-nl.xml
+Sitemap: https://helpmyimg.com/sitemaps/sitemap-no.xml
+Sitemap: https://helpmyimg.com/sitemaps/sitemap-pl.xml
+Sitemap: https://helpmyimg.com/sitemaps/sitemap-pt.xml
+Sitemap: https://helpmyimg.com/sitemaps/sitemap-ro.xml
+Sitemap: https://helpmyimg.com/sitemaps/sitemap-ru.xml
+Sitemap: https://helpmyimg.com/sitemaps/sitemap-sv.xml
+Sitemap: https://helpmyimg.com/sitemaps/sitemap-th.xml
+Sitemap: https://helpmyimg.com/sitemaps/sitemap-tl.xml
+Sitemap: https://helpmyimg.com/sitemaps/sitemap-tr.xml
+Sitemap: https://helpmyimg.com/sitemaps/sitemap-uk.xml
+Sitemap: https://helpmyimg.com/sitemaps/sitemap-vi.xml
+Sitemap: https://helpmyimg.com/sitemaps/sitemap-zh.xml
+
+# ------------------------------------------------------------------------------
+# 8. HOST SPECIFICATION
+# ------------------------------------------------------------------------------
+Host: https://helpmyimg.com
