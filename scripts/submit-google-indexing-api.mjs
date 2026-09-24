@@ -38,19 +38,30 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const DOMAIN = 'https://helpmyimg.com';
-const SERVICE_ACCOUNT_PATH = path.join(__dirname, '../google-service-account.json');
 const INDEXING_API_ENDPOINT = 'https://indexing.googleapis.com/v3/urlNotifications:publish';
-const BATCH_ENDPOINT = 'https://indexing.googleapis.com/batch';
+
+function findServiceAccountKey() {
+  const defaultPath = path.join(__dirname, '../google-service-account.json');
+  if (fs.existsSync(defaultPath)) return defaultPath;
+
+  const rootDir = path.join(__dirname, '..');
+  const files = fs.readdirSync(rootDir);
+  const candidate = files.find(f => (f.startsWith('helpmyimg-') || f.includes('serviceaccount') || f.includes('gserviceaccount')) && f.endsWith('.json'));
+  if (candidate) return path.join(rootDir, candidate);
+  return null;
+}
+
+const SERVICE_ACCOUNT_PATH = findServiceAccountKey();
 
 // Check for service account file
-if (!fs.existsSync(SERVICE_ACCOUNT_PATH)) {
+if (!SERVICE_ACCOUNT_PATH || !fs.existsSync(SERVICE_ACCOUNT_PATH)) {
   console.error(`
-❌ SETUP REQUIRED: google-service-account.json not found.
+❌ SETUP REQUIRED: google-service-account.json (or helpmyimg-*.json) not found.
 
 To use the Google Indexing API:
 1. Create a Service Account in Google Cloud Console
 2. Download the JSON key file
-3. Save it as: google-service-account.json in the project root
+3. Save it in the project root
 4. Add the service account email as OWNER in Google Search Console
 
 See script header for full instructions.
@@ -142,6 +153,21 @@ async function submitBatch(urls, accessToken) {
     } else {
       failed++;
       process.stderr.write(`❌ ${url} — ${result.error}\n`);
+      if (result.error && result.error.includes('Failed to verify the URL ownership')) {
+        console.error(`
+🛑 STOPPED: Service Account belum terdaftar sebagai OWNER di Google Search Console!
+
+Cara Mengatasi (Cuma 1 Menit):
+1. Buka Google Search Console: https://search.google.com/search-console/
+2. Pilih properti helpmyimg.com
+3. Klik menu "Settings" (Setelan) di kiri bawah -> "Users and permissions" (Pengguna dan izin)
+4. Klik tombol "Add user" (Tambahkan pengguna)
+5. Masukkan Email: ${serviceAccount.client_email}
+6. Pilih Izin: OWNER (Pemilik)  <-- WAJIB Owner, bukan Full/Restricted!
+7. Klik Add. Lalu jalankan lagi 'npm run google-index'.
+`);
+        break;
+      }
     }
     // Throttle to avoid hitting API rate limits
     await new Promise(r => setTimeout(r, DELAY_MS));
