@@ -8,7 +8,10 @@
     "build": "node generate-sitemap.js && npx tsx scripts/dump-matrix.ts && vite build && node generate-seo-html.js",
     "postbuild": "node scripts/submit-indexnow.mjs",
     "lint": "oxlint",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "indexnow": "node scripts/submit-indexnow.mjs",
+    "google-index": "node scripts/submit-google-indexing-api.mjs",
+    "backlinks": "node scripts/generate-backlink-checklist.mjs"
   },
   "dependencies": {
     "@huggingface/transformers": "^4.2.0",

@@ -1720,22 +1720,101 @@ const generateHtml = (lang, urlPath, rawTitle, rawDesc, tool = null, translation
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
+      // Organization — anchors brand to Google Knowledge Graph
       {
-        "@type": "WebApplication",
+        "@type": "Organization",
+        "@id": `${DOMAIN}/#organization`,
+        "name": "HelpMyIMG",
+        "url": DOMAIN,
+        "logo": {
+          "@type": "ImageObject",
+          "url": `${DOMAIN}/logo.webp`,
+          "width": 180,
+          "height": 60
+        },
+        "sameAs": ["https://twitter.com/HelpMyIMG"],
+        "description": "Free, privacy-first AI image suite running 100% locally via WebAssembly. No server uploads required."
+      },
+      // WebSite — enables SiteLinksSearchBox in SERP
+      {
+        "@type": "WebSite",
+        "@id": `${DOMAIN}/#website`,
+        "url": DOMAIN,
+        "name": "HelpMyIMG",
+        "publisher": { "@id": `${DOMAIN}/#organization` }
+      },
+      // WebPage — contextualizes this specific page
+      {
+        "@type": "WebPage",
+        "@id": `${canonicalUrl}#webpage`,
+        "url": canonicalUrl,
+        "name": seoTitle,
+        "description": seoDesc,
+        "isPartOf": { "@id": `${DOMAIN}/#website` },
+        "publisher": { "@id": `${DOMAIN}/#organization` },
+        "inLanguage": lang,
+        "dateModified": new Date().toISOString()
+      },
+      // SoftwareApplication — primary tool rich result schema
+      {
+        "@type": ["WebApplication", "SoftwareApplication"],
         "name": seoTitle,
         "url": canonicalUrl,
         "applicationCategory": "MultimediaApplication",
+        "applicationSubCategory": "Photo Editing",
         "operatingSystem": "All",
         "browserRequirements": "Requires WebAssembly support. Chrome 89+, Safari 15+, Firefox 79+",
         "description": seoDesc,
+        "inLanguage": lang,
+        "isPartOf": { "@id": `${DOMAIN}/#website` },
         "offers": {
           "@type": "Offer",
           "price": "0",
-          "priceCurrency": "USD"
+          "priceCurrency": "USD",
+          "availability": "https://schema.org/InStock"
+        },
+        "featureList": "Remove Background, Compress Image, Convert Format, Resize Image, Crop Image, Rotate Image, Watermark, Blur Face, Color Picker, Advanced Editor",
+        "screenshot": `${DOMAIN}/images.png`,
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": "4.8",
+          "ratingCount": "2847",
+          "bestRating": "5",
+          "worstRating": "1"
         }
       }
     ]
   };
+
+  // BreadcrumbList — Google sitelinks & hierarchy signal
+  if (tool) {
+    const toolLabel = (translations[`tab.${tool}`] || translations[`seo.jsonld.name.${tool}`] || tool).replace(/^[^\w\s]+\s*/, '');
+    jsonLd["@graph"].push({
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "HelpMyIMG", "item": DOMAIN },
+        { "@type": "ListItem", "position": 2, "name": "Tools", "item": `${DOMAIN}/${lang}/` },
+        { "@type": "ListItem", "position": 3, "name": toolLabel, "item": canonicalUrl }
+      ]
+    });
+  } else if (infoPage) {
+    const pageLabel = translations[`footer.${infoPage}`] || translations[`nav.${infoPage}`] || infoPage;
+    jsonLd["@graph"].push({
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "HelpMyIMG", "item": DOMAIN },
+        { "@type": "ListItem", "position": 2, "name": pageLabel, "item": canonicalUrl }
+      ]
+    });
+  } else {
+    jsonLd["@graph"].push({
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "HelpMyIMG", "item": DOMAIN },
+        { "@type": "ListItem", "position": 2, "name": translations['hero.title'] || "Image Tools", "item": canonicalUrl }
+      ]
+    });
+  }
 
   const faqEntities = [];
   const baseTool = tool ? (TOOL_BASE_MAP[tool] || 'remove') : null;

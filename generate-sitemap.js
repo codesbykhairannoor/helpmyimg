@@ -68,7 +68,11 @@ if (!fs.existsSync(sitemapsDir)) fs.mkdirSync(sitemapsDir, { recursive: true });
 const writeSitemapShard = (filename, urls) => {
   let xml = '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n';
   for (const url of urls) {
-    xml += `  <url>\n    <loc>${url}</loc>\n    <lastmod>${CURRENT_ISO_DATE}</lastmod>\n  </url>\n`;
+    // Set changefreq and priority based on URL depth
+    const isHome = url.endsWith(`/${url.split('/').filter(Boolean)[0]}/`);
+    const priority = isHome ? '1.0' : '0.8';
+    const changefreq = isHome ? 'weekly' : 'monthly';
+    xml += `  <url>\n    <loc>${url}</loc>\n    <lastmod>${CURRENT_ISO_DATE}</lastmod>\n    <changefreq>${changefreq}</changefreq>\n    <priority>${priority}</priority>\n  </url>\n`;
   }
   xml += '</urlset>';
   const filePath = path.join(sitemapsDir, filename);
@@ -78,30 +82,13 @@ const writeSitemapShard = (filename, urls) => {
 };
 
 // ============================================================================
-// CORE PAGES ONLY — Every URL here has a real HTML file in dist/
-// 30 langs × (1 home + 12 tools + 8 info) = 30 × 21 = 630 URLs
+// CORE PAGES — Per-language sitemaps for optimal crawl budget management
+// Each language gets its own sitemap shard.
+// This follows the Google recommendation for multilingual sites:
+// https://developers.google.com/search/docs/specialty/international/managing-multi-regional-sites
 // ============================================================================
 const baseTools = ['remove', 'color', 'watermark', 'compress', 'convert', 'resize', 'crop', 'rotate', 'picker', 'blurface', 'design', 'brush', 'compress100kb', 'compress50kb', 'resizeig', 'removelogo', 'colorwhite', 'compress200kb', 'resizepassport', 'removeperson', 'convertwebp', 'watermarkbulk', 'blurplate'];
 const infoPages = ['about', 'privacy', 'terms', 'faq', 'security', 'pricing', 'compare', 'languages'];
-
-const coreUrls = [];
-
-for (const lang of LANGS) {
-  // Home page
-  coreUrls.push(`${DOMAIN}/${lang}/`);
-
-  // Tool pages (12 tools)
-  for (const tool of baseTools) {
-    const slug = getLocalizedSlug(tool, lang);
-    coreUrls.push(`${DOMAIN}/${lang}/${slug}/`);
-  }
-
-  // Info pages (8 pages)
-  for (const page of infoPages) {
-    const slug = getLocalizedInfoSlug(page, lang);
-    coreUrls.push(`${DOMAIN}/${lang}/${slug}/`);
-  }
-}
 
 // Delete old pSEO shard files if they exist
 const oldPseoFiles = [
@@ -111,21 +98,44 @@ const oldPseoFiles = [
   'sitemap-pseo-resize.xml',
   'sitemap-pseo-color.xml',
   'sitemap-pseo-watermark.xml',
+  'sitemap-core.xml',  // Also remove the old monolithic file
 ];
 for (const f of oldPseoFiles) {
   const p = path.join(sitemapsDir, f);
   if (fs.existsSync(p)) {
     fs.unlinkSync(p);
-    console.log(`🗑️  Deleted ghost pSEO shard: ${f}`);
+    console.log(`🗑️  Deleted old shard: ${f}`);
   }
 }
 
-// Write the single clean core sitemap
-const shardFiles = [
-  writeSitemapShard('sitemap-core.xml', coreUrls),
-];
+const allUrls = [];
+const shardFiles = [];
 
-// Generate Master Sitemap Index (sitemap.xml) — only core
+// Generate one sitemap per language (better crawl budget management)
+for (const lang of LANGS) {
+  const langUrls = [];
+
+  // Home page
+  langUrls.push(`${DOMAIN}/${lang}/`);
+
+  // Tool pages
+  for (const tool of baseTools) {
+    const slug = getLocalizedSlug(tool, lang);
+    langUrls.push(`${DOMAIN}/${lang}/${slug}/`);
+  }
+
+  // Info pages
+  for (const page of infoPages) {
+    const slug = getLocalizedInfoSlug(page, lang);
+    langUrls.push(`${DOMAIN}/${lang}/${slug}/`);
+  }
+
+  allUrls.push(...langUrls);
+  const shardUrl = writeSitemapShard(`sitemap-${lang}.xml`, langUrls);
+  shardFiles.push(shardUrl);
+}
+
+// Generate Master Sitemap Index (sitemap.xml) — per-language shards
 let sitemapIndex = '<?xml version="1.0" encoding="UTF-8"?>\n<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n';
 for (const shardUrl of shardFiles) {
   sitemapIndex += `  <sitemap>\n    <loc>${shardUrl}</loc>\n    <lastmod>${CURRENT_ISO_DATE}</lastmod>\n  </sitemap>\n`;
@@ -135,10 +145,24 @@ sitemapIndex += '</sitemapindex>';
 const masterSitemapPath = path.join(publicDir, 'sitemap.xml');
 fs.writeFileSync(masterSitemapPath, sitemapIndex, 'utf8');
 
-console.log(`\n✅ Clean sitemap generated: ${coreUrls.length} real URLs (${LANGS.length} langs × 21 pages).`);
-console.log(`   → Every single URL here has a real HTML file in dist/`);
+console.log(`\n✅ Clean sitemap generated: ${allUrls.length} real URLs across ${LANGS.length} per-language shards.`);
+console.log(`   → sitemap.xml points to ${shardFiles.length} language-specific sitemaps`);
+console.log(`   → Every URL has a real HTML file in dist/`);
 
-// Submit only real URLs to IndexNow
+// ===========================
+// NOTE: Google deprecated the sitemap ping endpoint in June 2023
+// (https://www.google.com/ping?sitemap=...) - it no longer works.
+//
+// To notify Google of sitemap updates, use one of these instead:
+// 1. Google Search Console > Sitemaps > Re-submit (manual, instant)
+// 2. Google Indexing API — run: npm run google-index (requires service account)
+//    See: scripts/submit-google-indexing-api.mjs for setup instructions
+// ===========================
+console.log(`\n📡 [Google] Sitemap at ${DOMAIN}/sitemap.xml`);
+console.log(`   → Auto-notification NOT available (Google deprecated sitemap ping in 2023)`);
+console.log(`   → To notify Google: run 'npm run google-index' OR re-submit in Search Console`);
+
+// Submit only real URLs to IndexNow (Bing + Yandex)
 fetch('https://api.indexnow.org/indexnow', {
   method: 'POST',
   headers: { 'Content-Type': 'application/json; charset=utf-8' },
@@ -146,16 +170,16 @@ fetch('https://api.indexnow.org/indexnow', {
     host: 'helpmyimg.com',
     key: 'c8e54926d5744902bc6e85fb2c85e0f2',
     keyLocation: 'https://helpmyimg.com/c8e54926d5744902bc6e85fb2c85e0f2.txt',
-    urlList: coreUrls
+    urlList: allUrls
   })
 })
 .then(res => {
   if (res.ok) {
-    console.log(`\n🚀 [IndexNow] Submitted ${coreUrls.length} verified URLs to Bing & Yandex (Status: ${res.status})`);
+    console.log(`🚀 [IndexNow] Submitted ${allUrls.length} URLs to Bing & Yandex (Status: ${res.status})`);
   } else {
-    console.warn(`\n⚠️ [IndexNow] Status: ${res.status}`);
+    console.warn(`⚠️ [IndexNow] Status: ${res.status}`);
   }
 })
 .catch(err => {
-  console.error(`\n❌ [IndexNow] Failed: ${err.message}`);
+  console.error(`❌ [IndexNow] Failed: ${err.message}`);
 });
