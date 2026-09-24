@@ -7,7 +7,8 @@ class AIService {
   private onProgressCallback: ((step: string, progress: number) => void) | null = null;
 
   constructor() {
-    this.initWorker();
+    // Lazy worker initialization: do not instantiate worker or download model weights
+    // until user actively uploads an image or triggers background removal.
   }
 
   private initWorker() {
@@ -25,9 +26,6 @@ class AIService {
           this.pendingPromises.delete(id);
         }
       };
-      
-      // Initialize model early in the background
-      this.worker.postMessage({ type: 'INIT', id: this.messageIdCounter++ });
     }
   }
 
