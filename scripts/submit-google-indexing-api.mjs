@@ -51,25 +51,39 @@ function findServiceAccountKey() {
   return null;
 }
 
-const SERVICE_ACCOUNT_PATH = findServiceAccountKey();
+let serviceAccount;
 
-// Check for service account file
-if (!SERVICE_ACCOUNT_PATH || !fs.existsSync(SERVICE_ACCOUNT_PATH)) {
+if (process.env.GOOGLE_SERVICE_ACCOUNT_KEY) {
+  try {
+    serviceAccount = JSON.parse(process.env.GOOGLE_SERVICE_ACCOUNT_KEY);
+  } catch (err) {
+    console.error('❌ Failed to parse GOOGLE_SERVICE_ACCOUNT_KEY environment variable:', err.message);
+  }
+}
+
+if (!serviceAccount) {
+  const SERVICE_ACCOUNT_PATH = findServiceAccountKey();
+  if (SERVICE_ACCOUNT_PATH && fs.existsSync(SERVICE_ACCOUNT_PATH)) {
+    try {
+      serviceAccount = JSON.parse(fs.readFileSync(SERVICE_ACCOUNT_PATH, 'utf8'));
+    } catch (err) {
+      console.error('❌ Failed to read service account file:', err.message);
+    }
+  }
+}
+
+// Check for valid service account credentials
+if (!serviceAccount || !serviceAccount.client_email || !serviceAccount.private_key) {
   console.error(`
-❌ SETUP REQUIRED: google-service-account.json (or helpmyimg-*.json) not found.
+❌ SETUP REQUIRED: Service account credentials not found.
 
-To use the Google Indexing API:
-1. Create a Service Account in Google Cloud Console
-2. Download the JSON key file
-3. Save it in the project root
-4. Add the service account email as OWNER in Google Search Console
-
-See script header for full instructions.
+Options:
+1. Save JSON key as google-service-account.json (or helpmyimg-*.json) in project root.
+2. OR set GOOGLE_SERVICE_ACCOUNT_KEY environment variable (e.g. in GitHub Actions Secrets).
+3. Ensure service account email is added as OWNER in Google Search Console.
 `);
   process.exit(1);
 }
-
-const serviceAccount = JSON.parse(fs.readFileSync(SERVICE_ACCOUNT_PATH, 'utf8'));
 
 /**
  * Generate a JWT access token using the service account private key
