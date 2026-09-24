@@ -121,6 +121,118 @@ const TOOL_BASE_MAP = {
   blurplate: 'blurface'
 };
 
+// 12 Core Homepage Tools Config matching src/config/tools.tsx
+const TOOL_GRID_CONFIG = [
+  {
+    id: 'remove',
+    titleKey: 'nav.removeBg',
+    descKey: 'grid.removeDesc',
+    defaultTitle: 'Remove Background',
+    defaultDesc: 'Quickly remove image backgrounds with high accuracy. Instantly detect subjects and cut them out.',
+    isNew: true,
+    svg: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 sm:w-6 sm:h-6"><circle cx="6" cy="6" r="3"/><path d="M8.12 8.12 12 12"/><circle cx="6" cy="18" r="3"/><path d="M14.8 14.8 20 20"/><path d="m14.8 9.2 5.2-5.2"/><path d="m8.12 15.88 3.88-3.88"/></svg>`
+  },
+  {
+    id: 'compress',
+    titleKey: 'nav.compress',
+    descKey: 'grid.compressDesc',
+    defaultTitle: 'Compress Image',
+    defaultDesc: 'Compress JPG, PNG, SVG, and GIFs while saving space and maintaining quality.',
+    isNew: false,
+    svg: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 sm:w-6 sm:h-6"><polyline points="4 14 10 14 10 20"/><polyline points="20 10 14 10 14 4"/><line x1="14" x2="21" y1="10" y2="3"/><line x1="3" x2="10" y1="21" y2="14"/></svg>`
+  },
+  {
+    id: 'convert',
+    titleKey: 'nav.convert',
+    descKey: 'grid.convertDesc',
+    defaultTitle: 'Convert Format',
+    defaultDesc: 'Turn PNG, GIF, TIF, PSD, SVG, WEBP, HEIC, or RAW format images to JPG in bulk with ease.',
+    isNew: true,
+    svg: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 sm:w-6 sm:h-6"><rect width="18" height="18" x="3" y="3" rx="2" ry="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/></svg>`
+  },
+  {
+    id: 'resize',
+    titleKey: 'nav.resize',
+    descKey: 'grid.resizeDesc',
+    defaultTitle: 'Resize Image',
+    defaultDesc: 'Define your dimensions, by percent or pixel, and resize your JPG, PNG, SVG, and GIF images.',
+    isNew: false,
+    svg: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 sm:w-6 sm:h-6"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" x2="14" y1="3" y2="10"/><line x1="3" x2="10" y1="21" y2="14"/></svg>`
+  },
+  {
+    id: 'crop',
+    titleKey: 'nav.crop',
+    descKey: 'grid.cropDesc',
+    defaultTitle: 'Crop Image',
+    defaultDesc: 'Crop JPG, PNG, or GIFs with ease. Choose pixels to define your rectangle.',
+    isNew: true,
+    svg: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 sm:w-6 sm:h-6"><path d="M6 2v14a2 2 0 0 0 2 2h14"/><path d="M18 22V8a2 2 0 0 0-2-2H2"/></svg>`
+  },
+  {
+    id: 'rotate',
+    titleKey: 'nav.rotate',
+    descKey: 'grid.rotateDesc',
+    defaultTitle: 'Rotate Image',
+    defaultDesc: 'Rotate many images JPG, PNG or GIF at the same time with flip support.',
+    isNew: true,
+    svg: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 sm:w-6 sm:h-6"><path d="M21 12a9 9 0 1 1-9-9c2.52 0 4.93 1 6.74 2.74L21 8"/><path d="M21 3v5h-5"/></svg>`
+  },
+  {
+    id: 'color',
+    titleKey: 'nav.color',
+    descKey: 'grid.colorDesc',
+    defaultTitle: 'Photo Background Colors',
+    defaultDesc: 'Replace background with official ID passport red, blue, pure white, or professional studio gradients.',
+    isNew: true,
+    svg: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 sm:w-6 sm:h-6"><circle cx="13.5" cy="6.5" r=".5" fill="currentColor"/><circle cx="17.5" cy="10.5" r=".5" fill="currentColor"/><circle cx="8.5" cy="7.5" r=".5" fill="currentColor"/><circle cx="6.5" cy="12.5" r=".5" fill="currentColor"/><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2z"/></svg>`
+  },
+  {
+    id: 'brush',
+    titleKey: 'tab.brush',
+    descKey: 'brush.desc',
+    defaultTitle: 'Magic Brush Eraser',
+    defaultDesc: 'Manually restore or erase parts of your image for perfect edges.',
+    isNew: true,
+    svg: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 sm:w-6 sm:h-6"><path d="m7 21-4.3-4.3c-1-1-1-2.5 0-3.4l9.6-9.6c1-1 2.5-1 3.4 0l5.6 5.6c1 1 1 2.5 0 3.4L13 21"/><path d="M22 21H7"/><path d="m5 11 9 9"/></svg>`
+  },
+  {
+    id: 'design',
+    titleKey: 'nav.design',
+    descKey: 'grid.designDesc',
+    defaultTitle: 'Advanced Photo Editor',
+    defaultDesc: 'Add text, stickers, shapes, filters, fine-tune colors, and apply artistic annotations to your images.',
+    isNew: true,
+    svg: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 sm:w-6 sm:h-6"><path d="m19 2 2 2-2 2-2-2Z"/><path d="m5 6 3 3-3 3-3-3Z"/><path d="m19 14 2 2-2 2-2-2Z"/><path d="M10 2 2 10l12 12 8-8Z"/></svg>`
+  },
+  {
+    id: 'watermark',
+    titleKey: 'nav.watermark',
+    descKey: 'grid.watermarkDesc',
+    defaultTitle: 'Watermark Image',
+    defaultDesc: 'Stamp an image or text over your images in seconds. Choose typography, transparency and position.',
+    isNew: false,
+    svg: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 sm:w-6 sm:h-6"><path d="M5 22h14"/><path d="M19.27 13.73A2.5 2.5 0 0 0 17.5 13h-11A2.5 2.5 0 0 0 4 15.5V17a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-1.5c0-.66-.26-1.3-.73-1.77Z"/><path d="M14 13V8.5C14 7.12 12.88 6 11.5 6S9 7.12 9 8.5V13"/></svg>`
+  },
+  {
+    id: 'blurface',
+    titleKey: 'nav.blurface',
+    descKey: 'grid.blurfaceDesc',
+    defaultTitle: 'Blur Face & Plate',
+    defaultDesc: 'Automatically detect and blur faces or apply custom censorship boxes.',
+    isNew: true,
+    svg: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 sm:w-6 sm:h-6"><path d="M3 7V5a2 2 0 0 1 2-2h2"/><path d="M17 3h2a2 2 0 0 1 2 2v2"/><path d="M21 17v2a2 2 0 0 1-2 2h-2"/><path d="M7 21H5a2 2 0 0 1-2-2v-2"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><path d="M9 9h.01"/><path d="M15 9h.01"/></svg>`
+  },
+  {
+    id: 'picker',
+    titleKey: 'nav.picker',
+    descKey: 'grid.pickerDesc',
+    defaultTitle: 'Image Color Picker',
+    defaultDesc: 'Pick colors directly from any image, inspect RGB/HEX values, and copy color palettes instantly.',
+    isNew: false,
+    svg: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 sm:w-6 sm:h-6"><path d="m2 22 1-1h3l9-9"/><path d="M12.5 7.5 16 11"/><path d="m15 5 4 4"/><path d="m20.5 3.5 1 1a2.12 2.12 0 0 1 0 3l-1.5 1.5-4-4L17.5 3.5a2.12 2.12 0 0 1 3 0Z"/></svg>`
+  }
+];
+
 // Info page identifiers (All 8 info pages)
 const INFO_PAGES = ['about', 'privacy', 'terms', 'faq', 'security', 'pricing', 'compare', 'languages'];
 
@@ -786,66 +898,97 @@ function generateSemanticHtml(lang, urlPath, title, desc, tool, infoPage, transl
     infoNavLinks += `<li><a href="${linkPath}" class="text-slate-400 hover:text-[#05DAED] transition-colors">${label}</a></li>\n`;
   }
 
-  // Pre-rendered Navbar
+  // Pre-rendered Navbar - Matches React src/components/Navbar.tsx
   const navbarHtml = `
-    <header class="border-b border-slate-800 bg-[#0a0d14]/90 backdrop-blur sticky top-0 z-50">
-      <div class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
-        <a href="/${lang}/" class="text-xl font-bold tracking-tight text-white flex items-center gap-2">
-          <span class="text-[#05DAED]">HelpMy</span><span>IMG</span>
-        </a>
-        <nav aria-label="Quick Tools Navigation" class="hidden md:flex items-center gap-6 text-sm text-slate-300">
-          <a href="/${lang}/${getLocalizedSlug('remove', lang)}/" class="hover:text-white transition-colors">${translations['tab.remove'] || 'Remove BG'}</a>
-          <a href="/${lang}/${getLocalizedSlug('color', lang)}/" class="hover:text-white transition-colors">${translations['tab.color'] || 'Change BG'}</a>
-          <a href="/${lang}/${getLocalizedSlug('compress', lang)}/" class="hover:text-white transition-colors">${translations['tab.compress'] || 'Compress'}</a>
-          <a href="/${lang}/${getLocalizedSlug('watermark', lang)}/" class="hover:text-white transition-colors">${translations['tab.watermark'] || 'Watermark'}</a>
-          <a href="/${lang}/${getLocalizedSlug('convert', lang)}/" class="hover:text-white transition-colors">${translations['tab.convert'] || 'Convert'}</a>
-          <a href="/${lang}/${getLocalizedSlug('resize', lang)}/" class="hover:text-white transition-colors">${translations['tab.resize'] || 'Resize'}</a>
-        </nav>
-        <div class="flex items-center gap-3 text-xs">
-          <span class="px-2.5 py-1 rounded-full bg-[#05DAED]/10 text-[#05DAED] border border-[#05DAED]/30 font-medium">${sec.privacyBadge}</span>
+    <header class="sticky top-0 z-50 w-full border-b border-slate-200 dark:border-dark-500/40 bg-white dark:bg-dark-900 shadow-sm dark:shadow-none">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-[60px] flex items-center justify-between">
+        <div class="flex items-center justify-start flex-shrink-0">
+          <a href="/${lang}/" class="flex items-center gap-2.5 group">
+            <div class="w-[38px] h-[38px] flex-shrink-0 transition-all duration-300 drop-shadow-glow-cyan">
+              <img src="/logobaru.png" alt="HelpMyIMG Logo" width="38" height="38" decoding="async" class="w-full h-full object-contain" />
+            </div>
+            <div class="flex flex-col">
+              <span class="text-xl font-heading font-extrabold text-slate-900 dark:text-white">
+                HelpMy<span class="text-transparent bg-clip-text bg-gradient-to-r from-neon-cyan to-neon-emerald">IMG</span>
+              </span>
+            </div>
+          </a>
+        </div>
+        <div class="hidden lg:flex items-center justify-center flex-1 relative px-4">
+          <nav class="flex items-center gap-2 xl:gap-4 text-sm font-medium text-slate-700 dark:text-slate-300">
+            <a href="/${lang}/${getLocalizedSlug('remove', lang)}/" class="hover:text-neon-cyan transition-colors font-bold text-[13.5px] uppercase px-2.5 py-1.5 flex items-center whitespace-nowrap rounded-lg">
+              ${translations['nav.removeBg'] || 'Remove Background'}
+            </a>
+            <a href="/${lang}/${getLocalizedSlug('compress', lang)}/" class="hover:text-neon-cyan transition-colors font-bold text-[13.5px] uppercase px-2.5 py-1.5 flex items-center whitespace-nowrap rounded-lg">
+              ${translations['nav.compress'] || 'Compress Image'}
+            </a>
+            <a href="/${lang}/${getLocalizedSlug('resize', lang)}/" class="hover:text-neon-cyan transition-colors font-bold text-[13.5px] uppercase px-2.5 py-1.5 flex items-center whitespace-nowrap rounded-lg">
+              ${translations['nav.resize'] || 'Resize Image'}
+            </a>
+            <div class="relative ml-1">
+              <div class="flex items-center gap-2 bg-neon-cyan/10 border border-neon-cyan/30 text-cyan-800 dark:text-neon-cyan px-3.5 py-1.5 rounded-lg font-bold text-[13.5px] uppercase">
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect width="7" height="7" x="3" y="3" rx="1"/><rect width="7" height="7" x="14" y="3" rx="1"/><rect width="7" height="7" x="14" y="14" rx="1"/><rect width="7" height="7" x="3" y="14" rx="1"/></svg>
+                <span>${translations['nav.tools'] === 'AI Tools' ? 'All Photo Tools' : (translations['nav.tools'] || 'All Photo Tools')}</span>
+              </div>
+            </div>
+          </nav>
+        </div>
+        <div class="flex items-center justify-end gap-2 sm:gap-3 flex-shrink-0">
+          <div class="flex items-center justify-center w-9 h-9 bg-slate-100 dark:bg-dark-800 border border-slate-200 dark:border-dark-500/60 rounded-xl text-slate-600 dark:text-slate-200">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-amber-500"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>
+          </div>
+          <div class="flex items-center gap-2 bg-slate-100 dark:bg-dark-800 border border-slate-200 dark:border-dark-500/60 px-3 h-9 rounded-xl text-[14.5px] font-semibold text-slate-700 dark:text-slate-200">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-cyan-600 dark:text-neon-cyan"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>
+            <span class="hidden sm:inline uppercase font-mono text-[14px] font-bold">${lang}</span>
+          </div>
         </div>
       </div>
     </header>
   `;
 
-  // Pre-rendered Footer
+  // Pre-rendered Footer - Matches React src/components/Footer.tsx
   const footerHtml = `
-    <footer class="border-t border-slate-800 bg-[#07090e] mt-24 py-16 px-4">
-      <div class="max-w-7xl mx-auto flex flex-col gap-12">
-        <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
-          <div class="flex flex-col gap-4">
-            <a href="/${lang}/" class="text-2xl font-bold text-white tracking-tight">
-              <span class="text-[#05DAED]">HelpMy</span><span>IMG</span>
-            </a>
-            <p class="text-sm text-slate-400 leading-relaxed max-w-sm">
-              ${translations['hero.subtitle.short'] || 'Ultra-fast, 100% private in-browser AI photo editing suite powered by WebAssembly and WebGPU.'}
+    <footer class="w-full border-t border-dark-600/60 bg-dark-900/90 backdrop-blur-xl py-12 mt-20 text-slate-600 dark:text-slate-300">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+          <div class="space-y-4">
+            <div class="flex items-center gap-2.5">
+              <div class="w-9 h-9 drop-shadow-glow-cyan">
+                <img src="/logobaru.png" alt="HelpMyIMG Logo" width="36" height="36" class="w-full h-full object-contain" />
+              </div>
+              <span class="text-xl font-heading font-extrabold tracking-tight text-slate-900 dark:text-white">
+                HelpMy<span class="text-transparent bg-clip-text bg-gradient-to-r from-neon-cyan to-neon-emerald">IMG</span>
+              </span>
+            </div>
+            <p class="text-[13px] text-slate-400 leading-relaxed font-body font-medium max-w-sm">
+              ${translations['hero.subtitle.short'] || '100% Free, Private, Zero-Cloud AI Image Editing. All machine learning models run securely inside your browser using WebAssembly.'}
             </p>
             <div class="inline-flex items-center gap-2 text-xs text-[#05DAED]">
               <span class="w-2 h-2 rounded-full bg-[#05DAED] animate-pulse"></span>
               <span>${sec.clientSideBadge}</span>
             </div>
           </div>
-          <nav aria-label="${sec.navTools}">
-            <h3 class="text-sm font-semibold text-white uppercase tracking-wider mb-4">${sec.navTools}</h3>
-            <ul class="space-y-2 text-sm">
+          <div class="space-y-3.5 text-[13px] font-body">
+            <h3 class="font-bold text-slate-900 dark:text-white text-sm tracking-wide">${sec.navTools}</h3>
+            <ul class="space-y-2 text-slate-500 dark:text-slate-400">
               ${toolsNavLinks}
             </ul>
-          </nav>
-          <nav aria-label="${sec.navCompany}">
-            <h3 class="text-sm font-semibold text-white uppercase tracking-wider mb-4">${sec.navCompany}</h3>
-            <ul class="space-y-2 text-sm">
+          </div>
+          <div class="space-y-3.5 text-[13px] font-body">
+            <h3 class="font-bold text-slate-900 dark:text-white text-sm tracking-wide">${sec.navCompany}</h3>
+            <ul class="space-y-2 text-slate-500 dark:text-slate-400">
               ${infoNavLinks}
             </ul>
-          </nav>
-          <div class="flex flex-col gap-4">
-            <h3 class="text-sm font-semibold text-white uppercase tracking-wider mb-4">${translations['languages.title'] || 'Global Languages'}</h3>
+          </div>
+          <div class="space-y-3.5 text-[13px] font-body">
+            <h3 class="font-bold text-slate-900 dark:text-white text-sm tracking-wide">${translations['languages.title'] || 'Global Languages'}</h3>
             <p class="text-xs text-slate-400 leading-relaxed">
               HelpMyIMG is natively localized in 30 languages with zero external telemetry.
             </p>
             <a href="/${lang}/languages/" class="text-xs text-[#05DAED] hover:underline">${translations['languages.badge'] || 'View All 30 Languages →'}</a>
           </div>
         </div>
-        <div class="border-t border-slate-800/80 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
+        <div class="border-t border-slate-800/80 pt-8 mt-10 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
           <p>© 2026 HelpMyIMG. ${sec.rightsReserved}</p>
           <div class="flex gap-4">
             <a href="/${lang}/${getLocalizedInfoSlug('privacy', lang)}/" class="hover:underline">${translations['footer.privacy'] || 'Privacy'}</a>
@@ -1045,9 +1188,11 @@ function generateSemanticHtml(lang, urlPath, title, desc, tool, infoPage, transl
     }
 
     return `
-      <div class="min-h-screen bg-[#0a0d14] text-slate-100 font-sans selection:bg-[#05DAED]/30 selection:text-[#05DAED]" ${dirAttr}>
+      <div class="min-h-screen bg-dark-900 text-slate-900 dark:text-slate-100 font-body flex flex-col transition-colors duration-300 selection:bg-[#05DAED]/30 selection:text-[#05DAED]" ${dirAttr}>
+        <div class="fixed top-1/2 left-0 w-[500px] h-[500px] -translate-x-1/2 -translate-y-1/2 bg-[radial-gradient(circle_at_center,rgba(5,218,237,0.12)_0%,transparent_60%)] rounded-full pointer-events-none -z-10"></div>
+        <div class="fixed top-1/3 right-0 w-[600px] h-[600px] translate-x-1/3 -translate-y-1/2 bg-[radial-gradient(circle_at_center,rgba(79,70,229,0.1)_0%,transparent_60%)] rounded-full pointer-events-none -z-10"></div>
         ${navbarHtml}
-        <main class="max-w-5xl mx-auto px-4 py-12 flex flex-col gap-12">
+        <main class="max-w-5xl mx-auto px-4 py-12 flex flex-col gap-12 flex-1">
           ${infoContentHtml}
         </main>
         ${footerHtml}
@@ -1059,22 +1204,37 @@ function generateSemanticHtml(lang, urlPath, title, desc, tool, infoPage, transl
   // CASE B: HOMEPAGE (/${lang}/)
   // =========================================================================
   if (!tool) {
-    const homeH1 = translations['hero.title'] ? `${translations['hero.title']} ${translations['hero.titleHighlight'] || ''}` : 'All-in-One Local AI Image Suite';
-    const homeSubtitle = translations['hero.subtitle'] || overviewText;
+    const homeTitleHighlight = translations['home.hero.titleHighlight'] || 'All Image';
+    const homeTitleSolid = translations['home.hero.titleSolid'] || 'Tools in One Place';
+    const homeSubtitle = translations['hero.subtitle.short'] || 'Combine, split, compress, convert, and process images directly in your browser. 100% offline via WebAssembly. Free, unlimited, and highly secure.';
+    const searchPlaceholder = translations['hero.search.placeholder'] || 'Search tools (Remove BG, Compress, Edit)...';
 
     let toolCardsHtml = '';
-    const coreGridTools = ['remove', 'color', 'compress', 'watermark', 'convert', 'resize', 'crop', 'rotate', 'picker', 'blurface', 'design', 'brush'];
-    for (const t of coreGridTools) {
-      const slug = getLocalizedSlug(t, lang);
-      const tName = translations[`tab.${t}`] || translations[`nav.${t}`] || t;
-      const tDesc = translations[`landing.default.desc.${t}`] || translations[`seo.jsonld.desc.${t}`] || 'High performance client-side image processing tool.';
+    for (const item of TOOL_GRID_CONFIG) {
+      const slug = getLocalizedSlug(item.id, lang);
+      const href = lang === 'en' ? `/${slug}/` : `/${lang}/${slug}/`;
+      const title = translations[item.titleKey] || item.defaultTitle;
+      const desc = translations[item.descKey] || item.defaultDesc;
+      const badge = item.isNew
+        ? `<span class="text-[9px] sm:text-[10px] font-bold tracking-widest px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-full bg-[#12DA91]/10 text-[#12DA91] border border-[#12DA91]/20 uppercase">${translations['common.new'] || 'New!'}</span>`
+        : `<span class="text-[9px] sm:text-[10px] font-bold tracking-widest px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-full bg-dark-800 text-slate-500 border border-dark-600 uppercase">IMG</span>`;
+
       toolCardsHtml += `
-        <a href="/${lang}/${slug}/" class="p-6 rounded-2xl bg-slate-900/60 hover:bg-slate-800/80 border border-slate-800 hover:border-[#05DAED]/50 transition-all flex flex-col gap-3 group">
-          <div class="w-10 h-10 rounded-xl bg-[#05DAED]/10 text-[#05DAED] flex items-center justify-center font-bold text-lg group-hover:scale-110 transition-transform">
-            ✦
+        <a href="${href}" class="group relative flex flex-col p-6 sm:p-10 rounded-[2rem] sm:rounded-[2.5rem] bg-dark-900/80 border border-dark-600 hover:border-[#05DAED]/30 hover:bg-dark-800 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_20px_40px_-15px_rgba(5,218,237,0.1)] h-full">
+          <div class="flex justify-between items-start mb-6 sm:mb-8 relative z-10">
+            <div class="w-12 h-12 sm:w-14 sm:h-14 rounded-[1rem] sm:rounded-[1.25rem] bg-dark-800 border border-dark-600 flex items-center justify-center group-hover:bg-[#05DAED]/10 group-hover:border-[#05DAED]/30 transition-colors duration-300 shadow-sm text-slate-300 group-hover:text-[#05DAED]">
+              ${item.svg}
+            </div>
+            ${badge}
           </div>
-          <h3 class="text-lg font-bold text-white group-hover:text-[#05DAED] transition-colors">${tName}</h3>
-          <p class="text-xs text-slate-400 leading-relaxed">${tDesc}</p>
+          <div class="relative z-10 flex-1">
+            <h3 class="text-lg sm:text-2xl font-bold font-heading text-white mb-3 sm:mb-4 group-hover:text-[#05DAED] transition-colors leading-tight">
+              ${title}
+            </h3>
+            <p class="text-sm sm:text-base text-slate-400 leading-relaxed line-clamp-3">
+              ${desc}
+            </p>
+          </div>
         </a>
       `;
     }
@@ -1085,69 +1245,190 @@ function generateSemanticHtml(lang, urlPath, title, desc, tool, infoPage, transl
       const a = translations[`landing.faq${i}.a`] || translations[`faq${i}.a`];
       if (q && a) {
         faqItemsHtml += `
-          <div class="p-6 rounded-2xl bg-slate-900/50 border border-slate-800 flex flex-col gap-2">
-            <h3 class="text-base font-bold text-white">${q}</h3>
-            <p class="text-sm text-slate-300 leading-relaxed">${a}</p>
+          <div class="p-6 sm:p-8 rounded-3xl bg-dark-800/40 border border-dark-500/60 flex flex-col gap-2">
+            <h3 class="text-base sm:text-lg font-bold text-white font-heading">${q}</h3>
+            <p class="text-sm text-slate-400 leading-relaxed">${a}</p>
           </div>
         `;
       }
     }
 
     return `
-      <div class="min-h-screen bg-[#0a0d14] text-slate-100 font-sans selection:bg-[#05DAED]/30 selection:text-[#05DAED]" ${dirAttr}>
+      <div class="min-h-screen bg-dark-900 text-slate-900 dark:text-slate-100 font-body flex flex-col transition-colors duration-300 selection:bg-[#05DAED]/30 selection:text-[#05DAED]" ${dirAttr}>
+        <div class="fixed top-1/2 left-0 w-[500px] h-[500px] -translate-x-1/2 -translate-y-1/2 bg-[radial-gradient(circle_at_center,rgba(5,218,237,0.12)_0%,transparent_60%)] rounded-full pointer-events-none -z-10"></div>
+        <div class="fixed top-1/3 right-0 w-[600px] h-[600px] translate-x-1/3 -translate-y-1/2 bg-[radial-gradient(circle_at_center,rgba(79,70,229,0.1)_0%,transparent_60%)] rounded-full pointer-events-none -z-10"></div>
         ${navbarHtml}
-        <main class="max-w-6xl mx-auto px-4 py-12 flex flex-col gap-16">
-          <section class="text-center flex flex-col items-center gap-6 max-w-4xl mx-auto">
-            <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-semibold bg-[#05DAED]/10 text-[#05DAED] border border-[#05DAED]/30">
-              ${sec.privacyBadge} • ${sec.clientSideBadge}
-            </div>
-            <h1 class="text-4xl md:text-6xl font-extrabold text-white tracking-tight leading-tight">
-              ${homeH1}
-            </h1>
-            <p class="text-lg md:text-xl text-slate-300 leading-relaxed max-w-2xl">
-              ${homeSubtitle}
-            </p>
-          </section>
-
-          <section class="flex flex-col gap-6">
-            <div class="flex items-center justify-between">
-              <h2 class="text-2xl md:text-3xl font-bold text-white tracking-tight">${sec.navTools}</h2>
-            </div>
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-              ${toolCardsHtml}
-            </div>
-          </section>
-
-          <section class="p-8 rounded-2xl bg-slate-900/40 border border-slate-800 flex flex-col gap-6">
-            <h2 class="text-2xl font-bold text-white">${translations['home.why.title'] || 'Why Choose HelpMyIMG'}</h2>
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
-              <div class="flex flex-col gap-2">
-                <h3 class="text-base font-bold text-[#05DAED]">${translations['home.why.f1.title'] || '100% Client-Side'}</h3>
-                <p class="text-xs text-slate-400">${translations['home.why.f1.desc'] || 'All files are processed directly on your device GPU/CPU via WebAssembly.'}</p>
+        <main class="flex-1 w-full flex flex-col min-h-screen gap-8 md:gap-16 pt-12 pb-16">
+          <div class="relative">
+            <!-- Hero Section -->
+            <section class="relative pt-2 md:pt-6 pb-2 overflow-hidden flex flex-col items-center justify-center text-center">
+              <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[500px] bg-gradient-to-b from-slate-100 dark:from-dark-800 to-transparent opacity-50 pointer-events-none -z-10"></div>
+              <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 w-full animate-in fade-in slide-in-from-bottom-8 duration-700">
+                <h1 class="font-heading font-black mb-6 text-center" style="font-size: clamp(2.2rem, 6vw, 4.5rem); font-weight: 900; letter-spacing: -0.03em; line-height: 1.15;">
+                  <span class="bg-gradient-to-r from-neon-cyan via-neon-emerald to-neon-indigo bg-clip-text text-transparent drop-shadow-sm inline">${homeTitleHighlight}</span> <span class="text-slate-800 dark:text-slate-100 inline">${homeTitleSolid}</span>
+                </h1>
+                <p class="text-slate-600 dark:text-slate-400 max-w-2xl mx-auto mb-10" style="font-size: clamp(0.9rem, 2vw, 1.25rem); font-weight: 500; line-height: 1.6;">
+                  ${homeSubtitle}
+                </p>
+                <div class="relative max-w-2xl mx-auto mb-4 shadow-xl shadow-slate-200/20 dark:shadow-none rounded-full group">
+                  <div class="absolute inset-y-0 left-0 pl-4 sm:pl-5 flex items-center pointer-events-none">
+                    <svg class="h-4 w-4 sm:h-5 sm:w-5 text-slate-400 group-focus-within:text-neon-cyan transition-colors" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+                  </div>
+                  <input type="text" class="block w-full pl-10 sm:pl-12 pr-4 sm:pr-6 py-3 sm:py-4 rounded-full border-0 bg-white dark:bg-dark-800 text-slate-900 dark:text-white placeholder-slate-400 focus:ring-2 focus:ring-neon-cyan focus:outline-none text-sm sm:text-lg transition-all duration-300" placeholder="${searchPlaceholder}" readonly />
+                </div>
               </div>
-              <div class="flex flex-col gap-2">
-                <h3 class="text-base font-bold text-[#05DAED]">${translations['home.why.f2.title'] || 'Zero Network Latency'}</h3>
-                <p class="text-xs text-slate-400">${translations['home.why.f2.desc'] || 'Instant processing without waiting for multi-megabyte file uploads to cloud servers.'}</p>
-              </div>
-              <div class="flex flex-col gap-2">
-                <h3 class="text-base font-bold text-[#05DAED]">${translations['home.why.f3.title'] || 'Free Forever'}</h3>
-                <p class="text-xs text-slate-400">${translations['home.why.f3.desc'] || 'No subscriptions, credits, signups, or artificial watermarks on your exports.'}</p>
-              </div>
-              <div class="flex flex-col gap-2">
-                <h3 class="text-base font-bold text-[#05DAED]">${translations['home.why.f4.title'] || 'Unlimited Batch'}</h3>
-                <p class="text-xs text-slate-400">${translations['home.why.f4.desc'] || 'Process multiple images simultaneously without queue delays or restrictions.'}</p>
+            </section>
+
+            <!-- ToolGrid Section -->
+            <div class="-mt-4 relative z-10">
+              <div class="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-4 pb-16 relative z-10" id="tools-section">
+                <!-- Filter Pills -->
+                <div class="flex flex-wrap items-center justify-center gap-3 mb-8">
+                  <span class="px-6 py-2.5 rounded-full text-sm font-bold transition-all duration-300 bg-gradient-to-r from-[#05DAED] to-[#12DA91] text-dark-900 shadow-[0_0_20px_rgba(5,218,237,0.4)] border-transparent cursor-pointer">
+                    ${translations['grid.catAll'] || 'All Tools'}
+                  </span>
+                  <span class="px-6 py-2.5 rounded-full text-sm font-bold transition-all duration-300 bg-dark-800 border border-dark-600 text-slate-300 hover:bg-dark-700 hover:text-white cursor-pointer">
+                    ${translations['cat.modify'] || 'Modify'}
+                  </span>
+                  <span class="px-6 py-2.5 rounded-full text-sm font-bold transition-all duration-300 bg-dark-800 border border-dark-600 text-slate-300 hover:bg-dark-700 hover:text-white cursor-pointer">
+                    ${translations['cat.edit'] || 'Edit'}
+                  </span>
+                  <span class="px-6 py-2.5 rounded-full text-sm font-bold transition-all duration-300 bg-dark-800 border border-dark-600 text-slate-300 hover:bg-dark-700 hover:text-white cursor-pointer">
+                    ${translations['cat.optimize'] || 'Optimize'}
+                  </span>
+                  <span class="px-6 py-2.5 rounded-full text-sm font-bold transition-all duration-300 bg-dark-800 border border-dark-600 text-slate-300 hover:bg-dark-700 hover:text-white cursor-pointer">
+                    ${translations['cat.security'] || 'Security'}
+                  </span>
+                </div>
+
+                <!-- Section Header -->
+                <div class="flex items-end gap-3 mb-10">
+                  <h2 class="text-2xl sm:text-4xl font-heading font-extrabold text-white tracking-tight">
+                    ${translations['grid.catAll'] || 'All Tools'}
+                  </h2>
+                  <span class="text-lg sm:text-2xl text-slate-500 font-medium pb-0.5 sm:pb-0.5">
+                    (12)
+                  </span>
+                </div>
+
+                <!-- Grid of Tools -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+                  ${toolCardsHtml}
+                </div>
               </div>
             </div>
-          </section>
 
-          ${scientificResearchHtml}
+            <!-- HomeSections -->
+            <div class="mt-32 sm:mt-40">
+              <div class="py-16 text-slate-100 relative z-10 flex flex-col gap-20">
+                <!-- 1. WHY HELPMYIMG -->
+                <section class="max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-20">
+                  <div class="text-center max-w-3xl mx-auto mb-16 px-4">
+                    <span class="text-xs font-mono font-bold uppercase tracking-widest text-[#12DA91] bg-[#12DA91]/10 px-3 py-1.5 rounded-full border border-[#12DA91]/30 inline-block mx-auto mb-4">
+                      ${translations['home.why.tag'] || 'WHY HELPMYIMG'}
+                    </span>
+                    <h2 class="font-heading font-extrabold text-white text-2xl sm:text-4xl tracking-tight leading-snug">
+                      ${translations['home.why.title'] || 'Why HelpMyIMG is the Smartest Choice for Creators & Businesses'}
+                    </h2>
+                    <p class="text-slate-400 mt-6 max-w-2xl mx-auto text-base sm:text-lg leading-relaxed">
+                      ${translations['home.why.desc'] || 'Designed from the ground up for maximum privacy, blazing speed, and zero cost. Here is why thousands trust HelpMyIMG every day.'}
+                    </p>
+                  </div>
 
-          <section class="flex flex-col gap-6">
-            <h2 class="text-2xl md:text-3xl font-bold text-white tracking-tight">${sec.faq}</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-              ${faqItemsHtml}
+                  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+                    <div class="p-6 sm:p-8 rounded-3xl bg-dark-800/40 border border-dark-500/60 relative overflow-hidden group hover:border-[#05DAED]/50 transition-all duration-300">
+                      <div class="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-[#05DAED]/10 flex items-center justify-center text-[#05DAED] mb-4 sm:mb-6 border border-[#05DAED]/30">
+                        <svg class="w-6 h-6 sm:w-7 sm:h-7 stroke-[2.5]" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                      </div>
+                      <h3 class="text-lg sm:text-xl font-heading font-bold text-white mb-2 sm:mb-3">${translations['home.why.c1.t'] || 'Instant Local Speed'}</h3>
+                      <p class="text-slate-400 text-sm leading-relaxed">${translations['home.why.c1.d'] || 'Your photos are processed directly inside your device memory with zero latency. No slow file uploads or cloud queues.'}</p>
+                      <div class="mt-4 sm:mt-6 flex items-center gap-2 text-xs font-mono text-[#05DAED] font-bold">
+                        <span>${translations['home.why.c1.b'] || '0ms Server Delay'}</span>
+                      </div>
+                    </div>
+
+                    <div class="p-6 sm:p-8 rounded-3xl bg-dark-800/40 border border-dark-500/60 relative overflow-hidden group hover:border-[#12DA91]/50 transition-all duration-300">
+                      <div class="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-[#12DA91]/10 flex items-center justify-center text-[#12DA91] mb-4 sm:mb-6 border border-[#12DA91]/30">
+                        <svg class="w-6 h-6 sm:w-7 sm:h-7 stroke-[2.5]" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                      </div>
+                      <h3 class="text-lg sm:text-xl font-heading font-bold text-white mb-2 sm:mb-3">${translations['home.why.c2.t'] || '100% Absolute Privacy'}</h3>
+                      <p class="text-slate-400 text-sm leading-relaxed">${translations['home.why.c2.d'] || 'Your personal portraits, confidential documents, and product shots never leave your computer or phone. Total peace of mind.'}</p>
+                      <div class="mt-4 sm:mt-6 flex items-center gap-2 text-xs font-mono text-[#12DA91] font-bold">
+                        <span>${translations['home.why.c2.b'] || 'Zero Cloud Storage'}</span>
+                      </div>
+                    </div>
+
+                    <div class="p-6 sm:p-8 rounded-3xl bg-dark-800/40 border border-dark-500/60 relative overflow-hidden group hover:border-[#05DAED]/50 transition-all duration-300">
+                      <div class="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-[#05DAED]/10 flex items-center justify-center text-[#05DAED] mb-4 sm:mb-6 border border-[#05DAED]/30">
+                        <svg class="w-6 h-6 sm:w-7 sm:h-7 stroke-[2.5]" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><line x1="12" x2="12" y1="2" y2="22"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+                      </div>
+                      <h3 class="text-lg sm:text-xl font-heading font-bold text-white mb-2 sm:mb-3">${translations['home.why.c3.t'] || 'Forever Free & Unlimited'}</h3>
+                      <p class="text-slate-400 text-sm leading-relaxed">${translations['home.why.c3.d'] || 'No subscriptions, no watermarks, no credit packs, and no hidden fees. High-definition photo editing made accessible for all.'}</p>
+                      <div class="mt-4 sm:mt-6 flex items-center gap-2 text-xs font-mono text-[#05DAED] font-bold">
+                        <span>${translations['home.why.c3.b'] || '$0 / Lifetime'}</span>
+                      </div>
+                    </div>
+
+                    <div class="p-6 sm:p-8 rounded-3xl bg-dark-800/40 border border-dark-500/60 relative overflow-hidden group hover:border-[#12DA91]/50 transition-all duration-300">
+                      <div class="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-[#12DA91]/10 flex items-center justify-center text-[#12DA91] mb-4 sm:mb-6 border border-[#12DA91]/30">
+                        <svg class="w-6 h-6 sm:w-7 sm:h-7 stroke-[2.5]" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><rect width="16" height="16" x="4" y="4" rx="2"/><rect width="6" height="6" x="9" y="9" rx="1"/><path d="M15 2v2"/><path d="M15 20v2"/><path d="M2 15h2"/><path d="M2 9h2"/><path d="M20 15h2"/><path d="M20 9h2"/><path d="M9 2v2"/><path d="M9 20v2"/></svg>
+                      </div>
+                      <h3 class="text-lg sm:text-xl font-heading font-bold text-white mb-2 sm:mb-3">${translations['home.why.c4.t'] || 'Extreme Local Performance'}</h3>
+                      <p class="text-slate-400 text-sm leading-relaxed">${translations['home.why.c4.d'] || 'Accelerated by WebAssembly SIMD and WebGPU. Native performance directly inside modern browsers on mobile and desktop.'}</p>
+                      <div class="mt-4 sm:mt-6 flex items-center gap-2 text-xs font-mono text-[#12DA91] font-bold">
+                        <span>${translations['home.why.c4.b'] || 'WASM Accelerated'}</span>
+                      </div>
+                    </div>
+                  </div>
+                </section>
+
+                <!-- 2. HOW IT WORKS IN 3 STEPS -->
+                <section class="max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8">
+                  <div class="text-center max-w-3xl mx-auto mb-16 px-4">
+                    <span class="text-xs font-mono font-bold uppercase tracking-widest text-[#05DAED] bg-[#05DAED]/10 px-3 py-1.5 rounded-full border border-[#05DAED]/30 inline-block mx-auto mb-4">
+                      ${translations['home.how.tag'] || 'HOW IT WORKS IN 3 SIMPLE STEPS'}
+                    </span>
+                    <h2 class="font-heading font-extrabold text-white text-2xl sm:text-4xl tracking-tight leading-snug">
+                      ${translations['home.how.title'] || 'Effortless Photo Editing Directly in Your Browser'}
+                    </h2>
+                  </div>
+                  <div class="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
+                    <div class="p-8 rounded-3xl bg-dark-800/40 border border-dark-500/60 relative overflow-hidden flex flex-col gap-4">
+                      <span class="text-xs font-semibold text-[#05DAED] uppercase tracking-wider">${sec.step1Badge}</span>
+                      <h3 class="text-xl font-bold text-white font-heading">${translations['home.how.s1.t'] || '1. Drop Your Photos'}</h3>
+                      <p class="text-slate-400 text-sm leading-relaxed">${translations['home.how.s1.d'] || 'Select or drag-and-drop single or multiple photos (PNG, JPG, WEBP, SVG) into our ultra-responsive client workspace.'}</p>
+                    </div>
+                    <div class="p-8 rounded-3xl bg-dark-800/40 border border-dark-500/60 relative overflow-hidden flex flex-col gap-4">
+                      <span class="text-xs font-semibold text-[#05DAED] uppercase tracking-wider">${sec.step2Badge}</span>
+                      <h3 class="text-xl font-bold text-white font-heading">${translations['home.how.s2.t'] || '2. Instant Client Processing'}</h3>
+                      <p class="text-slate-400 text-sm leading-relaxed">${translations['home.how.s2.d'] || 'Choose your desired action: remove background, compress size, convert format, or resize. Neural networks process locally in milliseconds.'}</p>
+                    </div>
+                    <div class="p-8 rounded-3xl bg-dark-800/40 border border-dark-500/60 relative overflow-hidden flex flex-col gap-4">
+                      <span class="text-xs font-semibold text-[#05DAED] uppercase tracking-wider">${sec.step3Badge}</span>
+                      <h3 class="text-xl font-bold text-white font-heading">${translations['home.how.s3.t'] || '3. Download Crisp Exports'}</h3>
+                      <p class="text-slate-400 text-sm leading-relaxed">${translations['home.how.s3.d'] || 'Export pixel-perfect, lossless PNG or optimized JPG files individually or in bulk ZIP archives with 0 watermarks.'}</p>
+                    </div>
+                  </div>
+                </section>
+
+                <!-- Academic Research Section -->
+                ${scientificResearchHtml}
+
+                <!-- FAQ Section -->
+                <section class="max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 border-t border-slate-800/80 pt-16 flex flex-col gap-8">
+                  <div class="text-center max-w-3xl mx-auto">
+                    <span class="text-xs font-mono font-bold uppercase tracking-widest text-[#05DAED] bg-[#05DAED]/10 px-3 py-1.5 rounded-full border border-[#05DAED]/30 inline-block mx-auto mb-4">
+                      ${translations['faq.badge'] || 'FAQ'}
+                    </span>
+                    <h2 class="text-2xl md:text-4xl font-heading font-extrabold text-white tracking-tight">${sec.faq}</h2>
+                  </div>
+                  <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    ${faqItemsHtml}
+                  </div>
+                </section>
+              </div>
             </div>
-          </section>
+          </div>
         </main>
         ${footerHtml}
       </div>
@@ -1159,10 +1440,21 @@ function generateSemanticHtml(lang, urlPath, title, desc, tool, infoPage, transl
   // =========================================================================
   const baseTool = TOOL_BASE_MAP[tool] || 'remove';
   
-  // 1. Tool Specific H1 & Hero
+  // 1. Tool Specific H1 & Hero matching Hero.tsx
   const heroBadge = translations[`landing.${baseTool}.redesign.heroBadge`] || translations[`tab.${baseTool}`] || 'AI TOOL';
-  const heroTitle = translations[`landing.${baseTool}.redesign.heroTitle`] || translations[`landing.default.title.${tool}`] || h1;
+  const rawHeroTitle = translations[`landing.${baseTool}.redesign.heroTitle`] || translations[`landing.default.title.${tool}`] || h1;
   const heroDesc = translations[`landing.${baseTool}.redesign.heroDesc`] || translations[`landing.default.desc.${tool}`] || overviewText;
+
+  const cleanHeroTitle = rawHeroTitle.split(' - ')[0].trim();
+  const words = cleanHeroTitle.split(' ');
+  const solidPart = words.slice(0, 1).join(' ');
+  const gradientPart = words.slice(1).join(' ');
+
+  // Dropzone matching WorkspaceDropzone.tsx
+  const dropzoneTitleClean = (translations['dropzone.title'] || sec.dropzoneTitle).replace(/^[⚡✨🔄\s]+/u, '');
+  const dropzoneSubtitle = translations['dropzone.subtitle'] || sec.dropzonePrompt;
+  const dropzoneBtnClean = (translations['dropzone.btn'] || sec.dropzoneBtn).replace(/^[⚡✨🔄\s]+/u, '');
+  const dropzonePrivacy = translations['dropzone.privacy'] || '🔒 100% Private: AI processing runs locally in your browser';
 
   // 2. Features Cards (Up to 4)
   let featuresCardsHtml = '';
@@ -1171,11 +1463,11 @@ function generateSemanticHtml(lang, urlPath, title, desc, tool, infoPage, transl
     const featDesc = translations[`landing.${baseTool}.redesign.feat${i}Desc`] || translations[`landing.${baseTool}.feat${i}.desc`];
     if (!featTitle) continue;
     featuresCardsHtml += `
-      <div class="p-6 rounded-2xl bg-slate-900/50 border border-slate-800 flex flex-col gap-3">
+      <div class="p-6 sm:p-8 rounded-3xl bg-dark-800/40 border border-dark-500/60 flex flex-col gap-3 group hover:border-[#05DAED]/50 transition-all">
         <div class="w-8 h-8 rounded-lg bg-[#05DAED]/10 text-[#05DAED] flex items-center justify-center font-bold text-sm">
           ${i}
         </div>
-        <h3 class="text-lg font-bold text-white">${featTitle}</h3>
+        <h3 class="text-lg font-bold text-white font-heading">${featTitle}</h3>
         <p class="text-sm text-slate-400 leading-relaxed">${featDesc || ''}</p>
       </div>
     `;
@@ -1195,10 +1487,10 @@ function generateSemanticHtml(lang, urlPath, title, desc, tool, infoPage, transl
     const sDesc = translations[`landing.${baseTool}.redesign.s${i}Desc`] || (i === 1 ? 'Select or drop your photo file in any format.' : i === 2 ? 'Local browser neural engine executes instant transformation.' : 'Export your high-resolution crystal-clear output.');
     const sBadge = i === 1 ? sec.step1Badge : i === 2 ? sec.step2Badge : sec.step3Badge;
     stepsCardsHtml += `
-      <div class="p-6 rounded-2xl bg-slate-900/70 border border-slate-800 flex flex-col gap-3">
+      <div class="p-6 sm:p-8 rounded-3xl bg-dark-800/40 border border-dark-500/60 flex flex-col gap-3">
         <span class="text-xs font-semibold text-[#05DAED] uppercase tracking-wider">${sBadge}</span>
-        <h3 class="text-lg font-bold text-white">${sTitle}</h3>
-        <p class="text-sm text-slate-300 leading-relaxed">${sDesc}</p>
+        <h3 class="text-lg font-bold text-white font-heading">${sTitle}</h3>
+        <p class="text-sm text-slate-400 leading-relaxed">${sDesc}</p>
       </div>
     `;
   }
@@ -1210,8 +1502,8 @@ function generateSemanticHtml(lang, urlPath, title, desc, tool, infoPage, transl
     const wTitle = translations[`landing.${baseTool}.redesign.who${i}Title`] || translations[`landing.${baseTool}.who.c${i}.title`] || (i === 1 ? 'E-Commerce Sellers' : i === 2 ? 'Graphic Designers' : i === 3 ? 'Job Seekers & Students' : 'Web Agencies');
     const wDesc = translations[`landing.${baseTool}.redesign.who${i}Desc`] || translations[`landing.${baseTool}.who.c${i}.desc`] || 'Optimize workflows and speed up visual production without recurring SaaS subscription costs.';
     whoCardsHtml += `
-      <div class="p-6 rounded-2xl bg-slate-900/40 border border-slate-800 flex flex-col gap-2">
-        <h3 class="text-base font-bold text-white">${wTitle}</h3>
+      <div class="p-6 rounded-2xl bg-dark-800/40 border border-dark-500/60 flex flex-col gap-2">
+        <h3 class="text-base font-bold text-white font-heading">${wTitle}</h3>
         <p class="text-xs text-slate-400 leading-relaxed">${wDesc}</p>
       </div>
     `;
@@ -1225,9 +1517,9 @@ function generateSemanticHtml(lang, urlPath, title, desc, tool, infoPage, transl
   if (matrixItem && matrixItem.faqs && matrixItem.faqs.length > 0) {
     for (const item of matrixItem.faqs) {
       faqListHtml += `
-        <div class="p-6 rounded-2xl bg-slate-900/50 border border-slate-800 flex flex-col gap-2">
-          <h3 class="text-base font-bold text-white">${item.question}</h3>
-          <p class="text-sm text-slate-300 leading-relaxed">${item.answer}</p>
+        <div class="p-6 sm:p-8 rounded-3xl bg-dark-800/40 border border-dark-500/60 flex flex-col gap-2">
+          <h3 class="text-base font-bold text-white font-heading">${item.question}</h3>
+          <p class="text-sm text-slate-400 leading-relaxed">${item.answer}</p>
         </div>
       `;
     }
@@ -1237,9 +1529,9 @@ function generateSemanticHtml(lang, urlPath, title, desc, tool, infoPage, transl
       const a = translations[`landing.${baseTool}.faq${i}.a`] || translations[`landing.remove.faq${i}.a`];
       if (q && a) {
         faqListHtml += `
-          <div class="p-6 rounded-2xl bg-slate-900/50 border border-slate-800 flex flex-col gap-2">
-            <h3 class="text-base font-bold text-white">${q}</h3>
-            <p class="text-sm text-slate-300 leading-relaxed">${a}</p>
+          <div class="p-6 sm:p-8 rounded-3xl bg-dark-800/40 border border-dark-500/60 flex flex-col gap-2">
+            <h3 class="text-base font-bold text-white font-heading">${q}</h3>
+            <p class="text-sm text-slate-400 leading-relaxed">${a}</p>
           </div>
         `;
       }
@@ -1247,109 +1539,118 @@ function generateSemanticHtml(lang, urlPath, title, desc, tool, infoPage, transl
   }
 
   return `
-    <div class="min-h-screen bg-[#0a0d14] text-slate-100 font-sans selection:bg-[#05DAED]/30 selection:text-[#05DAED]" ${dirAttr}>
+    <div class="min-h-screen bg-dark-900 text-slate-900 dark:text-slate-100 font-body flex flex-col transition-colors duration-300 selection:bg-[#05DAED]/30 selection:text-[#05DAED]" ${dirAttr}>
+      <div class="fixed top-1/2 left-0 w-[500px] h-[500px] -translate-x-1/2 -translate-y-1/2 bg-[radial-gradient(circle_at_center,rgba(5,218,237,0.12)_0%,transparent_60%)] rounded-full pointer-events-none -z-10"></div>
+      <div class="fixed top-1/3 right-0 w-[600px] h-[600px] translate-x-1/3 -translate-y-1/2 bg-[radial-gradient(circle_at_center,rgba(79,70,229,0.1)_0%,transparent_60%)] rounded-full pointer-events-none -z-10"></div>
       ${navbarHtml}
-      <main class="max-w-5xl mx-auto px-4 py-12 flex flex-col gap-16">
-        <!-- Hero Section -->
-        <section class="text-center flex flex-col items-center gap-6 max-w-4xl mx-auto">
-          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-semibold bg-[#05DAED]/10 text-[#05DAED] border border-[#05DAED]/30">
-            ${heroBadge} • ${sec.privacyBadge}
-          </div>
-          <h1 class="text-3xl md:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-tight">
-            ${heroTitle}
-          </h1>
-          <p class="text-base md:text-lg text-slate-300 leading-relaxed max-w-2xl">
-            ${heroDesc}
-          </p>
-        </section>
-
-        <!-- Interactive Workspace / Dropzone Representation -->
-        <section class="border-2 border-dashed border-slate-700 hover:border-[#05DAED]/50 rounded-3xl p-8 md:p-14 text-center bg-slate-900/40 flex flex-col items-center justify-center gap-4 transition-colors">
-          <div class="w-16 h-16 rounded-2xl bg-[#05DAED]/10 text-[#05DAED] flex items-center justify-center text-3xl font-bold">
-            ↑
-          </div>
-          <div class="flex flex-col gap-1">
-            <h3 class="text-lg md:text-xl font-bold text-white">${sec.dropzoneTitle}</h3>
-            <p class="text-sm text-slate-400 max-w-md">${sec.dropzonePrompt}</p>
-          </div>
-          <button type="button" class="mt-2 px-6 py-3 rounded-xl bg-[#05DAED] hover:bg-[#05DAED]/90 text-slate-950 font-bold text-sm shadow-lg shadow-[#05DAED]/20 transition-all pointer-events-none">
-            ${sec.dropzoneBtn}
-          </button>
-          <div class="flex flex-wrap gap-3 justify-center text-xs text-slate-500 mt-2">
-            <span>PNG</span> • <span>JPG</span> • <span>WEBP</span> • <span>SVG</span> • <span class="text-[#05DAED]">${sec.clientSideBadge}</span>
-          </div>
-        </section>
-
-        <!-- Key Features Section -->
-        <section class="flex flex-col gap-6">
-          <div class="flex flex-col gap-2">
-            <h2 class="text-2xl md:text-3xl font-bold text-white tracking-tight">${sec.features}</h2>
-            <p class="text-sm text-slate-400">${featSub}</p>
-          </div>
-          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            ${featuresCardsHtml}
-          </div>
-        </section>
-
-        <!-- Step-by-Step How-To Guide -->
-        <section class="flex flex-col gap-6 bg-slate-900/30 border border-slate-800/80 rounded-3xl p-6 md:p-10">
-          <div class="flex flex-col gap-2">
-            <h2 class="text-2xl md:text-3xl font-bold text-white tracking-tight">${stepsTitle}</h2>
-            <p class="text-sm text-slate-400">${stepsSub}</p>
-          </div>
-          <ol class="grid grid-cols-1 md:grid-cols-3 gap-6">
-            ${stepsCardsHtml}
-          </ol>
-        </section>
-
-        <!-- Target Audience Section -->
-        <section class="flex flex-col gap-6">
-          <div class="flex flex-col gap-2">
-            <h2 class="text-2xl md:text-3xl font-bold text-white tracking-tight">${whoTitle}</h2>
-            <p class="text-sm text-slate-400">${whoSub}</p>
-          </div>
-          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-            ${whoCardsHtml}
-          </div>
-        </section>
-
-        <!-- Technical Specifications & Privacy Architecture -->
-        <section class="flex flex-col gap-6 border-t border-slate-800/80 pt-12">
-          <div class="flex flex-col gap-2">
-            <h2 class="text-2xl md:text-3xl font-bold text-white tracking-tight">${sec.tech}</h2>
-            <p class="text-sm text-slate-300 leading-relaxed">
-              ${translations['about.sec1.desc3'] || translations['privacy.s1.desc1'] || 'HelpMyIMG operates on a 100% decentralized, client-side computing paradigm. Unlike traditional SaaS image editors that transmit your private photo bytes across third-party cloud servers, our architecture compiles production-grade computer vision models directly into WebAssembly (WASM) and leverages your devices native GPU via WebGPU and OffscreenCanvas.'}
+      <main class="flex-1 w-full flex flex-col min-h-screen gap-8 md:gap-16 pt-12 pb-16">
+        <!-- Hero Section matching Hero.tsx -->
+        <section class="relative pt-2 md:pt-6 pb-2 overflow-hidden flex flex-col items-center justify-center text-center">
+          <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[500px] bg-gradient-to-b from-slate-100 dark:from-dark-800 to-transparent opacity-50 pointer-events-none -z-10"></div>
+          <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 w-full animate-in fade-in slide-in-from-bottom-8 duration-700">
+            <h1 class="font-heading font-black mb-6 text-center" style="font-size: clamp(2.2rem, 6vw, 4.5rem); font-weight: 900; letter-spacing: -0.03em; line-height: 1.15;">
+              <span class="text-slate-800 dark:text-slate-100 inline">${solidPart}</span> <span class="bg-gradient-to-r from-neon-cyan via-neon-emerald to-neon-indigo bg-clip-text text-transparent drop-shadow-sm inline">${gradientPart}</span>
+            </h1>
+            <p class="text-slate-600 dark:text-slate-400 max-w-2xl mx-auto mb-10" style="font-size: clamp(0.9rem, 2vw, 1.25rem); font-weight: 500; line-height: 1.6;">
+              ${heroDesc}
             </p>
           </div>
-          <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-sm text-slate-300">
-            <div class="p-6 rounded-2xl bg-slate-900/40 border border-slate-800 flex flex-col gap-2">
-              <strong class="text-white text-base">${translations['about.tech.b1.title'] || 'WebAssembly (WASM)'}</strong>
-              <p class="text-xs text-slate-400 leading-relaxed">${translations['about.tech.b1.desc'] || translations['about.feature.local.desc'] || 'Neural network inference runs locally on your device CPU/GPU in an isolated background thread.'}</p>
-            </div>
-            <div class="p-6 rounded-2xl bg-slate-900/40 border border-slate-800 flex flex-col gap-2">
-              <strong class="text-white text-base">${translations['about.feature.privacy'] || '100% Privacy Guarantee'}</strong>
-              <p class="text-xs text-slate-400 leading-relaxed">${translations['privacy.highlight.desc'] || translations['about.feature.privacy.desc'] || 'Photos never leave your hard drive or browser memory. Zero server uploads.'}</p>
-            </div>
-            <div class="p-6 rounded-2xl bg-slate-900/40 border border-slate-800 flex flex-col gap-2">
-              <strong class="text-white text-base">${translations['about.feature.fast'] || 'Lossless Precision Output'}</strong>
-              <p class="text-xs text-slate-400 leading-relaxed">${translations['about.feature.fast.desc'] || 'Native Canvas 2D color pipeline maintains pixel dimensions and color fidelity.'}</p>
-            </div>
-          </div>
         </section>
 
-        <!-- Scientific Bibliography & Foundations -->
-        ${scientificResearchHtml}
+        <!-- Workspace Dropzone matching WorkspaceDropzone.tsx -->
+        <div class="w-full max-w-4xl mx-auto -mt-4 relative z-10 px-4">
+          <div class="w-full min-h-[320px] sm:min-h-[380px] md:min-h-0 md:aspect-[4/3] rounded-3xl border-2 border-dashed transition-all duration-300 flex flex-col items-center justify-center p-6 sm:p-10 text-center cursor-pointer relative overflow-hidden group border-dark-500/80 bg-dark-800/40 hover:border-neon-cyan/60 hover:bg-dark-800/70">
+            <div class="w-14 h-14 md:w-20 md:h-20 rounded-2xl bg-gradient-to-tr from-neon-cyan/20 to-neon-indigo/20 border border-neon-cyan/40 flex items-center justify-center mb-3 md:mb-6 shadow-lg group-hover:scale-110 transition-transform duration-300">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-7 h-7 md:w-10 md:h-10 text-neon-cyan animate-bounce"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" x2="12" y1="3" y2="15"/></svg>
+            </div>
+            <h3 class="text-lg md:text-2xl font-heading font-extrabold text-white mb-2 px-2 tracking-tight">
+              ${dropzoneTitleClean}
+            </h3>
+            <p class="text-xs md:text-sm text-slate-400 max-w-md mx-auto mb-6 px-4 leading-relaxed font-body">
+              ${dropzoneSubtitle}
+            </p>
+            <div class="inline-flex items-center justify-center gap-2.5 px-8 py-3.5 sm:px-10 sm:py-4 rounded-2xl bg-gradient-to-r from-neon-cyan via-neon-emerald to-neon-indigo text-dark-900 font-extrabold shadow-glow-cyan transform group-hover:-translate-y-0.5 transition-all text-sm sm:text-base tracking-wide mb-6 md:mb-0 shadow-lg cursor-pointer">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" stroke="none" class="w-4 h-4 shrink-0"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/></svg>
+              <span>${dropzoneBtnClean}</span>
+            </div>
+            <div class="md:absolute md:bottom-4 left-0 right-0 text-center text-[10px] md:text-xs text-slate-400/80 font-medium px-4">
+              ${dropzonePrivacy}
+            </div>
+          </div>
+        </div>
 
-        <!-- Frequently Asked Questions (FAQ) -->
-        <section class="flex flex-col gap-6 border-t border-slate-800/80 pt-12">
-          <div class="flex flex-col gap-2">
-            <h2 class="text-2xl md:text-3xl font-bold text-white tracking-tight">${faqTitle}</h2>
-            <p class="text-sm text-slate-400">${faqSub}</p>
-          </div>
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-            ${faqListHtml}
-          </div>
-        </section>
+        <div class="mt-20 max-w-5xl mx-auto px-4 w-full flex flex-col gap-16">
+          <!-- Key Features Section -->
+          <section class="flex flex-col gap-6">
+            <div class="flex flex-col gap-2">
+              <h2 class="text-2xl md:text-3xl font-heading font-bold text-white tracking-tight">${sec.features}</h2>
+              <p class="text-sm text-slate-400">${featSub}</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              ${featuresCardsHtml}
+            </div>
+          </section>
+
+          <!-- Step-by-Step How-To Guide -->
+          <section class="flex flex-col gap-6 bg-dark-800/30 border border-dark-500/60 rounded-3xl p-6 md:p-10">
+            <div class="flex flex-col gap-2">
+              <h2 class="text-2xl md:text-3xl font-heading font-bold text-white tracking-tight">${stepsTitle}</h2>
+              <p class="text-sm text-slate-400">${stepsSub}</p>
+            </div>
+            <ol class="grid grid-cols-1 md:grid-cols-3 gap-6">
+              ${stepsCardsHtml}
+            </ol>
+          </section>
+
+          <!-- Target Audience Section -->
+          <section class="flex flex-col gap-6">
+            <div class="flex flex-col gap-2">
+              <h2 class="text-2xl md:text-3xl font-heading font-bold text-white tracking-tight">${whoTitle}</h2>
+              <p class="text-sm text-slate-400">${whoSub}</p>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+              ${whoCardsHtml}
+            </div>
+          </section>
+
+          <!-- Technical Specifications & Privacy Architecture -->
+          <section class="flex flex-col gap-6 border-t border-slate-800/80 pt-12">
+            <div class="flex flex-col gap-2">
+              <h2 class="text-2xl md:text-3xl font-heading font-bold text-white tracking-tight">${sec.tech}</h2>
+              <p class="text-sm text-slate-300 leading-relaxed">
+                ${translations['about.sec1.desc3'] || translations['privacy.s1.desc1'] || 'HelpMyIMG operates on a 100% decentralized, client-side computing paradigm. Unlike traditional SaaS image editors that transmit your private photo bytes across third-party cloud servers, our architecture compiles production-grade computer vision models directly into WebAssembly (WASM) and leverages your device native GPU via WebGPU and OffscreenCanvas.'}
+              </p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-sm text-slate-300">
+              <div class="p-6 rounded-2xl bg-dark-800/40 border border-dark-500/60 flex flex-col gap-2">
+                <strong class="text-white text-base font-heading">${translations['about.tech.b1.title'] || 'WebAssembly (WASM)'}</strong>
+                <p class="text-xs text-slate-400 leading-relaxed">${translations['about.tech.b1.desc'] || translations['about.feature.local.desc'] || 'Neural network inference runs locally on your device CPU/GPU in an isolated background thread.'}</p>
+              </div>
+              <div class="p-6 rounded-2xl bg-dark-800/40 border border-dark-500/60 flex flex-col gap-2">
+                <strong class="text-white text-base font-heading">${translations['about.feature.privacy'] || '100% Privacy Guarantee'}</strong>
+                <p class="text-xs text-slate-400 leading-relaxed">${translations['privacy.highlight.desc'] || translations['about.feature.privacy.desc'] || 'Photos never leave your hard drive or browser memory. Zero server uploads.'}</p>
+              </div>
+              <div class="p-6 rounded-2xl bg-dark-800/40 border border-dark-500/60 flex flex-col gap-2">
+                <strong class="text-white text-base font-heading">${translations['about.feature.fast'] || 'Lossless Precision Output'}</strong>
+                <p class="text-xs text-slate-400 leading-relaxed">${translations['about.feature.fast.desc'] || 'Native Canvas 2D color pipeline maintains pixel dimensions and color fidelity.'}</p>
+              </div>
+            </div>
+          </section>
+
+          <!-- Scientific Bibliography & Foundations -->
+          ${scientificResearchHtml}
+
+          <!-- Frequently Asked Questions (FAQ) -->
+          <section class="flex flex-col gap-6 border-t border-slate-800/80 pt-12">
+            <div class="flex flex-col gap-2">
+              <h2 class="text-2xl md:text-3xl font-heading font-bold text-white tracking-tight">${faqTitle}</h2>
+              <p class="text-sm text-slate-400">${faqSub}</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+              ${faqListHtml}
+            </div>
+          </section>
+        </div>
       </main>
       ${footerHtml}
     </div>
@@ -1368,8 +1669,8 @@ const generateHtml = (lang, urlPath, rawTitle, rawDesc, tool = null, translation
   html = html.replace(/<meta name="description"[^>]*>\n?\s*/gi, '');
   html = html.replace(/<title>.*?<\/title>/i, '');
 
-  // 1. Replace <html lang="en">
-  html = html.replace(/<html lang="[^"]+">/i, `<html lang="${lang}">`);
+  // 1. Replace <html lang="..."> and enforce dark mode class
+  html = html.replace(/<html[^>]*>/i, `<html lang="${lang}" class="dark">`);
 
   // 2. Generate and inject dynamic hreflangs for THIS specific route
   let dynamicHreflangs = `<!-- Dynamic Localized Hreflang Tags for 30 Languages -->\n`;
