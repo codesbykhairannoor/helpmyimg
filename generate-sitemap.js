@@ -157,6 +157,33 @@ sitemapIndex += '</sitemapindex>';
 const masterSitemapPath = path.join(publicDir, 'sitemap.xml');
 fs.writeFileSync(masterSitemapPath, sitemapIndex, 'utf8');
 
+// Generate Valid RSS 2.0 Feed (feed.xml & rss.xml) for search engines and RSS aggregators
+let rssXml = `<?xml version="1.0" encoding="UTF-8"?>\n<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">\n  <channel>\n`;
+rssXml += `    <title>HelpMyIMG — In-Browser AI Photo Editor Suite</title>\n`;
+rssXml += `    <link>${DOMAIN}/</link>\n`;
+rssXml += `    <description>100% Free, Private, In-Browser AI Image Editing Suite via WebAssembly. Remove backgrounds, compress, resize, and convert images.</description>\n`;
+rssXml += `    <language>en</language>\n`;
+rssXml += `    <lastBuildDate>${new Date().toUTCString()}</lastBuildDate>\n`;
+rssXml += `    <atom:link href="${DOMAIN}/feed.xml" rel="self" type="application/rss+xml" />\n`;
+
+for (const tool of baseTools) {
+  const slug = getLocalizedSlug(tool, 'en');
+  const toolUrl = `${DOMAIN}/${slug}/`;
+  const cleanTitle = slug.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
+  rssXml += `    <item>\n`;
+  rssXml += `      <title>${cleanTitle} - Free Online Tool</title>\n`;
+  rssXml += `      <link>${toolUrl}</link>\n`;
+  rssXml += `      <guid isPermaLink="true">${toolUrl}</guid>\n`;
+  rssXml += `      <description>Free ${cleanTitle} tool running 100% client-side with zero server uploads.</description>\n`;
+  rssXml += `      <pubDate>${new Date().toUTCString()}</pubDate>\n`;
+  rssXml += `    </item>\n`;
+}
+
+rssXml += `  </channel>\n</rss>`;
+fs.writeFileSync(path.join(publicDir, 'feed.xml'), rssXml, 'utf8');
+fs.writeFileSync(path.join(publicDir, 'rss.xml'), rssXml, 'utf8');
+console.log(`✓ Generated [feed.xml] and [rss.xml] with ${baseTools.length} tool feeds.`);
+
 console.log(`\n✅ Clean sitemap generated: ${allUrls.length} real URLs across ${LANGS.length} per-language shards.`);
 console.log(`   → sitemap.xml points to ${shardFiles.length} language-specific sitemaps`);
 console.log(`   → Every URL has a real HTML file in dist/`);

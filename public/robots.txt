@@ -23,6 +23,8 @@ Allow: /llms-full.txt
 Allow: /ai.txt
 Allow: /llm.txt
 Allow: /llm-*.txt
+Allow: /feed.xml
+Allow: /rss.xml
 
 # Disallow non-public or technical system paths
 Disallow: /_vercel/
