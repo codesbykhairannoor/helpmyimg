@@ -70,7 +70,11 @@ export function useWorkspaceCore(initialTab: TabType = 'remove'): UseWorkspaceCo
         });
       }
 
-      const newItems: BatchItem[] = fileArray.map((f) => {
+      const newItems: BatchItem[] = fileArray.map((rawFile) => {
+        let f = rawFile;
+        if (rawFile.name.toLowerCase().endsWith('.svg') && (!rawFile.type || !rawFile.type.includes('svg'))) {
+          f = new File([rawFile], rawFile.name, { type: 'image/svg+xml' });
+        }
         const url = URL.createObjectURL(f);
         return {
           id: `img_${Date.now()}_${Math.random().toString(36).substring(2, 7)}`,

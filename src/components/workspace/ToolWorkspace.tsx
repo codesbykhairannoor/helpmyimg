@@ -213,7 +213,7 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({
             ref={fileInputRef}
             type="file"
             multiple
-            accept="image/*,image/png,image/jpeg,image/webp,image/jpg"
+            accept="image/*,.svg,image/svg+xml,image/png,image/jpeg,image/webp,image/jpg,image/avif,image/gif,image/bmp,image/x-icon"
             onChange={(e) => {
               if (e.target.files && e.target.files.length > 0) {
                 handleFiles(e.target.files);

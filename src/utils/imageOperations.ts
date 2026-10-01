@@ -13,9 +13,80 @@ export interface ImageOpConfig {
 }
 
 /**
- * Helper to load file into an Image object
+ * Helper to safely load file or SVG into an Image object
  */
-function loadImage(file: File | Blob): Promise<HTMLImageElement> {
+export async function loadImage(file: File | Blob): Promise<HTMLImageElement> {
+  const isSvg =
+    file.type === 'image/svg+xml' ||
+    (file instanceof File && file.name.toLowerCase().endsWith('.svg'));
+
+  if (isSvg) {
+    try {
+      const text = await file.text();
+      const parser = new DOMParser();
+      const doc = parser.parseFromString(text, 'image/svg+xml');
+      const svgEl = doc.querySelector('svg');
+
+      if (svgEl) {
+        if (!svgEl.getAttribute('xmlns')) {
+          svgEl.setAttribute('xmlns', 'http://www.w3.org/2000/svg');
+        }
+
+        const widthAttr = svgEl.getAttribute('width');
+        const heightAttr = svgEl.getAttribute('height');
+        const viewBox = svgEl.getAttribute('viewBox');
+
+        let vbW = 0;
+        let vbH = 0;
+        if (viewBox) {
+          const parts = viewBox.trim().split(/[\s,]+/).map(Number);
+          if (parts.length === 4 && parts[2] > 0 && parts[3] > 0) {
+            vbW = parts[2];
+            vbH = parts[3];
+          }
+        }
+
+        const isNumeric = (val: string | null) => val && !val.includes('%') && parseFloat(val) > 0;
+        let finalW = isNumeric(widthAttr) ? parseFloat(widthAttr!) : (vbW || 1024);
+        let finalH = isNumeric(heightAttr) ? parseFloat(heightAttr!) : (vbH || 1024);
+
+        // Jika SVG berukuran icon kecil (< 256px), scale up agar hasil render PNG/JPG super tajam
+        if (finalW < 256 && finalH < 256 && finalW > 0 && finalH > 0) {
+          const scale = Math.max(1024 / finalW, 1024 / finalH);
+          finalW = Math.round(finalW * scale);
+          finalH = Math.round(finalH * scale);
+        }
+
+        svgEl.setAttribute('width', finalW.toString());
+        svgEl.setAttribute('height', finalH.toString());
+
+        const serializer = new XMLSerializer();
+        const cleanSvg = serializer.serializeToString(svgEl);
+        const svgBlob = new Blob([cleanSvg], { type: 'image/svg+xml;charset=utf-8' });
+        const svgUrl = URL.createObjectURL(svgBlob);
+
+        return await new Promise<HTMLImageElement>((resolve, reject) => {
+          const img = new Image();
+          img.onload = () => {
+            URL.revokeObjectURL(svgUrl);
+            resolve(img);
+          };
+          img.onerror = () => {
+            URL.revokeObjectURL(svgUrl);
+            const dataUrl = `data:image/svg+xml;charset=utf-8,${encodeURIComponent(cleanSvg)}`;
+            const fallbackImg = new Image();
+            fallbackImg.onload = () => resolve(fallbackImg);
+            fallbackImg.onerror = () => reject(new Error('Gagal memuat file SVG'));
+            fallbackImg.src = dataUrl;
+          };
+          img.src = svgUrl;
+        });
+      }
+    } catch (e) {
+      console.warn('SVG preprocessing error, falling back to standard loader', e);
+    }
+  }
+
   return new Promise((resolve, reject) => {
     const url = URL.createObjectURL(file);
     const img = new Image();
@@ -38,8 +109,12 @@ export async function processImage(file: Blob | File, config: ImageOpConfig): Pr
   const img = await loadImage(file);
   
   // Hitung dimensi akhir
-  let finalWidth = img.width;
-  let finalHeight = img.height;
+  let finalWidth = img.naturalWidth || img.width;
+  let finalHeight = img.naturalHeight || img.height;
+  if (!finalWidth || !finalHeight) {
+    finalWidth = config.width || 800;
+    finalHeight = config.height || 800;
+  }
 
   if (config.width || config.height) {
     if (config.maintainAspectRatio) {
