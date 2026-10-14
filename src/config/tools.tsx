@@ -12,7 +12,9 @@ import {
   Wand2,
   Palette,
   Eraser,
-  Pipette
+  Pipette,
+  ShieldCheck,
+  Camera
 } from 'lucide-react';
 
 export type ToolCategory = 'optimize' | 'modify' | 'security' | 'edit';
@@ -151,6 +153,16 @@ export const tools: ToolItem[] = [
     descKey: 'brush.desc',
     defaultTitle: 'Magic Brush Eraser',
     defaultDesc: 'Manually restore or erase parts of your image for perfect edges.',
+    isNew: true,
+  },
+  {
+    id: 'metadata',
+    category: 'security',
+    icon: ShieldCheck,
+    titleKey: 'nav.metadata',
+    descKey: 'grid.metadataDesc',
+    defaultTitle: 'AI Metadata & C2PA Cleaner',
+    defaultDesc: 'Losslessly strip C2PA / AI watermarks or inject authentic studio DSLR camera EXIF.',
     isNew: true,
   }
 ];

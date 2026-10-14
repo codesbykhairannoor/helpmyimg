@@ -31,7 +31,8 @@ export type TabType =
   | 'picker' 
   | 'blurface' 
   | 'blurplate' 
-  | 'design';
+  | 'design'
+  | 'metadata';
 
 export type CutoutMode = 'photo' | 'logo';
 
