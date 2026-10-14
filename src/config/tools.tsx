@@ -164,6 +164,16 @@ export const tools: ToolItem[] = [
     defaultTitle: 'AI Metadata & C2PA Cleaner',
     defaultDesc: 'Losslessly strip C2PA / AI watermarks or inject authentic studio DSLR camera EXIF.',
     isNew: true,
+  },
+  {
+    id: 'editexif',
+    category: 'modify',
+    icon: Camera,
+    titleKey: 'nav.editexif',
+    descKey: 'grid.editexifDesc',
+    defaultTitle: 'Edit EXIF & Camera Studio',
+    defaultDesc: 'Inject authentic Canon 5D or Sony DSLR metadata, adjust shutter speed, aperture, and dates.',
+    isNew: true,
   }
 ];
 

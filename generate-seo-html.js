@@ -56,7 +56,8 @@ const getLocalizedSlug = (tool, lang) => {
     picker: 'image-color-picker',
     blurface: 'blur-face',
     design: 'advanced-editor',
-    metadata: 'ai-metadata-cleaner'
+    metadata: 'ai-metadata-cleaner',
+    editexif: 'edit-exif'
   };
   return fallbacks[tool] || tool;
 };
@@ -92,7 +93,7 @@ const TOOLS = [
   'remove', 'color', 'watermark', 'compress', 'convert', 'resize', 'crop', 'rotate', 
   'picker', 'blurface', 'design', 'brush', 'compress100kb', 'compress50kb', 'resizeig', 
   'removelogo', 'colorwhite', 'compress200kb', 'resizepassport', 'removeperson', 
-  'convertwebp', 'watermarkbulk', 'blurplate', 'metadata'
+  'convertwebp', 'watermarkbulk', 'blurplate', 'metadata', 'editexif'
 ];
 
 // Tool base mapping for shared feature/FAQ/step translation lookup
@@ -120,7 +121,8 @@ const TOOL_BASE_MAP = {
   convertwebp: 'convert',
   watermarkbulk: 'watermark',
   blurplate: 'blurface',
-  metadata: 'metadata'
+  metadata: 'metadata',
+  editexif: 'editexif'
 };
 
 // 12 Core Homepage Tools Config matching src/config/tools.tsx

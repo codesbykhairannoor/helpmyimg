@@ -32,7 +32,8 @@ export type TabType =
   | 'blurface' 
   | 'blurplate' 
   | 'design'
-  | 'metadata';
+  | 'metadata'
+  | 'editexif';
 
 export type CutoutMode = 'photo' | 'logo';
 

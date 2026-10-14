@@ -24,6 +24,7 @@ import { ColorPickerControl } from './tools/ColorPickerControl';
 import { BlurFaceControl } from './tools/BlurFaceControl';
 import { BlurEngine } from './tools/blur/blurEngine';
 import { MetadataControl } from './tools/MetadataControl';
+import { EditExifControl } from './tools/EditExifControl';
 
 import { processImage, cropImage, rotateImage, smartCropImage, applyWatermark } from '../../utils/imageOperations';
 import { applyStudioPreset } from '../../utils/metadataEngine';
@@ -1106,6 +1107,94 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({
                       setBatchItems([...newItems]);
                     }
                     showToast(t('metadata.batchSuccess', { defaultValue: 'Semua foto berhasil diproses!' }));
+                  }}
+                />
+              )}
+
+              {initialTab === 'editexif' && (
+                <EditExifControl
+                  currentItem={currentItem}
+                  isProcessing={currentItem?.status === 'processing'}
+                  batchCount={batchItems.length}
+                  onReset={handleResetCurrent}
+                  onUploadOther={handleUploadOther}
+                  onDownload={() => {
+                    if (currentItem?.processedUrl) {
+                      const a = document.createElement('a');
+                      a.href = currentItem.processedUrl;
+                      let baseName = currentItem.name || `HelpMyIMG_Studio_${Date.now()}`;
+                      if (baseName.includes('.')) baseName = baseName.substring(0, baseName.lastIndexOf('.'));
+                      a.download = `${baseName}.jpg`;
+                      a.click();
+                    }
+                  }}
+                  onApplyExif={async (presetKey, customOptions) => {
+                    if (currentItem?.file) {
+                      setBatchItems((prev) =>
+                        prev.map((item) =>
+                          item.id === currentItem.id ? { ...item, status: 'processing' } : item
+                        )
+                      );
+                      try {
+                        const newBlob = await applyStudioPreset(currentItem.file, presetKey, customOptions);
+                        const newUrl = URL.createObjectURL(newBlob);
+                        let baseName = currentItem.name || `HelpMyIMG_${Date.now()}`;
+                        if (baseName.includes('.')) baseName = baseName.substring(0, baseName.lastIndexOf('.'));
+                        const newName = `${baseName}.jpg`;
+                        const newFile = new File([newBlob], newName, { type: 'image/jpeg' });
+
+                        setBatchItems((prev) =>
+                          prev.map((item) =>
+                            item.id === currentItem.id
+                              ? {
+                                  ...item,
+                                  file: newFile,
+                                  name: newName,
+                                  processedUrl: newUrl,
+                                  status: 'done',
+                                }
+                              : item
+                          )
+                        );
+                        showToast(t('editexif.successToast', { defaultValue: 'Studio DSLR EXIF metadata berhasil diterapkan!' }));
+                      } catch (err: any) {
+                        console.error('Edit EXIF process failed', err);
+                        setBatchItems((prev) =>
+                          prev.map((item) =>
+                            item.id === currentItem.id
+                              ? { ...item, status: 'error', errorMessage: err.message || 'EXIF modification failed' }
+                              : item
+                          )
+                        );
+                        showToast(t('editexif.failedToast', { defaultValue: 'Gagal memperbarui metadata EXIF foto.' }));
+                      }
+                    }
+                  }}
+                  onProcessBatch={async (presetKey, customOptions) => {
+                    setBatchItems((prev) => prev.map((item) => ({ ...item, status: 'processing' })));
+                    const newItems = [...batchItems];
+                    for (let i = 0; i < newItems.length; i++) {
+                      const item = newItems[i];
+                      try {
+                        const newBlob = await applyStudioPreset(item.file, presetKey, customOptions);
+                        const newUrl = URL.createObjectURL(newBlob);
+                        let baseName = item.name;
+                        if (baseName.includes('.')) baseName = baseName.substring(0, baseName.lastIndexOf('.'));
+                        const newName = `${baseName}.jpg`;
+                        const newFile = new File([newBlob], newName, { type: 'image/jpeg' });
+                        newItems[i] = {
+                          ...item,
+                          file: newFile,
+                          name: newName,
+                          processedUrl: newUrl,
+                          status: 'done',
+                        };
+                      } catch (err: any) {
+                        newItems[i] = { ...item, status: 'error', errorMessage: err.message || 'Failed' };
+                      }
+                      setBatchItems([...newItems]);
+                    }
+                    showToast(t('editexif.batchSuccess', { defaultValue: 'Semua metadata foto berhasil diproses!' }));
                   }}
                 />
               )}

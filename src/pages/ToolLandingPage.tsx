@@ -66,6 +66,8 @@ export const ToolLandingPage: React.FC = () => {
     ? t('brush.title')
     : internalTool === 'metadata'
     ? t('landing.default.title.metadata')
+    : internalTool === 'editexif'
+    ? t('landing.default.title.editexif')
     : t('landing.default.title.remove'));
 
   const defaultH1 = isPseoTool && config ? t(`seo.h1.${internalTool}`, { defaultValue: config.h1 }) : (!tool
@@ -94,6 +96,8 @@ export const ToolLandingPage: React.FC = () => {
     ? t('brush.title')
     : internalTool === 'metadata'
     ? t('landing.default.title.metadata')
+    : internalTool === 'editexif'
+    ? t('landing.default.title.editexif')
     : t('landing.default.title.remove'));
 
   const defaultDesc = isPseoTool && config ? t(`seo.desc.${internalTool}`, { defaultValue: config.description || '' }) : (!tool
@@ -122,6 +126,8 @@ export const ToolLandingPage: React.FC = () => {
     ? t('brush.desc')
     : internalTool === 'metadata'
     ? t('landing.default.desc.metadata')
+    : internalTool === 'editexif'
+    ? t('landing.default.desc.editexif')
     : t('landing.default.desc.remove'));
 
   useEffect(() => {
@@ -193,6 +199,7 @@ export const ToolLandingPage: React.FC = () => {
                   toolMapName === 'brush' ? 'accordion' :
                   toolMapName === 'blurface' ? 'accordion' :
                   toolMapName === 'metadata' ? 'cards' :
+                  toolMapName === 'editexif' ? 'accordion' :
                   toolMapName === 'convert' ? 'split' : 'grid'
                 } 
               />

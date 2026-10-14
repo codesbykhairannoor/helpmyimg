@@ -27,6 +27,7 @@ import { ConvertWebpSections } from './tools/ConvertWebpSections';
 import { WatermarkBulkSections } from './tools/WatermarkBulkSections';
 import { BlurPlateSections } from './tools/BlurPlateSections';
 import { MetadataSections } from './tools/MetadataSections';
+import { EditExifSections } from './tools/EditExifSections';
 
 export const SECTION_REGISTRY: Record<string, React.FC> = {
   'remove': RemoveBgSections,
@@ -53,4 +54,5 @@ export const SECTION_REGISTRY: Record<string, React.FC> = {
   'watermarkbulk': WatermarkBulkSections,
   'blurplate': BlurPlateSections,
   'metadata': MetadataSections,
+  'editexif': EditExifSections,
 };
