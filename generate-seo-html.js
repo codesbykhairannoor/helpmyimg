@@ -234,6 +234,24 @@ const TOOL_GRID_CONFIG = [
     defaultDesc: 'Pick colors directly from any image, inspect RGB/HEX values, and copy color palettes instantly.',
     isNew: false,
     svg: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 sm:w-6 sm:h-6"><path d="m2 22 1-1h3l9-9"/><path d="M12.5 7.5 16 11"/><path d="m15 5 4 4"/><path d="m20.5 3.5 1 1a2.12 2.12 0 0 1 0 3l-1.5 1.5-4-4L17.5 3.5a2.12 2.12 0 0 1 3 0Z"/></svg>`
+  },
+  {
+    id: 'metadata',
+    titleKey: 'nav.metadata',
+    descKey: 'grid.metadataDesc',
+    defaultTitle: 'AI Metadata & C2PA Cleaner',
+    defaultDesc: 'Losslessly strip C2PA, AI manifests, GPS, and camera history directly in your browser.',
+    isNew: true,
+    svg: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 sm:w-6 sm:h-6"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>`
+  },
+  {
+    id: 'editexif',
+    titleKey: 'nav.editexif',
+    descKey: 'grid.editexifDesc',
+    defaultTitle: 'Edit EXIF & Camera Studio',
+    defaultDesc: 'Inject custom camera, lens, exposure, artist, copyright, and dates directly into JPEG files.',
+    isNew: true,
+    svg: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 sm:w-6 sm:h-6"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/><circle cx="12" cy="13" r="3"/></svg>`
   }
 ];
 
@@ -1566,8 +1584,8 @@ function generateSemanticHtml(lang, urlPath, title, desc, tool, infoPage, transl
   // CASE B: HOMEPAGE (/${lang}/)
   // =========================================================================
   if (!tool) {
-    const homeTitleHighlight = translations['home.hero.titleHighlight'] || 'All Image';
-    const homeTitleSolid = translations['home.hero.titleSolid'] || 'Tools in One Place';
+    const homeTitleHighlight = translations['home.hero.titleHighlight'] || '100% Private Image Tools,';
+    const homeTitleSolid = translations['home.hero.titleSolid'] || 'Processed Right in Your Browser';
     const homeSubtitle = translations['hero.subtitle.short'] || 'Combine, split, compress, convert, and process images directly in your browser. 100% offline via WebAssembly. Free, unlimited, and highly secure.';
     const searchPlaceholder = translations['hero.search.placeholder'] || 'Search tools (Remove BG, Compress, Edit)...';
 
@@ -1669,7 +1687,7 @@ function generateSemanticHtml(lang, urlPath, title, desc, tool, infoPage, transl
                     ${translations['grid.catAll'] || 'All Tools'}
                   </h2>
                   <span class="text-lg sm:text-2xl text-slate-500 font-medium pb-0.5 sm:pb-0.5">
-                    (12)
+                    (${TOOL_GRID_CONFIG.length})
                   </span>
                 </div>
 

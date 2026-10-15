@@ -41,7 +41,7 @@ export const ToolLandingPage: React.FC = () => {
   }
 
   const defaultTitle = isPseoTool ? t(`seo.title.${internalTool}`, { defaultValue: config?.title || "HelpMyIMG" }) : (!tool 
-    ? t('home.tab.title', { defaultValue: "HelpMyIMG | All Image Tools in One Place" })
+    ? t('home.tab.title', { defaultValue: "HelpMyIMG | 100% Private Image Tools in Your Browser" })
     : internalTool === 'color' 
     ? t('landing.default.title.color') 
     : internalTool === 'watermark'

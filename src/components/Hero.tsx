@@ -40,8 +40,8 @@ export const Hero: React.FC<HeroProps> = ({ title, description }) => {
     gradientFirst = false;
   } else {
     // For home page, use explicitly translated highlighted and solid parts
-    gradientPart = t('home.hero.titleHighlight', { defaultValue: 'All Image' });
-    solidPart = t('home.hero.titleSolid', { defaultValue: 'Tools in One Place' });
+    gradientPart = t('home.hero.titleHighlight', { defaultValue: '100% Private Image Tools,' });
+    solidPart = t('home.hero.titleSolid', { defaultValue: 'Processed Right in Your Browser' });
     gradientFirst = true;
   }
 
