@@ -753,6 +753,7 @@ export interface ManualExifData {
   focalLength?: string;
   flash?: string;
   dateTaken?: string;
+  modifyDate?: string;
   artist?: string;
   copyright?: string;
   software?: string;
@@ -844,13 +845,20 @@ export async function applyManualExif(file: Blob, exifData: ManualExifData): Pro
   const pad = (n: number) => n.toString().padStart(2, '0');
   const defaultDate = `${now.getFullYear()}:${pad(now.getMonth() + 1)}:${pad(now.getDate())} ${pad(now.getHours())}:${pad(now.getMinutes())}:${pad(now.getSeconds())}`;
 
-  let dateFormatted = exifData.dateTaken?.trim() || defaultDate;
-  if (dateFormatted.includes('-') || dateFormatted.includes('T')) {
-    const d = new Date(dateFormatted);
-    if (!isNaN(d.getTime())) {
-      dateFormatted = `${d.getFullYear()}:${pad(d.getMonth() + 1)}:${pad(d.getDate())} ${pad(d.getHours())}:${pad(d.getMinutes())}:${pad(d.getSeconds())}`;
+  const formatExifDate = (str?: string) => {
+    if (!str || !str.trim()) return undefined;
+    const s = str.trim();
+    if (s.includes('-') || s.includes('T')) {
+      const d = new Date(s);
+      if (!isNaN(d.getTime())) {
+        return `${d.getFullYear()}:${pad(d.getMonth() + 1)}:${pad(d.getDate())} ${pad(d.getHours())}:${pad(d.getMinutes())}:${pad(d.getSeconds())}`;
+      }
     }
-  }
+    return s;
+  };
+
+  const creationDate = formatExifDate(exifData.dateTaken) || defaultDate;
+  const modDate = formatExifDate(exifData.modifyDate) || creationDate;
 
   const dpiVal = Number(exifData.dpi) || 300;
 
@@ -859,7 +867,7 @@ export async function applyManualExif(file: Blob, exifData: ManualExifData): Pro
     [piexif.ImageIFD.XResolution]: [dpiVal, 1],
     [piexif.ImageIFD.YResolution]: [dpiVal, 1],
     [piexif.ImageIFD.ResolutionUnit]: 2,
-    [piexif.ImageIFD.DateTime]: dateFormatted,
+    [piexif.ImageIFD.DateTime]: modDate,
   };
 
   if (exifData.cameraMake?.trim()) zeroth_ifd[piexif.ImageIFD.Make] = exifData.cameraMake.trim();
@@ -871,8 +879,8 @@ export async function applyManualExif(file: Blob, exifData: ManualExifData): Pro
 
   const exif_ifd: any = {
     [piexif.ExifIFD.ExifVersion]: '0231',
-    [piexif.ExifIFD.DateTimeOriginal]: dateFormatted,
-    [piexif.ExifIFD.DateTimeDigitized]: dateFormatted,
+    [piexif.ExifIFD.DateTimeOriginal]: creationDate,
+    [piexif.ExifIFD.DateTimeDigitized]: creationDate,
     [piexif.ExifIFD.ColorSpace]: 1,
   };
 

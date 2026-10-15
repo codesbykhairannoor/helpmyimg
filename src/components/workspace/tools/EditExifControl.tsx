@@ -56,20 +56,21 @@ export const EditExifControl: React.FC<EditExifControlProps> = ({
   const [isAnalyzing, setIsAnalyzing] = useState(false);
   const [activeTab, setActiveTab] = useState<'camera' | 'exposure' | 'rights' | 'specs'>('camera');
 
-  // Form State
-  const [cameraMake, setCameraMake] = useState('Canon');
-  const [cameraModel, setCameraModel] = useState('Canon EOS 5D Mark IV');
-  const [lensModel, setLensModel] = useState('EF85mm f/1.4L IS USM');
-  const [shutterSpeed, setShutterSpeed] = useState('1/160');
-  const [aperture, setAperture] = useState('5.6');
-  const [iso, setIso] = useState('100');
-  const [focalLength, setFocalLength] = useState('85');
-  const [flash, setFlash] = useState('fired');
-  const [artist, setArtist] = useState('Photo Studio Professional');
-  const [copyright, setCopyright] = useState('All Rights Reserved');
-  const [software, setSoftware] = useState('Adobe Photoshop 2024');
-  const [imageDescription, setImageDescription] = useState('Studio Portrait Photography');
+  // Form State - start clean so design files are not polluted with fake camera info
+  const [cameraMake, setCameraMake] = useState('');
+  const [cameraModel, setCameraModel] = useState('');
+  const [lensModel, setLensModel] = useState('');
+  const [shutterSpeed, setShutterSpeed] = useState('');
+  const [aperture, setAperture] = useState('');
+  const [iso, setIso] = useState('');
+  const [focalLength, setFocalLength] = useState('');
+  const [flash, setFlash] = useState('off');
+  const [artist, setArtist] = useState('');
+  const [copyright, setCopyright] = useState('');
+  const [software, setSoftware] = useState('');
+  const [imageDescription, setImageDescription] = useState('');
   const [dateTaken, setDateTaken] = useState('');
+  const [modifyDate, setModifyDate] = useState('');
   const [dpi, setDpi] = useState<number>(300);
 
   // Auto pre-fill from uploaded photo if EXIF exists
@@ -94,7 +95,10 @@ export const EditExifControl: React.FC<EditExifControlProps> = ({
             if (res.artist) setArtist(res.artist);
             if (res.copyright) setCopyright(res.copyright);
             if (res.software) setSoftware(res.software);
-            if (res.dateTaken) setDateTaken(res.dateTaken);
+            if (res.dateTaken) {
+              setDateTaken(res.dateTaken);
+              setModifyDate(res.dateTaken);
+            }
           }
         })
         .catch(() => {
@@ -108,25 +112,10 @@ export const EditExifControl: React.FC<EditExifControlProps> = ({
     };
   }, [currentItem]);
 
-  // Convert EXIF "YYYY:MM:DD HH:MM:SS" to datetime-local format "YYYY-MM-DDTHH:mm"
-  const exifToDatetimeLocal = (exifStr: string) => {
-    if (!exifStr) return '';
-    const parts = exifStr.trim().split(' ');
-    if (parts.length >= 1) {
-      const datePart = parts[0].replace(/:/g, '-');
-      const timePart = parts[1] ? parts[1].slice(0, 5) : '12:00';
-      return `${datePart}T${timePart}`;
-    }
-    return '';
-  };
-
-  // Convert datetime-local format "YYYY-MM-DDTHH:mm" to EXIF standard "YYYY:MM:DD HH:MM:SS"
-  const datetimeLocalToExif = (dtStr: string) => {
-    if (!dtStr) return '';
-    const [d, t] = dtStr.split('T');
-    const dateFormatted = d.replace(/-/g, ':');
-    const timeFormatted = t ? (t.length === 5 ? `${t}:00` : t) : '12:00:00';
-    return `${dateFormatted} ${timeFormatted}`;
+  const getNowFormatted = () => {
+    const now = new Date();
+    const pad = (n: number) => String(n).padStart(2, '0');
+    return `${now.getFullYear()}:${pad(now.getMonth() + 1)}:${pad(now.getDate())} ${pad(now.getHours())}:${pad(now.getMinutes())}:${pad(now.getSeconds())}`;
   };
 
   const handleApply = () => {
@@ -144,6 +133,7 @@ export const EditExifControl: React.FC<EditExifControlProps> = ({
       software,
       imageDescription,
       dateTaken,
+      modifyDate,
       dpi,
     };
     onApplyExif(data);
@@ -165,6 +155,7 @@ export const EditExifControl: React.FC<EditExifControlProps> = ({
         software,
         imageDescription,
         dateTaken,
+        modifyDate,
         dpi,
       };
       onProcessBatch(data);
@@ -206,7 +197,7 @@ export const EditExifControl: React.FC<EditExifControlProps> = ({
               : 'text-slate-400 hover:text-slate-200'
           }`}
         >
-          {tr('tabAuthor', 'Author')}
+          {tr('tabAuthor', 'Creator')}
         </button>
         <button
           type="button"
@@ -217,7 +208,7 @@ export const EditExifControl: React.FC<EditExifControlProps> = ({
               : 'text-slate-400 hover:text-slate-200'
           }`}
         >
-          {tr('tabSpecs', 'Specs')}
+          {tr('tabSpecs', 'Date & DPI')}
         </button>
       </div>
 
@@ -226,6 +217,10 @@ export const EditExifControl: React.FC<EditExifControlProps> = ({
         {/* TAB 1: CAMERA & HARDWARE */}
         {activeTab === 'camera' && (
           <div className="space-y-3.5">
+            <div className="p-2.5 rounded-xl bg-dark-950/70 border border-slate-800 text-[11px] text-slate-400">
+              {tr('cameraHint', 'Opsional: Isi untuk foto kamera (DSLR/HP). Biarkan kosong jika file merupakan desain grafis (Photoshop/Canva).')}
+            </div>
+
             <div>
               <label className="text-[11px] font-medium text-slate-300 mb-1 flex items-center gap-1.5">
                 <Camera className="w-3.5 h-3.5 text-neon-cyan" />
@@ -235,7 +230,7 @@ export const EditExifControl: React.FC<EditExifControlProps> = ({
                 type="text"
                 value={cameraMake}
                 onChange={(e) => setCameraMake(e.target.value)}
-                placeholder="e.g. Canon, Sony, Nikon, Apple, FUJIFILM"
+                placeholder="e.g. Canon, Sony, Nikon, Apple (kosongkan jika desain)"
                 className="w-full px-3 py-2 rounded-xl bg-dark-950 border border-slate-800 text-slate-200 text-xs placeholder-slate-600 focus:outline-none focus:border-neon-cyan"
               />
             </div>
@@ -249,7 +244,7 @@ export const EditExifControl: React.FC<EditExifControlProps> = ({
                 type="text"
                 value={cameraModel}
                 onChange={(e) => setCameraModel(e.target.value)}
-                placeholder="e.g. Canon EOS 5D Mark IV, ILCE-7M4, iPhone 16 Pro"
+                placeholder="e.g. Canon EOS 5D Mark IV, iPhone 16 Pro (kosongkan jika desain)"
                 className="w-full px-3 py-2 rounded-xl bg-dark-950 border border-slate-800 text-slate-200 text-xs placeholder-slate-600 focus:outline-none focus:border-neon-cyan"
               />
             </div>
@@ -263,7 +258,7 @@ export const EditExifControl: React.FC<EditExifControlProps> = ({
                 type="text"
                 value={lensModel}
                 onChange={(e) => setLensModel(e.target.value)}
-                placeholder="e.g. EF85mm f/1.4L IS USM, FE 50mm F1.2 GM"
+                placeholder="e.g. EF85mm f/1.4L, FE 50mm F1.2 (kosongkan jika desain)"
                 className="w-full px-3 py-2 rounded-xl bg-dark-950 border border-slate-800 text-slate-200 text-xs placeholder-slate-600 focus:outline-none focus:border-neon-cyan"
               />
             </div>
@@ -273,6 +268,9 @@ export const EditExifControl: React.FC<EditExifControlProps> = ({
         {/* TAB 2: EXPOSURE & OPTICS */}
         {activeTab === 'exposure' && (
           <div className="space-y-3.5">
+            <div className="p-2.5 rounded-xl bg-dark-950/70 border border-slate-800 text-[11px] text-slate-400">
+              {tr('exposureHint', 'Opsional: Parameter ISO, shutter, dan aperture kamera. Kosongkan jika mengedit file gambar desain.')}
+            </div>
             <div className="grid grid-cols-2 gap-3">
               <div>
                 <label className="text-[11px] font-medium text-slate-300 mb-1 flex items-center gap-1.5">
@@ -351,19 +349,47 @@ export const EditExifControl: React.FC<EditExifControlProps> = ({
           </div>
         )}
 
-        {/* TAB 3: AUTHOR & RIGHTS */}
+        {/* TAB 3: AUTHOR & RIGHTS / SOFTWARE */}
         {activeTab === 'rights' && (
           <div className="space-y-3.5">
             <div>
               <label className="text-[11px] font-medium text-slate-300 mb-1 flex items-center gap-1.5">
                 <User className="w-3.5 h-3.5 text-neon-cyan" />
-                <span>{tr('photographerLabel', 'Photographer / Studio Name (Artist)')}</span>
+                <span>{tr('photographerLabel', 'Creator / Designer / Photographer (Artist)')}</span>
               </label>
               <input
                 type="text"
                 value={artist}
                 onChange={(e) => setArtist(e.target.value)}
-                placeholder="e.g. John Doe Studio, Corporate Photography"
+                placeholder="e.g. John Doe, Graphic Designer, Creative Studio"
+                className="w-full px-3 py-2 rounded-xl bg-dark-950 border border-slate-800 text-slate-200 text-xs placeholder-slate-600 focus:outline-none focus:border-neon-cyan"
+              />
+            </div>
+
+            <div>
+              <label className="text-[11px] font-medium text-slate-300 mb-1 flex items-center gap-1.5">
+                <FileText className="w-3.5 h-3.5 text-neon-cyan" />
+                <span>{tr('lblSoftware', 'Software / Design Application / Engine')}</span>
+              </label>
+              <input
+                type="text"
+                value={software}
+                onChange={(e) => setSoftware(e.target.value)}
+                placeholder="e.g. Adobe Photoshop 2026, Figma, Canva, Illustrator, Lightroom"
+                className="w-full px-3 py-2 rounded-xl bg-dark-950 border border-slate-800 text-slate-200 text-xs placeholder-slate-600 focus:outline-none focus:border-neon-cyan"
+              />
+            </div>
+
+            <div>
+              <label className="text-[11px] font-medium text-slate-300 mb-1 flex items-center gap-1.5">
+                <FileText className="w-3.5 h-3.5 text-neon-cyan" />
+                <span>{tr('lblDescription', 'Title / Description / Project Name')}</span>
+              </label>
+              <input
+                type="text"
+                value={imageDescription}
+                onChange={(e) => setImageDescription(e.target.value)}
+                placeholder="e.g. Poster Kampanye, Mockup Desain, Portrait Photo"
                 className="w-full px-3 py-2 rounded-xl bg-dark-950 border border-slate-800 text-slate-200 text-xs placeholder-slate-600 focus:outline-none focus:border-neon-cyan"
               />
             </div>
@@ -377,35 +403,7 @@ export const EditExifControl: React.FC<EditExifControlProps> = ({
                 type="text"
                 value={copyright}
                 onChange={(e) => setCopyright(e.target.value)}
-                placeholder="e.g. Copyright (c) 2024. All Rights Reserved."
-                className="w-full px-3 py-2 rounded-xl bg-dark-950 border border-slate-800 text-slate-200 text-xs placeholder-slate-600 focus:outline-none focus:border-neon-cyan"
-              />
-            </div>
-
-            <div>
-              <label className="text-[11px] font-medium text-slate-300 mb-1 flex items-center gap-1.5">
-                <FileText className="w-3.5 h-3.5 text-neon-cyan" />
-                <span>{tr('lblSoftware', 'Software / Processing Engine')}</span>
-              </label>
-              <input
-                type="text"
-                value={software}
-                onChange={(e) => setSoftware(e.target.value)}
-                placeholder="e.g. Adobe Photoshop 2024, Lightroom Classic"
-                className="w-full px-3 py-2 rounded-xl bg-dark-950 border border-slate-800 text-slate-200 text-xs placeholder-slate-600 focus:outline-none focus:border-neon-cyan"
-              />
-            </div>
-
-            <div>
-              <label className="text-[11px] font-medium text-slate-300 mb-1 flex items-center gap-1.5">
-                <FileText className="w-3.5 h-3.5 text-neon-cyan" />
-                <span>{tr('lblDescription', 'Image Title / Description')}</span>
-              </label>
-              <input
-                type="text"
-                value={imageDescription}
-                onChange={(e) => setImageDescription(e.target.value)}
-                placeholder="e.g. Official Passport Photo, Studio Portrait"
+                placeholder="e.g. Copyright (c) 2026. All Rights Reserved."
                 className="w-full px-3 py-2 rounded-xl bg-dark-950 border border-slate-800 text-slate-200 text-xs placeholder-slate-600 focus:outline-none focus:border-neon-cyan"
               />
             </div>
@@ -414,22 +412,19 @@ export const EditExifControl: React.FC<EditExifControlProps> = ({
 
         {/* TAB 4: DATE & SPECS */}
         {activeTab === 'specs' && (
-          <div className="space-y-3.5">
+          <div className="space-y-4">
+            {/* Creation / Original Date */}
             <div>
               <div className="flex items-center justify-between mb-1">
                 <label className="text-[11px] font-medium text-slate-300 flex items-center gap-1.5">
                   <Calendar className="w-3.5 h-3.5 text-neon-cyan" />
-                  <span>{tr('dateLabel', 'Capture Date & Time')}</span>
+                  <span>{tr('dateLabel', 'Creation Date & Time (Tanggal Dibuat)')}</span>
                 </label>
                 <div className="flex items-center gap-2">
                   <button
                     type="button"
-                    onClick={() => {
-                      const now = new Date();
-                      const pad = (n: number) => String(n).padStart(2, '0');
-                      setDateTaken(`${now.getFullYear()}:${pad(now.getMonth() + 1)}:${pad(now.getDate())} ${pad(now.getHours())}:${pad(now.getMinutes())}:${pad(now.getSeconds())}`);
-                    }}
-                    className="text-[10px] text-neon-cyan hover:underline cursor-pointer"
+                    onClick={() => setDateTaken(getNowFormatted())}
+                    className="text-[10px] text-neon-cyan hover:underline cursor-pointer font-medium"
                   >
                     {tr('setNow', 'Set to Now')}
                   </button>
@@ -437,7 +432,7 @@ export const EditExifControl: React.FC<EditExifControlProps> = ({
                     <button
                       type="button"
                       onClick={() => setDateTaken('')}
-                      className="text-[10px] text-rose-400 hover:underline cursor-pointer"
+                      className="text-[10px] text-rose-400 hover:underline cursor-pointer font-medium"
                     >
                       {tr('clearDate', 'Clear')}
                     </button>
@@ -445,26 +440,56 @@ export const EditExifControl: React.FC<EditExifControlProps> = ({
                 </div>
               </div>
               <input
-                type="datetime-local"
-                value={exifToDatetimeLocal(dateTaken)}
-                onChange={(e) => setDateTaken(datetimeLocalToExif(e.target.value))}
-                onClick={(e) => {
-                  try {
-                    (e.target as any).showPicker?.();
-                  } catch {
-                    // Fallback
-                  }
-                }}
-                className="w-full px-3 py-2 rounded-xl bg-dark-950 border border-slate-800 text-slate-200 text-xs focus:outline-none focus:border-neon-cyan font-mono cursor-pointer [color-scheme:dark]"
+                type="text"
+                value={dateTaken}
+                onChange={(e) => setDateTaken(e.target.value)}
+                placeholder="YYYY:MM:DD HH:MM:SS (contoh: 2026:10:15 14:35:00)"
+                className="w-full px-3 py-2 rounded-xl bg-dark-950 border border-slate-800 text-slate-200 text-xs font-mono placeholder-slate-600 focus:outline-none focus:border-neon-cyan"
               />
-              {dateTaken && (
-                <div className="text-[10px] text-slate-400 font-mono mt-1 flex items-center justify-between">
-                  <span>EXIF Tag:</span>
-                  <span className="text-neon-cyan font-bold">{dateTaken}</span>
-                </div>
-              )}
+              <span className="text-[10px] text-slate-500 block mt-1">
+                {tr('creationDateSub', 'Tanggal pengambilan foto kamera atau waktu desain dibuat')}
+              </span>
             </div>
 
+            {/* Export / Modification Date */}
+            <div>
+              <div className="flex items-center justify-between mb-1">
+                <label className="text-[11px] font-medium text-slate-300 flex items-center gap-1.5">
+                  <Clock className="w-3.5 h-3.5 text-neon-cyan" />
+                  <span>{tr('exportDateLabel', 'Export / Modification Date (Tanggal Ekspor)')}</span>
+                </label>
+                <div className="flex items-center gap-2">
+                  <button
+                    type="button"
+                    onClick={() => setModifyDate(getNowFormatted())}
+                    className="text-[10px] text-neon-cyan hover:underline cursor-pointer font-medium"
+                  >
+                    {tr('setNow', 'Set to Now')}
+                  </button>
+                  {modifyDate && (
+                    <button
+                      type="button"
+                      onClick={() => setModifyDate('')}
+                      className="text-[10px] text-rose-400 hover:underline cursor-pointer font-medium"
+                    >
+                      {tr('clearDate', 'Clear')}
+                    </button>
+                  )}
+                </div>
+              </div>
+              <input
+                type="text"
+                value={modifyDate}
+                onChange={(e) => setModifyDate(e.target.value)}
+                placeholder="YYYY:MM:DD HH:MM:SS (Kosongkan jika sama dengan tanggal dibuat)"
+                className="w-full px-3 py-2 rounded-xl bg-dark-950 border border-slate-800 text-slate-200 text-xs font-mono placeholder-slate-600 focus:outline-none focus:border-neon-cyan"
+              />
+              <span className="text-[10px] text-slate-500 block mt-1">
+                {tr('exportDateSub', 'Waktu ekspor dari Photoshop/Canva/Figma atau penyimpanan file')}
+              </span>
+            </div>
+
+            {/* DPI Resolution */}
             <div>
               <label className="text-[11px] font-medium text-slate-300 mb-1 flex items-center gap-1.5">
                 <Layers className="w-3.5 h-3.5 text-neon-cyan" />
