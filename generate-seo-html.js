@@ -1644,7 +1644,7 @@ function generateSemanticHtml(lang, urlPath, title, desc, tool, infoPage, transl
             <section class="relative pt-2 md:pt-6 pb-2 overflow-hidden flex flex-col items-center justify-center text-center">
               <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[500px] bg-gradient-to-b from-slate-100 dark:from-dark-800 to-transparent opacity-50 pointer-events-none -z-10"></div>
               <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 w-full animate-in fade-in slide-in-from-bottom-8 duration-700">
-                <h1 class="font-heading font-black mb-6 text-center" style="font-size: clamp(1.75rem, 4.2vw, 3.25rem); font-weight: 900; letter-spacing: -0.03em; line-height: 1.2;">
+                <h1 class="font-heading font-black mb-6 text-center" style="font-size: clamp(2rem, 5.2vw, 3.85rem); font-weight: 900; letter-spacing: -0.025em; line-height: 1.15;">
                   <span class="block bg-gradient-to-r from-neon-cyan via-neon-emerald to-neon-indigo bg-clip-text text-transparent drop-shadow-sm">${homeTitleHighlight}</span>
                   <span class="block text-slate-800 dark:text-slate-100 mt-1 sm:mt-2">${homeTitleSolid}</span>
                 </h1>

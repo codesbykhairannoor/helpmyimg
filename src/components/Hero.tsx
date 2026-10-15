@@ -59,10 +59,10 @@ export const Hero: React.FC<HeroProps> = ({ title, description }) => {
         <h1 
           className="font-heading font-black mb-6 text-center"
           style={{ 
-            fontSize: 'clamp(1.75rem, 4.2vw, 3.25rem)', 
+            fontSize: 'clamp(2rem, 5.2vw, 3.85rem)', 
             fontWeight: 900, 
-            letterSpacing: '-0.03em', 
-            lineHeight: 1.2 
+            letterSpacing: '-0.025em', 
+            lineHeight: 1.15 
           }}
         >
           {gradientFirst ? (

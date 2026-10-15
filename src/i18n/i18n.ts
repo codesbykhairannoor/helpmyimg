@@ -18,7 +18,7 @@ export async function fetchTranslation(lang: Language): Promise<Record<string, a
     return enTranslations;
   }
   try {
-    const response = await fetch(`/locales/${lang}/translation.json`);
+    const response = await fetch(`/locales/${lang}/translation.json?v=${Date.now()}`, { cache: 'no-cache' });
     if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
     return await response.json();
   } catch (error) {
