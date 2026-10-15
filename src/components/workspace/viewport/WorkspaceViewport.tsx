@@ -101,7 +101,7 @@ export const WorkspaceViewport: React.FC<WorkspaceViewportProps> = ({
         className={`w-full rounded-3xl border border-dark-500/80 bg-dark-900/90 shadow-glass overflow-hidden relative flex items-center justify-center checkerboard-bg transition-all duration-150 ${
           initialTab === 'design'
             ? 'h-[75vh] md:h-auto md:aspect-[4/3]'
-            : 'h-[420px] sm:h-[480px] md:h-[540px] lg:h-auto lg:aspect-[4/3]'
+            : 'h-[380px] sm:h-[440px] md:h-[480px] lg:h-auto lg:aspect-[4/3] lg:max-h-[500px]'
         }`}
       >
         {/* AI Neural Scanning Animation & HUD Overlay */}

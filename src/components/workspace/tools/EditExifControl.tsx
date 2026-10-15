@@ -108,6 +108,27 @@ export const EditExifControl: React.FC<EditExifControlProps> = ({
     };
   }, [currentItem]);
 
+  // Convert EXIF "YYYY:MM:DD HH:MM:SS" to datetime-local format "YYYY-MM-DDTHH:mm"
+  const exifToDatetimeLocal = (exifStr: string) => {
+    if (!exifStr) return '';
+    const parts = exifStr.trim().split(' ');
+    if (parts.length >= 1) {
+      const datePart = parts[0].replace(/:/g, '-');
+      const timePart = parts[1] ? parts[1].slice(0, 5) : '12:00';
+      return `${datePart}T${timePart}`;
+    }
+    return '';
+  };
+
+  // Convert datetime-local format "YYYY-MM-DDTHH:mm" to EXIF standard "YYYY:MM:DD HH:MM:SS"
+  const datetimeLocalToExif = (dtStr: string) => {
+    if (!dtStr) return '';
+    const [d, t] = dtStr.split('T');
+    const dateFormatted = d.replace(/-/g, ':');
+    const timeFormatted = t ? (t.length === 5 ? `${t}:00` : t) : '12:00:00';
+    return `${dateFormatted} ${timeFormatted}`;
+  };
+
   const handleApply = () => {
     const data: ManualExifData = {
       cameraMake,
@@ -395,17 +416,53 @@ export const EditExifControl: React.FC<EditExifControlProps> = ({
         {activeTab === 'specs' && (
           <div className="space-y-3.5">
             <div>
-              <label className="text-[11px] font-medium text-slate-300 mb-1 flex items-center gap-1.5">
-                <Calendar className="w-3.5 h-3.5 text-neon-cyan" />
-                <span>{tr('dateLabel', 'Capture Date (YYYY:MM:DD HH:MM:SS)')}</span>
-              </label>
+              <div className="flex items-center justify-between mb-1">
+                <label className="text-[11px] font-medium text-slate-300 flex items-center gap-1.5">
+                  <Calendar className="w-3.5 h-3.5 text-neon-cyan" />
+                  <span>{tr('dateLabel', 'Capture Date & Time')}</span>
+                </label>
+                <div className="flex items-center gap-2">
+                  <button
+                    type="button"
+                    onClick={() => {
+                      const now = new Date();
+                      const pad = (n: number) => String(n).padStart(2, '0');
+                      setDateTaken(`${now.getFullYear()}:${pad(now.getMonth() + 1)}:${pad(now.getDate())} ${pad(now.getHours())}:${pad(now.getMinutes())}:${pad(now.getSeconds())}`);
+                    }}
+                    className="text-[10px] text-neon-cyan hover:underline cursor-pointer"
+                  >
+                    {tr('setNow', 'Set to Now')}
+                  </button>
+                  {dateTaken && (
+                    <button
+                      type="button"
+                      onClick={() => setDateTaken('')}
+                      className="text-[10px] text-rose-400 hover:underline cursor-pointer"
+                    >
+                      {tr('clearDate', 'Clear')}
+                    </button>
+                  )}
+                </div>
+              </div>
               <input
-                type="text"
-                value={dateTaken}
-                onChange={(e) => setDateTaken(e.target.value)}
-                placeholder="Leave blank for current timestamp"
-                className="w-full px-3 py-2 rounded-xl bg-dark-950 border border-slate-800 text-slate-200 text-xs placeholder-slate-600 focus:outline-none focus:border-neon-cyan font-mono"
+                type="datetime-local"
+                value={exifToDatetimeLocal(dateTaken)}
+                onChange={(e) => setDateTaken(datetimeLocalToExif(e.target.value))}
+                onClick={(e) => {
+                  try {
+                    (e.target as any).showPicker?.();
+                  } catch {
+                    // Fallback
+                  }
+                }}
+                className="w-full px-3 py-2 rounded-xl bg-dark-950 border border-slate-800 text-slate-200 text-xs focus:outline-none focus:border-neon-cyan font-mono cursor-pointer [color-scheme:dark]"
               />
+              {dateTaken && (
+                <div className="text-[10px] text-slate-400 font-mono mt-1 flex items-center justify-between">
+                  <span>EXIF Tag:</span>
+                  <span className="text-neon-cyan font-bold">{dateTaken}</span>
+                </div>
+              )}
             </div>
 
             <div>

@@ -312,10 +312,12 @@ export async function analyzeImageMetadata(file: Blob): Promise<MetadataAnalysis
       }
       const exifObj = piexif.load(binaryStr);
 
-      if (exifObj && exifObj['0th'] && Object.keys(exifObj['0th']).length > 0) {
+      const zeroth = exifObj?.['0th'] || {};
+      const exifIFD = exifObj?.['Exif'] || {};
+      const gpsIFD = exifObj?.['GPS'] || {};
+
+      if (Object.keys(zeroth).length > 0 || Object.keys(exifIFD).length > 0 || Object.keys(gpsIFD).length > 0) {
         hasExif = true;
-        const zeroth = exifObj['0th'];
-        const exifIFD = exifObj['Exif'] || {};
 
         if (zeroth[piexif.ImageIFD.Make]) cameraMake = String(zeroth[piexif.ImageIFD.Make]).trim();
         if (zeroth[piexif.ImageIFD.Model]) cameraModel = String(zeroth[piexif.ImageIFD.Model]).trim();
@@ -354,9 +356,43 @@ export async function analyzeImageMetadata(file: Blob): Promise<MetadataAnalysis
         }
       }
     } catch {
-      // Image has no parseable EXIF
-      hasExif = false;
+      // Image has no standard parseable EXIF in piexif
     }
+  }
+
+  // Fallback: XMP & text packet scan (supports JPEG, PNG, WEBP, and Photoshop/Lightroom/Canva exports)
+  try {
+    const getXmpTag = (patterns: RegExp[]): string | undefined => {
+      for (const p of patterns) {
+        const m = rawString.match(p);
+        if (m && m[1] && m[1].trim()) return m[1].trim();
+      }
+      return undefined;
+    };
+
+    const xmpMake = getXmpTag([/tiff:Make="([^"]+)"/i, /<tiff:Make[^>]*>([^<]+)<\/tiff:Make>/i, /<Make[^>]*>([^<]+)<\/Make>/i]);
+    const xmpModel = getXmpTag([/tiff:Model="([^"]+)"/i, /<tiff:Model[^>]*>([^<]+)<\/tiff:Model>/i, /<Model[^>]*>([^<]+)<\/Model>/i]);
+    const xmpLens = getXmpTag([/aux:Lens="([^"]+)"/i, /exif:LensModel="([^"]+)"/i, /<exif:LensModel[^>]*>([^<]+)<\/exif:LensModel>/i]);
+    const xmpSoftware = getXmpTag([/xmp:CreatorTool="([^"]+)"/i, /tiff:Software="([^"]+)"/i, /<xmp:CreatorTool[^>]*>([^<]+)<\/xmp:CreatorTool>/i]);
+    const xmpArtist = getXmpTag([/tiff:Artist="([^"]+)"/i, /<dc:creator[^>]*>[\s\S]*?<rdf:li[^>]*>([^<]+)<\/rdf:li>/i, /photoshop:Credit="([^"]+)"/i]);
+    const xmpCopyright = getXmpTag([/tiff:Copyright="([^"]+)"/i, /<dc:rights[^>]*>[\s\S]*?<rdf:li[^>]*>([^<]+)<\/rdf:li>/i]);
+    const xmpDate = getXmpTag([/exif:DateTimeOriginal="([^"]+)"/i, /xmp:CreateDate="([^"]+)"/i, /photoshop:DateCreated="([^"]+)"/i]);
+    const xmpIso = getXmpTag([/exif:ISOSpeedRatings="([^"]+)"/i, /<exif:ISOSpeedRatings[^>]*>[\s\S]*?<rdf:li[^>]*>([^<]+)<\/rdf:li>/i]);
+
+    if (!cameraMake && xmpMake) cameraMake = xmpMake;
+    if (!cameraModel && xmpModel) cameraModel = xmpModel;
+    if (!lensModel && xmpLens) lensModel = xmpLens;
+    if (!software && xmpSoftware) software = xmpSoftware;
+    if (!artist && xmpArtist) artist = xmpArtist;
+    if (!copyright && xmpCopyright) copyright = xmpCopyright;
+    if (!dateTaken && xmpDate) dateTaken = xmpDate;
+    if (!iso && xmpIso) iso = parseInt(xmpIso, 10) || undefined;
+
+    if (xmpMake || xmpModel || xmpLens || xmpArtist || xmpDate) {
+      hasExif = true;
+    }
+  } catch {
+    // Ignore XMP scan errors
   }
 
   // Get image dimensions via Image element
