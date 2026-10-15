@@ -152,35 +152,6 @@ export const EditExifControl: React.FC<EditExifControlProps> = ({
 
   return (
     <div className="space-y-4 overflow-y-visible">
-      {/* Top Status & File Readout Banner */}
-      <div className="p-3.5 rounded-2xl bg-dark-900 border border-slate-800 space-y-2">
-        <div className="flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            <Sliders className="w-4 h-4 text-neon-cyan" />
-            <span className="text-xs font-mono font-bold tracking-wider text-slate-200 uppercase">
-              {tr('manualEditorTitle', 'MANUAL EXIF METADATA FORM')}
-            </span>
-          </div>
-          {isAnalyzing ? (
-            <div className="flex items-center gap-1.5 text-[11px] text-slate-400 font-mono">
-              <Loader2 className="w-3 h-3 animate-spin text-neon-cyan" />
-              <span>Scanning...</span>
-            </div>
-          ) : analysis?.hasExif ? (
-            <span className="px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 text-[10px] font-mono">
-              {tr('exifLoadedBadge', 'Existing EXIF Loaded')}
-            </span>
-          ) : (
-            <span className="px-2 py-0.5 rounded-full bg-amber-500/20 text-amber-400 border border-amber-500/30 text-[10px] font-mono">
-              {tr('emptyExifBadge', 'Empty / AI Photo')}
-            </span>
-          )}
-        </div>
-        <p className="text-[11px] text-slate-400 font-body">
-          {tr('manualEditorSub', 'Fill in or modify any photography parameter below. All fields are fully customizable.')}
-        </p>
-      </div>
-
       {/* Section Tabs */}
       <div className="grid grid-cols-4 gap-1 p-1 bg-dark-950 rounded-xl border border-slate-800 text-xs font-medium">
         <button

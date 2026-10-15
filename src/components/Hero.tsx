@@ -67,7 +67,7 @@ export const Hero: React.FC<HeroProps> = ({ title, description }) => {
         >
           {gradientFirst ? (
             <>
-              <span className="bg-gradient-to-r from-neon-cyan to-neon-indigo bg-clip-text text-transparent drop-shadow-sm inline">
+              <span className="bg-gradient-to-r from-neon-cyan via-neon-emerald to-neon-indigo bg-clip-text text-transparent drop-shadow-sm inline">
                 {gradientPart}
               </span>
               {' '}
@@ -82,7 +82,7 @@ export const Hero: React.FC<HeroProps> = ({ title, description }) => {
               </span>
               {' '}
               {gradientPart && (
-                <span className="bg-gradient-to-r from-neon-cyan to-neon-indigo bg-clip-text text-transparent drop-shadow-sm inline">
+                <span className="bg-gradient-to-r from-neon-cyan via-neon-emerald to-neon-indigo bg-clip-text text-transparent drop-shadow-sm inline">
                   {gradientPart}
                 </span>
               )}
