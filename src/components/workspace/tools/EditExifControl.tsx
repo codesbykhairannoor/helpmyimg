@@ -5,30 +5,33 @@ import {
   Sparkles, 
   RotateCcw, 
   Upload, 
-  Check, 
-  Sliders, 
   Download,
   Loader2,
   Calendar,
   User,
+  Sliders,
+  CheckCircle2,
+  Eye,
   Info,
   Clock,
   Layers,
-  Zap
+  Zap,
+  Tag,
+  Shield,
+  FileText,
+  Trash2
 } from 'lucide-react';
 import { 
   analyzeImageMetadata, 
-  STUDIO_PRESETS, 
   type MetadataAnalysis, 
-  type StudioPresetKey, 
-  type CustomMetadataOptions 
+  type ManualExifData 
 } from '../../../utils/metadataEngine';
 import type { BatchItem } from '../types';
 
 interface EditExifControlProps {
   currentItem: BatchItem | null;
-  onApplyExif: (presetKey: StudioPresetKey, customOptions?: CustomMetadataOptions) => Promise<void>;
-  onProcessBatch?: (presetKey: StudioPresetKey, customOptions?: CustomMetadataOptions) => Promise<void>;
+  onApplyExif: (exifData: ManualExifData) => Promise<void>;
+  onProcessBatch?: (exifData: ManualExifData) => Promise<void>;
   onDownload?: () => void;
   onUploadOther?: () => void;
   onReset: () => void;
@@ -47,17 +50,29 @@ export const EditExifControl: React.FC<EditExifControlProps> = ({
   batchCount = 1,
 }) => {
   const { t } = useTranslation();
-  const [selectedPreset, setSelectedPreset] = useState<StudioPresetKey>('canon5d');
+  const tr = (key: string, def: string) => t(`editexif.${key}`, { defaultValue: def });
+
   const [analysis, setAnalysis] = useState<MetadataAnalysis | null>(null);
   const [isAnalyzing, setIsAnalyzing] = useState(false);
-  const [showManualForm, setShowManualForm] = useState(false);
+  const [activeTab, setActiveTab] = useState<'camera' | 'exposure' | 'rights' | 'specs'>('camera');
 
-  // Custom metadata fields
-  const [photographer, setPhotographer] = useState('Khairan Noor Studio');
-  const [customDate, setCustomDate] = useState('');
-  const [copyright, setCopyright] = useState('');
+  // Form State
+  const [cameraMake, setCameraMake] = useState('Canon');
+  const [cameraModel, setCameraModel] = useState('Canon EOS 5D Mark IV');
+  const [lensModel, setLensModel] = useState('EF85mm f/1.4L IS USM');
+  const [shutterSpeed, setShutterSpeed] = useState('1/160');
+  const [aperture, setAperture] = useState('5.6');
+  const [iso, setIso] = useState('100');
+  const [focalLength, setFocalLength] = useState('85');
+  const [flash, setFlash] = useState('fired');
+  const [artist, setArtist] = useState('Photo Studio Professional');
+  const [copyright, setCopyright] = useState('All Rights Reserved');
+  const [software, setSoftware] = useState('Adobe Photoshop 2024');
+  const [imageDescription, setImageDescription] = useState('Studio Portrait Photography');
+  const [dateTaken, setDateTaken] = useState('');
+  const [dpi, setDpi] = useState<number>(300);
 
-  // Analyze metadata whenever the currentItem changes
+  // Auto pre-fill from uploaded photo if EXIF exists
   useEffect(() => {
     let isCancelled = false;
     if (currentItem?.file) {
@@ -67,6 +82,19 @@ export const EditExifControl: React.FC<EditExifControlProps> = ({
           if (!isCancelled) {
             setAnalysis(res);
             setIsAnalyzing(false);
+
+            // Pre-fill existing metadata if available
+            if (res.cameraMake) setCameraMake(res.cameraMake);
+            if (res.cameraModel) setCameraModel(res.cameraModel);
+            if (res.lensModel) setLensModel(res.lensModel);
+            if (res.shutterSpeed) setShutterSpeed(res.shutterSpeed.replace('s', ''));
+            if (res.aperture) setAperture(res.aperture.replace(/^f\//i, ''));
+            if (res.iso) setIso(String(res.iso));
+            if (res.focalLength) setFocalLength(res.focalLength.replace(/mm/i, '').trim());
+            if (res.artist) setArtist(res.artist);
+            if (res.copyright) setCopyright(res.copyright);
+            if (res.software) setSoftware(res.software);
+            if (res.dateTaken) setDateTaken(res.dateTaken);
           }
         })
         .catch(() => {
@@ -81,206 +109,444 @@ export const EditExifControl: React.FC<EditExifControlProps> = ({
   }, [currentItem]);
 
   const handleApply = () => {
-    const customOpts: CustomMetadataOptions = {};
-    if (photographer.trim()) customOpts.artist = photographer.trim();
-    if (customDate.trim()) customOpts.dateTaken = customDate.trim();
-    if (copyright.trim()) customOpts.copyright = copyright.trim();
-
-    onApplyExif(selectedPreset, customOpts);
+    const data: ManualExifData = {
+      cameraMake,
+      cameraModel,
+      lensModel,
+      shutterSpeed,
+      aperture,
+      iso,
+      focalLength,
+      flash,
+      artist,
+      copyright,
+      software,
+      imageDescription,
+      dateTaken,
+      dpi,
+    };
+    onApplyExif(data);
   };
 
   const handleApplyBatch = () => {
     if (onProcessBatch) {
-      const customOpts: CustomMetadataOptions = {};
-      if (photographer.trim()) customOpts.artist = photographer.trim();
-      if (customDate.trim()) customOpts.dateTaken = customDate.trim();
-      if (copyright.trim()) customOpts.copyright = copyright.trim();
-
-      onProcessBatch(selectedPreset, customOpts);
+      const data: ManualExifData = {
+        cameraMake,
+        cameraModel,
+        lensModel,
+        shutterSpeed,
+        aperture,
+        iso,
+        focalLength,
+        flash,
+        artist,
+        copyright,
+        software,
+        imageDescription,
+        dateTaken,
+        dpi,
+      };
+      onProcessBatch(data);
     }
   };
 
-  const tr = (key: string, def: string) => t(`editexif.${key}`, { defaultValue: def });
-
-  // Camera presets excluding 'stealth' which belongs to pure clean
-  const cameraPresets = STUDIO_PRESETS.filter((p) => p.id !== 'stealth');
+  // Quick fill helpers
+  const handleQuickFill = (type: 'canon' | 'sony' | 'iphone' | 'clear') => {
+    if (type === 'canon') {
+      setCameraMake('Canon');
+      setCameraModel('Canon EOS 5D Mark IV');
+      setLensModel('EF85mm f/1.4L IS USM');
+      setShutterSpeed('1/160');
+      setAperture('5.6');
+      setIso('100');
+      setFocalLength('85');
+      setFlash('fired');
+      setDpi(300);
+      setSoftware('Canon EOS Digital Solution');
+    } else if (type === 'sony') {
+      setCameraMake('Sony');
+      setCameraModel('ILCE-7M4');
+      setLensModel('FE 50mm F1.2 GM');
+      setShutterSpeed('1/200');
+      setAperture('2.8');
+      setIso('100');
+      setFocalLength('50');
+      setFlash('off');
+      setDpi(300);
+      setSoftware('ILCE-7M4 v3.01');
+    } else if (type === 'iphone') {
+      setCameraMake('Apple');
+      setCameraModel('iPhone 16 Pro');
+      setLensModel('iPhone 16 Pro back camera 6.765mm f/1.78');
+      setShutterSpeed('1/120');
+      setAperture('1.78');
+      setIso('64');
+      setFocalLength('24');
+      setFlash('off');
+      setDpi(72);
+      setSoftware('iOS 18.1');
+    } else if (type === 'clear') {
+      setCameraMake('');
+      setCameraModel('');
+      setLensModel('');
+      setShutterSpeed('');
+      setAperture('');
+      setIso('');
+      setFocalLength('');
+      setFlash('off');
+      setArtist('');
+      setCopyright('');
+      setSoftware('');
+      setImageDescription('');
+      setDateTaken('');
+    }
+  };
 
   return (
-    <div className="space-y-6 overflow-y-visible">
-      {/* Current Camera EXIF Readout Card */}
-      <div className="rounded-2xl bg-dark-900 border border-slate-800 p-4 space-y-3 shadow-lg">
-        <div className="flex items-center justify-between border-b border-slate-800/80 pb-2.5">
+    <div className="space-y-5 overflow-y-visible">
+      {/* Top Status & File Readout Banner */}
+      <div className="p-3.5 rounded-2xl bg-dark-900 border border-slate-800 space-y-2">
+        <div className="flex items-center justify-between">
           <div className="flex items-center gap-2">
-            <Camera className="w-4 h-4 text-neon-cyan" />
+            <Sliders className="w-4 h-4 text-neon-cyan" />
             <span className="text-xs font-mono font-bold tracking-wider text-slate-200 uppercase">
-              {tr('inspectorTitle', 'CURRENT CAMERA EXIF DATA')}
+              {tr('manualEditorTitle', 'MANUAL EXIF METADATA FORM')}
             </span>
           </div>
-          {isAnalyzing && (
+          {isAnalyzing ? (
             <div className="flex items-center gap-1.5 text-[11px] text-slate-400 font-mono">
               <Loader2 className="w-3 h-3 animate-spin text-neon-cyan" />
-              <span>Reading...</span>
+              <span>Scanning...</span>
             </div>
+          ) : analysis?.hasExif ? (
+            <span className="px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 text-[10px] font-mono">
+              {tr('exifLoadedBadge', 'Existing EXIF Loaded')}
+            </span>
+          ) : (
+            <span className="px-2 py-0.5 rounded-full bg-amber-500/20 text-amber-400 border border-amber-500/30 text-[10px] font-mono">
+              {tr('emptyExifBadge', 'Empty / AI Photo')}
+            </span>
           )}
         </div>
+        <p className="text-[11px] text-slate-400 font-body">
+          {tr('manualEditorSub', 'Fill in or modify any photography parameter below. All fields are fully customizable without template limits.')}
+        </p>
 
-        {analysis ? (
-          <div className="space-y-2.5 text-xs">
-            <div className="p-3 rounded-xl bg-dark-950/70 border border-slate-800 space-y-1.5">
-              <div className="flex items-center justify-between">
-                <span className="text-slate-400 font-mono text-[11px]">{tr('lblCamera', 'Camera Model')}:</span>
-                <span className="font-semibold text-white">
-                  {analysis.cameraModel ? `${analysis.cameraMake || ''} ${analysis.cameraModel}` : 'None (No EXIF)'}
-                </span>
-              </div>
-              <div className="flex items-center justify-between">
-                <span className="text-slate-400 font-mono text-[11px]">{tr('lblLens', 'Lens')}:</span>
-                <span className="font-semibold text-slate-200">
-                  {analysis.lensModel || 'Unrecorded / Synthetic'}
-                </span>
-              </div>
-              <div className="flex items-center justify-between pt-1 border-t border-slate-800/60 text-[11px] font-mono text-slate-400">
-                <span>{analysis.shutterSpeed || '1/--s'} • {analysis.aperture || 'f/--'}</span>
-                <span>ISO {analysis.iso || '--'}</span>
-              </div>
-            </div>
-          </div>
-        ) : (
-          <div className="text-center py-3 text-xs text-slate-400 font-mono">
-            {tr('dropToInspect', 'Drop a photo to view & edit EXIF properties')}
-          </div>
-        )}
-      </div>
-
-      {/* Preset Selector */}
-      <div className="space-y-3">
-        <div className="flex items-center justify-between">
-          <label className="text-sm font-semibold text-white flex items-center gap-2">
-            <Sparkles className="w-4 h-4 text-neon-cyan" />
-            <span>{tr('choosePreset', 'Choose Studio Camera Setup')}</span>
-          </label>
-        </div>
-
-        <div className="grid grid-cols-1 gap-2.5">
-          {cameraPresets.map((preset) => {
-            const isSelected = selectedPreset === preset.id;
-            return (
-              <button
-                key={preset.id}
-                type="button"
-                onClick={() => setSelectedPreset(preset.id)}
-                className={`w-full text-left p-3.5 rounded-2xl border transition-all duration-200 flex items-start justify-between group ${
-                  isSelected
-                    ? 'bg-neon-cyan/10 border-neon-cyan shadow-md shadow-neon-cyan/5'
-                    : 'bg-dark-900 border-slate-800 hover:border-slate-700 hover:bg-dark-800'
-                }`}
-              >
-                <div className="space-y-1">
-                  <div className="flex items-center gap-2">
-                    <span className="text-sm font-bold text-white group-hover:text-neon-cyan transition-colors">
-                      {preset.name}
-                    </span>
-                    {preset.id === 'canon5d' && (
-                      <span className="text-[10px] uppercase font-bold tracking-wider px-1.5 py-0.5 rounded bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">
-                        {tr('passPhotoBadge', 'Studio Pass Photo')}
-                      </span>
-                    )}
-                  </div>
-                  <p className="text-xs text-slate-400 font-body">{preset.subtitle}</p>
-                  <div className="flex flex-wrap gap-1.5 pt-1">
-                    <span className="text-[10px] font-mono px-1.5 py-0.5 rounded bg-dark-950 text-slate-300 border border-slate-800">
-                      {preset.shutter}
-                    </span>
-                    <span className="text-[10px] font-mono px-1.5 py-0.5 rounded bg-dark-950 text-slate-300 border border-slate-800">
-                      {preset.aperture}
-                    </span>
-                    <span className="text-[10px] font-mono px-1.5 py-0.5 rounded bg-dark-950 text-slate-300 border border-slate-800">
-                      ISO {preset.iso}
-                    </span>
-                    <span className="text-[10px] font-mono px-1.5 py-0.5 rounded bg-dark-950 text-neon-cyan border border-neon-cyan/20">
-                      {preset.flash}
-                    </span>
-                  </div>
-                </div>
-                <div
-                  className={`w-5 h-5 rounded-full border flex items-center justify-center shrink-0 mt-0.5 transition-colors ${
-                    isSelected
-                      ? 'border-neon-cyan bg-neon-cyan text-dark-950'
-                      : 'border-slate-700 bg-dark-950'
-                  }`}
-                >
-                  {isSelected && <Check className="w-3.5 h-3.5 stroke-[3]" />}
-                </div>
-              </button>
-            );
-          })}
+        {/* Quick Fill Pills */}
+        <div className="pt-2 border-t border-slate-800/80 flex flex-wrap items-center gap-1.5 text-[11px]">
+          <span className="text-slate-500 text-[10px] uppercase font-mono mr-1">
+            {tr('quickFill', 'Quick Fill:')}
+          </span>
+          <button
+            type="button"
+            onClick={() => handleQuickFill('canon')}
+            className="px-2 py-1 rounded-lg bg-dark-800 hover:bg-dark-700 text-slate-300 border border-slate-700/80 hover:text-white transition-colors cursor-pointer"
+          >
+            Canon 5D (300 DPI)
+          </button>
+          <button
+            type="button"
+            onClick={() => handleQuickFill('sony')}
+            className="px-2 py-1 rounded-lg bg-dark-800 hover:bg-dark-700 text-slate-300 border border-slate-700/80 hover:text-white transition-colors cursor-pointer"
+          >
+            Sony A7 IV
+          </button>
+          <button
+            type="button"
+            onClick={() => handleQuickFill('iphone')}
+            className="px-2 py-1 rounded-lg bg-dark-800 hover:bg-dark-700 text-slate-300 border border-slate-700/80 hover:text-white transition-colors cursor-pointer"
+          >
+            iPhone 16
+          </button>
+          <button
+            type="button"
+            onClick={() => handleQuickFill('clear')}
+            className="px-2 py-1 rounded-lg bg-rose-500/10 hover:bg-rose-500/20 text-rose-300 border border-rose-500/30 transition-colors cursor-pointer ml-auto flex items-center gap-1"
+          >
+            <Trash2 className="w-3 h-3" />
+            <span>Clear</span>
+          </button>
         </div>
       </div>
 
-      {/* Manual Details Customization Accordion */}
-      <div className="rounded-2xl border border-slate-800 bg-dark-900/60 overflow-hidden">
+      {/* Section Tabs */}
+      <div className="grid grid-cols-4 gap-1 p-1 bg-dark-950 rounded-xl border border-slate-800 text-xs font-medium">
         <button
           type="button"
-          onClick={() => setShowManualForm(!showManualForm)}
-          className="w-full px-4 py-3 flex items-center justify-between text-xs font-semibold text-slate-300 hover:text-white transition-colors"
+          onClick={() => setActiveTab('camera')}
+          className={`py-2 px-1 text-center rounded-lg transition-all ${
+            activeTab === 'camera'
+              ? 'bg-neon-cyan/20 text-neon-cyan font-bold shadow-sm'
+              : 'text-slate-400 hover:text-slate-200'
+          }`}
         >
-          <div className="flex items-center gap-2">
-            <Sliders className="w-3.5 h-3.5 text-neon-cyan" />
-            <span>{tr('customDetailsTitle', 'Custom Photographer, Studio & Date')}</span>
-          </div>
-          <span className="text-[10px] font-mono text-neon-cyan uppercase">
-            {showManualForm ? tr('hide', 'Hide') : tr('customize', 'Customize')}
-          </span>
+          {tr('tabCamera', 'Camera')}
         </button>
+        <button
+          type="button"
+          onClick={() => setActiveTab('exposure')}
+          className={`py-2 px-1 text-center rounded-lg transition-all ${
+            activeTab === 'exposure'
+              ? 'bg-neon-cyan/20 text-neon-cyan font-bold shadow-sm'
+              : 'text-slate-400 hover:text-slate-200'
+          }`}
+        >
+          {tr('tabExposure', 'Exposure')}
+        </button>
+        <button
+          type="button"
+          onClick={() => setActiveTab('rights')}
+          className={`py-2 px-1 text-center rounded-lg transition-all ${
+            activeTab === 'rights'
+              ? 'bg-neon-cyan/20 text-neon-cyan font-bold shadow-sm'
+              : 'text-slate-400 hover:text-slate-200'
+          }`}
+        >
+          {tr('tabAuthor', 'Author')}
+        </button>
+        <button
+          type="button"
+          onClick={() => setActiveTab('specs')}
+          className={`py-2 px-1 text-center rounded-lg transition-all ${
+            activeTab === 'specs'
+              ? 'bg-neon-cyan/20 text-neon-cyan font-bold shadow-sm'
+              : 'text-slate-400 hover:text-slate-200'
+          }`}
+        >
+          {tr('tabSpecs', 'Specs')}
+        </button>
+      </div>
 
-        {showManualForm && (
-          <div className="p-4 pt-1 space-y-3 border-t border-slate-800/60 text-xs">
+      {/* FORM INPUTS ACCORDING TO ACTIVE TAB */}
+      <div className="p-4 rounded-2xl bg-dark-900 border border-slate-800 space-y-4 shadow-xl">
+        {/* TAB 1: CAMERA & HARDWARE */}
+        {activeTab === 'camera' && (
+          <div className="space-y-3.5">
             <div>
-              <label className="text-[11px] font-medium text-slate-400 mb-1 flex items-center gap-1.5">
-                <User className="w-3 h-3 text-neon-cyan" />
-                <span>{tr('photographerLabel', 'Photographer / Studio Name')}</span>
+              <label className="text-[11px] font-medium text-slate-300 mb-1 flex items-center gap-1.5">
+                <Camera className="w-3.5 h-3.5 text-neon-cyan" />
+                <span>{tr('lblCameraMake', 'Camera Make / Manufacturer')}</span>
               </label>
               <input
                 type="text"
-                value={photographer}
-                onChange={(e) => setPhotographer(e.target.value)}
-                placeholder="e.g. Khairan Noor Studio"
-                className="w-full px-3 py-2 rounded-xl bg-dark-950 border border-slate-800 text-slate-200 placeholder-slate-600 focus:outline-none focus:border-neon-cyan"
+                value={cameraMake}
+                onChange={(e) => setCameraMake(e.target.value)}
+                placeholder="e.g. Canon, Sony, Nikon, Apple, FUJIFILM"
+                className="w-full px-3 py-2 rounded-xl bg-dark-950 border border-slate-800 text-slate-200 text-xs placeholder-slate-600 focus:outline-none focus:border-neon-cyan"
               />
             </div>
 
             <div>
-              <label className="text-[11px] font-medium text-slate-400 mb-1 flex items-center gap-1.5">
-                <Calendar className="w-3 h-3 text-neon-cyan" />
-                <span>{tr('dateLabel', 'Date Taken (YYYY:MM:DD HH:MM:SS)')}</span>
+              <label className="text-[11px] font-medium text-slate-300 mb-1 flex items-center gap-1.5">
+                <Camera className="w-3.5 h-3.5 text-neon-cyan" />
+                <span>{tr('lblCameraModel', 'Camera Model')}</span>
               </label>
               <input
                 type="text"
-                value={customDate}
-                onChange={(e) => setCustomDate(e.target.value)}
-                placeholder="Leave blank for current studio timestamp"
-                className="w-full px-3 py-2 rounded-xl bg-dark-950 border border-slate-800 text-slate-200 placeholder-slate-600 focus:outline-none focus:border-neon-cyan"
+                value={cameraModel}
+                onChange={(e) => setCameraModel(e.target.value)}
+                placeholder="e.g. Canon EOS 5D Mark IV, ILCE-7M4, iPhone 16 Pro"
+                className="w-full px-3 py-2 rounded-xl bg-dark-950 border border-slate-800 text-slate-200 text-xs placeholder-slate-600 focus:outline-none focus:border-neon-cyan"
               />
             </div>
 
             <div>
-              <label className="text-[11px] font-medium text-slate-400 mb-1">
-                {tr('copyrightLabel', 'Copyright Notice')}
+              <label className="text-[11px] font-medium text-slate-300 mb-1 flex items-center gap-1.5">
+                <Tag className="w-3.5 h-3.5 text-neon-cyan" />
+                <span>{tr('lblLensModel', 'Lens Specification & Model')}</span>
+              </label>
+              <input
+                type="text"
+                value={lensModel}
+                onChange={(e) => setLensModel(e.target.value)}
+                placeholder="e.g. EF85mm f/1.4L IS USM, FE 50mm F1.2 GM"
+                className="w-full px-3 py-2 rounded-xl bg-dark-950 border border-slate-800 text-slate-200 text-xs placeholder-slate-600 focus:outline-none focus:border-neon-cyan"
+              />
+            </div>
+          </div>
+        )}
+
+        {/* TAB 2: EXPOSURE & OPTICS */}
+        {activeTab === 'exposure' && (
+          <div className="space-y-3.5">
+            <div className="grid grid-cols-2 gap-3">
+              <div>
+                <label className="text-[11px] font-medium text-slate-300 mb-1 flex items-center gap-1.5">
+                  <Clock className="w-3.5 h-3.5 text-neon-cyan" />
+                  <span>{tr('lblShutter', 'Shutter Speed (s)')}</span>
+                </label>
+                <input
+                  type="text"
+                  value={shutterSpeed}
+                  onChange={(e) => setShutterSpeed(e.target.value)}
+                  placeholder="e.g. 1/160, 1/200, 1/50"
+                  className="w-full px-3 py-2 rounded-xl bg-dark-950 border border-slate-800 text-slate-200 text-xs placeholder-slate-600 focus:outline-none focus:border-neon-cyan"
+                />
+              </div>
+
+              <div>
+                <label className="text-[11px] font-medium text-slate-300 mb-1 flex items-center gap-1.5">
+                  <Eye className="w-3.5 h-3.5 text-neon-cyan" />
+                  <span>{tr('lblAperture', 'Aperture (f-stop)')}</span>
+                </label>
+                <input
+                  type="text"
+                  value={aperture}
+                  onChange={(e) => setAperture(e.target.value)}
+                  placeholder="e.g. 2.8, 5.6, 1.4"
+                  className="w-full px-3 py-2 rounded-xl bg-dark-950 border border-slate-800 text-slate-200 text-xs placeholder-slate-600 focus:outline-none focus:border-neon-cyan"
+                />
+              </div>
+            </div>
+
+            <div className="grid grid-cols-2 gap-3">
+              <div>
+                <label className="text-[11px] font-medium text-slate-300 mb-1 flex items-center gap-1.5">
+                  <Zap className="w-3.5 h-3.5 text-neon-cyan" />
+                  <span>{tr('lblIso', 'ISO Sensitivity')}</span>
+                </label>
+                <input
+                  type="text"
+                  value={iso}
+                  onChange={(e) => setIso(e.target.value)}
+                  placeholder="e.g. 100, 200, 400, 800"
+                  className="w-full px-3 py-2 rounded-xl bg-dark-950 border border-slate-800 text-slate-200 text-xs placeholder-slate-600 focus:outline-none focus:border-neon-cyan"
+                />
+              </div>
+
+              <div>
+                <label className="text-[11px] font-medium text-slate-300 mb-1 flex items-center gap-1.5">
+                  <Sliders className="w-3.5 h-3.5 text-neon-cyan" />
+                  <span>{tr('lblFocal', 'Focal Length (mm)')}</span>
+                </label>
+                <input
+                  type="text"
+                  value={focalLength}
+                  onChange={(e) => setFocalLength(e.target.value)}
+                  placeholder="e.g. 85, 50, 35, 24"
+                  className="w-full px-3 py-2 rounded-xl bg-dark-950 border border-slate-800 text-slate-200 text-xs placeholder-slate-600 focus:outline-none focus:border-neon-cyan"
+                />
+              </div>
+            </div>
+
+            <div>
+              <label className="text-[11px] font-medium text-slate-300 mb-1 flex items-center gap-1.5">
+                <Zap className="w-3.5 h-3.5 text-neon-cyan" />
+                <span>{tr('lblFlash', 'Flash Strobe Mode')}</span>
+              </label>
+              <select
+                value={flash}
+                onChange={(e) => setFlash(e.target.value)}
+                className="w-full px-3 py-2 rounded-xl bg-dark-950 border border-slate-800 text-slate-200 text-xs focus:outline-none focus:border-neon-cyan"
+              >
+                <option value="fired">{tr('flashFired', 'Fired (Studio Strobe Sync)')}</option>
+                <option value="off">{tr('flashOff', 'Did Not Fire (Ambient Light)')}</option>
+                <option value="auto">{tr('flashAuto', 'Auto Mode')}</option>
+              </select>
+            </div>
+          </div>
+        )}
+
+        {/* TAB 3: AUTHOR & RIGHTS */}
+        {activeTab === 'rights' && (
+          <div className="space-y-3.5">
+            <div>
+              <label className="text-[11px] font-medium text-slate-300 mb-1 flex items-center gap-1.5">
+                <User className="w-3.5 h-3.5 text-neon-cyan" />
+                <span>{tr('photographerLabel', 'Photographer / Studio Name (Artist)')}</span>
+              </label>
+              <input
+                type="text"
+                value={artist}
+                onChange={(e) => setArtist(e.target.value)}
+                placeholder="e.g. John Doe Studio, Corporate Photography"
+                className="w-full px-3 py-2 rounded-xl bg-dark-950 border border-slate-800 text-slate-200 text-xs placeholder-slate-600 focus:outline-none focus:border-neon-cyan"
+              />
+            </div>
+
+            <div>
+              <label className="text-[11px] font-medium text-slate-300 mb-1 flex items-center gap-1.5">
+                <Shield className="w-3.5 h-3.5 text-neon-cyan" />
+                <span>{tr('copyrightLabel', 'Copyright Notice')}</span>
               </label>
               <input
                 type="text"
                 value={copyright}
                 onChange={(e) => setCopyright(e.target.value)}
-                placeholder="Leave blank for auto-generated copyright"
-                className="w-full px-3 py-2 rounded-xl bg-dark-950 border border-slate-800 text-slate-200 placeholder-slate-600 focus:outline-none focus:border-neon-cyan"
+                placeholder="e.g. Copyright (c) 2024. All Rights Reserved."
+                className="w-full px-3 py-2 rounded-xl bg-dark-950 border border-slate-800 text-slate-200 text-xs placeholder-slate-600 focus:outline-none focus:border-neon-cyan"
               />
+            </div>
+
+            <div>
+              <label className="text-[11px] font-medium text-slate-300 mb-1 flex items-center gap-1.5">
+                <FileText className="w-3.5 h-3.5 text-neon-cyan" />
+                <span>{tr('lblSoftware', 'Software / Processing Engine')}</span>
+              </label>
+              <input
+                type="text"
+                value={software}
+                onChange={(e) => setSoftware(e.target.value)}
+                placeholder="e.g. Adobe Photoshop 2024, Lightroom Classic"
+                className="w-full px-3 py-2 rounded-xl bg-dark-950 border border-slate-800 text-slate-200 text-xs placeholder-slate-600 focus:outline-none focus:border-neon-cyan"
+              />
+            </div>
+
+            <div>
+              <label className="text-[11px] font-medium text-slate-300 mb-1 flex items-center gap-1.5">
+                <FileText className="w-3.5 h-3.5 text-neon-cyan" />
+                <span>{tr('lblDescription', 'Image Title / Description')}</span>
+              </label>
+              <input
+                type="text"
+                value={imageDescription}
+                onChange={(e) => setImageDescription(e.target.value)}
+                placeholder="e.g. Official Passport Photo, Studio Portrait"
+                className="w-full px-3 py-2 rounded-xl bg-dark-950 border border-slate-800 text-slate-200 text-xs placeholder-slate-600 focus:outline-none focus:border-neon-cyan"
+              />
+            </div>
+          </div>
+        )}
+
+        {/* TAB 4: DATE & SPECS */}
+        {activeTab === 'specs' && (
+          <div className="space-y-3.5">
+            <div>
+              <label className="text-[11px] font-medium text-slate-300 mb-1 flex items-center gap-1.5">
+                <Calendar className="w-3.5 h-3.5 text-neon-cyan" />
+                <span>{tr('dateLabel', 'Capture Date (YYYY:MM:DD HH:MM:SS)')}</span>
+              </label>
+              <input
+                type="text"
+                value={dateTaken}
+                onChange={(e) => setDateTaken(e.target.value)}
+                placeholder="Leave blank for current timestamp"
+                className="w-full px-3 py-2 rounded-xl bg-dark-950 border border-slate-800 text-slate-200 text-xs placeholder-slate-600 focus:outline-none focus:border-neon-cyan font-mono"
+              />
+            </div>
+
+            <div>
+              <label className="text-[11px] font-medium text-slate-300 mb-1 flex items-center gap-1.5">
+                <Layers className="w-3.5 h-3.5 text-neon-cyan" />
+                <span>{tr('lblDpi', 'Resolution / DPI (Print Standard)')}</span>
+              </label>
+              <select
+                value={dpi}
+                onChange={(e) => setDpi(Number(e.target.value))}
+                className="w-full px-3 py-2 rounded-xl bg-dark-950 border border-slate-800 text-slate-200 text-xs focus:outline-none focus:border-neon-cyan font-mono"
+              >
+                <option value={300}>300 DPI ({tr('dpiPassport', 'Official Passport & High-Quality Print')})</option>
+                <option value={72}>72 DPI ({tr('dpiWeb', 'Web & Screen Standard')})</option>
+                <option value={150}>150 DPI ({tr('dpiMedium', 'Medium Resolution Print')})</option>
+                <option value={600}>600 DPI ({tr('dpiUltra', 'Ultra High Definition Archival')})</option>
+              </select>
             </div>
           </div>
         )}
       </div>
 
       {/* Primary Actions */}
-      <div className="space-y-3 pt-2">
+      <div className="space-y-3 pt-1">
         <button
           type="button"
           onClick={handleApply}
@@ -290,12 +556,12 @@ export const EditExifControl: React.FC<EditExifControlProps> = ({
           {isProcessing ? (
             <>
               <Loader2 className="w-4 h-4 animate-spin" />
-              <span>{tr('processing', 'Injecting Studio DSLR EXIF Metadata...')}</span>
+              <span>{tr('processing', 'Applying Custom EXIF Metadata...')}</span>
             </>
           ) : (
             <>
               <Camera className="w-4 h-4" />
-              <span>{tr('btnApply', 'Inject Studio DSLR EXIF Metadata')}</span>
+              <span>{tr('btnApplyManual', 'Apply & Save Custom EXIF')}</span>
             </>
           )}
         </button>
@@ -324,7 +590,7 @@ export const EditExifControl: React.FC<EditExifControlProps> = ({
             className="w-full py-2.5 px-4 rounded-xl bg-emerald-500 hover:bg-emerald-600 text-white font-bold text-xs shadow-lg shadow-emerald-500/20 transition-all flex items-center justify-center gap-2 cursor-pointer"
           >
             <Download className="w-4 h-4" />
-            <span>{tr('downloadClean', 'Download Studio Verified Image')}</span>
+            <span>{tr('downloadClean', 'Download Photo with New EXIF')}</span>
           </button>
         )}
 

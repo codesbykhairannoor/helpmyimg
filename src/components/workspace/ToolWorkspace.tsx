@@ -27,7 +27,7 @@ import { MetadataControl } from './tools/MetadataControl';
 import { EditExifControl } from './tools/EditExifControl';
 
 import { processImage, cropImage, rotateImage, smartCropImage, applyWatermark } from '../../utils/imageOperations';
-import { applyStudioPreset } from '../../utils/metadataEngine';
+import { applyStudioPreset, applyManualExif, stripAllPhotoMetadata } from '../../utils/metadataEngine';
 import { hexToColorInfo } from '../../utils/colorUtils';
 import type { TabType, BatchItem, ColorInfo, WatermarkPosition, ToolWorkspaceProps } from './types';
 
@@ -1034,13 +1034,13 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({
                     if (currentItem?.processedUrl) {
                       const a = document.createElement('a');
                       a.href = currentItem.processedUrl;
-                      let baseName = currentItem.name || `HelpMyIMG_Studio_${Date.now()}`;
+                      let baseName = currentItem.name || `HelpMyIMG_Clean_${Date.now()}`;
                       if (baseName.includes('.')) baseName = baseName.substring(0, baseName.lastIndexOf('.'));
                       a.download = `${baseName}.jpg`;
                       a.click();
                     }
                   }}
-                  onApplyPreset={async (presetKey, customOptions) => {
+                  onStripMetadata={async () => {
                     if (currentItem?.file) {
                       setBatchItems((prev) =>
                         prev.map((item) =>
@@ -1048,7 +1048,7 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({
                         )
                       );
                       try {
-                        const newBlob = await applyStudioPreset(currentItem.file, presetKey, customOptions);
+                        const newBlob = await stripAllPhotoMetadata(currentItem.file);
                         const newUrl = URL.createObjectURL(newBlob);
                         let baseName = currentItem.name || `HelpMyIMG_${Date.now()}`;
                         if (baseName.includes('.')) baseName = baseName.substring(0, baseName.lastIndexOf('.'));
@@ -1068,27 +1068,27 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({
                               : item
                           )
                         );
-                        showToast(t('metadata.successToast', { defaultValue: 'Studio EXIF & Metadata berhasil diterapkan!' }));
+                        showToast(t('metadata.successToast', { defaultValue: 'Semua metadata & C2PA berhasil dihapus bersih!' }));
                       } catch (err: any) {
-                        console.error('Metadata process failed', err);
+                        console.error('Metadata scrub failed', err);
                         setBatchItems((prev) =>
                           prev.map((item) =>
                             item.id === currentItem.id
-                              ? { ...item, status: 'error', errorMessage: err.message || 'Metadata failed' }
+                              ? { ...item, status: 'error', errorMessage: err.message || 'Scrub failed' }
                               : item
                           )
                         );
-                        showToast(t('metadata.failedToast', { defaultValue: 'Gagal memperbarui metadata foto.' }));
+                        showToast(t('metadata.failedToast', { defaultValue: 'Gagal membersihkan metadata foto.' }));
                       }
                     }
                   }}
-                  onProcessBatch={async (presetKey, customOptions) => {
+                  onProcessBatch={async () => {
                     setBatchItems((prev) => prev.map((item) => ({ ...item, status: 'processing' })));
                     const newItems = [...batchItems];
                     for (let i = 0; i < newItems.length; i++) {
                       const item = newItems[i];
                       try {
-                        const newBlob = await applyStudioPreset(item.file, presetKey, customOptions);
+                        const newBlob = await stripAllPhotoMetadata(item.file);
                         const newUrl = URL.createObjectURL(newBlob);
                         let baseName = item.name;
                         if (baseName.includes('.')) baseName = baseName.substring(0, baseName.lastIndexOf('.'));
@@ -1106,7 +1106,7 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({
                       }
                       setBatchItems([...newItems]);
                     }
-                    showToast(t('metadata.batchSuccess', { defaultValue: 'Semua foto berhasil diproses!' }));
+                    showToast(t('metadata.batchSuccess', { defaultValue: 'Semua foto berhasil dibersihkan!' }));
                   }}
                 />
               )}
@@ -1122,13 +1122,13 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({
                     if (currentItem?.processedUrl) {
                       const a = document.createElement('a');
                       a.href = currentItem.processedUrl;
-                      let baseName = currentItem.name || `HelpMyIMG_Studio_${Date.now()}`;
+                      let baseName = currentItem.name || `HelpMyIMG_CustomEXIF_${Date.now()}`;
                       if (baseName.includes('.')) baseName = baseName.substring(0, baseName.lastIndexOf('.'));
                       a.download = `${baseName}.jpg`;
                       a.click();
                     }
                   }}
-                  onApplyExif={async (presetKey, customOptions) => {
+                  onApplyExif={async (exifData) => {
                     if (currentItem?.file) {
                       setBatchItems((prev) =>
                         prev.map((item) =>
@@ -1136,7 +1136,7 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({
                         )
                       );
                       try {
-                        const newBlob = await applyStudioPreset(currentItem.file, presetKey, customOptions);
+                        const newBlob = await applyManualExif(currentItem.file, exifData);
                         const newUrl = URL.createObjectURL(newBlob);
                         let baseName = currentItem.name || `HelpMyIMG_${Date.now()}`;
                         if (baseName.includes('.')) baseName = baseName.substring(0, baseName.lastIndexOf('.'));
@@ -1156,7 +1156,7 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({
                               : item
                           )
                         );
-                        showToast(t('editexif.successToast', { defaultValue: 'Studio DSLR EXIF metadata berhasil diterapkan!' }));
+                        showToast(t('editexif.successToast', { defaultValue: 'Metadata EXIF kustom berhasil disimpan ke foto!' }));
                       } catch (err: any) {
                         console.error('Edit EXIF process failed', err);
                         setBatchItems((prev) =>
@@ -1170,13 +1170,13 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({
                       }
                     }
                   }}
-                  onProcessBatch={async (presetKey, customOptions) => {
+                  onProcessBatch={async (exifData) => {
                     setBatchItems((prev) => prev.map((item) => ({ ...item, status: 'processing' })));
                     const newItems = [...batchItems];
                     for (let i = 0; i < newItems.length; i++) {
                       const item = newItems[i];
                       try {
-                        const newBlob = await applyStudioPreset(item.file, presetKey, customOptions);
+                        const newBlob = await applyManualExif(item.file, exifData);
                         const newUrl = URL.createObjectURL(newBlob);
                         let baseName = item.name;
                         if (baseName.includes('.')) baseName = baseName.substring(0, baseName.lastIndexOf('.'));
@@ -1194,7 +1194,7 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({
                       }
                       setBatchItems([...newItems]);
                     }
-                    showToast(t('editexif.batchSuccess', { defaultValue: 'Semua metadata foto berhasil diproses!' }));
+                    showToast(t('editexif.batchSuccess', { defaultValue: 'Semua metadata foto berhasil diperbarui!' }));
                   }}
                 />
               )}

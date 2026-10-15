@@ -706,3 +706,204 @@ export async function applyStudioPreset(
 
   return new Blob([outputBuffer], { type: 'image/jpeg' });
 }
+
+export interface ManualExifData {
+  cameraMake?: string;
+  cameraModel?: string;
+  lensModel?: string;
+  shutterSpeed?: string;
+  aperture?: string;
+  iso?: number | string;
+  focalLength?: string;
+  flash?: string;
+  dateTaken?: string;
+  artist?: string;
+  copyright?: string;
+  software?: string;
+  imageDescription?: string;
+  dpi?: number;
+}
+
+function parseShutter(s?: string): [number, number] | undefined {
+  if (!s || !s.trim()) return undefined;
+  const clean = s.replace(/s$/i, '').trim();
+  if (clean.includes('/')) {
+    const parts = clean.split('/').map((n) => parseFloat(n.trim()));
+    if (!isNaN(parts[0]) && !isNaN(parts[1]) && parts[1] !== 0) {
+      return [Math.round(parts[0]), Math.round(parts[1])];
+    }
+  }
+  const val = parseFloat(clean);
+  if (!isNaN(val) && val > 0) {
+    if (val < 1) {
+      return [1, Math.round(1 / val)];
+    }
+    return [Math.round(val * 10), 10];
+  }
+  return undefined;
+}
+
+function parseAperture(a?: string): [number, number] | undefined {
+  if (!a || !a.trim()) return undefined;
+  const clean = a.replace(/^[fF]\/?/, '').trim();
+  const val = parseFloat(clean);
+  if (!isNaN(val) && val > 0) {
+    return [Math.round(val * 10), 10];
+  }
+  return undefined;
+}
+
+function parseFocalLength(f?: string): [number, number] | undefined {
+  if (!f || !f.trim()) return undefined;
+  const clean = f.replace(/mm$/i, '').trim();
+  const val = parseFloat(clean);
+  if (!isNaN(val) && val > 0) {
+    if (Number.isInteger(val)) return [val, 1];
+    return [Math.round(val * 100), 100];
+  }
+  return undefined;
+}
+
+function parseIso(iso?: number | string): number | undefined {
+  if (iso === undefined || iso === null || iso === '') return undefined;
+  const val = Number(iso);
+  return !isNaN(val) && val > 0 ? val : undefined;
+}
+
+function parseFlash(fl?: string): number | undefined {
+  if (!fl) return undefined;
+  if (fl === 'fired') return 9; // Flash fired, compulsory
+  if (fl === 'off') return 16; // Flash did not fire, compulsory
+  if (fl === 'auto') return 25; // Flash fired, auto
+  return undefined;
+}
+
+/**
+ * Injects 100% custom manual EXIF metadata directly into image bytes.
+ */
+export async function applyManualExif(file: Blob, exifData: ManualExifData): Promise<Blob> {
+  let baseBlob = file;
+  const isJpeg = file.type === 'image/jpeg' || file.type === 'image/jpg';
+  if (!isJpeg) {
+    baseBlob = await convertToJpegBlob(file);
+  }
+
+  const arrayBuffer = await baseBlob.arrayBuffer();
+  let rawBytes = new Uint8Array(arrayBuffer);
+
+  // Strip C2PA
+  if (rawBytes[0] === 0xff && rawBytes[1] === 0xd8) {
+    const stripped = stripJpegC2PA(rawBytes);
+    rawBytes = stripped.cleanData;
+  }
+
+  let jpegBinaryStr = '';
+  for (let i = 0; i < rawBytes.length; i++) {
+    jpegBinaryStr += String.fromCharCode(rawBytes[i]);
+  }
+
+  const thumbBinary = await generateJpegThumbnail(baseBlob);
+
+  const now = new Date();
+  const pad = (n: number) => n.toString().padStart(2, '0');
+  const defaultDate = `${now.getFullYear()}:${pad(now.getMonth() + 1)}:${pad(now.getDate())} ${pad(now.getHours())}:${pad(now.getMinutes())}:${pad(now.getSeconds())}`;
+
+  let dateFormatted = exifData.dateTaken?.trim() || defaultDate;
+  if (dateFormatted.includes('-') || dateFormatted.includes('T')) {
+    const d = new Date(dateFormatted);
+    if (!isNaN(d.getTime())) {
+      dateFormatted = `${d.getFullYear()}:${pad(d.getMonth() + 1)}:${pad(d.getDate())} ${pad(d.getHours())}:${pad(d.getMinutes())}:${pad(d.getSeconds())}`;
+    }
+  }
+
+  const dpiVal = Number(exifData.dpi) || 300;
+
+  const zeroth_ifd: any = {
+    [piexif.ImageIFD.Orientation]: 1,
+    [piexif.ImageIFD.XResolution]: [dpiVal, 1],
+    [piexif.ImageIFD.YResolution]: [dpiVal, 1],
+    [piexif.ImageIFD.ResolutionUnit]: 2,
+    [piexif.ImageIFD.DateTime]: dateFormatted,
+  };
+
+  if (exifData.cameraMake?.trim()) zeroth_ifd[piexif.ImageIFD.Make] = exifData.cameraMake.trim();
+  if (exifData.cameraModel?.trim()) zeroth_ifd[piexif.ImageIFD.Model] = exifData.cameraModel.trim();
+  if (exifData.artist?.trim()) zeroth_ifd[piexif.ImageIFD.Artist] = exifData.artist.trim();
+  if (exifData.copyright?.trim()) zeroth_ifd[piexif.ImageIFD.Copyright] = exifData.copyright.trim();
+  if (exifData.software?.trim()) zeroth_ifd[piexif.ImageIFD.Software] = exifData.software.trim();
+  if (exifData.imageDescription?.trim()) zeroth_ifd[piexif.ImageIFD.ImageDescription] = exifData.imageDescription.trim();
+
+  const exif_ifd: any = {
+    [piexif.ExifIFD.ExifVersion]: '0231',
+    [piexif.ExifIFD.DateTimeOriginal]: dateFormatted,
+    [piexif.ExifIFD.DateTimeDigitized]: dateFormatted,
+    [piexif.ExifIFD.ColorSpace]: 1,
+  };
+
+  const shutter = parseShutter(exifData.shutterSpeed);
+  if (shutter) exif_ifd[piexif.ExifIFD.ExposureTime] = shutter;
+
+  const aperture = parseAperture(exifData.aperture);
+  if (aperture) exif_ifd[piexif.ExifIFD.FNumber] = aperture;
+
+  const iso = parseIso(exifData.iso);
+  if (iso) exif_ifd[piexif.ExifIFD.ISOSpeedRatings] = iso;
+
+  const fl = parseFocalLength(exifData.focalLength);
+  if (fl) {
+    exif_ifd[piexif.ExifIFD.FocalLength] = fl;
+    exif_ifd[piexif.ExifIFD.FocalLengthIn35mmFilm] = Math.round(fl[0] / fl[1]);
+  }
+
+  const flash = parseFlash(exifData.flash);
+  if (flash !== undefined) exif_ifd[piexif.ExifIFD.Flash] = flash;
+
+  if (exifData.lensModel?.trim()) exif_ifd[piexif.ExifIFD.LensModel] = exifData.lensModel.trim();
+
+  const exifObj: any = {
+    '0th': zeroth_ifd,
+    'Exif': exif_ifd,
+    'GPS': {},
+    '1st': {},
+    'interop': {},
+  };
+
+  if (thumbBinary) {
+    exifObj['thumbnail'] = thumbBinary;
+  }
+
+  const exifBytes = piexif.dump(exifObj);
+  const cleanBaseStr = piexif.remove(jpegBinaryStr);
+  const resultBinaryStr = piexif.insert(exifBytes, cleanBaseStr);
+
+  const outputBuffer = new Uint8Array(resultBinaryStr.length);
+  for (let i = 0; i < resultBinaryStr.length; i++) {
+    outputBuffer[i] = resultBinaryStr.charCodeAt(i);
+  }
+
+  return new Blob([outputBuffer], { type: 'image/jpeg' });
+}
+
+/**
+ * 100% cleans all metadata (C2PA, EXIF, GPS, XMP, software history).
+ */
+export async function stripAllPhotoMetadata(file: Blob): Promise<Blob> {
+  const arrayBuffer = await file.arrayBuffer();
+  let rawBytes = new Uint8Array(arrayBuffer);
+
+  if (rawBytes[0] === 0xff && rawBytes[1] === 0xd8) {
+    const stripped = stripJpegC2PA(rawBytes);
+    rawBytes = stripped.cleanData;
+    let binaryStr = '';
+    for (let i = 0; i < rawBytes.length; i++) binaryStr += String.fromCharCode(rawBytes[i]);
+    const cleanBinaryStr = piexif.remove(binaryStr);
+    const cleanBuffer = new Uint8Array(cleanBinaryStr.length);
+    for (let i = 0; i < cleanBinaryStr.length; i++) cleanBuffer[i] = cleanBinaryStr.charCodeAt(i);
+    return new Blob([cleanBuffer], { type: 'image/jpeg' });
+  } else if (rawBytes[0] === 0x89 && rawBytes[1] === 0x50) {
+    const stripped = stripPngC2PA(rawBytes);
+    return new Blob([stripped.cleanData], { type: 'image/png' });
+  }
+
+  return file;
+}
