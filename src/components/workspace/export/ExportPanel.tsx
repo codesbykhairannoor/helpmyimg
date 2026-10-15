@@ -34,7 +34,9 @@ export const ExportPanel: React.FC<ExportPanelProps> = ({
     initialTab === 'picker' ||
     initialTab === 'metadata' ||
     initialTab === 'editexif' ||
-    initialTab === 'design'
+    initialTab === 'design' ||
+    String(initialTab).toLowerCase().includes('meta') ||
+    String(initialTab).toLowerCase().includes('exif')
   ) return null;
 
   return (

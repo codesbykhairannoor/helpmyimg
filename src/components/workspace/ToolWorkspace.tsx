@@ -1204,15 +1204,20 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({
               )}
             </Suspense>
 
-            {/* Export & Download Options Panel */}
-            <ExportPanel
-              batchItems={batchItems}
-              setBatchItems={setBatchItems}
-              initialTab={initialTab}
-              isZipping={isZipping}
-              onZipDownload={handleZipDownload}
-              showToast={showToast}
-            />
+            {/* Export & Download Options Panel (Hidden for tools with dedicated action and download buttons) */}
+            {initialTab !== 'metadata' &&
+              initialTab !== 'editexif' &&
+              initialTab !== 'design' &&
+              initialTab !== 'picker' && (
+                <ExportPanel
+                  batchItems={batchItems}
+                  setBatchItems={setBatchItems}
+                  initialTab={initialTab}
+                  isZipping={isZipping}
+                  onZipDownload={handleZipDownload}
+                  showToast={showToast}
+                />
+              )}
           </div>
         </div>
       </div>
