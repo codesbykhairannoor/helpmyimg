@@ -29,15 +29,7 @@ export const ExportPanel: React.FC<ExportPanelProps> = ({
   const [showExportOptions, setShowExportOptions] = useState(false);
   const [customZipName, setCustomZipName] = useState('');
 
-  if (
-    batchItems.length === 0 ||
-    initialTab === 'picker' ||
-    initialTab === 'metadata' ||
-    initialTab === 'editexif' ||
-    initialTab === 'design' ||
-    String(initialTab).toLowerCase().includes('meta') ||
-    String(initialTab).toLowerCase().includes('exif')
-  ) return null;
+  if (batchItems.length === 0 || initialTab === 'picker') return null;
 
   return (
     <div className="mt-6 pt-6 border-t border-dark-600/60 shrink-0 flex flex-col gap-4">

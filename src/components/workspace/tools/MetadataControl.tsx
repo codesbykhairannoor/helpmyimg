@@ -310,16 +310,6 @@ export const MetadataControl: React.FC<MetadataControlProps> = ({
           </button>
         )}
 
-        {currentItem?.processedUrl && (
-          <button
-            type="button"
-            onClick={onDownload}
-            className="w-full py-2.5 px-4 rounded-xl bg-emerald-500 hover:bg-emerald-600 text-white font-bold text-xs shadow-lg shadow-emerald-500/20 transition-all flex items-center justify-center gap-2 cursor-pointer"
-          >
-            <Download className="w-4 h-4" />
-            <span>{tr('downloadClean', 'Download Scrubbed Photo')}</span>
-          </button>
-        )}
 
         <div className="flex gap-2 pt-1">
           {onUploadOther && (
