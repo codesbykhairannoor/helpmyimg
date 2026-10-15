@@ -150,60 +150,8 @@ export const EditExifControl: React.FC<EditExifControlProps> = ({
     }
   };
 
-  // Quick fill helpers
-  const handleQuickFill = (type: 'canon' | 'sony' | 'iphone' | 'clear') => {
-    if (type === 'canon') {
-      setCameraMake('Canon');
-      setCameraModel('Canon EOS 5D Mark IV');
-      setLensModel('EF85mm f/1.4L IS USM');
-      setShutterSpeed('1/160');
-      setAperture('5.6');
-      setIso('100');
-      setFocalLength('85');
-      setFlash('fired');
-      setDpi(300);
-      setSoftware('Canon EOS Digital Solution');
-    } else if (type === 'sony') {
-      setCameraMake('Sony');
-      setCameraModel('ILCE-7M4');
-      setLensModel('FE 50mm F1.2 GM');
-      setShutterSpeed('1/200');
-      setAperture('2.8');
-      setIso('100');
-      setFocalLength('50');
-      setFlash('off');
-      setDpi(300);
-      setSoftware('ILCE-7M4 v3.01');
-    } else if (type === 'iphone') {
-      setCameraMake('Apple');
-      setCameraModel('iPhone 16 Pro');
-      setLensModel('iPhone 16 Pro back camera 6.765mm f/1.78');
-      setShutterSpeed('1/120');
-      setAperture('1.78');
-      setIso('64');
-      setFocalLength('24');
-      setFlash('off');
-      setDpi(72);
-      setSoftware('iOS 18.1');
-    } else if (type === 'clear') {
-      setCameraMake('');
-      setCameraModel('');
-      setLensModel('');
-      setShutterSpeed('');
-      setAperture('');
-      setIso('');
-      setFocalLength('');
-      setFlash('off');
-      setArtist('');
-      setCopyright('');
-      setSoftware('');
-      setImageDescription('');
-      setDateTaken('');
-    }
-  };
-
   return (
-    <div className="space-y-5 overflow-y-visible">
+    <div className="space-y-4 overflow-y-visible">
       {/* Top Status & File Readout Banner */}
       <div className="p-3.5 rounded-2xl bg-dark-900 border border-slate-800 space-y-2">
         <div className="flex items-center justify-between">
@@ -229,44 +177,8 @@ export const EditExifControl: React.FC<EditExifControlProps> = ({
           )}
         </div>
         <p className="text-[11px] text-slate-400 font-body">
-          {tr('manualEditorSub', 'Fill in or modify any photography parameter below. All fields are fully customizable without template limits.')}
+          {tr('manualEditorSub', 'Fill in or modify any photography parameter below. All fields are fully customizable.')}
         </p>
-
-        {/* Quick Fill Pills */}
-        <div className="pt-2 border-t border-slate-800/80 flex flex-wrap items-center gap-1.5 text-[11px]">
-          <span className="text-slate-500 text-[10px] uppercase font-mono mr-1">
-            {tr('quickFill', 'Quick Fill:')}
-          </span>
-          <button
-            type="button"
-            onClick={() => handleQuickFill('canon')}
-            className="px-2 py-1 rounded-lg bg-dark-800 hover:bg-dark-700 text-slate-300 border border-slate-700/80 hover:text-white transition-colors cursor-pointer"
-          >
-            Canon 5D (300 DPI)
-          </button>
-          <button
-            type="button"
-            onClick={() => handleQuickFill('sony')}
-            className="px-2 py-1 rounded-lg bg-dark-800 hover:bg-dark-700 text-slate-300 border border-slate-700/80 hover:text-white transition-colors cursor-pointer"
-          >
-            Sony A7 IV
-          </button>
-          <button
-            type="button"
-            onClick={() => handleQuickFill('iphone')}
-            className="px-2 py-1 rounded-lg bg-dark-800 hover:bg-dark-700 text-slate-300 border border-slate-700/80 hover:text-white transition-colors cursor-pointer"
-          >
-            iPhone 16
-          </button>
-          <button
-            type="button"
-            onClick={() => handleQuickFill('clear')}
-            className="px-2 py-1 rounded-lg bg-rose-500/10 hover:bg-rose-500/20 text-rose-300 border border-rose-500/30 transition-colors cursor-pointer ml-auto flex items-center gap-1"
-          >
-            <Trash2 className="w-3 h-3" />
-            <span>Clear</span>
-          </button>
-        </div>
       </div>
 
       {/* Section Tabs */}

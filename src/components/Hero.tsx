@@ -21,13 +21,22 @@ export const Hero: React.FC<HeroProps> = ({ title, description }) => {
   
   if (title) {
     // For tool specific titles (e.g. 'Free Image Compressor')
-    // We want 'Free' to be solid, and 'Image Compressor' to be highlighted
-    const cleanTitle = title.split(' - ')[0].trim();
-    const words = cleanTitle.split(' ');
+    // Strip trailing pipes '|' or dashes '-' to keep H1 clean, focused, and punchy
+    const cleanTitle = title.split(/\s*[-|]\s*/)[0].trim();
+    const words = cleanTitle.split(/\s+/).filter(Boolean);
     
-    // Default: first word is solid, the rest is gradient
-    solidPart = words.slice(0, 1).join(' ');
-    gradientPart = words.slice(1).join(' ');
+    // Balanced word split: solid part vs gradient part
+    if (words.length <= 1) {
+      solidPart = cleanTitle;
+      gradientPart = '';
+    } else if (words.length <= 3) {
+      solidPart = words[0];
+      gradientPart = words.slice(1).join(' ');
+    } else {
+      const splitPoint = Math.floor(words.length / 2);
+      solidPart = words.slice(0, splitPoint).join(' ');
+      gradientPart = words.slice(splitPoint).join(' ');
+    }
     gradientFirst = false;
   } else {
     // For home page, use explicitly translated highlighted and solid parts
@@ -58,7 +67,7 @@ export const Hero: React.FC<HeroProps> = ({ title, description }) => {
         >
           {gradientFirst ? (
             <>
-              <span className="bg-gradient-to-r from-neon-cyan via-neon-emerald to-neon-indigo bg-clip-text text-transparent drop-shadow-sm inline">
+              <span className="bg-gradient-to-r from-neon-cyan to-neon-indigo bg-clip-text text-transparent drop-shadow-sm inline">
                 {gradientPart}
               </span>
               {' '}
@@ -72,9 +81,11 @@ export const Hero: React.FC<HeroProps> = ({ title, description }) => {
                 {solidPart}
               </span>
               {' '}
-              <span className="bg-gradient-to-r from-neon-cyan via-neon-emerald to-neon-indigo bg-clip-text text-transparent drop-shadow-sm inline">
-                {gradientPart}
-              </span>
+              {gradientPart && (
+                <span className="bg-gradient-to-r from-neon-cyan to-neon-indigo bg-clip-text text-transparent drop-shadow-sm inline">
+                  {gradientPart}
+                </span>
+              )}
             </>
           )}
         </h1>

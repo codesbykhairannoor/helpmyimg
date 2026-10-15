@@ -208,9 +208,9 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({
 
   return (
     <section id="workspace" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 md:py-8">
-      {/* Grid Workspace: Viewport Kiri (55%) & Panel Kontrol Kanan (45%) */}
-      <div className="grid grid-cols-1 lg:grid-cols-[11fr_9fr] gap-6 lg:gap-8 items-start">
-        {/* Viewport & Dropzone (55% di Desktop) */}
+      {/* Grid Workspace: Viewport Kiri (60%) & Panel Kontrol Kanan (40%) */}
+      <div className="grid grid-cols-1 lg:grid-cols-[3fr_2fr] gap-6 lg:gap-8 items-start">
+        {/* Viewport & Dropzone (60% di Desktop) */}
         <div className="w-full flex flex-col space-y-6">
           <input
             ref={fileInputRef}
@@ -298,7 +298,7 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({
           )}
         </div>
 
-        {/* Sidebar Kontrol Alat (45% di Desktop) */}
+        {/* Sidebar Kontrol Alat (40% di Desktop) */}
         <div className="w-full glass-panel p-4 sm:p-5 flex flex-col space-y-4 h-fit">
           <div className="flex flex-col gap-3 border-b border-dark-600/60 pb-3 shrink-0">
             <div className="flex items-center justify-between flex-wrap gap-2">
