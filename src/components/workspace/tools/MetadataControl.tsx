@@ -141,7 +141,9 @@ export const MetadataControl: React.FC<MetadataControlProps> = ({
                 <div>
                   <div className="font-semibold text-slate-200">
                     {analysis.cameraModel
-                      ? `${analysis.cameraMake || ''} ${analysis.cameraModel}`
+                      ? (analysis.cameraMake && !analysis.cameraModel.toLowerCase().includes(analysis.cameraMake.toLowerCase())
+                          ? `${analysis.cameraMake} ${analysis.cameraModel}`
+                          : analysis.cameraModel)
                       : tr('noExifFound', 'No Camera Hardware Metadata')}
                   </div>
                   <div className="text-[11px] text-slate-400">
@@ -182,14 +184,14 @@ export const MetadataControl: React.FC<MetadataControlProps> = ({
       </div>
 
       {/* Scrub Scope Checklist */}
-      <div className="rounded-2xl bg-dark-900 border border-slate-800 p-4 space-y-3">
+      <div className="rounded-2xl bg-dark-900 border border-slate-800 p-3.5 space-y-2.5">
         <label className="text-xs font-mono font-bold tracking-wider text-slate-200 uppercase flex items-center gap-2">
           <Trash2 className="w-3.5 h-3.5 text-rose-400" />
           <span>{tr('scrubScopeTitle', 'DATA TO REMOVE PERMANENTLY')}</span>
         </label>
 
-        <div className="space-y-2 text-xs">
-          <label className="flex items-center gap-2.5 p-2 rounded-xl bg-dark-950/60 border border-slate-800/80 cursor-pointer hover:border-slate-700 transition-colors">
+        <div className="space-y-1.5 text-xs">
+          <label className="flex items-center gap-2.5 p-2 py-1.5 rounded-xl bg-dark-950/60 border border-slate-800/80 cursor-pointer hover:border-slate-700 transition-colors">
             <input
               type="checkbox"
               checked={stripC2PA}
@@ -197,16 +199,16 @@ export const MetadataControl: React.FC<MetadataControlProps> = ({
               className="w-4 h-4 rounded text-rose-500 bg-dark-900 border-slate-700 focus:ring-0 cursor-pointer"
             />
             <div className="flex-1">
-              <span className="font-semibold text-slate-200 block">
+              <span className="font-semibold text-slate-200 block text-[12px]">
                 {tr('chkC2pa', 'Remove C2PA & AI Manifests (SynthID, JUMBF APP11)')}
               </span>
-              <span className="text-[10px] text-slate-400 block">
+              <span className="text-[10px] text-slate-400 block leading-tight">
                 {tr('chkC2paSub', 'Eliminates automatic "Made with AI" labels on social media')}
               </span>
             </div>
           </label>
 
-          <label className="flex items-center gap-2.5 p-2 rounded-xl bg-dark-950/60 border border-slate-800/80 cursor-pointer hover:border-slate-700 transition-colors">
+          <label className="flex items-center gap-2.5 p-2 py-1.5 rounded-xl bg-dark-950/60 border border-slate-800/80 cursor-pointer hover:border-slate-700 transition-colors">
             <input
               type="checkbox"
               checked={stripExif}
@@ -214,16 +216,16 @@ export const MetadataControl: React.FC<MetadataControlProps> = ({
               className="w-4 h-4 rounded text-rose-500 bg-dark-900 border-slate-700 focus:ring-0 cursor-pointer"
             />
             <div className="flex-1">
-              <span className="font-semibold text-slate-200 block">
+              <span className="font-semibold text-slate-200 block text-[12px]">
                 {tr('chkExif', 'Wipe Camera EXIF & Hardware Information')}
               </span>
-              <span className="text-[10px] text-slate-400 block">
+              <span className="text-[10px] text-slate-400 block leading-tight">
                 {tr('chkExifSub', 'Removes camera serial number, shutter count, and lens data')}
               </span>
             </div>
           </label>
 
-          <label className="flex items-center gap-2.5 p-2 rounded-xl bg-dark-950/60 border border-slate-800/80 cursor-pointer hover:border-slate-700 transition-colors">
+          <label className="flex items-center gap-2.5 p-2 py-1.5 rounded-xl bg-dark-950/60 border border-slate-800/80 cursor-pointer hover:border-slate-700 transition-colors">
             <input
               type="checkbox"
               checked={stripGps}
@@ -231,16 +233,16 @@ export const MetadataControl: React.FC<MetadataControlProps> = ({
               className="w-4 h-4 rounded text-rose-500 bg-dark-900 border-slate-700 focus:ring-0 cursor-pointer"
             />
             <div className="flex-1">
-              <span className="font-semibold text-slate-200 block">
+              <span className="font-semibold text-slate-200 block text-[12px]">
                 {tr('chkGps', 'Scrub GPS Coordinates & Geotags')}
               </span>
-              <span className="text-[10px] text-slate-400 block">
+              <span className="text-[10px] text-slate-400 block leading-tight">
                 {tr('chkGpsSub', 'Protects physical location and private home/office addresses')}
               </span>
             </div>
           </label>
 
-          <label className="flex items-center gap-2.5 p-2 rounded-xl bg-dark-950/60 border border-slate-800/80 cursor-pointer hover:border-slate-700 transition-colors">
+          <label className="flex items-center gap-2.5 p-2 py-1.5 rounded-xl bg-dark-950/60 border border-slate-800/80 cursor-pointer hover:border-slate-700 transition-colors">
             <input
               type="checkbox"
               checked={stripAuthor}
@@ -248,13 +250,13 @@ export const MetadataControl: React.FC<MetadataControlProps> = ({
               className="w-4 h-4 rounded text-rose-500 bg-dark-900 border-slate-700 focus:ring-0 cursor-pointer"
             />
             <div className="flex-1">
-              <span className="font-semibold text-slate-200 block">
+              <span className="font-semibold text-slate-200 block text-[12px]">
                 {tr('chkAuthor', 'Strip Creator Names, Artist & Copyright Tags')}
               </span>
             </div>
           </label>
 
-          <label className="flex items-center gap-2.5 p-2 rounded-xl bg-dark-950/60 border border-slate-800/80 cursor-pointer hover:border-slate-700 transition-colors">
+          <label className="flex items-center gap-2.5 p-2 py-1.5 rounded-xl bg-dark-950/60 border border-slate-800/80 cursor-pointer hover:border-slate-700 transition-colors">
             <input
               type="checkbox"
               checked={stripSoftware}
@@ -262,7 +264,7 @@ export const MetadataControl: React.FC<MetadataControlProps> = ({
               className="w-4 h-4 rounded text-rose-500 bg-dark-900 border-slate-700 focus:ring-0 cursor-pointer"
             />
             <div className="flex-1">
-              <span className="font-semibold text-slate-200 block">
+              <span className="font-semibold text-slate-200 block text-[12px]">
                 {tr('chkXmp', 'Wipe Software Traces & Editing History (XMP)')}
               </span>
             </div>

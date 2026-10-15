@@ -208,10 +208,10 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({
 
   return (
     <section id="workspace" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 md:py-8">
-      {/* Grid Workspace: Viewport Kiri & Panel Kontrol Kanan */}
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 lg:gap-8 items-start">
-        {/* Viewport & Dropzone (8 Kolom di Desktop) */}
-        <div className="lg:col-span-7 xl:col-span-8 flex flex-col space-y-6">
+      {/* Grid Workspace: Viewport Kiri (55%) & Panel Kontrol Kanan (45%) */}
+      <div className="grid grid-cols-1 lg:grid-cols-[11fr_9fr] gap-6 lg:gap-8 items-start">
+        {/* Viewport & Dropzone (55% di Desktop) */}
+        <div className="w-full flex flex-col space-y-6">
           <input
             ref={fileInputRef}
             type="file"
@@ -298,9 +298,9 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({
           )}
         </div>
 
-        {/* Sidebar Kontrol Alat (4 Kolom di Desktop) */}
-        <div className="lg:col-span-5 xl:col-span-4 glass-panel p-6 flex flex-col space-y-6 h-fit">
-          <div className="flex flex-col gap-3 border-b border-dark-600/60 pb-4 shrink-0">
+        {/* Sidebar Kontrol Alat (45% di Desktop) */}
+        <div className="w-full glass-panel p-4 sm:p-5 flex flex-col space-y-4 h-fit">
+          <div className="flex flex-col gap-3 border-b border-dark-600/60 pb-3 shrink-0">
             <div className="flex items-center justify-between flex-wrap gap-2">
               <h3 className="font-heading font-extrabold text-white text-lg flex items-center gap-2">
                 <Sparkles className="w-5 h-5 text-neon-cyan" />
@@ -330,12 +330,16 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({
                   {(initialTab === 'blurface' || initialTab === 'blurplate') &&
                     t('work.badge.blurface', { defaultValue: 'Blur Face' })}
                   {initialTab === 'design' && t('work.badge.design', { defaultValue: 'Design Editor' })}
+                  {initialTab === 'metadata' &&
+                    t('work.badge.metadata', { defaultValue: 'Clean AI & EXIF' })}
+                  {initialTab === 'editexif' &&
+                    t('work.badge.editexif', { defaultValue: 'Manual EXIF' })}
                 </span>
               </div>
             </div>
           </div>
 
-          <div className="flex-1 space-y-6">
+          <div className="flex-1 space-y-4">
             <Suspense
               fallback={
                 <div className="flex justify-center items-center h-32">
