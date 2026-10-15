@@ -40,7 +40,7 @@ export const Hero: React.FC<HeroProps> = ({ title, description }) => {
     gradientFirst = false;
   } else {
     // For home page, use explicitly translated highlighted and solid parts
-    gradientPart = t('home.hero.titleHighlight', { defaultValue: '100% Private Image Tools,' });
+    gradientPart = t('home.hero.titleHighlight', { defaultValue: '100% Private Image Tools' });
     solidPart = t('home.hero.titleSolid', { defaultValue: 'Processed Right in Your Browser' });
     gradientFirst = true;
   }
@@ -55,34 +55,32 @@ export const Hero: React.FC<HeroProps> = ({ title, description }) => {
 
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 animate-in fade-in slide-in-from-bottom-8 duration-700 w-full">
         
-        {/* Title: Gradient + Solid, Centered, Huge */}
+        {/* Title: Gradient + Solid, Centered, Perfectly Balanced 2 Lines */}
         <h1 
           className="font-heading font-black mb-6 text-center"
           style={{ 
-            fontSize: 'clamp(2.2rem, 6vw, 4.5rem)', 
+            fontSize: 'clamp(1.75rem, 4.2vw, 3.25rem)', 
             fontWeight: 900, 
             letterSpacing: '-0.03em', 
-            lineHeight: 1.15 
+            lineHeight: 1.2 
           }}
         >
           {gradientFirst ? (
             <>
-              <span className="bg-gradient-to-r from-neon-cyan via-neon-emerald to-neon-indigo bg-clip-text text-transparent drop-shadow-sm inline">
+              <span className="block bg-gradient-to-r from-neon-cyan via-neon-emerald to-neon-indigo bg-clip-text text-transparent drop-shadow-sm">
                 {gradientPart}
               </span>
-              {' '}
-              <span className="text-slate-800 dark:text-slate-100 inline">
+              <span className="block text-slate-800 dark:text-slate-100 mt-1 sm:mt-2">
                 {solidPart}
               </span>
             </>
           ) : (
             <>
-              <span className="text-slate-800 dark:text-slate-100 inline">
+              <span className="block text-slate-800 dark:text-slate-100">
                 {solidPart}
               </span>
-              {' '}
               {gradientPart && (
-                <span className="bg-gradient-to-r from-neon-cyan via-neon-emerald to-neon-indigo bg-clip-text text-transparent drop-shadow-sm inline">
+                <span className="block bg-gradient-to-r from-neon-cyan via-neon-emerald to-neon-indigo bg-clip-text text-transparent drop-shadow-sm mt-1 sm:mt-2">
                   {gradientPart}
                 </span>
               )}
