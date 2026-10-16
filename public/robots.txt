@@ -15,6 +15,7 @@ Allow: /locales/
 Allow: /sitemaps/
 Allow: /images.png
 Allow: /logobaru.png
+Allow: /logobaru-sm.png
 Allow: /logo.webp
 Allow: /favicon.svg
 Allow: /favicon.png

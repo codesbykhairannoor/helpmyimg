@@ -75,8 +75,8 @@ export const Navbar: React.FC = () => {
  {/* Kiri: Brand Logo */}
  <div className="flex items-center justify-start flex-shrink-0">
  <a href={lang === 'en' ? '/' : `/${lang}`} onClick={(e) => { e.preventDefault(); navigatePath(lang === 'en' ? '/' : `/${lang}`); }} className="flex items-center gap-2 sm:gap-2.5 group">
- <div className="w-8 h-8 sm:w-[38px] sm:h-[38px] flex-shrink-0 transition-all duration-300 group-hover:scale-105 drop-shadow-glow-cyan">
- <img src="/logobaru.png" alt="HelpMyIMG Logo" width="38" height="38" decoding="async" className="w-full h-full object-contain" />
+ <div className="brand-logo-container w-8 h-8 sm:w-[38px] sm:h-[38px] flex-shrink-0 transition-all duration-300 group-hover:scale-105 drop-shadow-glow-cyan" style={{ width: 38, height: 38, minWidth: 38, minHeight: 38 }}>
+ <img src="/logobaru-sm.png" alt="HelpMyIMG Logo" width="38" height="38" decoding="async" className="brand-logo-img w-full h-full object-contain" style={{ width: 38, height: 38, maxWidth: 38, maxHeight: 38, objectFit: 'contain' }} />
  </div>
  <div className="flex flex-col">
  <span className="text-lg sm:text-xl font-heading font-extrabold text-slate-900 dark:text-white">

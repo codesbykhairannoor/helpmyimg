@@ -31,8 +31,8 @@ export const Footer: React.FC = () => {
           {/* Brand & Mission */}
           <div className="space-y-4 lg:col-span-2">
             <div className="flex items-center gap-2.5">
-              <div className="w-9 h-9 drop-shadow-glow-cyan">
-                <img src="/logobaru.png" alt="HelpMyIMG Logo" width="36" height="36" className="w-full h-full object-contain" />
+              <div className="w-9 h-9 drop-shadow-glow-cyan" style={{ width: 36, height: 36, minWidth: 36, minHeight: 36 }}>
+                <img src="/logobaru-sm.png" alt="HelpMyIMG Logo" width="36" height="36" className="w-full h-full object-contain" style={{ width: 36, height: 36, maxWidth: 36, maxHeight: 36, objectFit: 'contain' }} />
               </div>
               <span className="text-xl font-heading font-extrabold tracking-tight text-slate-900 dark:text-white">
                 HelpMy<span className="text-transparent bg-clip-text bg-gradient-to-r from-neon-cyan to-neon-emerald">IMG</span>

@@ -9,6 +9,18 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap"></noscript>
+    
+    <!-- Critical CSS Guard: 0ms First Paint, Zero CLS & FOUC Prevention (Google Core Web Vitals) -->
+    <style id="critical-fouc-guard">
+      img, svg, video { max-width: 100%; height: auto; }
+      header { min-height: 54px; width: 100%; }
+      .brand-logo-container { width: 38px !important; height: 38px !important; min-width: 38px !important; min-height: 38px !important; max-width: 38px !important; max-height: 38px !important; display: inline-block; flex-shrink: 0; }
+      .brand-logo-img { width: 38px !important; height: 38px !important; max-width: 38px !important; max-height: 38px !important; object-fit: contain; display: block; aspect-ratio: 1/1; }
+      .hidden { display: none !important; }
+      @media (min-width: 1024px) {
+        .lg\:flex { display: flex !important; }
+      }
+    </style>
     <title>HelpMyIMG - Free AI Image Editor</title>
     <meta name="description" content="Free local AI photo editor. Remove backgrounds, compress, resize, and convert images instantly in your browser. 100% private and highly secure." />
     <meta name="google-site-verification" content="U2tOAPAwL2V7dbXLgj7VHzZgxwwIvhiZdMqe7YxrxZA" />

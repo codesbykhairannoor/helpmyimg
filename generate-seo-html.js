@@ -931,8 +931,8 @@ function generateSemanticHtml(lang, urlPath, title, desc, tool, infoPage, transl
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-[60px] flex items-center justify-between">
         <div class="flex items-center justify-start flex-shrink-0">
           <a href="${homeLink}" class="flex items-center gap-2.5 group">
-            <div class="w-[38px] h-[38px] flex-shrink-0 transition-all duration-300 drop-shadow-glow-cyan">
-              <img src="/logobaru.png" alt="HelpMyIMG Logo" width="38" height="38" decoding="async" class="w-full h-full object-contain" />
+            <div class="brand-logo-container w-[38px] h-[38px] flex-shrink-0 transition-all duration-300 drop-shadow-glow-cyan" style="width: 38px; height: 38px; min-width: 38px; min-height: 38px;">
+              <img src="/logobaru-sm.png" alt="HelpMyIMG Logo" width="38" height="38" decoding="async" class="brand-logo-img w-full h-full object-contain" style="width: 38px; height: 38px; max-width: 38px; max-height: 38px; object-fit: contain;" />
             </div>
             <div class="flex flex-col">
               <span class="text-xl font-heading font-extrabold text-slate-900 dark:text-white">
@@ -980,8 +980,8 @@ function generateSemanticHtml(lang, urlPath, title, desc, tool, infoPage, transl
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
           <div class="space-y-4">
             <div class="flex items-center gap-2.5">
-              <div class="w-9 h-9 drop-shadow-glow-cyan">
-                <img src="/logobaru.png" alt="HelpMyIMG Logo" width="36" height="36" class="w-full h-full object-contain" />
+              <div class="w-9 h-9 drop-shadow-glow-cyan" style="width: 36px; height: 36px;">
+                <img src="/logobaru-sm.png" alt="HelpMyIMG Logo" width="36" height="36" class="w-full h-full object-contain" style="width: 36px; height: 36px; max-width: 36px; max-height: 36px; object-fit: contain;" />
               </div>
               <span class="text-xl font-heading font-extrabold tracking-tight text-slate-900 dark:text-white">
                 HelpMy<span class="text-transparent bg-clip-text bg-gradient-to-r from-neon-cyan to-neon-emerald">IMG</span>
