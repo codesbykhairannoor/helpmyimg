@@ -5,12 +5,10 @@ import {
   Sparkles, 
   RotateCcw, 
   Upload, 
-  Download,
   Loader2,
   Calendar,
   User,
   Sliders,
-  CheckCircle2,
   Eye,
   Info,
   Clock,
@@ -18,8 +16,7 @@ import {
   Zap,
   Tag,
   Shield,
-  FileText,
-  Trash2
+  FileText
 } from 'lucide-react';
 import { 
   analyzeImageMetadata, 
@@ -43,7 +40,6 @@ export const EditExifControl: React.FC<EditExifControlProps> = ({
   currentItem,
   onApplyExif,
   onProcessBatch,
-  onDownload,
   onUploadOther,
   onReset,
   isProcessing,
@@ -52,8 +48,8 @@ export const EditExifControl: React.FC<EditExifControlProps> = ({
   const { t } = useTranslation();
   const tr = (key: string, def: string) => t(`editexif.${key}`, { defaultValue: def });
 
-  const [analysis, setAnalysis] = useState<MetadataAnalysis | null>(null);
-  const [isAnalyzing, setIsAnalyzing] = useState(false);
+  const [, setAnalysis] = useState<MetadataAnalysis | null>(null);
+  const [, setIsAnalyzing] = useState(false);
   const [activeTab, setActiveTab] = useState<'camera' | 'exposure' | 'rights' | 'specs'>('camera');
 
   // Form State - start clean so design files are not polluted with fake camera info
@@ -164,15 +160,15 @@ export const EditExifControl: React.FC<EditExifControlProps> = ({
 
   return (
     <div className="space-y-4 overflow-y-visible">
-      {/* Section Tabs */}
-      <div className="grid grid-cols-4 gap-1 p-1 bg-dark-950 rounded-xl border border-slate-800 text-xs font-medium">
+      {/* Modern Segmented Control */}
+      <div className="grid grid-cols-4 p-1 bg-slate-100/90 dark:bg-dark-950/80 rounded-xl border border-slate-200/80 dark:border-dark-700/60 text-xs font-semibold shadow-2xs">
         <button
           type="button"
           onClick={() => setActiveTab('camera')}
-          className={`py-2 px-1 text-center rounded-lg transition-all ${
+          className={`py-2 px-1 text-center rounded-lg transition-all cursor-pointer ${
             activeTab === 'camera'
-              ? 'bg-neon-cyan/20 text-neon-cyan font-bold shadow-sm'
-              : 'text-slate-400 hover:text-slate-200'
+              ? 'bg-white dark:bg-dark-800 text-slate-900 dark:text-white font-bold shadow-sm border border-slate-200/70 dark:border-dark-600'
+              : 'text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
           }`}
         >
           {tr('tabCamera', 'Camera')}
@@ -180,10 +176,10 @@ export const EditExifControl: React.FC<EditExifControlProps> = ({
         <button
           type="button"
           onClick={() => setActiveTab('exposure')}
-          className={`py-2 px-1 text-center rounded-lg transition-all ${
+          className={`py-2 px-1 text-center rounded-lg transition-all cursor-pointer ${
             activeTab === 'exposure'
-              ? 'bg-neon-cyan/20 text-neon-cyan font-bold shadow-sm'
-              : 'text-slate-400 hover:text-slate-200'
+              ? 'bg-white dark:bg-dark-800 text-slate-900 dark:text-white font-bold shadow-sm border border-slate-200/70 dark:border-dark-600'
+              : 'text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
           }`}
         >
           {tr('tabExposure', 'Exposure')}
@@ -191,10 +187,10 @@ export const EditExifControl: React.FC<EditExifControlProps> = ({
         <button
           type="button"
           onClick={() => setActiveTab('rights')}
-          className={`py-2 px-1 text-center rounded-lg transition-all ${
+          className={`py-2 px-1 text-center rounded-lg transition-all cursor-pointer ${
             activeTab === 'rights'
-              ? 'bg-neon-cyan/20 text-neon-cyan font-bold shadow-sm'
-              : 'text-slate-400 hover:text-slate-200'
+              ? 'bg-white dark:bg-dark-800 text-slate-900 dark:text-white font-bold shadow-sm border border-slate-200/70 dark:border-dark-600'
+              : 'text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
           }`}
         >
           {tr('tabAuthor', 'Creator')}
@@ -202,10 +198,10 @@ export const EditExifControl: React.FC<EditExifControlProps> = ({
         <button
           type="button"
           onClick={() => setActiveTab('specs')}
-          className={`py-2 px-1 text-center rounded-lg transition-all ${
+          className={`py-2 px-1 text-center rounded-lg transition-all cursor-pointer ${
             activeTab === 'specs'
-              ? 'bg-neon-cyan/20 text-neon-cyan font-bold shadow-sm'
-              : 'text-slate-400 hover:text-slate-200'
+              ? 'bg-white dark:bg-dark-800 text-slate-900 dark:text-white font-bold shadow-sm border border-slate-200/70 dark:border-dark-600'
+              : 'text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
           }`}
         >
           {tr('tabSpecs', 'Date & DPI')}
@@ -213,17 +209,18 @@ export const EditExifControl: React.FC<EditExifControlProps> = ({
       </div>
 
       {/* FORM INPUTS ACCORDING TO ACTIVE TAB */}
-      <div className="p-4 rounded-2xl bg-dark-900 border border-slate-800 space-y-4 shadow-xl">
+      <div className="p-4 rounded-2xl bg-slate-50/70 dark:bg-dark-900/60 border border-slate-200/80 dark:border-dark-700/60 space-y-4 shadow-2xs">
         {/* TAB 1: CAMERA & HARDWARE */}
         {activeTab === 'camera' && (
           <div className="space-y-3.5">
-            <div className="p-2.5 rounded-xl bg-dark-950/70 border border-slate-800 text-[11px] text-slate-400">
-              {tr('cameraHint', 'Opsional: Isi untuk foto kamera (DSLR/HP). Biarkan kosong jika file merupakan desain grafis (Photoshop/Canva).')}
+            <div className="p-3 rounded-xl bg-cyan-500/10 dark:bg-cyan-500/15 border border-cyan-500/25 text-[11px] text-cyan-900 dark:text-cyan-200 flex items-start gap-2.5 leading-relaxed">
+              <Info className="w-4 h-4 text-cyan-600 dark:text-neon-cyan shrink-0 mt-0.5" />
+              <span>{tr('cameraHint', 'Opsional: Isi untuk foto kamera (DSLR/HP). Biarkan kosong jika file merupakan desain grafis (Photoshop/Canva).')}</span>
             </div>
 
             <div>
-              <label className="text-[11px] font-medium text-slate-300 mb-1 flex items-center gap-1.5">
-                <Camera className="w-3.5 h-3.5 text-neon-cyan" />
+              <label className="text-[11px] font-semibold text-slate-700 dark:text-slate-300 mb-1.5 flex items-center gap-1.5">
+                <Camera className="w-3.5 h-3.5 text-cyan-600 dark:text-neon-cyan" />
                 <span>{tr('lblCameraMake', 'Camera Make / Manufacturer')}</span>
               </label>
               <input
@@ -231,13 +228,13 @@ export const EditExifControl: React.FC<EditExifControlProps> = ({
                 value={cameraMake}
                 onChange={(e) => setCameraMake(e.target.value)}
                 placeholder="e.g. Canon, Sony, Nikon, Apple (kosongkan jika desain)"
-                className="w-full px-3 py-2 rounded-xl bg-dark-950 border border-slate-800 text-slate-200 text-xs placeholder-slate-600 focus:outline-none focus:border-neon-cyan"
+                className="w-full px-3.5 py-2.5 rounded-xl bg-white dark:bg-dark-950/90 border border-slate-200 dark:border-dark-700 text-slate-900 dark:text-slate-100 text-xs placeholder:text-slate-400 dark:placeholder:text-slate-500 focus:outline-none focus:border-[#05DAED] focus:ring-2 focus:ring-[#05DAED]/20 transition-all shadow-2xs"
               />
             </div>
 
             <div>
-              <label className="text-[11px] font-medium text-slate-300 mb-1 flex items-center gap-1.5">
-                <Camera className="w-3.5 h-3.5 text-neon-cyan" />
+              <label className="text-[11px] font-semibold text-slate-700 dark:text-slate-300 mb-1.5 flex items-center gap-1.5">
+                <Camera className="w-3.5 h-3.5 text-cyan-600 dark:text-neon-cyan" />
                 <span>{tr('lblCameraModel', 'Camera Model')}</span>
               </label>
               <input
@@ -245,13 +242,13 @@ export const EditExifControl: React.FC<EditExifControlProps> = ({
                 value={cameraModel}
                 onChange={(e) => setCameraModel(e.target.value)}
                 placeholder="e.g. Canon EOS 5D Mark IV, iPhone 16 Pro (kosongkan jika desain)"
-                className="w-full px-3 py-2 rounded-xl bg-dark-950 border border-slate-800 text-slate-200 text-xs placeholder-slate-600 focus:outline-none focus:border-neon-cyan"
+                className="w-full px-3.5 py-2.5 rounded-xl bg-white dark:bg-dark-950/90 border border-slate-200 dark:border-dark-700 text-slate-900 dark:text-slate-100 text-xs placeholder:text-slate-400 dark:placeholder:text-slate-500 focus:outline-none focus:border-[#05DAED] focus:ring-2 focus:ring-[#05DAED]/20 transition-all shadow-2xs"
               />
             </div>
 
             <div>
-              <label className="text-[11px] font-medium text-slate-300 mb-1 flex items-center gap-1.5">
-                <Tag className="w-3.5 h-3.5 text-neon-cyan" />
+              <label className="text-[11px] font-semibold text-slate-700 dark:text-slate-300 mb-1.5 flex items-center gap-1.5">
+                <Tag className="w-3.5 h-3.5 text-cyan-600 dark:text-neon-cyan" />
                 <span>{tr('lblLensModel', 'Lens Specification & Model')}</span>
               </label>
               <input
@@ -259,7 +256,7 @@ export const EditExifControl: React.FC<EditExifControlProps> = ({
                 value={lensModel}
                 onChange={(e) => setLensModel(e.target.value)}
                 placeholder="e.g. EF85mm f/1.4L, FE 50mm F1.2 (kosongkan jika desain)"
-                className="w-full px-3 py-2 rounded-xl bg-dark-950 border border-slate-800 text-slate-200 text-xs placeholder-slate-600 focus:outline-none focus:border-neon-cyan"
+                className="w-full px-3.5 py-2.5 rounded-xl bg-white dark:bg-dark-950/90 border border-slate-200 dark:border-dark-700 text-slate-900 dark:text-slate-100 text-xs placeholder:text-slate-400 dark:placeholder:text-slate-500 focus:outline-none focus:border-[#05DAED] focus:ring-2 focus:ring-[#05DAED]/20 transition-all shadow-2xs"
               />
             </div>
           </div>
@@ -268,13 +265,15 @@ export const EditExifControl: React.FC<EditExifControlProps> = ({
         {/* TAB 2: EXPOSURE & OPTICS */}
         {activeTab === 'exposure' && (
           <div className="space-y-3.5">
-            <div className="p-2.5 rounded-xl bg-dark-950/70 border border-slate-800 text-[11px] text-slate-400">
-              {tr('exposureHint', 'Opsional: Parameter ISO, shutter, dan aperture kamera. Kosongkan jika mengedit file gambar desain.')}
+            <div className="p-3 rounded-xl bg-cyan-500/10 dark:bg-cyan-500/15 border border-cyan-500/25 text-[11px] text-cyan-900 dark:text-cyan-200 flex items-start gap-2.5 leading-relaxed">
+              <Info className="w-4 h-4 text-cyan-600 dark:text-neon-cyan shrink-0 mt-0.5" />
+              <span>{tr('exposureHint', 'Opsional: Parameter ISO, shutter, dan aperture kamera. Kosongkan jika mengedit file gambar desain.')}</span>
             </div>
+
             <div className="grid grid-cols-2 gap-3">
               <div>
-                <label className="text-[11px] font-medium text-slate-300 mb-1 flex items-center gap-1.5">
-                  <Clock className="w-3.5 h-3.5 text-neon-cyan" />
+                <label className="text-[11px] font-semibold text-slate-700 dark:text-slate-300 mb-1.5 flex items-center gap-1.5">
+                  <Clock className="w-3.5 h-3.5 text-cyan-600 dark:text-neon-cyan" />
                   <span>{tr('lblShutter', 'Shutter Speed (s)')}</span>
                 </label>
                 <input
@@ -282,13 +281,13 @@ export const EditExifControl: React.FC<EditExifControlProps> = ({
                   value={shutterSpeed}
                   onChange={(e) => setShutterSpeed(e.target.value)}
                   placeholder="e.g. 1/160, 1/200, 1/50"
-                  className="w-full px-3 py-2 rounded-xl bg-dark-950 border border-slate-800 text-slate-200 text-xs placeholder-slate-600 focus:outline-none focus:border-neon-cyan"
+                  className="w-full px-3.5 py-2.5 rounded-xl bg-white dark:bg-dark-950/90 border border-slate-200 dark:border-dark-700 text-slate-900 dark:text-slate-100 text-xs placeholder:text-slate-400 dark:placeholder:text-slate-500 focus:outline-none focus:border-[#05DAED] focus:ring-2 focus:ring-[#05DAED]/20 transition-all shadow-2xs"
                 />
               </div>
 
               <div>
-                <label className="text-[11px] font-medium text-slate-300 mb-1 flex items-center gap-1.5">
-                  <Eye className="w-3.5 h-3.5 text-neon-cyan" />
+                <label className="text-[11px] font-semibold text-slate-700 dark:text-slate-300 mb-1.5 flex items-center gap-1.5">
+                  <Eye className="w-3.5 h-3.5 text-cyan-600 dark:text-neon-cyan" />
                   <span>{tr('lblAperture', 'Aperture (f-stop)')}</span>
                 </label>
                 <input
@@ -296,15 +295,15 @@ export const EditExifControl: React.FC<EditExifControlProps> = ({
                   value={aperture}
                   onChange={(e) => setAperture(e.target.value)}
                   placeholder="e.g. 2.8, 5.6, 1.4"
-                  className="w-full px-3 py-2 rounded-xl bg-dark-950 border border-slate-800 text-slate-200 text-xs placeholder-slate-600 focus:outline-none focus:border-neon-cyan"
+                  className="w-full px-3.5 py-2.5 rounded-xl bg-white dark:bg-dark-950/90 border border-slate-200 dark:border-dark-700 text-slate-900 dark:text-slate-100 text-xs placeholder:text-slate-400 dark:placeholder:text-slate-500 focus:outline-none focus:border-[#05DAED] focus:ring-2 focus:ring-[#05DAED]/20 transition-all shadow-2xs"
                 />
               </div>
             </div>
 
             <div className="grid grid-cols-2 gap-3">
               <div>
-                <label className="text-[11px] font-medium text-slate-300 mb-1 flex items-center gap-1.5">
-                  <Zap className="w-3.5 h-3.5 text-neon-cyan" />
+                <label className="text-[11px] font-semibold text-slate-700 dark:text-slate-300 mb-1.5 flex items-center gap-1.5">
+                  <Zap className="w-3.5 h-3.5 text-cyan-600 dark:text-neon-cyan" />
                   <span>{tr('lblIso', 'ISO Sensitivity')}</span>
                 </label>
                 <input
@@ -312,13 +311,13 @@ export const EditExifControl: React.FC<EditExifControlProps> = ({
                   value={iso}
                   onChange={(e) => setIso(e.target.value)}
                   placeholder="e.g. 100, 200, 400, 800"
-                  className="w-full px-3 py-2 rounded-xl bg-dark-950 border border-slate-800 text-slate-200 text-xs placeholder-slate-600 focus:outline-none focus:border-neon-cyan"
+                  className="w-full px-3.5 py-2.5 rounded-xl bg-white dark:bg-dark-950/90 border border-slate-200 dark:border-dark-700 text-slate-900 dark:text-slate-100 text-xs placeholder:text-slate-400 dark:placeholder:text-slate-500 focus:outline-none focus:border-[#05DAED] focus:ring-2 focus:ring-[#05DAED]/20 transition-all shadow-2xs"
                 />
               </div>
 
               <div>
-                <label className="text-[11px] font-medium text-slate-300 mb-1 flex items-center gap-1.5">
-                  <Sliders className="w-3.5 h-3.5 text-neon-cyan" />
+                <label className="text-[11px] font-semibold text-slate-700 dark:text-slate-300 mb-1.5 flex items-center gap-1.5">
+                  <Sliders className="w-3.5 h-3.5 text-cyan-600 dark:text-neon-cyan" />
                   <span>{tr('lblFocal', 'Focal Length (mm)')}</span>
                 </label>
                 <input
@@ -326,20 +325,20 @@ export const EditExifControl: React.FC<EditExifControlProps> = ({
                   value={focalLength}
                   onChange={(e) => setFocalLength(e.target.value)}
                   placeholder="e.g. 85, 50, 35, 24"
-                  className="w-full px-3 py-2 rounded-xl bg-dark-950 border border-slate-800 text-slate-200 text-xs placeholder-slate-600 focus:outline-none focus:border-neon-cyan"
+                  className="w-full px-3.5 py-2.5 rounded-xl bg-white dark:bg-dark-950/90 border border-slate-200 dark:border-dark-700 text-slate-900 dark:text-slate-100 text-xs placeholder:text-slate-400 dark:placeholder:text-slate-500 focus:outline-none focus:border-[#05DAED] focus:ring-2 focus:ring-[#05DAED]/20 transition-all shadow-2xs"
                 />
               </div>
             </div>
 
             <div>
-              <label className="text-[11px] font-medium text-slate-300 mb-1 flex items-center gap-1.5">
-                <Zap className="w-3.5 h-3.5 text-neon-cyan" />
+              <label className="text-[11px] font-semibold text-slate-700 dark:text-slate-300 mb-1.5 flex items-center gap-1.5">
+                <Zap className="w-3.5 h-3.5 text-cyan-600 dark:text-neon-cyan" />
                 <span>{tr('lblFlash', 'Flash Strobe Mode')}</span>
               </label>
               <select
                 value={flash}
                 onChange={(e) => setFlash(e.target.value)}
-                className="w-full px-3 py-2 rounded-xl bg-dark-950 border border-slate-800 text-slate-200 text-xs focus:outline-none focus:border-neon-cyan"
+                className="w-full px-3.5 py-2.5 rounded-xl bg-white dark:bg-dark-950/90 border border-slate-200 dark:border-dark-700 text-slate-900 dark:text-slate-100 text-xs focus:outline-none focus:border-[#05DAED] focus:ring-2 focus:ring-[#05DAED]/20 transition-all shadow-2xs cursor-pointer"
               >
                 <option value="fired">{tr('flashFired', 'Fired (Studio Strobe Sync)')}</option>
                 <option value="off">{tr('flashOff', 'Did Not Fire (Ambient Light)')}</option>
@@ -353,8 +352,8 @@ export const EditExifControl: React.FC<EditExifControlProps> = ({
         {activeTab === 'rights' && (
           <div className="space-y-3.5">
             <div>
-              <label className="text-[11px] font-medium text-slate-300 mb-1 flex items-center gap-1.5">
-                <User className="w-3.5 h-3.5 text-neon-cyan" />
+              <label className="text-[11px] font-semibold text-slate-700 dark:text-slate-300 mb-1.5 flex items-center gap-1.5">
+                <User className="w-3.5 h-3.5 text-cyan-600 dark:text-neon-cyan" />
                 <span>{tr('photographerLabel', 'Creator / Designer / Photographer (Artist)')}</span>
               </label>
               <input
@@ -362,13 +361,13 @@ export const EditExifControl: React.FC<EditExifControlProps> = ({
                 value={artist}
                 onChange={(e) => setArtist(e.target.value)}
                 placeholder="e.g. John Doe, Graphic Designer, Creative Studio"
-                className="w-full px-3 py-2 rounded-xl bg-dark-950 border border-slate-800 text-slate-200 text-xs placeholder-slate-600 focus:outline-none focus:border-neon-cyan"
+                className="w-full px-3.5 py-2.5 rounded-xl bg-white dark:bg-dark-950/90 border border-slate-200 dark:border-dark-700 text-slate-900 dark:text-slate-100 text-xs placeholder:text-slate-400 dark:placeholder:text-slate-500 focus:outline-none focus:border-[#05DAED] focus:ring-2 focus:ring-[#05DAED]/20 transition-all shadow-2xs"
               />
             </div>
 
             <div>
-              <label className="text-[11px] font-medium text-slate-300 mb-1 flex items-center gap-1.5">
-                <FileText className="w-3.5 h-3.5 text-neon-cyan" />
+              <label className="text-[11px] font-semibold text-slate-700 dark:text-slate-300 mb-1.5 flex items-center gap-1.5">
+                <FileText className="w-3.5 h-3.5 text-cyan-600 dark:text-neon-cyan" />
                 <span>{tr('lblSoftware', 'Software / Design Application / Engine')}</span>
               </label>
               <input
@@ -376,13 +375,13 @@ export const EditExifControl: React.FC<EditExifControlProps> = ({
                 value={software}
                 onChange={(e) => setSoftware(e.target.value)}
                 placeholder="e.g. Adobe Photoshop 2026, Figma, Canva, Illustrator, Lightroom"
-                className="w-full px-3 py-2 rounded-xl bg-dark-950 border border-slate-800 text-slate-200 text-xs placeholder-slate-600 focus:outline-none focus:border-neon-cyan"
+                className="w-full px-3.5 py-2.5 rounded-xl bg-white dark:bg-dark-950/90 border border-slate-200 dark:border-dark-700 text-slate-900 dark:text-slate-100 text-xs placeholder:text-slate-400 dark:placeholder:text-slate-500 focus:outline-none focus:border-[#05DAED] focus:ring-2 focus:ring-[#05DAED]/20 transition-all shadow-2xs"
               />
             </div>
 
             <div>
-              <label className="text-[11px] font-medium text-slate-300 mb-1 flex items-center gap-1.5">
-                <FileText className="w-3.5 h-3.5 text-neon-cyan" />
+              <label className="text-[11px] font-semibold text-slate-700 dark:text-slate-300 mb-1.5 flex items-center gap-1.5">
+                <FileText className="w-3.5 h-3.5 text-cyan-600 dark:text-neon-cyan" />
                 <span>{tr('lblDescription', 'Title / Description / Project Name')}</span>
               </label>
               <input
@@ -390,13 +389,13 @@ export const EditExifControl: React.FC<EditExifControlProps> = ({
                 value={imageDescription}
                 onChange={(e) => setImageDescription(e.target.value)}
                 placeholder="e.g. Poster Kampanye, Mockup Desain, Portrait Photo"
-                className="w-full px-3 py-2 rounded-xl bg-dark-950 border border-slate-800 text-slate-200 text-xs placeholder-slate-600 focus:outline-none focus:border-neon-cyan"
+                className="w-full px-3.5 py-2.5 rounded-xl bg-white dark:bg-dark-950/90 border border-slate-200 dark:border-dark-700 text-slate-900 dark:text-slate-100 text-xs placeholder:text-slate-400 dark:placeholder:text-slate-500 focus:outline-none focus:border-[#05DAED] focus:ring-2 focus:ring-[#05DAED]/20 transition-all shadow-2xs"
               />
             </div>
 
             <div>
-              <label className="text-[11px] font-medium text-slate-300 mb-1 flex items-center gap-1.5">
-                <Shield className="w-3.5 h-3.5 text-neon-cyan" />
+              <label className="text-[11px] font-semibold text-slate-700 dark:text-slate-300 mb-1.5 flex items-center gap-1.5">
+                <Shield className="w-3.5 h-3.5 text-cyan-600 dark:text-neon-cyan" />
                 <span>{tr('copyrightLabel', 'Copyright Notice')}</span>
               </label>
               <input
@@ -404,7 +403,7 @@ export const EditExifControl: React.FC<EditExifControlProps> = ({
                 value={copyright}
                 onChange={(e) => setCopyright(e.target.value)}
                 placeholder="e.g. Copyright (c) 2026. All Rights Reserved."
-                className="w-full px-3 py-2 rounded-xl bg-dark-950 border border-slate-800 text-slate-200 text-xs placeholder-slate-600 focus:outline-none focus:border-neon-cyan"
+                className="w-full px-3.5 py-2.5 rounded-xl bg-white dark:bg-dark-950/90 border border-slate-200 dark:border-dark-700 text-slate-900 dark:text-slate-100 text-xs placeholder:text-slate-400 dark:placeholder:text-slate-500 focus:outline-none focus:border-[#05DAED] focus:ring-2 focus:ring-[#05DAED]/20 transition-all shadow-2xs"
               />
             </div>
           </div>
@@ -415,16 +414,16 @@ export const EditExifControl: React.FC<EditExifControlProps> = ({
           <div className="space-y-4">
             {/* Creation / Original Date */}
             <div>
-              <div className="flex items-center justify-between mb-1">
-                <label className="text-[11px] font-medium text-slate-300 flex items-center gap-1.5">
-                  <Calendar className="w-3.5 h-3.5 text-neon-cyan" />
+              <div className="flex items-center justify-between mb-1.5">
+                <label className="text-[11px] font-semibold text-slate-700 dark:text-slate-300 flex items-center gap-1.5">
+                  <Calendar className="w-3.5 h-3.5 text-cyan-600 dark:text-neon-cyan" />
                   <span>{tr('dateLabel', 'Creation Date & Time (Tanggal Dibuat)')}</span>
                 </label>
-                <div className="flex items-center gap-2">
+                <div className="flex items-center gap-1.5">
                   <button
                     type="button"
                     onClick={() => setDateTaken(getNowFormatted())}
-                    className="text-[10px] text-neon-cyan hover:underline cursor-pointer font-medium"
+                    className="text-[10px] font-semibold px-2 py-0.5 rounded-md bg-cyan-500/10 text-cyan-700 dark:text-neon-cyan hover:bg-cyan-500/20 transition-colors cursor-pointer"
                   >
                     {tr('setNow', 'Set to Now')}
                   </button>
@@ -432,7 +431,7 @@ export const EditExifControl: React.FC<EditExifControlProps> = ({
                     <button
                       type="button"
                       onClick={() => setDateTaken('')}
-                      className="text-[10px] text-rose-400 hover:underline cursor-pointer font-medium"
+                      className="text-[10px] font-semibold px-2 py-0.5 rounded-md bg-rose-500/10 text-rose-600 dark:text-rose-400 hover:bg-rose-500/20 transition-colors cursor-pointer"
                     >
                       {tr('clearDate', 'Clear')}
                     </button>
@@ -444,25 +443,25 @@ export const EditExifControl: React.FC<EditExifControlProps> = ({
                 value={dateTaken}
                 onChange={(e) => setDateTaken(e.target.value)}
                 placeholder="YYYY:MM:DD HH:MM:SS (contoh: 2026:10:15 14:35:00)"
-                className="w-full px-3 py-2 rounded-xl bg-dark-950 border border-slate-800 text-slate-200 text-xs font-mono placeholder-slate-600 focus:outline-none focus:border-neon-cyan"
+                className="w-full px-3.5 py-2.5 rounded-xl bg-white dark:bg-dark-950/90 border border-slate-200 dark:border-dark-700 text-slate-900 dark:text-slate-100 text-xs font-mono placeholder:text-slate-400 dark:placeholder:text-slate-500 focus:outline-none focus:border-[#05DAED] focus:ring-2 focus:ring-[#05DAED]/20 transition-all shadow-2xs"
               />
-              <span className="text-[10px] text-slate-500 block mt-1">
+              <span className="text-[10px] text-slate-500 dark:text-slate-400 block mt-1">
                 {tr('creationDateSub', 'Tanggal pengambilan foto kamera atau waktu desain dibuat')}
               </span>
             </div>
 
             {/* Export / Modification Date */}
             <div>
-              <div className="flex items-center justify-between mb-1">
-                <label className="text-[11px] font-medium text-slate-300 flex items-center gap-1.5">
-                  <Clock className="w-3.5 h-3.5 text-neon-cyan" />
+              <div className="flex items-center justify-between mb-1.5">
+                <label className="text-[11px] font-semibold text-slate-700 dark:text-slate-300 flex items-center gap-1.5">
+                  <Clock className="w-3.5 h-3.5 text-cyan-600 dark:text-neon-cyan" />
                   <span>{tr('exportDateLabel', 'Export / Modification Date (Tanggal Ekspor)')}</span>
                 </label>
-                <div className="flex items-center gap-2">
+                <div className="flex items-center gap-1.5">
                   <button
                     type="button"
                     onClick={() => setModifyDate(getNowFormatted())}
-                    className="text-[10px] text-neon-cyan hover:underline cursor-pointer font-medium"
+                    className="text-[10px] font-semibold px-2 py-0.5 rounded-md bg-cyan-500/10 text-cyan-700 dark:text-neon-cyan hover:bg-cyan-500/20 transition-colors cursor-pointer"
                   >
                     {tr('setNow', 'Set to Now')}
                   </button>
@@ -470,7 +469,7 @@ export const EditExifControl: React.FC<EditExifControlProps> = ({
                     <button
                       type="button"
                       onClick={() => setModifyDate('')}
-                      className="text-[10px] text-rose-400 hover:underline cursor-pointer font-medium"
+                      className="text-[10px] font-semibold px-2 py-0.5 rounded-md bg-rose-500/10 text-rose-600 dark:text-rose-400 hover:bg-rose-500/20 transition-colors cursor-pointer"
                     >
                       {tr('clearDate', 'Clear')}
                     </button>
@@ -482,23 +481,23 @@ export const EditExifControl: React.FC<EditExifControlProps> = ({
                 value={modifyDate}
                 onChange={(e) => setModifyDate(e.target.value)}
                 placeholder="YYYY:MM:DD HH:MM:SS (Kosongkan jika sama dengan tanggal dibuat)"
-                className="w-full px-3 py-2 rounded-xl bg-dark-950 border border-slate-800 text-slate-200 text-xs font-mono placeholder-slate-600 focus:outline-none focus:border-neon-cyan"
+                className="w-full px-3.5 py-2.5 rounded-xl bg-white dark:bg-dark-950/90 border border-slate-200 dark:border-dark-700 text-slate-900 dark:text-slate-100 text-xs font-mono placeholder:text-slate-400 dark:placeholder:text-slate-500 focus:outline-none focus:border-[#05DAED] focus:ring-2 focus:ring-[#05DAED]/20 transition-all shadow-2xs"
               />
-              <span className="text-[10px] text-slate-500 block mt-1">
+              <span className="text-[10px] text-slate-500 dark:text-slate-400 block mt-1">
                 {tr('exportDateSub', 'Waktu ekspor dari Photoshop/Canva/Figma atau penyimpanan file')}
               </span>
             </div>
 
             {/* DPI Resolution */}
             <div>
-              <label className="text-[11px] font-medium text-slate-300 mb-1 flex items-center gap-1.5">
-                <Layers className="w-3.5 h-3.5 text-neon-cyan" />
+              <label className="text-[11px] font-semibold text-slate-700 dark:text-slate-300 mb-1.5 flex items-center gap-1.5">
+                <Layers className="w-3.5 h-3.5 text-cyan-600 dark:text-neon-cyan" />
                 <span>{tr('lblDpi', 'Resolution / DPI (Print Standard)')}</span>
               </label>
               <select
                 value={dpi}
                 onChange={(e) => setDpi(Number(e.target.value))}
-                className="w-full px-3 py-2 rounded-xl bg-dark-950 border border-slate-800 text-slate-200 text-xs focus:outline-none focus:border-neon-cyan font-mono"
+                className="w-full px-3.5 py-2.5 rounded-xl bg-white dark:bg-dark-950/90 border border-slate-200 dark:border-dark-700 text-slate-900 dark:text-slate-100 text-xs focus:outline-none focus:border-[#05DAED] focus:ring-2 focus:ring-[#05DAED]/20 transition-all shadow-2xs font-mono cursor-pointer"
               >
                 <option value={300}>300 DPI ({tr('dpiPassport', 'Official Passport & High-Quality Print')})</option>
                 <option value={72}>72 DPI ({tr('dpiWeb', 'Web & Screen Standard')})</option>
@@ -516,16 +515,16 @@ export const EditExifControl: React.FC<EditExifControlProps> = ({
           type="button"
           onClick={handleApply}
           disabled={isProcessing || !currentItem}
-          className="w-full py-3.5 px-4 rounded-xl bg-neon-cyan hover:bg-neon-cyan/90 text-dark-950 font-bold text-sm tracking-wide shadow-lg shadow-neon-cyan/20 transition-all flex items-center justify-center gap-2 cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
+          className="w-full flex items-center justify-center gap-2.5 py-3.5 px-4 rounded-xl bg-gradient-to-r from-neon-cyan via-neon-emerald to-neon-indigo hover:opacity-95 text-dark-900 font-extrabold shadow-glow-cyan transition-all duration-200 transform hover:-translate-y-0.5 disabled:opacity-50 text-sm tracking-wide cursor-pointer disabled:cursor-not-allowed"
         >
           {isProcessing ? (
             <>
-              <Loader2 className="w-4 h-4 animate-spin" />
+              <Loader2 className="w-4 h-4 animate-spin shrink-0" />
               <span>{tr('processing', 'Applying Custom EXIF Metadata...')}</span>
             </>
           ) : (
             <>
-              <Camera className="w-4 h-4" />
+              <Camera className="w-4 h-4 shrink-0" />
               <span>{tr('btnApplyManual', 'Apply & Save Custom EXIF')}</span>
             </>
           )}
@@ -536,9 +535,9 @@ export const EditExifControl: React.FC<EditExifControlProps> = ({
             type="button"
             onClick={handleApplyBatch}
             disabled={isProcessing}
-            className="w-full py-2.5 px-4 rounded-xl bg-dark-800 hover:bg-dark-700 text-slate-200 font-semibold text-xs border border-slate-700 transition-all flex items-center justify-center gap-2 cursor-pointer disabled:opacity-50"
+            className="w-full py-3 px-4 rounded-xl bg-white dark:bg-dark-800 hover:bg-slate-100 dark:hover:bg-dark-700 text-slate-700 dark:text-slate-200 font-bold text-xs border border-slate-200 dark:border-dark-600 transition-all flex items-center justify-center gap-2 cursor-pointer disabled:opacity-50 shadow-2xs"
           >
-            <Sparkles className="w-3.5 h-3.5 text-neon-cyan" />
+            <Sparkles className="w-3.5 h-3.5 text-cyan-600 dark:text-neon-cyan shrink-0" />
             <span>
               {t('work.processBatchCount', {
                 count: batchCount,
@@ -548,27 +547,30 @@ export const EditExifControl: React.FC<EditExifControlProps> = ({
           </button>
         )}
 
+        {/* Standardized 2-Button Action Grid */}
+        <div className="grid grid-cols-2 gap-2.5 pt-3 border-t border-slate-200/80 dark:border-dark-700/80 mt-2">
+          <button
+            type="button"
+            onClick={onReset}
+            disabled={isProcessing}
+            title={t('editor.resetDesc', { defaultValue: 'Kembalikan foto ini ke kondisi asli tanpa perubahan' })}
+            className="flex items-center justify-center gap-1.5 py-3 px-2.5 rounded-xl bg-white dark:bg-dark-800 hover:bg-slate-100 dark:hover:bg-dark-700 text-slate-700 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white font-bold text-xs transition-all border border-slate-200 dark:border-dark-600 cursor-pointer disabled:opacity-50 shadow-2xs"
+          >
+            <RotateCcw className="w-3.5 h-3.5 text-neon-cyan shrink-0" />
+            <span className="truncate">{t('editor.resetOriginal', { defaultValue: 'Reset ke Asli' })}</span>
+          </button>
 
-        <div className="flex gap-2 pt-1">
           {onUploadOther && (
             <button
               type="button"
               onClick={onUploadOther}
-              className="flex-1 py-2 px-3 rounded-lg bg-dark-800 hover:bg-dark-700 text-slate-300 font-medium text-xs border border-slate-800 transition-colors flex items-center justify-center gap-1.5 cursor-pointer"
+              disabled={isProcessing}
+              className="flex items-center justify-center gap-1.5 py-3 px-2.5 rounded-xl bg-white dark:bg-dark-800 hover:bg-slate-100 dark:hover:bg-dark-700 text-slate-700 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white font-bold text-xs transition-all border border-slate-200 dark:border-dark-600 cursor-pointer disabled:opacity-50 shadow-2xs"
             >
-              <Upload className="w-3.5 h-3.5" />
-              <span>{t('editor.uploadOther', { defaultValue: 'Upload Other' })}</span>
+              <Upload className="w-3.5 h-3.5 text-neon-cyan shrink-0" />
+              <span className="truncate">{t('editor.uploadOther', { defaultValue: 'Ganti Foto' })}</span>
             </button>
           )}
-
-          <button
-            type="button"
-            onClick={onReset}
-            className="flex-1 py-2 px-3 rounded-lg bg-dark-800 hover:bg-dark-700 text-slate-300 font-medium text-xs border border-slate-800 transition-colors flex items-center justify-center gap-1.5 cursor-pointer"
-          >
-            <RotateCcw className="w-3.5 h-3.5" />
-            <span>{t('editor.resetOriginal', { defaultValue: 'Reset to Original' })}</span>
-          </button>
         </div>
       </div>
     </div>
