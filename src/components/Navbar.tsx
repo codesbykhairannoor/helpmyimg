@@ -101,7 +101,7 @@ export const Navbar: React.FC = () => {
 
  return (
  <>
- <header className="sticky top-0 z-50 w-full border-b border-slate-200 dark:border-dark-500/40 bg-white dark:bg-dark-900 shadow-sm dark:shadow-none">
+ <header className="sticky top-0 z-[10001] w-full border-b border-slate-200 dark:border-dark-500/40 bg-white dark:bg-dark-900 shadow-sm dark:shadow-none">
  <div className="max-w-7xl mx-auto px-3.5 sm:px-6 lg:px-8 h-[60px] flex items-center justify-between">
  {/* Kiri: Brand Logo */}
  <div className="flex items-center justify-start flex-shrink-0">

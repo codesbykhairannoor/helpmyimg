@@ -927,7 +927,7 @@ function generateSemanticHtml(lang, urlPath, title, desc, tool, infoPage, transl
   const resizeLink = lang === 'en' ? `/${getLocalizedSlug('resize', 'en')}/` : `/${lang}/${getLocalizedSlug('resize', lang)}/`;
 
   const navbarHtml = `
-    <header class="sticky top-0 z-50 w-full border-b border-slate-200 dark:border-dark-500/40 bg-white dark:bg-dark-900 shadow-sm dark:shadow-none">
+    <header class="sticky top-0 z-[10001] w-full border-b border-slate-200 dark:border-dark-500/40 bg-white dark:bg-dark-900 shadow-sm dark:shadow-none">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-[60px] flex items-center justify-between">
         <div class="flex items-center justify-start flex-shrink-0">
           <a href="${homeLink}" class="flex items-center gap-2 sm:gap-2.5 group">

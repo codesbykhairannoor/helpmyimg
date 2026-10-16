@@ -13,7 +13,7 @@
     <!-- Critical CSS Guard: 0ms First Paint, Zero CLS & FOUC Prevention (Google Core Web Vitals) -->
     <style id="critical-fouc-guard">
       img, svg, video { max-width: 100%; height: auto; }
-      header { min-height: 60px; height: 60px; width: 100%; }
+      header { min-height: 60px; height: 60px; width: 100%; z-index: 10001; }
       .brand-logo-container { width: 34px !important; height: 34px !important; min-width: 34px !important; min-height: 34px !important; max-width: 38px !important; max-height: 38px !important; display: inline-block; flex-shrink: 0; }
       .brand-logo-img { width: 34px !important; height: 34px !important; max-width: 38px !important; max-height: 38px !important; object-fit: contain; display: block; aspect-ratio: 1/1; }
       .hidden { display: none !important; }
