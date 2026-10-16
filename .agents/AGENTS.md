@@ -20,3 +20,9 @@
 
 ## Git & Repository Rules
 - **Always Push to GitHub:** Whenever committing changes to the repository, always execute `git push origin main` immediately so remote is always up-to-date.
+
+## Strict Scope & UI Restraint Rules
+- **Zero Unsolicited Features:** Strictly execute only what the user explicitly requests. Never add unrequested action buttons, duplicate navigation triggers, floating HUD overlays, or quick preset shortcuts unless specifically instructed.
+- **Minimalist Clean Controls:** When building checklist options or form fields, keep them concise and single-lined. Do not add unsolicited secondary descriptions, subtitle explanations, or collapsible disclosure wrappers unless explicitly asked.
+- **Native & Modern Input Simplicity:** When providing Date/Time or numeric inputs, use clean, direct input fields without triggering unstyled native browser popup dialogs or cluttered preset button bars.
+
