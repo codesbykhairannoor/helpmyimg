@@ -118,43 +118,50 @@ export const EditExifControl: React.FC<EditExifControlProps> = ({
 
 
   // Auto pre-fill from uploaded photo if EXIF exists
-  useEffect(() => {
-    let isCancelled = false;
-    if (currentItem?.file) {
-      setIsAnalyzing(true);
-      analyzeImageMetadata(currentItem.file)
-        .then((res) => {
-          if (!isCancelled) {
-            setAnalysis(res);
-            setIsAnalyzing(false);
+  const activeFileRef = React.useRef<Blob | null>(null);
 
-            // Pre-fill existing metadata if available
-            if (res.cameraMake) setCameraMake(res.cameraMake);
-            if (res.cameraModel) setCameraModel(res.cameraModel);
-            if (res.lensModel) setLensModel(res.lensModel);
-            if (res.shutterSpeed) setShutterSpeed(res.shutterSpeed.replace('s', ''));
-            if (res.aperture) setAperture(res.aperture.replace(/^f\//i, ''));
-            if (res.iso) setIso(String(res.iso));
-            if (res.focalLength) setFocalLength(res.focalLength.replace(/mm/i, '').trim());
-            if (res.artist) setArtist(res.artist);
-            if (res.copyright) setCopyright(res.copyright);
-            if (res.software) setSoftware(res.software);
-            if (res.dateTaken) {
-              setDateTaken(res.dateTaken);
-              setModifyDate(res.dateTaken);
-            }
-          }
-        })
-        .catch(() => {
-          if (!isCancelled) setIsAnalyzing(false);
-        });
-    } else {
+  useEffect(() => {
+    const targetFile = currentItem?.initialFile || currentItem?.file;
+    if (!targetFile) {
       setAnalysis(null);
+      setIsAnalyzing(false);
+      activeFileRef.current = null;
+      return;
     }
-    return () => {
-      isCancelled = true;
-    };
-  }, [currentItem]);
+
+    activeFileRef.current = targetFile;
+    setIsAnalyzing(true);
+
+    analyzeImageMetadata(targetFile)
+      .then((res) => {
+        if (activeFileRef.current === targetFile) {
+          setAnalysis(res);
+          setIsAnalyzing(false);
+
+          // Pre-fill existing metadata if available
+          if (res.cameraMake) setCameraMake(res.cameraMake);
+          if (res.cameraModel) setCameraModel(res.cameraModel);
+          if (res.lensModel) setLensModel(res.lensModel);
+          if (res.shutterSpeed) setShutterSpeed(res.shutterSpeed.replace('s', ''));
+          if (res.aperture) setAperture(res.aperture.replace(/^f\//i, ''));
+          if (res.iso) setIso(String(res.iso));
+          if (res.focalLength) setFocalLength(res.focalLength.replace(/mm/i, '').trim());
+          if (res.artist) setArtist(res.artist);
+          if (res.copyright) setCopyright(res.copyright);
+          if (res.software) setSoftware(res.software);
+          if (res.dateTaken) {
+            setDateTaken(res.dateTaken);
+            setModifyDate(res.dateTaken);
+          }
+        }
+      })
+      .catch((err) => {
+        console.error('Metadata analysis error in EditExif:', err);
+        if (activeFileRef.current === targetFile) {
+          setIsAnalyzing(false);
+        }
+      });
+  }, [currentItem?.id, currentItem?.file, currentItem?.initialFile]);
 
   const handlePopulateFromAnalysis = () => {
     if (analysis) {

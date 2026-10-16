@@ -52,27 +52,34 @@ export const MetadataControl: React.FC<MetadataControlProps> = ({
   const [stripAuthor, setStripAuthor] = useState(true);
   const [stripSoftware, setStripSoftware] = useState(true);
 
+  const activeFileRef = React.useRef<Blob | null>(null);
+
   useEffect(() => {
-    let isCancelled = false;
-    if (currentItem?.file) {
-      setIsAnalyzing(true);
-      analyzeImageMetadata(currentItem.file)
-        .then((res) => {
-          if (!isCancelled) {
-            setAnalysis(res);
-            setIsAnalyzing(false);
-          }
-        })
-        .catch(() => {
-          if (!isCancelled) setIsAnalyzing(false);
-        });
-    } else {
+    const targetFile = currentItem?.initialFile || currentItem?.file;
+    if (!targetFile) {
       setAnalysis(null);
+      setIsAnalyzing(false);
+      activeFileRef.current = null;
+      return;
     }
-    return () => {
-      isCancelled = true;
-    };
-  }, [currentItem]);
+
+    activeFileRef.current = targetFile;
+    setIsAnalyzing(true);
+
+    analyzeImageMetadata(targetFile)
+      .then((res) => {
+        if (activeFileRef.current === targetFile) {
+          setAnalysis(res);
+          setIsAnalyzing(false);
+        }
+      })
+      .catch((err) => {
+        console.error('Metadata analysis error:', err);
+        if (activeFileRef.current === targetFile) {
+          setIsAnalyzing(false);
+        }
+      });
+  }, [currentItem?.id, currentItem?.file, currentItem?.initialFile]);
 
   const activeScopeCount = [stripC2PA, stripExif, stripGps, stripAuthor, stripSoftware].filter(Boolean).length;
 

@@ -121,6 +121,8 @@ export function useWorkspaceCore(initialTab: TabType = 'remove'): UseWorkspaceCo
             'blurface',
             'blurplate',
             'design',
+            'metadata',
+            'editexif',
           ].includes(initialTab)
         ) {
           return merged.map((i) =>
