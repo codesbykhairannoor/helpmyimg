@@ -306,7 +306,8 @@ export const Navbar: React.FC = () => {
         className="mobile-nav-drawer"
         onClick={(e) => e.stopPropagation()}
       >
-        {/* Quick Search Tool Input */}
+        <div className="mobile-nav-inner">
+          {/* Quick Search Tool Input */}
         <div className="mobile-nav-search-bar">
           <Search size={16} className="text-slate-400 dark:text-slate-500 shrink-0" />
           <input
@@ -436,6 +437,7 @@ export const Navbar: React.FC = () => {
             {theme === 'dark' ? <Sun size={14} className="text-amber-400" /> : <Moon size={14} className="text-indigo-400" />}
             <span>{theme === 'dark' ? 'Light' : 'Dark'}</span>
           </button>
+        </div>
         </div>
       </div>
     </>,

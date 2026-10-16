@@ -30,16 +30,10 @@
     background-attachment: fixed;
   }
 
-  /* Apply compact 80% zoom on Desktop screens (1024px+), and 95% zoom on Mobile & Tablets */
+  /* Only apply compact 80% zoom on Desktop screens (1024px+), keeping 100% native scale on Mobile & Tablets */
   @media (min-width: 1024px) {
     body {
       zoom: 0.8;
-    }
-  }
-
-  @media (max-width: 1023px) {
-    body {
-      zoom: 0.95;
     }
   }
 
@@ -192,9 +186,7 @@ html:not(.dark) .border-dark-600\/40 {
   left: 0;
   right: 0;
   bottom: 0;
-  width: 100vw;
-  height: calc(100dvh - 60px);
-  height: calc(100vh - 60px);
+  width: 100%;
   background: rgba(0, 0, 0, 0.45);
   backdrop-filter: blur(4px);
   -webkit-backdrop-filter: blur(4px);
@@ -209,9 +201,6 @@ html:not(.dark) .border-dark-600\/40 {
   right: 0;
   bottom: 0;
   width: 100%;
-  height: calc(100dvh - 60px);
-  height: calc(100vh - 60px);
-  max-height: calc(100dvh - 60px);
   background: #ffffff;
   color: #0f172a;
   z-index: 9999;
@@ -229,6 +218,13 @@ html:not(.dark) .border-dark-600\/40 {
 .dark .mobile-nav-drawer {
   background: #0b0f19;
   color: #f8fafc;
+}
+
+.mobile-nav-inner {
+  width: 100%;
+  zoom: 0.95;
+  display: flex;
+  flex-direction: column;
 }
 
 @keyframes mobileNavFade {
