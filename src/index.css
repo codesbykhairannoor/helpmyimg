@@ -37,6 +37,13 @@
     }
   }
 
+  /* Compact 90% sleek scale for Navbar & Hamburger Menu on Mobile & Tablets */
+  @media (max-width: 1023px) {
+    header.sticky {
+      zoom: 0.9;
+    }
+  }
+
   h1, h2, h3, h4, h5, h6 {
     @apply font-heading font-bold tracking-tight;
   }

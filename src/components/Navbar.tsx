@@ -71,15 +71,15 @@ export const Navbar: React.FC = () => {
 
  return (
  <header className="sticky top-0 z-50 w-full border-b border-slate-200 dark:border-dark-500/40 bg-white dark:bg-dark-900 shadow-sm dark:shadow-none">
- <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-[60px] flex items-center justify-between">
+ <div className="max-w-7xl mx-auto px-3.5 sm:px-6 lg:px-8 h-[54px] sm:h-[60px] flex items-center justify-between">
  {/* Kiri: Brand Logo */}
  <div className="flex items-center justify-start flex-shrink-0">
- <a href={lang === 'en' ? '/' : `/${lang}`} onClick={(e) => { e.preventDefault(); navigatePath(lang === 'en' ? '/' : `/${lang}`); }} className="flex items-center gap-2.5 group">
- <div className="w-[38px] h-[38px] flex-shrink-0 transition-all duration-300 group-hover:scale-105 drop-shadow-glow-cyan">
+ <a href={lang === 'en' ? '/' : `/${lang}`} onClick={(e) => { e.preventDefault(); navigatePath(lang === 'en' ? '/' : `/${lang}`); }} className="flex items-center gap-2 sm:gap-2.5 group">
+ <div className="w-8 h-8 sm:w-[38px] sm:h-[38px] flex-shrink-0 transition-all duration-300 group-hover:scale-105 drop-shadow-glow-cyan">
  <img src="/logobaru.png" alt="HelpMyIMG Logo" width="38" height="38" decoding="async" className="w-full h-full object-contain" />
  </div>
  <div className="flex flex-col">
- <span className="text-xl font-heading font-extrabold text-slate-900 dark:text-white">
+ <span className="text-lg sm:text-xl font-heading font-extrabold text-slate-900 dark:text-white">
  HelpMy<span className="text-transparent bg-clip-text bg-gradient-to-r from-neon-cyan to-neon-emerald">IMG</span>
  </span>
  </div>
@@ -155,14 +155,14 @@ export const Navbar: React.FC = () => {
  {/* Theme Toggle Button (Light Mode / Dark Mode) */}
  <button
  onClick={toggleTheme}
- className="flex items-center justify-center w-9 h-9 bg-slate-100 dark:bg-dark-800 hover:bg-slate-200 dark:hover:bg-dark-700 border border-slate-200 dark:border-dark-500/60 rounded-xl text-slate-600 dark:text-slate-200 transition-all duration-200 shadow-sm"
+ className="flex items-center justify-center w-8 h-8 sm:w-9 sm:h-9 bg-slate-100 dark:bg-dark-800 hover:bg-slate-200 dark:hover:bg-dark-700 border border-slate-200 dark:border-dark-500/60 rounded-xl text-slate-600 dark:text-slate-200 transition-all duration-200 shadow-sm"
  aria-label="Toggle Theme"
  title={theme === 'dark' ? 'Light Mode' : 'Dark Mode'}
  >
  {theme === 'dark' ? (
- <Sun className="w-4 h-4 text-amber-500 hover:rotate-45 transition-transform duration-300" />
+ <Sun className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-amber-500 hover:rotate-45 transition-transform duration-300" />
  ) : (
- <Moon className="w-4 h-4 text-indigo-400 hover:-rotate-12 transition-transform duration-300" />
+ <Moon className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-indigo-400 hover:-rotate-12 transition-transform duration-300" />
  )}
  </button>
 
@@ -173,10 +173,10 @@ export const Navbar: React.FC = () => {
  setLangOpen(!langOpen);
  setSearchQuery('');
  }}
- className="flex items-center gap-2 bg-slate-100 dark:bg-dark-800 hover:bg-slate-200 dark:hover:bg-dark-700 border border-slate-200 dark:border-dark-500/60 px-3 h-9 rounded-xl text-[14.5px] font-semibold text-slate-700 dark:text-slate-200 transition-all duration-200 shadow-sm"
+ className="flex items-center gap-1.5 sm:gap-2 bg-slate-100 dark:bg-dark-800 hover:bg-slate-200 dark:hover:bg-dark-700 border border-slate-200 dark:border-dark-500/60 px-2.5 sm:px-3 h-8 sm:h-9 rounded-xl text-[13px] sm:text-[14.5px] font-semibold text-slate-700 dark:text-slate-200 transition-all duration-200 shadow-sm"
  aria-label="Pilih Bahasa"
  >
- <Globe className="w-4 h-4 text-cyan-600 dark:text-neon-cyan" />
+ <Globe className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-cyan-600 dark:text-neon-cyan" />
  <span>{currentLang.flag}</span>
  <span className="hidden sm:inline uppercase font-mono text-[14px] font-bold">{currentLang.code}</span>
  <ChevronDown className={`w-3.5 h-3.5 text-slate-400 transition-transform duration-200 ${langOpen ? 'rotate-180' : ''}`} />
@@ -270,12 +270,12 @@ export const Navbar: React.FC = () => {
  animate={{ opacity: 1 }}
  exit={{ opacity: 0 }}
  transition={{ duration: 0.15, ease: 'easeInOut' }}
- className="lg:hidden absolute inset-x-0 top-[60px] z-50 bg-slate-50 dark:bg-dark-900 border-t border-b border-slate-200 dark:border-dark-500/40 shadow-2xl overflow-y-auto max-h-[calc(100vh-60px)]"
+ className="lg:hidden absolute inset-x-0 top-[54px] sm:top-[60px] z-50 bg-slate-50 dark:bg-dark-900 border-t border-b border-slate-200 dark:border-dark-500/40 shadow-2xl overflow-y-auto max-h-[calc(100vh-54px)] sm:max-h-[calc(100vh-60px)]"
  >
- <div className="flex flex-col px-4 pt-3 pb-7 gap-4">
+ <div className="flex flex-col px-3.5 pt-2.5 pb-6 gap-3">
  
  {/* Quick 3 buttons */}
- <div className="grid grid-cols-3 gap-4">
+ <div className="grid grid-cols-3 gap-2">
  {[
  { id: 'remove', label: t('nav.removeBg', { defaultValue: 'Remove BG' }) },
  { id: 'compress', label: t('nav.compress', { defaultValue: 'Compress' }) },
@@ -296,7 +296,7 @@ export const Navbar: React.FC = () => {
  navigatePath(targetHref);
  setMobileMenuOpen(false);
  }} 
- className="bg-white dark:bg-dark-800 hover:bg-slate-50 dark:hover:bg-dark-700 border border-slate-200 dark:border-dark-600/50 py-[7px] px-1 rounded-lg font-bold text-slate-800 dark:text-slate-100 text-[0.84rem] leading-tight uppercase text-center transition-colors cursor-pointer w-full flex items-center justify-center whitespace-nowrap overflow-hidden"
+ className="bg-white dark:bg-dark-800 hover:bg-slate-50 dark:hover:bg-dark-700 border border-slate-200 dark:border-dark-600/50 py-1.5 px-1.5 rounded-lg font-bold text-slate-800 dark:text-slate-100 text-[11.5px] leading-tight uppercase text-center transition-colors cursor-pointer w-full flex items-center justify-center whitespace-nowrap overflow-hidden shadow-2xs"
  >
  <span className="truncate">{shortLabel || label}</span>
  </a>
@@ -307,22 +307,22 @@ export const Navbar: React.FC = () => {
  {/* Accordion: All Tools */}
  <button
  onClick={() => setIsMobileAllOpen(!isMobileAllOpen)}
- className="w-full bg-gradient-to-r from-cyan-500 to-emerald-500 text-white py-[10px] px-4 rounded-lg font-[800] text-[0.95rem] leading-tight uppercase flex items-center justify-between shadow-sm transition-all"
- style={{ marginBottom: isMobileAllOpen ? '16px' : '0' }}
+ className="w-full bg-gradient-to-r from-cyan-500 to-emerald-500 text-white py-2 px-3.5 rounded-lg font-bold text-[12.5px] leading-tight uppercase flex items-center justify-between shadow-xs transition-all"
+ style={{ marginBottom: isMobileAllOpen ? '12px' : '0' }}
  >
  <span className="!text-white">{t('nav.tools') === 'AI Tools' ? 'All Photo Tools' : (t('nav.tools', { defaultValue: 'All Photo Tools' }))}</span>
- {isMobileAllOpen ? <ChevronDown className="w-4 h-4 rotate-180 transition-transform" /> : <ChevronDown className="w-4 h-4 transition-transform" />}
+ {isMobileAllOpen ? <ChevronDown className="w-3.5 h-3.5 rotate-180 transition-transform" /> : <ChevronDown className="w-3.5 h-3.5 transition-transform" />}
  </button>
 
  {isMobileAllOpen && (
- <nav className="flex flex-col gap-4">
+ <nav className="flex flex-col gap-3">
  {categories.filter(c => c.id !== 'all').map(cat => {
  const catTools = tools.filter(t => t.category === cat.id);
  if (catTools.length === 0) return null;
 
  return (
  <div key={cat.id} className="space-y-0">
- <div className="text-[0.76rem] font-extrabold text-cyan-600 dark:text-neon-cyan mb-2 pb-1.5 border-b border-dashed border-slate-200 dark:border-dark-600 uppercase">
+ <div className="text-[11px] font-extrabold text-cyan-600 dark:text-neon-cyan mb-1.5 pb-1 border-b border-dashed border-slate-200 dark:border-dark-600 uppercase tracking-wide">
  {t(cat.labelKey, { defaultValue: cat.defaultLabel })}
  </div>
  <div className="grid grid-cols-2 gap-1.5">
@@ -335,9 +335,9 @@ export const Navbar: React.FC = () => {
  navigatePath(lang === 'en' ? `/${getLocalizedSlug(tool.id, lang)}` : `/${lang}/${getLocalizedSlug(tool.id, lang)}`);
  setMobileMenuOpen(false);
  }}
- className="flex items-center gap-2 bg-white dark:bg-dark-800 border border-slate-200 dark:border-dark-600/50 px-[11px] py-[9px] rounded-lg font-bold text-slate-700 dark:text-slate-200 text-[0.84rem] text-left hover:border-cyan-500 dark:hover:border-neon-cyan transition-colors"
+ className="flex items-center gap-1.5 bg-white dark:bg-dark-800 border border-slate-200 dark:border-dark-600/50 px-2.5 py-1.5 rounded-lg font-bold text-slate-700 dark:text-slate-200 text-[11.5px] text-left hover:border-cyan-500 dark:hover:border-neon-cyan transition-colors"
  >
- <tool.icon className="w-[14px] h-[14px] text-cyan-600 dark:text-neon-cyan shrink-0" strokeWidth={2.5} />
+ <tool.icon className="w-3.5 h-3.5 text-cyan-600 dark:text-neon-cyan shrink-0" strokeWidth={2.2} />
  <span className="truncate uppercase">{t(tool.titleKey, { defaultValue: tool.defaultTitle })}</span>
  </a>
  ))}
