@@ -1,12 +1,13 @@
 // src/components/Navbar.tsx
 // Navigasi Atas dengan Pemilih 10 Bahasa dan Lencana Kecepatan AI (Subdirectory Router)
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { createPortal } from 'react-dom';
 import { useRouter } from '../context/RouterContext';
 import { useTranslation } from '../context/LanguageContext';
 import { useTheme } from '../context/ThemeContext';
 import { SUPPORTED_LANGUAGES, type Language } from '../i18n/translations';
-import { Globe, ChevronDown, Sun, Moon, Menu, X } from 'lucide-react';
+import { Globe, ChevronDown, Sun, Moon, Menu, X, Search, ChevronRight } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { getToolFromSlug, getLocalizedSlug, type InternalTool } from '../utils/urlMapper';
 import { getInfoPageFromSlug, getLocalizedInfoSlug, type InfoPageType } from '../utils/infoUrlMapper';
@@ -16,14 +17,43 @@ void _unusedInfoPageType;
 
 import { tools, categories } from '../config/tools';
 
+const TOOL_COLORS: Record<string, string> = {
+  remove: '#06b6d4',
+  compress: '#a855f7',
+  convert: '#0284c7',
+  resize: '#10b981',
+  crop: '#f43f5e',
+  rotate: '#8b5cf6',
+  color: '#ec4899',
+  design: '#f59e0b',
+  picker: '#6366f1',
+  watermark: '#3b82f6',
+  blurface: '#14b8a6',
+  brush: '#f97316',
+  metadata: '#10b981',
+  editexif: '#eab308',
+};
+
 export const Navbar: React.FC = () => {
  const { lang, setLang, t } = useTranslation();
  const { theme, toggleTheme } = useTheme();
  const [langOpen, setLangOpen] = useState(false);
  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
- const [isMobileAllOpen, setIsMobileAllOpen] = useState(false);
+ const [mobileSearch, setMobileSearch] = useState('');
  const [searchQuery, setSearchQuery] = useState('');
  const { navigatePath } = useRouter();
+
+ useEffect(() => {
+   if (mobileMenuOpen) {
+     document.body.style.overflow = 'hidden';
+   } else {
+     document.body.style.overflow = '';
+     setMobileSearch('');
+   }
+   return () => {
+     document.body.style.overflow = '';
+   };
+ }, [mobileMenuOpen]);
 
  const currentLang = SUPPORTED_LANGUAGES.find((l) => l.code === lang) || SUPPORTED_LANGUAGES[0];
 
@@ -70,6 +100,7 @@ export const Navbar: React.FC = () => {
  };
 
  return (
+ <>
  <header className="sticky top-0 z-50 w-full border-b border-slate-200 dark:border-dark-500/40 bg-white dark:bg-dark-900 shadow-sm dark:shadow-none">
  <div className="max-w-7xl mx-auto px-3.5 sm:px-6 lg:px-8 h-[60px] flex items-center justify-between">
  {/* Kiri: Brand Logo */}
@@ -262,118 +293,154 @@ export const Navbar: React.FC = () => {
  </div>
  </div>
 
- {/* Mobile Menu Overlay - FIXED position, zero layout shift/pushdown! */}
- <AnimatePresence>
- {mobileMenuOpen && (
- <motion.div
- initial={{ opacity: 0 }}
- animate={{ opacity: 1 }}
- exit={{ opacity: 0 }}
- transition={{ duration: 0.15, ease: 'easeInOut' }}
- className="lg:hidden absolute inset-x-0 top-[60px] z-50 bg-slate-50 dark:bg-dark-900 border-t border-b border-slate-200 dark:border-dark-500/40 shadow-2xl overflow-y-auto max-h-[calc(100vh-60px)]"
- >
- <div className="flex flex-col px-3.5 pt-2.5 pb-6 gap-3">
- 
- {/* Quick 3 buttons */}
- <div className="grid grid-cols-3 gap-2">
- {[
- { id: 'remove', label: t('nav.removeBg', { defaultValue: 'Remove BG' }) },
- { id: 'compress', label: t('nav.compress', { defaultValue: 'Compress' }) },
- { id: 'resize', label: t('nav.resize', { defaultValue: 'Resize' }) },
- ].map(({ id, label }) => {
- // Smart shortener for all 30 languages to ensure fit on mobile
- const shortLabel = label.replace(/\s*(Image|Gambar|Background|Latar Belakang|Latar|Photo|Foto|Format|Obraz|Изображение)\s*/gi, '').trim();
- const toolId = id as InternalTool;
- const slug = getLocalizedSlug(toolId, lang);
- const targetHref = lang === 'en' ? `/${slug}` : `/${lang}/${slug}`;
-
- return (
- <a 
- key={id} 
- href={targetHref}
- onClick={(e) => {
- e.preventDefault();
- navigatePath(targetHref);
- setMobileMenuOpen(false);
- }} 
- className="bg-white dark:bg-dark-800 hover:bg-slate-50 dark:hover:bg-dark-700 border border-slate-200 dark:border-dark-600/50 py-1.5 px-1.5 rounded-lg font-bold text-slate-800 dark:text-slate-100 text-[11.5px] leading-tight uppercase text-center transition-colors cursor-pointer w-full flex items-center justify-center whitespace-nowrap overflow-hidden shadow-2xs"
- >
- <span className="truncate">{shortLabel || label}</span>
- </a>
- );
- })}
- </div>
-
- {/* Accordion: All Tools */}
- <button
- onClick={() => setIsMobileAllOpen(!isMobileAllOpen)}
- className="w-full bg-gradient-to-r from-cyan-500 to-emerald-500 text-white py-2 px-3.5 rounded-lg font-bold text-[12.5px] leading-tight uppercase flex items-center justify-between shadow-xs transition-all"
- style={{ marginBottom: isMobileAllOpen ? '12px' : '0' }}
- >
- <span className="!text-white">{t('nav.tools') === 'AI Tools' ? 'All Photo Tools' : (t('nav.tools', { defaultValue: 'All Photo Tools' }))}</span>
- {isMobileAllOpen ? <ChevronDown className="w-3.5 h-3.5 rotate-180 transition-transform" /> : <ChevronDown className="w-3.5 h-3.5 transition-transform" />}
- </button>
-
- {isMobileAllOpen && (
- <nav className="flex flex-col gap-3">
- {categories.filter(c => c.id !== 'all').map(cat => {
- const catTools = tools.filter(t => t.category === cat.id);
- if (catTools.length === 0) return null;
-
- return (
- <div key={cat.id} className="space-y-0">
- <div className="text-[11px] font-extrabold text-cyan-600 dark:text-neon-cyan mb-1.5 pb-1 border-b border-dashed border-slate-200 dark:border-dark-600 uppercase tracking-wide">
- {t(cat.labelKey, { defaultValue: cat.defaultLabel })}
- </div>
- <div className="grid grid-cols-2 gap-1.5">
- {catTools.map(tool => (
- <a
- key={tool.id}
- href={lang === 'en' ? `/${getLocalizedSlug(tool.id, lang)}` : `/${lang}/${getLocalizedSlug(tool.id, lang)}`}
- onClick={(e) => {
- e.preventDefault();
- navigatePath(lang === 'en' ? `/${getLocalizedSlug(tool.id, lang)}` : `/${lang}/${getLocalizedSlug(tool.id, lang)}`);
- setMobileMenuOpen(false);
- }}
- className="flex items-center gap-1.5 bg-white dark:bg-dark-800 border border-slate-200 dark:border-dark-600/50 px-2.5 py-1.5 rounded-lg font-bold text-slate-700 dark:text-slate-200 text-[11.5px] text-left hover:border-cyan-500 dark:hover:border-neon-cyan transition-colors"
- >
- <tool.icon className="w-3.5 h-3.5 text-cyan-600 dark:text-neon-cyan shrink-0" strokeWidth={2.2} />
- <span className="truncate uppercase">{t(tool.titleKey, { defaultValue: tool.defaultTitle })}</span>
- </a>
- ))}
- </div>
- </div>
- );
- })}
- </nav>
- )}
-
- {/* Mobile Drawer Theme Toggle */}
- <div className="pt-3 border-t border-slate-200 dark:border-dark-700/60 flex items-center justify-between mt-1">
- <span className="text-xs font-semibold text-slate-500 dark:text-slate-400">
- {theme === 'dark' ? 'Dark Mode' : 'Light Mode'}
- </span>
- <button
- onClick={toggleTheme}
- className="flex items-center gap-2 px-3 py-1.5 rounded-lg border border-slate-200 dark:border-dark-600 bg-white dark:bg-dark-800 text-xs font-bold text-slate-700 dark:text-slate-200 shadow-2xs hover:bg-slate-50 dark:hover:bg-dark-700 transition-colors"
- >
- {theme === 'dark' ? (
- <>
- <Sun className="w-3.5 h-3.5 text-amber-500" />
- <span>Switch to Light</span>
- </>
- ) : (
- <>
- <Moon className="w-3.5 h-3.5 text-indigo-400" />
- <span>Switch to Dark</span>
- </>
- )}
- </button>
- </div>
- </div>
- </motion.div>
- )}
- </AnimatePresence>
  </header>
+
+  {/* Mobile Nav Drawer (SolveMyMedia Layout - 1-Column Stack rendered in Portal) */}
+  {mobileMenuOpen && typeof document !== 'undefined' && createPortal(
+    <>
+      <div
+        className="mobile-nav-backdrop"
+        onClick={() => setMobileMenuOpen(false)}
+      />
+      <div
+        className="mobile-nav-drawer"
+        onClick={(e) => e.stopPropagation()}
+      >
+        {/* Quick Search Tool Input */}
+        <div className="mobile-nav-search-bar">
+          <Search size={16} className="text-slate-400 dark:text-slate-500 shrink-0" />
+          <input
+            type="text"
+            placeholder={lang === 'id' ? 'Cari dari 14 alat foto...' : (lang === 'ms' ? 'Cari semua 14 alat foto...' : 'Search all 14 photo tools...')}
+            value={mobileSearch}
+            onChange={(e) => setMobileSearch(e.target.value)}
+          />
+          {mobileSearch && (
+            <button
+              type="button"
+              onClick={() => setMobileSearch('')}
+              className="text-slate-400 hover:text-slate-600 dark:hover:text-white p-1"
+            >
+              <X size={14} />
+            </button>
+          )}
+        </div>
+
+        {/* Search Result or Category Lists */}
+        {mobileSearch.trim() ? (
+          <div className="flex flex-col gap-1">
+            <div className="mobile-nav-section-label">
+              {lang === 'id' ? 'HASIL PENCARIAN' : (lang === 'ms' ? 'KEPUTUSAN CARIAN' : 'SEARCH RESULTS')}
+            </div>
+            <div className="mobile-nav-list">
+              {tools
+                .filter(tool => {
+                  const name = t(tool.titleKey, { defaultValue: tool.defaultTitle }).toLowerCase();
+                  const query = mobileSearch.toLowerCase().trim();
+                  return name.includes(query) || tool.id.includes(query) || tool.defaultTitle.toLowerCase().includes(query);
+                })
+                .map(tool => {
+                  const slug = getLocalizedSlug(tool.id, lang);
+                  const targetHref = lang === 'en' ? `/${slug}` : `/${lang}/${slug}`;
+                  const color = TOOL_COLORS[tool.id] || '#06b6d4';
+                  return (
+                    <a
+                      key={tool.id}
+                      href={targetHref}
+                      onClick={(e) => {
+                        e.preventDefault();
+                        navigatePath(targetHref);
+                        setMobileMenuOpen(false);
+                        document.body.style.overflow = '';
+                      }}
+                      className="mobile-nav-item"
+                    >
+                      <div className="mobile-nav-icon-wrap" style={{ color: color, background: `${color}18` }}>
+                        <tool.icon size={18} strokeWidth={2} />
+                      </div>
+                      <div className="mobile-nav-text-wrap">
+                        <span className="mobile-nav-title">{t(tool.titleKey, { defaultValue: tool.defaultTitle })}</span>
+                      </div>
+                      {tool.isNew && <span className="mobile-nav-badge">NEW</span>}
+                      <ChevronRight size={16} className="mobile-nav-arrow" />
+                    </a>
+                  );
+                })}
+            </div>
+          </div>
+        ) : (
+          <div className="flex flex-col gap-3.5">
+            {categories.filter(c => c.id !== 'all').map(cat => {
+              const catTools = tools.filter(t => t.category === cat.id);
+              if (catTools.length === 0) return null;
+
+              return (
+                <div key={cat.id}>
+                  <div className="mobile-nav-section-label">
+                    {t(cat.labelKey, { defaultValue: cat.defaultLabel })}
+                  </div>
+                  <div className="mobile-nav-list">
+                    {catTools.map(tool => {
+                      const slug = getLocalizedSlug(tool.id, lang);
+                      const targetHref = lang === 'en' ? `/${slug}` : `/${lang}/${slug}`;
+                      const color = TOOL_COLORS[tool.id] || '#06b6d4';
+                      return (
+                        <a
+                          key={tool.id}
+                          href={targetHref}
+                          onClick={(e) => {
+                            e.preventDefault();
+                            navigatePath(targetHref);
+                            setMobileMenuOpen(false);
+                            document.body.style.overflow = '';
+                          }}
+                          className="mobile-nav-item"
+                        >
+                          <div className="mobile-nav-icon-wrap" style={{ color: color, background: `${color}18` }}>
+                            <tool.icon size={18} strokeWidth={2} />
+                          </div>
+                          <div className="mobile-nav-text-wrap">
+                            <span className="mobile-nav-title">{t(tool.titleKey, { defaultValue: tool.defaultTitle })}</span>
+                          </div>
+                          {tool.isNew && <span className="mobile-nav-badge">NEW</span>}
+                          <ChevronRight size={16} className="mobile-nav-arrow" />
+                        </a>
+                      );
+                    })}
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        )}
+
+        {/* Bottom Theme Card */}
+        <div className="mobile-nav-theme-card">
+          <div className="flex items-center gap-2.5">
+            {theme === 'dark' ? <Moon size={18} className="text-indigo-400" /> : <Sun size={18} className="text-amber-500" />}
+            <div>
+              <div className="text-[0.88rem] font-bold text-slate-900 dark:text-white">
+                {theme === 'dark' ? 'Dark Mode' : 'Light Mode'}
+              </div>
+              <div className="text-[0.74rem] text-slate-500 dark:text-slate-400">
+                {lang === 'id' ? 'Ubah tema tampilan' : 'Switch appearance'}
+              </div>
+            </div>
+          </div>
+
+          <button
+            type="button"
+            onClick={toggleTheme}
+            className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full text-[0.82rem] font-bold cursor-pointer transition-all border border-amber-500/40 bg-amber-50 dark:bg-indigo-950/60 dark:border-indigo-500/40 text-amber-700 dark:text-indigo-300 shadow-xs"
+          >
+            {theme === 'dark' ? <Sun size={14} className="text-amber-400" /> : <Moon size={14} className="text-indigo-400" />}
+            <span>{theme === 'dark' ? 'Light' : 'Dark'}</span>
+          </button>
+        </div>
+      </div>
+    </>,
+    document.body
+  )}
+  </>
  );
 };
