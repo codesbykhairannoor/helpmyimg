@@ -9,7 +9,10 @@ import {
   Trash2,
   Camera,
   User,
-  RefreshCw
+  RefreshCw,
+  Sliders,
+  ChevronDown,
+  ChevronUp
 } from 'lucide-react';
 import { 
   analyzeImageMetadata, 
@@ -26,6 +29,7 @@ interface MetadataControlProps {
   onReset: () => void;
   isProcessing: boolean;
   batchCount?: number;
+  onSwitchToEditExif?: () => void;
 }
 
 export const MetadataControl: React.FC<MetadataControlProps> = ({
@@ -36,6 +40,7 @@ export const MetadataControl: React.FC<MetadataControlProps> = ({
   onReset,
   isProcessing,
   batchCount = 1,
+  onSwitchToEditExif,
 }) => {
   const { t } = useTranslation();
   const tr = (key: string, def: string) => t(`metadata.${key}`, { defaultValue: def });
@@ -43,6 +48,7 @@ export const MetadataControl: React.FC<MetadataControlProps> = ({
   const [analysis, setAnalysis] = useState<MetadataAnalysis | null>(null);
   const [isAnalyzing, setIsAnalyzing] = useState(false);
   const [activeView, setActiveView] = useState<'audit' | 'scope'>('audit');
+  const [showFullDetails, setShowFullDetails] = useState(false);
 
   // Checkbox scopes
   const [stripC2PA, setStripC2PA] = useState(true);
@@ -233,6 +239,43 @@ export const MetadataControl: React.FC<MetadataControlProps> = ({
                       {analysis.artist ? tr('badgeExposed', 'Exposed') : tr('badgeNone', 'None')}
                     </span>
                   </div>
+
+                  {/* Expandable Full Metadata Details */}
+                  {analysis.hasExif && (
+                    <div className="pt-1">
+                      <button
+                        type="button"
+                        onClick={() => setShowFullDetails(!showFullDetails)}
+                        className="w-full py-1.5 px-2 rounded-lg bg-slate-100 dark:bg-dark-800/80 hover:bg-slate-200 dark:hover:bg-dark-700 text-slate-600 dark:text-slate-300 text-[11px] font-semibold flex items-center justify-between transition-colors cursor-pointer"
+                      >
+                        <span>{showFullDetails ? tr('btnHideFullDetails', 'Tutup Rincian Metadata') : tr('btnShowFullDetails', 'Tampilkan Rincian Metadata Lengkap')}</span>
+                        {showFullDetails ? <ChevronUp className="w-3.5 h-3.5" /> : <ChevronDown className="w-3.5 h-3.5" />}
+                      </button>
+
+                      {showFullDetails && (
+                        <div className="mt-2 p-2.5 rounded-xl bg-white dark:bg-dark-800/90 border border-slate-200/70 dark:border-dark-700/60 space-y-1.5 font-mono text-[11px] text-slate-600 dark:text-slate-300">
+                          {analysis.shutterSpeed && <div>Shutter: <span className="font-bold text-slate-900 dark:text-white">{analysis.shutterSpeed}</span></div>}
+                          {analysis.aperture && <div>Aperture: <span className="font-bold text-slate-900 dark:text-white">{analysis.aperture}</span></div>}
+                          {analysis.iso && <div>ISO: <span className="font-bold text-slate-900 dark:text-white">{analysis.iso}</span></div>}
+                          {analysis.focalLength && <div>Focal: <span className="font-bold text-slate-900 dark:text-white">{analysis.focalLength}</span></div>}
+                          {analysis.software && <div>Software: <span className="font-bold text-slate-900 dark:text-white">{analysis.software}</span></div>}
+                          {analysis.dateTaken && <div>Date: <span className="font-bold text-slate-900 dark:text-white">{analysis.dateTaken}</span></div>}
+                        </div>
+                      )}
+                    </div>
+                  )}
+
+                  {/* Direct Switch to Edit EXIF Option */}
+                  {onSwitchToEditExif && (
+                    <button
+                      type="button"
+                      onClick={onSwitchToEditExif}
+                      className="w-full mt-1 py-2 px-3 rounded-xl bg-cyan-500/10 hover:bg-cyan-500/20 text-cyan-700 dark:text-neon-cyan border border-cyan-500/25 text-xs font-bold flex items-center justify-center gap-1.5 transition-all shadow-2xs cursor-pointer"
+                    >
+                      <Sliders className="w-3.5 h-3.5 shrink-0" />
+                      <span>{tr('btnEditExifInstead', 'Edit Metadata EXIF Foto Ini')}</span>
+                    </button>
+                  )}
                 </div>
               ) : (
                 <div className="text-center py-6 text-xs text-slate-500 dark:text-slate-400 font-medium">
@@ -340,6 +383,18 @@ export const MetadataControl: React.FC<MetadataControlProps> = ({
           </div>
         </div>
       </div>
+
+      {/* Switch to Edit EXIF Action if onSwitchToEditExif is provided */}
+      {onSwitchToEditExif && (
+        <button
+          type="button"
+          onClick={onSwitchToEditExif}
+          className="w-full py-2.5 px-3 rounded-xl bg-slate-100/90 dark:bg-dark-950/80 hover:bg-cyan-500/10 text-slate-700 dark:text-slate-300 hover:text-cyan-600 dark:hover:text-neon-cyan border border-slate-200/80 dark:border-dark-700/60 text-xs font-semibold flex items-center justify-center gap-2 transition-all cursor-pointer shadow-2xs group"
+        >
+          <Camera className="w-3.5 h-3.5 text-cyan-600 dark:text-neon-cyan group-hover:scale-110 transition-transform shrink-0" />
+          <span>{tr('switchToEdit', 'Beralih ke Mode Edit EXIF')}</span>
+        </button>
+      )}
 
       {/* Primary Scrub Actions */}
       <div className="space-y-3 pt-1">

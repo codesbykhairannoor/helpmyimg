@@ -67,6 +67,13 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({
   };
 
   const initialTab = resolveBaseTab(rawInitialTab);
+  const [activeTabOverride, setActiveTabOverride] = React.useState<TabType | null>(null);
+
+  React.useEffect(() => {
+    setActiveTabOverride(null);
+  }, [rawInitialTab]);
+
+  const currentTab = activeTabOverride || initialTab;
   const state = useWorkspaceState(initialTab);
 
   React.useEffect(() => {
@@ -330,9 +337,9 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({
                   {(initialTab === 'blurface' || initialTab === 'blurplate') &&
                     t('work.badge.blurface', { defaultValue: 'Blur Face' })}
                   {initialTab === 'design' && t('work.badge.design', { defaultValue: 'Design Editor' })}
-                  {initialTab === 'metadata' &&
+                  {currentTab === 'metadata' &&
                     t('work.badge.metadata', { defaultValue: 'Clean AI & EXIF' })}
-                  {initialTab === 'editexif' &&
+                  {currentTab === 'editexif' &&
                     t('work.badge.editexif', { defaultValue: 'Manual EXIF' })}
                 </span>
               </div>
@@ -1027,13 +1034,14 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({
                 </div>
               )}
 
-              {initialTab === 'metadata' && (
+              {currentTab === 'metadata' && (
                 <MetadataControl
                   currentItem={currentItem}
                   isProcessing={currentItem?.status === 'processing'}
                   batchCount={batchItems.length}
                   onReset={handleResetCurrent}
                   onUploadOther={handleUploadOther}
+                  onSwitchToEditExif={() => setActiveTabOverride('editexif')}
                   onDownload={() => {
                     if (currentItem?.processedUrl) {
                       const a = document.createElement('a');
@@ -1115,13 +1123,14 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({
                 />
               )}
 
-              {initialTab === 'editexif' && (
+              {currentTab === 'editexif' && (
                 <EditExifControl
                   currentItem={currentItem}
                   isProcessing={currentItem?.status === 'processing'}
                   batchCount={batchItems.length}
                   onReset={handleResetCurrent}
                   onUploadOther={handleUploadOther}
+                  onSwitchToScrub={() => setActiveTabOverride('metadata')}
                   onDownload={() => {
                     if (currentItem?.processedUrl) {
                       const a = document.createElement('a');
