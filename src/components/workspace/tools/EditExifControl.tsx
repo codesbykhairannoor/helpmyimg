@@ -10,7 +10,6 @@ import {
   User,
   Sliders,
   Eye,
-  Info,
   Clock,
   Layers,
   Zap,
@@ -213,11 +212,6 @@ export const EditExifControl: React.FC<EditExifControlProps> = ({
         {/* TAB 1: CAMERA & HARDWARE */}
         {activeTab === 'camera' && (
           <div className="space-y-3.5">
-            <div className="p-3 rounded-xl bg-cyan-500/10 dark:bg-cyan-500/15 border border-cyan-500/25 text-[11px] text-cyan-900 dark:text-cyan-200 flex items-start gap-2.5 leading-relaxed">
-              <Info className="w-4 h-4 text-cyan-600 dark:text-neon-cyan shrink-0 mt-0.5" />
-              <span>{tr('cameraHint', 'Opsional: Isi untuk foto kamera (DSLR/HP). Biarkan kosong jika file merupakan desain grafis (Photoshop/Canva).')}</span>
-            </div>
-
             <div>
               <label className="text-[11px] font-semibold text-slate-700 dark:text-slate-300 mb-1.5 flex items-center gap-1.5">
                 <Camera className="w-3.5 h-3.5 text-cyan-600 dark:text-neon-cyan" />
@@ -265,11 +259,6 @@ export const EditExifControl: React.FC<EditExifControlProps> = ({
         {/* TAB 2: EXPOSURE & OPTICS */}
         {activeTab === 'exposure' && (
           <div className="space-y-3.5">
-            <div className="p-3 rounded-xl bg-cyan-500/10 dark:bg-cyan-500/15 border border-cyan-500/25 text-[11px] text-cyan-900 dark:text-cyan-200 flex items-start gap-2.5 leading-relaxed">
-              <Info className="w-4 h-4 text-cyan-600 dark:text-neon-cyan shrink-0 mt-0.5" />
-              <span>{tr('exposureHint', 'Opsional: Parameter ISO, shutter, dan aperture kamera. Kosongkan jika mengedit file gambar desain.')}</span>
-            </div>
-
             <div className="grid grid-cols-2 gap-3">
               <div>
                 <label className="text-[11px] font-semibold text-slate-700 dark:text-slate-300 mb-1.5 flex items-center gap-1.5">

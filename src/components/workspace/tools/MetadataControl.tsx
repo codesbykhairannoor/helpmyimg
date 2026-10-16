@@ -213,90 +213,65 @@ export const MetadataControl: React.FC<MetadataControlProps> = ({
           </span>
         </div>
 
-        <div className="space-y-2 text-xs">
-          <label className="flex items-start gap-3 p-2.5 rounded-xl bg-white dark:bg-dark-800/70 border border-slate-200/70 dark:border-dark-700/50 hover:border-slate-300 dark:hover:border-dark-600 transition-all cursor-pointer shadow-2xs group">
+        <div className="space-y-1.5 text-xs">
+          <label className="flex items-center gap-2.5 px-3 py-2.5 rounded-xl bg-white dark:bg-dark-800/70 border border-slate-200/70 dark:border-dark-700/50 hover:border-slate-300 dark:hover:border-dark-600 transition-all cursor-pointer shadow-2xs group">
             <input
               type="checkbox"
               checked={stripC2PA}
               onChange={(e) => setStripC2PA(e.target.checked)}
-              className="w-4 h-4 rounded text-rose-500 focus:ring-rose-500/20 border-slate-300 dark:border-dark-600 bg-white dark:bg-dark-900 cursor-pointer mt-0.5 shrink-0 transition-all"
+              className="w-4 h-4 rounded text-rose-500 focus:ring-rose-500/20 border-slate-300 dark:border-dark-600 bg-white dark:bg-dark-900 cursor-pointer shrink-0 transition-all"
             />
-            <div className="flex-1 min-w-0">
-              <span className="font-semibold text-slate-800 dark:text-slate-200 block text-xs group-hover:text-rose-600 dark:group-hover:text-rose-400 transition-colors">
-                {tr('chkC2pa', 'Strip Provenance & Tracking Manifests (C2PA, JUMBF)')}
-              </span>
-              <span className="text-[11px] text-slate-500 dark:text-slate-400 block mt-0.5 leading-snug">
-                {tr('chkC2paSub', 'Removes digital tracking headers, provenance manifests, and file origin fingerprints')}
-              </span>
-            </div>
+            <span className="font-semibold text-slate-800 dark:text-slate-200 text-xs group-hover:text-rose-600 dark:group-hover:text-rose-400 transition-colors truncate">
+              {tr('chkC2pa', 'Strip Provenance & Tracking Manifests (C2PA, JUMBF)')}
+            </span>
           </label>
 
-          <label className="flex items-start gap-3 p-2.5 rounded-xl bg-white dark:bg-dark-800/70 border border-slate-200/70 dark:border-dark-700/50 hover:border-slate-300 dark:hover:border-dark-600 transition-all cursor-pointer shadow-2xs group">
+          <label className="flex items-center gap-2.5 px-3 py-2.5 rounded-xl bg-white dark:bg-dark-800/70 border border-slate-200/70 dark:border-dark-700/50 hover:border-slate-300 dark:hover:border-dark-600 transition-all cursor-pointer shadow-2xs group">
             <input
               type="checkbox"
               checked={stripExif}
               onChange={(e) => setStripExif(e.target.checked)}
-              className="w-4 h-4 rounded text-rose-500 focus:ring-rose-500/20 border-slate-300 dark:border-dark-600 bg-white dark:bg-dark-900 cursor-pointer mt-0.5 shrink-0 transition-all"
+              className="w-4 h-4 rounded text-rose-500 focus:ring-rose-500/20 border-slate-300 dark:border-dark-600 bg-white dark:bg-dark-900 cursor-pointer shrink-0 transition-all"
             />
-            <div className="flex-1 min-w-0">
-              <span className="font-semibold text-slate-800 dark:text-slate-200 block text-xs group-hover:text-rose-600 dark:group-hover:text-rose-400 transition-colors">
-                {tr('chkExif', 'Wipe Camera EXIF & Hardware Information')}
-              </span>
-              <span className="text-[11px] text-slate-500 dark:text-slate-400 block mt-0.5 leading-snug">
-                {tr('chkExifSub', 'Removes camera serial number, shutter count, and lens data')}
-              </span>
-            </div>
+            <span className="font-semibold text-slate-800 dark:text-slate-200 text-xs group-hover:text-rose-600 dark:group-hover:text-rose-400 transition-colors truncate">
+              {tr('chkExif', 'Wipe Camera EXIF & Hardware Information')}
+            </span>
           </label>
 
-          <label className="flex items-start gap-3 p-2.5 rounded-xl bg-white dark:bg-dark-800/70 border border-slate-200/70 dark:border-dark-700/50 hover:border-slate-300 dark:hover:border-dark-600 transition-all cursor-pointer shadow-2xs group">
+          <label className="flex items-center gap-2.5 px-3 py-2.5 rounded-xl bg-white dark:bg-dark-800/70 border border-slate-200/70 dark:border-dark-700/50 hover:border-slate-300 dark:hover:border-dark-600 transition-all cursor-pointer shadow-2xs group">
             <input
               type="checkbox"
               checked={stripGps}
               onChange={(e) => setStripGps(e.target.checked)}
-              className="w-4 h-4 rounded text-rose-500 focus:ring-rose-500/20 border-slate-300 dark:border-dark-600 bg-white dark:bg-dark-900 cursor-pointer mt-0.5 shrink-0 transition-all"
+              className="w-4 h-4 rounded text-rose-500 focus:ring-rose-500/20 border-slate-300 dark:border-dark-600 bg-white dark:bg-dark-900 cursor-pointer shrink-0 transition-all"
             />
-            <div className="flex-1 min-w-0">
-              <span className="font-semibold text-slate-800 dark:text-slate-200 block text-xs group-hover:text-rose-600 dark:group-hover:text-rose-400 transition-colors">
-                {tr('chkGps', 'Scrub GPS Coordinates & Geotags')}
-              </span>
-              <span className="text-[11px] text-slate-500 dark:text-slate-400 block mt-0.5 leading-snug">
-                {tr('chkGpsSub', 'Protects physical location and private home/office addresses')}
-              </span>
-            </div>
+            <span className="font-semibold text-slate-800 dark:text-slate-200 text-xs group-hover:text-rose-600 dark:group-hover:text-rose-400 transition-colors truncate">
+              {tr('chkGps', 'Scrub GPS Coordinates & Geotags')}
+            </span>
           </label>
 
-          <label className="flex items-start gap-3 p-2.5 rounded-xl bg-white dark:bg-dark-800/70 border border-slate-200/70 dark:border-dark-700/50 hover:border-slate-300 dark:hover:border-dark-600 transition-all cursor-pointer shadow-2xs group">
+          <label className="flex items-center gap-2.5 px-3 py-2.5 rounded-xl bg-white dark:bg-dark-800/70 border border-slate-200/70 dark:border-dark-700/50 hover:border-slate-300 dark:hover:border-dark-600 transition-all cursor-pointer shadow-2xs group">
             <input
               type="checkbox"
               checked={stripAuthor}
               onChange={(e) => setStripAuthor(e.target.checked)}
-              className="w-4 h-4 rounded text-rose-500 focus:ring-rose-500/20 border-slate-300 dark:border-dark-600 bg-white dark:bg-dark-900 cursor-pointer mt-0.5 shrink-0 transition-all"
+              className="w-4 h-4 rounded text-rose-500 focus:ring-rose-500/20 border-slate-300 dark:border-dark-600 bg-white dark:bg-dark-900 cursor-pointer shrink-0 transition-all"
             />
-            <div className="flex-1 min-w-0">
-              <span className="font-semibold text-slate-800 dark:text-slate-200 block text-xs group-hover:text-rose-600 dark:group-hover:text-rose-400 transition-colors">
-                {tr('chkAuthor', 'Strip Creator Names, Artist & Copyright Tags')}
-              </span>
-              <span className="text-[11px] text-slate-500 dark:text-slate-400 block mt-0.5 leading-snug">
-                {tr('chkAuthorSub', 'Clears photographer, designer names, and legal copyright notices')}
-              </span>
-            </div>
+            <span className="font-semibold text-slate-800 dark:text-slate-200 text-xs group-hover:text-rose-600 dark:group-hover:text-rose-400 transition-colors truncate">
+              {tr('chkAuthor', 'Strip Creator Names, Artist & Copyright Tags')}
+            </span>
           </label>
 
-          <label className="flex items-start gap-3 p-2.5 rounded-xl bg-white dark:bg-dark-800/70 border border-slate-200/70 dark:border-dark-700/50 hover:border-slate-300 dark:hover:border-dark-600 transition-all cursor-pointer shadow-2xs group">
+          <label className="flex items-center gap-2.5 px-3 py-2.5 rounded-xl bg-white dark:bg-dark-800/70 border border-slate-200/70 dark:border-dark-700/50 hover:border-slate-300 dark:hover:border-dark-600 transition-all cursor-pointer shadow-2xs group">
             <input
               type="checkbox"
               checked={stripSoftware}
               onChange={(e) => setStripSoftware(e.target.checked)}
-              className="w-4 h-4 rounded text-rose-500 focus:ring-rose-500/20 border-slate-300 dark:border-dark-600 bg-white dark:bg-dark-900 cursor-pointer mt-0.5 shrink-0 transition-all"
+              className="w-4 h-4 rounded text-rose-500 focus:ring-rose-500/20 border-slate-300 dark:border-dark-600 bg-white dark:bg-dark-900 cursor-pointer shrink-0 transition-all"
             />
-            <div className="flex-1 min-w-0">
-              <span className="font-semibold text-slate-800 dark:text-slate-200 block text-xs group-hover:text-rose-600 dark:group-hover:text-rose-400 transition-colors">
-                {tr('chkXmp', 'Wipe Software Traces & Editing History (XMP)')}
-              </span>
-              <span className="text-[11px] text-slate-500 dark:text-slate-400 block mt-0.5 leading-snug">
-                {tr('chkXmpSub', 'Removes Photoshop, Canva, Lightroom, and generative editing logs')}
-              </span>
-            </div>
+            <span className="font-semibold text-slate-800 dark:text-slate-200 text-xs group-hover:text-rose-600 dark:group-hover:text-rose-400 transition-colors truncate">
+              {tr('chkXmp', 'Wipe Software Traces & Editing History (XMP)')}
+            </span>
           </label>
         </div>
       </div>
