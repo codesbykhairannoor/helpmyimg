@@ -23,12 +23,18 @@
 @layer base {
   body {
     @apply bg-dark-900 text-slate-100 font-body min-h-screen overflow-x-clip antialiased transition-colors duration-300;
-    zoom: 0.8;
     background-image: 
       radial-gradient(at 10% 20%, hsla(250, 90%, 65%, 0.15) 0px, transparent 50%),
       radial-gradient(at 90% 80%, hsla(190, 95%, 50%, 0.15) 0px, transparent 50%),
       radial-gradient(at 50% 50%, hsla(280, 85%, 60%, 0.1) 0px, transparent 50%);
     background-attachment: fixed;
+  }
+
+  /* Only apply compact 80% zoom on Desktop screens (1024px+), keeping 100% native scale on Mobile & Tablets */
+  @media (min-width: 1024px) {
+    body {
+      zoom: 0.8;
+    }
   }
 
   h1, h2, h3, h4, h5, h6 {
