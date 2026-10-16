@@ -1041,7 +1041,6 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({
                   batchCount={batchItems.length}
                   onReset={handleResetCurrent}
                   onUploadOther={handleUploadOther}
-                  onSwitchToEditExif={() => setActiveTabOverride('editexif')}
                   onDownload={() => {
                     if (currentItem?.processedUrl) {
                       const a = document.createElement('a');
@@ -1130,7 +1129,6 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({
                   batchCount={batchItems.length}
                   onReset={handleResetCurrent}
                   onUploadOther={handleUploadOther}
-                  onSwitchToScrub={() => setActiveTabOverride('metadata')}
                   onDownload={() => {
                     if (currentItem?.processedUrl) {
                       const a = document.createElement('a');

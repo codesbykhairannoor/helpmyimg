@@ -35,7 +35,6 @@ interface EditExifControlProps {
   onReset: () => void;
   isProcessing: boolean;
   batchCount?: number;
-  onSwitchToScrub?: () => void;
 }
 
 const pad = (n: number) => String(n).padStart(2, '0');
@@ -117,7 +116,6 @@ export const EditExifControl: React.FC<EditExifControlProps> = ({
   onReset,
   isProcessing,
   batchCount = 1,
-  onSwitchToScrub,
 }) => {
   const { t, lang } = useTranslation();
   const tr = (key: string, def: string) => t(`editexif.${key}`, { defaultValue: def });
@@ -922,18 +920,6 @@ export const EditExifControl: React.FC<EditExifControlProps> = ({
           </div>
         )}
       </div>
-
-      {/* Switch to Scrub Button */}
-      {onSwitchToScrub && (
-        <button
-          type="button"
-          onClick={onSwitchToScrub}
-          className="w-full py-2.5 px-3 rounded-xl bg-slate-100/90 dark:bg-dark-950/80 hover:bg-rose-500/10 text-slate-700 dark:text-slate-300 hover:text-rose-600 dark:hover:text-rose-400 border border-slate-200/80 dark:border-dark-700/60 text-xs font-semibold flex items-center justify-center gap-2 transition-all cursor-pointer shadow-2xs group"
-        >
-          <Trash2 className="w-3.5 h-3.5 text-rose-500 group-hover:scale-110 transition-transform shrink-0" />
-          <span>{tr('switchToScrub', 'Beralih ke Hapus Metadata (Scrub)')}</span>
-        </button>
-      )}
 
       {/* Primary Actions */}
       <div className="space-y-3 pt-1">

@@ -10,7 +10,6 @@ import {
   Camera,
   User,
   RefreshCw,
-  Sliders,
   ChevronDown,
   ChevronUp
 } from 'lucide-react';
@@ -29,7 +28,6 @@ interface MetadataControlProps {
   onReset: () => void;
   isProcessing: boolean;
   batchCount?: number;
-  onSwitchToEditExif?: () => void;
 }
 
 export const MetadataControl: React.FC<MetadataControlProps> = ({
@@ -40,7 +38,6 @@ export const MetadataControl: React.FC<MetadataControlProps> = ({
   onReset,
   isProcessing,
   batchCount = 1,
-  onSwitchToEditExif,
 }) => {
   const { t } = useTranslation();
   const tr = (key: string, def: string) => t(`metadata.${key}`, { defaultValue: def });
@@ -264,18 +261,6 @@ export const MetadataControl: React.FC<MetadataControlProps> = ({
                       )}
                     </div>
                   )}
-
-                  {/* Direct Switch to Edit EXIF Option */}
-                  {onSwitchToEditExif && (
-                    <button
-                      type="button"
-                      onClick={onSwitchToEditExif}
-                      className="w-full mt-1 py-2 px-3 rounded-xl bg-cyan-500/10 hover:bg-cyan-500/20 text-cyan-700 dark:text-neon-cyan border border-cyan-500/25 text-xs font-bold flex items-center justify-center gap-1.5 transition-all shadow-2xs cursor-pointer"
-                    >
-                      <Sliders className="w-3.5 h-3.5 shrink-0" />
-                      <span>{tr('btnEditExifInstead', 'Edit Metadata EXIF Foto Ini')}</span>
-                    </button>
-                  )}
                 </div>
               ) : (
                 <div className="text-center py-6 text-xs text-slate-500 dark:text-slate-400 font-medium">
@@ -295,7 +280,7 @@ export const MetadataControl: React.FC<MetadataControlProps> = ({
             </button>
           </div>
 
-          {/* SISI BELAKANG: Data To Remove Scope Checklist */}
+          {/* SISI BELAKANG: Data To Remove Scope Checklist (DENGAN KETERANGAN LENGKAP) */}
           <div className="col-start-1 row-start-1 w-full rounded-2xl bg-slate-50/70 dark:bg-dark-900/60 border border-slate-200/80 dark:border-dark-700/60 p-4 space-y-2.5 shadow-2xs backface-hidden rotate-y-180 flex flex-col justify-between">
             <div className="space-y-2.5">
               <div className="flex items-center justify-between border-b border-slate-200/70 dark:border-dark-700/70 pb-2.5">
@@ -308,65 +293,95 @@ export const MetadataControl: React.FC<MetadataControlProps> = ({
                 </span>
               </div>
 
-              <div className="space-y-1.5 text-xs">
-                <label className="flex items-center gap-2.5 px-3 py-2.5 rounded-xl bg-white dark:bg-dark-800/70 border border-slate-200/70 dark:border-dark-700/50 hover:border-slate-300 dark:hover:border-dark-600 transition-all cursor-pointer shadow-2xs group">
+              <div className="space-y-2 text-xs">
+                {/* 1. C2PA / JUMBF */}
+                <label className="flex items-start gap-3 p-3 rounded-xl bg-white dark:bg-dark-800/70 border border-slate-200/70 dark:border-dark-700/50 hover:border-rose-400/40 dark:hover:border-rose-500/40 transition-all cursor-pointer shadow-2xs group">
                   <input
                     type="checkbox"
                     checked={stripC2PA}
                     onChange={(e) => setStripC2PA(e.target.checked)}
-                    className="w-4 h-4 rounded text-rose-500 focus:ring-rose-500/20 border-slate-300 dark:border-dark-600 bg-white dark:bg-dark-900 cursor-pointer shrink-0 transition-all"
+                    className="w-4 h-4 mt-0.5 rounded text-rose-500 focus:ring-rose-500/20 border-slate-300 dark:border-dark-600 bg-white dark:bg-dark-900 cursor-pointer shrink-0 transition-all"
                   />
-                  <span className="font-semibold text-slate-800 dark:text-slate-200 text-xs group-hover:text-rose-600 dark:group-hover:text-rose-400 transition-colors truncate">
-                    {tr('chkC2pa', 'Strip Provenance & Tracking Manifests (C2PA, JUMBF)')}
-                  </span>
+                  <div className="min-w-0">
+                    <div className="font-semibold text-slate-800 dark:text-slate-200 text-xs group-hover:text-rose-600 dark:group-hover:text-rose-400 transition-colors">
+                      {tr('chkC2pa', 'Strip Provenance & Tracking Manifests (C2PA, JUMBF)')}
+                    </div>
+                    <div className="text-[11px] text-slate-500 dark:text-slate-400 mt-0.5 leading-snug">
+                      {tr('chkC2paSub', 'Removes digital tracking headers, provenance manifests, and file origin fingerprints')}
+                    </div>
+                  </div>
                 </label>
 
-                <label className="flex items-center gap-2.5 px-3 py-2.5 rounded-xl bg-white dark:bg-dark-800/70 border border-slate-200/70 dark:border-dark-700/50 hover:border-slate-300 dark:hover:border-dark-600 transition-all cursor-pointer shadow-2xs group">
+                {/* 2. EXIF & Hardware */}
+                <label className="flex items-start gap-3 p-3 rounded-xl bg-white dark:bg-dark-800/70 border border-slate-200/70 dark:border-dark-700/50 hover:border-rose-400/40 dark:hover:border-rose-500/40 transition-all cursor-pointer shadow-2xs group">
                   <input
                     type="checkbox"
                     checked={stripExif}
                     onChange={(e) => setStripExif(e.target.checked)}
-                    className="w-4 h-4 rounded text-rose-500 focus:ring-rose-500/20 border-slate-300 dark:border-dark-600 bg-white dark:bg-dark-900 cursor-pointer shrink-0 transition-all"
+                    className="w-4 h-4 mt-0.5 rounded text-rose-500 focus:ring-rose-500/20 border-slate-300 dark:border-dark-600 bg-white dark:bg-dark-900 cursor-pointer shrink-0 transition-all"
                   />
-                  <span className="font-semibold text-slate-800 dark:text-slate-200 text-xs group-hover:text-rose-600 dark:group-hover:text-rose-400 transition-colors truncate">
-                    {tr('chkExif', 'Wipe Camera EXIF & Hardware Information')}
-                  </span>
+                  <div className="min-w-0">
+                    <div className="font-semibold text-slate-800 dark:text-slate-200 text-xs group-hover:text-rose-600 dark:group-hover:text-rose-400 transition-colors">
+                      {tr('chkExif', 'Wipe Camera EXIF & Hardware Information')}
+                    </div>
+                    <div className="text-[11px] text-slate-500 dark:text-slate-400 mt-0.5 leading-snug">
+                      {tr('chkExifSub', 'Removes camera serial number, shutter count, and lens data')}
+                    </div>
+                  </div>
                 </label>
 
-                <label className="flex items-center gap-2.5 px-3 py-2.5 rounded-xl bg-white dark:bg-dark-800/70 border border-slate-200/70 dark:border-dark-700/50 hover:border-slate-300 dark:hover:border-dark-600 transition-all cursor-pointer shadow-2xs group">
+                {/* 3. GPS & Geotags */}
+                <label className="flex items-start gap-3 p-3 rounded-xl bg-white dark:bg-dark-800/70 border border-slate-200/70 dark:border-dark-700/50 hover:border-rose-400/40 dark:hover:border-rose-500/40 transition-all cursor-pointer shadow-2xs group">
                   <input
                     type="checkbox"
                     checked={stripGps}
                     onChange={(e) => setStripGps(e.target.checked)}
-                    className="w-4 h-4 rounded text-rose-500 focus:ring-rose-500/20 border-slate-300 dark:border-dark-600 bg-white dark:bg-dark-900 cursor-pointer shrink-0 transition-all"
+                    className="w-4 h-4 mt-0.5 rounded text-rose-500 focus:ring-rose-500/20 border-slate-300 dark:border-dark-600 bg-white dark:bg-dark-900 cursor-pointer shrink-0 transition-all"
                   />
-                  <span className="font-semibold text-slate-800 dark:text-slate-200 text-xs group-hover:text-rose-600 dark:group-hover:text-rose-400 transition-colors truncate">
-                    {tr('chkGps', 'Scrub GPS Coordinates & Geotags')}
-                  </span>
+                  <div className="min-w-0">
+                    <div className="font-semibold text-slate-800 dark:text-slate-200 text-xs group-hover:text-rose-600 dark:group-hover:text-rose-400 transition-colors">
+                      {tr('chkGps', 'Scrub GPS Coordinates & Geotags')}
+                    </div>
+                    <div className="text-[11px] text-slate-500 dark:text-slate-400 mt-0.5 leading-snug">
+                      {tr('chkGpsSub', 'Protects physical location and private home/office addresses')}
+                    </div>
+                  </div>
                 </label>
 
-                <label className="flex items-center gap-2.5 px-3 py-2.5 rounded-xl bg-white dark:bg-dark-800/70 border border-slate-200/70 dark:border-dark-700/50 hover:border-slate-300 dark:hover:border-dark-600 transition-all cursor-pointer shadow-2xs group">
+                {/* 4. Creator Names & Copyright */}
+                <label className="flex items-start gap-3 p-3 rounded-xl bg-white dark:bg-dark-800/70 border border-slate-200/70 dark:border-dark-700/50 hover:border-rose-400/40 dark:hover:border-rose-500/40 transition-all cursor-pointer shadow-2xs group">
                   <input
                     type="checkbox"
                     checked={stripAuthor}
                     onChange={(e) => setStripAuthor(e.target.checked)}
-                    className="w-4 h-4 rounded text-rose-500 focus:ring-rose-500/20 border-slate-300 dark:border-dark-600 bg-white dark:bg-dark-900 cursor-pointer shrink-0 transition-all"
+                    className="w-4 h-4 mt-0.5 rounded text-rose-500 focus:ring-rose-500/20 border-slate-300 dark:border-dark-600 bg-white dark:bg-dark-900 cursor-pointer shrink-0 transition-all"
                   />
-                  <span className="font-semibold text-slate-800 dark:text-slate-200 text-xs group-hover:text-rose-600 dark:group-hover:text-rose-400 transition-colors truncate">
-                    {tr('chkAuthor', 'Strip Creator Names, Artist & Copyright Tags')}
-                  </span>
+                  <div className="min-w-0">
+                    <div className="font-semibold text-slate-800 dark:text-slate-200 text-xs group-hover:text-rose-600 dark:group-hover:text-rose-400 transition-colors">
+                      {tr('chkAuthor', 'Strip Creator Names, Artist & Copyright Tags')}
+                    </div>
+                    <div className="text-[11px] text-slate-500 dark:text-slate-400 mt-0.5 leading-snug">
+                      {tr('chkAuthorSub', 'Clears photographer, designer names, and legal copyright notices')}
+                    </div>
+                  </div>
                 </label>
 
-                <label className="flex items-center gap-2.5 px-3 py-2.5 rounded-xl bg-white dark:bg-dark-800/70 border border-slate-200/70 dark:border-dark-700/50 hover:border-slate-300 dark:hover:border-dark-600 transition-all cursor-pointer shadow-2xs group">
+                {/* 5. Software & XMP History */}
+                <label className="flex items-start gap-3 p-3 rounded-xl bg-white dark:bg-dark-800/70 border border-slate-200/70 dark:border-dark-700/50 hover:border-rose-400/40 dark:hover:border-rose-500/40 transition-all cursor-pointer shadow-2xs group">
                   <input
                     type="checkbox"
                     checked={stripSoftware}
                     onChange={(e) => setStripSoftware(e.target.checked)}
-                    className="w-4 h-4 rounded text-rose-500 focus:ring-rose-500/20 border-slate-300 dark:border-dark-600 bg-white dark:bg-dark-900 cursor-pointer shrink-0 transition-all"
+                    className="w-4 h-4 mt-0.5 rounded text-rose-500 focus:ring-rose-500/20 border-slate-300 dark:border-dark-600 bg-white dark:bg-dark-900 cursor-pointer shrink-0 transition-all"
                   />
-                  <span className="font-semibold text-slate-800 dark:text-slate-200 text-xs group-hover:text-rose-600 dark:group-hover:text-rose-400 transition-colors truncate">
-                    {tr('chkXmp', 'Wipe Software Traces & Editing History (XMP)')}
-                  </span>
+                  <div className="min-w-0">
+                    <div className="font-semibold text-slate-800 dark:text-slate-200 text-xs group-hover:text-rose-600 dark:group-hover:text-rose-400 transition-colors">
+                      {tr('chkXmp', 'Wipe Software Traces & Editing History (XMP)')}
+                    </div>
+                    <div className="text-[11px] text-slate-500 dark:text-slate-400 mt-0.5 leading-snug">
+                      {tr('chkXmpSub', 'Removes Photoshop, Canva, Lightroom, and generative editing logs')}
+                    </div>
+                  </div>
                 </label>
               </div>
             </div>
@@ -383,18 +398,6 @@ export const MetadataControl: React.FC<MetadataControlProps> = ({
           </div>
         </div>
       </div>
-
-      {/* Switch to Edit EXIF Action if onSwitchToEditExif is provided */}
-      {onSwitchToEditExif && (
-        <button
-          type="button"
-          onClick={onSwitchToEditExif}
-          className="w-full py-2.5 px-3 rounded-xl bg-slate-100/90 dark:bg-dark-950/80 hover:bg-cyan-500/10 text-slate-700 dark:text-slate-300 hover:text-cyan-600 dark:hover:text-neon-cyan border border-slate-200/80 dark:border-dark-700/60 text-xs font-semibold flex items-center justify-center gap-2 transition-all cursor-pointer shadow-2xs group"
-        >
-          <Camera className="w-3.5 h-3.5 text-cyan-600 dark:text-neon-cyan group-hover:scale-110 transition-transform shrink-0" />
-          <span>{tr('switchToEdit', 'Beralih ke Mode Edit EXIF')}</span>
-        </button>
-      )}
 
       {/* Primary Scrub Actions */}
       <div className="space-y-3 pt-1">
