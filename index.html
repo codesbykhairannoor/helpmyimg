@@ -13,12 +13,18 @@
     <!-- Critical CSS Guard: 0ms First Paint, Zero CLS & FOUC Prevention (Google Core Web Vitals) -->
     <style id="critical-fouc-guard">
       img, svg, video { max-width: 100%; height: auto; }
-      header { min-height: 54px; width: 100%; }
-      .brand-logo-container { width: 38px !important; height: 38px !important; min-width: 38px !important; min-height: 38px !important; max-width: 38px !important; max-height: 38px !important; display: inline-block; flex-shrink: 0; }
-      .brand-logo-img { width: 38px !important; height: 38px !important; max-width: 38px !important; max-height: 38px !important; object-fit: contain; display: block; aspect-ratio: 1/1; }
+      header { min-height: 60px; height: 60px; width: 100%; }
+      .brand-logo-container { width: 34px !important; height: 34px !important; min-width: 34px !important; min-height: 34px !important; max-width: 38px !important; max-height: 38px !important; display: inline-block; flex-shrink: 0; }
+      .brand-logo-img { width: 34px !important; height: 34px !important; max-width: 38px !important; max-height: 38px !important; object-fit: contain; display: block; aspect-ratio: 1/1; }
       .hidden { display: none !important; }
+      @media (min-width: 640px) {
+        .sm\:flex { display: flex !important; }
+        .brand-logo-container { width: 38px !important; height: 38px !important; }
+        .brand-logo-img { width: 38px !important; height: 38px !important; }
+      }
       @media (min-width: 1024px) {
         .lg\:flex { display: flex !important; }
+        .lg\:hidden { display: none !important; }
       }
     </style>
     <title>HelpMyIMG - Free AI Image Editor</title>

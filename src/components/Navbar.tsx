@@ -71,15 +71,15 @@ export const Navbar: React.FC = () => {
 
  return (
  <header className="sticky top-0 z-50 w-full border-b border-slate-200 dark:border-dark-500/40 bg-white dark:bg-dark-900 shadow-sm dark:shadow-none">
- <div className="max-w-7xl mx-auto px-3.5 sm:px-6 lg:px-8 h-[54px] sm:h-[60px] flex items-center justify-between">
+ <div className="max-w-7xl mx-auto px-3.5 sm:px-6 lg:px-8 h-[60px] flex items-center justify-between">
  {/* Kiri: Brand Logo */}
  <div className="flex items-center justify-start flex-shrink-0">
  <a href={lang === 'en' ? '/' : `/${lang}`} onClick={(e) => { e.preventDefault(); navigatePath(lang === 'en' ? '/' : `/${lang}`); }} className="flex items-center gap-2 sm:gap-2.5 group">
- <div className="brand-logo-container w-8 h-8 sm:w-[38px] sm:h-[38px] flex-shrink-0 transition-all duration-300 group-hover:scale-105 drop-shadow-glow-cyan" style={{ width: 38, height: 38, minWidth: 38, minHeight: 38 }}>
- <img src="/logobaru-sm.png" alt="HelpMyIMG Logo" width="38" height="38" decoding="async" className="brand-logo-img w-full h-full object-contain" style={{ width: 38, height: 38, maxWidth: 38, maxHeight: 38, objectFit: 'contain' }} />
+ <div className="brand-logo-container w-[34px] h-[34px] sm:w-[38px] sm:h-[38px] flex-shrink-0 transition-all duration-300 group-hover:scale-105 drop-shadow-glow-cyan" style={{ width: 34, height: 34, minWidth: 34, minHeight: 34 }}>
+ <img src="/logobaru-sm.png" alt="HelpMyIMG Logo" width="34" height="34" decoding="async" className="brand-logo-img w-full h-full object-contain" style={{ width: 34, height: 34, maxWidth: 38, maxHeight: 38, objectFit: 'contain' }} />
  </div>
  <div className="flex flex-col">
- <span className="text-lg sm:text-xl font-heading font-extrabold text-slate-900 dark:text-white">
+ <span className="text-[1.2rem] sm:text-xl font-heading font-extrabold text-slate-900 dark:text-white tracking-tight">
  HelpMy<span className="text-transparent bg-clip-text bg-gradient-to-r from-neon-cyan to-neon-emerald">IMG</span>
  </span>
  </div>
@@ -152,17 +152,17 @@ export const Navbar: React.FC = () => {
  {/* Kanan: Theme Toggle, Language Switcher, Mobile Menu */}
  <div className="flex items-center justify-end gap-2 sm:gap-3 flex-shrink-0">
 
- {/* Theme Toggle Button (Light Mode / Dark Mode) */}
+ {/* Theme Toggle Button (Light Mode / Dark Mode) - Hidden on Mobile like SolveMyMedia */}
  <button
  onClick={toggleTheme}
- className="flex items-center justify-center w-8 h-8 sm:w-9 sm:h-9 bg-slate-100 dark:bg-dark-800 hover:bg-slate-200 dark:hover:bg-dark-700 border border-slate-200 dark:border-dark-500/60 rounded-xl text-slate-600 dark:text-slate-200 transition-all duration-200 shadow-sm"
+ className="hidden sm:flex items-center justify-center w-9 h-9 bg-slate-100 dark:bg-dark-800 hover:bg-slate-200 dark:hover:bg-dark-700 border border-slate-200 dark:border-dark-500/60 rounded-xl text-slate-600 dark:text-slate-200 transition-all duration-200 shadow-sm"
  aria-label="Toggle Theme"
  title={theme === 'dark' ? 'Light Mode' : 'Dark Mode'}
  >
  {theme === 'dark' ? (
- <Sun className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-amber-500 hover:rotate-45 transition-transform duration-300" />
+ <Sun className="w-4 h-4 text-amber-500 hover:rotate-45 transition-transform duration-300" />
  ) : (
- <Moon className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-indigo-400 hover:-rotate-12 transition-transform duration-300" />
+ <Moon className="w-4 h-4 text-indigo-400 hover:-rotate-12 transition-transform duration-300" />
  )}
  </button>
 
@@ -173,12 +173,12 @@ export const Navbar: React.FC = () => {
  setLangOpen(!langOpen);
  setSearchQuery('');
  }}
- className="flex items-center gap-1.5 sm:gap-2 bg-slate-100 dark:bg-dark-800 hover:bg-slate-200 dark:hover:bg-dark-700 border border-slate-200 dark:border-dark-500/60 px-2.5 sm:px-3 h-8 sm:h-9 rounded-xl text-[13px] sm:text-[14.5px] font-semibold text-slate-700 dark:text-slate-200 transition-all duration-200 shadow-sm"
+ className="flex items-center gap-1.5 sm:gap-2 bg-slate-100 dark:bg-dark-800 hover:bg-slate-200 dark:hover:bg-dark-700 border border-slate-200 dark:border-dark-500/60 px-2.5 sm:px-3 h-9 rounded-xl text-[13px] sm:text-[14px] font-semibold text-slate-700 dark:text-slate-200 transition-all duration-200 shadow-sm"
  aria-label="Pilih Bahasa"
  >
- <Globe className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-cyan-600 dark:text-neon-cyan" />
- <span>{currentLang.flag}</span>
- <span className="hidden sm:inline uppercase font-mono text-[14px] font-bold">{currentLang.code}</span>
+ <Globe className="w-4 h-4 text-cyan-600 dark:text-neon-cyan" />
+ <span className="text-sm">{currentLang.flag}</span>
+ <span className="uppercase font-mono text-[13px] sm:text-[14px] font-bold">{currentLang.code}</span>
  <ChevronDown className={`w-3.5 h-3.5 text-slate-400 transition-transform duration-200 ${langOpen ? 'rotate-180' : ''}`} />
  </button>
 
@@ -251,13 +251,13 @@ export const Navbar: React.FC = () => {
  </AnimatePresence>
  </div>
 
- {/* Mobile Menu Toggle */}
+ {/* Mobile Menu Toggle - 44x44px Touch Target Standard (Apple HIG / SolveMyMedia) */}
  <button
  onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
- className="lg:hidden flex items-center justify-center w-8 h-8 bg-slate-100 dark:bg-dark-800 hover:bg-slate-200 dark:hover:bg-dark-700 border border-slate-200 dark:border-dark-500/60 rounded-xl text-slate-600 dark:text-slate-200 transition-all duration-200 shadow-sm ml-1"
+ className="lg:hidden flex items-center justify-center w-11 h-11 bg-slate-100 dark:bg-dark-800 hover:bg-slate-200 dark:hover:bg-dark-700 border border-slate-200 dark:border-dark-500/60 rounded-xl text-slate-700 dark:text-slate-200 transition-all duration-200 shadow-sm flex-shrink-0 ml-1"
  aria-label="Toggle Mobile Menu"
  >
- {mobileMenuOpen ? <X className="w-4 h-4" /> : <Menu className="w-4 h-4" />}
+ {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
  </button>
  </div>
  </div>
@@ -270,7 +270,7 @@ export const Navbar: React.FC = () => {
  animate={{ opacity: 1 }}
  exit={{ opacity: 0 }}
  transition={{ duration: 0.15, ease: 'easeInOut' }}
- className="lg:hidden absolute inset-x-0 top-[54px] sm:top-[60px] z-50 bg-slate-50 dark:bg-dark-900 border-t border-b border-slate-200 dark:border-dark-500/40 shadow-2xl overflow-y-auto max-h-[calc(100vh-54px)] sm:max-h-[calc(100vh-60px)]"
+ className="lg:hidden absolute inset-x-0 top-[60px] z-50 bg-slate-50 dark:bg-dark-900 border-t border-b border-slate-200 dark:border-dark-500/40 shadow-2xl overflow-y-auto max-h-[calc(100vh-60px)]"
  >
  <div className="flex flex-col px-3.5 pt-2.5 pb-6 gap-3">
  
@@ -347,6 +347,29 @@ export const Navbar: React.FC = () => {
  })}
  </nav>
  )}
+
+ {/* Mobile Drawer Theme Toggle */}
+ <div className="pt-3 border-t border-slate-200 dark:border-dark-700/60 flex items-center justify-between mt-1">
+ <span className="text-xs font-semibold text-slate-500 dark:text-slate-400">
+ {theme === 'dark' ? 'Dark Mode' : 'Light Mode'}
+ </span>
+ <button
+ onClick={toggleTheme}
+ className="flex items-center gap-2 px-3 py-1.5 rounded-lg border border-slate-200 dark:border-dark-600 bg-white dark:bg-dark-800 text-xs font-bold text-slate-700 dark:text-slate-200 shadow-2xs hover:bg-slate-50 dark:hover:bg-dark-700 transition-colors"
+ >
+ {theme === 'dark' ? (
+ <>
+ <Sun className="w-3.5 h-3.5 text-amber-500" />
+ <span>Switch to Light</span>
+ </>
+ ) : (
+ <>
+ <Moon className="w-3.5 h-3.5 text-indigo-400" />
+ <span>Switch to Dark</span>
+ </>
+ )}
+ </button>
+ </div>
  </div>
  </motion.div>
  )}

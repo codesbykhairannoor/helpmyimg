@@ -930,12 +930,12 @@ function generateSemanticHtml(lang, urlPath, title, desc, tool, infoPage, transl
     <header class="sticky top-0 z-50 w-full border-b border-slate-200 dark:border-dark-500/40 bg-white dark:bg-dark-900 shadow-sm dark:shadow-none">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-[60px] flex items-center justify-between">
         <div class="flex items-center justify-start flex-shrink-0">
-          <a href="${homeLink}" class="flex items-center gap-2.5 group">
-            <div class="brand-logo-container w-[38px] h-[38px] flex-shrink-0 transition-all duration-300 drop-shadow-glow-cyan" style="width: 38px; height: 38px; min-width: 38px; min-height: 38px;">
-              <img src="/logobaru-sm.png" alt="HelpMyIMG Logo" width="38" height="38" decoding="async" class="brand-logo-img w-full h-full object-contain" style="width: 38px; height: 38px; max-width: 38px; max-height: 38px; object-fit: contain;" />
+          <a href="${homeLink}" class="flex items-center gap-2 sm:gap-2.5 group">
+            <div class="brand-logo-container w-[34px] h-[34px] sm:w-[38px] sm:h-[38px] flex-shrink-0 transition-all duration-300 drop-shadow-glow-cyan" style="width: 34px; height: 34px; min-width: 34px; min-height: 34px;">
+              <img src="/logobaru-sm.png" alt="HelpMyIMG Logo" width="34" height="34" decoding="async" class="brand-logo-img w-full h-full object-contain" style="width: 34px; height: 34px; max-width: 38px; max-height: 38px; object-fit: contain;" />
             </div>
             <div class="flex flex-col">
-              <span class="text-xl font-heading font-extrabold text-slate-900 dark:text-white">
+              <span class="text-[1.2rem] sm:text-xl font-heading font-extrabold text-slate-900 dark:text-white tracking-tight">
                 HelpMy<span class="text-transparent bg-clip-text bg-gradient-to-r from-neon-cyan to-neon-emerald">IMG</span>
               </span>
             </div>
@@ -961,12 +961,15 @@ function generateSemanticHtml(lang, urlPath, title, desc, tool, infoPage, transl
           </nav>
         </div>
         <div class="flex items-center justify-end gap-2 sm:gap-3 flex-shrink-0">
-          <div class="flex items-center justify-center w-9 h-9 bg-slate-100 dark:bg-dark-800 border border-slate-200 dark:border-dark-500/60 rounded-xl text-slate-600 dark:text-slate-200">
+          <div class="hidden sm:flex items-center justify-center w-9 h-9 bg-slate-100 dark:bg-dark-800 border border-slate-200 dark:border-dark-500/60 rounded-xl text-slate-600 dark:text-slate-200">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-amber-500"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>
           </div>
-          <div class="flex items-center gap-2 bg-slate-100 dark:bg-dark-800 border border-slate-200 dark:border-dark-500/60 px-3 h-9 rounded-xl text-[14.5px] font-semibold text-slate-700 dark:text-slate-200">
+          <div class="flex items-center gap-1.5 sm:gap-2 bg-slate-100 dark:bg-dark-800 border border-slate-200 dark:border-dark-500/60 px-2.5 sm:px-3 h-9 rounded-xl text-[13px] sm:text-[14px] font-semibold text-slate-700 dark:text-slate-200">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-cyan-600 dark:text-neon-cyan"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>
-            <span class="hidden sm:inline uppercase font-mono text-[14px] font-bold">${lang}</span>
+            <span class="uppercase font-mono text-[13px] sm:text-[14px] font-bold">${lang}</span>
+          </div>
+          <div class="lg:hidden flex items-center justify-center w-11 h-11 bg-slate-100 dark:bg-dark-800 border border-slate-200 dark:border-dark-500/60 rounded-xl text-slate-700 dark:text-slate-200">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
           </div>
         </div>
       </div>
