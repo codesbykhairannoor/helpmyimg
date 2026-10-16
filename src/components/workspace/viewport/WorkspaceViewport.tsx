@@ -3,14 +3,13 @@
 
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { AlertTriangle, RefreshCw, Upload, Info, X } from 'lucide-react';
+import { AlertTriangle, RefreshCw, Upload } from 'lucide-react';
 import { useTranslation } from '../../../context/LanguageContext';
 import { AiScanOverlay } from './AiScanOverlay';
 import { ImageCompareSlider } from '../tools/ImageCompareSlider';
 import { InteractiveCropOverlay } from '../tools/InteractiveCropOverlay';
 import { BlurBoxOverlay } from '../tools/BlurBoxOverlay';
 import { DesignEditorControl } from '../tools/DesignEditorControl';
-import { analyzeImageMetadata, type MetadataAnalysis } from '../../../utils/metadataEngine';
 import type { BatchItem, BlurBox } from '../types';
 
 interface WorkspaceViewportProps {
@@ -88,24 +87,6 @@ export const WorkspaceViewport: React.FC<WorkspaceViewportProps> = ({
   const brushCursorRef = useRef<HTMLDivElement>(null);
   const [isBrushHovering, setIsBrushHovering] = useState(false);
   const [cursorPos, setCursorPos] = useState({ x: -1000, y: -1000 });
-  const [showMetadataHud, setShowMetadataHud] = useState(false);
-  const [metadataInfo, setMetadataInfo] = useState<MetadataAnalysis | null>(null);
-
-  useEffect(() => {
-    let isCancelled = false;
-    if (showMetadataHud && currentItem?.file) {
-      analyzeImageMetadata(currentItem.file)
-        .then((res) => {
-          if (!isCancelled) setMetadataInfo(res);
-        })
-        .catch(() => {
-          if (!isCancelled) setMetadataInfo(null);
-        });
-    }
-    return () => {
-      isCancelled = true;
-    };
-  }, [showMetadataHud, currentItem]);
 
   const getPageZoom = useCallback(() => {
     if (typeof document === 'undefined') return 1;
@@ -123,111 +104,7 @@ export const WorkspaceViewport: React.FC<WorkspaceViewportProps> = ({
             : 'h-[380px] sm:h-[440px] md:h-[480px] lg:h-auto lg:aspect-[4/3] lg:max-h-[500px]'
         }`}
       >
-        {/* Floating Metadata HUD Button on Image */}
-        {(currentItem?.processedUrl || currentItem?.originalUrl) && initialTab !== 'design' && (
-          <button
-            type="button"
-            onClick={() => setShowMetadataHud(!showMetadataHud)}
-            className={`absolute top-4 left-4 z-30 px-3 py-1.5 rounded-full border text-xs font-semibold backdrop-blur-md flex items-center gap-1.5 shadow-lg transition-all cursor-pointer ${
-              showMetadataHud
-                ? 'bg-neon-cyan text-dark-900 border-neon-cyan font-bold shadow-glow-cyan'
-                : 'bg-dark-900/85 hover:bg-dark-900 text-slate-200 hover:text-white border-dark-600/80'
-            }`}
-            title={showMetadataHud ? t('work.hideMetadataHud', { defaultValue: 'Tutup Info' }) : t('work.viewMetadataHud', { defaultValue: 'Info Metadata' })}
-          >
-            {showMetadataHud ? <X className="w-3.5 h-3.5" /> : <Info className="w-3.5 h-3.5 text-neon-cyan" />}
-            <span>{showMetadataHud ? t('work.hideMetadataHud', { defaultValue: 'Tutup Info' }) : t('work.viewMetadataHud', { defaultValue: 'Info Metadata' })}</span>
-          </button>
-        )}
 
-        {/* Floating Glassmorphism Metadata Card HUD */}
-        <AnimatePresence>
-          {showMetadataHud && (
-            <motion.div
-              initial={{ opacity: 0, y: -10, scale: 0.95 }}
-              animate={{ opacity: 1, y: 0, scale: 1 }}
-              exit={{ opacity: 0, y: -10, scale: 0.95 }}
-              transition={{ duration: 0.15 }}
-              className="absolute top-14 left-4 z-30 max-w-xs w-[calc(100%-2rem)] p-3.5 rounded-2xl bg-dark-950/90 border border-neon-cyan/40 text-white shadow-2xl backdrop-blur-xl space-y-2.5 text-xs font-sans"
-            >
-              <div className="flex items-center justify-between border-b border-dark-700/80 pb-2">
-                <div className="flex items-center gap-1.5">
-                  <Info className="w-4 h-4 text-neon-cyan shrink-0" />
-                  <span className="font-mono font-bold text-slate-200 uppercase tracking-wider text-[11px]">
-                    {t('editexif.inspectTitle', { defaultValue: 'ORIGINAL METADATA' })}
-                  </span>
-                </div>
-                <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-neon-cyan/15 text-neon-cyan font-bold border border-neon-cyan/30 uppercase">
-                  {metadataInfo?.format || 'IMAGE'}
-                </span>
-              </div>
-
-              <div className="space-y-1.5">
-                <div className="flex items-start justify-between gap-2">
-                  <span className="text-slate-400 text-[11px]">{t('editexif.fieldCamera', { defaultValue: 'Kamera' })}:</span>
-                  <span className="font-semibold text-slate-100 text-right text-[11px] truncate">
-                    {metadataInfo?.cameraModel || metadataInfo?.cameraMake
-                      ? `${metadataInfo?.cameraMake || ''} ${metadataInfo?.cameraModel || ''}`.trim()
-                      : '-'}
-                  </span>
-                </div>
-
-                {metadataInfo?.lensModel && (
-                  <div className="flex items-start justify-between gap-2">
-                    <span className="text-slate-400 text-[11px]">{t('editexif.fieldLens', { defaultValue: 'Lensa' })}:</span>
-                    <span className="text-slate-300 text-right text-[11px] truncate">{metadataInfo.lensModel}</span>
-                  </div>
-                )}
-
-                <div className="flex items-start justify-between gap-2">
-                  <span className="text-slate-400 text-[11px]">{t('editexif.fieldExposure', { defaultValue: 'Eksposur' })}:</span>
-                  <span className="font-mono text-neon-cyan text-right text-[11px] truncate">
-                    {[metadataInfo?.shutterSpeed, metadataInfo?.aperture, metadataInfo?.iso ? `ISO ${metadataInfo.iso}` : null, metadataInfo?.focalLength].filter(Boolean).join(' • ') || '-'}
-                  </span>
-                </div>
-
-                {metadataInfo?.dateTaken && (
-                  <div className="flex items-start justify-between gap-2">
-                    <span className="text-slate-400 text-[11px]">{t('editexif.fieldDateCreated', { defaultValue: 'Waktu' })}:</span>
-                    <span className="font-mono text-slate-200 text-right text-[10px] truncate">{metadataInfo.dateTaken}</span>
-                  </div>
-                )}
-
-                {originalDimensions.width > 0 && (
-                  <div className="flex items-start justify-between gap-2">
-                    <span className="text-slate-400 text-[11px]">{t('editexif.fieldDimensions', { defaultValue: 'Dimensi' })}:</span>
-                    <span className="font-mono text-slate-300 text-right text-[11px]">{originalDimensions.width} × {originalDimensions.height} px</span>
-                  </div>
-                )}
-
-                {currentItem?.file && (
-                  <div className="flex items-start justify-between gap-2">
-                    <span className="text-slate-400 text-[11px]">{t('editexif.fieldFileSize', { defaultValue: 'Ukuran' })}:</span>
-                    <span className="font-mono text-slate-300 text-right text-[11px]">{(currentItem.file.size / 1024).toFixed(1)} KB</span>
-                  </div>
-                )}
-
-                {metadataInfo?.artist && (
-                  <div className="flex items-start justify-between gap-2">
-                    <span className="text-slate-400 text-[11px]">{t('editexif.fieldAuthor', { defaultValue: 'Kreator' })}:</span>
-                    <span className="text-slate-200 text-right text-[11px] truncate">{metadataInfo.artist}</span>
-                  </div>
-                )}
-
-                <div className="pt-1 flex items-center justify-between border-t border-dark-700/60">
-                  <span className="text-[10px] text-slate-400">C2PA / Provenance:</span>
-                  <span className={`text-[9px] font-mono font-bold px-1.5 py-0.2 rounded uppercase ${
-                    metadataInfo?.hasC2PA
-                      ? 'bg-rose-500/20 text-rose-300 border border-rose-500/30'
-                      : 'bg-emerald-500/20 text-emerald-300 border border-emerald-500/30'
-                  }`}>
-                    {metadataInfo?.hasC2PA ? 'Flagged' : 'Clean'}
-                  </span>
-                </div>
-              </div>
-            </motion.div>
-          )}
-        </AnimatePresence>
 
         {/* AI Neural Scanning Animation & HUD Overlay */}
         {currentItem?.status === 'processing' && <AiScanOverlay currentItem={currentItem} />}
