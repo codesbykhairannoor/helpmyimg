@@ -66,6 +66,7 @@ export const Hero: React.FC<HeroProps> = ({ title, description }) => {
           }}
         >
           {gradientFirst ? (
+            // Home page hero ONLY: strictly 2-line balanced block structure
             <>
               <span className="block bg-gradient-to-r from-neon-cyan via-neon-emerald to-neon-indigo bg-clip-text text-transparent drop-shadow-sm">
                 {gradientPart}
@@ -75,14 +76,18 @@ export const Hero: React.FC<HeroProps> = ({ title, description }) => {
               </span>
             </>
           ) : (
+            // All other page heroes: natural inline flow (free to be 1 line or wrap naturally)
             <>
-              <span className="block text-slate-800 dark:text-slate-100">
+              <span className="text-slate-800 dark:text-slate-100 inline">
                 {solidPart}
               </span>
               {gradientPart && (
-                <span className="block bg-gradient-to-r from-neon-cyan via-neon-emerald to-neon-indigo bg-clip-text text-transparent drop-shadow-sm mt-1 sm:mt-2">
-                  {gradientPart}
-                </span>
+                <>
+                  {' '}
+                  <span className="bg-gradient-to-r from-neon-cyan via-neon-emerald to-neon-indigo bg-clip-text text-transparent drop-shadow-sm inline">
+                    {gradientPart}
+                  </span>
+                </>
               )}
             </>
           )}

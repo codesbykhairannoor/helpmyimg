@@ -200,10 +200,10 @@ export const MetadataControl: React.FC<MetadataControlProps> = ({
             />
             <div className="flex-1">
               <span className="font-semibold text-slate-200 block text-[12px]">
-                {tr('chkC2pa', 'Remove C2PA & AI Manifests (SynthID, JUMBF APP11)')}
+                {tr('chkC2pa', 'Strip Provenance & Tracking Manifests (C2PA, JUMBF)')}
               </span>
               <span className="text-[10px] text-slate-400 block leading-tight">
-                {tr('chkC2paSub', 'Eliminates automatic "Made with AI" labels on social media')}
+                {tr('chkC2paSub', 'Removes embedded digital tracking headers and origin metadata')}
               </span>
             </div>
           </label>
