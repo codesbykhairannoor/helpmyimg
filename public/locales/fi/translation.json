@@ -2059,5 +2059,18 @@
   "landing.editexif.redesign.s3Title": "Vie häviöttömästi",
   "landing.editexif.redesign.s3Desc": "Lataa järjestetyt valokuvasi päivitetyillä EXIF-tunnisteilla ja 100 % koskemattomalla visuaalisella laadulla.",
   "metadata.chkAuthorSub": "Poistaa valokuvaajan, suunnittelijan nimet ja lailliset tekijänoikeusilmoitukset",
-  "metadata.chkXmpSub": "Poistaa Photoshop-, Canva-, Lightroom- ja generatiiviset muokkauslokit"
+  "metadata.chkXmpSub": "Poistaa Photoshop-, Canva-, Lightroom- ja generatiiviset muokkauslokit",
+  "metadata.tabAudit": "Yksityisyyden tarkastus",
+  "metadata.tabScope": "Poista laajuus",
+  "metadata.auditReady": "Tarkastus valmis",
+  "metadata.idle": "Tyhjäkäynti",
+  "metadata.scanning": "Skannataan...",
+  "metadata.c2paProvenanceDesc": "Kryptografinen alkuperä on ilmeinen",
+  "metadata.badgeClean": "Puhdas",
+  "metadata.badgeFlagged": "Merkitty",
+  "metadata.badgeExposed": "Paljastettu",
+  "metadata.badgeNone": "Ei mitään",
+  "metadata.flipToScrub": "Käännä kortti: Määritä poistettavat tiedot",
+  "metadata.flipToAudit": "Käännä kortti: Tarkastele tarkastustuloksia",
+  "metadata.active": "Aktiivinen"
 }

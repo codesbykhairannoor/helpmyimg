@@ -2059,5 +2059,18 @@
   "landing.editexif.redesign.s3Title": "Esporta senza perdite",
   "landing.editexif.redesign.s3Desc": "Scarica le tue foto organizzate con tag EXIF ​​aggiornati e qualità visiva incontaminata al 100%.",
   "metadata.chkAuthorSub": "Cancella fotografi, nomi di designer e avvisi legali sul copyright",
-  "metadata.chkXmpSub": "Rimuove Photoshop, Canva, Lightroom e i registri di modifica generativa"
+  "metadata.chkXmpSub": "Rimuove Photoshop, Canva, Lightroom e i registri di modifica generativa",
+  "metadata.tabAudit": "Controllo della privacy",
+  "metadata.tabScope": "Rimuovi ambito",
+  "metadata.auditReady": "Controllo pronto",
+  "metadata.idle": "Oziare",
+  "metadata.scanning": "Scansione...",
+  "metadata.c2paProvenanceDesc": "Manifestazione della provenienza crittografica",
+  "metadata.badgeClean": "Pulita",
+  "metadata.badgeFlagged": "Contrassegnata",
+  "metadata.badgeExposed": "Esposta",
+  "metadata.badgeNone": "Nessuno",
+  "metadata.flipToScrub": "Gira la carta: configura i dati da rimuovere",
+  "metadata.flipToAudit": "Gira la carta: visualizza i risultati della verifica",
+  "metadata.active": "Attiva"
 }

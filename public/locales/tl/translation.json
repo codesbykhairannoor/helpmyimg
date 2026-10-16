@@ -2059,5 +2059,18 @@
   "landing.editexif.redesign.s3Title": "I-export nang walang pagkawala",
   "landing.editexif.redesign.s3Desc": "I-download ang iyong mga nakaayos na larawan na may na-update na mga EXIF ​​na tag at 100% hindi nagalaw na visual na kalidad.",
   "metadata.chkAuthorSub": "Nililinis ang photographer, mga pangalan ng designer, at mga legal na abiso sa copyright",
-  "metadata.chkXmpSub": "Inaalis ang mga log ng Photoshop, Canva, Lightroom, at generative na pag-edit"
+  "metadata.chkXmpSub": "Inaalis ang mga log ng Photoshop, Canva, Lightroom, at generative na pag-edit",
+  "metadata.tabAudit": "Pag-audit sa Privacy",
+  "metadata.tabScope": "Alisin ang Saklaw",
+  "metadata.auditReady": "Handa na ang Audit",
+  "metadata.idle": "Idle",
+  "metadata.scanning": "Ini-scan...",
+  "metadata.c2paProvenanceDesc": "Cryptographic provenance manifest",
+  "metadata.badgeClean": "Malinis",
+  "metadata.badgeFlagged": "Na-flag",
+  "metadata.badgeExposed": "Nalantad",
+  "metadata.badgeNone": "wala",
+  "metadata.flipToScrub": "Flip Card: I-configure ang Data na Aalisin",
+  "metadata.flipToAudit": "Flip Card: Tingnan ang Mga Resulta ng Audit",
+  "metadata.active": "Aktibo"
 }

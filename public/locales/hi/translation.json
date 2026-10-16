@@ -2059,5 +2059,18 @@
   "landing.editexif.redesign.s3Title": "हानिरहित निर्यात करें",
   "landing.editexif.redesign.s3Desc": "अद्यतन EXIF ​​टैग और 100% अछूती दृश्य गुणवत्ता के साथ अपनी व्यवस्थित तस्वीरें डाउनलोड करें।",
   "metadata.chkAuthorSub": "फ़ोटोग्राफ़र, डिज़ाइनर के नाम और कानूनी कॉपीराइट नोटिस साफ़ करता है",
-  "metadata.chkXmpSub": "फ़ोटोशॉप, कैनवा, लाइटरूम और जेनरेटिव एडिटिंग लॉग को हटा देता है"
+  "metadata.chkXmpSub": "फ़ोटोशॉप, कैनवा, लाइटरूम और जेनरेटिव एडिटिंग लॉग को हटा देता है",
+  "metadata.tabAudit": "गोपनीयता ऑडिट",
+  "metadata.tabScope": "दायरा हटाएँ",
+  "metadata.auditReady": "ऑडिट तैयार",
+  "metadata.idle": "निठल्ला",
+  "metadata.scanning": "स्कैन किया जा रहा है...",
+  "metadata.c2paProvenanceDesc": "क्रिप्टोग्राफ़िक उत्पत्ति प्रकट",
+  "metadata.badgeClean": "साफ",
+  "metadata.badgeFlagged": "चिह्नित किए गए",
+  "metadata.badgeExposed": "अनावृत",
+  "metadata.badgeNone": "कोई नहीं",
+  "metadata.flipToScrub": "फ्लिप कार्ड: डेटा को हटाने के लिए कॉन्फ़िगर करें",
+  "metadata.flipToAudit": "फ्लिप कार्ड: ऑडिट परिणाम देखें",
+  "metadata.active": "सक्रिय"
 }

@@ -2059,5 +2059,18 @@
   "landing.editexif.redesign.s3Title": "Εξαγωγή χωρίς απώλειες",
   "landing.editexif.redesign.s3Desc": "Κατεβάστε τις οργανωμένες φωτογραφίες σας με ενημερωμένες ετικέτες EXIF ​​και 100% ανέγγιχτη οπτική ποιότητα.",
   "metadata.chkAuthorSub": "Διαγράφει ονόματα φωτογράφων, σχεδιαστών και νόμιμες ειδοποιήσεις πνευματικών δικαιωμάτων",
-  "metadata.chkXmpSub": "Καταργεί αρχεία καταγραφής Photoshop, Canva, Lightroom και γενετικής επεξεργασίας"
+  "metadata.chkXmpSub": "Καταργεί αρχεία καταγραφής Photoshop, Canva, Lightroom και γενετικής επεξεργασίας",
+  "metadata.tabAudit": "Έλεγχος απορρήτου",
+  "metadata.tabScope": "Κατάργηση πεδίου",
+  "metadata.auditReady": "Έτοιμος έλεγχος",
+  "metadata.idle": "Αεργος",
+  "metadata.scanning": "Ερευνα...",
+  "metadata.c2paProvenanceDesc": "Δήλωση κρυπτογραφικής προέλευσης",
+  "metadata.badgeClean": "Καθαρός",
+  "metadata.badgeFlagged": "Επισημασμένο",
+  "metadata.badgeExposed": "Εκτεθειμένος",
+  "metadata.badgeNone": "Κανένας",
+  "metadata.flipToScrub": "Αναστροφή κάρτας: Διαμόρφωση δεδομένων για κατάργηση",
+  "metadata.flipToAudit": "Αναστροφή κάρτας: Προβολή αποτελεσμάτων ελέγχου",
+  "metadata.active": "Ενεργός"
 }

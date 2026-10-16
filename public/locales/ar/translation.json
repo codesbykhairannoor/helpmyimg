@@ -2073,5 +2073,18 @@
   "landing.editexif.redesign.s3Title": "تصدير بلا خسارة",
   "landing.editexif.redesign.s3Desc": "قم بتنزيل صورك المنظمة باستخدام علامات EXIF ​​المحدثة وجودة مرئية لم تمسها بنسبة 100%.",
   "metadata.chkAuthorSub": "مسح أسماء المصورين والمصممين وإشعارات حقوق النشر القانونية",
-  "metadata.chkXmpSub": "يزيل Photoshop وCanva وLightroom وسجلات التحرير التوليدية"
+  "metadata.chkXmpSub": "يزيل Photoshop وCanva وLightroom وسجلات التحرير التوليدية",
+  "metadata.tabAudit": "تدقيق الخصوصية",
+  "metadata.tabScope": "إزالة النطاق",
+  "metadata.auditReady": "التدقيق جاهز",
+  "metadata.idle": "عاطل",
+  "metadata.scanning": "مسح...",
+  "metadata.c2paProvenanceDesc": "بيان مصدر التشفير",
+  "metadata.badgeClean": "ينظف",
+  "metadata.badgeFlagged": "تم وضع علامة عليها",
+  "metadata.badgeExposed": "مُعرض ل",
+  "metadata.badgeNone": "لا أحد",
+  "metadata.flipToScrub": "بطاقة الوجه: قم بتكوين البيانات المراد إزالتها",
+  "metadata.flipToAudit": "بطاقة الوجه: عرض نتائج التدقيق",
+  "metadata.active": "نشيط"
 }

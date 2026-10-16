@@ -2125,5 +2125,18 @@
   "landing.editexif.redesign.s3Title": "Ekspor Seketika",
   "landing.editexif.redesign.s3Desc": "Unduh foto Anda yang sudah rapi dengan metadata terbaru dan kualitas visual asli yang 100% terjaga.",
   "metadata.chkAuthorSub": "Menghapus nama fotografer, desainer, dan informasi hak cipta",
-  "metadata.chkXmpSub": "Menghapus riwayat aplikasi editing (Photoshop, Canva, Lightroom)"
+  "metadata.chkXmpSub": "Menghapus riwayat aplikasi editing (Photoshop, Canva, Lightroom)",
+  "metadata.tabAudit": "Audit Privasi",
+  "metadata.tabScope": "Opsi Hapus",
+  "metadata.auditReady": "Audit Siap",
+  "metadata.idle": "Menunggu Foto",
+  "metadata.scanning": "Memindai...",
+  "metadata.c2paProvenanceDesc": "Manifest asal digital kriptografis",
+  "metadata.badgeClean": "Bersih",
+  "metadata.badgeFlagged": "Terdeteksi",
+  "metadata.badgeExposed": "Terekspos",
+  "metadata.badgeNone": "Tidak Ada",
+  "metadata.flipToScrub": "Balik Kartu: Atur Data yang Dihapus",
+  "metadata.flipToAudit": "Balik Kartu: Lihat Hasil Audit",
+  "metadata.active": "Aktif"
 }

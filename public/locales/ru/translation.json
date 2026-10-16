@@ -2059,5 +2059,18 @@
   "landing.editexif.redesign.s3Title": "Экспорт без потерь",
   "landing.editexif.redesign.s3Desc": "Загрузите упорядоченные фотографии с обновленными тегами EXIF ​​и 100% нетронутым визуальным качеством.",
   "metadata.chkAuthorSub": "Удаляет имена фотографов, дизайнеров и юридические уведомления об авторских правах.",
-  "metadata.chkXmpSub": "Удаляет журналы Photoshop, Canva, Lightroom и генеративного редактирования."
+  "metadata.chkXmpSub": "Удаляет журналы Photoshop, Canva, Lightroom и генеративного редактирования.",
+  "metadata.tabAudit": "Аудит конфиденциальности",
+  "metadata.tabScope": "Удалить область",
+  "metadata.auditReady": "Готов к аудиту",
+  "metadata.idle": "Праздный",
+  "metadata.scanning": "Сканирование...",
+  "metadata.c2paProvenanceDesc": "Криптографический манифест происхождения",
+  "metadata.badgeClean": "Чистый",
+  "metadata.badgeFlagged": "Помечено",
+  "metadata.badgeExposed": "Незащищенный",
+  "metadata.badgeNone": "Никто",
+  "metadata.flipToScrub": "Откидная карточка: настройка данных для удаления",
+  "metadata.flipToAudit": "Откидная карточка: просмотр результатов аудита",
+  "metadata.active": "Активный"
 }

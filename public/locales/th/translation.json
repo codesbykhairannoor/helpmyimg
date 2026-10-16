@@ -2059,5 +2059,18 @@
   "landing.editexif.redesign.s3Title": "ส่งออกแบบไม่สูญเสีย",
   "landing.editexif.redesign.s3Desc": "ดาวน์โหลดรูปภาพที่จัดระเบียบของคุณด้วยแท็ก EXIF ​​ที่อัปเดตและคุณภาพของภาพที่ไม่มีใครแตะต้อง 100%",
   "metadata.chkAuthorSub": "ล้างช่างภาพ ชื่อนักออกแบบ และประกาศลิขสิทธิ์ทางกฎหมาย",
-  "metadata.chkXmpSub": "ลบบันทึก Photoshop, Canva, Lightroom และการแก้ไขทั่วไป"
+  "metadata.chkXmpSub": "ลบบันทึก Photoshop, Canva, Lightroom และการแก้ไขทั่วไป",
+  "metadata.tabAudit": "การตรวจสอบความเป็นส่วนตัว",
+  "metadata.tabScope": "ลบขอบเขต",
+  "metadata.auditReady": "พร้อมตรวจสอบแล้ว",
+  "metadata.idle": "ไม่ได้ใช้งาน",
+  "metadata.scanning": "กำลังสแกน...",
+  "metadata.c2paProvenanceDesc": "รายการแหล่งที่มาของการเข้ารหัสลับ",
+  "metadata.badgeClean": "ทำความสะอาด",
+  "metadata.badgeFlagged": "ติดธง",
+  "metadata.badgeExposed": "ถูกเปิดเผย",
+  "metadata.badgeNone": "ไม่มี",
+  "metadata.flipToScrub": "พลิกการ์ด: กำหนดค่าข้อมูลที่จะลบ",
+  "metadata.flipToAudit": "Flip Card: ดูผลการตรวจสอบ",
+  "metadata.active": "คล่องแคล่ว"
 }

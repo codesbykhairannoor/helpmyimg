@@ -2059,5 +2059,18 @@
   "landing.editexif.redesign.s3Title": "Exportați fără pierderi",
   "landing.editexif.redesign.s3Desc": "Descărcați fotografiile organizate cu etichete EXIF ​​actualizate și calitate vizuală 100% neatinsă.",
   "metadata.chkAuthorSub": "Șterge fotograful, numele designerilor și notificările legale privind drepturile de autor",
-  "metadata.chkXmpSub": "Elimină Photoshop, Canva, Lightroom și jurnalele de editare generativă"
+  "metadata.chkXmpSub": "Elimină Photoshop, Canva, Lightroom și jurnalele de editare generativă",
+  "metadata.tabAudit": "Audit de confidențialitate",
+  "metadata.tabScope": "Eliminați domeniul de aplicare",
+  "metadata.auditReady": "Audit Ready",
+  "metadata.idle": "Inactiv",
+  "metadata.scanning": "Se scanează...",
+  "metadata.c2paProvenanceDesc": "Manifest de proveniență criptografică",
+  "metadata.badgeClean": "Curat",
+  "metadata.badgeFlagged": "Semnalat",
+  "metadata.badgeExposed": "Expus",
+  "metadata.badgeNone": "Nici unul",
+  "metadata.flipToScrub": "Flip Card: Configurați datele pentru a fi eliminate",
+  "metadata.flipToAudit": "Flip Card: vizualizați rezultatele auditului",
+  "metadata.active": "Activ"
 }

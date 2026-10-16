@@ -2059,5 +2059,18 @@
   "landing.editexif.redesign.s3Title": "Exportera förlustfritt",
   "landing.editexif.redesign.s3Desc": "Ladda ner dina organiserade foton med uppdaterade EXIF-taggar och 100 % orörd visuell kvalitet.",
   "metadata.chkAuthorSub": "Rensar namn på fotografer, designers och lagliga upphovsrättsmeddelanden",
-  "metadata.chkXmpSub": "Tar bort Photoshop, Canva, Lightroom och generativa redigeringsloggar"
+  "metadata.chkXmpSub": "Tar bort Photoshop, Canva, Lightroom och generativa redigeringsloggar",
+  "metadata.tabAudit": "Integritetsrevision",
+  "metadata.tabScope": "Ta bort Scope",
+  "metadata.auditReady": "Revision klar",
+  "metadata.idle": "På tomgång",
+  "metadata.scanning": "Scanning...",
+  "metadata.c2paProvenanceDesc": "Kryptografiskt härkomstmanifest",
+  "metadata.badgeClean": "Rena",
+  "metadata.badgeFlagged": "Flaggat",
+  "metadata.badgeExposed": "Utsatt",
+  "metadata.badgeNone": "Ingen",
+  "metadata.flipToScrub": "Vändkort: Konfigurera data att ta bort",
+  "metadata.flipToAudit": "Vändkort: Visa granskningsresultat",
+  "metadata.active": "Aktiv"
 }

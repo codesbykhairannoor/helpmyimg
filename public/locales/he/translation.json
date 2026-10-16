@@ -2059,5 +2059,18 @@
   "landing.editexif.redesign.s3Title": "ייצא ללא אובדן",
   "landing.editexif.redesign.s3Desc": "הורד את התמונות המאורגנות שלך עם תגי EXIF ​​מעודכנים ואיכות חזותית ללא נגיעה של 100%.",
   "metadata.chkAuthorSub": "מנקה שמות של צלמים, מעצבים והודעות זכויות יוצרים משפטיות",
-  "metadata.chkXmpSub": "מסיר את Photoshop, Canva, Lightroom ויומני עריכה גנרטיביים"
+  "metadata.chkXmpSub": "מסיר את Photoshop, Canva, Lightroom ויומני עריכה גנרטיביים",
+  "metadata.tabAudit": "ביקורת פרטיות",
+  "metadata.tabScope": "הסר היקף",
+  "metadata.auditReady": "הביקורת מוכנה",
+  "metadata.idle": "לְהִתְבַּטֵל",
+  "metadata.scanning": "סורק...",
+  "metadata.c2paProvenanceDesc": "מניפסט מקור קריפטוגרפי",
+  "metadata.badgeClean": "לְנַקוֹת",
+  "metadata.badgeFlagged": "מסומן",
+  "metadata.badgeExposed": "חָשׂוּף",
+  "metadata.badgeNone": "אַף לֹא אֶחָד",
+  "metadata.flipToScrub": "Flip Card: הגדר נתונים להסרה",
+  "metadata.flipToAudit": "Flip Card: הצג את תוצאות הביקורת",
+  "metadata.active": "פָּעִיל"
 }

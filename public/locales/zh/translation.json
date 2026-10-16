@@ -2058,5 +2058,18 @@
   "landing.editexif.redesign.s3Title": "无损导出",
   "landing.editexif.redesign.s3Desc": "下载带有更新的 EXIF 标签和 100% 未受影响的视觉质量的整理好的照片。",
   "metadata.chkAuthorSub": "清除摄影师、设计师姓名和合法版权声明",
-  "metadata.chkXmpSub": "删除 Photoshop、Canva、Lightroom 和生成编辑日志"
+  "metadata.chkXmpSub": "删除 Photoshop、Canva、Lightroom 和生成编辑日志",
+  "metadata.tabAudit": "隐私审计",
+  "metadata.tabScope": "删除范围",
+  "metadata.auditReady": "审核就绪",
+  "metadata.idle": "闲置的",
+  "metadata.scanning": "扫描...",
+  "metadata.c2paProvenanceDesc": "加密来源清单",
+  "metadata.badgeClean": "干净的",
+  "metadata.badgeFlagged": "已标记",
+  "metadata.badgeExposed": "裸露",
+  "metadata.badgeNone": "没有任何",
+  "metadata.flipToScrub": "翻转卡：配置要删除的数据",
+  "metadata.flipToAudit": "翻转卡：查看审核结果",
+  "metadata.active": "积极的"
 }

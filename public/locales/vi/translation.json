@@ -2059,5 +2059,18 @@
   "landing.editexif.redesign.s3Title": "Xuất khẩu một cách dễ dàng",
   "landing.editexif.redesign.s3Desc": "Tải xuống các bức ảnh đã sắp xếp của bạn với thẻ EXIF ​​​​được cập nhật và chất lượng hình ảnh nguyên vẹn 100%.",
   "metadata.chkAuthorSub": "Xóa nhiếp ảnh gia, tên nhà thiết kế và thông báo bản quyền hợp pháp",
-  "metadata.chkXmpSub": "Xóa Photoshop, Canva, Lightroom và nhật ký chỉnh sửa tổng quát"
+  "metadata.chkXmpSub": "Xóa Photoshop, Canva, Lightroom và nhật ký chỉnh sửa tổng quát",
+  "metadata.tabAudit": "Kiểm tra quyền riêng tư",
+  "metadata.tabScope": "Xóa phạm vi",
+  "metadata.auditReady": "Đã sẵn sàng kiểm toán",
+  "metadata.idle": "Nhàn rỗi",
+  "metadata.scanning": "Đang quét...",
+  "metadata.c2paProvenanceDesc": "Bản kê khai xuất xứ mật mã",
+  "metadata.badgeClean": "Lau dọn",
+  "metadata.badgeFlagged": "Đã gắn cờ",
+  "metadata.badgeExposed": "Để lộ ra",
+  "metadata.badgeNone": "Không có",
+  "metadata.flipToScrub": "Thẻ lật: Định cấu hình dữ liệu để xóa",
+  "metadata.flipToAudit": "Lật thẻ: Xem kết quả kiểm tra",
+  "metadata.active": "Tích cực"
 }

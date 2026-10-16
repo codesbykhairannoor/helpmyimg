@@ -2059,5 +2059,18 @@
   "landing.editexif.redesign.s3Title": "Exportujte bez ztráty",
   "landing.editexif.redesign.s3Desc": "Stáhněte si své uspořádané fotografie s aktualizovanými EXIF ​​tagy a 100% nedotčenou vizuální kvalitou.",
   "metadata.chkAuthorSub": "Vymaže jména fotografů, návrhářů a právní upozornění na autorská práva",
-  "metadata.chkXmpSub": "Odstraní protokoly Photoshop, Canva, Lightroom a generativní úpravy"
+  "metadata.chkXmpSub": "Odstraní protokoly Photoshop, Canva, Lightroom a generativní úpravy",
+  "metadata.tabAudit": "Audit soukromí",
+  "metadata.tabScope": "Odebrat rozsah",
+  "metadata.auditReady": "Audit připraven",
+  "metadata.idle": "Líný",
+  "metadata.scanning": "Snímání...",
+  "metadata.c2paProvenanceDesc": "Projev kryptografické provenience",
+  "metadata.badgeClean": "Čistý",
+  "metadata.badgeFlagged": "Označeno",
+  "metadata.badgeExposed": "Vystaveno",
+  "metadata.badgeNone": "Žádný",
+  "metadata.flipToScrub": "Otočit kartu: Konfigurace dat k odebrání",
+  "metadata.flipToAudit": "Otočit kartu: Zobrazení výsledků auditu",
+  "metadata.active": "Aktivní"
 }

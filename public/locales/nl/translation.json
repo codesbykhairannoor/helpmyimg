@@ -2059,5 +2059,18 @@
   "landing.editexif.redesign.s3Title": "Exporteer verliesloos",
   "landing.editexif.redesign.s3Desc": "Download uw georganiseerde foto's met bijgewerkte EXIF-tags en 100% ongerepte visuele kwaliteit.",
   "metadata.chkAuthorSub": "Wist de namen van fotografen, ontwerpers en wettelijke auteursrechtvermeldingen",
-  "metadata.chkXmpSub": "Verwijdert Photoshop-, Canva-, Lightroom- en generatieve bewerkingslogboeken"
+  "metadata.chkXmpSub": "Verwijdert Photoshop-, Canva-, Lightroom- en generatieve bewerkingslogboeken",
+  "metadata.tabAudit": "Privacy-audit",
+  "metadata.tabScope": "Bereik verwijderen",
+  "metadata.auditReady": "Audit gereed",
+  "metadata.idle": "Inactief",
+  "metadata.scanning": "Scannen...",
+  "metadata.c2paProvenanceDesc": "Cryptografisch herkomstmanifest",
+  "metadata.badgeClean": "Schoon",
+  "metadata.badgeFlagged": "Gemarkeerd",
+  "metadata.badgeExposed": "Blootgesteld",
+  "metadata.badgeNone": "Geen",
+  "metadata.flipToScrub": "Flip Card: Configureer gegevens om te verwijderen",
+  "metadata.flipToAudit": "Flip Card: auditresultaten bekijken",
+  "metadata.active": "Actief"
 }

@@ -2059,5 +2059,18 @@
   "landing.editexif.redesign.s3Title": "ロスレスでエクスポート",
   "landing.editexif.redesign.s3Desc": "更新された EXIF タグと 100% そのままのビジュアル品質を備えた、整理された写真をダウンロードします。",
   "metadata.chkAuthorSub": "写真家、デザイナーの名前、および法的著作権表示をクリアします",
-  "metadata.chkXmpSub": "Photoshop、Canva、Lightroom、およびジェネレーティブ編集ログを削除します"
+  "metadata.chkXmpSub": "Photoshop、Canva、Lightroom、およびジェネレーティブ編集ログを削除します",
+  "metadata.tabAudit": "プライバシー監査",
+  "metadata.tabScope": "スコープの削除",
+  "metadata.auditReady": "監査対応",
+  "metadata.idle": "アイドル状態",
+  "metadata.scanning": "走査...",
+  "metadata.c2paProvenanceDesc": "暗号の出所マニフェスト",
+  "metadata.badgeClean": "クリーン",
+  "metadata.badgeFlagged": "フラグ付き",
+  "metadata.badgeExposed": "露出",
+  "metadata.badgeNone": "なし",
+  "metadata.flipToScrub": "カードをフリップ: 削除するデータを構成する",
+  "metadata.flipToAudit": "カードをフリップ: 監査結果の表示",
+  "metadata.active": "アクティブ"
 }

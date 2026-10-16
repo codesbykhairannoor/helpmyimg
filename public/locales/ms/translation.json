@@ -2059,5 +2059,18 @@
   "landing.editexif.redesign.s3Title": "Eksport Tanpa Rugi",
   "landing.editexif.redesign.s3Desc": "Muat turun foto tersusun anda dengan teg EXIF ​​​​yang dikemas kini dan 100% kualiti visual yang tidak disentuh.",
   "metadata.chkAuthorSub": "Membersihkan jurugambar, nama pereka dan notis hak cipta undang-undang",
-  "metadata.chkXmpSub": "Mengalih keluar log pengeditan Photoshop, Canva, Lightroom dan generatif"
+  "metadata.chkXmpSub": "Mengalih keluar log pengeditan Photoshop, Canva, Lightroom dan generatif",
+  "metadata.tabAudit": "Audit Privasi",
+  "metadata.tabScope": "Keluarkan Skop",
+  "metadata.auditReady": "Sedia Audit",
+  "metadata.idle": "terbiar",
+  "metadata.scanning": "Mengimbas...",
+  "metadata.c2paProvenanceDesc": "Manifes asal kriptografi",
+  "metadata.badgeClean": "Bersih",
+  "metadata.badgeFlagged": "Ditandakan",
+  "metadata.badgeExposed": "Terdedah",
+  "metadata.badgeNone": "tiada",
+  "metadata.flipToScrub": "Kad Selak: Konfigurasikan Data untuk Dialih Keluar",
+  "metadata.flipToAudit": "Kad Selak: Lihat Keputusan Audit",
+  "metadata.active": "Aktif"
 }

@@ -2059,5 +2059,18 @@
   "landing.editexif.redesign.s3Title": "Veszteségmentes exportálás",
   "landing.editexif.redesign.s3Desc": "Töltse le rendezett fotóit frissített EXIF-címkékkel és 100%-ban érintetlen vizuális minőséggel.",
   "metadata.chkAuthorSub": "Törli a fotósok, a tervezők neveit és a törvényes szerzői jogi megjegyzéseket",
-  "metadata.chkXmpSub": "Eltávolítja a Photoshop, a Canva, a Lightroom és a generatív szerkesztési naplókat"
+  "metadata.chkXmpSub": "Eltávolítja a Photoshop, a Canva, a Lightroom és a generatív szerkesztési naplókat",
+  "metadata.tabAudit": "Adatvédelmi audit",
+  "metadata.tabScope": "Távolítsa el a hatókört",
+  "metadata.auditReady": "Audit kész",
+  "metadata.idle": "Tétlen",
+  "metadata.scanning": "Szkennelés...",
+  "metadata.c2paProvenanceDesc": "A kriptográfiai eredet nyilvánvaló",
+  "metadata.badgeClean": "Tiszta",
+  "metadata.badgeFlagged": "Megjelölve",
+  "metadata.badgeExposed": "Kitett",
+  "metadata.badgeNone": "Egyik sem",
+  "metadata.flipToScrub": "Flip Card: Konfigurálja az eltávolítandó adatokat",
+  "metadata.flipToAudit": "Flip Card: Az ellenőrzési eredmények megtekintése",
+  "metadata.active": "Aktív"
 }

@@ -2059,5 +2059,18 @@
   "landing.editexif.redesign.s3Title": "무손실 내보내기",
   "landing.editexif.redesign.s3Desc": "업데이트된 EXIF ​​태그와 100% 원본 화질로 정리된 사진을 다운로드하세요.",
   "metadata.chkAuthorSub": "사진작가, 디자이너 이름 및 법적 저작권 고지를 지웁니다.",
-  "metadata.chkXmpSub": "Photoshop, Canva, Lightroom 및 생성 편집 로그를 제거합니다."
+  "metadata.chkXmpSub": "Photoshop, Canva, Lightroom 및 생성 편집 로그를 제거합니다.",
+  "metadata.tabAudit": "개인 정보 보호 감사",
+  "metadata.tabScope": "범위 제거",
+  "metadata.auditReady": "감사 준비",
+  "metadata.idle": "게으른",
+  "metadata.scanning": "스캐닝...",
+  "metadata.c2paProvenanceDesc": "암호화 출처 매니페스트",
+  "metadata.badgeClean": "깨끗한",
+  "metadata.badgeFlagged": "신고됨",
+  "metadata.badgeExposed": "노출된",
+  "metadata.badgeNone": "없음",
+  "metadata.flipToScrub": "플립 카드: 제거할 데이터 구성",
+  "metadata.flipToAudit": "플립 카드: 감사 결과 보기",
+  "metadata.active": "활동적인"
 }

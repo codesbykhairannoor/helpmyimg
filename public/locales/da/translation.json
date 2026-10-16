@@ -2059,5 +2059,18 @@
   "landing.editexif.redesign.s3Title": "Eksporter tabsfrit",
   "landing.editexif.redesign.s3Desc": "Download dine organiserede billeder med opdaterede EXIF-tags og 100 % uberørt visuel kvalitet.",
   "metadata.chkAuthorSub": "Rydder fotograf-, designernavne og lovlige ophavsretsmeddelelser",
-  "metadata.chkXmpSub": "Fjerner Photoshop, Canva, Lightroom og generative redigeringslogfiler"
+  "metadata.chkXmpSub": "Fjerner Photoshop, Canva, Lightroom og generative redigeringslogfiler",
+  "metadata.tabAudit": "Revision af privatlivets fred",
+  "metadata.tabScope": "Fjern omfang",
+  "metadata.auditReady": "Revision klar",
+  "metadata.idle": "Ledig",
+  "metadata.scanning": "Scanner...",
+  "metadata.c2paProvenanceDesc": "Kryptografisk herkomstmanifest",
+  "metadata.badgeClean": "Ren",
+  "metadata.badgeFlagged": "Flagget",
+  "metadata.badgeExposed": "Udsat",
+  "metadata.badgeNone": "Ingen",
+  "metadata.flipToScrub": "Flip Card: Konfigurer data til fjernelse",
+  "metadata.flipToAudit": "Flip Card: Se revisionsresultater",
+  "metadata.active": "Aktiv"
 }

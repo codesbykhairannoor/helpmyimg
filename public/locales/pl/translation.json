@@ -2064,5 +2064,18 @@
   "landing.editexif.redesign.s3Title": "Eksportuj bezstratnie",
   "landing.editexif.redesign.s3Desc": "Pobierz uporządkowane zdjęcia ze zaktualizowanymi tagami EXIF ​​i 100% nienaruszoną jakością wizualną.",
   "metadata.chkAuthorSub": "Usuwa nazwiska fotografów, projektantów i informacje o prawach autorskich",
-  "metadata.chkXmpSub": "Usuwa dzienniki edycji Photoshop, Canva, Lightroom i edycji generatywnej"
+  "metadata.chkXmpSub": "Usuwa dzienniki edycji Photoshop, Canva, Lightroom i edycji generatywnej",
+  "metadata.tabAudit": "Audyt prywatności",
+  "metadata.tabScope": "Usuń zakres",
+  "metadata.auditReady": "Audyt gotowy",
+  "metadata.idle": "Bezczynny",
+  "metadata.scanning": "Łów...",
+  "metadata.c2paProvenanceDesc": "Manifest pochodzenia kryptograficznego",
+  "metadata.badgeClean": "Czysty",
+  "metadata.badgeFlagged": "Taflowy",
+  "metadata.badgeExposed": "Narażony",
+  "metadata.badgeNone": "Nic",
+  "metadata.flipToScrub": "Odwróć kartę: skonfiguruj dane do usunięcia",
+  "metadata.flipToAudit": "Odwróć kartę: zobacz wyniki audytu",
+  "metadata.active": "Aktywny"
 }
