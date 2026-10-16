@@ -1806,7 +1806,7 @@
   "metadata.c2paCleanDesc": "Tidak ditemukan manifest tanda air digital AI",
   "metadata.noExif": "Tanpa EXIF Kamera (Pola AI / Dihapus)",
   "metadata.noExifDesc": "Data aperture, shutter speed & lensa tidak tersedia",
-  "metadata.dropToInspect": "Tarik & lepas foto untuk memindai tanda digital AI & metadata",
+  "metadata.dropToInspect": "Zet een afbeelding neer om headers en metadata te inspecteren",
   "metadata.choosePreset": "Pilih Preset Kamera Studio",
   "metadata.recommendedBadge": "Pas Foto Studio",
   "metadata.stealthBadge": "Hapus Semua",
@@ -2104,5 +2104,10 @@
   "metadata.btnEditExifInstead": "Bewerk de EXIF-metagegevens van deze foto",
   "metadata.switchToEdit": "Schakel over naar de EXIF-modus bewerken",
   "work.viewMetadataHud": "Metagegevensinformatie",
-  "work.hideMetadataHud": "Info sluiten"
+  "work.hideMetadataHud": "Info sluiten",
+  "metadata.tabInfo": "Metagegevensinformatie",
+  "metadata.fieldCamera": "Camera en lens",
+  "metadata.fieldExposure": "Belichtingsspecificaties",
+  "metadata.fieldAuthor": "Maker en auteursrecht",
+  "metadata.fieldDate": "Datum genomen"
 }

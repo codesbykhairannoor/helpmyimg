@@ -1806,7 +1806,7 @@
   "metadata.c2paCleanDesc": "Không tìm thấy bản kê khai hình mờ AI",
   "metadata.noExif": "Không có Camera EXIF ​​​​(Tước / AI)",
   "metadata.noExifDesc": "Thiếu khẩu độ, tốc độ màn trập và thẻ ống kính",
-  "metadata.dropToInspect": "Thả hình ảnh để kiểm tra chữ ký và siêu dữ liệu AI",
+  "metadata.dropToInspect": "Thả hình ảnh để kiểm tra tiêu đề và siêu dữ liệu",
   "metadata.choosePreset": "Chọn cài đặt sẵn cho máy ảnh Studio",
   "metadata.recommendedBadge": "Ảnh thẻ Studio",
   "metadata.stealthBadge": "Chà tất cả",
@@ -2104,5 +2104,10 @@
   "metadata.btnEditExifInstead": "Chỉnh sửa siêu dữ liệu EXIF ​​​​của ảnh này",
   "metadata.switchToEdit": "Chuyển sang chế độ chỉnh sửa EXIF",
   "work.viewMetadataHud": "Thông tin siêu dữ liệu",
-  "work.hideMetadataHud": "Đóng thông tin"
+  "work.hideMetadataHud": "Đóng thông tin",
+  "metadata.tabInfo": "Thông tin siêu dữ liệu",
+  "metadata.fieldCamera": "Máy Ảnh & Ống Kính",
+  "metadata.fieldExposure": "Thông số phơi sáng",
+  "metadata.fieldAuthor": "Người sáng tạo & Bản quyền",
+  "metadata.fieldDate": "Ngày chụp"
 }

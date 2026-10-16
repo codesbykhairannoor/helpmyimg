@@ -1806,7 +1806,7 @@
   "metadata.c2paCleanDesc": "Βρέθηκαν μηδενικά υδατογράφημα τεχνητής νοημοσύνης",
   "metadata.noExif": "Χωρίς κάμερα EXIF ​​(Απογυμνωμένη / AI)",
   "metadata.noExifDesc": "Λείπουν διάφραγμα, ταχύτητα κλείστρου και ετικέτες φακού",
-  "metadata.dropToInspect": "Ρίξτε μια εικόνα για να επιθεωρήσετε υπογραφές και μεταδεδομένα τεχνητής νοημοσύνης",
+  "metadata.dropToInspect": "Ρίξτε μια εικόνα για να ελέγξετε τις κεφαλίδες και τα μεταδεδομένα",
   "metadata.choosePreset": "Επιλέξτε Studio Camera Preset",
   "metadata.recommendedBadge": "Studio Pass Φωτογραφία",
   "metadata.stealthBadge": "Scrub All",
@@ -2104,5 +2104,10 @@
   "metadata.btnEditExifInstead": "Επεξεργαστείτε τα Μεταδεδομένα EXIF ​​αυτής της φωτογραφίας",
   "metadata.switchToEdit": "Μετάβαση στη λειτουργία Επεξεργασία EXIF",
   "work.viewMetadataHud": "Πληροφορίες μεταδεδομένων",
-  "work.hideMetadataHud": "Κλείσιμο πληροφοριών"
+  "work.hideMetadataHud": "Κλείσιμο πληροφοριών",
+  "metadata.tabInfo": "Πληροφορίες μεταδεδομένων",
+  "metadata.fieldCamera": "Κάμερα & Φακός",
+  "metadata.fieldExposure": "Προδιαγραφές έκθεσης",
+  "metadata.fieldAuthor": "Δημιουργός & Πνευματικά δικαιώματα",
+  "metadata.fieldDate": "Ημερομηνία λήψης"
 }

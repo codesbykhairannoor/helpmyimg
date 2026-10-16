@@ -1806,7 +1806,7 @@
   "metadata.c2paCleanDesc": "Обнаружено отсутствие манифестов водяных знаков AI",
   "metadata.noExif": "Нет EXIF ​​камеры (удаленный/AI)",
   "metadata.noExifDesc": "Отсутствуют метки диафрагмы, выдержки и объектива.",
-  "metadata.dropToInspect": "Перетащите изображение, чтобы проверить подписи и метаданные искусственного интеллекта.",
+  "metadata.dropToInspect": "Перетащите изображение, чтобы проверить заголовки и метаданные.",
   "metadata.choosePreset": "Выберите предустановку студийной камеры",
   "metadata.recommendedBadge": "Фото пропуска в студию",
   "metadata.stealthBadge": "Очистить все",
@@ -2104,5 +2104,10 @@
   "metadata.btnEditExifInstead": "Редактировать метаданные EXIF ​​этой фотографии",
   "metadata.switchToEdit": "Переключиться в режим редактирования EXIF",
   "work.viewMetadataHud": "Информация о метаданных",
-  "work.hideMetadataHud": "Закрыть информацию"
+  "work.hideMetadataHud": "Закрыть информацию",
+  "metadata.tabInfo": "Информация о метаданных",
+  "metadata.fieldCamera": "Камера и объектив",
+  "metadata.fieldExposure": "Характеристики экспозиции",
+  "metadata.fieldAuthor": "Создатель и авторские права",
+  "metadata.fieldDate": "Дата съемки"
 }

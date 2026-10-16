@@ -1806,7 +1806,7 @@
   "metadata.c2paCleanDesc": "Nu s-au găsit manifeste de filigran AI",
   "metadata.noExif": "Fără cameră EXIF ​​(dezbrăcat/AI)",
   "metadata.noExifDesc": "Lipsesc diafragma, viteza obturatorului și etichetele obiectivului",
-  "metadata.dropToInspect": "Aruncă o imagine pentru a inspecta semnăturile și metadatele AI",
+  "metadata.dropToInspect": "Aruncă o imagine pentru a inspecta anteturile și metadatele",
   "metadata.choosePreset": "Alegeți Studio Camera Preset",
   "metadata.recommendedBadge": "Fotografie Studio Pass",
   "metadata.stealthBadge": "Scrub All",
@@ -2104,5 +2104,10 @@
   "metadata.btnEditExifInstead": "Editați metadatele EXIF ​​ale acestei fotografii",
   "metadata.switchToEdit": "Comutați la modul Edit EXIF",
   "work.viewMetadataHud": "Informații despre metadate",
-  "work.hideMetadataHud": "Închide Info"
+  "work.hideMetadataHud": "Închide Info",
+  "metadata.tabInfo": "Informații despre metadate",
+  "metadata.fieldCamera": "Cameră și obiectiv",
+  "metadata.fieldExposure": "Specificații de expunere",
+  "metadata.fieldAuthor": "Creator și drepturi de autor",
+  "metadata.fieldDate": "Data luării"
 }

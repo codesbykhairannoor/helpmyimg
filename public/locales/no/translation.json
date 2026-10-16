@@ -1806,7 +1806,7 @@
   "metadata.c2paCleanDesc": "Null AI vannmerke manifester funnet",
   "metadata.noExif": "Ingen kamera EXIF ​​(strippet / AI)",
   "metadata.noExifDesc": "Mangler blenderåpning, lukkerhastighet og objektivmerker",
-  "metadata.dropToInspect": "Slipp et bilde for å inspisere AI-signaturer og metadata",
+  "metadata.dropToInspect": "Slipp et bilde for å inspisere overskrifter og metadata",
   "metadata.choosePreset": "Velg Studio Camera Preset",
   "metadata.recommendedBadge": "Studio Pass-bilde",
   "metadata.stealthBadge": "Skrubb alle",
@@ -2104,5 +2104,10 @@
   "metadata.btnEditExifInstead": "Rediger dette bildets EXIF-metadata",
   "metadata.switchToEdit": "Bytt til Rediger EXIF-modus",
   "work.viewMetadataHud": "Metadata info",
-  "work.hideMetadataHud": "Lukk info"
+  "work.hideMetadataHud": "Lukk info",
+  "metadata.tabInfo": "Metadata info",
+  "metadata.fieldCamera": "Kamera og objektiv",
+  "metadata.fieldExposure": "Eksponeringsspesifikasjoner",
+  "metadata.fieldAuthor": "Skaper og opphavsrett",
+  "metadata.fieldDate": "Dato tatt"
 }

@@ -1820,7 +1820,7 @@
   "metadata.c2paCleanDesc": "تم العثور على علامات مائية خالية من الذكاء الاصطناعي",
   "metadata.noExif": "لا توجد كاميرا EXIF ​​(مجردة / AI)",
   "metadata.noExifDesc": "فتحة العدسة وسرعة الغالق وعلامات العدسة مفقودة",
-  "metadata.dropToInspect": "قم بإسقاط صورة لفحص توقيعات الذكاء الاصطناعي والبيانات الوصفية",
+  "metadata.dropToInspect": "قم بإسقاط صورة لفحص الرؤوس والبيانات الوصفية",
   "metadata.choosePreset": "اختر الإعداد المسبق لكاميرا الاستوديو",
   "metadata.recommendedBadge": "صورة بطاقة الاستوديو",
   "metadata.stealthBadge": "فرك الكل",
@@ -2118,5 +2118,10 @@
   "metadata.btnEditExifInstead": "قم بتحرير بيانات EXIF ​​الوصفية لهذه الصورة",
   "metadata.switchToEdit": "قم بالتبديل إلى تحرير وضع EXIF",
   "work.viewMetadataHud": "معلومات البيانات الوصفية",
-  "work.hideMetadataHud": "إغلاق المعلومات"
+  "work.hideMetadataHud": "إغلاق المعلومات",
+  "metadata.tabInfo": "معلومات البيانات الوصفية",
+  "metadata.fieldCamera": "الكاميرا والعدسة",
+  "metadata.fieldExposure": "مواصفات التعرض",
+  "metadata.fieldAuthor": "الخالق وحقوق التأليف والنشر",
+  "metadata.fieldDate": "تاريخ الالتقاط"
 }

@@ -1806,7 +1806,7 @@
   "metadata.c2paCleanDesc": "Nul AI vandmærke manifester fundet",
   "metadata.noExif": "Intet kamera EXIF ​​(strippet / AI)",
   "metadata.noExifDesc": "Mangler blænde, lukkertid og objektivmærker",
-  "metadata.dropToInspect": "Slip et billede for at inspicere AI-signaturer og metadata",
+  "metadata.dropToInspect": "Slip et billede for at inspicere overskrifter og metadata",
   "metadata.choosePreset": "Vælg Studio Camera Preset",
   "metadata.recommendedBadge": "Studio Pass-billede",
   "metadata.stealthBadge": "Skrub alle",
@@ -2104,5 +2104,10 @@
   "metadata.btnEditExifInstead": "Rediger dette billedes EXIF-metadata",
   "metadata.switchToEdit": "Skift til Rediger EXIF-tilstand",
   "work.viewMetadataHud": "Metadata info",
-  "work.hideMetadataHud": "Luk info"
+  "work.hideMetadataHud": "Luk info",
+  "metadata.tabInfo": "Metadata info",
+  "metadata.fieldCamera": "Kamera og objektiv",
+  "metadata.fieldExposure": "Eksponeringsspecifikationer",
+  "metadata.fieldAuthor": "Skaber og ophavsret",
+  "metadata.fieldDate": "Dato taget"
 }

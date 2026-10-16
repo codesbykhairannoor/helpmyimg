@@ -1806,7 +1806,7 @@
   "metadata.c2paCleanDesc": "제로 AI 워터마크 매니페스트가 발견되었습니다.",
   "metadata.noExif": "카메라 EXIF ​​없음(스트립됨/AI)",
   "metadata.noExifDesc": "조리개, 셔터 속도, 렌즈 태그 누락",
-  "metadata.dropToInspect": "이미지를 드롭하여 AI 서명 및 메타데이터 검사",
+  "metadata.dropToInspect": "헤더 및 메타데이터를 검사하려면 이미지를 드롭하세요.",
   "metadata.choosePreset": "스튜디오 카메라 사전 설정 선택",
   "metadata.recommendedBadge": "스튜디오 패스 사진",
   "metadata.stealthBadge": "모두 스크럽",
@@ -2104,5 +2104,10 @@
   "metadata.btnEditExifInstead": "이 사진의 EXIF ​​메타데이터 편집",
   "metadata.switchToEdit": "EXIF 편집 모드로 전환",
   "work.viewMetadataHud": "메타데이터 정보",
-  "work.hideMetadataHud": "정보 닫기"
+  "work.hideMetadataHud": "정보 닫기",
+  "metadata.tabInfo": "메타데이터 정보",
+  "metadata.fieldCamera": "카메라 및 렌즈",
+  "metadata.fieldExposure": "노출 사양",
+  "metadata.fieldAuthor": "창작자 및 저작권",
+  "metadata.fieldDate": "촬영 날짜"
 }

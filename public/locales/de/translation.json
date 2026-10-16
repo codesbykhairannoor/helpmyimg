@@ -1806,7 +1806,7 @@
   "metadata.c2paCleanDesc": "Keine AI-Wasserzeichen-Manifeste gefunden",
   "metadata.noExif": "Kein Kamera-EXIF (Stripped / AI)",
   "metadata.noExifDesc": "Blenden-, Verschlusszeit- und Objektivkennzeichnungen fehlen",
-  "metadata.dropToInspect": "Legen Sie ein Bild ab, um KI-Signaturen und Metadaten zu überprüfen",
+  "metadata.dropToInspect": "Legen Sie ein Bild ab, um Kopfzeilen und Metadaten zu überprüfen",
   "metadata.choosePreset": "Wählen Sie „Studiokamera-Voreinstellung“.",
   "metadata.recommendedBadge": "Studiopass-Foto",
   "metadata.stealthBadge": "Alles schrubben",
@@ -2104,5 +2104,10 @@
   "metadata.btnEditExifInstead": "Bearbeiten Sie die EXIF-Metadaten dieses Fotos",
   "metadata.switchToEdit": "Wechseln Sie in den EXIF-Bearbeitungsmodus",
   "work.viewMetadataHud": "Metadateninformationen",
-  "work.hideMetadataHud": "Info schließen"
+  "work.hideMetadataHud": "Info schließen",
+  "metadata.tabInfo": "Metadateninformationen",
+  "metadata.fieldCamera": "Kamera und Objektiv",
+  "metadata.fieldExposure": "Belichtungsspezifikationen",
+  "metadata.fieldAuthor": "Urheber und Urheberrecht",
+  "metadata.fieldDate": "Aufnahmedatum"
 }

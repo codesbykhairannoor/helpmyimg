@@ -1806,7 +1806,7 @@
   "metadata.c2paCleanDesc": "No AI tracking signatures detected",
   "metadata.noExif": "No Camera EXIF (Stripped / AI)",
   "metadata.noExifDesc": "Camera make, lens and serial tags",
-  "metadata.dropToInspect": "Drop an image to inspect AI signatures & metadata",
+  "metadata.dropToInspect": "Drop an image to inspect headers & metadata",
   "metadata.choosePreset": "Choose Studio Camera Preset",
   "metadata.recommendedBadge": "Studio Pass Photo",
   "metadata.stealthBadge": "Scrub All",
@@ -2104,5 +2104,10 @@
   "metadata.btnEditExifInstead": "Edit This Photo's EXIF Metadata",
   "metadata.switchToEdit": "Switch to Edit EXIF Mode",
   "work.viewMetadataHud": "Metadata Info",
-  "work.hideMetadataHud": "Close Info"
+  "work.hideMetadataHud": "Close Info",
+  "metadata.tabInfo": "Metadata Info",
+  "metadata.fieldCamera": "Camera & Lens",
+  "metadata.fieldExposure": "Exposure Specs",
+  "metadata.fieldAuthor": "Creator & Copyright",
+  "metadata.fieldDate": "Date Taken"
 }

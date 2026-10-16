@@ -1872,7 +1872,7 @@
   "metadata.c2paCleanDesc": "Tidak ada jejak tanda air AI yang ditemukan",
   "metadata.noExif": "Tanpa EXIF Kamera (Pola AI / Dihapus)",
   "metadata.noExifDesc": "Merek kamera, lensa, dan nomor seri",
-  "metadata.dropToInspect": "Tarik & lepas foto untuk memeriksa jejak AI & metadata",
+  "metadata.dropToInspect": "Drop foto untuk memeriksa metadata",
   "metadata.choosePreset": "Pilih Preset Kamera Studio",
   "metadata.recommendedBadge": "Pas Foto Studio",
   "metadata.stealthBadge": "Hapus Semua",
@@ -2170,5 +2170,10 @@
   "metadata.btnEditExifInstead": "Edit Metadata EXIF Foto Ini",
   "metadata.switchToEdit": "Beralih ke Mode Edit EXIF",
   "work.viewMetadataHud": "Info Metadata",
-  "work.hideMetadataHud": "Tutup Info"
+  "work.hideMetadataHud": "Tutup Info",
+  "metadata.tabInfo": "Keterangan Metadata",
+  "metadata.fieldCamera": "Kamera & Lensa",
+  "metadata.fieldExposure": "Parameter Eksposur",
+  "metadata.fieldAuthor": "Kreator & Hak Cipta",
+  "metadata.fieldDate": "Waktu Pengambilan"
 }

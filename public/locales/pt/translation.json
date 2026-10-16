@@ -1806,7 +1806,7 @@
   "metadata.c2paCleanDesc": "Nenhum manifesto de marca d'água AI encontrado",
   "metadata.noExif": "Sem câmera EXIF ​​(despojado/AI)",
   "metadata.noExifDesc": "Abertura, velocidade do obturador e tags de lente ausentes",
-  "metadata.dropToInspect": "Solte uma imagem para inspecionar assinaturas e metadados de IA",
+  "metadata.dropToInspect": "Solte uma imagem para inspecionar cabeçalhos e metadados",
   "metadata.choosePreset": "Escolha a predefinição da câmera de estúdio",
   "metadata.recommendedBadge": "Foto do passe de estúdio",
   "metadata.stealthBadge": "Esfregue tudo",
@@ -2104,5 +2104,10 @@
   "metadata.btnEditExifInstead": "Edite os metadados EXIF ​​desta foto",
   "metadata.switchToEdit": "Mudar para o modo Editar EXIF",
   "work.viewMetadataHud": "Informações de metadados",
-  "work.hideMetadataHud": "Fechar informações"
+  "work.hideMetadataHud": "Fechar informações",
+  "metadata.tabInfo": "Informações de metadados",
+  "metadata.fieldCamera": "Câmera e lente",
+  "metadata.fieldExposure": "Especificações de exposição",
+  "metadata.fieldAuthor": "Criador e direitos autorais",
+  "metadata.fieldDate": "Data da realização"
 }

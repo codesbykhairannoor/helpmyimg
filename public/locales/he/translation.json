@@ -1806,7 +1806,7 @@
   "metadata.c2paCleanDesc": "נמצאו אפס סימני מים של AI",
   "metadata.noExif": "ללא מצלמה EXIF ​​(מופשט / AI)",
   "metadata.noExifDesc": "חסרים צמצם, מהירות תריס ותגי עדשה",
-  "metadata.dropToInspect": "שחרר תמונה כדי לבדוק חתימות ומטא נתונים של AI",
+  "metadata.dropToInspect": "שחרר תמונה כדי לבדוק כותרות ומטא נתונים",
   "metadata.choosePreset": "בחר הגדרה מראש של מצלמת סטודיו",
   "metadata.recommendedBadge": "Studio Pass Photo",
   "metadata.stealthBadge": "לשפשף הכל",
@@ -2104,5 +2104,10 @@
   "metadata.btnEditExifInstead": "ערוך את המטא נתונים של EXIF ​​של תמונה זו",
   "metadata.switchToEdit": "עבור למצב עריכה EXIF",
   "work.viewMetadataHud": "מידע על מטא נתונים",
-  "work.hideMetadataHud": "סגור מידע"
+  "work.hideMetadataHud": "סגור מידע",
+  "metadata.tabInfo": "מידע על מטא נתונים",
+  "metadata.fieldCamera": "מצלמה ועדשה",
+  "metadata.fieldExposure": "מפרט חשיפה",
+  "metadata.fieldAuthor": "יוצר וזכויות יוצרים",
+  "metadata.fieldDate": "תאריך צולם"
 }

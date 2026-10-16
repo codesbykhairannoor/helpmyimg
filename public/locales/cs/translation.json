@@ -1806,7 +1806,7 @@
   "metadata.c2paCleanDesc": "Byly nalezeny nulové manifesty vodoznaku AI",
   "metadata.noExif": "Žádný fotoaparát EXIF ​​(svlečený / AI)",
   "metadata.noExifDesc": "Chybí clona, ​​rychlost závěrky a štítky na objektivu",
-  "metadata.dropToInspect": "Přetažením obrázku prohlédněte podpisy a metadata AI",
+  "metadata.dropToInspect": "Přetažením obrázku zkontrolujte záhlaví a metadata",
   "metadata.choosePreset": "Zvolte Studio Camera Preset",
   "metadata.recommendedBadge": "Studio Pass Photo",
   "metadata.stealthBadge": "Vydrhnout vše",
@@ -2104,5 +2104,10 @@
   "metadata.btnEditExifInstead": "Upravte metadata EXIF ​​této fotografie",
   "metadata.switchToEdit": "Přepněte do režimu úprav EXIF",
   "work.viewMetadataHud": "Informace o metadatech",
-  "work.hideMetadataHud": "Zavřít Informace"
+  "work.hideMetadataHud": "Zavřít Informace",
+  "metadata.tabInfo": "Informace o metadatech",
+  "metadata.fieldCamera": "Fotoaparát a objektiv",
+  "metadata.fieldExposure": "Specifikace expozice",
+  "metadata.fieldAuthor": "Autor a autorská práva",
+  "metadata.fieldDate": "Datum pořízení"
 }

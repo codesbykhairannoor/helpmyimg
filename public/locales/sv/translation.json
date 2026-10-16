@@ -1806,7 +1806,7 @@
   "metadata.c2paCleanDesc": "Noll AI vattenstämpel manifest hittades",
   "metadata.noExif": "Ingen kamera EXIF ​​(avskalad / AI)",
   "metadata.noExifDesc": "Saknar bländare, slutartid och objektivtaggar",
-  "metadata.dropToInspect": "Släpp en bild för att inspektera AI-signaturer och metadata",
+  "metadata.dropToInspect": "Släpp en bild för att inspektera rubriker och metadata",
   "metadata.choosePreset": "Välj Studio Camera Preset",
   "metadata.recommendedBadge": "Studio Pass Foto",
   "metadata.stealthBadge": "Skrubba alla",
@@ -2104,5 +2104,10 @@
   "metadata.btnEditExifInstead": "Redigera detta fotos EXIF-metadata",
   "metadata.switchToEdit": "Växla till Edit EXIF-läge",
   "work.viewMetadataHud": "Metadata info",
-  "work.hideMetadataHud": "Stäng info"
+  "work.hideMetadataHud": "Stäng info",
+  "metadata.tabInfo": "Metadata info",
+  "metadata.fieldCamera": "Kamera & objektiv",
+  "metadata.fieldExposure": "Exponeringsspecifikationer",
+  "metadata.fieldAuthor": "Skapare och upphovsrätt",
+  "metadata.fieldDate": "Taget datum"
 }

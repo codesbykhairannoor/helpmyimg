@@ -1806,7 +1806,7 @@
   "metadata.c2paCleanDesc": "शून्य एआई वॉटरमार्क मेनिफ़ेस्ट मिला",
   "metadata.noExif": "कोई कैमरा EXIF ​​नहीं (स्ट्रिप्ड/एआई)",
   "metadata.noExifDesc": "एपर्चर, शटर स्पीड और लेंस टैग गायब हैं",
-  "metadata.dropToInspect": "एआई हस्ताक्षर और मेटाडेटा का निरीक्षण करने के लिए एक छवि छोड़ें",
+  "metadata.dropToInspect": "हेडर और मेटाडेटा का निरीक्षण करने के लिए एक छवि छोड़ें",
   "metadata.choosePreset": "स्टूडियो कैमरा प्रीसेट चुनें",
   "metadata.recommendedBadge": "स्टूडियो पास फ़ोटो",
   "metadata.stealthBadge": "सभी को साफ़ करें",
@@ -2104,5 +2104,10 @@
   "metadata.btnEditExifInstead": "इस फ़ोटो का EXIF ​​मेटाडेटा संपादित करें",
   "metadata.switchToEdit": "EXIF मोड संपादित करें पर स्विच करें",
   "work.viewMetadataHud": "मेटाडेटा जानकारी",
-  "work.hideMetadataHud": "जानकारी बंद करें"
+  "work.hideMetadataHud": "जानकारी बंद करें",
+  "metadata.tabInfo": "मेटाडेटा जानकारी",
+  "metadata.fieldCamera": "कैमरा और लेंस",
+  "metadata.fieldExposure": "एक्सपोज़र विशिष्टताएँ",
+  "metadata.fieldAuthor": "निर्माता एवं कॉपीराइट",
+  "metadata.fieldDate": "दिनांक लिया गया"
 }

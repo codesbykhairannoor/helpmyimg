@@ -1806,7 +1806,7 @@
   "metadata.c2paCleanDesc": "พบรายการลายน้ำ AI เป็นศูนย์",
   "metadata.noExif": "ไม่มีกล้อง EXIF ​​(ปล้น / AI)",
   "metadata.noExifDesc": "รูรับแสง ความเร็วชัตเตอร์ และแท็กเลนส์หายไป",
-  "metadata.dropToInspect": "วางรูปภาพเพื่อตรวจสอบลายเซ็น AI และข้อมูลเมตา",
+  "metadata.dropToInspect": "วางรูปภาพเพื่อตรวจสอบส่วนหัวและข้อมูลเมตา",
   "metadata.choosePreset": "เลือกพรีเซ็ตกล้องสตูดิโอ",
   "metadata.recommendedBadge": "ภาพถ่ายสตูดิโอพาส",
   "metadata.stealthBadge": "ขัดทั้งหมด",
@@ -2104,5 +2104,10 @@
   "metadata.btnEditExifInstead": "แก้ไขข้อมูลเมตา EXIF ​​​​ของรูปภาพนี้",
   "metadata.switchToEdit": "สลับไปที่โหมดแก้ไข EXIF",
   "work.viewMetadataHud": "ข้อมูลเมตาดาต้า",
-  "work.hideMetadataHud": "ปิดข้อมูล"
+  "work.hideMetadataHud": "ปิดข้อมูล",
+  "metadata.tabInfo": "ข้อมูลเมตาดาต้า",
+  "metadata.fieldCamera": "กล้องและเลนส์",
+  "metadata.fieldExposure": "ข้อมูลจำเพาะการสัมผัส",
+  "metadata.fieldAuthor": "ผู้สร้างและลิขสิทธิ์",
+  "metadata.fieldDate": "วันที่ถ่าย"
 }

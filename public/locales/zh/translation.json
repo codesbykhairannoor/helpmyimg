@@ -1806,7 +1806,7 @@
   "metadata.c2paCleanDesc": "发现零 AI 水印清单",
   "metadata.noExif": "无相机 EXIF（已删除/AI）",
   "metadata.noExifDesc": "缺少光圈、快门速度和镜头标签",
-  "metadata.dropToInspect": "拖放图像以检查 AI 签名和元数据",
+  "metadata.dropToInspect": "拖放图像以检查标题和元数据",
   "metadata.choosePreset": "选择演播室摄像机预设",
   "metadata.recommendedBadge": "工作室通行证照片",
   "metadata.stealthBadge": "全部擦洗",
@@ -2103,5 +2103,10 @@
   "metadata.btnEditExifInstead": "编辑此照片的 EXIF 元数据",
   "metadata.switchToEdit": "切换到编辑 EXIF 模式",
   "work.viewMetadataHud": "元数据信息",
-  "work.hideMetadataHud": "关闭信息"
+  "work.hideMetadataHud": "关闭信息",
+  "metadata.tabInfo": "元数据信息",
+  "metadata.fieldCamera": "相机&镜头",
+  "metadata.fieldExposure": "曝光规格",
+  "metadata.fieldAuthor": "创作者及版权",
+  "metadata.fieldDate": "拍摄日期"
 }

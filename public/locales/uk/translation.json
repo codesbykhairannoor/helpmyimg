@@ -1806,7 +1806,7 @@
   "metadata.c2paCleanDesc": "Знайдено нульові маніфести водяних знаків AI",
   "metadata.noExif": "Немає EXIF ​​камери (виділений / AI)",
   "metadata.noExifDesc": "Відсутні теги діафрагми, витримки та об’єктива",
-  "metadata.dropToInspect": "Опустіть зображення, щоб перевірити підписи та метадані ШІ",
+  "metadata.dropToInspect": "Перетягніть зображення, щоб перевірити заголовки та метадані",
   "metadata.choosePreset": "Виберіть Preset Studio Camera",
   "metadata.recommendedBadge": "Studio Pass Photo",
   "metadata.stealthBadge": "Очистити все",
@@ -2104,5 +2104,10 @@
   "metadata.btnEditExifInstead": "Редагувати метадані EXIF ​​цієї фотографії",
   "metadata.switchToEdit": "Перейдіть у режим редагування EXIF",
   "work.viewMetadataHud": "Інформація про метадані",
-  "work.hideMetadataHud": "Закрити інформацію"
+  "work.hideMetadataHud": "Закрити інформацію",
+  "metadata.tabInfo": "Інформація про метадані",
+  "metadata.fieldCamera": "Камера та об'єктив",
+  "metadata.fieldExposure": "Характеристики експозиції",
+  "metadata.fieldAuthor": "Творець і авторське право",
+  "metadata.fieldDate": "Дата зйомки"
 }

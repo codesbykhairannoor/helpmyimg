@@ -1806,7 +1806,7 @@
   "metadata.c2paCleanDesc": "Aucun manifeste de filigrane AI trouvé",
   "metadata.noExif": "Pas de caméra EXIF ​​(dépouillé / AI)",
   "metadata.noExifDesc": "Étiquettes d'ouverture, de vitesse d'obturation et d'objectif manquantes",
-  "metadata.dropToInspect": "Déposez une image pour inspecter les signatures et les métadonnées de l'IA",
+  "metadata.dropToInspect": "Déposez une image pour inspecter les en-têtes et les métadonnées",
   "metadata.choosePreset": "Choisissez le préréglage de la caméra Studio",
   "metadata.recommendedBadge": "Photo Pass Studio",
   "metadata.stealthBadge": "Tout nettoyer",
@@ -2104,5 +2104,10 @@
   "metadata.btnEditExifInstead": "Modifier les métadonnées EXIF ​​de cette photo",
   "metadata.switchToEdit": "Passer en mode Modifier EXIF",
   "work.viewMetadataHud": "Informations sur les métadonnées",
-  "work.hideMetadataHud": "Fermer les informations"
+  "work.hideMetadataHud": "Fermer les informations",
+  "metadata.tabInfo": "Informations sur les métadonnées",
+  "metadata.fieldCamera": "Appareil photo et objectif",
+  "metadata.fieldExposure": "Spécifications d'exposition",
+  "metadata.fieldAuthor": "Créateur et droit d'auteur",
+  "metadata.fieldDate": "Date de prise"
 }

@@ -1806,7 +1806,7 @@
   "metadata.c2paCleanDesc": "Nulla mesterséges intelligencia vízjel jegyzéket találtunk",
   "metadata.noExif": "Nincs kamera EXIF ​​(csíkozott / AI)",
   "metadata.noExifDesc": "Hiányzik a rekeszérték, a záridő és az objektív címkék",
-  "metadata.dropToInspect": "Dobj el egy képet az AI aláírások és metaadatok ellenőrzéséhez",
+  "metadata.dropToInspect": "Dobjon el egy képet a fejlécek és a metaadatok megtekintéséhez",
   "metadata.choosePreset": "Válassza a Studio Camera Preset lehetőséget",
   "metadata.recommendedBadge": "Studio Pass Photo",
   "metadata.stealthBadge": "Scrub All",
@@ -2104,5 +2104,10 @@
   "metadata.btnEditExifInstead": "A fénykép EXIF-metaadatainak szerkesztése",
   "metadata.switchToEdit": "Váltson EXIF ​​szerkesztési módra",
   "work.viewMetadataHud": "Metaadat információ",
-  "work.hideMetadataHud": "Információ bezárása"
+  "work.hideMetadataHud": "Információ bezárása",
+  "metadata.tabInfo": "Metaadat információ",
+  "metadata.fieldCamera": "Fényképezőgép és objektív",
+  "metadata.fieldExposure": "Expozíciós specifikációk",
+  "metadata.fieldAuthor": "Alkotó és szerzői jog",
+  "metadata.fieldDate": "Felvétel dátuma"
 }

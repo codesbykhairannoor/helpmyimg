@@ -1806,7 +1806,7 @@
   "metadata.c2paCleanDesc": "Tanda air AI sifar ditemui",
   "metadata.noExif": "Tiada Kamera EXIF ​​(Dilucutkan / AI)",
   "metadata.noExifDesc": "Tiada apertur, kelajuan pengatup & tag kanta",
-  "metadata.dropToInspect": "Lepaskan imej untuk memeriksa tandatangan & metadata AI",
+  "metadata.dropToInspect": "Lepaskan imej untuk memeriksa pengepala & metadata",
   "metadata.choosePreset": "Pilih Pratetap Kamera Studio",
   "metadata.recommendedBadge": "Foto Pas Studio",
   "metadata.stealthBadge": "Gosok Semua",
@@ -2104,5 +2104,10 @@
   "metadata.btnEditExifInstead": "Edit Metadata EXIF ​​Foto Ini",
   "metadata.switchToEdit": "Tukar kepada Edit Mod EXIF",
   "work.viewMetadataHud": "Maklumat Metadata",
-  "work.hideMetadataHud": "Tutup Maklumat"
+  "work.hideMetadataHud": "Tutup Maklumat",
+  "metadata.tabInfo": "Maklumat Metadata",
+  "metadata.fieldCamera": "Kamera & Lensa",
+  "metadata.fieldExposure": "Spesifikasi Pendedahan",
+  "metadata.fieldAuthor": "Pencipta & Hak Cipta",
+  "metadata.fieldDate": "Tarikh Diambil"
 }

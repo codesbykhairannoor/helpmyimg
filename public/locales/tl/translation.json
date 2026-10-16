@@ -1806,7 +1806,7 @@
   "metadata.c2paCleanDesc": "May nakitang zero AI watermark manifests",
   "metadata.noExif": "Walang Camera EXIF ​​(Nakuha / AI)",
   "metadata.noExifDesc": "Walang aperture, bilis ng shutter at mga tag ng lens",
-  "metadata.dropToInspect": "Mag-drop ng larawan para suriin ang mga lagda at metadata ng AI",
+  "metadata.dropToInspect": "Mag-drop ng larawan para suriin ang mga header at metadata",
   "metadata.choosePreset": "Piliin ang Studio Camera Preset",
   "metadata.recommendedBadge": "Larawan ng Studio Pass",
   "metadata.stealthBadge": "Scrub Lahat",
@@ -2104,5 +2104,10 @@
   "metadata.btnEditExifInstead": "I-edit ang EXIF ​​Metadata ng Larawang Ito",
   "metadata.switchToEdit": "Lumipat sa I-edit ang EXIF ​​Mode",
   "work.viewMetadataHud": "Impormasyon ng Metadata",
-  "work.hideMetadataHud": "Isara ang Impormasyon"
+  "work.hideMetadataHud": "Isara ang Impormasyon",
+  "metadata.tabInfo": "Impormasyon ng Metadata",
+  "metadata.fieldCamera": "Camera at Lens",
+  "metadata.fieldExposure": "Mga Detalye ng Exposure",
+  "metadata.fieldAuthor": "Tagalikha at Copyright",
+  "metadata.fieldDate": "Petsa ng Kinuha"
 }

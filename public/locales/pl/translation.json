@@ -1811,7 +1811,7 @@
   "metadata.c2paCleanDesc": "Znaleziono zerowy manifest znaku wodnego AI",
   "metadata.noExif": "Brak EXIF ​​​​aparatu (bez pasków / AI)",
   "metadata.noExifDesc": "Brak przysłony, czasu otwarcia migawki i znaczników obiektywu",
-  "metadata.dropToInspect": "Upuść obraz, aby sprawdzić podpisy i metadane AI",
+  "metadata.dropToInspect": "Upuść obraz, aby sprawdzić nagłówki i metadane",
   "metadata.choosePreset": "Wybierz ustawienie wstępne kamery studyjnej",
   "metadata.recommendedBadge": "Zdjęcie karnetu do studia",
   "metadata.stealthBadge": "Szoruj wszystko",
@@ -2109,5 +2109,10 @@
   "metadata.btnEditExifInstead": "Edytuj metadane EXIF ​​​​tego zdjęcia",
   "metadata.switchToEdit": "Przejdź do trybu edycji EXIF",
   "work.viewMetadataHud": "Informacje o metadanych",
-  "work.hideMetadataHud": "Zamknij informacje"
+  "work.hideMetadataHud": "Zamknij informacje",
+  "metadata.tabInfo": "Informacje o metadanych",
+  "metadata.fieldCamera": "Aparat i obiektyw",
+  "metadata.fieldExposure": "Specyfikacje ekspozycji",
+  "metadata.fieldAuthor": "Twórca i prawa autorskie",
+  "metadata.fieldDate": "Data wykonania"
 }

@@ -1806,7 +1806,7 @@
   "metadata.c2paCleanDesc": "Sıfır AI filigranı bildirimi bulundu",
   "metadata.noExif": "Kamera EXIF ​​Yok (Soyutlanmış / AI)",
   "metadata.noExifDesc": "Eksik diyafram açıklığı, deklanşör hızı ve lens etiketleri",
-  "metadata.dropToInspect": "Yapay zeka imzalarını ve meta verilerini incelemek için bir resim bırakın",
+  "metadata.dropToInspect": "Başlıkları ve meta verileri incelemek için bir resim bırakın",
   "metadata.choosePreset": "Stüdyo Kamerası Ön Ayarını Seçin",
   "metadata.recommendedBadge": "Stüdyo Kartı Fotoğrafı",
   "metadata.stealthBadge": "Tümünü Fırçala",
@@ -2104,5 +2104,10 @@
   "metadata.btnEditExifInstead": "Bu Fotoğrafın EXIF ​​Meta Verilerini Düzenle",
   "metadata.switchToEdit": "EXIF Modunu Düzenlemeye Geç",
   "work.viewMetadataHud": "Meta Veri Bilgisi",
-  "work.hideMetadataHud": "Bilgileri Kapat"
+  "work.hideMetadataHud": "Bilgileri Kapat",
+  "metadata.tabInfo": "Meta Veri Bilgisi",
+  "metadata.fieldCamera": "Kamera ve Objektif",
+  "metadata.fieldExposure": "Pozlama Özellikleri",
+  "metadata.fieldAuthor": "İçerik Oluşturucu ve Telif Hakkı",
+  "metadata.fieldDate": "Çekildiği Tarih"
 }

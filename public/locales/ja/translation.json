@@ -1806,7 +1806,7 @@
   "metadata.c2paCleanDesc": "AI ウォーターマーク マニフェストが見つかりませんでした",
   "metadata.noExif": "カメラ EXIF なし (ストリップ/AI)",
   "metadata.noExifDesc": "絞り、シャッタースピード、レンズのタグがありません",
-  "metadata.dropToInspect": "画像をドロップして AI 署名とメタデータを検査します",
+  "metadata.dropToInspect": "画像をドロップしてヘッダーとメタデータを検査します",
   "metadata.choosePreset": "スタジオカメラのプリセットを選択",
   "metadata.recommendedBadge": "スタジオパス写真",
   "metadata.stealthBadge": "すべてスクラブ",
@@ -2104,5 +2104,10 @@
   "metadata.btnEditExifInstead": "この写真の EXIF メタデータを編集する",
   "metadata.switchToEdit": "EXIF 編集モードに切り替える",
   "work.viewMetadataHud": "メタデータ情報",
-  "work.hideMetadataHud": "情報を閉じる"
+  "work.hideMetadataHud": "情報を閉じる",
+  "metadata.tabInfo": "メタデータ情報",
+  "metadata.fieldCamera": "カメラとレンズ",
+  "metadata.fieldExposure": "露出スペック",
+  "metadata.fieldAuthor": "作成者と著作権",
+  "metadata.fieldDate": "撮影日"
 }

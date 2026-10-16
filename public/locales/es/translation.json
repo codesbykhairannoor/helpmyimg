@@ -1806,7 +1806,7 @@
   "metadata.c2paCleanDesc": "Se encontraron manifiestos de marca de agua sin IA",
   "metadata.noExif": "Sin cámara EXIF ​​(despojada / AI)",
   "metadata.noExifDesc": "Faltan etiquetas de apertura, velocidad de obturación y lentes",
-  "metadata.dropToInspect": "Suelte una imagen para inspeccionar firmas y metadatos de IA",
+  "metadata.dropToInspect": "Suelta una imagen para inspeccionar encabezados y metadatos",
   "metadata.choosePreset": "Elija el ajuste preestablecido de cámara de estudio",
   "metadata.recommendedBadge": "Foto de pase de estudio",
   "metadata.stealthBadge": "Fregar todo",
@@ -2104,5 +2104,10 @@
   "metadata.btnEditExifInstead": "Editar los metadatos EXIF ​​de esta foto",
   "metadata.switchToEdit": "Cambiar al modo Editar EXIF",
   "work.viewMetadataHud": "Información de metadatos",
-  "work.hideMetadataHud": "Cerrar Información"
+  "work.hideMetadataHud": "Cerrar Información",
+  "metadata.tabInfo": "Información de metadatos",
+  "metadata.fieldCamera": "Cámara y lente",
+  "metadata.fieldExposure": "Especificaciones de exposición",
+  "metadata.fieldAuthor": "Creador y derechos de autor",
+  "metadata.fieldDate": "Fecha de toma"
 }

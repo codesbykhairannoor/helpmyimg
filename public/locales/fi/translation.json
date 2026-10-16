@@ -1806,7 +1806,7 @@
   "metadata.c2paCleanDesc": "Nolla AI-vesileimaluetteloita löydetty",
   "metadata.noExif": "Ei kameraa EXIF ​​(kuivattu / AI)",
   "metadata.noExifDesc": "Puuttuu aukko, suljinaika ja linssin tunnisteet",
-  "metadata.dropToInspect": "Pudota kuva tarkistaaksesi tekoälyn allekirjoitukset ja metatiedot",
+  "metadata.dropToInspect": "Pudota kuva tarkistaaksesi otsikot ja metatiedot",
   "metadata.choosePreset": "Valitse Studio-kameran esiasetus",
   "metadata.recommendedBadge": "Studio Pass Photo",
   "metadata.stealthBadge": "Kuori kaikki",
@@ -2104,5 +2104,10 @@
   "metadata.btnEditExifInstead": "Muokkaa tämän kuvan EXIF-metatietoja",
   "metadata.switchToEdit": "Vaihda Edit EXIF ​​-tilaan",
   "work.viewMetadataHud": "Metatietojen tiedot",
-  "work.hideMetadataHud": "Sulje tiedot"
+  "work.hideMetadataHud": "Sulje tiedot",
+  "metadata.tabInfo": "Metatietojen tiedot",
+  "metadata.fieldCamera": "Kamera ja objektiivi",
+  "metadata.fieldExposure": "Valotustiedot",
+  "metadata.fieldAuthor": "Tekijä ja tekijänoikeus",
+  "metadata.fieldDate": "Otettu päivämäärä"
 }
