@@ -362,7 +362,6 @@ export const Navbar: React.FC = () => {
                       <div className="mobile-nav-text-wrap">
                         <span className="mobile-nav-title">{t(tool.titleKey, { defaultValue: tool.defaultTitle })}</span>
                       </div>
-                      {tool.isNew && <span className="mobile-nav-badge">NEW</span>}
                       <ChevronRight size={16} className="mobile-nav-arrow" />
                     </a>
                   );
@@ -403,7 +402,6 @@ export const Navbar: React.FC = () => {
                           <div className="mobile-nav-text-wrap">
                             <span className="mobile-nav-title">{t(tool.titleKey, { defaultValue: tool.defaultTitle })}</span>
                           </div>
-                          {tool.isNew && <span className="mobile-nav-badge">NEW</span>}
                           <ChevronRight size={16} className="mobile-nav-arrow" />
                         </a>
                       );
