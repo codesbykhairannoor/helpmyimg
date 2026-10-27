@@ -145,20 +145,22 @@ async function submitUrl(accessToken, url, type = 'URL_UPDATED') {
  */
 async function submitBatch(urls, accessToken) {
   const DAILY_LIMIT = 200;
-  const DELAY_MS = 500; // 500ms between each to avoid rate limiting
 
   const toSubmit = urls.slice(0, DAILY_LIMIT);
   console.log(`\nSubmitting ${toSubmit.length} URLs to Google Indexing API...`);
-  console.log(`(Daily limit: ${DAILY_LIMIT}. Remaining: ${Math.max(0, urls.length - DAILY_LIMIT)} URLs need re-run)\n`);
+  console.log(`(Daily limit: ${DAILY_LIMIT}. Remaining in catalog: ${Math.max(0, urls.length - DAILY_LIMIT)} URLs)\n`);
 
   let success = 0;
   let failed = 0;
 
-  for (const url of toSubmit) {
-    const result = await submitUrl(accessToken, url);
+  for (const item of toSubmit) {
+    const url = typeof item === 'string' ? item : item.url;
+    const type = (typeof item === 'object' && item.type) ? item.type : 'URL_UPDATED';
+
+    const result = await submitUrl(accessToken, url, type);
     if (result.success) {
       success++;
-      process.stdout.write(`✅ ${url}\n`);
+      process.stdout.write(`✅ [${type}] ${url}\n`);
     } else {
       failed++;
       process.stderr.write(`❌ ${url} — ${result.error}\n`);
@@ -186,17 +188,18 @@ Pengiriman dihentikan sementara dan akan otomatis dilanjutkan pada jadwal beriku
         break;
       }
     }
-    // Throttle to avoid hitting API rate limits
-    await new Promise(r => setTimeout(r, DELAY_MS));
+    // Random jitter (400ms - 800ms) to avoid rate limits and simulate natural requests
+    const jitter = Math.floor(Math.random() * 400) + 400;
+    await new Promise(r => setTimeout(r, jitter));
   }
 
   return { success, failed, total: toSubmit.length };
 }
 
 // ============================================================================
-// MAIN — Define priority URLs to submit
-// Priority order: English homepage → English tool pages → Other lang homepages
-// → Other lang tool pages → Info pages
+// MAIN — Multi-Tier Rolling Queue Algorithm
+// Tier 1: 25 Core English Tools & Homepage (submitted every single run)
+// Tier 2: 175 Multilingual URLs cycled sequentially (1,027 total URLs covered in 6 days)
 // ============================================================================
 async function main() {
   console.log('🔑 Authenticating with Google Indexing API...');
@@ -209,9 +212,8 @@ async function main() {
     process.exit(1);
   }
 
-  // Priority URL list — submit highest-value pages first (English is default at root)
-  const priorityUrls = [
-    // English homepage and main tools (highest value)
+  // Tier 1: Highest-value Core English pages (always submitted in every run)
+  const tier1PriorityUrls = [
     `${DOMAIN}/`,
     `${DOMAIN}/remove-background/`,
     `${DOMAIN}/compress-image/`,
@@ -224,7 +226,6 @@ async function main() {
     `${DOMAIN}/blur-face/`,
     `${DOMAIN}/image-color-picker/`,
     `${DOMAIN}/advanced-editor/`,
-    // Long-tail English tools
     `${DOMAIN}/compress-image-to-100kb/`,
     `${DOMAIN}/compress-image-to-50kb/`,
     `${DOMAIN}/compress-image-to-200kb/`,
@@ -237,15 +238,12 @@ async function main() {
     `${DOMAIN}/blur-license-plate/`,
     `${DOMAIN}/change-background-to-white/`,
     `${DOMAIN}/magic-brush/`,
-    // English info pages
-    `${DOMAIN}/about/`,
-    `${DOMAIN}/faq/`,
-    `${DOMAIN}/pricing/`,
+    `${DOMAIN}/about/`
   ];
 
-  // Read sitemaps to get all remaining URLs
+  // Read all remaining URLs from all 30 sitemap shards
   const sitemapsDir = path.join(__dirname, '../public/sitemaps');
-  const allSitemapUrls = new Set(priorityUrls);
+  const allSitemapUrls = new Set();
 
   try {
     const sitemapFiles = fs.readdirSync(sitemapsDir).filter(f => f.endsWith('.xml'));
@@ -260,28 +258,50 @@ async function main() {
     console.warn('Could not read sitemaps, using priority list only.');
   }
 
-  // Build final list: priority URLs first, then remaining
-  const finalUrls = [
-    ...priorityUrls,
-    ...[...allSitemapUrls].filter(u => !priorityUrls.includes(u))
-  ];
+  // Tier 2: Remaining URLs (multilingual and secondary pages)
+  const tier2RemainingUrls = [...allSitemapUrls].filter(u => !tier1PriorityUrls.includes(u));
+  const totalCatalogUrls = tier1PriorityUrls.length + tier2RemainingUrls.length;
+  console.log(`📋 Total URLs in Catalog: ${totalCatalogUrls} (Tier 1: ${tier1PriorityUrls.length}, Tier 2: ${tier2RemainingUrls.length})`);
 
-  console.log(`Total unique URLs found: ${finalUrls.length}`);
+  const TIER2_BATCH_SIZE = 200 - tier1PriorityUrls.length; // 175 URLs
+  const totalBatches = Math.ceil(tier2RemainingUrls.length / TIER2_BATCH_SIZE);
 
-  const result = await submitBatch(finalUrls, accessToken);
+  // Calculate deterministic day-based batch rotation (works statelessly in GitHub Actions without cache)
+  const daysSinceEpoch = Math.floor(Date.now() / (1000 * 60 * 60 * 24));
+  
+  // Support CLI override: node scripts/submit-google-indexing-api.mjs --batch 2
+  const batchArgIndex = process.argv.indexOf('--batch');
+  const activeBatchIndex = batchArgIndex !== -1 && process.argv[batchArgIndex + 1]
+    ? parseInt(process.argv[batchArgIndex + 1], 10) % totalBatches
+    : daysSinceEpoch % totalBatches;
+
+  const currentOffset = activeBatchIndex * TIER2_BATCH_SIZE;
+
+  // Slice rolling Tier 2 batch
+  let rollingTier2Batch = tier2RemainingUrls.slice(currentOffset, currentOffset + TIER2_BATCH_SIZE);
+  // Wrap around if reached the end of the catalog
+  if (rollingTier2Batch.length < TIER2_BATCH_SIZE && tier2RemainingUrls.length > 0) {
+    const wrappedCount = TIER2_BATCH_SIZE - rollingTier2Batch.length;
+    rollingTier2Batch = [...rollingTier2Batch, ...tier2RemainingUrls.slice(0, wrappedCount)];
+  }
+
+  const nextBatchIndex = (activeBatchIndex + 1) % totalBatches;
+  console.log(`🔄 Daily Rotation: Day #${daysSinceEpoch} → Batch ${activeBatchIndex + 1} of ${totalBatches}`);
+  console.log(`   - Tier 1: 25 core English tools & homepage (submitted every run)`);
+  console.log(`   - Tier 2: ${rollingTier2Batch.length} localized URLs (indexes ${currentOffset} to ${currentOffset + rollingTier2Batch.length})`);
+  console.log(`⏱️ Complete 1,027-URL coverage cycle: ~${Math.round(((activeBatchIndex + 1) / totalBatches) * 100)}% complete`);
+
+  // Combine: 25 Tier 1 + 175 Tier 2 = 200 URLs
+  const urlsToSubmit = [...tier1PriorityUrls, ...rollingTier2Batch];
+
+  // Execute submission
+  const result = await submitBatch(urlsToSubmit, accessToken);
 
   console.log(`\n📊 Results:`);
   console.log(`   ✅ Success: ${result.success}/${result.total}`);
   console.log(`   ❌ Failed:  ${result.failed}/${result.total}`);
-
-  if (finalUrls.length > 200) {
-    console.log(`\n⚠️  You have ${finalUrls.length} URLs but the daily limit is 200.`);
-    console.log(`   Run this script again tomorrow to submit the remaining ${finalUrls.length - 200} URLs.`);
-    console.log(`   Or request increased quota: https://console.cloud.google.com/apis/api/indexing.googleapis.com/quotas`);
-  }
-
-  console.log(`\n🎯 Google will crawl submitted URLs within 24–48 hours.`);
-  console.log(`   Monitor in Search Console: https://search.google.com/search-console/`);
+  console.log(`\n🗓️ Tomorrow at 09:00 WIB, GitHub Actions will automatically submit Batch ${nextBatchIndex + 1} of ${totalBatches} (URLs ${nextBatchIndex * TIER2_BATCH_SIZE} to ${(nextBatchIndex + 1) * TIER2_BATCH_SIZE}).`);
+  console.log(`🎯 Googlebot will crawl submitted URLs within 1–24 hours.`);
 }
 
 main().catch(console.error);
