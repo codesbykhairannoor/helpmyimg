@@ -27,7 +27,7 @@ export const LanguagesPage: React.FC = () => {
       <SeoHead
         title={`${t('footer.languages', { defaultValue: 'Supported Languages' })} - HelpMyIMG`}
         description={t('languages.subtitle', { defaultValue: 'HelpMyIMG is natively translated and available in 30 global languages.' })}
-        canonicalPath={lang === 'en' ? `/${localizedSlug}` : `/${lang}/${localizedSlug}`}
+        canonicalPath={lang === 'en' ? `/${localizedSlug}/` : `/${lang}/${localizedSlug}/`}
         lang={lang}
         infoPage="languages"
       />

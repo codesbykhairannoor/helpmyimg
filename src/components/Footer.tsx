@@ -15,12 +15,12 @@ export const Footer: React.FC = () => {
 
   const getToolLink = (tool: InternalTool) => {
     const slug = getLocalizedSlug(tool, lang);
-    return lang === 'en' ? `/${slug}` : `/${lang}/${slug}`;
+    return lang === 'en' ? `/${slug}/` : `/${lang}/${slug}/`;
   };
 
   const getInfoLink = (page: InfoPageType) => {
     const slug = getLocalizedInfoSlug(page, lang);
-    return lang === 'en' ? `/${slug}` : `/${lang}/${slug}`;
+    return lang === 'en' ? `/${slug}/` : `/${lang}/${slug}/`;
   };
 
   return (

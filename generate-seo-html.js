@@ -2341,4 +2341,11 @@ for (const lang of LANGS) {
   }
 }
 
+// Ensure 404.html exists in dist/ for Vercel
+const p404 = path.join(publicDir, '404.html');
+if (fs.existsSync(p404)) {
+  fs.copyFileSync(p404, path.join(distDir, '404.html'));
+  console.log(`✓ Copied 404.html to dist/404.html for clean Vercel HTTP 404 handling.`);
+}
+
 console.log(`✅ Successfully generated ${generatedCount} localized, 100% visible SEO HTML Shells in dist/ with zero hidden-text clipping, deep semantic hierarchy, and native i18n.`);

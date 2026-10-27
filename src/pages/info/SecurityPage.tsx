@@ -26,7 +26,7 @@ export const SecurityPage: React.FC = () => {
       <SeoHead
         title={`${t('footer.security', { defaultValue: 'Security & Trust' })} - HelpMyIMG`}
         description={t('security.subtitle', { defaultValue: 'Learn how our Zero-Cloud architecture and local WebAssembly protect your image data.' })}
-        canonicalPath={lang === 'en' ? `/${localizedSlug}` : `/${lang}/${localizedSlug}`}
+        canonicalPath={lang === 'en' ? `/${localizedSlug}/` : `/${lang}/${localizedSlug}/`}
         lang={lang}
         infoPage="security"
       />

@@ -59,17 +59,6 @@
       "source": "/pt-BR/:path*",
       "destination": "https://helpmyimg.com/pt/:path*",
       "permanent": true
-    },
-    {
-      "source": "/:lang(ar|cs|da|de|el|es|fi|fr|he|hi|hu|id|it|ja|ko|ms|nl|no|pl|pt|ro|ru|sv|th|tl|tr|uk|vi|zh)/:tool/:slug((?!.*\\.).+)",
-      "destination": "https://helpmyimg.com/:lang/:tool/",
-      "permanent": true
-    }
-  ],
-  "rewrites": [
-    {
-      "source": "/((?!locales/|assets/|.*\\.[\\w]+$).*)",
-      "destination": "/index.html"
     }
   ],
   "headers": [

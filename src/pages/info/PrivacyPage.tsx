@@ -21,7 +21,7 @@ export const PrivacyPage: React.FC = () => {
       <SeoHead
         title={`${t('footer.privacy', { defaultValue: 'Privacy Policy' })} - HelpMyIMG`}
         description={t('privacy.intro', { defaultValue: 'HelpMyIMG privacy policy: 100% in-browser processing with zero server uploads.' })}
-        canonicalPath={lang === 'en' ? `/${localizedSlug}` : `/${lang}/${localizedSlug}`}
+        canonicalPath={lang === 'en' ? `/${localizedSlug}/` : `/${lang}/${localizedSlug}/`}
         lang={lang}
         infoPage="privacy"
       />

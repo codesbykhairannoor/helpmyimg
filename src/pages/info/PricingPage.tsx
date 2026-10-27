@@ -26,7 +26,7 @@ export const PricingPage: React.FC = () => {
       <SeoHead
         title={`${t('footer.pricing', { defaultValue: 'Pricing' })} - HelpMyIMG`}
         description={t('pricing.subtitle', { defaultValue: 'HelpMyIMG pricing: 100% free forever, no subscriptions, no credit cards required.' })}
-        canonicalPath={lang === 'en' ? `/${localizedSlug}` : `/${lang}/${localizedSlug}`}
+        canonicalPath={lang === 'en' ? `/${localizedSlug}/` : `/${lang}/${localizedSlug}/`}
         lang={lang}
         infoPage="pricing"
       />

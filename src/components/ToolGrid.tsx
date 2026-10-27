@@ -81,11 +81,11 @@ export const ToolGrid: React.FC = () => {
             return (
               <a
                 key={tool.id}
-                href={lang === 'en' ? `/${getLocalizedSlug(tool.id, lang)}` : `/${lang}/${getLocalizedSlug(tool.id, lang)}`}
+                href={lang === 'en' ? `/${getLocalizedSlug(tool.id, lang)}/` : `/${lang}/${getLocalizedSlug(tool.id, lang)}/`}
                 onClick={(e) => {
                   e.preventDefault();
                   trackEvent('tool_clicked', { tool_id: tool.id, category: tool.category, lang });
-                  navigatePath(lang === 'en' ? `/${getLocalizedSlug(tool.id, lang)}` : `/${lang}/${getLocalizedSlug(tool.id, lang)}`);
+                  navigatePath(lang === 'en' ? `/${getLocalizedSlug(tool.id, lang)}/` : `/${lang}/${getLocalizedSlug(tool.id, lang)}/`);
                 }}
                 className="group relative flex flex-col p-6 sm:p-10 rounded-[2rem] sm:rounded-[2.5rem] bg-dark-900/80 border border-dark-600 hover:border-[#05DAED]/30 hover:bg-dark-800 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_20px_40px_-15px_rgba(5,218,237,0.1)] h-full"
               >

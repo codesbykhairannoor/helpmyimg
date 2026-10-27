@@ -26,7 +26,7 @@ export const ComparePage: React.FC = () => {
       <SeoHead
         title={`${t('footer.compare', { defaultValue: 'Compare' })} - HelpMyIMG`}
         description={t('compare.subtitle', { defaultValue: 'Compare HelpMyIMG vs cloud-based alternatives like Remove.bg, Canva, and TinyPNG.' })}
-        canonicalPath={lang === 'en' ? `/${localizedSlug}` : `/${lang}/${localizedSlug}`}
+        canonicalPath={lang === 'en' ? `/${localizedSlug}/` : `/${lang}/${localizedSlug}/`}
         lang={lang}
         infoPage="compare"
       />

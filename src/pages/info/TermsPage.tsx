@@ -21,7 +21,7 @@ export const TermsPage: React.FC = () => {
       <SeoHead
         title={`${t('footer.terms', { defaultValue: 'Terms of Service' })} - HelpMyIMG`}
         description={t('terms.intro', { defaultValue: 'HelpMyIMG terms of service and conditions for using our free local image editing tools.' })}
-        canonicalPath={lang === 'en' ? `/${localizedSlug}` : `/${lang}/${localizedSlug}`}
+        canonicalPath={lang === 'en' ? `/${localizedSlug}/` : `/${lang}/${localizedSlug}/`}
         lang={lang}
         infoPage="terms"
       />

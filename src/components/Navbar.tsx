@@ -120,13 +120,13 @@ export const Navbar: React.FC = () => {
  {/* Tengah: Navigation Links (Desktop) */}
  <div className="hidden lg:flex items-center justify-center flex-1 relative group px-4">
  <nav className="flex items-center gap-2 xl:gap-4 text-sm font-medium text-slate-700 dark:text-slate-300">
- <a href={lang === 'en' ? `/${getLocalizedSlug('remove', lang)}` : `/${lang}/${getLocalizedSlug('remove', lang)}`} onClick={(e) => { e.preventDefault(); navigatePath(lang === 'en' ? `/${getLocalizedSlug('remove', lang)}` : `/${lang}/${getLocalizedSlug('remove', lang)}`); (document.activeElement as HTMLElement)?.blur(); }} className="hover:text-neon-cyan transition-colors font-bold text-[13.5px] uppercase px-2.5 py-1.5 flex items-center whitespace-nowrap rounded-lg hover:bg-slate-50 dark:hover:bg-dark-800/50">
+ <a href={lang === 'en' ? `/${getLocalizedSlug('remove', lang)}/` : `/${lang}/${getLocalizedSlug('remove', lang)}/`} onClick={(e) => { e.preventDefault(); navigatePath(lang === 'en' ? `/${getLocalizedSlug('remove', lang)}/` : `/${lang}/${getLocalizedSlug('remove', lang)}/`); (document.activeElement as HTMLElement)?.blur(); }} className="hover:text-neon-cyan transition-colors font-bold text-[13.5px] uppercase px-2.5 py-1.5 flex items-center whitespace-nowrap rounded-lg hover:bg-slate-50 dark:hover:bg-dark-800/50">
  {t('nav.removeBg', { defaultValue: 'Remove Background' })}
  </a>
- <a href={lang === 'en' ? `/${getLocalizedSlug('compress', lang)}` : `/${lang}/${getLocalizedSlug('compress', lang)}`} onClick={(e) => { e.preventDefault(); navigatePath(lang === 'en' ? `/${getLocalizedSlug('compress', lang)}` : `/${lang}/${getLocalizedSlug('compress', lang)}`); (document.activeElement as HTMLElement)?.blur(); }} className="hover:text-neon-cyan transition-colors font-bold text-[13.5px] uppercase px-2.5 py-1.5 flex items-center whitespace-nowrap rounded-lg hover:bg-slate-50 dark:hover:bg-dark-800/50">
+ <a href={lang === 'en' ? `/${getLocalizedSlug('compress', lang)}/` : `/${lang}/${getLocalizedSlug('compress', lang)}/`} onClick={(e) => { e.preventDefault(); navigatePath(lang === 'en' ? `/${getLocalizedSlug('compress', lang)}/` : `/${lang}/${getLocalizedSlug('compress', lang)}/`); (document.activeElement as HTMLElement)?.blur(); }} className="hover:text-neon-cyan transition-colors font-bold text-[13.5px] uppercase px-2.5 py-1.5 flex items-center whitespace-nowrap rounded-lg hover:bg-slate-50 dark:hover:bg-dark-800/50">
  {t('nav.compress', { defaultValue: 'Compress Image' })}
  </a>
- <a href={lang === 'en' ? `/${getLocalizedSlug('resize', lang)}` : `/${lang}/${getLocalizedSlug('resize', lang)}`} onClick={(e) => { e.preventDefault(); navigatePath(lang === 'en' ? `/${getLocalizedSlug('resize', lang)}` : `/${lang}/${getLocalizedSlug('resize', lang)}`); (document.activeElement as HTMLElement)?.blur(); }} className="hover:text-neon-cyan transition-colors font-bold text-[13.5px] uppercase px-2.5 py-1.5 flex items-center whitespace-nowrap rounded-lg hover:bg-slate-50 dark:hover:bg-dark-800/50">
+ <a href={lang === 'en' ? `/${getLocalizedSlug('resize', lang)}/` : `/${lang}/${getLocalizedSlug('resize', lang)}/`} onClick={(e) => { e.preventDefault(); navigatePath(lang === 'en' ? `/${getLocalizedSlug('resize', lang)}/` : `/${lang}/${getLocalizedSlug('resize', lang)}/`); (document.activeElement as HTMLElement)?.blur(); }} className="hover:text-neon-cyan transition-colors font-bold text-[13.5px] uppercase px-2.5 py-1.5 flex items-center whitespace-nowrap rounded-lg hover:bg-slate-50 dark:hover:bg-dark-800/50">
  {t('nav.resize', { defaultValue: 'Resize Image' })}
  </a>
  
@@ -155,10 +155,10 @@ export const Navbar: React.FC = () => {
  return (
  <a 
  key={tool.id} 
- href={lang === 'en' ? `/${getLocalizedSlug(tool.id, lang)}` : `/${lang}/${getLocalizedSlug(tool.id, lang)}`} 
+ href={lang === 'en' ? `/${getLocalizedSlug(tool.id, lang)}/` : `/${lang}/${getLocalizedSlug(tool.id, lang)}/`} 
  onClick={(e) => {
  e.preventDefault();
- navigatePath(lang === 'en' ? `/${getLocalizedSlug(tool.id, lang)}` : `/${lang}/${getLocalizedSlug(tool.id, lang)}`);
+ navigatePath(lang === 'en' ? `/${getLocalizedSlug(tool.id, lang)}/` : `/${lang}/${getLocalizedSlug(tool.id, lang)}/`);
  (document.activeElement as HTMLElement)?.blur();
  }}
  className="flex items-center gap-3.5 py-2 px-3 -mx-3 rounded-xl hover:bg-slate-50 dark:hover:bg-dark-800 transition-colors group/item"
@@ -342,7 +342,7 @@ export const Navbar: React.FC = () => {
                 })
                 .map(tool => {
                   const slug = getLocalizedSlug(tool.id, lang);
-                  const targetHref = lang === 'en' ? `/${slug}` : `/${lang}/${slug}`;
+                  const targetHref = lang === 'en' ? `/${slug}/` : `/${lang}/${slug}/`;
                   const color = TOOL_COLORS[tool.id] || '#06b6d4';
                   return (
                     <a
@@ -382,7 +382,7 @@ export const Navbar: React.FC = () => {
                   <div className="mobile-nav-list">
                     {catTools.map(tool => {
                       const slug = getLocalizedSlug(tool.id, lang);
-                      const targetHref = lang === 'en' ? `/${slug}` : `/${lang}/${slug}`;
+                      const targetHref = lang === 'en' ? `/${slug}/` : `/${lang}/${slug}/`;
                       const color = TOOL_COLORS[tool.id] || '#06b6d4';
                       return (
                         <a

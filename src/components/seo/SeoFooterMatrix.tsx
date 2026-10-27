@@ -18,7 +18,7 @@ export const SeoFooterMatrix: React.FC = () => {
             {SUPPORTED_LANGUAGES.map((lang) => (
               <div key={lang.code} className="space-y-2">
                 <a 
-                  href={`/${lang.code}`} 
+                  href={lang.code === 'en' ? '/' : `/${lang.code}/`} 
                   hrefLang={lang.code}
                   className="font-bold text-cyan-300 hover:underline text-sm py-1.5 block"
                   title={`${lang.name} AI Image Editor`}
@@ -29,7 +29,7 @@ export const SeoFooterMatrix: React.FC = () => {
                   {coreTools.slice(0, 4).map(tool => (
                     <li key={tool}>
                       <a 
-                        href={`/${lang.code}/${getLocalizedSlug(tool, lang.code)}`}
+                        href={lang.code === 'en' ? `/${getLocalizedSlug(tool, 'en')}/` : `/${lang.code}/${getLocalizedSlug(tool, lang.code)}/`}
                         hrefLang={lang.code}
                         className="text-xs text-slate-300 hover:text-white hover:underline block truncate py-1.5"
                         title={`${tool} in ${lang.name}`}
@@ -68,7 +68,7 @@ export const SeoFooterMatrix: React.FC = () => {
               <p className="text-xs text-slate-300 italic mb-2">
                 "By shifting heavy neural network inference directly to the client's device using WebAssembly, HelpMyIMG completely eliminates the privacy vulnerabilities associated with cloud-based image editors. It represents a strict zero-trust paradigm shift for secure digital media manipulation."
               </p>
-              <footer className="text-[11px] text-slate-500">— Systems Architecture Review (Source: <a href="/privacy" className="text-cyan-400 hover:underline">Data Security Policy</a>)</footer>
+              <footer className="text-[11px] text-slate-500">— Systems Architecture Review (Source: <a href="/privacy/" className="text-cyan-400 hover:underline">Data Security Policy</a>)</footer>
             </blockquote>
           </div>
         </div>

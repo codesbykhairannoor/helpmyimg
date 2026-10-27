@@ -32,7 +32,9 @@ export const SeoHead: React.FC<SeoHeadProps> = ({
   infoPage,
   keywordSlug
 }) => {
-  const fullUrl = `${DOMAIN}${canonicalPath.startsWith('/') ? canonicalPath : '/' + canonicalPath}`;
+  const rawPath = canonicalPath.startsWith('/') ? canonicalPath : '/' + canonicalPath;
+  const cleanPath = rawPath === '/' ? '/' : (rawPath.endsWith('/') ? rawPath : `${rawPath}/`);
+  const fullUrl = `${DOMAIN}${cleanPath}`;
   
   let defaultUrl = `${DOMAIN}/`;
   if (infoPage) {

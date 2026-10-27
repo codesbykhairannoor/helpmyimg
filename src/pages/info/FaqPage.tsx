@@ -40,7 +40,7 @@ export const FaqPage: React.FC = () => {
       <SeoHead
         title={`${t('nav.faq', { defaultValue: 'FAQ' })} - HelpMyIMG`}
         description={t('faq.subtitle', { defaultValue: 'Frequently asked questions about HelpMyIMG local WebAssembly AI image editor.' })}
-        canonicalPath={lang === 'en' ? `/${localizedSlug}` : `/${lang}/${localizedSlug}`}
+        canonicalPath={lang === 'en' ? `/${localizedSlug}/` : `/${lang}/${localizedSlug}/`}
         lang={lang}
         infoPage="faq"
       />

@@ -21,7 +21,7 @@ export const AboutPage: React.FC = () => {
       <SeoHead
         title={`${t('footer.about', { defaultValue: 'About Us' })} - HelpMyIMG`}
         description={t('about.subtitle', { defaultValue: 'Learn about HelpMyIMG, the 100% private, client-side AI image editor.' })}
-        canonicalPath={lang === 'en' ? `/${localizedSlug}` : `/${lang}/${localizedSlug}`}
+        canonicalPath={lang === 'en' ? `/${localizedSlug}/` : `/${lang}/${localizedSlug}/`}
         lang={lang}
         infoPage="about"
       />

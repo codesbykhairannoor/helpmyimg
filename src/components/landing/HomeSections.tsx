@@ -393,7 +393,7 @@ export const HomeSections: React.FC = () => {
             </p>
             
             <a
-              href={`/${lang}/${getLocalizedSlug('remove', lang)}`}
+              href={lang === 'en' ? `/${getLocalizedSlug('remove', 'en')}/` : `/${lang}/${getLocalizedSlug('remove', lang)}/`}
               className="inline-flex items-center justify-center gap-3 px-10 py-5 rounded-full bg-gradient-to-r from-neon-cyan via-neon-emerald to-neon-indigo text-dark-900 font-black tracking-wide shadow-[0_0_40px_rgba(5,218,237,0.4)] hover:shadow-[0_0_60px_rgba(5,218,237,0.6)] transition-all duration-300 hover:scale-105"
             >
               <Sparkles className="w-5 h-5 md:w-6 md:h-6 fill-dark-900" />

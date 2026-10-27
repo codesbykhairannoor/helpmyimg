@@ -80,14 +80,14 @@ export const RouterProvider: React.FC<{ children: React.ReactNode }> = ({ childr
   }, [route.tool, route.page]);
 
   const navigate = (newLang: Language, newTool: string | null = null, newPage: RouteState['page'] = 'tool') => {
-    let newPath = newLang === 'en' ? '/' : `/${newLang}`;
+    let newPath = newLang === 'en' ? '/' : `/${newLang}/`;
     
     if (newPage !== 'home' && newPage !== 'tool') {
       const localizedInfoSlug = getLocalizedInfoSlug(newPage as InfoPageType, newLang);
-      newPath = newLang === 'en' ? `/${localizedInfoSlug}` : `/${newLang}/${localizedInfoSlug}`;
+      newPath = newLang === 'en' ? `/${localizedInfoSlug}/` : `/${newLang}/${localizedInfoSlug}/`;
     } else if (newTool) {
       const localizedToolSlug = getLocalizedSlug(newTool as any, newLang);
-      newPath = newLang === 'en' ? `/${localizedToolSlug}` : `/${newLang}/${localizedToolSlug}`;
+      newPath = newLang === 'en' ? `/${localizedToolSlug}/` : `/${newLang}/${localizedToolSlug}/`;
     }
 
     // Hanya ubah state jika URL benar-benar berbeda
@@ -107,9 +107,10 @@ export const RouterProvider: React.FC<{ children: React.ReactNode }> = ({ childr
   };
 
   const navigatePath = (path: string) => {
-    if (window.location.pathname !== path) {
+    const cleanPath = path === '/' ? '/' : (path.endsWith('/') ? path : `${path}/`);
+    if (window.location.pathname !== cleanPath) {
       const oldRoute = route;
-      window.history.pushState({}, '', path);
+      window.history.pushState({}, '', cleanPath);
       const newRoute = parseUrl();
       setRoute(newRoute);
       
