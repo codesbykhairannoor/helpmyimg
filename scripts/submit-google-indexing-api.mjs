@@ -177,6 +177,14 @@ Cara Mengatasi (Cuma 1 Menit):
 `);
         break;
       }
+      if (result.error && result.error.includes('Quota exceeded')) {
+        console.warn(`
+⚠️ Kuota Google Indexing API harian (200 URLs/hari) untuk hari ini sudah terpakai penuh.
+Google otomatis me-reset kuota ini setiap hari (sekitar pukul 14:00-15:00 WIB / 00:00 Pacific).
+Pengiriman dihentikan sementara dan akan otomatis dilanjutkan pada jadwal berikutnya!
+`);
+        break;
+      }
     }
     // Throttle to avoid hitting API rate limits
     await new Promise(r => setTimeout(r, DELAY_MS));
