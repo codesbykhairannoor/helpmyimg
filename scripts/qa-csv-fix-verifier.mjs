@@ -22,7 +22,7 @@ function getHtmlFiles(dir) {
     const stat = fs.statSync(filePath);
     if (stat && stat.isDirectory()) {
       results = results.concat(getHtmlFiles(filePath));
-    } else if (file.endsWith('.html')) {
+    } else if (file.endsWith('.html') && file !== '404.html') {
       results.push(filePath);
     }
   }
