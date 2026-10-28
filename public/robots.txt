@@ -263,7 +263,3 @@ Sitemap: https://helpmyimg.com/sitemaps/sitemap-uk.xml
 Sitemap: https://helpmyimg.com/sitemaps/sitemap-vi.xml
 Sitemap: https://helpmyimg.com/sitemaps/sitemap-zh.xml
 
-# ------------------------------------------------------------------------------
-# 8. HOST SPECIFICATION
-# ------------------------------------------------------------------------------
-Host: https://helpmyimg.com

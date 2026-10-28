@@ -72,7 +72,7 @@
       "headers": [
         {
           "key": "Link",
-          "value": "</llms.txt>; rel=\"llms-txt\""
+          "value": "</llms.txt>; rel=\"llms-txt\", </llms-full.txt>; rel=\"llms-full-txt\""
         },
         {
           "key": "X-Content-Type-Options",
