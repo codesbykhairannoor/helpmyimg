@@ -21,8 +21,18 @@
       "permanent": true
     },
     {
+      "source": "/en/:path*/",
+      "destination": "https://helpmyimg.com/:path*/",
+      "permanent": true
+    },
+    {
       "source": "/en/:path*",
-      "destination": "https://helpmyimg.com/:path*",
+      "destination": "https://helpmyimg.com/:path*/",
+      "permanent": true
+    },
+    {
+      "source": "/en/",
+      "destination": "https://helpmyimg.com/",
       "permanent": true
     },
     {
@@ -31,8 +41,18 @@
       "permanent": true
     },
     {
+      "source": "/bg/:path*/",
+      "destination": "https://helpmyimg.com/:path*/",
+      "permanent": true
+    },
+    {
       "source": "/bg/:path*",
-      "destination": "https://helpmyimg.com/:path*",
+      "destination": "https://helpmyimg.com/:path*/",
+      "permanent": true
+    },
+    {
+      "source": "/bg/",
+      "destination": "https://helpmyimg.com/",
       "permanent": true
     },
     {
@@ -41,8 +61,18 @@
       "permanent": true
     },
     {
+      "source": "/en-US/:path*/",
+      "destination": "https://helpmyimg.com/:path*/",
+      "permanent": true
+    },
+    {
       "source": "/en-US/:path*",
-      "destination": "https://helpmyimg.com/:path*",
+      "destination": "https://helpmyimg.com/:path*/",
+      "permanent": true
+    },
+    {
+      "source": "/en-US/",
+      "destination": "https://helpmyimg.com/",
       "permanent": true
     },
     {
@@ -51,13 +81,23 @@
       "permanent": true
     },
     {
+      "source": "/zh-CN/:path*/",
+      "destination": "https://helpmyimg.com/zh/:path*/",
+      "permanent": true
+    },
+    {
       "source": "/zh-CN/:path*",
-      "destination": "https://helpmyimg.com/zh/:path*",
+      "destination": "https://helpmyimg.com/zh/:path*/",
+      "permanent": true
+    },
+    {
+      "source": "/pt-BR/:path*/",
+      "destination": "https://helpmyimg.com/pt/:path*/",
       "permanent": true
     },
     {
       "source": "/pt-BR/:path*",
-      "destination": "https://helpmyimg.com/pt/:path*",
+      "destination": "https://helpmyimg.com/pt/:path*/",
       "permanent": true
     },
     {
