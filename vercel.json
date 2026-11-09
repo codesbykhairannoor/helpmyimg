@@ -101,6 +101,196 @@
       "permanent": true
     },
     {
+      "source": "/th/remove-background/:path*",
+      "destination": "https://helpmyimg.com/th/lop-phun-lang/",
+      "permanent": true
+    },
+    {
+      "source": "/th/remove-background",
+      "destination": "https://helpmyimg.com/th/lop-phun-lang/",
+      "permanent": true
+    },
+    {
+      "source": "/hi/remove-background/:path*",
+      "destination": "https://helpmyimg.com/hi/background-hatao/",
+      "permanent": true
+    },
+    {
+      "source": "/hi/remove-background",
+      "destination": "https://helpmyimg.com/hi/background-hatao/",
+      "permanent": true
+    },
+    {
+      "source": "/hi/change-background/:path*",
+      "destination": "https://helpmyimg.com/hi/background-badlo/",
+      "permanent": true
+    },
+    {
+      "source": "/hi/change-background",
+      "destination": "https://helpmyimg.com/hi/background-badlo/",
+      "permanent": true
+    },
+    {
+      "source": "/hu/change-background/:path*",
+      "destination": "https://helpmyimg.com/hu/hatter-modositas/",
+      "permanent": true
+    },
+    {
+      "source": "/hu/change-background",
+      "destination": "https://helpmyimg.com/hu/hatter-modositas/",
+      "permanent": true
+    },
+    {
+      "source": "/id/change-background/:path*",
+      "destination": "https://helpmyimg.com/id/ganti-background/",
+      "permanent": true
+    },
+    {
+      "source": "/id/change-background",
+      "destination": "https://helpmyimg.com/id/ganti-background/",
+      "permanent": true
+    },
+    {
+      "source": "/id/remove-background/:path*",
+      "destination": "https://helpmyimg.com/id/hapus-latar-belakang/",
+      "permanent": true
+    },
+    {
+      "source": "/id/remove-background",
+      "destination": "https://helpmyimg.com/id/hapus-latar-belakang/",
+      "permanent": true
+    },
+    {
+      "source": "/it/convert-image/:path*",
+      "destination": "https://helpmyimg.com/it/converti-immagine/",
+      "permanent": true
+    },
+    {
+      "source": "/it/convert-image",
+      "destination": "https://helpmyimg.com/it/converti-immagine/",
+      "permanent": true
+    },
+    {
+      "source": "/it/watermark-image/:path*",
+      "destination": "https://helpmyimg.com/it/filigrana/",
+      "permanent": true
+    },
+    {
+      "source": "/it/watermark-image",
+      "destination": "https://helpmyimg.com/it/filigrana/",
+      "permanent": true
+    },
+    {
+      "source": "/it/remove-background/:path*",
+      "destination": "https://helpmyimg.com/it/rimuovi-sfondo/",
+      "permanent": true
+    },
+    {
+      "source": "/it/remove-background",
+      "destination": "https://helpmyimg.com/it/rimuovi-sfondo/",
+      "permanent": true
+    },
+    {
+      "source": "/ja/resize-image/:path*",
+      "destination": "https://helpmyimg.com/ja/gazo-ri-saizu/",
+      "permanent": true
+    },
+    {
+      "source": "/ja/resize-image",
+      "destination": "https://helpmyimg.com/ja/gazo-ri-saizu/",
+      "permanent": true
+    },
+    {
+      "source": "/ja/remove-background/:path*",
+      "destination": "https://helpmyimg.com/ja/haikei-sakuzyo/",
+      "permanent": true
+    },
+    {
+      "source": "/ja/remove-background",
+      "destination": "https://helpmyimg.com/ja/haikei-sakuzyo/",
+      "permanent": true
+    },
+    {
+      "source": "/es/remove-background/:path*",
+      "destination": "https://helpmyimg.com/es/quitar-fondo/",
+      "permanent": true
+    },
+    {
+      "source": "/es/remove-background",
+      "destination": "https://helpmyimg.com/es/quitar-fondo/",
+      "permanent": true
+    },
+    {
+      "source": "/es/change-background/:path*",
+      "destination": "https://helpmyimg.com/es/cambiar-fondo/",
+      "permanent": true
+    },
+    {
+      "source": "/es/change-background",
+      "destination": "https://helpmyimg.com/es/cambiar-fondo/",
+      "permanent": true
+    },
+    {
+      "source": "/de/remove-background/:path*",
+      "destination": "https://helpmyimg.com/de/hintergrund-entfernen/",
+      "permanent": true
+    },
+    {
+      "source": "/de/remove-background",
+      "destination": "https://helpmyimg.com/de/hintergrund-entfernen/",
+      "permanent": true
+    },
+    {
+      "source": "/fr/remove-background/:path*",
+      "destination": "https://helpmyimg.com/fr/supprimer-fond/",
+      "permanent": true
+    },
+    {
+      "source": "/fr/remove-background",
+      "destination": "https://helpmyimg.com/fr/supprimer-fond/",
+      "permanent": true
+    },
+    {
+      "source": "/he/privacy/:path*",
+      "destination": "https://helpmyimg.com/he/pratiyut/",
+      "permanent": true
+    },
+    {
+      "source": "/he/privacy",
+      "destination": "https://helpmyimg.com/he/pratiyut/",
+      "permanent": true
+    },
+    {
+      "source": "/es/privacy/:path*",
+      "destination": "https://helpmyimg.com/es/privacidad/",
+      "permanent": true
+    },
+    {
+      "source": "/es/privacy",
+      "destination": "https://helpmyimg.com/es/privacidad/",
+      "permanent": true
+    },
+    {
+      "source": "/fi/privacy/:path*",
+      "destination": "https://helpmyimg.com/fi/tietosuoja/",
+      "permanent": true
+    },
+    {
+      "source": "/fi/privacy",
+      "destination": "https://helpmyimg.com/fi/tietosuoja/",
+      "permanent": true
+    },
+    {
+      "source": "/tr/faq/:path*",
+      "destination": "https://helpmyimg.com/tr/sikca-sorulan-sorular/",
+      "permanent": true
+    },
+    {
+      "source": "/tr/faq",
+      "destination": "https://helpmyimg.com/tr/sikca-sorulan-sorular/",
+      "permanent": true
+    },
+    {
       "source": "/:lang(ar|cs|da|de|el|es|fi|fr|he|hi|hu|id|it|ja|ko|ms|nl|no|pl|pt|ro|ru|sv|th|tl|tr|uk|vi|zh)/:tool/:slug((?!.*\\.).+)",
       "destination": "https://helpmyimg.com/:lang/:tool/",
       "permanent": true
