@@ -15,16 +15,35 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const rootDir = path.resolve(__dirname, '..');
 
-const KEY_FILE = path.join(rootDir, 'helpmyimg-fc6561a145d6.json');
 const SITEMAPS_DIR = path.join(rootDir, 'dist', 'sitemaps');
 const HISTORY_FILE = path.join(rootDir, 'scratch', 'indexing-history.json');
 
-if (!fs.existsSync(KEY_FILE)) {
-  console.error('❌ Service account key not found:', KEY_FILE);
+function loadServiceAccount() {
+  if (process.env.GOOGLE_SERVICE_ACCOUNT_KEY) {
+    try {
+      return JSON.parse(process.env.GOOGLE_SERVICE_ACCOUNT_KEY);
+    } catch (e) {
+      console.error(`❌ Failed to parse GOOGLE_SERVICE_ACCOUNT_KEY env: ${e.message}`);
+      process.exit(1);
+    }
+  }
+
+  const defaultPath = path.join(rootDir, 'google-service-account.json');
+  if (fs.existsSync(defaultPath)) {
+    return JSON.parse(fs.readFileSync(defaultPath, 'utf8'));
+  }
+
+  const files = fs.readdirSync(rootDir);
+  const candidate = files.find(f => (f.startsWith('helpmyimg-') || f.includes('serviceaccount') || f.includes('gserviceaccount')) && f.endsWith('.json'));
+  if (candidate) {
+    return JSON.parse(fs.readFileSync(path.join(rootDir, candidate), 'utf8'));
+  }
+
+  console.error('❌ Service account key file or GOOGLE_SERVICE_ACCOUNT_KEY env not found.');
   process.exit(1);
 }
 
-const serviceAccount = JSON.parse(fs.readFileSync(KEY_FILE, 'utf8'));
+const serviceAccount = loadServiceAccount();
 
 function base64url(str) {
   return Buffer.from(str)
