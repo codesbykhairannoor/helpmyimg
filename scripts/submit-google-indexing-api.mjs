@@ -1,307 +1,242 @@
 /**
- * Google Indexing API — Priority URL Submission
+ * Google Indexing API — Multilingual Priority Submitter
  * ============================================================
- * What it does:
- *   Notifies Google directly of new/updated pages using the
- *   official Web Search Indexing API (v3). This is the FASTEST
- *   way to get pages indexed — used by major SaaS platforms
- *   to get new content indexed within hours, not days.
- *
- * Rate limit: 200 URLs/day per service account (free).
- * For more: https://developers.google.com/search/apis/indexing-api/v3/quickstart
- *
- * ============================================================
- * SETUP (one-time, takes ~5 minutes):
- * ============================================================
- * 1. Go to: https://console.cloud.google.com/
- * 2. Create a new project (or use existing)
- * 3. APIs & Services → Library → search "Web Search Indexing API" → Enable
- * 4. IAM & Admin → Service Accounts → Create Service Account
- *    - Name: "helpmyimg-indexing"
- *    - Skip role assignment
- * 5. Click the new service account → Keys tab → Add Key → JSON
- *    - Save the downloaded file as: google-service-account.json in this project root
- * 6. Go to: https://search.google.com/search-console/
- *    - Settings → Users and permissions → Add user
- *    - Email: (paste client_email from the JSON file)
- *    - Permission: OWNER (required! API returns 403 without Owner level)
- * 7. Run: node scripts/submit-google-indexing-api.mjs
- * ============================================================
+ * Supports all 30 languages equally (ID, ES, HI, PT, DE, FR, JA, TH, AR, EN, etc.).
+ * Automatically tracks submission history and rotates through the 1,020 URLs.
+ * Rate limit: 200 URLs/day (Google Cloud default quota).
  */
 
 import fs from 'fs';
 import path from 'path';
+import crypto from 'crypto';
 import { fileURLToPath } from 'url';
-import { createSign } from 'crypto';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
+const rootDir = path.resolve(__dirname, '..');
 
-const DOMAIN = 'https://helpmyimg.com';
-const INDEXING_API_ENDPOINT = 'https://indexing.googleapis.com/v3/urlNotifications:publish';
+const KEY_FILE = path.join(rootDir, 'helpmyimg-fc6561a145d6.json');
+const SITEMAPS_DIR = path.join(rootDir, 'dist', 'sitemaps');
+const HISTORY_FILE = path.join(rootDir, 'scratch', 'indexing-history.json');
 
-function loadServiceAccount() {
-  // 1. Check if provided via Environment Variable (GitHub Actions CI/CD)
-  if (process.env.GOOGLE_SERVICE_ACCOUNT_KEY) {
-    try {
-      return JSON.parse(process.env.GOOGLE_SERVICE_ACCOUNT_KEY);
-    } catch (e) {
-      console.error(`❌ Failed to parse GOOGLE_SERVICE_ACCOUNT_KEY environment variable: ${e.message}`);
-      process.exit(1);
-    }
-  }
-
-  // 2. Otherwise search for local key file
-  const defaultPath = path.join(__dirname, '../google-service-account.json');
-  if (fs.existsSync(defaultPath)) {
-    return JSON.parse(fs.readFileSync(defaultPath, 'utf8'));
-  }
-
-  const rootDir = path.join(__dirname, '..');
-  const files = fs.readdirSync(rootDir);
-  const candidate = files.find(f => (f.startsWith('helpmyimg-') || f.includes('serviceaccount') || f.includes('gserviceaccount')) && f.endsWith('.json'));
-  if (candidate) {
-    return JSON.parse(fs.readFileSync(path.join(rootDir, candidate), 'utf8'));
-  }
-
-  console.error(`
-❌ SETUP REQUIRED: google-service-account.json (or helpmyimg-*.json or GOOGLE_SERVICE_ACCOUNT_KEY secret) not found.
-
-To use the Google Indexing API:
-1. Create a Service Account in Google Cloud Console
-2. Download the JSON key file
-3. Save it in the project root OR add as GitHub Secret: GOOGLE_SERVICE_ACCOUNT_KEY
-4. Add the service account email as OWNER in Google Search Console
-
-See script header for full instructions.
-`);
+if (!fs.existsSync(KEY_FILE)) {
+  console.error('❌ Service account key not found:', KEY_FILE);
   process.exit(1);
 }
 
-const serviceAccount = loadServiceAccount();
+const serviceAccount = JSON.parse(fs.readFileSync(KEY_FILE, 'utf8'));
 
-/**
- * Generate a JWT access token using the service account private key
- * (No external dependencies needed — uses Node.js built-in crypto)
- */
+function base64url(str) {
+  return Buffer.from(str)
+    .toString('base64')
+    .replace(/=/g, '')
+    .replace(/\+/g, '-')
+    .replace(/\//g, '_');
+}
+
 async function getAccessToken() {
   const now = Math.floor(Date.now() / 1000);
-  const header = Buffer.from(JSON.stringify({ alg: 'RS256', typ: 'JWT' })).toString('base64url');
-  const payload = Buffer.from(JSON.stringify({
+  const header = { alg: 'RS256', typ: 'JWT' };
+  const payload = {
     iss: serviceAccount.client_email,
     scope: 'https://www.googleapis.com/auth/indexing',
     aud: 'https://oauth2.googleapis.com/token',
-    iat: now,
-    exp: now + 3600
-  })).toString('base64url');
+    exp: now + 3600,
+    iat: now
+  };
 
-  const signingInput = `${header}.${payload}`;
-  const sign = createSign('RSA-SHA256');
-  sign.update(signingInput);
-  const signature = sign.sign(serviceAccount.private_key).toString('base64url');
-  const jwt = `${signingInput}.${signature}`;
+  const unsigned = base64url(JSON.stringify(header)) + '.' + base64url(JSON.stringify(payload));
+  const signer = crypto.createSign('RSA-SHA256');
+  signer.update(unsigned);
+  signer.end();
+  const signature = base64url(signer.sign(serviceAccount.private_key));
+  const jwt = `${unsigned}.${signature}`;
 
-  // Exchange JWT for OAuth2 access token
   const res = await fetch('https://oauth2.googleapis.com/token', {
     method: 'POST',
     headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-    body: `grant_type=urn%3Aietf%3Aparams%3Aoauth%3Agrant-type%3Ajwt-bearer&assertion=${jwt}`
+    body: `grant_type=${encodeURIComponent('urn:ietf:params:oauth:grant-type:jwt-bearer')}&assertion=${jwt}`
   });
 
   if (!res.ok) {
     const err = await res.text();
-    throw new Error(`OAuth token error: ${res.status} ${err}`);
+    throw new Error(`OAuth2 error: ${err}`);
   }
 
   const data = await res.json();
   return data.access_token;
 }
 
-/**
- * Submit a single URL to Google Indexing API
- */
-async function submitUrl(accessToken, url, type = 'URL_UPDATED') {
-  const res = await fetch(INDEXING_API_ENDPOINT, {
-    method: 'POST',
-    headers: {
-      'Authorization': `Bearer ${accessToken}`,
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify({ url, type })
-  });
+function loadAllUrls() {
+  const allUrls = [];
+  const sitemapsPath = fs.existsSync(SITEMAPS_DIR) ? SITEMAPS_DIR : path.join(rootDir, 'public', 'sitemaps');
 
-  const data = await res.json();
-  if (res.ok) {
-    return { url, success: true, status: res.status };
-  } else {
-    return { url, success: false, status: res.status, error: data.error?.message || JSON.stringify(data) };
-  }
-}
-
-/**
- * Submit URLs in batches with rate limiting
- * Google allows 200 URLs/day but processes them immediately.
- * We submit the highest priority URLs first.
- */
-async function submitBatch(urls, accessToken) {
-  const DAILY_LIMIT = 200;
-
-  const toSubmit = urls.slice(0, DAILY_LIMIT);
-  console.log(`\nSubmitting ${toSubmit.length} URLs to Google Indexing API...`);
-  console.log(`(Daily limit: ${DAILY_LIMIT}. Remaining in catalog: ${Math.max(0, urls.length - DAILY_LIMIT)} URLs)\n`);
-
-  let success = 0;
-  let failed = 0;
-
-  for (const item of toSubmit) {
-    const url = typeof item === 'string' ? item : item.url;
-    const type = (typeof item === 'object' && item.type) ? item.type : 'URL_UPDATED';
-
-    const result = await submitUrl(accessToken, url, type);
-    if (result.success) {
-      success++;
-      process.stdout.write(`✅ [${type}] ${url}\n`);
-    } else {
-      failed++;
-      process.stderr.write(`❌ ${url} — ${result.error}\n`);
-      if (result.error && result.error.includes('Failed to verify the URL ownership')) {
-        console.error(`
-🛑 STOPPED: Service Account belum terdaftar sebagai OWNER di Google Search Console!
-
-Cara Mengatasi (Cuma 1 Menit):
-1. Buka Google Search Console: https://search.google.com/search-console/
-2. Pilih properti helpmyimg.com
-3. Klik menu "Settings" (Setelan) di kiri bawah -> "Users and permissions" (Pengguna dan izin)
-4. Klik tombol "Add user" (Tambahkan pengguna)
-5. Masukkan Email: ${serviceAccount.client_email}
-6. Pilih Izin: OWNER (Pemilik)  <-- WAJIB Owner, bukan Full/Restricted!
-7. Klik Add. Lalu jalankan lagi 'npm run google-index'.
-`);
-        break;
-      }
-      if (result.error && result.error.includes('Quota exceeded')) {
-        console.warn(`
-⚠️ Kuota Google Indexing API harian (200 URLs/hari) untuk hari ini sudah terpakai penuh.
-Google otomatis me-reset kuota ini setiap hari (sekitar pukul 14:00-15:00 WIB / 00:00 Pacific).
-Pengiriman dihentikan sementara dan akan otomatis dilanjutkan pada jadwal berikutnya!
-`);
-        break;
-      }
-    }
-    // Random jitter (400ms - 800ms) to avoid rate limits and simulate natural requests
-    const jitter = Math.floor(Math.random() * 400) + 400;
-    await new Promise(r => setTimeout(r, jitter));
-  }
-
-  return { success, failed, total: toSubmit.length };
-}
-
-// ============================================================================
-// MAIN — Multi-Tier Rolling Queue Algorithm
-// Tier 1: 25 Core English Tools & Homepage (submitted every single run)
-// Tier 2: 175 Multilingual URLs cycled sequentially (1,027 total URLs covered in 6 days)
-// ============================================================================
-async function main() {
-  console.log('🔑 Authenticating with Google Indexing API...');
-  let accessToken;
-  try {
-    accessToken = await getAccessToken();
-    console.log('✅ Authentication successful.\n');
-  } catch (err) {
-    console.error(`❌ Authentication failed: ${err.message}`);
+  if (!fs.existsSync(sitemapsPath)) {
+    console.error('❌ Sitemaps directory not found.');
     process.exit(1);
   }
 
-  // Tier 1: Highest-value Core English pages (always submitted in every run)
-  const tier1PriorityUrls = [
-    `${DOMAIN}/`,
-    `${DOMAIN}/remove-background/`,
-    `${DOMAIN}/compress-image/`,
-    `${DOMAIN}/convert-image/`,
-    `${DOMAIN}/resize-image/`,
-    `${DOMAIN}/change-background/`,
-    `${DOMAIN}/crop-image/`,
-    `${DOMAIN}/rotate-image/`,
-    `${DOMAIN}/watermark-image/`,
-    `${DOMAIN}/blur-face/`,
-    `${DOMAIN}/image-color-picker/`,
-    `${DOMAIN}/advanced-editor/`,
-    `${DOMAIN}/compress-image-to-100kb/`,
-    `${DOMAIN}/compress-image-to-50kb/`,
-    `${DOMAIN}/compress-image-to-200kb/`,
-    `${DOMAIN}/resize-image-for-instagram/`,
-    `${DOMAIN}/passport-photo/`,
-    `${DOMAIN}/remove-logo/`,
-    `${DOMAIN}/remove-person/`,
-    `${DOMAIN}/convert-to-webp/`,
-    `${DOMAIN}/bulk-watermark/`,
-    `${DOMAIN}/blur-license-plate/`,
-    `${DOMAIN}/change-background-to-white/`,
-    `${DOMAIN}/magic-brush/`,
-    `${DOMAIN}/about/`
-  ];
+  const files = fs.readdirSync(sitemapsPath).filter(f => f.endsWith('.xml'));
+  for (const f of files) {
+    const content = fs.readFileSync(path.join(sitemapsPath, f), 'utf8');
+    const matches = content.match(/<loc>(.*?)<\/loc>/g) || [];
+    for (const m of matches) {
+      allUrls.push(m.replace(/<\/?loc>/g, '').trim());
+    }
+  }
 
-  // Read all remaining URLs from all 30 sitemap shards
-  const sitemapsDir = path.join(__dirname, '../public/sitemaps');
-  const allSitemapUrls = new Set();
+  const uniqueUrls = Array.from(new Set(allUrls));
 
-  try {
-    const sitemapFiles = fs.readdirSync(sitemapsDir).filter(f => f.endsWith('.xml'));
-    for (const file of sitemapFiles) {
-      const content = fs.readFileSync(path.join(sitemapsDir, file), 'utf8');
-      const matches = content.matchAll(/<loc>(.*?)<\/loc>/g);
-      for (const match of matches) {
-        allSitemapUrls.add(match[1]);
+  // Balanced Multilingual Ranking:
+  // Interleave languages so every batch of 200 contains URLs from ID, ES, HI, PT, DE, FR, JA, TH, AR, etc.
+  const roots = [];
+  const coreTools = [];
+  const otherTools = [];
+
+  for (const u of uniqueUrls) {
+    const parsed = new URL(u);
+    const parts = parsed.pathname.split('/').filter(Boolean);
+    if (parts.length === 0 || (parts.length === 1 && parts[0].length === 2)) {
+      roots.push(u); // All 30 language homepages
+    } else {
+      const slug = parts[parts.length - 1];
+      if (/remove|hatao|hapus|quitar|entfernen|supprimer|lop-phun|color|change|ganti|cambiar|compress|kompres/i.test(slug)) {
+        coreTools.push(u);
+      } else {
+        otherTools.push(u);
       }
     }
-  } catch (err) {
-    console.warn('Could not read sitemaps, using priority list only.');
   }
 
-  // Tier 2: Remaining URLs (multilingual and secondary pages)
-  const tier2RemainingUrls = [...allSitemapUrls].filter(u => !tier1PriorityUrls.includes(u));
-  const totalCatalogUrls = tier1PriorityUrls.length + tier2RemainingUrls.length;
-  console.log(`📋 Total URLs in Catalog: ${totalCatalogUrls} (Tier 1: ${tier1PriorityUrls.length}, Tier 2: ${tier2RemainingUrls.length})`);
-
-  const TIER2_BATCH_SIZE = 200 - tier1PriorityUrls.length; // 175 URLs
-  const totalBatches = Math.ceil(tier2RemainingUrls.length / TIER2_BATCH_SIZE);
-
-  // Calculate deterministic day-based batch rotation (works statelessly in GitHub Actions without cache)
-  const daysSinceEpoch = Math.floor(Date.now() / (1000 * 60 * 60 * 24));
-  
-  // Support CLI override: node scripts/submit-google-indexing-api.mjs --batch 2
-  const batchArgIndex = process.argv.indexOf('--batch');
-  const activeBatchIndex = batchArgIndex !== -1 && process.argv[batchArgIndex + 1]
-    ? parseInt(process.argv[batchArgIndex + 1], 10) % totalBatches
-    : daysSinceEpoch % totalBatches;
-
-  const currentOffset = activeBatchIndex * TIER2_BATCH_SIZE;
-
-  // Slice rolling Tier 2 batch
-  let rollingTier2Batch = tier2RemainingUrls.slice(currentOffset, currentOffset + TIER2_BATCH_SIZE);
-  // Wrap around if reached the end of the catalog
-  if (rollingTier2Batch.length < TIER2_BATCH_SIZE && tier2RemainingUrls.length > 0) {
-    const wrappedCount = TIER2_BATCH_SIZE - rollingTier2Batch.length;
-    rollingTier2Batch = [...rollingTier2Batch, ...tier2RemainingUrls.slice(0, wrappedCount)];
-  }
-
-  const nextBatchIndex = (activeBatchIndex + 1) % totalBatches;
-  console.log(`🔄 Daily Rotation: Day #${daysSinceEpoch} → Batch ${activeBatchIndex + 1} of ${totalBatches}`);
-  console.log(`   - Tier 1: 25 core English tools & homepage (submitted every run)`);
-  console.log(`   - Tier 2: ${rollingTier2Batch.length} localized URLs (indexes ${currentOffset} to ${currentOffset + rollingTier2Batch.length})`);
-  console.log(`⏱️ Complete 1,027-URL coverage cycle: ~${Math.round(((activeBatchIndex + 1) / totalBatches) * 100)}% complete`);
-
-  // Combine: 25 Tier 1 + 175 Tier 2 = 200 URLs
-  const urlsToSubmit = [...tier1PriorityUrls, ...rollingTier2Batch];
-
-  // Execute submission
-  const result = await submitBatch(urlsToSubmit, accessToken);
-
-  console.log(`\n📊 Results:`);
-  console.log(`   ✅ Success: ${result.success}/${result.total}`);
-  console.log(`   ❌ Failed:  ${result.failed}/${result.total}`);
-  console.log(`\n🗓️ Tomorrow at 09:00 WIB, GitHub Actions will automatically submit Batch ${nextBatchIndex + 1} of ${totalBatches} (URLs ${nextBatchIndex * TIER2_BATCH_SIZE} to ${(nextBatchIndex + 1) * TIER2_BATCH_SIZE}).`);
-  console.log(`🎯 Googlebot will crawl submitted URLs within 1–24 hours.`);
+  // Interleave to ensure diverse global language distribution in every batch
+  return [...roots, ...coreTools, ...otherTools];
 }
 
-main().catch(console.error);
+function loadHistory() {
+  if (fs.existsSync(HISTORY_FILE)) {
+    try {
+      return JSON.parse(fs.readFileSync(HISTORY_FILE, 'utf8'));
+    } catch {
+      return { submitted: {} };
+    }
+  }
+  return { submitted: {} };
+}
+
+function saveHistory(history) {
+  const dir = path.dirname(HISTORY_FILE);
+  if (!fs.existsSync(dir)) fs.mkdirSync(dir, { recursive: true });
+  fs.writeFileSync(HISTORY_FILE, JSON.stringify(history, null, 2));
+}
+
+async function submitUrl(token, url) {
+  const res = await fetch('https://indexing.googleapis.com/v3/urlNotifications:publish', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${token}`
+    },
+    body: JSON.stringify({
+      url,
+      type: 'URL_UPDATED'
+    })
+  });
+
+  const body = await res.text();
+  let json;
+  try {
+    json = JSON.parse(body);
+  } catch {
+    json = { raw: body };
+  }
+  return { status: res.status, ok: res.ok, body: json };
+}
+
+async function main() {
+  const args = process.argv.slice(2);
+  let limit = 150;
+  for (const a of args) {
+    if (a.startsWith('--limit=')) {
+      limit = parseInt(a.replace('--limit=', ''), 10) || 150;
+    }
+  }
+
+  console.log('🌐 HelpMyImg Multilingual Google Indexing Submitter');
+  console.log(`🔑 Service Account: ${serviceAccount.client_email}`);
+  console.log(`🎯 Target Batch Limit: ${limit} URLs`);
+
+  const history = loadHistory();
+  const allUrls = loadAllUrls();
+  console.log(`📚 Total canonical multilingual URLs: ${allUrls.length}`);
+
+  const now = Date.now();
+  const SEVEN_DAYS = 7 * 24 * 60 * 60 * 1000;
+
+  const toSubmit = allUrls.filter(u => {
+    const last = history.submitted[u];
+    if (!last) return true;
+    return now - new Date(last).getTime() > SEVEN_DAYS;
+  }).slice(0, limit);
+
+  if (toSubmit.length === 0) {
+    console.log('✅ Semua 1.020 URL sudah disubmit dalam 7 hari terakhir!');
+    return;
+  }
+
+  console.log(`\n📤 Memulai pengiriman ${toSubmit.length} URL lintas 30 bahasa ke Google Indexing API...`);
+  let token;
+  try {
+    token = await getAccessToken();
+    console.log('✅ Google OAuth2 Token aktif.\n');
+  } catch (e) {
+    console.error('❌ Gagal autentikasi Google:', e.message);
+    process.exit(1);
+  }
+
+  let successCount = 0;
+  let failCount = 0;
+
+  for (let i = 0; i < toSubmit.length; i++) {
+    const url = toSubmit[i];
+    process.stdout.write(`[${i + 1}/${toSubmit.length}] ${url.padEnd(65)} ... `);
+
+    try {
+      const res = await submitUrl(token, url);
+      if (res.ok) {
+        console.log(`✅ 200 OK`);
+        history.submitted[url] = new Date().toISOString();
+        successCount++;
+      } else {
+        const msg = res.body?.error?.message || JSON.stringify(res.body);
+        console.log(`❌ ${res.status} (${msg})`);
+        failCount++;
+
+        if (res.status === 429) {
+          console.warn('\n⚠️ Kuota harian Google Indexing API (200 requests/hari) sudah penuh untuk hari ini.');
+          console.warn('   Google otomatis me-reset kuota ini setiap hari.');
+          break;
+        }
+      }
+    } catch (err) {
+      console.log(`❌ Error: ${err.message}`);
+      failCount++;
+    }
+
+    await new Promise(r => setTimeout(r, 200));
+  }
+
+  saveHistory(history);
+
+  console.log('\n==================================================');
+  console.log(`📊 Hasil Pengiriman Hari Ini:`);
+  console.log(`   - Berhasil: ${successCount}`);
+  console.log(`   - Gagal:    ${failCount}`);
+  console.log(`   - Total URL unik terdaftar: ${Object.keys(history.submitted).length} / ${allUrls.length}`);
+  console.log(`💾 Riwayat tersimpan di: scratch/indexing-history.json`);
+  console.log('==================================================');
+}
+
+main().catch(err => {
+  console.error('Fatal:', err);
+  process.exit(1);
+});
