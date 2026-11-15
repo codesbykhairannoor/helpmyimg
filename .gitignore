@@ -26,6 +26,9 @@ dist-ssr
 # Google Service Account Credentials
 google-service-account.json
 helpmyimg-*.json
+thismyown-*.json
+*-firebase-adminsdk-*.json
+*adminsdk*.json
 *serviceaccount*.json
 credentials.json
 *.pem
