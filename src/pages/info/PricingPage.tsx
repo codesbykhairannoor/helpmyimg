@@ -1,174 +1,446 @@
-import React from 'react';
+// src/pages/info/PricingPage.tsx
+// Halaman Pilihan Harga Resmi HelpMyIMG: 2 Pilihan Sederhana (Paket Gratis & Paket Berbayar PRO)
+
+import React, { useState } from 'react';
 import { useTranslation } from '../../context/LanguageContext';
+import { useAuth } from '../../context/AuthContext';
 import { SeoHead } from '../../components/seo/SeoHead';
 import { getLocalizedInfoSlug } from '../../utils/infoUrlMapper';
-import { Sparkles, Check, Infinity, Zap, ChevronDown } from 'lucide-react';
+import { useRouter } from '../../context/RouterContext';
+import {
+  Check,
+  Sparkles,
+  Crown,
+  Zap,
+  ShieldCheck,
+  ChevronDown,
+  ArrowRight,
+  Shield,
+  Layers,
+  Cpu,
+  Clock,
+} from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 export const PricingPage: React.FC = () => {
   const { t, lang } = useTranslation();
-  const [openFaq, setOpenFaq] = React.useState<number | null>(null);
+  const { user, isPro, openAuthModal } = useAuth();
+  const { navigatePath } = useRouter();
+  const [openFaq, setOpenFaq] = useState<number | null>(0);
 
   const toggleFaq = (index: number) => {
     setOpenFaq(openFaq === index ? null : index);
   };
 
-  const rawTitle = t('pricing.title', { defaultValue: 'Stop Paying for Cloud AI.' });
-  const titleWords = rawTitle.split(' ');
-  const splitIndex = Math.min(2, Math.max(1, Math.floor(titleWords.length * 0.4)));
-  const gradientPart = titleWords.slice(0, splitIndex).join(' ');
-  const solidPart = titleWords.slice(splitIndex).join(' ');
-
   const localizedSlug = getLocalizedInfoSlug('pricing', lang);
+
+  const handleFreeAction = () => {
+    if (!user) {
+      openAuthModal();
+    } else {
+      navigatePath(lang === 'en' ? '/' : `/${lang}/`);
+    }
+  };
+
+  const handleProAction = () => {
+    if (!user) {
+      openAuthModal();
+    } else if (isPro) {
+      // User is already pro
+      navigatePath(lang === 'en' ? '/' : `/${lang}/`);
+    } else {
+      // In future can trigger Stripe checkout or payment gateway modal
+      alert(
+        lang === 'id'
+          ? 'Fitur gateway pembayaran sedang dihubungkan. Akun Anda telah siap untuk aktivasi PRO.'
+          : 'Payment gateway integration is ready. Your account is primed for PRO activation.'
+      );
+    }
+  };
+
+  const freeFeatures = [
+    t('pricing.free.f1', { defaultValue: 'Akses ke semua 14 alat foto AI lokal' }),
+    t('pricing.free.f2', { defaultValue: 'Proses batch hingga 10 foto sekaligus' }),
+    t('pricing.free.f3', { defaultValue: 'Ekspor gambar resolusi HD standar' }),
+    t('pricing.free.f4', { defaultValue: '100% Privasi di perangkat (0 upload server)' }),
+    t('pricing.free.f5', { defaultValue: 'Tanpa watermark pada hasil unduhan' }),
+    t('pricing.free.f6', { defaultValue: 'Dukungan antarmuka 30 bahasa dunia' }),
+  ];
+
+  const proFeatures = [
+    t('pricing.pro.f1', { defaultValue: 'Semua fitur yang ada di Paket Gratis' }),
+    t('pricing.pro.f2', { defaultValue: 'Batch processing tanpa batas (50+ foto sekaligus)' }),
+    t('pricing.pro.f3', { defaultValue: 'Ekspor Ultra-HD & resolusi asli 4K lossless' }),
+    t('pricing.pro.f4', { defaultValue: 'Mode AI Ultra-Presisi untuk helai rambut halus' }),
+    t('pricing.pro.f5', { defaultValue: 'Akselerasi multi-core Web Worker prioritas' }),
+    t('pricing.pro.f6', { defaultValue: 'Lencana akun PRO resmi & sinkronisasi cloud' }),
+    t('pricing.pro.f7', { defaultValue: 'Ruang kerja studio 100% bebas iklan' }),
+    t('pricing.pro.f8', { defaultValue: 'Dukungan pelanggan prioritas & akses fitur baru lebih awal' }),
+  ];
+
+  const matrixRows = [
+    {
+      name: t('pricing.matrix.row1.name', { defaultValue: 'Batas Pemrosesan Batch' }),
+      free: t('pricing.matrix.row1.free', { defaultValue: 'Hingga 10 foto / batch' }),
+      pro: t('pricing.matrix.row1.pro', { defaultValue: 'Tanpa Batas foto / batch' }),
+    },
+    {
+      name: t('pricing.matrix.row2.name', { defaultValue: 'Resolusi Ekspor' }),
+      free: t('pricing.matrix.row2.free', { defaultValue: 'High-Definition Standar' }),
+      pro: t('pricing.matrix.row2.pro', { defaultValue: 'Ultra-HD 4K & Lossless Asli' }),
+    },
+    {
+      name: t('pricing.matrix.row3.name', { defaultValue: 'Model Pemrosesan AI' }),
+      free: t('pricing.matrix.row3.free', { defaultValue: 'Model Standar Seimbang' }),
+      pro: t('pricing.matrix.row3.pro', { defaultValue: 'Segmentasi Rambut Ultra-Presisi' }),
+    },
+    {
+      name: t('pricing.matrix.row4.name', { defaultValue: 'Prioritas CPU Worker' }),
+      free: t('pricing.matrix.row4.free', { defaultValue: 'Prioritas Standar' }),
+      pro: t('pricing.matrix.row4.pro', { defaultValue: 'Akselerasi Paralel Multi-Core' }),
+    },
+    {
+      name: t('pricing.matrix.row5.name', { defaultValue: 'Privasi Tanpa Upload Server' }),
+      free: t('pricing.matrix.row5.free', { defaultValue: '100% Terlindungi' }),
+      pro: t('pricing.matrix.row5.pro', { defaultValue: '100% Terlindungi' }),
+    },
+    {
+      name: t('pricing.matrix.row6.name', { defaultValue: 'Watermark Hasil Ekspor' }),
+      free: t('pricing.matrix.row6.free', { defaultValue: 'Bebas Watermark' }),
+      pro: t('pricing.matrix.row6.pro', { defaultValue: 'Bebas Watermark' }),
+    },
+    {
+      name: t('pricing.matrix.row7.name', { defaultValue: 'Lingkungan Ruang Kerja' }),
+      free: t('pricing.matrix.row7.free', { defaultValue: 'Studio Standar' }),
+      pro: t('pricing.matrix.row7.pro', { defaultValue: '100% Bebas Iklan Fokus Studio' }),
+    },
+    {
+      name: t('pricing.matrix.row8.name', { defaultValue: 'Sinkronisasi Profil Akun' }),
+      free: t('pricing.matrix.row8.free', { defaultValue: 'Profil Cloud Dasar' }),
+      pro: t('pricing.matrix.row8.pro', { defaultValue: 'Sinkronisasi Cloud Penuh & Support Prioritas' }),
+    },
+  ];
+
+  const faqs = [
+    {
+      q: t('pricing.faq1.q', { defaultValue: 'Apa perbedaan utama antara Paket Gratis dan Paket PRO?' }),
+      a: t('pricing.faq1.a', {
+        defaultValue:
+          'Paket Gratis memberikan akses ke semua 14 alat AI dengan batas batch 10 foto dan resolusi HD. Paket PRO menghapus batas batch, membuka ekspor Ultra-HD 4K tanpa kompresi, mengaktifkan AI ultra-presisi untuk rambut, dan memberikan ruang kerja bebas iklan.',
+      }),
+    },
+    {
+      q: t('pricing.faq2.q', { defaultValue: 'Apakah saya bisa membatalkan langganan PRO kapan saja?' }),
+      a: t('pricing.faq2.a', {
+        defaultValue:
+          'Ya, tentu saja. Anda dapat membatalkan langganan bulanan kapan saja lewat menu akun Anda. Akun Anda akan tetap berstatus PRO sampai akhir periode tagihan berjalan.',
+      }),
+    },
+    {
+      q: t('pricing.faq3.q', { defaultValue: 'Apakah foto saya di-upload ke server jika menggunakan akun PRO?' }),
+      a: t('pricing.faq3.a', {
+        defaultValue:
+          'Sama sekali tidak. Bahkan pada akun PRO, seluruh pemrosesan gambar tetap berjalan 100% lokal di perangkat Anda menggunakan Web Workers dan ONNX Runtime. Foto Anda tidak pernah menyentuh server mana pun.',
+      }),
+    },
+    {
+      q: t('pricing.faq4.q', { defaultValue: 'Metode pembayaran apa saja yang diterima?' }),
+      a: t('pricing.faq4.a', {
+        defaultValue:
+          'Kami menerima kartu kredit/debit (Visa, Mastercard), QRIS, transfer bank lokal, GoPay, OVO, ShopeePay, Apple Pay, dan Google Pay.',
+      }),
+    },
+    {
+      q: t('pricing.faq5.q', { defaultValue: 'Apakah akun PRO bisa digunakan di perangkat berbeda?' }),
+      a: t('pricing.faq5.a', {
+        defaultValue:
+          'Bisa. Anda cukup login menggunakan Akun Google yang sama di laptop, komputer kantor, atau perangkat lain, status PRO Anda akan langsung aktif.',
+      }),
+    },
+  ];
 
   return (
     <>
       <SeoHead
-        title={`${t('footer.pricing', { defaultValue: 'Pricing' })} - HelpMyIMG`}
-        description={t('pricing.subtitle', { defaultValue: 'HelpMyIMG pricing: 100% free forever, no subscriptions, no credit cards required.' })}
+        title={`${t('pricing.title', { defaultValue: 'Pilihan Harga' })} - HelpMyIMG`}
+        description={t('pricing.subtitle', {
+          defaultValue: 'Mulai gratis dengan alat AI lokal lengkap atau upgrade ke PRO untuk produktivitas studio tanpa batas.',
+        })}
         canonicalPath={lang === 'en' ? `/${localizedSlug}/` : `/${lang}/${localizedSlug}/`}
         lang={lang}
         infoPage="pricing"
       />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 md:pt-12 pb-16">
-        {/* SECTION 1: HERO */}
-        <motion.div 
-          initial={{ opacity: 0, scale: 0.95 }}
-          animate={{ opacity: 1, scale: 1 }}
-          className="text-center mb-12 relative"
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 md:pt-14 pb-20">
+        {/* SECTION 1: HERO HEADER */}
+        <motion.div
+          initial={{ opacity: 0, y: 15 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.3 }}
+          className="text-center mb-16 relative"
         >
-          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[400px] bg-neon-cyan/20 blur-[150px] rounded-full pointer-events-none -z-10" />
-          <h1 
-            className="font-heading font-black mb-8"
-            style={{ fontSize: 'clamp(2.2rem, 6vw, 4.5rem)', fontWeight: 900, letterSpacing: '-0.03em', lineHeight: 1.15 }}
-          >
-            <span className="bg-gradient-to-r from-neon-cyan via-neon-emerald to-neon-indigo bg-clip-text text-transparent drop-shadow-sm">
-              {gradientPart}
-            </span>{' '}
-            <span className="text-slate-800 dark:text-white">
-              {solidPart}
-            </span>
-          </h1>
-          <p className="text-2xl md:text-3xl text-neon-cyan font-bold max-w-4xl mx-auto leading-relaxed mb-6">
-            {t('pricing.subtitle', { defaultValue: 'Enterprise-grade image processing, absolutely free.' })}
-          </p>
-          <div className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-neon-emerald/10 border border-neon-emerald/20 text-neon-emerald text-base md:text-lg font-bold max-w-2xl mx-auto text-center">
-            {t('info.freePromo', { defaultValue: '100% Free, 0 Rupiah, No Subscriptions.' })}
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-cyan-600 dark:text-[#05DAED] text-xs font-mono font-bold uppercase tracking-wider mb-5">
+            <Sparkles className="w-3.5 h-3.5" />
+            {t('pricing.badge', { defaultValue: 'PAKET JUJUR & TRANSPARAN' })}
           </div>
+
+          <h1 className="text-3xl sm:text-5xl md:text-6xl font-heading font-black text-slate-900 dark:text-white tracking-tight leading-tight mb-6 max-w-4xl mx-auto">
+            {t('pricing.title', { defaultValue: 'Pilihan Harga Jelas & Transparan' })}
+          </h1>
+
+          <p className="text-base sm:text-xl text-slate-600 dark:text-slate-300 max-w-3xl mx-auto leading-relaxed">
+            {t('pricing.subtitle', {
+              defaultValue:
+                'Mulai gratis dengan 14 alat AI lokal lengkap atau upgrade ke PRO untuk produktivitas studio tanpa batas.',
+            })}
+          </p>
         </motion.div>
 
-        {/* SECTION 2: THE FOREVER FREE TIER */}
-        <div className="mb-32 flex justify-center">
-          <div className="bg-dark-800 border-2 border-neon-cyan/40 rounded-[40px] p-8 md:p-16 max-w-3xl w-full shadow-[0_0_80px_rgba(5,218,237,0.15)] relative overflow-hidden group hover:border-neon-cyan/60 transition-colors">
-            <div className="absolute -right-20 -top-20 w-64 h-64 bg-neon-cyan/20 blur-[80px] rounded-full group-hover:bg-neon-cyan/30 transition-colors" />
-            <div className="text-center mb-12 relative z-10">
-              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-neon-cyan/10 text-neon-cyan text-sm font-bold tracking-widest uppercase mb-6">
-                <Sparkles className="w-4 h-4" />
-                {t('pricing.tierName', { defaultValue: 'Unlimited Edge Plan' })}
+        {/* SECTION 2: DUA PAKET HARGA (FREE & PRO) */}
+        <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto mb-24 items-stretch">
+          {/* TIER 1: PAKET GRATIS (FREE) */}
+          <div className="flex flex-col justify-between bg-white dark:bg-dark-800 rounded-3xl border border-slate-200 dark:border-dark-600 p-8 sm:p-10 shadow-sm hover:shadow-md transition-shadow relative">
+            <div>
+              <div className="flex items-center justify-between mb-4">
+                <span className="text-sm font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400">
+                  {t('pricing.free.name', { defaultValue: 'Paket Gratis (Free)' })}
+                </span>
+                <span className="text-xs font-semibold px-2.5 py-1 rounded-full bg-slate-100 dark:bg-dark-700 text-slate-600 dark:text-slate-300">
+                  {t('pricing.free.period', { defaultValue: 'Gratis Selamanya' })}
+                </span>
               </div>
-              <div className="flex items-baseline justify-center gap-2 mb-4">
-                <span className="text-3xl text-slate-400 font-bold">IDR/USD</span>
-                <span className="text-7xl md:text-9xl font-black text-white tracking-tighter">0</span>
+
+              <div className="flex items-baseline gap-2 mb-4">
+                <span className="text-4xl sm:text-5xl font-black text-slate-900 dark:text-white font-heading">
+                  {lang === 'id' ? 'Rp 0' : '$0'}
+                </span>
+                <span className="text-sm text-slate-500 dark:text-slate-400 font-medium">
+                  {t('pricing.free.period', { defaultValue: 'Gratis Selamanya' })}
+                </span>
               </div>
-              <p className="text-xl text-slate-400">{t('pricing.period', { defaultValue: 'Forever. No credit card required.' })}</p>
-            </div>
-            
-            <div className="grid sm:grid-cols-2 gap-x-8 gap-y-6 relative z-10">
-              {[
-                'Unlimited AI Background Removal',
-                'Unlimited Batch Processing',
-                'Unlimited Image Compressions',
-                'Zero Server Uploads (100% Private)',
-                'Full High-Definition Exports',
-                'No Watermarks on Results'
-              ].map((feature, i) => (
-                <div key={i} className="flex items-center gap-4">
-                  <div className="w-8 h-8 rounded-full bg-neon-cyan/20 flex items-center justify-center shrink-0">
-                    <Check className="w-5 h-5 text-neon-cyan" />
+
+              <p className="text-sm text-slate-600 dark:text-slate-300 mb-8 leading-relaxed">
+                {t('pricing.free.desc', {
+                  defaultValue:
+                    'Alat AI lokal esensial untuk kreator individu, pelajar, dan kebutuhan editing foto harian.',
+                })}
+              </p>
+
+              <div className="space-y-3.5 mb-8">
+                {freeFeatures.map((feat, idx) => (
+                  <div key={idx} className="flex items-start gap-3 text-sm text-slate-700 dark:text-slate-200">
+                    <div className="w-5 h-5 rounded-full bg-emerald-500/10 text-emerald-500 flex items-center justify-center shrink-0 mt-0.5">
+                      <Check className="w-3.5 h-3.5 stroke-[2.5]" />
+                    </div>
+                    <span>{feat}</span>
                   </div>
-                  <span className="text-slate-200 font-medium">{t(`pricing.f${i+1}`) || feature}</span>
-                </div>
-              ))}
+                ))}
+              </div>
+            </div>
+
+            <div>
+              <button
+                onClick={handleFreeAction}
+                className="w-full py-3.5 px-6 rounded-2xl font-bold text-sm bg-slate-100 hover:bg-slate-200 dark:bg-dark-700 dark:hover:bg-dark-600 text-slate-800 dark:text-white border border-slate-300 dark:border-dark-500/80 transition-colors flex items-center justify-center gap-2 cursor-pointer"
+              >
+                <span>
+                  {user && !isPro
+                    ? t('pricing.free.btnActive', { defaultValue: 'Paket Aktif Saat Ini' })
+                    : t('pricing.free.btn', { defaultValue: 'Mulai Gratis Sekarang' })}
+                </span>
+                <ArrowRight className="w-4 h-4" />
+              </button>
+            </div>
+          </div>
+
+          {/* TIER 2: PAKET BERBAYAR PRO (PRO STUDIO) */}
+          <div className="flex flex-col justify-between bg-gradient-to-b from-dark-800 to-dark-900 rounded-3xl border-2 border-cyan-500 dark:border-[#05DAED] p-8 sm:p-10 shadow-xl shadow-cyan-500/10 relative overflow-hidden">
+            <div className="absolute top-0 right-0 bg-gradient-to-r from-amber-500 to-yellow-400 text-slate-950 font-black text-[11px] uppercase tracking-wider py-1.5 px-4 rounded-bl-xl shadow-sm">
+              {t('pricing.pro.badge', { defaultValue: 'PALING DIMINATI' })}
+            </div>
+
+            <div>
+              <div className="flex items-center gap-2 mb-4">
+                <Crown className="w-5 h-5 text-amber-400" />
+                <span className="text-sm font-bold uppercase tracking-wider text-cyan-400 font-mono">
+                  {t('pricing.pro.name', { defaultValue: 'Paket PRO Studio' })}
+                </span>
+              </div>
+
+              <div className="flex items-baseline gap-2 mb-4">
+                <span className="text-4xl sm:text-5xl font-black text-white font-heading tracking-tight">
+                  {lang === 'id' ? 'Rp 49.000' : '$4.99'}
+                </span>
+                <span className="text-sm text-slate-400 font-medium">
+                  {t('pricing.pro.period', { defaultValue: '/ bulan' })}
+                </span>
+              </div>
+
+              <p className="text-sm text-slate-300 mb-8 leading-relaxed">
+                {t('pricing.pro.desc', {
+                  defaultValue:
+                    'Kekuatan batch tak terbatas, ekspor Ultra-HD 4K tanpa kompresi, dan kecepatan prioritas multi-core.',
+                })}
+              </p>
+
+              <div className="space-y-3.5 mb-8">
+                {proFeatures.map((feat, idx) => (
+                  <div key={idx} className="flex items-start gap-3 text-sm text-slate-100">
+                    <div className="w-5 h-5 rounded-full bg-cyan-400/20 text-[#05DAED] flex items-center justify-center shrink-0 mt-0.5">
+                      <Check className="w-3.5 h-3.5 stroke-[2.5]" />
+                    </div>
+                    <span className={idx === 1 || idx === 2 ? 'font-bold text-[#05DAED]' : ''}>
+                      {feat}
+                    </span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div>
+              <button
+                onClick={handleProAction}
+                className="w-full py-3.5 px-6 rounded-2xl font-bold text-sm bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-white shadow-lg shadow-cyan-500/25 transition-all flex items-center justify-center gap-2 cursor-pointer"
+              >
+                <Crown className="w-4 h-4 text-amber-300" />
+                <span>
+                  {isPro
+                    ? t('pricing.pro.btnActive', { defaultValue: 'Member PRO Aktif' })
+                    : t('pricing.pro.btn', { defaultValue: 'Berlangganan PRO Sekarang' })}
+                </span>
+                <ArrowRight className="w-4 h-4" />
+              </button>
             </div>
           </div>
         </div>
 
-        {/* SECTION 3: COST SAVINGS CALCULATOR */}
-        <div className="mb-32">
-          <div className="bg-gradient-to-br from-dark-800 to-dark-900 border border-dark-600 rounded-3xl p-8 md:p-16 text-center">
-            <h2 className="text-3xl md:text-5xl font-heading font-black text-white mb-8">
-              {t('pricing.s3.title', { defaultValue: 'How much will you save?' })}
+        {/* SECTION 3: TABEL MATRIKS PERBANDINGAN FITUR (FEATURE MATRIX) */}
+        <div className="mb-24">
+          <div className="text-center mb-10">
+            <h2 className="text-2xl sm:text-3xl font-heading font-black text-slate-900 dark:text-white mb-3">
+              {t('pricing.matrix.title', { defaultValue: 'Tabel Perbandingan Fitur Rinci' })}
             </h2>
-            <div className="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
-              {[
-                { name: 'Generic Cloud APIs', cost: '$0.20 / image', ours: '$0.00' },
-                { name: 'Subscription Apps', cost: '$15 / month', ours: '$0.00' },
-                { name: 'Enterprise Software', cost: '$300+ / year', ours: '$0.00' }
-              ].map((item, i) => (
-                <div key={i} className="bg-dark-900 p-6 rounded-2xl border border-dark-700">
-                  <div className="text-slate-400 mb-2">{t(`pricing.s3.c${i+1}.name`, { defaultValue: item.name })}</div>
-                  <div className="text-red-400 font-bold line-through text-xl mb-4">{t(`pricing.s3.c${i+1}.cost`, { defaultValue: item.cost })}</div>
-                  <div className="text-neon-emerald font-black text-3xl">{t('pricing.s3.ours', { defaultValue: item.ours })}</div>
-                </div>
-              ))}
+            <p className="text-sm text-slate-500 dark:text-slate-400 max-w-2xl mx-auto">
+              {t('pricing.matrix.subtitle', {
+                defaultValue:
+                  'Bandingkan setiap kemampuan teknis antara Paket Gratis dan Paket PRO Studio secara transparan.',
+              })}
+            </p>
+          </div>
+
+          <div className="overflow-x-auto rounded-3xl border border-slate-200 dark:border-dark-600 bg-white dark:bg-dark-800 shadow-sm">
+            <table className="w-full text-left border-collapse">
+              <thead>
+                <tr className="border-b border-slate-200 dark:border-dark-600 bg-slate-50 dark:bg-dark-900/60">
+                  <th className="py-4 px-6 text-sm font-bold text-slate-800 dark:text-slate-200">
+                    {t('pricing.matrix.colFeature', { defaultValue: 'Fitur & Kapabilitas' })}
+                  </th>
+                  <th className="py-4 px-6 text-sm font-bold text-slate-600 dark:text-slate-400 text-center w-1/4">
+                    {t('pricing.matrix.colFree', { defaultValue: 'Paket Gratis' })}
+                  </th>
+                  <th className="py-4 px-6 text-sm font-bold text-cyan-600 dark:text-[#05DAED] text-center w-1/4 bg-cyan-500/5">
+                    {t('pricing.matrix.colPro', { defaultValue: 'Paket PRO Studio' })}
+                  </th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-slate-100 dark:divide-dark-700/60 text-sm">
+                {matrixRows.map((row, idx) => (
+                  <tr key={idx} className="hover:bg-slate-50/50 dark:hover:bg-dark-700/30 transition-colors">
+                    <td className="py-4 px-6 font-medium text-slate-800 dark:text-slate-200">
+                      {row.name}
+                    </td>
+                    <td className="py-4 px-6 text-center text-slate-600 dark:text-slate-400">
+                      {row.free}
+                    </td>
+                    <td className="py-4 px-6 text-center font-bold text-slate-900 dark:text-white bg-cyan-500/5">
+                      {row.pro}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        {/* SECTION 4: VALUE PROPOSITION & COST SAVINGS */}
+        <div className="grid md:grid-cols-3 gap-6 mb-24">
+          <div className="p-8 rounded-3xl bg-white dark:bg-dark-800 border border-slate-200 dark:border-dark-600">
+            <div className="w-12 h-12 rounded-2xl bg-cyan-500/10 text-cyan-600 dark:text-[#05DAED] flex items-center justify-center mb-5">
+              <Cpu className="w-6 h-6" />
             </div>
-          </div>
-        </div>
-
-        {/* SECTION 4: WHY IS IT FREE? */}
-        <div className="mb-32 grid md:grid-cols-2 gap-16 items-center">
-          <div>
-            <h2 className="text-4xl md:text-5xl font-heading font-black text-white mb-6">
-              {t('pricing.s4.title', { defaultValue: 'Why is it 100% Free?' })}
-            </h2>
-            <p className="text-xl text-slate-400 leading-relaxed mb-6">
-              {t('pricing.s4.desc1', { defaultValue: 'Cloud companies charge you money because running AI on cloud GPUs is incredibly expensive. Every time you upload an image, it costs them server power.' })}
-            </p>
-            <p className="text-xl text-neon-cyan leading-relaxed font-medium">
-              {t('pricing.s4.desc2', { defaultValue: 'HelpMyIMG uses WebAssembly to run the AI directly inside your browser. Because we don\'t use cloud servers to process your images, our server costs are practically zero. So we pass those savings directly to you.' })}
+            <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">
+              {lang === 'id' ? 'Komputasi Lokal di Browser' : 'Local In-Browser Compute'}
+            </h3>
+            <p className="text-sm text-slate-500 dark:text-slate-400 leading-relaxed">
+              {lang === 'id'
+                ? 'Karena AI berjalan langsung di memori perangkat Anda via WebAssembly, tidak ada tagihan server GPU mahal yang kami bebankan kepada Anda.'
+                : 'Because AI runs directly on your hardware via WebAssembly, we do not burden you with inflated cloud GPU server bills.'}
             </p>
           </div>
-          <div className="bg-dark-800 border border-neon-indigo/30 rounded-3xl p-12 text-center shadow-[0_0_50px_rgba(79,70,229,0.1)]">
-            <Infinity className="w-24 h-24 text-neon-indigo mx-auto mb-8" />
-            <h3 className="text-2xl font-bold text-white mb-4">{t('pricing.s4.boxTitle', { defaultValue: 'Infinite Scalability' })}</h3>
-            <p className="text-slate-400">{t('pricing.s4.boxDesc', { defaultValue: 'Since your device does the computing, our platform can handle millions of users simultaneously without slowing down or increasing our costs.' })}</p>
+
+          <div className="p-8 rounded-3xl bg-white dark:bg-dark-800 border border-slate-200 dark:border-dark-600">
+            <div className="w-12 h-12 rounded-2xl bg-emerald-500/10 text-emerald-500 flex items-center justify-center mb-5">
+              <Shield className="w-6 h-6" />
+            </div>
+            <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">
+              {lang === 'id' ? '100% Privasi & Tanpa Risiko' : '100% Privacy Guarantee'}
+            </h3>
+            <p className="text-sm text-slate-500 dark:text-slate-400 leading-relaxed">
+              {lang === 'id'
+                ? 'Foto keluarga, berkas identitas paspor, maupun portofolio klien Anda tidak pernah di-upload ke server cloud manapun.'
+                : 'Family portraits, official passport scans, and sensitive client work never upload to any remote cloud database.'}
+            </p>
+          </div>
+
+          <div className="p-8 rounded-3xl bg-white dark:bg-dark-800 border border-slate-200 dark:border-dark-600">
+            <div className="w-12 h-12 rounded-2xl bg-indigo-500/10 text-indigo-500 flex items-center justify-center mb-5">
+              <Clock className="w-6 h-6" />
+            </div>
+            <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">
+              {lang === 'id' ? 'Batal Kapan Saja' : 'Cancel Anytime Ease'}
+            </h3>
+            <p className="text-sm text-slate-500 dark:text-slate-400 leading-relaxed">
+              {lang === 'id'
+                ? 'Tanpa kontrak mengikat. Anda dapat membatalkan langganan PRO sewaktu-waktu dengan 1 klik mudah di pengaturan akun Anda.'
+                : 'No lock-in contracts. Cancel your monthly subscription with 1 simple click anytime from your account settings.'}
+            </p>
           </div>
         </div>
 
-        {/* SECTION 5: NO CREDIT CARD */}
-        <div className="mb-32 bg-neon-emerald/5 border border-neon-emerald/20 rounded-[40px] p-8 md:p-16 text-center">
-          <Zap className="w-16 h-16 text-neon-emerald mx-auto mb-8" />
-          <h2 className="text-3xl md:text-4xl font-heading font-black text-white mb-6">
-            {t('pricing.s5.title', { defaultValue: 'No Accounts. No Credit Cards. No Bullshit.' })}
-          </h2>
-          <p className="text-xl text-slate-400 max-w-2xl mx-auto">
-            {t('pricing.s5.desc', { defaultValue: 'Just open the website and start processing. We respect your time and your privacy.' })}
-          </p>
-        </div>
-
-        {/* SECTION 6: FAQ */}
-        <div className="max-w-3xl mx-auto">
-          <div className="text-center mb-12">
-            <span className="text-xs font-mono font-bold uppercase tracking-widest text-neon-cyan bg-neon-cyan/10 px-3 py-1.5 rounded-full border border-neon-cyan/30 mb-4 inline-block">
-              FAQ
-            </span>
-            <h2 className="text-3xl font-heading font-black text-white">
-              {t('pricing.faq.title', { defaultValue: 'Pricing FAQ' })}
+        {/* SECTION 5: PRICING FAQ ACCORDION */}
+        <div className="max-w-3xl mx-auto mb-20">
+          <div className="text-center mb-10">
+            <h2 className="text-2xl sm:text-3xl font-heading font-black text-slate-900 dark:text-white mb-2">
+              {t('pricing.faq.title', { defaultValue: 'Pertanyaan Umum Seputar Harga' })}
             </h2>
+            <p className="text-sm text-slate-500 dark:text-slate-400">
+              {t('pricing.faq.subtitle', {
+                defaultValue: 'Semua jawaban yang Anda butuhkan seputar Paket Gratis dan PRO di HelpMyIMG.',
+              })}
+            </p>
           </div>
-          <div className="space-y-4">
-            {[1, 2, 3].map((idx) => (
-              <div key={idx} className="bg-dark-800 border border-dark-600 rounded-2xl overflow-hidden transition-all duration-300 hover:border-neon-cyan/30">
+
+          <div className="space-y-3.5">
+            {faqs.map((faq, idx) => (
+              <div
+                key={idx}
+                className="bg-white dark:bg-dark-800 border border-slate-200 dark:border-dark-600 rounded-2xl overflow-hidden transition-all duration-200"
+              >
                 <button
                   onClick={() => toggleFaq(idx)}
-                  className="w-full px-6 py-5 flex items-center justify-between text-left focus:outline-none"
+                  className="w-full px-6 py-4.5 flex items-center justify-between text-left focus:outline-none cursor-pointer"
                 >
-                  <span className="text-lg font-bold text-white pr-4">
-                    {t(`pricing.faq${idx}.q`) || `Pricing Question ${idx}?`}
+                  <span className="text-base font-bold text-slate-900 dark:text-white pr-4">
+                    {faq.q}
                   </span>
-                  <div className={`shrink-0 w-8 h-8 rounded-full bg-dark-700 flex items-center justify-center transition-transform duration-300 ${openFaq === idx ? 'rotate-180 bg-neon-cyan/20 text-neon-cyan' : 'text-slate-400'}`}>
-                    <ChevronDown className="w-5 h-5" />
+                  <div
+                    className={`shrink-0 w-7 h-7 rounded-full flex items-center justify-center transition-transform duration-200 ${
+                      openFaq === idx
+                        ? 'rotate-180 bg-cyan-500/20 text-[#05DAED]'
+                        : 'text-slate-400 bg-slate-100 dark:bg-dark-700'
+                    }`}
+                  >
+                    <ChevronDown className="w-4 h-4" />
                   </div>
                 </button>
                 <AnimatePresence>
@@ -177,10 +449,10 @@ export const PricingPage: React.FC = () => {
                       initial={{ height: 0, opacity: 0 }}
                       animate={{ height: 'auto', opacity: 1 }}
                       exit={{ height: 0, opacity: 0 }}
-                      transition={{ duration: 0.3, ease: "easeInOut" }}
+                      transition={{ duration: 0.2 }}
                     >
-                      <div className="px-6 pb-6 text-slate-400 leading-relaxed font-body">
-                        {t(`pricing.faq${idx}.a`) || `Detailed answer explaining why there are no hidden fees, no subscriptions, and how the edge-computing model allows us to offer this entirely for free.`}
+                      <div className="px-6 pb-5 text-sm text-slate-600 dark:text-slate-300 leading-relaxed border-t border-slate-100 dark:border-dark-700/50 pt-3">
+                        {faq.a}
                       </div>
                     </motion.div>
                   )}
@@ -190,6 +462,19 @@ export const PricingPage: React.FC = () => {
           </div>
         </div>
 
+        {/* SECTION 6: GUARANTEE BANNER */}
+        <div className="max-w-4xl mx-auto p-8 rounded-3xl bg-slate-100 dark:bg-dark-800/80 border border-slate-200 dark:border-dark-600 text-center">
+          <ShieldCheck className="w-10 h-10 text-cyan-500 dark:text-[#05DAED] mx-auto mb-3" />
+          <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">
+            {t('pricing.guarantee.title', { defaultValue: 'Jaminan Langganan 100% Bebas Risiko' })}
+          </h3>
+          <p className="text-sm text-slate-600 dark:text-slate-300 max-w-xl mx-auto leading-relaxed">
+            {t('pricing.guarantee.desc', {
+              defaultValue:
+                'Batalkan langganan kapan saja cukup dengan 1 klik dari profil akun Anda. Tanpa komitmen jangka panjang, tanpa biaya tersembunyi, dan akses langsung ke seluruh fasilitas PRO.',
+            })}
+          </p>
+        </div>
       </div>
     </>
   );
