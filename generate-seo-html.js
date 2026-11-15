@@ -44,9 +44,9 @@ try {
 const getLocalizedSlug = (tool, lang) => {
   if (tool === 'brush') return 'magic-brush';
   if (slugMap[lang] && slugMap[lang][tool]) return slugMap[lang][tool];
-  const fallbacks = { 
-    remove: 'remove-background', 
-    color: 'change-background', 
+  const fallbacks = {
+    remove: 'remove-background',
+    color: 'change-background',
     watermark: 'watermark-image',
     compress: 'compress-image',
     convert: 'convert-image',
@@ -90,9 +90,9 @@ const getLocalizedInfoSlug = (page, lang) => {
 
 // Tool identifiers (All 23 tools)
 const TOOLS = [
-  'remove', 'color', 'watermark', 'compress', 'convert', 'resize', 'crop', 'rotate', 
-  'picker', 'blurface', 'design', 'brush', 'compress100kb', 'compress50kb', 'resizeig', 
-  'removelogo', 'colorwhite', 'compress200kb', 'resizepassport', 'removeperson', 
+  'remove', 'color', 'watermark', 'compress', 'convert', 'resize', 'crop', 'rotate',
+  'picker', 'blurface', 'design', 'brush', 'compress100kb', 'compress50kb', 'resizeig',
+  'removelogo', 'colorwhite', 'compress200kb', 'resizepassport', 'removeperson',
   'convertwebp', 'watermarkbulk', 'blurplate', 'metadata', 'editexif'
 ];
 
@@ -806,39 +806,39 @@ const SECTION_I18N = {
 function sanitizeTitle(title, lang = 'en') {
   if (!title) return 'HelpMyIMG - Free Local AI Image Editor';
   let clean = title.trim();
-  
+
   // Strip robotic keyword-stuffing slogans and suffixes
   clean = clean
     .replace(/\s*[-|–—]\s*(Kein Upload|Carga cero|Zero Upload|Zero Server Upload|100% Client-Side|100% DSGVO-Konform|Offline).*$/i, '')
     .replace(/\s*[-|–—]\s*(Bildgröße lokal komprimieren|comprime el tamaño de la imagen localmente|elimine el fondo de la imagen localmente).*$/i, '')
     .replace(/\s*[-|–—]\s*HelpMyIMG.*$/i, '')
     .trim();
-  
+
   // For CJK languages, expand if too short (< 6 chars)
   if (['zh', 'ja', 'ko'].includes(lang) && clean.length < 6) {
     if (lang === 'zh') clean = `${clean} | 免费本地 AI 图像编辑`;
     else if (lang === 'ja') clean = `${clean} | 完全無料ローカルAI画像編集`;
     else if (lang === 'ko') clean = `${clean} | 완전 무료 로컬 AI 이미지 편집`;
   }
-  
+
   const suffix = ' - HelpMyIMG';
   const maxCleanLen = 60 - suffix.length; // 48 chars
-  
+
   if (clean.length > maxCleanLen) {
     clean = clean.substring(0, maxCleanLen).replace(/[, -]+$/, '').trim();
   }
-  
+
   return `${clean}${suffix}`;
 }
 
 // Meta Description Sanitizer: Target 110 - 155 chars
 function sanitizeDescription(desc, lang = 'en') {
   let text = (desc || '').replace(/[\r\n\t]+/g, ' ').replace(/\s{2,}/g, ' ').trim();
-  
+
   if (!text) {
     text = 'Free local AI photo editor. Remove background, compress, convert, and resize images directly in your browser with 100% privacy and zero server uploads.';
   }
-  
+
   // Expand short descriptions (< 95 chars) across all languages
   if (text.length < 95) {
     const valuePropMap = {
@@ -856,14 +856,14 @@ function sanitizeDescription(desc, lang = 'en') {
     const prop = valuePropMap[lang] || valuePropMap['en'];
     text = `${text}${prop}`;
   }
-  
+
   // Trim if exceeds 155 chars
   if (text.length > 155) {
     let trimmed = text.substring(0, 152);
     const lastSpace = Math.max(
-      trimmed.lastIndexOf(' '), 
-      trimmed.lastIndexOf('.'), 
-      trimmed.lastIndexOf('，'), 
+      trimmed.lastIndexOf(' '),
+      trimmed.lastIndexOf('.'),
+      trimmed.lastIndexOf('，'),
       trimmed.lastIndexOf('。'),
       trimmed.lastIndexOf('،')
     );
@@ -872,7 +872,7 @@ function sanitizeDescription(desc, lang = 'en') {
     }
     text = trimmed.replace(/[,; -]+$/, '') + '...';
   }
-  
+
   return text;
 }
 
@@ -1034,7 +1034,7 @@ function generateSemanticHtml(lang, urlPath, title, desc, tool, infoPage, transl
   const researchTitle = translations['home.research.title'] || translations['about.research.title'] || 'Algorithmic Principles & Peer-Reviewed Foundations';
   const researchDesc = translations['home.research.desc'] || translations['about.research.subtitle'] || 'HelpMyIMG is engineered upon open, peer-reviewed computer vision and distributed systems research.';
   const noticeText = translations['home.research.notice'] || 'Academic Attribution Notice: Citations and institutional references are provided solely for scholarly transparency and attribution of open algorithmic foundations.';
-  
+
   const scientificResearchHtml = `
     <section class="border-t border-slate-800/80 pt-12 flex flex-col gap-6">
       <div class="flex flex-col gap-2">
@@ -1823,7 +1823,7 @@ function generateSemanticHtml(lang, urlPath, title, desc, tool, infoPage, transl
   // CASE C: TOOL PAGES (/${lang}/${slug}/)
   // =========================================================================
   const baseTool = TOOL_BASE_MAP[tool] || 'remove';
-  
+
   // 1. Tool Specific H1 & Hero matching Hero.tsx
   const heroBadge = translations[`landing.${baseTool}.redesign.heroBadge`] || translations[`tab.${baseTool}`] || 'AI TOOL';
   const rawHeroTitle = translations[`landing.${baseTool}.redesign.heroTitle`] || translations[`landing.default.title.${tool}`] || h1;
@@ -1897,7 +1897,7 @@ function generateSemanticHtml(lang, urlPath, title, desc, tool, infoPage, transl
   const faqTitle = translations[`landing.${baseTool}.faqTitle`] || translations['landing.faqTitle'] || sec.faq;
   let faqListHtml = '';
   const matrixItem = matrixData.find(m => m.tool === tool && (m.lang === lang || m.lang === (lang === 'zh-CN' ? 'zh' : lang)));
-  
+
   if (matrixItem && matrixItem.faqs && matrixItem.faqs.length > 0) {
     for (const item of matrixItem.faqs) {
       faqListHtml += `
@@ -2067,7 +2067,7 @@ const generateHtml = (lang, urlPath, rawTitle, rawDesc, tool = null, translation
     }
     dynamicHreflangs += `    <link rel="alternate" hreflang="${l}" href="${DOMAIN}${targetPath}" />\n`;
   }
-  
+
   let xDefaultPath = `/`;
   if (tool) {
     xDefaultPath = `/${getLocalizedSlug(tool, 'en')}/`;
@@ -2273,7 +2273,7 @@ for (const lang of LANGS) {
   // 1. Generate Home Page
   const homeTitle = translations['home.tab.title'] || translations['hero.title'] || 'All Image Tools in One Place';
   const homeDesc = translations['hero.subtitle.short'] || translations['hero.subtitle'] || translations['seo.jsonld.description'] || 'Free local AI photo editor. Remove backgrounds, compress, resize, and convert images.';
-  
+
   if (lang === 'en') {
     // English is the default language at root URL: https://helpmyimg.com/
     const homeHtml = generateHtml('en', `/`, homeTitle, homeDesc, null, translations, null);
