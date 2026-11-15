@@ -3,6 +3,7 @@
 
 import { useState, useRef, useEffect, useCallback } from 'react';
 import { useTranslation } from '../../../context/LanguageContext';
+import { useAuth } from '../../../context/AuthContext';
 import type { BatchItem, TabType } from '../types';
 
 export interface UseWorkspaceCoreReturn {
@@ -31,6 +32,7 @@ export interface UseWorkspaceCoreReturn {
 
 export function useWorkspaceCore(initialTab: TabType = 'remove'): UseWorkspaceCoreReturn {
   const { t } = useTranslation();
+  const { isPro } = useAuth();
   const [batchItems, setBatchItems] = useState<BatchItem[]>([]);
   const [selectedIndex, setSelectedIndex] = useState<number>(0);
   const [isDragging, setIsDragging] = useState(false);
@@ -55,7 +57,16 @@ export function useWorkspaceCore(initialTab: TabType = 'remove'): UseWorkspaceCo
   // Handle file uploads
   const handleFiles = useCallback(
     async (files: FileList | File[], forceReplace?: boolean) => {
-      const fileArray = Array.from(files).slice(0, 10);
+      const rawFiles = Array.from(files);
+      const maxBatch = isPro ? 100 : 10;
+      if (!isPro && rawFiles.length > 10) {
+        setToastMessage(
+          t('work.batchLimitNotice', {
+            defaultValue: 'Batas paket gratis adalah 10 foto sekaligus. Upgrade ke PRO untuk proses tanpa batas!'
+          })
+        );
+      }
+      const fileArray = rawFiles.slice(0, maxBatch);
       if (fileArray.length === 0) return;
 
       const isReplacing = forceReplace ?? isReplacingRef.current;
@@ -136,7 +147,7 @@ export function useWorkspaceCore(initialTab: TabType = 'remove'): UseWorkspaceCo
 
       if (isReplacing || batchItems.length === 0) setSelectedIndex(0);
     },
-    [batchItems, initialTab, t]
+    [batchItems, initialTab, t, isPro]
   );
 
   // Reset current item back to original unedited state (Keep file in workspace)
