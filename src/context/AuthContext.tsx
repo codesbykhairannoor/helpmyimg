@@ -203,6 +203,21 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
         ? window.location.origin
         : 'https://helpmyimg.com';
 
+    // 1. Coba kirim via serverless custom branded Resend API
+    try {
+      const response = await fetch('/api/reset-password', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email: email.trim(), origin }),
+      });
+      if (response.ok) {
+        return;
+      }
+    } catch (apiErr) {
+      console.warn('Custom reset email endpoint unavailable, falling back to Firebase Auth SDK:', apiErr);
+    }
+
+    // 2. Fallback aman ke Firebase Auth SDK default jika API offline
     const actionCodeSettings = {
       url: `${origin}/`,
       handleCodeInApp: true,
