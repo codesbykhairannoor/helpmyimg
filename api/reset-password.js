@@ -1,7 +1,15 @@
 import fs from 'fs';
 import path from 'path';
-import { initializeApp, cert, getApps, getApp } from 'firebase-admin/app';
-import { getAuth } from 'firebase-admin/auth';
+import crypto from 'crypto';
+
+function base64url(obj) {
+  const str = typeof obj === 'string' ? obj : JSON.stringify(obj);
+  return Buffer.from(str)
+    .toString('base64')
+    .replace(/=/g, '')
+    .replace(/\+/g, '-')
+    .replace(/\//g, '_');
+}
 
 function getServiceAccount() {
   if (process.env.FIREBASE_SERVICE_ACCOUNT) {
@@ -12,9 +20,17 @@ function getServiceAccount() {
     }
   }
 
-  // Local file search in root directory
-  const rootDir = process.cwd();
+  if (process.env.FIREBASE_CLIENT_EMAIL && process.env.FIREBASE_PRIVATE_KEY) {
+    return {
+      client_email: process.env.FIREBASE_CLIENT_EMAIL,
+      private_key: process.env.FIREBASE_PRIVATE_KEY.replace(/\\n/g, '\n'),
+      project_id: process.env.FIREBASE_PROJECT_ID || 'thismyown',
+    };
+  }
+
+  // Local file search in root directory for local dev
   try {
+    const rootDir = process.cwd();
     const files = fs.readdirSync(rootDir);
     const candidate = files.find(
       (f) =>
@@ -25,54 +41,178 @@ function getServiceAccount() {
       return JSON.parse(fs.readFileSync(path.join(rootDir, candidate), 'utf8'));
     }
   } catch (err) {
-    console.error('Error reading local service account file:', err);
+    // Silent in production
   }
 
   return null;
 }
 
+async function getGoogleAccessToken(serviceAccount) {
+  const now = Math.floor(Date.now() / 1000);
+  const header = { alg: 'RS256', typ: 'JWT' };
+  const claim = {
+    iss: serviceAccount.client_email,
+    scope: 'https://www.googleapis.com/auth/identitytoolkit https://www.googleapis.com/auth/firebase',
+    aud: 'https://oauth2.googleapis.com/token',
+    exp: now + 3600,
+    iat: now,
+  };
+
+  const signInput = `${base64url(header)}.${base64url(claim)}`;
+  const signer = crypto.createSign('RSA-SHA256');
+  signer.update(signInput);
+  const signature = signer
+    .sign(serviceAccount.private_key, 'base64')
+    .replace(/=/g, '')
+    .replace(/\+/g, '-')
+    .replace(/\//g, '_');
+
+  const jwt = `${signInput}.${signature}`;
+
+  const tokenRes = await fetch('https://oauth2.googleapis.com/token', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+    body: `grant_type=urn:ietf:params:oauth:grant-type:jwt-bearer&assertion=${jwt}`,
+  });
+
+  const tokenData = await tokenRes.json();
+  if (!tokenRes.ok || !tokenData.access_token) {
+    throw new Error(tokenData.error_description || tokenData.error || 'Failed to obtain Google access token');
+  }
+
+  return tokenData.access_token;
+}
+
+async function parseRequestBody(req) {
+  if (req.body && typeof req.body === 'object') {
+    return req.body;
+  }
+  if (typeof req.body === 'string') {
+    try {
+      return JSON.parse(req.body);
+    } catch {
+      return {};
+    }
+  }
+  return new Promise((resolve) => {
+    let data = '';
+    req.on?.('data', (chunk) => {
+      data += chunk;
+    });
+    req.on?.('end', () => {
+      try {
+        resolve(JSON.parse(data));
+      } catch {
+        resolve({});
+      }
+    });
+    if (!req.on) {
+      resolve({});
+    }
+  });
+}
+
+function sendJson(res, statusCode, payload) {
+  if (typeof res.status === 'function') {
+    return res.status(statusCode).json(payload);
+  }
+  res.writeHead(statusCode, {
+    'Content-Type': 'application/json',
+    'Access-Control-Allow-Origin': '*',
+  });
+  return res.end(JSON.stringify(payload));
+}
+
 export default async function handler(req, res) {
+  // CORS preflight
+  if (req.method === 'OPTIONS') {
+    if (typeof res.status === 'function') {
+      res.setHeader?.('Access-Control-Allow-Origin', '*');
+      res.setHeader?.('Access-Control-Allow-Methods', 'POST, OPTIONS');
+      res.setHeader?.('Access-Control-Allow-Headers', 'Content-Type');
+      return res.status(204).end();
+    }
+    res.writeHead(204, {
+      'Access-Control-Allow-Origin': '*',
+      'Access-Control-Allow-Methods': 'POST, OPTIONS',
+      'Access-Control-Allow-Headers': 'Content-Type',
+    });
+    return res.end();
+  }
+
   if (req.method !== 'POST') {
-    return res.status(405).json({ error: 'Method not allowed' });
-  }
-
-  const { email, origin } = req.body || {};
-  if (!email || typeof email !== 'string') {
-    return res.status(400).json({ error: 'Valid email is required' });
-  }
-
-  const serviceAccount = getServiceAccount();
-  if (!serviceAccount) {
-    return res.status(500).json({ error: 'Firebase Admin credentials not found' });
-  }
-
-  const resendApiKey = process.env.RESEND_API_KEY;
-  if (!resendApiKey) {
-    return res.status(500).json({ error: 'RESEND_API_KEY is not configured' });
+    return sendJson(res, 405, { error: 'Method not allowed' });
   }
 
   try {
-    const app =
-      getApps().length > 0
-        ? getApp()
-        : initializeApp({
-            credential: cert(serviceAccount),
-          });
-    const auth = getAuth(app);
+    const body = await parseRequestBody(req);
+    const email = body.email;
+    const origin = body.origin;
 
-    const targetOrigin = origin || 'https://helpmyimg.com';
-    const actionCodeSettings = {
-      url: `${targetOrigin}/`,
-      handleCodeInApp: true,
-    };
+    if (!email || typeof email !== 'string') {
+      return sendJson(res, 400, { error: 'Valid email is required' });
+    }
 
-    const rawResetLink = await auth.generatePasswordResetLink(email.trim(), actionCodeSettings);
-    const parsedUrl = new URL(rawResetLink);
-    const oobCode = parsedUrl.searchParams.get('oobCode');
-    const apiKey = parsedUrl.searchParams.get('apiKey');
+    const serviceAccount = getServiceAccount();
+    if (!serviceAccount) {
+      console.error('Service account not found');
+      return sendJson(res, 500, { error: 'Firebase Admin credentials not found' });
+    }
 
-    // Direct in-app link to HelpMyIMG with password reset params
-    const directHelpMyImgLink = `${targetOrigin}/?mode=resetPassword&oobCode=${oobCode}&apiKey=${apiKey}`;
+    const resendApiKey = process.env.RESEND_API_KEY;
+    if (!resendApiKey) {
+      console.error('RESEND_API_KEY environment variable is not set');
+      return sendJson(res, 500, { error: 'Email service is not configured' });
+    }
+
+    // 1. Get Google OAuth access token
+    const accessToken = await getGoogleAccessToken(serviceAccount);
+
+    // 2. Request password reset code from Firebase Identity Toolkit API
+    const projectId = serviceAccount.project_id || 'thismyown';
+    const oobRes = await fetch(
+      `https://identitytoolkit.googleapis.com/v1/projects/${projectId}/accounts:sendOobCode`,
+      {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${accessToken}`,
+        },
+        body: JSON.stringify({
+          requestType: 'PASSWORD_RESET',
+          email: email.trim(),
+          returnOobLink: true,
+        }),
+      }
+    );
+
+    const oobData = await oobRes.json();
+    if (!oobRes.ok || !oobData.oobCode) {
+      console.error('Failed to generate reset code:', oobData);
+      const msg = oobData.error?.message;
+      if (msg === 'RESET_PASSWORD_EXCEED_LIMIT') {
+        return sendJson(res, 429, {
+          error: 'Too many password reset requests. Please wait a few minutes before trying again.',
+        });
+      }
+      if (!oobData.oobCode && !msg) {
+        return sendJson(res, 404, {
+          error: 'No account found with this email address.',
+        });
+      }
+      return sendJson(res, oobRes.status || 400, {
+        error: msg || 'Failed to generate reset code',
+      });
+    }
+
+    const targetOrigin = origin ? origin.replace(/\/+$/, '') : 'https://helpmyimg.com';
+    const apiKey =
+      (oobData.oobLink && new URL(oobData.oobLink).searchParams.get('apiKey')) ||
+      process.env.VITE_FIREBASE_API_KEY ||
+      'AIzaSyD2avZTHv2VAdnlGBMs_zXklU3VHCjF5lo';
+
+    // Direct in-app link to HelpMyIMG with password reset params (NEVER firebaseapp domain)
+    const directHelpMyImgLink = `${targetOrigin}/?mode=resetPassword&oobCode=${oobData.oobCode}&apiKey=${apiKey}`;
 
     const emailHtml = `
 <!DOCTYPE html>
@@ -82,7 +222,7 @@ export default async function handler(req, res) {
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Reset your HelpMyIMG password</title>
 </head>
-<body style="margin: 0; padding: 0; background-color: #f8fafc; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; -webkit-font-smoothing: antialiased; color: #1e293b;">
+<body style="margin: 0; padding: 0; background-color: #f8fafc; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; color: #1e293b;">
   <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="background-color: #f8fafc; padding: 48px 16px;">
     <tr>
       <td align="center">
@@ -95,7 +235,7 @@ export default async function handler(req, res) {
               <table role="presentation" cellspacing="0" cellpadding="0">
                 <tr>
                   <td style="vertical-align: middle; padding-right: 12px;">
-                    <img src="https://helpmyimg.com/logobaru.png" alt="HelpMyIMG Logo" width="36" height="36" style="display: block; width: 36px; height: 36px; border-radius: 8px; object-fit: contain;" />
+                    <img src="https://helpmyimg.com/logobaru-sm.png" alt="HelpMyIMG" width="36" height="36" style="display: block; width: 36px; height: 36px; border-radius: 8px; object-fit: contain;" />
                   </td>
                   <td style="vertical-align: middle;">
                     <span style="font-size: 19px; font-weight: 700; color: #0f172a; letter-spacing: -0.3px;">HelpMy<span style="color: #0891b2;">IMG</span></span>
@@ -126,7 +266,7 @@ export default async function handler(req, res) {
             <td style="padding-bottom: 32px;">
               <table role="presentation" cellspacing="0" cellpadding="0">
                 <tr>
-                  <td align="center" style="border-radius: 10px; background: #0f172a;">
+                  <td align="center" style="border-radius: 10px; background-color: #0f172a;">
                     <a href="${directHelpMyImgLink}" target="_blank" style="display: inline-block; padding: 12px 28px; font-size: 14px; font-weight: 600; color: #ffffff; text-decoration: none; border-radius: 10px; background-color: #0f172a; letter-spacing: -0.1px;">
                       Reset password
                     </a>
@@ -189,14 +329,14 @@ export default async function handler(req, res) {
     const resendData = await resendResponse.json();
     if (!resendResponse.ok) {
       console.error('Resend error:', resendData);
-      return res
-        .status(resendResponse.status)
-        .json({ error: resendData.message || 'Failed to send email via Resend' });
+      return sendJson(res, resendResponse.status, {
+        error: resendData.message || 'Failed to send email via Resend',
+      });
     }
 
-    return res.status(200).json({ success: true, id: resendData.id });
+    return sendJson(res, 200, { success: true, id: resendData.id });
   } catch (error) {
     console.error('Error generating reset link:', error);
-    return res.status(500).json({ error: error.message || 'Internal server error' });
+    return sendJson(res, 500, { error: error.message || 'Internal server error' });
   }
 }

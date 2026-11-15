@@ -203,27 +203,24 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
         ? window.location.origin
         : 'https://helpmyimg.com';
 
-    // 1. Coba kirim via serverless custom branded Resend API
-    try {
-      const response = await fetch('/api/reset-password', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email: email.trim(), origin }),
-      });
-      if (response.ok) {
-        return;
+    // Panggil serverless custom branded Resend API (gunakan trailing slash agar sesuai vercel.json)
+    const response = await fetch('/api/reset-password/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email: email.trim(), origin }),
+    });
+
+    const data = await response.json().catch(() => ({}));
+
+    if (!response.ok) {
+      const err = new Error(data.error || 'Failed to send password reset email');
+      if (response.status === 404) {
+        (err as any).code = 'auth/user-not-found';
+      } else if (response.status === 429) {
+        (err as any).code = 'auth/too-many-requests';
       }
-    } catch (apiErr) {
-      console.warn('Custom reset email endpoint unavailable, falling back to Firebase Auth SDK:', apiErr);
+      throw err;
     }
-
-    // 2. Fallback aman ke Firebase Auth SDK default jika API offline
-    const actionCodeSettings = {
-      url: `${origin}/`,
-      handleCodeInApp: true,
-    };
-
-    await sendPasswordResetEmail(auth, email.trim(), actionCodeSettings);
   };
 
   const confirmNewPassword = async (oobCode: string, newPassword: string) => {
