@@ -2240,5 +2240,11 @@
   "auth.invalidCredentials": "Virheellinen sähköpostiosoite tai salasana.",
   "auth.emailInUse": "Tämä sähköposti on jo rekisteröity. Kirjaudu sisään.",
   "auth.weakPassword": "Salasanassa on oltava vähintään 6 merkkiä.",
-  "auth.userNotFound": "Tällä sähköpostiosoitteella ei löytynyt tiliä."
+  "auth.userNotFound": "Tällä sähköpostiosoitteella ei löytynyt tiliä.",
+  "auth.resetNewPasswordTitle": "Aseta uusi salasana",
+  "auth.resetNewPasswordSubtitle": "Kirjoita uusi salasanasi alle.",
+  "auth.newPasswordLabel": "Uusi salasana",
+  "auth.submitNewPassword": "Tallenna uusi salasana",
+  "auth.savingPassword": "Tallennetaan salasanaa...",
+  "auth.passwordResetSuccess": "Salasana on päivitetty onnistuneesti! Kirjaudu sisään."
 }

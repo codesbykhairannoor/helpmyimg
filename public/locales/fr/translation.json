@@ -2240,5 +2240,11 @@
   "auth.invalidCredentials": "Email ou mot de passe invalide.",
   "auth.emailInUse": "Cet e-mail est déjà enregistré. Veuillez vous connecter.",
   "auth.weakPassword": "Le mot de passe doit comporter au moins 6 caractères.",
-  "auth.userNotFound": "Aucun compte trouvé avec cette adresse email."
+  "auth.userNotFound": "Aucun compte trouvé avec cette adresse email.",
+  "auth.resetNewPasswordTitle": "Définir un nouveau mot de passe",
+  "auth.resetNewPasswordSubtitle": "Entrez votre nouveau mot de passe ci-dessous.",
+  "auth.newPasswordLabel": "Nouveau mot de passe",
+  "auth.submitNewPassword": "Enregistrer le nouveau mot de passe",
+  "auth.savingPassword": "Enregistrement du mot de passe...",
+  "auth.passwordResetSuccess": "Le mot de passe a été mis à jour avec succès ! Veuillez vous connecter."
 }

@@ -12,20 +12,38 @@ export const AuthModal: React.FC = () => {
   const {
     user,
     isAuthModalOpen,
+    openAuthModal,
     closeAuthModal,
     signInWithGoogle,
     signInWithEmail,
     signUpWithEmail,
     sendPasswordReset,
+    confirmNewPassword,
   } = useAuth();
   const { t } = useTranslation();
 
-  const [mode, setMode] = useState<'signin' | 'signup' | 'forgot'>('signin');
+  const [mode, setMode] = useState<'signin' | 'signup' | 'forgot' | 'reset'>('signin');
+  const [resetCode, setResetCode] = useState<string | null>(null);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
   const [errorMsg, setErrorMsg] = useState<string | null>(null);
   const [successMsg, setSuccessMsg] = useState<string | null>(null);
+
+  // Periksa apakah ada parameter reset password dari URL email
+  React.useEffect(() => {
+    if (typeof window === 'undefined') return;
+    const urlParams = new URLSearchParams(window.location.search);
+    const urlMode = urlParams.get('mode');
+    const oobCode = urlParams.get('oobCode');
+
+    if (urlMode === 'resetPassword' && oobCode) {
+      setResetCode(oobCode);
+      setMode('reset');
+      openAuthModal();
+      window.history.replaceState({}, document.title, window.location.pathname);
+    }
+  }, [openAuthModal]);
 
   const resetForm = React.useCallback(() => {
     setEmail('');
@@ -45,7 +63,7 @@ export const AuthModal: React.FC = () => {
 
   if (!isAuthModalOpen || user) return null;
 
-  const handleSwitchMode = (newMode: 'signin' | 'signup' | 'forgot') => {
+  const handleSwitchMode = (newMode: 'signin' | 'signup' | 'forgot' | 'reset') => {
     setMode(newMode);
     setErrorMsg(null);
     setSuccessMsg(null);
@@ -59,6 +77,40 @@ export const AuthModal: React.FC = () => {
           defaultValue: 'Firebase is not configured. Please set VITE_FIREBASE_* in your environment.',
         })
       );
+      return;
+    }
+
+    // In-app Reset Password confirmation flow
+    if (mode === 'reset') {
+      if (!resetCode) {
+        setErrorMsg('Invalid or expired password reset link.');
+        return;
+      }
+      if (!password || password.length < 6) {
+        setErrorMsg(t('auth.weakPassword', { defaultValue: 'Password must be at least 6 characters.' }));
+        return;
+      }
+
+      setLoading(true);
+      setErrorMsg(null);
+      setSuccessMsg(null);
+      try {
+        await confirmNewPassword(resetCode, password);
+        setSuccessMsg(
+          t('auth.passwordResetSuccess', {
+            defaultValue: 'Password has been successfully updated! Please sign in.',
+          })
+        );
+        setTimeout(() => {
+          setMode('signin');
+          setPassword('');
+          setErrorMsg(null);
+        }, 1500);
+      } catch (err: any) {
+        setErrorMsg(err?.message || 'Failed to reset password. Link may have expired.');
+      } finally {
+        setLoading(false);
+      }
       return;
     }
 
@@ -196,12 +248,13 @@ export const AuthModal: React.FC = () => {
           {/* Header */}
           <div className="text-center mb-5">
             <div className="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-cyan-50 dark:bg-cyan-950/40 text-[#05DAED] mb-3 border border-cyan-100 dark:border-cyan-800/40">
-              {mode === 'forgot' ? <KeyRound className="w-6 h-6" /> : <ShieldCheck className="w-6 h-6" />}
+              {mode === 'forgot' || mode === 'reset' ? <KeyRound className="w-6 h-6" /> : <ShieldCheck className="w-6 h-6" />}
             </div>
             <h3 className="text-xl font-bold text-slate-900 dark:text-white">
               {mode === 'signin' && t('auth.signInTitle', { defaultValue: 'Sign in to HelpMyIMG' })}
               {mode === 'signup' && t('auth.signUpTitle', { defaultValue: 'Create an Account' })}
               {mode === 'forgot' && t('auth.forgotPasswordTitle', { defaultValue: 'Reset Password' })}
+              {mode === 'reset' && t('auth.resetNewPasswordTitle', { defaultValue: 'Set New Password' })}
             </h3>
             <p className="text-sm text-slate-500 dark:text-slate-400 mt-1">
               {mode === 'signin' &&
@@ -215,6 +268,10 @@ export const AuthModal: React.FC = () => {
               {mode === 'forgot' &&
                 t('auth.forgotPasswordSubtitle', {
                   defaultValue: 'Enter your email address to receive a secure password reset link.',
+                })}
+              {mode === 'reset' &&
+                t('auth.resetNewPasswordSubtitle', {
+                  defaultValue: 'Enter your new password below.',
                 })}
             </p>
           </div>
@@ -237,28 +294,32 @@ export const AuthModal: React.FC = () => {
 
           {/* Email / Password Form */}
           <form onSubmit={handleEmailAuth} className="space-y-3.5 mb-4">
-            <div>
-              <label className="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1">
-                {t('auth.emailLabel', { defaultValue: 'Email Address' })}
-              </label>
-              <div className="relative">
-                <Mail className="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2 pointer-events-none" />
-                <input
-                  type="email"
-                  required
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  placeholder={t('auth.emailPlaceholder', { defaultValue: 'name@example.com' })}
-                  className="w-full pl-10 pr-3.5 py-2.5 text-sm rounded-xl border border-slate-300 dark:border-slate-600 bg-slate-50/50 dark:bg-dark-900/60 text-slate-900 dark:text-slate-100 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-[#05DAED]/50 focus:border-[#05DAED] transition-all"
-                />
+            {mode !== 'reset' && (
+              <div>
+                <label className="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1">
+                  {t('auth.emailLabel', { defaultValue: 'Email Address' })}
+                </label>
+                <div className="relative">
+                  <Mail className="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2 pointer-events-none" />
+                  <input
+                    type="email"
+                    required
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    placeholder={t('auth.emailPlaceholder', { defaultValue: 'name@example.com' })}
+                    className="w-full pl-10 pr-3.5 py-2.5 text-sm rounded-xl border border-slate-300 dark:border-slate-600 bg-slate-50/50 dark:bg-dark-900/60 text-slate-900 dark:text-slate-100 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-[#05DAED]/50 focus:border-[#05DAED] transition-all"
+                  />
+                </div>
               </div>
-            </div>
+            )}
 
             {mode !== 'forgot' && (
               <div>
                 <div className="flex items-center justify-between mb-1">
                   <label className="block text-xs font-semibold text-slate-700 dark:text-slate-300">
-                    {t('auth.passwordLabel', { defaultValue: 'Password' })}
+                    {mode === 'reset'
+                      ? t('auth.newPasswordLabel', { defaultValue: 'New Password' })
+                      : t('auth.passwordLabel', { defaultValue: 'Password' })}
                   </label>
                   {mode === 'signin' && (
                     <button
@@ -297,6 +358,7 @@ export const AuthModal: React.FC = () => {
                     {mode === 'signin' && t('auth.signingIn', { defaultValue: 'Signing in...' })}
                     {mode === 'signup' && t('auth.creatingAccount', { defaultValue: 'Creating account...' })}
                     {mode === 'forgot' && t('auth.sendingReset', { defaultValue: 'Sending link...' })}
+                    {mode === 'reset' && t('auth.savingPassword', { defaultValue: 'Saving password...' })}
                   </span>
                 </>
               ) : (
@@ -304,13 +366,14 @@ export const AuthModal: React.FC = () => {
                   {mode === 'signin' && t('auth.submitSignIn', { defaultValue: 'Sign In' })}
                   {mode === 'signup' && t('auth.submitSignUp', { defaultValue: 'Create Account' })}
                   {mode === 'forgot' && t('auth.submitReset', { defaultValue: 'Send Reset Link' })}
+                  {mode === 'reset' && t('auth.submitNewPassword', { defaultValue: 'Save New Password' })}
                 </span>
               )}
             </button>
           </form>
 
-          {/* Forgot Password Mode: Back Button */}
-          {mode === 'forgot' && (
+          {/* Forgot / Reset Password Mode: Back Button */}
+          {(mode === 'forgot' || mode === 'reset') && (
             <div className="text-center pt-2">
               <button
                 type="button"
@@ -324,7 +387,7 @@ export const AuthModal: React.FC = () => {
           )}
 
           {/* Social Sign In (Only for signin & signup modes) */}
-          {mode !== 'forgot' && (
+          {mode !== 'forgot' && mode !== 'reset' && (
             <>
               {/* Divider */}
               <div className="relative flex items-center justify-center my-4">

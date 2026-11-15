@@ -2240,5 +2240,11 @@
   "auth.invalidCredentials": "อีเมลหรือรหัสผ่านไม่ถูกต้อง",
   "auth.emailInUse": "อีเมลนี้มีการลงทะเบียนแล้ว กรุณาเข้าสู่ระบบ",
   "auth.weakPassword": "รหัสผ่านต้องมีอย่างน้อย 6 ตัวอักษร",
-  "auth.userNotFound": "ไม่พบบัญชีที่ใช้ที่อยู่อีเมลนี้"
+  "auth.userNotFound": "ไม่พบบัญชีที่ใช้ที่อยู่อีเมลนี้",
+  "auth.resetNewPasswordTitle": "ตั้งรหัสผ่านใหม่",
+  "auth.resetNewPasswordSubtitle": "ป้อนรหัสผ่านใหม่ของคุณด้านล่าง",
+  "auth.newPasswordLabel": "รหัสผ่านใหม่",
+  "auth.submitNewPassword": "บันทึกรหัสผ่านใหม่",
+  "auth.savingPassword": "กำลังบันทึกรหัสผ่าน...",
+  "auth.passwordResetSuccess": "อัปเดตรหัสผ่านสำเร็จแล้ว! กรุณาเข้าสู่ระบบ"
 }

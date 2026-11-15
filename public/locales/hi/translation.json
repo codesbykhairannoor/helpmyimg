@@ -2240,5 +2240,11 @@
   "auth.invalidCredentials": "अमान्य ईमेल या पासवर्ड.",
   "auth.emailInUse": "यह ईमेल पहले से ही पंजीकृत है. साइन इन करें।",
   "auth.weakPassword": "पासवर्ड कम से कम 6 अंकों का होना चाहिए।",
-  "auth.userNotFound": "इस ईमेल पते पर कोई खाता नहीं मिला."
+  "auth.userNotFound": "इस ईमेल पते पर कोई खाता नहीं मिला.",
+  "auth.resetNewPasswordTitle": "नया पासवर्ड सेट करें",
+  "auth.resetNewPasswordSubtitle": "नीचे अपना नया पासवर्ड दर्ज करें.",
+  "auth.newPasswordLabel": "नया पासवर्ड",
+  "auth.submitNewPassword": "नया पासवर्ड सहेजें",
+  "auth.savingPassword": "पासवर्ड सहेजा जा रहा है...",
+  "auth.passwordResetSuccess": "पासवर्ड सफलतापूर्वक अपडेट कर दिया गया है! साइन इन करें।"
 }

@@ -2240,5 +2240,11 @@
   "auth.invalidCredentials": "E-mail sau parolă nevalidă.",
   "auth.emailInUse": "Acest e-mail este deja înregistrat. Vă rugăm să vă conectați.",
   "auth.weakPassword": "Parola trebuie să aibă cel puțin 6 caractere.",
-  "auth.userNotFound": "Nu a fost găsit niciun cont cu această adresă de e-mail."
+  "auth.userNotFound": "Nu a fost găsit niciun cont cu această adresă de e-mail.",
+  "auth.resetNewPasswordTitle": "Setați o parolă nouă",
+  "auth.resetNewPasswordSubtitle": "Introduceți noua parolă mai jos.",
+  "auth.newPasswordLabel": "Parolă Nouă",
+  "auth.submitNewPassword": "Salvați parola nouă",
+  "auth.savingPassword": "Se salvează parola...",
+  "auth.passwordResetSuccess": "Parola a fost actualizată cu succes! Vă rugăm să vă conectați."
 }

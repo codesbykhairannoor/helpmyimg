@@ -2245,5 +2245,11 @@
   "auth.invalidCredentials": "Nieprawidłowy adres e-mail lub hasło.",
   "auth.emailInUse": "Ten adres e-mail jest już zarejestrowany. Proszę się zalogować.",
   "auth.weakPassword": "Hasło musi mieć co najmniej 6 znaków.",
-  "auth.userNotFound": "Nie znaleziono konta z tym adresem e-mail."
+  "auth.userNotFound": "Nie znaleziono konta z tym adresem e-mail.",
+  "auth.resetNewPasswordTitle": "Ustaw nowe hasło",
+  "auth.resetNewPasswordSubtitle": "Wpisz poniżej swoje nowe hasło.",
+  "auth.newPasswordLabel": "Nowe hasło",
+  "auth.submitNewPassword": "Zapisz nowe hasło",
+  "auth.savingPassword": "Zapisuję hasło...",
+  "auth.passwordResetSuccess": "Hasło zostało pomyślnie zaktualizowane! Proszę się zalogować."
 }

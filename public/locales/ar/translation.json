@@ -2254,5 +2254,11 @@
   "auth.invalidCredentials": "البريد الإلكتروني أو كلمة المرور غير صالحة.",
   "auth.emailInUse": "عنوان البريد الإلكترونى هذا مسجل بالفعل. الرجاء تسجيل الدخول.",
   "auth.weakPassword": "يجب أن تتكون كلمة المرور من 6 أحرف على الأقل.",
-  "auth.userNotFound": "لم يتم العثور على حساب باستخدام عنوان البريد الإلكتروني هذا."
+  "auth.userNotFound": "لم يتم العثور على حساب باستخدام عنوان البريد الإلكتروني هذا.",
+  "auth.resetNewPasswordTitle": "تعيين كلمة مرور جديدة",
+  "auth.resetNewPasswordSubtitle": "أدخل كلمة المرور الجديدة أدناه.",
+  "auth.newPasswordLabel": "كلمة المرور الجديدة",
+  "auth.submitNewPassword": "حفظ كلمة المرور الجديدة",
+  "auth.savingPassword": "جارٍ حفظ كلمة المرور...",
+  "auth.passwordResetSuccess": "تم تحديث كلمة المرور بنجاح! الرجاء تسجيل الدخول."
 }

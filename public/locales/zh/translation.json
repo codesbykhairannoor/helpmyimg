@@ -2239,5 +2239,11 @@
   "auth.invalidCredentials": "电子邮件或密码无效。",
   "auth.emailInUse": "此邮箱号已被注册。 请登录。",
   "auth.weakPassword": "密码必须至少包含 6 个字符。",
-  "auth.userNotFound": "未找到使用此电子邮件地址的帐户。"
+  "auth.userNotFound": "未找到使用此电子邮件地址的帐户。",
+  "auth.resetNewPasswordTitle": "设置新密码",
+  "auth.resetNewPasswordSubtitle": "在下面输入您的新密码。",
+  "auth.newPasswordLabel": "新密码",
+  "auth.submitNewPassword": "保存新密码",
+  "auth.savingPassword": "正在保存密码...",
+  "auth.passwordResetSuccess": "密码已成功更新！ 请登录。"
 }

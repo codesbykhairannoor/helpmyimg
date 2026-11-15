@@ -2240,5 +2240,11 @@
   "auth.invalidCredentials": "Correo electrónico o contraseña no válidos.",
   "auth.emailInUse": "Este correo electrónico ya está registrado. Por favor inicia sesión.",
   "auth.weakPassword": "La contraseña debe tener al menos 6 caracteres.",
-  "auth.userNotFound": "No se encontró ninguna cuenta con esta dirección de correo electrónico."
+  "auth.userNotFound": "No se encontró ninguna cuenta con esta dirección de correo electrónico.",
+  "auth.resetNewPasswordTitle": "Establecer nueva contraseña",
+  "auth.resetNewPasswordSubtitle": "Ingrese su nueva contraseña a continuación.",
+  "auth.newPasswordLabel": "Nueva contraseña",
+  "auth.submitNewPassword": "Guardar nueva contraseña",
+  "auth.savingPassword": "Guardando contraseña...",
+  "auth.passwordResetSuccess": "¡La contraseña se ha actualizado correctamente! Por favor inicia sesión."
 }

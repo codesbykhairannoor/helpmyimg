@@ -2240,5 +2240,11 @@
   "auth.invalidCredentials": "E-mel atau kata laluan tidak sah.",
   "auth.emailInUse": "E-mel ini telah pun didaftarkan. Sila log masuk.",
   "auth.weakPassword": "Kata laluan mestilah sekurang-kurangnya 6 aksara.",
-  "auth.userNotFound": "Tiada akaun ditemui dengan alamat e-mel ini."
+  "auth.userNotFound": "Tiada akaun ditemui dengan alamat e-mel ini.",
+  "auth.resetNewPasswordTitle": "Tetapkan Kata Laluan Baharu",
+  "auth.resetNewPasswordSubtitle": "Masukkan kata laluan baharu anda di bawah.",
+  "auth.newPasswordLabel": "Kata Laluan Baharu",
+  "auth.submitNewPassword": "Simpan Kata Laluan Baharu",
+  "auth.savingPassword": "Menyimpan kata laluan...",
+  "auth.passwordResetSuccess": "Kata laluan telah berjaya dikemas kini! Sila log masuk."
 }

@@ -2240,5 +2240,11 @@
   "auth.invalidCredentials": "Μη έγκυρο email ή κωδικός πρόσβασης.",
   "auth.emailInUse": "Αυτό το email είναι ήδη καταχωρημένο. Παρακαλώ συνδεθείτε.",
   "auth.weakPassword": "Ο κωδικός πρόσβασης πρέπει να αποτελείται από τουλάχιστον 6 χαρακτήρες.",
-  "auth.userNotFound": "Δεν βρέθηκε λογαριασμός με αυτήν τη διεύθυνση email."
+  "auth.userNotFound": "Δεν βρέθηκε λογαριασμός με αυτήν τη διεύθυνση email.",
+  "auth.resetNewPasswordTitle": "Ορισμός νέου κωδικού πρόσβασης",
+  "auth.resetNewPasswordSubtitle": "Εισαγάγετε τον νέο σας κωδικό πρόσβασης παρακάτω.",
+  "auth.newPasswordLabel": "Νέος κωδικός πρόσβασης",
+  "auth.submitNewPassword": "Αποθήκευση νέου κωδικού πρόσβασης",
+  "auth.savingPassword": "Αποθήκευση κωδικού πρόσβασης...",
+  "auth.passwordResetSuccess": "Ο κωδικός πρόσβασης ενημερώθηκε με επιτυχία! Παρακαλώ συνδεθείτε."
 }

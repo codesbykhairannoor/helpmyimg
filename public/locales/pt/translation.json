@@ -2240,5 +2240,11 @@
   "auth.invalidCredentials": "E-mail ou senha inválidos.",
   "auth.emailInUse": "Este e-mail já está registado. Faça login.",
   "auth.weakPassword": "A senha deve ter pelo menos 6 caracteres.",
-  "auth.userNotFound": "Nenhuma conta encontrada com este endereço de e-mail."
+  "auth.userNotFound": "Nenhuma conta encontrada com este endereço de e-mail.",
+  "auth.resetNewPasswordTitle": "Definir nova senha",
+  "auth.resetNewPasswordSubtitle": "Digite sua nova senha abaixo.",
+  "auth.newPasswordLabel": "Nova Senha",
+  "auth.submitNewPassword": "Salvar nova senha",
+  "auth.savingPassword": "Salvando senha...",
+  "auth.passwordResetSuccess": "A senha foi atualizada com sucesso! Faça login."
 }

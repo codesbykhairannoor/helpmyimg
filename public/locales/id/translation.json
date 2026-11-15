@@ -2306,5 +2306,11 @@
   "auth.invalidCredentials": "Email atau kata sandi tidak valid.",
   "auth.emailInUse": "Email ini sudah terdaftar. Silakan masuk.",
   "auth.weakPassword": "Kata sandi minimal 6 karakter.",
-  "auth.userNotFound": "Akun dengan email ini tidak ditemukan."
+  "auth.userNotFound": "Akun dengan email ini tidak ditemukan.",
+  "auth.resetNewPasswordTitle": "Buat Kata Sandi Baru",
+  "auth.resetNewPasswordSubtitle": "Masukkan kata sandi baru untuk akun Anda.",
+  "auth.newPasswordLabel": "Kata Sandi Baru",
+  "auth.submitNewPassword": "Simpan Kata Sandi Baru",
+  "auth.savingPassword": "Menyimpan kata sandi...",
+  "auth.passwordResetSuccess": "Kata sandi berhasil diperbarui! Silakan masuk dengan kata sandi baru Anda."
 }

@@ -2240,5 +2240,11 @@
   "auth.invalidCredentials": "Неверный адрес электронной почты или пароль.",
   "auth.emailInUse": "Этот адрес уже зарегистрирован. Пожалуйста, войдите в систему.",
   "auth.weakPassword": "Пароль должен быть не менее 6 символов.",
-  "auth.userNotFound": "Учетная запись с этим адресом электронной почты не найдена."
+  "auth.userNotFound": "Учетная запись с этим адресом электронной почты не найдена.",
+  "auth.resetNewPasswordTitle": "Установить новый пароль",
+  "auth.resetNewPasswordSubtitle": "Введите новый пароль ниже.",
+  "auth.newPasswordLabel": "Новый пароль",
+  "auth.submitNewPassword": "Сохранить новый пароль",
+  "auth.savingPassword": "Сохранение пароля...",
+  "auth.passwordResetSuccess": "Пароль успешно обновлен! Пожалуйста, войдите в систему."
 }

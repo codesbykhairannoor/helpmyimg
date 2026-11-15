@@ -2240,5 +2240,11 @@
   "auth.invalidCredentials": "Ugyldig e-mail eller adgangskode.",
   "auth.emailInUse": "Denne e-mail er allerede registreret. Log venligst ind.",
   "auth.weakPassword": "Adgangskoden skal være på mindst 6 tegn.",
-  "auth.userNotFound": "Ingen konto fundet med denne e-mailadresse."
+  "auth.userNotFound": "Ingen konto fundet med denne e-mailadresse.",
+  "auth.resetNewPasswordTitle": "Indstil ny adgangskode",
+  "auth.resetNewPasswordSubtitle": "Indtast din nye adgangskode nedenfor.",
+  "auth.newPasswordLabel": "Ny adgangskode",
+  "auth.submitNewPassword": "Gem ny adgangskode",
+  "auth.savingPassword": "Gemmer adgangskoden...",
+  "auth.passwordResetSuccess": "Adgangskoden er blevet opdateret! Log venligst ind."
 }

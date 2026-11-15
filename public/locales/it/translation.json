@@ -2240,5 +2240,11 @@
   "auth.invalidCredentials": "E-mail o password non valide.",
   "auth.emailInUse": "Questa email è già registrata. Per favore accedi.",
   "auth.weakPassword": "La password deve contenere almeno 6 caratteri.",
-  "auth.userNotFound": "Nessun account trovato con questo indirizzo email."
+  "auth.userNotFound": "Nessun account trovato con questo indirizzo email.",
+  "auth.resetNewPasswordTitle": "Imposta nuova password",
+  "auth.resetNewPasswordSubtitle": "Inserisci la tua nuova password qui sotto.",
+  "auth.newPasswordLabel": "Nuova parola d'ordine",
+  "auth.submitNewPassword": "Salva nuova password",
+  "auth.savingPassword": "Salvataggio della password...",
+  "auth.passwordResetSuccess": "La password è stata aggiornata con successo! Per favore accedi."
 }

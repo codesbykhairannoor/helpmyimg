@@ -2240,5 +2240,11 @@
   "auth.invalidCredentials": "이메일이나 비밀번호가 잘못되었습니다.",
   "auth.emailInUse": "이 이메일은 이미 등록되어 있습니다. 로그인하세요.",
   "auth.weakPassword": "비밀번호는 6자 이상이어야 합니다.",
-  "auth.userNotFound": "이 이메일 주소로 계정을 찾을 수 없습니다."
+  "auth.userNotFound": "이 이메일 주소로 계정을 찾을 수 없습니다.",
+  "auth.resetNewPasswordTitle": "새 비밀번호 설정",
+  "auth.resetNewPasswordSubtitle": "아래에 새 비밀번호를 입력하세요.",
+  "auth.newPasswordLabel": "새 비밀번호",
+  "auth.submitNewPassword": "새 비밀번호 저장",
+  "auth.savingPassword": "비밀번호 저장 중...",
+  "auth.passwordResetSuccess": "비밀번호가 성공적으로 업데이트되었습니다! 로그인하세요."
 }

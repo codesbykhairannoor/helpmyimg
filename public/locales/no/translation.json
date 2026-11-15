@@ -2240,5 +2240,11 @@
   "auth.invalidCredentials": "Ugyldig e-postadresse eller passord.",
   "auth.emailInUse": "Denne e-posten er allerede registrert. Logg på.",
   "auth.weakPassword": "Passordet må være på minst 6 tegn.",
-  "auth.userNotFound": "Fant ingen konto med denne e-postadressen."
+  "auth.userNotFound": "Fant ingen konto med denne e-postadressen.",
+  "auth.resetNewPasswordTitle": "Angi nytt passord",
+  "auth.resetNewPasswordSubtitle": "Skriv inn ditt nye passord nedenfor.",
+  "auth.newPasswordLabel": "Nytt passord",
+  "auth.submitNewPassword": "Lagre nytt passord",
+  "auth.savingPassword": "Lagrer passord...",
+  "auth.passwordResetSuccess": "Passordet har blitt oppdatert! Logg på."
 }

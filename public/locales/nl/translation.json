@@ -2240,5 +2240,11 @@
   "auth.invalidCredentials": "Ongeldig e-mailadres of wachtwoord.",
   "auth.emailInUse": "Deze e-mail is al geregistreerd. Meld u aan.",
   "auth.weakPassword": "Wachtwoord moet minimaal 6 tekens lang zijn.",
-  "auth.userNotFound": "Er is geen account gevonden met dit e-mailadres."
+  "auth.userNotFound": "Er is geen account gevonden met dit e-mailadres.",
+  "auth.resetNewPasswordTitle": "Stel een nieuw wachtwoord in",
+  "auth.resetNewPasswordSubtitle": "Vul hieronder uw nieuwe wachtwoord in.",
+  "auth.newPasswordLabel": "Nieuw wachtwoord",
+  "auth.submitNewPassword": "Nieuw wachtwoord opslaan",
+  "auth.savingPassword": "Wachtwoord opslaan...",
+  "auth.passwordResetSuccess": "Wachtwoord is succesvol bijgewerkt! Meld u aan."
 }

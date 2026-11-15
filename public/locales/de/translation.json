@@ -2240,5 +2240,11 @@
   "auth.invalidCredentials": "Ungültige E-Mail-Adresse oder ungültiges Passwort.",
   "auth.emailInUse": "Diese E-Mail ist bereits registriert. Bitte melden Sie sich an.",
   "auth.weakPassword": "Das Passwort muss mindestens 6 Zeichen lang sein.",
-  "auth.userNotFound": "Mit dieser E-Mail-Adresse wurde kein Konto gefunden."
+  "auth.userNotFound": "Mit dieser E-Mail-Adresse wurde kein Konto gefunden.",
+  "auth.resetNewPasswordTitle": "Neues Passwort festlegen",
+  "auth.resetNewPasswordSubtitle": "Geben Sie unten Ihr neues Passwort ein.",
+  "auth.newPasswordLabel": "Neues Passwort",
+  "auth.submitNewPassword": "Neues Passwort speichern",
+  "auth.savingPassword": "Passwort wird gespeichert...",
+  "auth.passwordResetSuccess": "Das Passwort wurde erfolgreich aktualisiert! Bitte melden Sie sich an."
 }

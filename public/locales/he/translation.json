@@ -2240,5 +2240,11 @@
   "auth.invalidCredentials": "אימייל או סיסמה לא חוקיים.",
   "auth.emailInUse": "האימייל הזה כבר רשום. נא להיכנס.",
   "auth.weakPassword": "הסיסמה חייבת להיות בת 6 תווים לפחות.",
-  "auth.userNotFound": "לא נמצא חשבון עם כתובת דוא\"ל זו."
+  "auth.userNotFound": "לא נמצא חשבון עם כתובת דוא\"ל זו.",
+  "auth.resetNewPasswordTitle": "הגדר סיסמה חדשה",
+  "auth.resetNewPasswordSubtitle": "הזן את הסיסמה החדשה שלך למטה.",
+  "auth.newPasswordLabel": "סיסמה חדשה",
+  "auth.submitNewPassword": "שמור סיסמה חדשה",
+  "auth.savingPassword": "שומר סיסמה...",
+  "auth.passwordResetSuccess": "הסיסמה עודכנה בהצלחה! נא להיכנס."
 }

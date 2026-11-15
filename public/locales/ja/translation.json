@@ -2240,5 +2240,11 @@
   "auth.invalidCredentials": "メールアドレスまたはパスワードが無効です。",
   "auth.emailInUse": "このEメールはすでに登録されています。 サインインしてください。",
   "auth.weakPassword": "パスワードは6文字以上である必要があります。",
-  "auth.userNotFound": "このメール アドレスのアカウントは見つかりませんでした。"
+  "auth.userNotFound": "このメール アドレスのアカウントは見つかりませんでした。",
+  "auth.resetNewPasswordTitle": "新しいパスワードを設定する",
+  "auth.resetNewPasswordSubtitle": "新しいパスワードを下に入力してください。",
+  "auth.newPasswordLabel": "新しいパスワード",
+  "auth.submitNewPassword": "新しいパスワードを保存する",
+  "auth.savingPassword": "パスワードを保存しています...",
+  "auth.passwordResetSuccess": "パスワードが正常に更新されました。 サインインしてください。"
 }

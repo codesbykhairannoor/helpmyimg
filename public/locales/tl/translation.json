@@ -2240,5 +2240,11 @@
   "auth.invalidCredentials": "Di-wastong email o password.",
   "auth.emailInUse": "Nakarehistro na ang email na ito. Mangyaring mag-sign in.",
   "auth.weakPassword": "Dapat na hindi bababa sa 6 na character ang password.",
-  "auth.userNotFound": "Walang nakitang account na may ganitong email address."
+  "auth.userNotFound": "Walang nakitang account na may ganitong email address.",
+  "auth.resetNewPasswordTitle": "Magtakda ng Bagong Password",
+  "auth.resetNewPasswordSubtitle": "Ilagay ang iyong bagong password sa ibaba.",
+  "auth.newPasswordLabel": "Bagong Password",
+  "auth.submitNewPassword": "I-save ang Bagong Password",
+  "auth.savingPassword": "Sine-save ang password...",
+  "auth.passwordResetSuccess": "Matagumpay na na-update ang password! Mangyaring mag-sign in."
 }

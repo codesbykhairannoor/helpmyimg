@@ -2240,5 +2240,11 @@
   "auth.invalidCredentials": "Geçersiz e-posta veya şifre.",
   "auth.emailInUse": "Bu e-posta zaten kayıtlı. Lütfen oturum açın.",
   "auth.weakPassword": "Şifre en az 6 karakter olmalıdır.",
-  "auth.userNotFound": "Bu e-posta adresiyle hesap bulunamadı."
+  "auth.userNotFound": "Bu e-posta adresiyle hesap bulunamadı.",
+  "auth.resetNewPasswordTitle": "Yeni Şifre Belirle",
+  "auth.resetNewPasswordSubtitle": "Yeni şifrenizi aşağıya girin.",
+  "auth.newPasswordLabel": "Yeni Şifre",
+  "auth.submitNewPassword": "Yeni Şifreyi Kaydet",
+  "auth.savingPassword": "Şifre kaydediliyor...",
+  "auth.passwordResetSuccess": "Şifre başarıyla güncellendi! Lütfen oturum açın."
 }

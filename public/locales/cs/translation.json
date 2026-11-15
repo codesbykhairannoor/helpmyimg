@@ -2240,5 +2240,11 @@
   "auth.invalidCredentials": "Neplatný e-mail nebo heslo.",
   "auth.emailInUse": "Tento e-mail je již zaregistrován. Přihlaste se prosím.",
   "auth.weakPassword": "Heslo musí mít alespoň 6 znaků.",
-  "auth.userNotFound": "Nebyl nalezen žádný účet s touto e-mailovou adresou."
+  "auth.userNotFound": "Nebyl nalezen žádný účet s touto e-mailovou adresou.",
+  "auth.resetNewPasswordTitle": "Nastavit nové heslo",
+  "auth.resetNewPasswordSubtitle": "Níže zadejte své nové heslo.",
+  "auth.newPasswordLabel": "Nové heslo",
+  "auth.submitNewPassword": "Uložit nové heslo",
+  "auth.savingPassword": "Ukládání hesla...",
+  "auth.passwordResetSuccess": "Heslo bylo úspěšně aktualizováno! Přihlaste se prosím."
 }

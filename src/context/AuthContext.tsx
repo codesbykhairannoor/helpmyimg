@@ -9,6 +9,7 @@ import {
   signInWithEmailAndPassword,
   createUserWithEmailAndPassword,
   sendPasswordResetEmail,
+  confirmPasswordReset,
   signOut as firebaseSignOut,
   onAuthStateChanged,
   type User,
@@ -197,7 +198,27 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
       );
     }
 
-    await sendPasswordResetEmail(auth, email.trim());
+    const origin =
+      typeof window !== 'undefined' && window.location.origin
+        ? window.location.origin
+        : 'https://helpmyimg.com';
+
+    const actionCodeSettings = {
+      url: `${origin}/`,
+      handleCodeInApp: true,
+    };
+
+    await sendPasswordResetEmail(auth, email.trim(), actionCodeSettings);
+  };
+
+  const confirmNewPassword = async (oobCode: string, newPassword: string) => {
+    if (!isFirebaseConfigured || !auth) {
+      throw new Error(
+        'Firebase belum dikonfigurasi. Silakan isi konfigurasi VITE_FIREBASE_* di file .env.local.'
+      );
+    }
+
+    await confirmPasswordReset(auth, oobCode, newPassword);
   };
 
   const signOut = async () => {
@@ -231,6 +252,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
         signInWithEmail,
         signUpWithEmail,
         sendPasswordReset,
+        confirmNewPassword,
         signOut,
         isAuthModalOpen,
         openAuthModal,

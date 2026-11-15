@@ -2240,5 +2240,11 @@
   "auth.invalidCredentials": "Ogiltig e-postadress eller lösenord.",
   "auth.emailInUse": "Detta e-postmeddelande är redan registrerat. Logga in.",
   "auth.weakPassword": "Lösenordet måste bestå av minst 6 tecken.",
-  "auth.userNotFound": "Inget konto hittades med denna e-postadress."
+  "auth.userNotFound": "Inget konto hittades med denna e-postadress.",
+  "auth.resetNewPasswordTitle": "Ange nytt lösenord",
+  "auth.resetNewPasswordSubtitle": "Ange ditt nya lösenord nedan.",
+  "auth.newPasswordLabel": "Nytt lösenord",
+  "auth.submitNewPassword": "Spara nytt lösenord",
+  "auth.savingPassword": "Sparar lösenord...",
+  "auth.passwordResetSuccess": "Lösenordet har uppdaterats! Logga in."
 }

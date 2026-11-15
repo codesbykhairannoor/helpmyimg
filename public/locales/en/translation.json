@@ -2240,5 +2240,11 @@
   "auth.invalidCredentials": "Invalid email or password.",
   "auth.emailInUse": "This email is already registered. Please sign in.",
   "auth.weakPassword": "Password must be at least 6 characters.",
-  "auth.userNotFound": "No account found with this email address."
+  "auth.userNotFound": "No account found with this email address.",
+  "auth.resetNewPasswordTitle": "Set New Password",
+  "auth.resetNewPasswordSubtitle": "Enter your new password below.",
+  "auth.newPasswordLabel": "New Password",
+  "auth.submitNewPassword": "Save New Password",
+  "auth.savingPassword": "Saving password...",
+  "auth.passwordResetSuccess": "Password has been successfully updated! Please sign in."
 }

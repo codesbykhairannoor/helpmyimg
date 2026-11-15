@@ -2240,5 +2240,11 @@
   "auth.invalidCredentials": "Érvénytelen e-mail cím vagy jelszó.",
   "auth.emailInUse": "Ez az e-mail már regisztrálva van. Kérjük, jelentkezzen be.",
   "auth.weakPassword": "A jelszónak legalább 6 karakterből kell állnia.",
-  "auth.userNotFound": "Nem található fiók ezzel az e-mail címmel."
+  "auth.userNotFound": "Nem található fiók ezzel az e-mail címmel.",
+  "auth.resetNewPasswordTitle": "Új jelszó beállítása",
+  "auth.resetNewPasswordSubtitle": "Írja be alább az új jelszavát.",
+  "auth.newPasswordLabel": "Új jelszó",
+  "auth.submitNewPassword": "Új jelszó mentése",
+  "auth.savingPassword": "Jelszó mentése...",
+  "auth.passwordResetSuccess": "A jelszó sikeresen frissítve! Kérjük, jelentkezzen be."
 }

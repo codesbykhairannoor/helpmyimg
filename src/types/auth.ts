@@ -27,6 +27,7 @@ export interface AuthContextType {
   signInWithEmail: (email: string, password: string) => Promise<void>;
   signUpWithEmail: (email: string, password: string) => Promise<void>;
   sendPasswordReset: (email: string) => Promise<void>;
+  confirmNewPassword: (oobCode: string, newPassword: string) => Promise<void>;
   signOut: () => Promise<void>;
   isAuthModalOpen: boolean;
   openAuthModal: () => void;

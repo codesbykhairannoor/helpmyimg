@@ -2240,5 +2240,11 @@
   "auth.invalidCredentials": "Неправильна адреса електронної пошти або пароль.",
   "auth.emailInUse": "Ця електронна адреса вже зареєстрована. Будь ласка, увійдіть.",
   "auth.weakPassword": "Пароль має бути не менше 6 символів.",
-  "auth.userNotFound": "Обліковий запис із цією електронною адресою не знайдено."
+  "auth.userNotFound": "Обліковий запис із цією електронною адресою не знайдено.",
+  "auth.resetNewPasswordTitle": "Встановити новий пароль",
+  "auth.resetNewPasswordSubtitle": "Введіть свій новий пароль нижче.",
+  "auth.newPasswordLabel": "Новий пароль",
+  "auth.submitNewPassword": "Зберегти новий пароль",
+  "auth.savingPassword": "Збереження пароля...",
+  "auth.passwordResetSuccess": "Пароль успішно оновлено! Будь ласка, увійдіть."
 }

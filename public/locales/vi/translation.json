@@ -2240,5 +2240,11 @@
   "auth.invalidCredentials": "Email hoặc mật khẩu không hợp lệ.",
   "auth.emailInUse": "Email này đã được đăng ký. Vui lòng đăng nhập.",
   "auth.weakPassword": "Mật khẩu phải có ít nhất 6 ký tự.",
-  "auth.userNotFound": "Không tìm thấy tài khoản nào có địa chỉ email này."
+  "auth.userNotFound": "Không tìm thấy tài khoản nào có địa chỉ email này.",
+  "auth.resetNewPasswordTitle": "Đặt mật khẩu mới",
+  "auth.resetNewPasswordSubtitle": "Nhập mật khẩu mới của bạn dưới đây.",
+  "auth.newPasswordLabel": "Mật khẩu mới",
+  "auth.submitNewPassword": "Lưu mật khẩu mới",
+  "auth.savingPassword": "Đang lưu mật khẩu...",
+  "auth.passwordResetSuccess": "Mật khẩu đã được cập nhật thành công! Vui lòng đăng nhập."
 }
