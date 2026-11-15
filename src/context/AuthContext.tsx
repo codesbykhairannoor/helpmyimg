@@ -26,65 +26,59 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
   const [isAuthModalOpen, setIsAuthModalOpen] = useState<boolean>(false);
 
   const fetchOrCreateProfile = useCallback(async (firebaseUser: User): Promise<UserProfile> => {
+    const fallbackProfile: UserProfile = {
+      uid: firebaseUser.uid,
+      email: firebaseUser.email,
+      displayName: firebaseUser.displayName,
+      photoURL: firebaseUser.photoURL,
+      plan: 'free',
+      subscriptionStatus: 'inactive',
+      createdAt: Date.now(),
+      lastLoginAt: Date.now(),
+    };
+
     if (!db) {
-      // Fallback local memory profile if db is not ready
-      return {
-        uid: firebaseUser.uid,
-        email: firebaseUser.email,
-        displayName: firebaseUser.displayName,
-        photoURL: firebaseUser.photoURL,
-        plan: 'free',
-        subscriptionStatus: 'inactive',
-        createdAt: Date.now(),
-        lastLoginAt: Date.now(),
-      };
+      return fallbackProfile;
     }
 
-    const userDocRef = doc(db, 'users', firebaseUser.uid);
-    const userDocSnap = await getDoc(userDocRef);
+    try {
+      const userDocRef = doc(db, 'users', firebaseUser.uid);
+      const userDocSnap = await getDoc(userDocRef);
 
-    if (userDocSnap.exists()) {
-      const data = userDocSnap.data() as UserProfile;
-      // Periksa masa berlaku jika berstatus pro
-      let currentPlan = data.plan;
-      let currentStatus = data.subscriptionStatus;
+      if (userDocSnap.exists()) {
+        const data = userDocSnap.data() as UserProfile;
+        let currentPlan = data.plan;
+        let currentStatus = data.subscriptionStatus;
 
-      if (data.plan === 'pro' && data.expiresAt && Date.now() > data.expiresAt) {
-        currentPlan = 'free';
-        currentStatus = 'inactive';
-        await updateDoc(userDocRef, {
-          plan: 'free',
-          subscriptionStatus: 'inactive',
+        if (data.plan === 'pro' && data.expiresAt && Date.now() > data.expiresAt) {
+          currentPlan = 'free';
+          currentStatus = 'inactive';
+          await updateDoc(userDocRef, {
+            plan: 'free',
+            subscriptionStatus: 'inactive',
+            lastLoginAt: Date.now(),
+          });
+        } else {
+          await updateDoc(userDocRef, {
+            lastLoginAt: Date.now(),
+            displayName: firebaseUser.displayName || data.displayName,
+            photoURL: firebaseUser.photoURL || data.photoURL,
+          });
+        }
+
+        return {
+          ...data,
+          plan: currentPlan,
+          subscriptionStatus: currentStatus,
           lastLoginAt: Date.now(),
-        });
+        };
       } else {
-        await updateDoc(userDocRef, {
-          lastLoginAt: Date.now(),
-          displayName: firebaseUser.displayName || data.displayName,
-          photoURL: firebaseUser.photoURL || data.photoURL,
-        });
+        await setDoc(userDocRef, fallbackProfile);
+        return fallbackProfile;
       }
-
-      return {
-        ...data,
-        plan: currentPlan,
-        subscriptionStatus: currentStatus,
-        lastLoginAt: Date.now(),
-      };
-    } else {
-      // Buat data profil baru untuk pengguna pertama kali
-      const newProfile: UserProfile = {
-        uid: firebaseUser.uid,
-        email: firebaseUser.email,
-        displayName: firebaseUser.displayName,
-        photoURL: firebaseUser.photoURL,
-        plan: 'free',
-        subscriptionStatus: 'inactive',
-        createdAt: Date.now(),
-        lastLoginAt: Date.now(),
-      };
-      await setDoc(userDocRef, newProfile);
-      return newProfile;
+    } catch (firestoreError) {
+      console.warn('Firestore profile sync failed or permission denied (using fallback profile):', firestoreError);
+      return fallbackProfile;
     }
   }, []);
 
@@ -126,6 +120,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     const unsubscribe = onAuthStateChanged(auth, async (currentUser) => {
       setUser(currentUser);
       if (currentUser) {
+        setIsAuthModalOpen(false);
         try {
           const userProfile = await fetchOrCreateProfile(currentUser);
           setProfile(userProfile);

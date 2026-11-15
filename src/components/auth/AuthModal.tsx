@@ -10,6 +10,7 @@ import { isFirebaseConfigured } from '../../config/firebase';
 
 export const AuthModal: React.FC = () => {
   const {
+    user,
     isAuthModalOpen,
     closeAuthModal,
     signInWithGoogle,
@@ -26,14 +27,23 @@ export const AuthModal: React.FC = () => {
   const [errorMsg, setErrorMsg] = useState<string | null>(null);
   const [successMsg, setSuccessMsg] = useState<string | null>(null);
 
-  if (!isAuthModalOpen) return null;
-
-  const resetForm = () => {
+  const resetForm = React.useCallback(() => {
     setEmail('');
     setPassword('');
     setErrorMsg(null);
     setSuccessMsg(null);
-  };
+    setLoading(false);
+  }, []);
+
+  // Otomatis tutup modal jika user sudah dalam keadaan login
+  React.useEffect(() => {
+    if (user && isAuthModalOpen) {
+      resetForm();
+      closeAuthModal();
+    }
+  }, [user, isAuthModalOpen, closeAuthModal, resetForm]);
+
+  if (!isAuthModalOpen || user) return null;
 
   const handleSwitchMode = (newMode: 'signin' | 'signup' | 'forgot') => {
     setMode(newMode);
