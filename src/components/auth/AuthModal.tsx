@@ -140,7 +140,9 @@ export const AuthModal: React.FC = () => {
       resetForm();
       closeAuthModal();
     } catch (err: any) {
-      setErrorMsg(err?.message || 'Failed to sign in with Google. Please try again.');
+      if (err?.code !== 'auth/popup-closed-by-user' && err?.code !== 'auth/popup-blocked') {
+        setErrorMsg(err?.message || 'Failed to sign in with Google. Please try again.');
+      }
     } finally {
       setLoading(false);
     }

@@ -4,6 +4,8 @@
 import React, { createContext, useContext, useState, useEffect, useCallback } from 'react';
 import {
   signInWithPopup,
+  signInWithRedirect,
+  getRedirectResult,
   signInWithEmailAndPassword,
   createUserWithEmailAndPassword,
   sendPasswordResetEmail,
@@ -102,6 +104,25 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
       return;
     }
 
+    // Tangani hasil sign-in redirect jika popup diblokir
+    getRedirectResult(auth)
+      .then(async (result) => {
+        if (result?.user) {
+          try {
+            const userProfile = await fetchOrCreateProfile(result.user);
+            setProfile(userProfile);
+            setIsAuthModalOpen(false);
+          } catch (e) {
+            console.error('Error fetching profile from redirect result:', e);
+          }
+        }
+      })
+      .catch((err) => {
+        if (err?.code !== 'auth/popup-closed-by-user') {
+          console.error('Google Redirect Sign-In Error:', err);
+        }
+      });
+
     const unsubscribe = onAuthStateChanged(auth, async (currentUser) => {
       setUser(currentUser);
       if (currentUser) {
@@ -133,11 +154,18 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
       setProfile(userProfile);
       setIsAuthModalOpen(false);
     } catch (error: any) {
-      // Ignore user closing popup
-      if (error?.code !== 'auth/popup-closed-by-user') {
-        console.error('Google Sign-In Error:', error);
-        throw error;
+      // Abaikan jika user menutup popup sendiri
+      if (error?.code === 'auth/popup-closed-by-user') {
+        return;
       }
+      // Jika browser memblokir popup, fallback otomatis ke signInWithRedirect
+      if (error?.code === 'auth/popup-blocked') {
+        console.warn('Popup blocked by browser. Automatically falling back to signInWithRedirect...');
+        await signInWithRedirect(auth, googleProvider);
+        return;
+      }
+      console.error('Google Sign-In Error:', error);
+      throw error;
     }
   };
 
