@@ -2109,5 +2109,14 @@
   "metadata.fieldCamera": "Kamera ja objektiivi",
   "metadata.fieldExposure": "Valotustiedot",
   "metadata.fieldAuthor": "Tekijä ja tekijänoikeus",
-  "metadata.fieldDate": "Otettu päivämäärä"
+  "metadata.fieldDate": "Otettu päivämäärä",
+  "nav.signIn": "Kirjaudu sisään",
+  "auth.signInTitle": "Kirjaudu sisään Googlella",
+  "auth.signInSubtitle": "Käytä pilvitiliäsi, synkronoi asetuksia ja hallinnoi tilaustasi.",
+  "auth.googleBtn": "Jatka Googlella",
+  "auth.signingIn": "Yhdistetään Googleen...",
+  "auth.upgradeToPro": "Päivitä Monthly PRO:hon",
+  "auth.signOut": "Kirjaudu ulos",
+  "auth.notConfigured": "Firebase-määrityksiä ei ole vielä määritetty. Määritä VITE_FIREBASE_* ympäristössäsi.",
+  "auth.privacyNote": "Jatkamalla hyväksyt käyttöehtomme ja tietosuojakäytäntömme."
 }

@@ -2109,5 +2109,14 @@
   "metadata.fieldCamera": "מצלמה ועדשה",
   "metadata.fieldExposure": "מפרט חשיפה",
   "metadata.fieldAuthor": "יוצר וזכויות יוצרים",
-  "metadata.fieldDate": "תאריך צולם"
+  "metadata.fieldDate": "תאריך צולם",
+  "nav.signIn": "היכנס",
+  "auth.signInTitle": "היכנס באמצעות גוגל",
+  "auth.signInSubtitle": "גש לחשבון הענן שלך, סנכרון העדפות ונהל את המנוי שלך.",
+  "auth.googleBtn": "המשך עם גוגל",
+  "auth.signingIn": "מתחבר לגוגל...",
+  "auth.upgradeToPro": "שדרג ל-Monthly PRO",
+  "auth.signOut": "צא",
+  "auth.notConfigured": "תצורת Firebase עדיין לא מוגדרת. אנא הגדר את VITE_FIREBASE_* בסביבה שלך.",
+  "auth.privacyNote": "על ידי המשך, אתה מסכים לתנאי השירות ולמדיניות הפרטיות שלנו."
 }

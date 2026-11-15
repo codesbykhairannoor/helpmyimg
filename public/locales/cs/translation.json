@@ -2109,5 +2109,14 @@
   "metadata.fieldCamera": "Fotoaparát a objektiv",
   "metadata.fieldExposure": "Specifikace expozice",
   "metadata.fieldAuthor": "Autor a autorská práva",
-  "metadata.fieldDate": "Datum pořízení"
+  "metadata.fieldDate": "Datum pořízení",
+  "nav.signIn": "Přihlaste se",
+  "auth.signInTitle": "Přihlaste se pomocí Google",
+  "auth.signInSubtitle": "Získejte přístup ke svému cloudovému účtu, předvolby synchronizace a spravujte své předplatné.",
+  "auth.googleBtn": "Pokračujte s Googlem",
+  "auth.signingIn": "Připojování ke Googlu...",
+  "auth.upgradeToPro": "Upgradujte na Monthly PRO",
+  "auth.signOut": "Odhlásit se",
+  "auth.notConfigured": "Konfigurace Firebase zatím není nastavena. Nakonfigurujte prosím VITE_FIREBASE_* ve svém prostředí.",
+  "auth.privacyNote": "Pokračováním vyjadřujete souhlas s našimi smluvními podmínkami a zásadami ochrany osobních údajů."
 }

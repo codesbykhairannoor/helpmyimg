@@ -2108,5 +2108,14 @@
   "metadata.fieldCamera": "相机&镜头",
   "metadata.fieldExposure": "曝光规格",
   "metadata.fieldAuthor": "创作者及版权",
-  "metadata.fieldDate": "拍摄日期"
+  "metadata.fieldDate": "拍摄日期",
+  "nav.signIn": "Sign In",
+  "auth.signInTitle": "Sign In with Google",
+  "auth.signInSubtitle": "Access your cloud account, sync preferences, and manage your subscription.",
+  "auth.googleBtn": "Continue with Google",
+  "auth.signingIn": "Connecting to Google...",
+  "auth.upgradeToPro": "Upgrade to Monthly PRO",
+  "auth.signOut": "Sign Out",
+  "auth.notConfigured": "Firebase configuration is not set yet. Please configure VITE_FIREBASE_* in your environment.",
+  "auth.privacyNote": "By continuing, you agree to our Terms of Service and Privacy Policy."
 }

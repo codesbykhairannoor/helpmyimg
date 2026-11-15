@@ -2109,5 +2109,14 @@
   "metadata.fieldCamera": "कैमरा और लेंस",
   "metadata.fieldExposure": "एक्सपोज़र विशिष्टताएँ",
   "metadata.fieldAuthor": "निर्माता एवं कॉपीराइट",
-  "metadata.fieldDate": "दिनांक लिया गया"
+  "metadata.fieldDate": "दिनांक लिया गया",
+  "nav.signIn": "दाखिल करना",
+  "auth.signInTitle": "Google से साइन इन करें",
+  "auth.signInSubtitle": "अपने क्लाउड खाते तक पहुंचें, प्राथमिकताओं को सिंक करें और अपनी सदस्यता प्रबंधित करें।",
+  "auth.googleBtn": "Google के साथ जारी रखें",
+  "auth.signingIn": "Google से कनेक्ट हो रहा है...",
+  "auth.upgradeToPro": "मासिक PRO में अपग्रेड करें",
+  "auth.signOut": "साइन आउट",
+  "auth.notConfigured": "फायरबेस कॉन्फ़िगरेशन अभी तक सेट नहीं है. कृपया अपने परिवेश में VITE_FIREBASE_* कॉन्फ़िगर करें।",
+  "auth.privacyNote": "जारी रखकर, आप हमारी सेवा की शर्तों और गोपनीयता नीति से सहमत हैं।"
 }

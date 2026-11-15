@@ -2109,5 +2109,14 @@
   "metadata.fieldCamera": "Камера та об'єктив",
   "metadata.fieldExposure": "Характеристики експозиції",
   "metadata.fieldAuthor": "Творець і авторське право",
-  "metadata.fieldDate": "Дата зйомки"
+  "metadata.fieldDate": "Дата зйомки",
+  "nav.signIn": "Увійти",
+  "auth.signInTitle": "Увійдіть за допомогою Google",
+  "auth.signInSubtitle": "Отримайте доступ до свого хмарного облікового запису, синхронізуйте налаштування та керуйте своєю підпискою.",
+  "auth.googleBtn": "Продовжуйте з Google",
+  "auth.signingIn": "Підключення до Google...",
+  "auth.upgradeToPro": "Оновлення до Monthly PRO",
+  "auth.signOut": "Вийти",
+  "auth.notConfigured": "Конфігурацію Firebase ще не встановлено. Налаштуйте VITE_FIREBASE_* у своєму середовищі.",
+  "auth.privacyNote": "Продовжуючи, ви погоджуєтеся з нашими Умовами обслуговування та Політикою конфіденційності."
 }

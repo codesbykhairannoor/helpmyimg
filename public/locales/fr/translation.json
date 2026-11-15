@@ -2109,5 +2109,14 @@
   "metadata.fieldCamera": "Appareil photo et objectif",
   "metadata.fieldExposure": "Spécifications d'exposition",
   "metadata.fieldAuthor": "Créateur et droit d'auteur",
-  "metadata.fieldDate": "Date de prise"
+  "metadata.fieldDate": "Date de prise",
+  "nav.signIn": "Se connecter",
+  "auth.signInTitle": "Connectez-vous avec Google",
+  "auth.signInSubtitle": "Accédez à votre compte cloud, synchronisez vos préférences et gérez votre abonnement.",
+  "auth.googleBtn": "Continuer avec Google",
+  "auth.signingIn": "Connexion à Google...",
+  "auth.upgradeToPro": "Mise à niveau vers PRO mensuel",
+  "auth.signOut": "Se déconnecter",
+  "auth.notConfigured": "La configuration de Firebase n'est pas encore définie. Veuillez configurer VITE_FIREBASE_* dans votre environnement.",
+  "auth.privacyNote": "En continuant, vous acceptez nos conditions d'utilisation et notre politique de confidentialité."
 }

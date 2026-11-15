@@ -2175,5 +2175,14 @@
   "metadata.fieldCamera": "Kamera & Lensa",
   "metadata.fieldExposure": "Parameter Eksposur",
   "metadata.fieldAuthor": "Kreator & Hak Cipta",
-  "metadata.fieldDate": "Waktu Pengambilan"
+  "metadata.fieldDate": "Waktu Pengambilan",
+  "nav.signIn": "Masuk",
+  "auth.signInTitle": "Masuk dengan Google",
+  "auth.signInSubtitle": "Akses akun cloud Anda, simpan preferensi, dan kelola status langganan PRO.",
+  "auth.googleBtn": "Lanjutkan dengan Google",
+  "auth.signingIn": "Menghubungkan ke Google...",
+  "auth.upgradeToPro": "Upgrade ke PRO Bulanan",
+  "auth.signOut": "Keluar Akun",
+  "auth.notConfigured": "Konfigurasi Firebase belum diatur. Harap atur VITE_FIREBASE_* di file .env.local Anda.",
+  "auth.privacyNote": "Dengan melanjutkan, Anda menyetujui Ketentuan Layanan & Kebijakan Privasi HelpMyIMG."
 }

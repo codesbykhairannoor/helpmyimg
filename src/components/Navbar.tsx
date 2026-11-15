@@ -7,9 +7,10 @@ import { useRouter } from '../context/RouterContext';
 import { useTranslation } from '../context/LanguageContext';
 import { useTheme } from '../context/ThemeContext';
 import { SUPPORTED_LANGUAGES, type Language } from '../i18n/translations';
-import { Globe, ChevronDown, Sun, Moon, Menu, X, Search, ChevronRight } from 'lucide-react';
+import { Globe, ChevronDown, Sun, Moon, Menu, X, Search, ChevronRight, LogIn, LogOut, Crown } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { getToolFromSlug, getLocalizedSlug, type InternalTool } from '../utils/urlMapper';
+import { useAuth } from '../context/AuthContext';
+import { getToolFromSlug, getLocalizedSlug } from '../utils/urlMapper';
 import { getInfoPageFromSlug, getLocalizedInfoSlug, type InfoPageType } from '../utils/infoUrlMapper';
 // Suppress unused InfoPageType import warning
 const _unusedInfoPageType: InfoPageType = 'about';
@@ -37,7 +38,9 @@ const TOOL_COLORS: Record<string, string> = {
 export const Navbar: React.FC = () => {
  const { lang, setLang, t } = useTranslation();
  const { theme, toggleTheme } = useTheme();
+ const { user, isPro, openAuthModal, signOut } = useAuth();
  const [langOpen, setLangOpen] = useState(false);
+ const [userMenuOpen, setUserMenuOpen] = useState(false);
  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
  const [mobileSearch, setMobileSearch] = useState('');
  const [searchQuery, setSearchQuery] = useState('');
@@ -197,6 +200,115 @@ export const Navbar: React.FC = () => {
  )}
  </button>
 
+ {/* Auth Action: Sign In Button or User Profile Menu */}
+ {!user ? (
+   <button
+     onClick={openAuthModal}
+     className="flex items-center gap-1.5 sm:gap-2 bg-cyan-500/10 hover:bg-cyan-500/20 text-cyan-700 dark:text-[#05DAED] border border-cyan-500/30 hover:border-[#05DAED]/60 px-3 h-9 rounded-xl text-[13px] sm:text-[14px] font-semibold transition-all duration-200 shadow-xs cursor-pointer"
+     aria-label="Sign In"
+   >
+     <LogIn className="w-4 h-4" />
+     <span className="hidden sm:inline">{t('nav.signIn', { defaultValue: 'Masuk' })}</span>
+   </button>
+ ) : (
+   <div className="relative">
+     <button
+       onClick={() => setUserMenuOpen(!userMenuOpen)}
+       className="relative flex items-center gap-2 bg-slate-100 dark:bg-dark-800 hover:bg-slate-200 dark:hover:bg-dark-700 border border-slate-200 dark:border-dark-500/60 pl-1.5 pr-2.5 h-9 rounded-xl text-slate-700 dark:text-slate-200 transition-all duration-200 shadow-sm cursor-pointer"
+       aria-label="User Account"
+     >
+       {user.photoURL ? (
+         <img
+           src={user.photoURL}
+           alt={user.displayName || 'User'}
+           className="w-6 h-6 rounded-full object-cover ring-1 ring-cyan-500/40"
+         />
+       ) : (
+         <div className="w-6 h-6 rounded-full bg-cyan-600 text-white font-bold flex items-center justify-center text-xs">
+           {(user.displayName || user.email || 'U')[0].toUpperCase()}
+         </div>
+       )}
+       <span className="text-[13px] font-semibold max-w-[90px] truncate hidden md:inline">
+         {user.displayName?.split(' ')[0] || user.email?.split('@')[0]}
+       </span>
+       {isPro ? (
+         <span className="bg-amber-500/20 text-amber-500 border border-amber-500/30 text-[10px] font-black px-1.5 py-0.5 rounded uppercase">
+           PRO
+         </span>
+       ) : (
+         <span className="bg-slate-200 dark:bg-slate-700 text-slate-600 dark:text-slate-300 text-[10px] font-semibold px-1.5 py-0.5 rounded uppercase">
+           FREE
+         </span>
+       )}
+       <ChevronDown className={`w-3.5 h-3.5 text-slate-400 transition-transform duration-200 ${userMenuOpen ? 'rotate-180' : ''}`} />
+     </button>
+
+     <AnimatePresence>
+       {userMenuOpen && (
+         <>
+           <div className="fixed inset-0 z-[55]" onClick={() => setUserMenuOpen(false)} />
+           <motion.div
+             initial={{ opacity: 0, y: -10, scale: 0.95 }}
+             animate={{ opacity: 1, y: 0, scale: 1 }}
+             exit={{ opacity: 0, y: -10, scale: 0.95 }}
+             transition={{ duration: 0.15 }}
+             className="absolute right-0 mt-2 w-64 bg-white dark:bg-dark-800 border border-slate-200 dark:border-dark-500/80 rounded-2xl shadow-2xl py-3 z-[60] overflow-hidden"
+           >
+             <div className="px-4 pb-3 border-b border-slate-100 dark:border-dark-700/60">
+               <div className="font-bold text-sm text-slate-900 dark:text-white truncate">
+                 {user.displayName || 'Pengguna'}
+               </div>
+               <div className="text-xs text-slate-500 dark:text-slate-400 truncate">
+                 {user.email}
+               </div>
+               <div className="mt-2 flex items-center justify-between">
+                 <span className="text-xs text-slate-500 dark:text-slate-400">Status:</span>
+                 {isPro ? (
+                   <span className="inline-flex items-center gap-1 text-xs font-bold text-amber-500 bg-amber-500/10 px-2 py-0.5 rounded-full border border-amber-500/20">
+                     <Crown className="w-3 h-3" /> PRO Member
+                   </span>
+                 ) : (
+                   <span className="inline-flex items-center gap-1 text-xs font-medium text-slate-600 dark:text-slate-300 bg-slate-100 dark:bg-slate-700/60 px-2 py-0.5 rounded-full">
+                     Free Plan
+                   </span>
+                 )}
+               </div>
+             </div>
+
+             <div className="pt-2 px-2">
+               {!isPro && (
+                 <a
+                   href={lang === 'en' ? '/pricing/' : `/${lang}/pricing/`}
+                   onClick={(e) => {
+                     e.preventDefault();
+                     navigatePath(lang === 'en' ? '/pricing/' : `/${lang}/pricing/`);
+                     setUserMenuOpen(false);
+                   }}
+                   className="w-full flex items-center gap-2.5 px-3 py-2 text-xs font-bold rounded-xl text-amber-600 dark:text-amber-400 hover:bg-amber-50 dark:hover:bg-amber-950/30 transition-colors mb-1"
+                 >
+                   <Crown className="w-4 h-4 text-amber-500" />
+                   <span>{t('auth.upgradeToPro', { defaultValue: 'Upgrade ke PRO Bulanan' })}</span>
+                 </a>
+               )}
+
+               <button
+                 onClick={() => {
+                   signOut();
+                   setUserMenuOpen(false);
+                 }}
+                 className="w-full flex items-center gap-2.5 px-3 py-2 text-xs font-medium rounded-xl text-rose-600 dark:text-rose-400 hover:bg-rose-50 dark:hover:bg-rose-950/30 transition-colors cursor-pointer"
+               >
+                 <LogOut className="w-4 h-4" />
+                 <span>{t('auth.signOut', { defaultValue: 'Keluar Akun' })}</span>
+               </button>
+             </div>
+           </motion.div>
+         </>
+       )}
+     </AnimatePresence>
+   </div>
+ )}
+
  {/* Language Switcher Dropdown (30 Bahasa with Search) */}
  <div className="relative">
  <button
@@ -307,6 +419,68 @@ export const Navbar: React.FC = () => {
         onClick={(e) => e.stopPropagation()}
       >
         <div className="mobile-nav-inner">
+          {/* Mobile User Profile or Sign In Card */}
+          {user ? (
+            <div className="p-3 rounded-2xl bg-slate-100 dark:bg-dark-800 border border-slate-200 dark:border-dark-600/70 mb-3 flex items-center justify-between">
+              <div className="flex items-center gap-2.5 min-w-0">
+                {user.photoURL ? (
+                  <img src={user.photoURL} alt={user.displayName || 'User'} className="w-9 h-9 rounded-full object-cover ring-2 ring-cyan-500/30 shrink-0" />
+                ) : (
+                  <div className="w-9 h-9 rounded-full bg-cyan-600 text-white font-bold flex items-center justify-center text-sm shrink-0">
+                    {(user.displayName || user.email || 'U')[0].toUpperCase()}
+                  </div>
+                )}
+                <div className="min-w-0">
+                  <div className="text-xs font-bold text-slate-900 dark:text-white truncate">
+                    {user.displayName || 'User'}
+                  </div>
+                  <div className="text-[11px] text-slate-500 dark:text-slate-400 truncate">
+                    {user.email}
+                  </div>
+                </div>
+              </div>
+              <div className="flex items-center gap-2 shrink-0">
+                {isPro ? (
+                  <span className="bg-amber-500/20 text-amber-500 border border-amber-500/30 text-[10px] font-black px-2 py-0.5 rounded-full uppercase">
+                    PRO
+                  </span>
+                ) : (
+                  <button
+                    onClick={() => {
+                      navigatePath(lang === 'en' ? '/pricing/' : `/${lang}/pricing/`);
+                      setMobileMenuOpen(false);
+                      document.body.style.overflow = '';
+                    }}
+                    className="text-[11px] font-bold text-amber-600 dark:text-amber-400 bg-amber-500/10 px-2 py-1 rounded-lg border border-amber-500/30 cursor-pointer"
+                  >
+                    Upgrade
+                  </button>
+                )}
+                <button
+                  onClick={() => {
+                    signOut();
+                  }}
+                  className="p-1.5 text-slate-400 hover:text-rose-500 rounded-lg cursor-pointer"
+                  title="Keluar"
+                >
+                  <LogOut size={16} />
+                </button>
+              </div>
+            </div>
+          ) : (
+            <button
+              onClick={() => {
+                setMobileMenuOpen(false);
+                document.body.style.overflow = '';
+                openAuthModal();
+              }}
+              className="w-full mb-3 flex items-center justify-center gap-2 py-2.5 px-4 rounded-xl bg-cyan-500/10 hover:bg-cyan-500/20 text-cyan-700 dark:text-[#05DAED] border border-cyan-500/30 font-semibold text-xs shadow-xs cursor-pointer"
+            >
+              <LogIn size={16} />
+              <span>{t('auth.googleBtn', { defaultValue: 'Masuk dengan Google' })}</span>
+            </button>
+          )}
+
           {/* Quick Search Tool Input */}
         <div className="mobile-nav-search-bar">
           <Search size={16} className="text-slate-400 dark:text-slate-500 shrink-0" />

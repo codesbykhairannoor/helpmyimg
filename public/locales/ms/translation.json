@@ -2109,5 +2109,14 @@
   "metadata.fieldCamera": "Kamera & Lensa",
   "metadata.fieldExposure": "Spesifikasi Pendedahan",
   "metadata.fieldAuthor": "Pencipta & Hak Cipta",
-  "metadata.fieldDate": "Tarikh Diambil"
+  "metadata.fieldDate": "Tarikh Diambil",
+  "nav.signIn": "Log Masuk",
+  "auth.signInTitle": "Log Masuk dengan Google",
+  "auth.signInSubtitle": "Akses akaun awan anda, segerakkan pilihan dan urus langganan anda.",
+  "auth.googleBtn": "Teruskan dengan Google",
+  "auth.signingIn": "Menyambung ke Google...",
+  "auth.upgradeToPro": "Naik taraf kepada PRO Bulanan",
+  "auth.signOut": "Log Keluar",
+  "auth.notConfigured": "Konfigurasi Firebase belum ditetapkan lagi. Sila konfigurasikan VITE_FIREBASE_* dalam persekitaran anda.",
+  "auth.privacyNote": "Dengan meneruskan, anda bersetuju menerima Syarat Perkhidmatan dan Dasar Privasi kami."
 }

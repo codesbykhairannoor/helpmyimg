@@ -2109,5 +2109,14 @@
   "metadata.fieldCamera": "Camera en lens",
   "metadata.fieldExposure": "Belichtingsspecificaties",
   "metadata.fieldAuthor": "Maker en auteursrecht",
-  "metadata.fieldDate": "Datum genomen"
+  "metadata.fieldDate": "Datum genomen",
+  "nav.signIn": "Inloggen",
+  "auth.signInTitle": "Log in met Google",
+  "auth.signInSubtitle": "Krijg toegang tot uw cloudaccount, synchroniseer voorkeuren en beheer uw abonnement.",
+  "auth.googleBtn": "Ga verder met Google",
+  "auth.signingIn": "Verbinding maken met Google...",
+  "auth.upgradeToPro": "Upgrade naar maandelijkse PRO",
+  "auth.signOut": "Uitloggen",
+  "auth.notConfigured": "Firebase-configuratie is nog niet ingesteld. Configureer VITE_FIREBASE_* in uw omgeving.",
+  "auth.privacyNote": "Als u doorgaat, gaat u akkoord met onze Servicevoorwaarden en Privacybeleid."
 }

@@ -2109,5 +2109,14 @@
   "metadata.fieldCamera": "Fényképezőgép és objektív",
   "metadata.fieldExposure": "Expozíciós specifikációk",
   "metadata.fieldAuthor": "Alkotó és szerzői jog",
-  "metadata.fieldDate": "Felvétel dátuma"
+  "metadata.fieldDate": "Felvétel dátuma",
+  "nav.signIn": "Jelentkezzen be",
+  "auth.signInTitle": "Jelentkezzen be a Google-lal",
+  "auth.signInSubtitle": "Hozzáférhet felhőfiókjához, szinkronizálhatja a beállításokat, és kezelheti előfizetését.",
+  "auth.googleBtn": "Folytassa a Google-lal",
+  "auth.signingIn": "Csatlakozás a Google-hoz...",
+  "auth.upgradeToPro": "Frissítsen Monthly PRO-ra",
+  "auth.signOut": "Jelentkezzen ki",
+  "auth.notConfigured": "A Firebase konfigurációja még nincs beállítva. Kérjük, állítsa be a VITE_FIREBASE_* szolgáltatást a környezetében.",
+  "auth.privacyNote": "A folytatással elfogadja az Általános Szerződési Feltételeket és az Adatvédelmi szabályzatunkat."
 }

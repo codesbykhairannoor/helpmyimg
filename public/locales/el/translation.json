@@ -2109,5 +2109,14 @@
   "metadata.fieldCamera": "Κάμερα & Φακός",
   "metadata.fieldExposure": "Προδιαγραφές έκθεσης",
   "metadata.fieldAuthor": "Δημιουργός & Πνευματικά δικαιώματα",
-  "metadata.fieldDate": "Ημερομηνία λήψης"
+  "metadata.fieldDate": "Ημερομηνία λήψης",
+  "nav.signIn": "Είσοδος",
+  "auth.signInTitle": "Συνδεθείτε με το Google",
+  "auth.signInSubtitle": "Αποκτήστε πρόσβαση στον λογαριασμό σας στο cloud, συγχρονίστε τις προτιμήσεις σας και διαχειριστείτε τη συνδρομή σας.",
+  "auth.googleBtn": "Συνεχίστε με την Google",
+  "auth.signingIn": "Σύνδεση στο Google...",
+  "auth.upgradeToPro": "Αναβάθμιση σε Monthly PRO",
+  "auth.signOut": "Αποσύνδεση",
+  "auth.notConfigured": "Η διαμόρφωση του Firebase δεν έχει οριστεί ακόμα. Διαμορφώστε το VITE_FIREBASE_* στο περιβάλλον σας.",
+  "auth.privacyNote": "Συνεχίζοντας, συμφωνείτε με τους Όρους Παροχής Υπηρεσιών και την Πολιτική Απορρήτου μας."
 }

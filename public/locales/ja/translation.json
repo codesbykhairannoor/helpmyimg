@@ -2109,5 +2109,14 @@
   "metadata.fieldCamera": "カメラとレンズ",
   "metadata.fieldExposure": "露出スペック",
   "metadata.fieldAuthor": "作成者と著作権",
-  "metadata.fieldDate": "撮影日"
+  "metadata.fieldDate": "撮影日",
+  "nav.signIn": "サインイン",
+  "auth.signInTitle": "Googleでサインイン",
+  "auth.signInSubtitle": "クラウド アカウントにアクセスし、設定を同期し、サブスクリプションを管理します。",
+  "auth.googleBtn": "Google を続ける",
+  "auth.signingIn": "Google に接続中...",
+  "auth.upgradeToPro": "月額PROにアップグレード",
+  "auth.signOut": "サインアウト",
+  "auth.notConfigured": "Firebase の構成はまだ設定されていません。 お使いの環境で VITE_FIREBASE_* を設定してください。",
+  "auth.privacyNote": "続行すると、サービス利用規約とプライバシー ポリシーに同意したことになります。"
 }

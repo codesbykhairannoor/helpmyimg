@@ -2109,5 +2109,14 @@
   "metadata.fieldCamera": "Kamera og objektiv",
   "metadata.fieldExposure": "Eksponeringsspesifikasjoner",
   "metadata.fieldAuthor": "Skaper og opphavsrett",
-  "metadata.fieldDate": "Dato tatt"
+  "metadata.fieldDate": "Dato tatt",
+  "nav.signIn": "Logg på",
+  "auth.signInTitle": "Logg på med Google",
+  "auth.signInSubtitle": "Få tilgang til skykontoen din, synkroniser preferanser og administrer abonnementet ditt.",
+  "auth.googleBtn": "Fortsett med Google",
+  "auth.signingIn": "Kobler til Google ...",
+  "auth.upgradeToPro": "Oppgrader til Monthly PRO",
+  "auth.signOut": "Logg ut",
+  "auth.notConfigured": "Firebase-konfigurasjonen er ikke angitt ennå. Vennligst konfigurer VITE_FIREBASE_* i ditt miljø.",
+  "auth.privacyNote": "Ved å fortsette godtar du våre vilkår for bruk og personvernerklæring."
 }

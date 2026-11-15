@@ -9,6 +9,8 @@ import { RouterProvider, useRouter } from './context/RouterContext';
 import { Navbar } from './components/Navbar';
 import { Footer } from './components/Footer';
 import { JsonLd } from './components/seo/JsonLd';
+import { AuthProvider } from './context/AuthContext';
+import { AuthModal } from './components/auth/AuthModal';
 
 import { ToolLandingPage } from './pages/ToolLandingPage';
 import { AboutPage } from './pages/info/AboutPage';
@@ -79,6 +81,7 @@ const AppLayout = () => {
       <Navbar />
       <MainContent />
       {!hasActiveFiles && <Footer />}
+      <AuthModal />
     </div>
   );
 };
@@ -88,9 +91,11 @@ function App() {
     <HelmetProvider>
       <ThemeProvider>
         <LanguageProvider>
-          <RouterProvider>
-            <AppLayout />
-          </RouterProvider>
+          <AuthProvider>
+            <RouterProvider>
+              <AppLayout />
+            </RouterProvider>
+          </AuthProvider>
         </LanguageProvider>
       </ThemeProvider>
     </HelmetProvider>

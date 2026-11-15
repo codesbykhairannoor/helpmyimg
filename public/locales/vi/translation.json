@@ -2109,5 +2109,14 @@
   "metadata.fieldCamera": "Máy Ảnh & Ống Kính",
   "metadata.fieldExposure": "Thông số phơi sáng",
   "metadata.fieldAuthor": "Người sáng tạo & Bản quyền",
-  "metadata.fieldDate": "Ngày chụp"
+  "metadata.fieldDate": "Ngày chụp",
+  "nav.signIn": "Đăng nhập",
+  "auth.signInTitle": "Đăng nhập bằng Google",
+  "auth.signInSubtitle": "Truy cập tài khoản đám mây của bạn, đồng bộ hóa tùy chọn và quản lý đăng ký của bạn.",
+  "auth.googleBtn": "Tiếp tục với Google",
+  "auth.signingIn": "Đang kết nối với Google...",
+  "auth.upgradeToPro": "Nâng cấp lên PRO hàng tháng",
+  "auth.signOut": "Đăng xuất",
+  "auth.notConfigured": "Cấu hình Firebase chưa được đặt. Vui lòng định cấu hình VITE_FIREBASE_* trong môi trường của bạn.",
+  "auth.privacyNote": "Bằng cách tiếp tục, bạn đồng ý với Điều khoản dịch vụ và Chính sách quyền riêng tư của chúng tôi."
 }

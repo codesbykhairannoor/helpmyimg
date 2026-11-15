@@ -2109,5 +2109,14 @@
   "metadata.fieldCamera": "Cameră și obiectiv",
   "metadata.fieldExposure": "Specificații de expunere",
   "metadata.fieldAuthor": "Creator și drepturi de autor",
-  "metadata.fieldDate": "Data luării"
+  "metadata.fieldDate": "Data luării",
+  "nav.signIn": "Conectare",
+  "auth.signInTitle": "Conectați-vă cu Google",
+  "auth.signInSubtitle": "Accesați contul dvs. cloud, sincronizați preferințele și gestionați-vă abonamentul.",
+  "auth.googleBtn": "Continuați cu Google",
+  "auth.signingIn": "Se conectează la Google...",
+  "auth.upgradeToPro": "Treceți la PRO lunar",
+  "auth.signOut": "Sign out",
+  "auth.notConfigured": "Configurația Firebase nu este setată încă. Vă rugăm să configurați VITE_FIREBASE_* în mediul dvs.",
+  "auth.privacyNote": "Continuând, sunteți de acord cu Termenii și condițiile noastre și cu Politica de confidențialitate."
 }

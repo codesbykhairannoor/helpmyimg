@@ -2109,5 +2109,14 @@
   "metadata.fieldCamera": "กล้องและเลนส์",
   "metadata.fieldExposure": "ข้อมูลจำเพาะการสัมผัส",
   "metadata.fieldAuthor": "ผู้สร้างและลิขสิทธิ์",
-  "metadata.fieldDate": "วันที่ถ่าย"
+  "metadata.fieldDate": "วันที่ถ่าย",
+  "nav.signIn": "เข้าสู่ระบบ",
+  "auth.signInTitle": "เข้าสู่ระบบด้วย Google",
+  "auth.signInSubtitle": "เข้าถึงบัญชีคลาวด์ของคุณ การตั้งค่าการซิงค์ และจัดการการสมัครของคุณ",
+  "auth.googleBtn": "ดำเนินการต่อด้วย Google",
+  "auth.signingIn": "กำลังเชื่อมต่อกับ Google...",
+  "auth.upgradeToPro": "อัปเกรดเป็น PRO รายเดือน",
+  "auth.signOut": "ออกจากระบบ",
+  "auth.notConfigured": "ยังไม่ได้ตั้งค่าการกำหนดค่า Firebase โปรดกำหนดค่า VITE_FIREBASE_* ในสภาพแวดล้อมของคุณ",
+  "auth.privacyNote": "การดำเนินการต่อแสดงว่าคุณยอมรับข้อกำหนดในการให้บริการและนโยบายความเป็นส่วนตัวของเรา"
 }

@@ -2109,5 +2109,14 @@
   "metadata.fieldCamera": "Camera at Lens",
   "metadata.fieldExposure": "Mga Detalye ng Exposure",
   "metadata.fieldAuthor": "Tagalikha at Copyright",
-  "metadata.fieldDate": "Petsa ng Kinuha"
+  "metadata.fieldDate": "Petsa ng Kinuha",
+  "nav.signIn": "Mag-sign In",
+  "auth.signInTitle": "Mag-sign In gamit ang Google",
+  "auth.signInSubtitle": "I-access ang iyong cloud account, i-sync ang mga kagustuhan, at pamahalaan ang iyong subscription.",
+  "auth.googleBtn": "Magpatuloy sa Google",
+  "auth.signingIn": "Kumokonekta sa Google...",
+  "auth.upgradeToPro": "Mag-upgrade sa Buwanang PRO",
+  "auth.signOut": "Mag-sign Out",
+  "auth.notConfigured": "Hindi pa nakatakda ang configuration ng Firebase. Mangyaring i-configure ang VITE_FIREBASE_* sa iyong kapaligiran.",
+  "auth.privacyNote": "Sa pagpapatuloy, sumasang-ayon ka sa aming Mga Tuntunin ng Serbisyo at Patakaran sa Privacy."
 }

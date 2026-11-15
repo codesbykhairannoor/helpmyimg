@@ -2123,5 +2123,14 @@
   "metadata.fieldCamera": "الكاميرا والعدسة",
   "metadata.fieldExposure": "مواصفات التعرض",
   "metadata.fieldAuthor": "الخالق وحقوق التأليف والنشر",
-  "metadata.fieldDate": "تاريخ الالتقاط"
+  "metadata.fieldDate": "تاريخ الالتقاط",
+  "nav.signIn": "تسجيل الدخول",
+  "auth.signInTitle": "تسجيل الدخول مع جوجل",
+  "auth.signInSubtitle": "يمكنك الوصول إلى حسابك السحابي ومزامنة التفضيلات وإدارة اشتراكك.",
+  "auth.googleBtn": "تواصل مع جوجل",
+  "auth.signingIn": "جارٍ الاتصال بـ Google...",
+  "auth.upgradeToPro": "الترقية إلى PRO الشهري",
+  "auth.signOut": "تسجيل الخروج",
+  "auth.notConfigured": "لم يتم تعيين تكوين Firebase بعد. الرجاء تكوين VITE_FIREBASE_* في بيئتك.",
+  "auth.privacyNote": "من خلال المتابعة، فإنك توافق على شروط الخدمة وسياسة الخصوصية الخاصة بنا."
 }

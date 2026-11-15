@@ -2109,5 +2109,14 @@
   "metadata.fieldCamera": "Камера и объектив",
   "metadata.fieldExposure": "Характеристики экспозиции",
   "metadata.fieldAuthor": "Создатель и авторские права",
-  "metadata.fieldDate": "Дата съемки"
+  "metadata.fieldDate": "Дата съемки",
+  "nav.signIn": "Sign In",
+  "auth.signInTitle": "Sign In with Google",
+  "auth.signInSubtitle": "Access your cloud account, sync preferences, and manage your subscription.",
+  "auth.googleBtn": "Continue with Google",
+  "auth.signingIn": "Connecting to Google...",
+  "auth.upgradeToPro": "Upgrade to Monthly PRO",
+  "auth.signOut": "Sign Out",
+  "auth.notConfigured": "Firebase configuration is not set yet. Please configure VITE_FIREBASE_* in your environment.",
+  "auth.privacyNote": "By continuing, you agree to our Terms of Service and Privacy Policy."
 }

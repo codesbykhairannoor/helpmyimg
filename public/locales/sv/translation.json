@@ -2109,5 +2109,14 @@
   "metadata.fieldCamera": "Kamera & objektiv",
   "metadata.fieldExposure": "Exponeringsspecifikationer",
   "metadata.fieldAuthor": "Skapare och upphovsrätt",
-  "metadata.fieldDate": "Taget datum"
+  "metadata.fieldDate": "Taget datum",
+  "nav.signIn": "Logga in",
+  "auth.signInTitle": "Logga in med Google",
+  "auth.signInSubtitle": "Få åtkomst till ditt molnkonto, synkronisera inställningar och hantera din prenumeration.",
+  "auth.googleBtn": "Fortsätt med Google",
+  "auth.signingIn": "Ansluter till Google...",
+  "auth.upgradeToPro": "Uppgradera till Monthly PRO",
+  "auth.signOut": "Logga ut",
+  "auth.notConfigured": "Firebase-konfigurationen är inte inställd ännu. Vänligen konfigurera VITE_FIREBASE_* i din miljö.",
+  "auth.privacyNote": "Genom att fortsätta godkänner du våra användarvillkor och sekretesspolicy."
 }
