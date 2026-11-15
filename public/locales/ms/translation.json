@@ -2213,5 +2213,31 @@
   "pricing.faq6.q": "Apakah Pas Sepanjang Hayat Pengasas dan bagaimana ia berfungsi?",
   "pricing.faq6.a": "Pas Seumur Hidup Pengasas ialah tawaran awal eksklusif di mana anda membayar sekali ($24.99 / Rp 249,000) untuk akses PRO seumur hidup. Tiada yuran bulanan berulang dan akaun anda membuka kunci semua alatan dan kemas kini masa hadapan secara automatik.",
   "pricing.faq7.q": "Bagaimanakah HelpMyIMG boleh menawarkan Tawaran Sepanjang Hayat tanpa risiko kos pelayan?",
-  "pricing.faq7.a": "Tidak seperti perkhidmatan AI awan yang menanggung kos pelayan GPU yang tinggi bagi setiap imej, HelpMyIMG berjalan 100% secara setempat dalam penyemak imbas anda menggunakan WebAssembly dan Web Workers. Oleh kerana pengiraan berlaku pada peranti anda, kos pelayan marginal kami ialah $0.00, membolehkan lesen seumur hidup sekali mampan yang benar-benar mampan."
+  "pricing.faq7.a": "Tidak seperti perkhidmatan AI awan yang menanggung kos pelayan GPU yang tinggi bagi setiap imej, HelpMyIMG berjalan 100% secara setempat dalam penyemak imbas anda menggunakan WebAssembly dan Web Workers. Oleh kerana pengiraan berlaku pada peranti anda, kos pelayan marginal kami ialah $0.00, membolehkan lesen seumur hidup sekali mampan yang benar-benar mampan.",
+  "auth": {
+    "signInTitle": "Log masuk ke HelpMyIMG",
+    "signUpTitle": "Buat Akaun",
+    "signInSubtitle": "Akses akaun anda, simpan pilihan dan buka kunci ciri PRO eksklusif.",
+    "signUpSubtitle": "Daftar dan nikmati pemprosesan imej tempatan tanpa had terus dalam penyemak imbas anda.",
+    "emailLabel": "Alamat E-mel",
+    "emailPlaceholder": "nama@contoh.com",
+    "passwordLabel": "Kata laluan",
+    "passwordPlaceholder": "••••••••",
+    "submitSignIn": "Log Masuk",
+    "submitSignUp": "Buat Akaun",
+    "orDivider": "atau",
+    "googleBtn": "Teruskan dengan Google",
+    "noAccount": "Tiada akaun?",
+    "hasAccount": "Sudah mempunyai akaun?",
+    "switchToSignUp": "daftar",
+    "switchToSignIn": "Log masuk",
+    "fillAllFields": "Sila isi semua ruangan.",
+    "privacyNote": "Dengan meneruskan, anda bersetuju menerima Syarat Perkhidmatan dan Dasar Privasi HelpMyIMG.",
+    "signingIn": "Menyambung...",
+    "creatingAccount": "Mencipta akaun...",
+    "invalidCredentials": "E-mel atau kata laluan tidak sah.",
+    "emailInUse": "E-mel ini telah pun didaftarkan. Sila log masuk.",
+    "weakPassword": "Kata laluan mestilah sekurang-kurangnya 6 aksara.",
+    "notConfigured": "Firebase tidak dikonfigurasikan. Sila tetapkan VITE_FIREBASE_* dalam persekitaran anda."
+  }
 }

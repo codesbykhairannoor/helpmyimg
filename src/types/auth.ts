@@ -24,6 +24,8 @@ export interface AuthContextType {
   loading: boolean;
   isPro: boolean;
   signInWithGoogle: () => Promise<void>;
+  signInWithEmail: (email: string, password: string) => Promise<void>;
+  signUpWithEmail: (email: string, password: string) => Promise<void>;
   signOut: () => Promise<void>;
   isAuthModalOpen: boolean;
   openAuthModal: () => void;

@@ -2213,5 +2213,31 @@
   "pricing.faq6.q": "What is the Founder Lifetime Pass and how does it work?",
   "pricing.faq6.a": "The Founder Lifetime Pass is an exclusive early deal where you pay once ($24.99 / Rp 249,000) for lifetime PRO access. No recurring monthly fees, and your account automatically unlocks all future tools and updates.",
   "pricing.faq7.q": "How can HelpMyIMG offer a Lifetime Deal without server cost risks?",
-  "pricing.faq7.a": "Unlike cloud AI services that incur steep GPU server costs per image, HelpMyIMG runs 100% locally in your browser using WebAssembly and Web Workers. Because compute occurs on your device, our marginal server cost is $0.00, enabling a genuinely sustainable one-time lifetime license."
+  "pricing.faq7.a": "Unlike cloud AI services that incur steep GPU server costs per image, HelpMyIMG runs 100% locally in your browser using WebAssembly and Web Workers. Because compute occurs on your device, our marginal server cost is $0.00, enabling a genuinely sustainable one-time lifetime license.",
+  "auth": {
+    "signInTitle": "Sign in to HelpMyIMG",
+    "signUpTitle": "Create an Account",
+    "signInSubtitle": "Access your account, save preferences, and unlock exclusive PRO features.",
+    "signUpSubtitle": "Sign up and enjoy unlimited local image processing directly in your browser.",
+    "emailLabel": "Email Address",
+    "emailPlaceholder": "name@example.com",
+    "passwordLabel": "Password",
+    "passwordPlaceholder": "••••••••",
+    "submitSignIn": "Sign In",
+    "submitSignUp": "Create Account",
+    "orDivider": "or",
+    "googleBtn": "Continue with Google",
+    "noAccount": "Don't have an account?",
+    "hasAccount": "Already have an account?",
+    "switchToSignUp": "Sign up",
+    "switchToSignIn": "Sign in",
+    "fillAllFields": "Please fill in all fields.",
+    "privacyNote": "By continuing, you agree to HelpMyIMG's Terms of Service and Privacy Policy.",
+    "signingIn": "Connecting...",
+    "creatingAccount": "Creating account...",
+    "invalidCredentials": "Invalid email or password.",
+    "emailInUse": "This email is already registered. Please sign in.",
+    "weakPassword": "Password must be at least 6 characters.",
+    "notConfigured": "Firebase is not configured. Please set VITE_FIREBASE_* in your environment."
+  }
 }

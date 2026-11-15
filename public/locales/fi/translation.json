@@ -2213,5 +2213,31 @@
   "pricing.faq6.q": "Mikä Founder Lifetime Pass on ja miten se toimii?",
   "pricing.faq6.a": "Founder Lifetime Pass on eksklusiivinen varhainen tarjous, jossa maksat kerran (24,99 $ / 249 000 Rp) elinikäisestä PRO-pääsystä. Ei toistuvia kuukausimaksuja, ja tilisi avaa automaattisesti kaikki tulevat työkalut ja päivitykset.",
   "pricing.faq7.q": "Kuinka HelpMyIMG voi tarjota elinikäisen sopimuksen ilman palvelinkustannusriskejä?",
-  "pricing.faq7.a": "Toisin kuin pilvi-AI-palvelut, joista aiheutuu korkeat GPU-palvelinkustannukset kuvakohtaisesti, HelpMyIMG toimii 100 % paikallisesti selaimessasi WebAssemblyn ja Web Workersin avulla. Koska laskenta tapahtuu laitteellasi, palvelimemme rajahinta on 0,00 dollaria, mikä mahdollistaa aidosti kestävän, kertaluonteisen elinikäisen lisenssin."
+  "pricing.faq7.a": "Toisin kuin pilvi-AI-palvelut, joista aiheutuu korkeat GPU-palvelinkustannukset kuvakohtaisesti, HelpMyIMG toimii 100 % paikallisesti selaimessasi WebAssemblyn ja Web Workersin avulla. Koska laskenta tapahtuu laitteellasi, palvelimemme rajahinta on 0,00 dollaria, mikä mahdollistaa aidosti kestävän, kertaluonteisen elinikäisen lisenssin.",
+  "auth": {
+    "signInTitle": "Kirjaudu sisään HelpMyIMG:hen",
+    "signUpTitle": "Luo tili",
+    "signInSubtitle": "Käytä tiliäsi, tallenna asetukset ja avaa ainutlaatuiset PRO-ominaisuudet.",
+    "signUpSubtitle": "Rekisteröidy ja nauti rajattomasta paikallisesta kuvankäsittelystä suoraan selaimessasi.",
+    "emailLabel": "Sähköpostiosoite",
+    "emailPlaceholder": "nimi@esimerkki.fi",
+    "passwordLabel": "Salasana",
+    "passwordPlaceholder": "••••••••",
+    "submitSignIn": "Kirjaudu sisään",
+    "submitSignUp": "Luo tili",
+    "orDivider": "tai",
+    "googleBtn": "Jatka Googlella",
+    "noAccount": "Eikö sinulla ole tiliä?",
+    "hasAccount": "Onko sinulla jo tili?",
+    "switchToSignUp": "Rekisteröidy",
+    "switchToSignIn": "Kirjaudu sisään",
+    "fillAllFields": "Täytä kaikki kentät.",
+    "privacyNote": "Jatkamalla hyväksyt HelpMyIMG:n käyttöehdot ja tietosuojakäytännön.",
+    "signingIn": "Yhdistetään...",
+    "creatingAccount": "Luodaan tiliä...",
+    "invalidCredentials": "Virheellinen sähköpostiosoite tai salasana.",
+    "emailInUse": "Tämä sähköposti on jo rekisteröity. Kirjaudu sisään.",
+    "weakPassword": "Salasanassa on oltava vähintään 6 merkkiä.",
+    "notConfigured": "Firebasea ei ole määritetty. Aseta VITE_FIREBASE_* ympäristöösi."
+  }
 }

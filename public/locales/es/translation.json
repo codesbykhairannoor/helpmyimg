@@ -2213,5 +2213,31 @@
   "pricing.faq6.q": "¿Qué es el Founder Lifetime Pass y cómo funciona?",
   "pricing.faq6.a": "El Founder Lifetime Pass es una oferta anticipada exclusiva en la que paga una vez ($24,99 / Rp 249 000) para obtener acceso PRO de por vida. Sin tarifas mensuales recurrentes y su cuenta desbloquea automáticamente todas las herramientas y actualizaciones futuras.",
   "pricing.faq7.q": "¿Cómo puede HelpMyIMG ofrecer una oferta de por vida sin riesgos de costes del servidor?",
-  "pricing.faq7.a": "A diferencia de los servicios de inteligencia artificial en la nube que generan elevados costos de servidor GPU por imagen, HelpMyIMG se ejecuta 100% localmente en su navegador mediante WebAssembly y Web Workers. Debido a que la computación se realiza en su dispositivo, el costo marginal de nuestro servidor es de $0,00, lo que permite una licencia única de por vida realmente sustentable."
+  "pricing.faq7.a": "A diferencia de los servicios de inteligencia artificial en la nube que generan elevados costos de servidor GPU por imagen, HelpMyIMG se ejecuta 100% localmente en su navegador mediante WebAssembly y Web Workers. Debido a que la computación se realiza en su dispositivo, el costo marginal de nuestro servidor es de $0,00, lo que permite una licencia única de por vida realmente sustentable.",
+  "auth": {
+    "signInTitle": "Iniciar sesión en HelpMyIMG",
+    "signUpTitle": "Crear una cuenta",
+    "signInSubtitle": "Acceda a su cuenta, guarde preferencias y desbloquee funciones PRO exclusivas.",
+    "signUpSubtitle": "Regístrese y disfrute del procesamiento de imágenes local ilimitado directamente en su navegador.",
+    "emailLabel": "Dirección de correo electrónico",
+    "emailPlaceholder": "nombre@ejemplo.com",
+    "passwordLabel": "Contraseña",
+    "passwordPlaceholder": "••••••••",
+    "submitSignIn": "Iniciar sesión",
+    "submitSignUp": "Crear una cuenta",
+    "orDivider": "o",
+    "googleBtn": "Continuar con Google",
+    "noAccount": "¿No tienes una cuenta?",
+    "hasAccount": "¿Ya tienes una cuenta?",
+    "switchToSignUp": "Inscribirse",
+    "switchToSignIn": "Iniciar sesión",
+    "fillAllFields": "Por favor complete todos los campos.",
+    "privacyNote": "Al continuar, acepta los Términos de servicio y la Política de privacidad de HelpMyIMG.",
+    "signingIn": "Conectando...",
+    "creatingAccount": "Creando cuenta...",
+    "invalidCredentials": "Correo electrónico o contraseña no válidos.",
+    "emailInUse": "Este correo electrónico ya está registrado. Por favor inicia sesión.",
+    "weakPassword": "La contraseña debe tener al menos 6 caracteres.",
+    "notConfigured": "Firebase no está configurado. Configure VITE_FIREBASE_* en su entorno."
+  }
 }

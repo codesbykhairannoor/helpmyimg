@@ -2213,5 +2213,31 @@
   "pricing.faq6.q": "Founder Lifetime Pass là gì và nó hoạt động như thế nào?",
   "pricing.faq6.a": "Founder Lifetime Pass là ưu đãi sớm độc quyền mà bạn phải trả một lần ($24,99 / Rp 249.000) để có quyền truy cập PRO trọn đời. Không có phí định kỳ hàng tháng và tài khoản của bạn sẽ tự động mở khóa tất cả các công cụ và bản cập nhật trong tương lai.",
   "pricing.faq7.q": "Làm cách nào HelpMyIMG có thể cung cấp Ưu đãi trọn đời mà không gặp rủi ro về chi phí máy chủ?",
-  "pricing.faq7.a": "Không giống như các dịch vụ AI trên nền tảng đám mây có chi phí máy chủ GPU cao cho mỗi hình ảnh, HelpMyIMG chạy cục bộ 100% trong trình duyệt của bạn bằng cách sử dụng WebAssembly và Web Workers. Vì quá trình tính toán diễn ra trên thiết bị của bạn nên chi phí máy chủ cận biên của chúng tôi là 0,00 USD, cho phép cấp giấy phép trọn đời một lần thực sự bền vững."
+  "pricing.faq7.a": "Không giống như các dịch vụ AI trên nền tảng đám mây có chi phí máy chủ GPU cao cho mỗi hình ảnh, HelpMyIMG chạy cục bộ 100% trong trình duyệt của bạn bằng cách sử dụng WebAssembly và Web Workers. Vì quá trình tính toán diễn ra trên thiết bị của bạn nên chi phí máy chủ cận biên của chúng tôi là 0,00 USD, cho phép cấp giấy phép trọn đời một lần thực sự bền vững.",
+  "auth": {
+    "signInTitle": "Đăng nhập vào HelpMyIMG",
+    "signUpTitle": "Tạo một tài khoản",
+    "signInSubtitle": "Truy cập tài khoản của bạn, lưu tùy chọn và mở khóa các tính năng PRO độc quyền.",
+    "signUpSubtitle": "Đăng ký và tận hưởng quá trình xử lý hình ảnh cục bộ không giới hạn trực tiếp trong trình duyệt của bạn.",
+    "emailLabel": "Địa chỉ email",
+    "emailPlaceholder": "tên@example.com",
+    "passwordLabel": "Mật khẩu",
+    "passwordPlaceholder": "••••••••",
+    "submitSignIn": "Đăng nhập",
+    "submitSignUp": "Tạo tài khoản",
+    "orDivider": "hoặc",
+    "googleBtn": "Tiếp tục với Google",
+    "noAccount": "Bạn chưa có tài khoản?",
+    "hasAccount": "Đã có tài khoản?",
+    "switchToSignUp": "Đăng ký",
+    "switchToSignIn": "Đăng nhập",
+    "fillAllFields": "Vui lòng điền vào tất cả các trường.",
+    "privacyNote": "Bằng cách tiếp tục, bạn đồng ý với Điều khoản dịch vụ và Chính sách quyền riêng tư của HelpMyIMG.",
+    "signingIn": "Đang kết nối...",
+    "creatingAccount": "Đang tạo tài khoản...",
+    "invalidCredentials": "Email hoặc mật khẩu không hợp lệ.",
+    "emailInUse": "Email này đã được đăng ký. Vui lòng đăng nhập.",
+    "weakPassword": "Mật khẩu phải có ít nhất 6 ký tự.",
+    "notConfigured": "Firebase chưa được định cấu hình. Vui lòng đặt VITE_FIREBASE_* trong môi trường của bạn."
+  }
 }

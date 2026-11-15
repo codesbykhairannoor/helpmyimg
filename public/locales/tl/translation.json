@@ -2213,5 +2213,31 @@
   "pricing.faq6.q": "Ano ang Founder Lifetime Pass at paano ito gumagana?",
   "pricing.faq6.a": "Ang Founder Lifetime Pass ay isang eksklusibong maagang deal kung saan magbabayad ka nang isang beses ($24.99 / Rp 249,000) para sa panghabambuhay na PRO access. Walang umuulit na buwanang bayarin, at awtomatikong ina-unlock ng iyong account ang lahat ng mga tool at update sa hinaharap.",
   "pricing.faq7.q": "Paano makapag-aalok ang HelpMyIMG ng Panghabambuhay na Deal nang walang mga panganib sa gastos ng server?",
-  "pricing.faq7.a": "Hindi tulad ng mga serbisyo ng cloud AI na nagkakaroon ng matataas na gastos sa server ng GPU sa bawat larawan, ang HelpMyIMG ay tumatakbo nang 100% nang lokal sa iyong browser gamit ang WebAssembly at Web Workers. Dahil ang pag-compute ay nangyayari sa iyong device, ang aming marginal na gastos sa server ay $0.00, na nagbibigay-daan sa isang tunay na napapanatiling isang-beses na panghabambuhay na lisensya."
+  "pricing.faq7.a": "Hindi tulad ng mga serbisyo ng cloud AI na nagkakaroon ng matataas na gastos sa server ng GPU sa bawat larawan, ang HelpMyIMG ay tumatakbo nang 100% nang lokal sa iyong browser gamit ang WebAssembly at Web Workers. Dahil ang pag-compute ay nangyayari sa iyong device, ang aming marginal na gastos sa server ay $0.00, na nagbibigay-daan sa isang tunay na napapanatiling isang-beses na panghabambuhay na lisensya.",
+  "auth": {
+    "signInTitle": "Mag-sign in sa HelpMyIMG",
+    "signUpTitle": "Gumawa ng Account",
+    "signInSubtitle": "I-access ang iyong account, i-save ang mga kagustuhan, at i-unlock ang mga eksklusibong feature ng PRO.",
+    "signUpSubtitle": "Mag-sign up at tamasahin ang walang limitasyong lokal na pagproseso ng imahe nang direkta sa iyong browser.",
+    "emailLabel": "Email Address",
+    "emailPlaceholder": "name@example.com",
+    "passwordLabel": "Password",
+    "passwordPlaceholder": "••••••••",
+    "submitSignIn": "Mag-sign In",
+    "submitSignUp": "Lumikha ng Account",
+    "orDivider": "o",
+    "googleBtn": "Magpatuloy sa Google",
+    "noAccount": "Walang account?",
+    "hasAccount": "Mayroon ka nang account?",
+    "switchToSignUp": "Mag-sign up",
+    "switchToSignIn": "Mag-sign in",
+    "fillAllFields": "Mangyaring punan ang lahat ng mga patlang.",
+    "privacyNote": "Sa pagpapatuloy, sumasang-ayon ka sa Mga Tuntunin ng Serbisyo at Patakaran sa Privacy ng HelpMyIMG.",
+    "signingIn": "Kumokonekta...",
+    "creatingAccount": "Gumagawa ng account...",
+    "invalidCredentials": "Di-wastong email o password.",
+    "emailInUse": "Nakarehistro na ang email na ito. Mangyaring mag-sign in.",
+    "weakPassword": "Dapat na hindi bababa sa 6 na character ang password.",
+    "notConfigured": "Hindi naka-configure ang Firebase. Mangyaring itakda ang VITE_FIREBASE_* sa iyong kapaligiran."
+  }
 }

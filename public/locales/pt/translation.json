@@ -2213,5 +2213,31 @@
   "pricing.faq6.q": "O que é o Founder Lifetime Pass e como funciona?",
   "pricing.faq6.a": "O Founder Lifetime Pass é uma oferta antecipada exclusiva onde você paga uma vez ($ 24,99 / Rp 249.000) para acesso PRO vitalício. Sem taxas mensais recorrentes e sua conta desbloqueia automaticamente todas as ferramentas e atualizações futuras.",
   "pricing.faq7.q": "Como o HelpMyIMG pode oferecer um acordo vitalício sem riscos de custos de servidor?",
-  "pricing.faq7.a": "Ao contrário dos serviços de IA em nuvem que incorrem em custos elevados de servidor GPU por imagem, HelpMyIMG é executado 100% localmente em seu navegador usando WebAssembly e Web Workers. Como a computação ocorre no seu dispositivo, nosso custo marginal de servidor é de US$ 0,00, permitindo uma licença vitalícia única genuinamente sustentável."
+  "pricing.faq7.a": "Ao contrário dos serviços de IA em nuvem que incorrem em custos elevados de servidor GPU por imagem, HelpMyIMG é executado 100% localmente em seu navegador usando WebAssembly e Web Workers. Como a computação ocorre no seu dispositivo, nosso custo marginal de servidor é de US$ 0,00, permitindo uma licença vitalícia única genuinamente sustentável.",
+  "auth": {
+    "signInTitle": "Faça login no HelpMyIMG",
+    "signUpTitle": "Crie uma conta",
+    "signInSubtitle": "Acesse sua conta, salve preferências e desbloqueie recursos PRO exclusivos.",
+    "signUpSubtitle": "Cadastre-se e aproveite o processamento local ilimitado de imagens diretamente no seu navegador.",
+    "emailLabel": "Endereço de email",
+    "emailPlaceholder": "nome@exemplo.com",
+    "passwordLabel": "Senha",
+    "passwordPlaceholder": "••••••••",
+    "submitSignIn": "Entrar",
+    "submitSignUp": "Criar uma conta",
+    "orDivider": "ou",
+    "googleBtn": "Continuar com o Google",
+    "noAccount": "Não tem uma conta?",
+    "hasAccount": "Já tem uma conta?",
+    "switchToSignUp": "Inscrever-se",
+    "switchToSignIn": "Entrar",
+    "fillAllFields": "Por favor preencha todos os campos.",
+    "privacyNote": "Ao continuar, você concorda com os Termos de Serviço e a Política de Privacidade do HelpMyIMG.",
+    "signingIn": "Conectando...",
+    "creatingAccount": "Criando conta...",
+    "invalidCredentials": "E-mail ou senha inválidos.",
+    "emailInUse": "Este e-mail já está registado. Faça login.",
+    "weakPassword": "A senha deve ter pelo menos 6 caracteres.",
+    "notConfigured": "O Firebase não está configurado. Defina VITE_FIREBASE_* em seu ambiente."
+  }
 }

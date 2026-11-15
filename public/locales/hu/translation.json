@@ -2213,5 +2213,31 @@
   "pricing.faq6.q": "Mi az a Founder Lifetime Pass és hogyan működik?",
   "pricing.faq6.a": "A Founder Lifetime Pass egy exkluzív korai ajánlat, amelyben egyszer fizet (24,99 USD / 249 000 Rp) az élethosszig tartó PRO-hozzáférésért. Nincsenek ismétlődő havi díjak, és fiókja automatikusan felold minden jövőbeli eszközt és frissítést.",
   "pricing.faq7.q": "Hogyan kínálhat a HelpMyIMG életre szóló ajánlatot szerverköltség-kockázatok nélkül?",
-  "pricing.faq7.a": "Ellentétben a felhőalapú mesterséges intelligencia szolgáltatásokkal, amelyek képenként meredek GPU-szerverköltséget jelentenek, a HelpMyIMG 100%-ban helyileg fut a böngészőben a WebAssembly és a Web Workers segítségével. Mivel a számítás az Ön eszközén történik, a szerver határköltsége 0,00 USD, ami valóban fenntartható, egyszeri, élettartamra szóló licencet tesz lehetővé."
+  "pricing.faq7.a": "Ellentétben a felhőalapú mesterséges intelligencia szolgáltatásokkal, amelyek képenként meredek GPU-szerverköltséget jelentenek, a HelpMyIMG 100%-ban helyileg fut a böngészőben a WebAssembly és a Web Workers segítségével. Mivel a számítás az Ön eszközén történik, a szerver határköltsége 0,00 USD, ami valóban fenntartható, egyszeri, élettartamra szóló licencet tesz lehetővé.",
+  "auth": {
+    "signInTitle": "Jelentkezzen be a HelpMyIMG-be",
+    "signUpTitle": "Hozzon létre egy fiókot",
+    "signInSubtitle": "Hozzáférhet fiókjához, mentheti a beállításokat, és feloldhatja az exkluzív PRO-funkciókat.",
+    "signUpSubtitle": "Regisztráljon, és élvezze a korlátlan helyi képfeldolgozást közvetlenül a böngészőjében.",
+    "emailLabel": "E-mail cím",
+    "emailPlaceholder": "név@example.com",
+    "passwordLabel": "Jelszó",
+    "passwordPlaceholder": "••••••••",
+    "submitSignIn": "Jelentkezzen be",
+    "submitSignUp": "Fiók létrehozása",
+    "orDivider": "vagy",
+    "googleBtn": "Folytassa a Google-lal",
+    "noAccount": "Nincs fiókod?",
+    "hasAccount": "Már van fiókja?",
+    "switchToSignUp": "Regisztráljon",
+    "switchToSignIn": "Jelentkezzen be",
+    "fillAllFields": "Kérjük, töltse ki az összes mezőt.",
+    "privacyNote": "A folytatással elfogadja a HelpMyIMG szolgáltatási feltételeit és adatvédelmi szabályzatát.",
+    "signingIn": "Csatlakozás...",
+    "creatingAccount": "Fiók létrehozása...",
+    "invalidCredentials": "Érvénytelen e-mail cím vagy jelszó.",
+    "emailInUse": "Ez az e-mail már regisztrálva van. Kérjük, jelentkezzen be.",
+    "weakPassword": "A jelszónak legalább 6 karakterből kell állnia.",
+    "notConfigured": "A Firebase nincs konfigurálva. Kérjük, állítsa be a VITE_FIREBASE_*-t a környezetében."
+  }
 }

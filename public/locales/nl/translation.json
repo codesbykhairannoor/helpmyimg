@@ -2213,5 +2213,31 @@
   "pricing.faq6.q": "Wat is de Founder Lifetime Pass en hoe werkt deze?",
   "pricing.faq6.a": "De Founder Lifetime Pass is een exclusieve vroege deal waarbij u één keer ($ 24,99 / Rp 249.000) betaalt voor levenslange PRO-toegang. Geen terugkerende maandelijkse kosten en uw account ontgrendelt automatisch alle toekomstige tools en updates.",
   "pricing.faq7.q": "Hoe kan HelpMyIMG een Lifetime Deal aanbieden zonder risico op serverkosten?",
-  "pricing.faq7.a": "In tegenstelling tot cloud AI-services die hoge GPU-serverkosten per afbeelding met zich meebrengen, draait HelpMyIMG 100% lokaal in uw browser met behulp van WebAssembly en Web Workers. Omdat de rekenkracht op uw apparaat plaatsvindt, bedragen onze marginale serverkosten $ 0,00, waardoor een werkelijk duurzame eenmalige levenslange licentie mogelijk is."
+  "pricing.faq7.a": "In tegenstelling tot cloud AI-services die hoge GPU-serverkosten per afbeelding met zich meebrengen, draait HelpMyIMG 100% lokaal in uw browser met behulp van WebAssembly en Web Workers. Omdat de rekenkracht op uw apparaat plaatsvindt, bedragen onze marginale serverkosten $ 0,00, waardoor een werkelijk duurzame eenmalige levenslange licentie mogelijk is.",
+  "auth": {
+    "signInTitle": "Meld u aan bij HelpMijnIMG",
+    "signUpTitle": "Maak een account aan",
+    "signInSubtitle": "Krijg toegang tot uw account, sla voorkeuren op en ontgrendel exclusieve PRO-functies.",
+    "signUpSubtitle": "Meld u aan en geniet van onbeperkte lokale beeldverwerking rechtstreeks in uw browser.",
+    "emailLabel": "E-mailadres",
+    "emailPlaceholder": "naam@voorbeeld.com",
+    "passwordLabel": "Wachtwoord",
+    "passwordPlaceholder": "••••••••",
+    "submitSignIn": "Inloggen",
+    "submitSignUp": "Account aanmaken",
+    "orDivider": "of",
+    "googleBtn": "Ga verder met Google",
+    "noAccount": "Heeft u geen account?",
+    "hasAccount": "Heeft u al een account?",
+    "switchToSignUp": "Schrijf je in",
+    "switchToSignIn": "Log in",
+    "fillAllFields": "Vul alle velden in.",
+    "privacyNote": "Als u doorgaat, gaat u akkoord met de servicevoorwaarden en het privacybeleid van HelpMyIMG.",
+    "signingIn": "Verbinden...",
+    "creatingAccount": "Account aanmaken...",
+    "invalidCredentials": "Ongeldig e-mailadres of wachtwoord.",
+    "emailInUse": "Deze e-mail is al geregistreerd. Meld u aan.",
+    "weakPassword": "Wachtwoord moet minimaal 6 tekens lang zijn.",
+    "notConfigured": "Firebase is niet geconfigureerd. Stel VITE_FIREBASE_* in uw omgeving in."
+  }
 }

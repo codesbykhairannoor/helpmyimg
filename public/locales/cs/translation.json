@@ -2213,5 +2213,31 @@
   "pricing.faq6.q": "Co je Founder Lifetime Pass a jak funguje?",
   "pricing.faq6.a": "Founder Lifetime Pass je exkluzivní časná nabídka, kde platíte jednou (24,99 $ / 249 000 Rp) za celoživotní přístup PRO. Žádné opakované měsíční poplatky a váš účet automaticky odemkne všechny budoucí nástroje a aktualizace.",
   "pricing.faq7.q": "Jak může HelpMyIMG nabídnout Lifetime Deal bez rizika spojeného s náklady na server?",
-  "pricing.faq7.a": "Na rozdíl od cloudových služeb umělé inteligence, které způsobují vysoké náklady na server GPU na obrázek, HelpMyIMG běží 100 % lokálně ve vašem prohlížeči pomocí WebAssembly a Web Workers. Protože výpočet probíhá na vašem zařízení, naše mezní náklady na server jsou 0,00 USD, což umožňuje skutečně udržitelnou jednorázovou doživotní licenci."
+  "pricing.faq7.a": "Na rozdíl od cloudových služeb umělé inteligence, které způsobují vysoké náklady na server GPU na obrázek, HelpMyIMG běží 100 % lokálně ve vašem prohlížeči pomocí WebAssembly a Web Workers. Protože výpočet probíhá na vašem zařízení, naše mezní náklady na server jsou 0,00 USD, což umožňuje skutečně udržitelnou jednorázovou doživotní licenci.",
+  "auth": {
+    "signInTitle": "Přihlaste se do HelpMyIMG",
+    "signUpTitle": "Vytvořte si účet",
+    "signInSubtitle": "Získejte přístup ke svému účtu, uložte předvolby a odemkněte exkluzivní funkce PRO.",
+    "signUpSubtitle": "Zaregistrujte se a užívejte si neomezené místní zpracování obrázků přímo ve vašem prohlížeči.",
+    "emailLabel": "E-mailová adresa",
+    "emailPlaceholder": "jmeno@example.com",
+    "passwordLabel": "Heslo",
+    "passwordPlaceholder": "••••••••",
+    "submitSignIn": "Přihlaste se",
+    "submitSignUp": "Vytvořit účet",
+    "orDivider": "nebo",
+    "googleBtn": "Pokračujte s Googlem",
+    "noAccount": "Nemáte účet?",
+    "hasAccount": "Už máte účet?",
+    "switchToSignUp": "Zaregistrujte se",
+    "switchToSignIn": "Přihlaste se",
+    "fillAllFields": "Vyplňte prosím všechna pole.",
+    "privacyNote": "Pokračováním souhlasíte se smluvními podmínkami a zásadami ochrany osobních údajů HelpMyIMG.",
+    "signingIn": "Spojovací...",
+    "creatingAccount": "Vytváření účtu...",
+    "invalidCredentials": "Neplatný e-mail nebo heslo.",
+    "emailInUse": "Tento e-mail je již zaregistrován. Přihlaste se prosím.",
+    "weakPassword": "Heslo musí mít alespoň 6 znaků.",
+    "notConfigured": "Firebase není nakonfigurována. Nastavte prosím VITE_FIREBASE_* ve svém prostředí."
+  }
 }

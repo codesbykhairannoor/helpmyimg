@@ -2213,5 +2213,31 @@
   "pricing.faq6.q": "Hvad er Founder Lifetime Pass, og hvordan virker det?",
   "pricing.faq6.a": "Founder Lifetime Pass er en eksklusiv tidlig aftale, hvor du betaler én gang ($24,99 / Rp 249.000) for levetid PRO-adgang. Ingen tilbagevendende månedlige gebyrer, og din konto låser automatisk alle fremtidige værktøjer og opdateringer op.",
   "pricing.faq7.q": "Hvordan kan HelpMyIMG tilbyde en livstidsaftale uden risici for serveromkostninger?",
-  "pricing.faq7.a": "I modsætning til cloud AI-tjenester, der medfører høje GPU-serveromkostninger pr. billede, kører HelpMyIMG 100 % lokalt i din browser ved hjælp af WebAssembly og Web Workers. Fordi beregning foregår på din enhed, er vores marginale serveromkostninger $0,00, hvilket muliggør en ægte bæredygtig engangs-livsvarig licens."
+  "pricing.faq7.a": "I modsætning til cloud AI-tjenester, der medfører høje GPU-serveromkostninger pr. billede, kører HelpMyIMG 100 % lokalt i din browser ved hjælp af WebAssembly og Web Workers. Fordi beregning foregår på din enhed, er vores marginale serveromkostninger $0,00, hvilket muliggør en ægte bæredygtig engangs-livsvarig licens.",
+  "auth": {
+    "signInTitle": "Log ind på HelpMyIMG",
+    "signUpTitle": "Opret en konto",
+    "signInSubtitle": "Få adgang til din konto, gem præferencer, og lås op for eksklusive PRO-funktioner.",
+    "signUpSubtitle": "Tilmeld dig og nyd ubegrænset lokal billedbehandling direkte i din browser.",
+    "emailLabel": "Email adresse",
+    "emailPlaceholder": "navn@eksempel.com",
+    "passwordLabel": "Adgangskode",
+    "passwordPlaceholder": "••••••••",
+    "submitSignIn": "Log ind",
+    "submitSignUp": "Opret konto",
+    "orDivider": "eller",
+    "googleBtn": "Fortsæt med Google",
+    "noAccount": "Har du ikke en konto?",
+    "hasAccount": "Har du allerede en konto?",
+    "switchToSignUp": "Tilmeld dig",
+    "switchToSignIn": "Log ind",
+    "fillAllFields": "Udfyld venligst alle felter.",
+    "privacyNote": "Ved at fortsætte accepterer du HelpMyIMGs servicevilkår og privatlivspolitik.",
+    "signingIn": "Opretter forbindelse...",
+    "creatingAccount": "Opretter konto...",
+    "invalidCredentials": "Ugyldig e-mail eller adgangskode.",
+    "emailInUse": "Denne e-mail er allerede registreret. Log venligst ind.",
+    "weakPassword": "Adgangskoden skal være på mindst 6 tegn.",
+    "notConfigured": "Firebase er ikke konfigureret. Indstil VITE_FIREBASE_* i dit miljø."
+  }
 }

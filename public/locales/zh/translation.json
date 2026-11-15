@@ -2212,5 +2212,31 @@
   "pricing.faq6.q": "什么是创始人终身通行证以及它如何运作？",
   "pricing.faq6.a": "创始人终身通行证是一项独家早期优惠，您只需支付一次（24.99 美元/249,000 卢比）即可获得终身 PRO 访问权限。 没有经常性的月费，并且您的帐户会自动解锁所有未来的工具和更新。",
   "pricing.faq7.q": "HelpMyIMG 如何在没有服务器成本风险的情况下提供终身优惠？",
-  "pricing.faq7.a": "与每个图像产生高昂 GPU 服务器成本的云 AI 服务不同，HelpMyIMG 使用 WebAssembly 和 Web Workers 在浏览器中本地 100% 运行。 由于计算发生在您的设备上，因此我们的边际服务器成本为 0.00 美元，从而实现真正可持续的一次性终身许可证。"
+  "pricing.faq7.a": "与每个图像产生高昂 GPU 服务器成本的云 AI 服务不同，HelpMyIMG 使用 WebAssembly 和 Web Workers 在浏览器中本地 100% 运行。 由于计算发生在您的设备上，因此我们的边际服务器成本为 0.00 美元，从而实现真正可持续的一次性终身许可证。",
+  "auth": {
+    "signInTitle": "登录 HelpMyIMG",
+    "signUpTitle": "创建新账户",
+    "signInSubtitle": "访问您的账户，保存偏好设置，并解锁专属 PRO 功能。",
+    "signUpSubtitle": "注册即可直接在浏览器中享受无限制的图像处理。",
+    "emailLabel": "电子邮箱地址",
+    "emailPlaceholder": "name@example.com",
+    "passwordLabel": "密码",
+    "passwordPlaceholder": "••••••••",
+    "submitSignIn": "登录",
+    "submitSignUp": "创建账户",
+    "orDivider": "或",
+    "googleBtn": "使用 Google 继续",
+    "noAccount": "还没有账户？",
+    "hasAccount": "已有账户？",
+    "switchToSignUp": "立即注册",
+    "switchToSignIn": "登录",
+    "fillAllFields": "请填写所有字段。",
+    "privacyNote": "继续即表示您同意 HelpMyIMG 的服务条款和隐私政策。",
+    "signingIn": "正在连接...",
+    "creatingAccount": "正在创建账户...",
+    "invalidCredentials": "邮箱或密码无效。",
+    "emailInUse": "该邮箱已被注册，请登录。",
+    "weakPassword": "密码至少需要 6 个字符。",
+    "notConfigured": "Firebase 未配置。请在环境中设置 VITE_FIREBASE_*。"
+  }
 }

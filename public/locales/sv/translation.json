@@ -2213,5 +2213,31 @@
   "pricing.faq6.q": "Vad är Founder Lifetime Pass och hur fungerar det?",
   "pricing.faq6.a": "Founder Lifetime Pass är en exklusiv tidig deal där du betalar en gång ($24,99 / Rp 249 000) för livstids PRO-åtkomst. Inga återkommande månadsavgifter, och ditt konto låser automatiskt upp alla framtida verktyg och uppdateringar.",
   "pricing.faq7.q": "Hur kan HelpMyIMG erbjuda en livstidsaffär utan risker för serverkostnader?",
-  "pricing.faq7.a": "Till skillnad från moln AI-tjänster som medför höga GPU-serverkostnader per bild, kör HelpMyIMG 100 % lokalt i din webbläsare med hjälp av WebAssembly och Web Workers. Eftersom beräkning sker på din enhet är vår marginella serverkostnad 0,00 USD, vilket möjliggör en genuint hållbar engångslivstidslicens."
+  "pricing.faq7.a": "Till skillnad från moln AI-tjänster som medför höga GPU-serverkostnader per bild, kör HelpMyIMG 100 % lokalt i din webbläsare med hjälp av WebAssembly och Web Workers. Eftersom beräkning sker på din enhet är vår marginella serverkostnad 0,00 USD, vilket möjliggör en genuint hållbar engångslivstidslicens.",
+  "auth": {
+    "signInTitle": "Logga in på HelpMyIMG",
+    "signUpTitle": "Skapa ett konto",
+    "signInSubtitle": "Få tillgång till ditt konto, spara inställningar och lås upp exklusiva PRO-funktioner.",
+    "signUpSubtitle": "Registrera dig och njut av obegränsad lokal bildbehandling direkt i din webbläsare.",
+    "emailLabel": "E-postadress",
+    "emailPlaceholder": "namn@exempel.com",
+    "passwordLabel": "Lösenord",
+    "passwordPlaceholder": "••••••••",
+    "submitSignIn": "Logga in",
+    "submitSignUp": "Skapa konto",
+    "orDivider": "eller",
+    "googleBtn": "Fortsätt med Google",
+    "noAccount": "Har du inget konto?",
+    "hasAccount": "Har du redan ett konto?",
+    "switchToSignUp": "Anmäl dig",
+    "switchToSignIn": "Logga in",
+    "fillAllFields": "Vänligen fyll i alla fält.",
+    "privacyNote": "Genom att fortsätta godkänner du HelpMyIMGs användarvillkor och sekretesspolicy.",
+    "signingIn": "Ansluter...",
+    "creatingAccount": "Skapar konto...",
+    "invalidCredentials": "Ogiltig e-postadress eller lösenord.",
+    "emailInUse": "Detta e-postmeddelande är redan registrerat. Logga in.",
+    "weakPassword": "Lösenordet måste bestå av minst 6 tecken.",
+    "notConfigured": "Firebase är inte konfigurerad. Ställ in VITE_FIREBASE_* i din miljö."
+  }
 }

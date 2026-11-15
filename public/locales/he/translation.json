@@ -2213,5 +2213,31 @@
   "pricing.faq6.q": "מהו ה-Founder Lifetime Pass וכיצד הוא עובד?",
   "pricing.faq6.a": "ה-Founder Lifetime Pass הוא עסקה מוקדמת בלעדית שבה אתה משלם פעם אחת ($24.99 / Rp 249,000) עבור גישת PRO לכל החיים. אין עמלות חודשיות חוזרות, והחשבון שלך פותח אוטומטית את כל הכלים והעדכונים העתידיים.",
   "pricing.faq7.q": "כיצד יכולה HelpMyIMG להציע עסקת חיים ללא סיכונים בעלויות שרת?",
-  "pricing.faq7.a": "בניגוד לשירותי בינה מלאכותית בענן הכרוכים בעלויות גבוהות של שרת GPU לתמונה, HelpMyIMG פועל 100% באופן מקומי בדפדפן שלך באמצעות WebAssembly ו-Web Workers. מכיוון שחישוב מתרחש במכשיר שלך, עלות השרת השולית שלנו היא $0.00, מה שמאפשר רישיון חד-פעמי בר קיימא באמת."
+  "pricing.faq7.a": "בניגוד לשירותי בינה מלאכותית בענן הכרוכים בעלויות גבוהות של שרת GPU לתמונה, HelpMyIMG פועל 100% באופן מקומי בדפדפן שלך באמצעות WebAssembly ו-Web Workers. מכיוון שחישוב מתרחש במכשיר שלך, עלות השרת השולית שלנו היא $0.00, מה שמאפשר רישיון חד-פעמי בר קיימא באמת.",
+  "auth": {
+    "signInTitle": "היכנס אל HelpMyIMG",
+    "signUpTitle": "צור חשבון",
+    "signInSubtitle": "גש לחשבון שלך, שמור העדפות ופתח את הנעילה של תכונות PRO בלעדיות.",
+    "signUpSubtitle": "הירשם ותיהנה מעיבוד תמונה מקומי ללא הגבלה ישירות בדפדפן שלך.",
+    "emailLabel": "כתובת אימייל",
+    "emailPlaceholder": "name@example.com",
+    "passwordLabel": "סִיסמָה",
+    "passwordPlaceholder": "••••••••",
+    "submitSignIn": "היכנס",
+    "submitSignUp": "צור חשבון",
+    "orDivider": "אוֹ",
+    "googleBtn": "המשך עם גוגל",
+    "noAccount": "אין לך חשבון?",
+    "hasAccount": "כבר יש לך חשבון?",
+    "switchToSignUp": "הירשם",
+    "switchToSignIn": "היכנס",
+    "fillAllFields": "נא למלא את כל השדות.",
+    "privacyNote": "על ידי המשך, אתה מסכים לתנאי השירות ולמדיניות הפרטיות של HelpMyIMG.",
+    "signingIn": "מְקַשֵׁר...",
+    "creatingAccount": "יוצר חשבון...",
+    "invalidCredentials": "אימייל או סיסמה לא חוקיים.",
+    "emailInUse": "האימייל הזה כבר רשום. נא להיכנס.",
+    "weakPassword": "הסיסמה חייבת להיות בת 6 תווים לפחות.",
+    "notConfigured": "Firebase לא מוגדר. הגדר את VITE_FIREBASE_* בסביבה שלך."
+  }
 }

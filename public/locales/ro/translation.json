@@ -2213,5 +2213,31 @@
   "pricing.faq6.q": "Ce este Founder Lifetime Pass și cum funcționează?",
   "pricing.faq6.a": "Fondatorul Lifetime Pass este o ofertă anticipată exclusivă în care plătiți o singură dată (24,99 USD / 249.000 Rp) pentru acces PRO pe viață. Fără taxe lunare recurente, iar contul dvs. deblochează automat toate instrumentele și actualizările viitoare.",
   "pricing.faq7.q": "Cum poate HelpMyIMG să ofere o ofertă pe viață fără riscuri legate de costurile serverului?",
-  "pricing.faq7.a": "Spre deosebire de serviciile cloud AI care implică costuri mari de server GPU pe imagine, HelpMyIMG rulează 100% local în browser-ul dvs. folosind WebAssembly și Web Workers. Deoarece calculul are loc pe dispozitivul dvs., costul marginal al serverului nostru este de 0,00 USD, permițând o licență cu adevărat sustenabilă pe viață."
+  "pricing.faq7.a": "Spre deosebire de serviciile cloud AI care implică costuri mari de server GPU pe imagine, HelpMyIMG rulează 100% local în browser-ul dvs. folosind WebAssembly și Web Workers. Deoarece calculul are loc pe dispozitivul dvs., costul marginal al serverului nostru este de 0,00 USD, permițând o licență cu adevărat sustenabilă pe viață.",
+  "auth": {
+    "signInTitle": "Conectați-vă la HelpMyIMG",
+    "signUpTitle": "Creați un cont",
+    "signInSubtitle": "Accesați-vă contul, salvați preferințele și deblocați funcții PRO exclusive.",
+    "signUpSubtitle": "Înscrieți-vă și bucurați-vă de procesarea locală nelimitată a imaginilor direct în browser.",
+    "emailLabel": "Adresa de e-mail",
+    "emailPlaceholder": "nume@example.com",
+    "passwordLabel": "Parolă",
+    "passwordPlaceholder": "••••••••",
+    "submitSignIn": "Conectare",
+    "submitSignUp": "Creează cont",
+    "orDivider": "sau",
+    "googleBtn": "Continuați cu Google",
+    "noAccount": "Nu ai un cont?",
+    "hasAccount": "Aveți deja un cont?",
+    "switchToSignUp": "Înscrie-te",
+    "switchToSignIn": "Conectare",
+    "fillAllFields": "Vă rugăm să completați toate câmpurile.",
+    "privacyNote": "Continuând, sunteți de acord cu Termenii și condițiile HelpMyIMG și cu Politica de confidențialitate.",
+    "signingIn": "Se conectează...",
+    "creatingAccount": "Se creează cont...",
+    "invalidCredentials": "E-mail sau parolă nevalidă.",
+    "emailInUse": "Acest e-mail este deja înregistrat. Vă rugăm să vă conectați.",
+    "weakPassword": "Parola trebuie să aibă cel puțin 6 caractere.",
+    "notConfigured": "Firebase nu este configurat. Vă rugăm să setați VITE_FIREBASE_* în mediul dvs."
+  }
 }

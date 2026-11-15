@@ -2279,5 +2279,31 @@
   "pricing.faq6.q": "Apa itu Founder Lifetime Pass dan bagaimana cara kerjanya?",
   "pricing.faq6.a": "Founder Lifetime Pass adalah penawaran khusus early-bird di mana Anda hanya perlu membayar 1 kali (Rp 249.000 / $24.99) untuk mendapatkan seluruh kapabilitas PRO selamanya. Tidak ada biaya langganan bulanan atau tahunan, dan akun Anda otomatis mendapatkan semua alat baru yang kami rilis di masa depan.",
   "pricing.faq7.q": "Mengapa HelpMyIMG bisa menawarkan Lifetime Deal tanpa membebani biaya server?",
-  "pricing.faq7.a": "Tidak seperti layanan cloud AI lain yang membakar biaya server per gambar, arsitektur HelpMyIMG berjalan 100% lokal di browser Anda menggunakan WebAssembly dan Web Workers. Karena beban komputasi terjadi di perangkat Anda, biaya marginal server kami adalah $0.00, memungkinkan kami memberikan penawaran sekali bayar yang berkelanjutan."
+  "pricing.faq7.a": "Tidak seperti layanan cloud AI lain yang membakar biaya server per gambar, arsitektur HelpMyIMG berjalan 100% lokal di browser Anda menggunakan WebAssembly dan Web Workers. Karena beban komputasi terjadi di perangkat Anda, biaya marginal server kami adalah $0.00, memungkinkan kami memberikan penawaran sekali bayar yang berkelanjutan.",
+  "auth": {
+    "signInTitle": "Masuk ke HelpMyIMG",
+    "signUpTitle": "Buat Akun Baru",
+    "signInSubtitle": "Akses akun Anda, simpan preferensi, dan nikmati fitur eksklusif PRO.",
+    "signUpSubtitle": "Daftar dan nikmati pemrosesan gambar tanpa batas langsung di browser.",
+    "emailLabel": "Alamat Email",
+    "emailPlaceholder": "nama@email.com",
+    "passwordLabel": "Kata Sandi",
+    "passwordPlaceholder": "••••••••",
+    "submitSignIn": "Masuk",
+    "submitSignUp": "Daftar Akun",
+    "orDivider": "atau",
+    "googleBtn": "Lanjutkan dengan Google",
+    "noAccount": "Belum punya akun?",
+    "hasAccount": "Sudah punya akun?",
+    "switchToSignUp": "Daftar sekarang",
+    "switchToSignIn": "Masuk",
+    "fillAllFields": "Harap isi semua kolom.",
+    "privacyNote": "Dengan melanjutkan, Anda menyetujui Ketentuan Layanan & Kebijakan Privasi HelpMyIMG.",
+    "signingIn": "Menghubungkan...",
+    "creatingAccount": "Mendaftarkan...",
+    "invalidCredentials": "Email atau kata sandi tidak valid.",
+    "emailInUse": "Email ini sudah terdaftar. Silakan masuk.",
+    "weakPassword": "Kata sandi minimal 6 karakter.",
+    "notConfigured": "Firebase belum dikonfigurasi. Harap atur VITE_FIREBASE_* di file .env.local."
+  }
 }

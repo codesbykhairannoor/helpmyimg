@@ -4,6 +4,8 @@
 import React, { createContext, useContext, useState, useEffect, useCallback } from 'react';
 import {
   signInWithPopup,
+  signInWithEmailAndPassword,
+  createUserWithEmailAndPassword,
   signOut as firebaseSignOut,
   onAuthStateChanged,
   type User,
@@ -138,6 +140,32 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     }
   };
 
+  const signInWithEmail = async (email: string, password: string) => {
+    if (!isFirebaseConfigured || !auth) {
+      throw new Error(
+        'Firebase belum dikonfigurasi. Silakan isi konfigurasi VITE_FIREBASE_* di file .env.local.'
+      );
+    }
+
+    const result = await signInWithEmailAndPassword(auth, email.trim(), password);
+    const userProfile = await fetchOrCreateProfile(result.user);
+    setProfile(userProfile);
+    setIsAuthModalOpen(false);
+  };
+
+  const signUpWithEmail = async (email: string, password: string) => {
+    if (!isFirebaseConfigured || !auth) {
+      throw new Error(
+        'Firebase belum dikonfigurasi. Silakan isi konfigurasi VITE_FIREBASE_* di file .env.local.'
+      );
+    }
+
+    const result = await createUserWithEmailAndPassword(auth, email.trim(), password);
+    const userProfile = await fetchOrCreateProfile(result.user);
+    setProfile(userProfile);
+    setIsAuthModalOpen(false);
+  };
+
   const signOut = async () => {
     if (!auth) return;
     try {
@@ -166,6 +194,8 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
         loading,
         isPro,
         signInWithGoogle,
+        signInWithEmail,
+        signUpWithEmail,
         signOut,
         isAuthModalOpen,
         openAuthModal,
