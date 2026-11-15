@@ -6,6 +6,7 @@ import {
   signInWithPopup,
   signInWithEmailAndPassword,
   createUserWithEmailAndPassword,
+  sendPasswordResetEmail,
   signOut as firebaseSignOut,
   onAuthStateChanged,
   type User,
@@ -166,6 +167,16 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     setIsAuthModalOpen(false);
   };
 
+  const sendPasswordReset = async (email: string) => {
+    if (!isFirebaseConfigured || !auth) {
+      throw new Error(
+        'Firebase belum dikonfigurasi. Silakan isi konfigurasi VITE_FIREBASE_* di file .env.local.'
+      );
+    }
+
+    await sendPasswordResetEmail(auth, email.trim());
+  };
+
   const signOut = async () => {
     if (!auth) return;
     try {
@@ -196,6 +207,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
         signInWithGoogle,
         signInWithEmail,
         signUpWithEmail,
+        sendPasswordReset,
         signOut,
         isAuthModalOpen,
         openAuthModal,
