@@ -66,7 +66,13 @@ export default async function handler(req, res) {
       handleCodeInApp: true,
     };
 
-    const resetLink = await auth.generatePasswordResetLink(email.trim(), actionCodeSettings);
+    const rawResetLink = await auth.generatePasswordResetLink(email.trim(), actionCodeSettings);
+    const parsedUrl = new URL(rawResetLink);
+    const oobCode = parsedUrl.searchParams.get('oobCode');
+    const apiKey = parsedUrl.searchParams.get('apiKey');
+
+    // Tautan langsung ke aplikasi HelpMyIMG (melewati halaman putih thismyown.firebaseapp.com)
+    const directHelpMyImgLink = `${targetOrigin}/?mode=resetPassword&oobCode=${oobCode}&apiKey=${apiKey}`;
 
     const emailHtml = `
 <!DOCTYPE html>
@@ -107,7 +113,7 @@ export default async function handler(req, res) {
           <!-- CTA Button -->
           <tr>
             <td align="center" style="padding-bottom: 30px;">
-              <a href="${resetLink}" target="_blank" style="display: inline-block; background: linear-gradient(135deg, #05DAED, #12DA91); color: #080c14; text-decoration: none; font-size: 14px; font-weight: 700; padding: 14px 32px; border-radius: 12px; box-shadow: 0 4px 15px rgba(5, 218, 237, 0.35);">
+              <a href="${directHelpMyImgLink}" target="_blank" style="display: inline-block; background: linear-gradient(135deg, #05DAED, #12DA91); color: #080c14; text-decoration: none; font-size: 14px; font-weight: 700; padding: 14px 32px; border-radius: 12px; box-shadow: 0 4px 15px rgba(5, 218, 237, 0.35);">
                 Atur Ulang Kata Sandi
               </a>
             </td>
