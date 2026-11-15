@@ -1,5 +1,6 @@
 // src/pages/info/PricingPage.tsx
 // Halaman Pilihan Harga Resmi HelpMyIMG: 2 Pilihan Sederhana (Paket Gratis & Paket Berbayar PRO)
+// Dilengkapi Billing Cycle Switcher: Langganan Bulanan & Founder Lifetime Pass (Early-Bird)
 
 import React, { useState } from 'react';
 import { useTranslation } from '../../context/LanguageContext';
@@ -27,6 +28,7 @@ export const PricingPage: React.FC = () => {
   const { user, isPro, openAuthModal } = useAuth();
   const { navigatePath } = useRouter();
   const [openFaq, setOpenFaq] = useState<number | null>(0);
+  const [billingCycle, setBillingCycle] = useState<'monthly' | 'lifetime'>('lifetime');
 
   const toggleFaq = (index: number) => {
     setOpenFaq(openFaq === index ? null : index);
@@ -46,10 +48,8 @@ export const PricingPage: React.FC = () => {
     if (!user) {
       openAuthModal();
     } else if (isPro) {
-      // User is already pro
       navigatePath(lang === 'en' ? '/' : `/${lang}/`);
     } else {
-      // In future can trigger Stripe checkout or payment gateway modal
       alert(
         lang === 'id'
           ? 'Fitur gateway pembayaran sedang dihubungkan. Akun Anda telah siap untuk aktivasi PRO.'
@@ -57,6 +57,16 @@ export const PricingPage: React.FC = () => {
       );
     }
   };
+
+  const isLifetime = billingCycle === 'lifetime';
+
+  const proPrice = isLifetime
+    ? (lang === 'id' ? 'Rp 249.000' : '$24.99')
+    : (lang === 'id' ? 'Rp 49.000' : '$4.99');
+
+  const proPeriod = isLifetime
+    ? t('pricing.lifetime.period', { defaultValue: 'Sekali bayar, akses selamanya' })
+    : t('pricing.pro.period', { defaultValue: '/ bulan' });
 
   const freeFeatures = [
     t('pricing.free.f1', { defaultValue: 'Akses ke semua 14 alat foto AI lokal' }),
@@ -67,16 +77,27 @@ export const PricingPage: React.FC = () => {
     t('pricing.free.f6', { defaultValue: 'Dukungan antarmuka 30 bahasa dunia' }),
   ];
 
-  const proFeatures = [
-    t('pricing.pro.f1', { defaultValue: 'Semua fitur yang ada di Paket Gratis' }),
-    t('pricing.pro.f2', { defaultValue: 'Batch processing tanpa batas (50+ foto sekaligus)' }),
-    t('pricing.pro.f3', { defaultValue: 'Ekspor Ultra-HD & resolusi asli 4K lossless' }),
-    t('pricing.pro.f4', { defaultValue: 'Mode AI Ultra-Presisi untuk helai rambut halus' }),
-    t('pricing.pro.f5', { defaultValue: 'Akselerasi multi-core Web Worker prioritas' }),
-    t('pricing.pro.f6', { defaultValue: 'Lencana akun PRO resmi & sinkronisasi cloud' }),
-    t('pricing.pro.f7', { defaultValue: 'Ruang kerja studio 100% bebas iklan' }),
-    t('pricing.pro.f8', { defaultValue: 'Dukungan pelanggan prioritas & akses fitur baru lebih awal' }),
-  ];
+  const proFeatures = isLifetime
+    ? [
+        t('pricing.lifetime.f1', { defaultValue: 'Akses seumur hidup ke semua 14+ alat AI lokal' }),
+        t('pricing.lifetime.f2', { defaultValue: 'Batch processing tanpa batas (100+ foto sekaligus)' }),
+        t('pricing.lifetime.f3', { defaultValue: 'Ekspor Ultra-HD 4K & resolusi asli lossless' }),
+        t('pricing.lifetime.f4', { defaultValue: 'Akses gratis ke semua fitur & model AI baru di masa depan' }),
+        t('pricing.lifetime.f5', { defaultValue: '1-Click Export ZIP & Preset Kanvas Marketplace' }),
+        t('pricing.lifetime.f6', { defaultValue: 'Lencana eksklusif Founder Member di profil akun' }),
+        t('pricing.lifetime.f7', { defaultValue: 'Zero Server Uploads & Lisensi Komersial Lengkap' }),
+        t('pricing.lifetime.f8', { defaultValue: 'Sekali bayar, tanpa tagihan tersembunyi' }),
+      ]
+    : [
+        t('pricing.pro.f1', { defaultValue: 'Semua fitur yang ada di Paket Gratis' }),
+        t('pricing.pro.f2', { defaultValue: 'Batch processing tanpa batas (50+ foto sekaligus)' }),
+        t('pricing.pro.f3', { defaultValue: 'Ekspor Ultra-HD & resolusi asli 4K lossless' }),
+        t('pricing.pro.f4', { defaultValue: 'Mode AI Ultra-Presisi untuk helai rambut halus' }),
+        t('pricing.pro.f5', { defaultValue: 'Akselerasi multi-core Web Worker prioritas' }),
+        t('pricing.pro.f6', { defaultValue: 'Lencana akun PRO resmi & sinkronisasi cloud' }),
+        t('pricing.pro.f7', { defaultValue: 'Ruang kerja studio 100% bebas iklan' }),
+        t('pricing.pro.f8', { defaultValue: 'Dukungan pelanggan prioritas & akses fitur baru lebih awal' }),
+      ];
 
   const matrixRows = [
     {
@@ -119,6 +140,16 @@ export const PricingPage: React.FC = () => {
       free: t('pricing.matrix.row8.free', { defaultValue: 'Profil Cloud Dasar' }),
       pro: t('pricing.matrix.row8.pro', { defaultValue: 'Sinkronisasi Cloud Penuh & Support Prioritas' }),
     },
+    {
+      name: t('pricing.matrix.row9.name', { defaultValue: 'Skema Biaya & Tagihan' }),
+      free: t('pricing.matrix.row9.free', { defaultValue: 'Gratis Selamanya' }),
+      pro: t('pricing.matrix.row9.pro', { defaultValue: 'Bulanan atau Sekali Bayar Selamanya' }),
+    },
+    {
+      name: t('pricing.matrix.row10.name', { defaultValue: 'Preset Marketplace & Export ZIP' }),
+      free: t('pricing.matrix.row10.free', { defaultValue: 'Download 1-per-1 manual' }),
+      pro: t('pricing.matrix.row10.pro', { defaultValue: '1-Click Bulk ZIP & Preset Resmi' }),
+    },
   ];
 
   const faqs = [
@@ -127,6 +158,20 @@ export const PricingPage: React.FC = () => {
       a: t('pricing.faq1.a', {
         defaultValue:
           'Paket Gratis memberikan akses ke semua 14 alat AI dengan batas batch 10 foto dan resolusi HD. Paket PRO menghapus batas batch, membuka ekspor Ultra-HD 4K tanpa kompresi, mengaktifkan AI ultra-presisi untuk rambut, dan memberikan ruang kerja bebas iklan.',
+      }),
+    },
+    {
+      q: t('pricing.faq6.q', { defaultValue: 'Apa itu Founder Lifetime Pass dan bagaimana cara kerjanya?' }),
+      a: t('pricing.faq6.a', {
+        defaultValue:
+          'Founder Lifetime Pass adalah penawaran khusus early-bird di mana Anda hanya perlu membayar 1 kali (Rp 249.000 / $24.99) untuk mendapatkan seluruh kapabilitas PRO selamanya. Tidak ada biaya langganan bulanan atau tahunan, dan akun Anda otomatis mendapatkan semua alat baru yang kami rilis di masa depan.',
+      }),
+    },
+    {
+      q: t('pricing.faq7.q', { defaultValue: 'Mengapa HelpMyIMG bisa menawarkan Lifetime Deal tanpa membebani biaya server?' }),
+      a: t('pricing.faq7.a', {
+        defaultValue:
+          'Tidak seperti layanan cloud AI lain yang membakar biaya server per gambar, arsitektur HelpMyIMG berjalan 100% lokal di browser Anda menggunakan WebAssembly dan Web Workers. Karena beban komputasi terjadi di perangkat Anda, biaya marginal server kami adalah $0.00, memungkinkan kami memberikan penawaran sekali bayar yang berkelanjutan.',
       }),
     },
     {
@@ -177,7 +222,7 @@ export const PricingPage: React.FC = () => {
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.3 }}
-          className="text-center mb-16 relative"
+          className="text-center mb-10 relative"
         >
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-cyan-600 dark:text-[#05DAED] text-xs font-mono font-bold uppercase tracking-wider mb-5">
             <Sparkles className="w-3.5 h-3.5" />
@@ -195,6 +240,48 @@ export const PricingPage: React.FC = () => {
             })}
           </p>
         </motion.div>
+
+        {/* BILLING CYCLE SWITCHER */}
+        <div className="flex flex-col items-center justify-center mb-12">
+          <div className="inline-flex items-center p-1.5 rounded-2xl bg-slate-100 dark:bg-dark-800 border border-slate-200 dark:border-dark-600 shadow-inner">
+            <button
+              type="button"
+              onClick={() => setBillingCycle('monthly')}
+              className={`px-5 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all cursor-pointer ${
+                billingCycle === 'monthly'
+                  ? 'bg-white dark:bg-dark-700 text-slate-900 dark:text-white shadow-sm'
+                  : 'text-slate-500 hover:text-slate-800 dark:text-slate-400 dark:hover:text-white'
+              }`}
+            >
+              {t('pricing.billing.monthly', { defaultValue: 'Langganan Bulanan' })}
+            </button>
+            <button
+              type="button"
+              onClick={() => setBillingCycle('lifetime')}
+              className={`relative px-5 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all flex items-center gap-2 cursor-pointer ${
+                billingCycle === 'lifetime'
+                  ? 'bg-gradient-to-r from-cyan-500 to-blue-600 text-white shadow-md shadow-cyan-500/20'
+                  : 'text-slate-500 hover:text-slate-800 dark:text-slate-400 dark:hover:text-white'
+              }`}
+            >
+              <Crown className="w-4 h-4 text-amber-300" />
+              <span>{t('pricing.billing.lifetime', { defaultValue: 'Founder Lifetime Pass' })}</span>
+              <span className="px-2 py-0.5 rounded-full bg-amber-400 text-slate-950 font-black text-[10px] uppercase tracking-wider">
+                {t('pricing.billing.saveBadge', { defaultValue: 'HEMAT 80%' })}
+              </span>
+            </button>
+          </div>
+          {isLifetime && (
+            <motion.div
+              initial={{ opacity: 0, y: -4 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="mt-3 text-xs font-mono font-medium text-amber-600 dark:text-amber-400 flex items-center gap-1.5"
+            >
+              <Sparkles className="w-3.5 h-3.5" />
+              <span>{t('pricing.billing.slotsLeft', { defaultValue: 'Sisa 47 dari 200 Kuota Early Bird' })}</span>
+            </motion.div>
+          )}
+        </div>
 
         {/* SECTION 2: DUA PAKET HARGA (FREE & PRO) */}
         <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto mb-24 items-stretch">
@@ -253,34 +340,43 @@ export const PricingPage: React.FC = () => {
             </div>
           </div>
 
-          {/* TIER 2: PAKET BERBAYAR PRO (PRO STUDIO) */}
+          {/* TIER 2: PAKET BERBAYAR PRO (PRO STUDIO / FOUNDER LIFETIME) */}
           <div className="flex flex-col justify-between bg-gradient-to-b from-dark-800 to-dark-900 rounded-3xl border-2 border-cyan-500 dark:border-[#05DAED] p-8 sm:p-10 shadow-xl shadow-cyan-500/10 relative overflow-hidden">
             <div className="absolute top-0 right-0 bg-gradient-to-r from-amber-500 to-yellow-400 text-slate-950 font-black text-[11px] uppercase tracking-wider py-1.5 px-4 rounded-bl-xl shadow-sm">
-              {t('pricing.pro.badge', { defaultValue: 'PALING DIMINATI' })}
+              {isLifetime
+                ? t('pricing.lifetime.badge', { defaultValue: 'FOUNDER PASS (SLOT TERBATAS)' })
+                : t('pricing.pro.badge', { defaultValue: 'PALING DIMINATI' })}
             </div>
 
             <div>
               <div className="flex items-center gap-2 mb-4">
                 <Crown className="w-5 h-5 text-amber-400" />
                 <span className="text-sm font-bold uppercase tracking-wider text-cyan-400 font-mono">
-                  {t('pricing.pro.name', { defaultValue: 'Paket PRO Studio' })}
+                  {isLifetime
+                    ? t('pricing.lifetime.name', { defaultValue: 'Paket PRO Founder Lifetime' })
+                    : t('pricing.pro.name', { defaultValue: 'Paket PRO Studio' })}
                 </span>
               </div>
 
               <div className="flex items-baseline gap-2 mb-4">
                 <span className="text-4xl sm:text-5xl font-black text-white font-heading tracking-tight">
-                  {lang === 'id' ? 'Rp 49.000' : '$4.99'}
+                  {proPrice}
                 </span>
                 <span className="text-sm text-slate-400 font-medium">
-                  {t('pricing.pro.period', { defaultValue: '/ bulan' })}
+                  {proPeriod}
                 </span>
               </div>
 
               <p className="text-sm text-slate-300 mb-8 leading-relaxed">
-                {t('pricing.pro.desc', {
-                  defaultValue:
-                    'Kekuatan batch tak terbatas, ekspor Ultra-HD 4K tanpa kompresi, dan kecepatan prioritas multi-core.',
-                })}
+                {isLifetime
+                  ? t('pricing.lifetime.desc', {
+                      defaultValue:
+                        'Akses penuh tanpa batas seumur hidup ke seluruh ekosistem HelpMyIMG. Tanpa tagihan berulang, tanpa biaya bulanan, dan jaminan gratis selamanya untuk pembaruan fitur baru.',
+                    })
+                  : t('pricing.pro.desc', {
+                      defaultValue:
+                        'Kekuatan batch tak terbatas, ekspor Ultra-HD 4K tanpa kompresi, dan kecepatan prioritas multi-core.',
+                    })}
               </p>
 
               <div className="space-y-3.5 mb-8">
@@ -306,6 +402,8 @@ export const PricingPage: React.FC = () => {
                 <span>
                   {isPro
                     ? t('pricing.pro.btnActive', { defaultValue: 'Member PRO Aktif' })
+                    : isLifetime
+                    ? t('pricing.lifetime.btn', { defaultValue: 'Klaim Founder Lifetime Pass' })
                     : t('pricing.pro.btn', { defaultValue: 'Berlangganan PRO Sekarang' })}
                 </span>
                 <ArrowRight className="w-4 h-4" />
@@ -397,7 +495,7 @@ export const PricingPage: React.FC = () => {
               <Clock className="w-6 h-6" />
             </div>
             <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">
-              {lang === 'id' ? 'Batal Kapan Saja' : 'Cancel Anytime Ease'}
+              {lang === 'id' ? 'Batal Kapan Saja & Bebas Risiko' : 'Cancel Anytime & Zero Risk'}
             </h3>
             <p className="text-sm text-slate-500 dark:text-slate-400 leading-relaxed">
               {lang === 'id'
