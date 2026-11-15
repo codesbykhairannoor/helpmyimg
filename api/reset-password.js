@@ -71,66 +71,97 @@ export default async function handler(req, res) {
     const oobCode = parsedUrl.searchParams.get('oobCode');
     const apiKey = parsedUrl.searchParams.get('apiKey');
 
-    // Tautan langsung ke aplikasi HelpMyIMG (melewati halaman putih thismyown.firebaseapp.com)
+    // Direct in-app link to HelpMyIMG with password reset params
     const directHelpMyImgLink = `${targetOrigin}/?mode=resetPassword&oobCode=${oobCode}&apiKey=${apiKey}`;
 
     const emailHtml = `
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Reset Kata Sandi HelpMyIMG</title>
+  <title>Reset your HelpMyIMG password</title>
 </head>
-<body style="margin: 0; padding: 0; background-color: #080c14; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; color: #f1f5f9;">
-  <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="background-color: #080c14; padding: 40px 20px;">
+<body style="margin: 0; padding: 0; background-color: #f8fafc; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; -webkit-font-smoothing: antialiased; color: #1e293b;">
+  <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="background-color: #f8fafc; padding: 48px 16px;">
     <tr>
       <td align="center">
-        <table role="presentation" width="100%" style="max-width: 520px; background-color: #0f172a; border-radius: 20px; border: 1px solid #1e293b; padding: 40px; box-shadow: 0 20px 40px rgba(0,0,0,0.5);">
-          <!-- Header / Brand -->
+        <!-- Main Card Container -->
+        <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="max-width: 480px; background-color: #ffffff; border-radius: 16px; border: 1px solid #e2e8f0; padding: 40px; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -2px rgba(0, 0, 0, 0.05); text-align: left;">
+          
+          <!-- Logo & Brand Header -->
           <tr>
-            <td align="center" style="padding-bottom: 24px;">
-              <div style="display: inline-block; background: linear-gradient(135deg, #05DAED, #12DA91); padding: 2px; border-radius: 14px;">
-                <div style="background-color: #080c14; border-radius: 12px; padding: 10px 18px;">
-                  <span style="font-size: 20px; font-weight: 800; color: #ffffff; letter-spacing: -0.5px;">HelpMy<span style="color: #05DAED;">IMG</span></span>
-                </div>
-              </div>
+            <td style="padding-bottom: 24px;">
+              <table role="presentation" cellspacing="0" cellpadding="0">
+                <tr>
+                  <td style="vertical-align: middle; padding-right: 12px;">
+                    <img src="https://helpmyimg.com/logobaru.png" alt="HelpMyIMG Logo" width="36" height="36" style="display: block; width: 36px; height: 36px; border-radius: 8px; object-fit: contain;" />
+                  </td>
+                  <td style="vertical-align: middle;">
+                    <span style="font-size: 19px; font-weight: 700; color: #0f172a; letter-spacing: -0.3px;">HelpMy<span style="color: #0891b2;">IMG</span></span>
+                  </td>
+                </tr>
+              </table>
             </td>
           </tr>
-          <!-- Title -->
+
+          <!-- Heading -->
           <tr>
-            <td align="center" style="padding-bottom: 16px;">
-              <h1 style="margin: 0; font-size: 22px; font-weight: 700; color: #ffffff;">Atur Ulang Kata Sandi</h1>
+            <td style="padding-bottom: 16px;">
+              <h1 style="margin: 0; font-size: 20px; font-weight: 700; color: #0f172a; line-height: 1.3;">Reset your password</h1>
             </td>
           </tr>
-          <!-- Body text -->
+
+          <!-- Body Description -->
           <tr>
-            <td style="padding-bottom: 28px; line-height: 1.6; font-size: 14px; color: #94a3b8; text-align: center;">
-              Halo,<br>
-              Kami menerima permintaan untuk mengatur ulang kata sandi akun HelpMyIMG Anda (<strong>${email}</strong>). Klik tombol di bawah ini untuk membuat kata sandi baru:
+            <td style="padding-bottom: 28px; font-size: 14px; line-height: 1.6; color: #475569;">
+              We received a request to reset the password for your HelpMyIMG account associated with <strong style="color: #0f172a;">${email.trim()}</strong>.
+              <br><br>
+              Click the button below to choose a new password:
             </td>
           </tr>
-          <!-- CTA Button -->
+
+          <!-- Action Button -->
           <tr>
-            <td align="center" style="padding-bottom: 30px;">
-              <a href="${directHelpMyImgLink}" target="_blank" style="display: inline-block; background: linear-gradient(135deg, #05DAED, #12DA91); color: #080c14; text-decoration: none; font-size: 14px; font-weight: 700; padding: 14px 32px; border-radius: 12px; box-shadow: 0 4px 15px rgba(5, 218, 237, 0.35);">
-                Atur Ulang Kata Sandi
+            <td style="padding-bottom: 32px;">
+              <table role="presentation" cellspacing="0" cellpadding="0">
+                <tr>
+                  <td align="center" style="border-radius: 10px; background: #0f172a;">
+                    <a href="${directHelpMyImgLink}" target="_blank" style="display: inline-block; padding: 12px 28px; font-size: 14px; font-weight: 600; color: #ffffff; text-decoration: none; border-radius: 10px; background-color: #0f172a; letter-spacing: -0.1px;">
+                      Reset password
+                    </a>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+
+          <!-- Fallback Link -->
+          <tr>
+            <td style="border-top: 1px solid #f1f5f9; padding-top: 20px; font-size: 12px; line-height: 1.6; color: #64748b;">
+              If the button doesn't work, copy and paste this link into your browser:
+              <br>
+              <a href="${directHelpMyImgLink}" style="color: #0891b2; word-break: break-all; text-decoration: underline;">
+                ${directHelpMyImgLink}
               </a>
             </td>
           </tr>
-          <!-- Security Footer -->
+
+          <!-- Security Notice -->
           <tr>
-            <td style="border-top: 1px solid #1e293b; padding-top: 20px; line-height: 1.5; font-size: 12px; color: #64748b; text-align: center;">
-              Tautan ini hanya berlaku untuk waktu terbatas.<br>
-              Jika Anda tidak meminta pengaturan ulang kata sandi, abaikan email ini dengan aman.
+            <td style="padding-top: 16px; font-size: 12px; line-height: 1.5; color: #94a3b8;">
+              If you didn't request a password reset, you can safely ignore this email. Your password will remain unchanged.
             </td>
           </tr>
         </table>
-        <!-- Sub footer -->
-        <table role="presentation" width="100%" style="max-width: 520px; margin-top: 20px;">
+
+        <!-- Subtle Footer -->
+        <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="max-width: 480px; margin-top: 24px; text-align: center;">
           <tr>
-            <td align="center" style="font-size: 11px; color: #475569;">
-              © ${new Date().getFullYear()} HelpMyIMG. 100% Private In-Browser AI Tools.
+            <td style="font-size: 12px; color: #94a3b8; line-height: 1.5;">
+              HelpMyIMG — 100% Private, In-Browser Image Tools
+              <br>
+              <a href="https://helpmyimg.com" style="color: #64748b; text-decoration: none;">helpmyimg.com</a>
             </td>
           </tr>
         </table>
@@ -150,7 +181,7 @@ export default async function handler(req, res) {
       body: JSON.stringify({
         from: 'HelpMyIMG <onboarding@resend.dev>',
         to: [email.trim()],
-        subject: 'Atur Ulang Kata Sandi Akun HelpMyIMG Anda',
+        subject: 'Reset your HelpMyIMG password',
         html: emailHtml,
       }),
     });
