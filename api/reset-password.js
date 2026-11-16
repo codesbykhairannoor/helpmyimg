@@ -209,7 +209,7 @@ export default async function handler(req, res) {
     const apiKey =
       (oobData.oobLink && new URL(oobData.oobLink).searchParams.get('apiKey')) ||
       process.env.VITE_FIREBASE_API_KEY ||
-      'AIzaSyD2avZTHv2VAdnlGBMs_zXklU3VHCjF5lo';
+      '';
 
     // Direct in-app link to HelpMyIMG with password reset params (NEVER firebaseapp domain)
     const directHelpMyImgLink = `${targetOrigin}/?mode=resetPassword&oobCode=${oobData.oobCode}&apiKey=${apiKey}`;
