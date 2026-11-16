@@ -2246,5 +2246,14 @@
   "auth.newPasswordLabel": "Uusi salasana",
   "auth.submitNewPassword": "Tallenna uusi salasana",
   "auth.savingPassword": "Tallennetaan salasanaa...",
-  "auth.passwordResetSuccess": "Salasana on päivitetty onnistuneesti! Kirjaudu sisään."
+  "auth.passwordResetSuccess": "Salasana on päivitetty onnistuneesti! Kirjaudu sisään.",
+  "work.renameProNotice": "Älykäs uudelleennimeäminen ja mukautettu ZIP ovat ainutlaatuisia PRO-ominaisuuksia. Päivitä nyt!",
+  "work.renameLocked": "Tiedostojen uudelleennimeäminen ja mukautettu ZIP-nimeäminen ovat ainutlaatuisia PRO-ominaisuuksia.",
+  "work.resPro": "Laatu: Ultra-HD 4K (alkuperäinen häviötön)",
+  "work.resFree": "Laatu: Standard HD (max 1920px)",
+  "work.unlock4k": "Avaa 4K",
+  "work.downscaleNotice": "Kuva viety Standard HD:nä (1080p). Avaa PRO alkuperäistä 4K-resoluutiota varten!",
+  "work.downscaleZipNotice": "ZIP-tiedostot, jotka on viety Standard HD -muodossa (1080p). Päivitä PRO-versioon alkuperäistä 4K-vientiä varten!",
+  "work.batchMaxProNotice": "Enintään 100 valokuvaa PRO-erää kohti.",
+  "editor.downloadPro": "Lataa Ultra-HD (alkuperäinen 4K)"
 }

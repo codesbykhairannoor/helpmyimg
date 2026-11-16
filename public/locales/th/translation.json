@@ -2246,5 +2246,14 @@
   "auth.newPasswordLabel": "รหัสผ่านใหม่",
   "auth.submitNewPassword": "บันทึกรหัสผ่านใหม่",
   "auth.savingPassword": "กำลังบันทึกรหัสผ่าน...",
-  "auth.passwordResetSuccess": "อัปเดตรหัสผ่านสำเร็จแล้ว! กรุณาเข้าสู่ระบบ"
+  "auth.passwordResetSuccess": "อัปเดตรหัสผ่านสำเร็จแล้ว! กรุณาเข้าสู่ระบบ",
+  "work.renameProNotice": "การเปลี่ยนชื่ออัจฉริยะและ ZIP แบบกำหนดเองเป็นคุณสมบัติเฉพาะของ PRO อัพเกรดตอนนี้!",
+  "work.renameLocked": "การเปลี่ยนชื่อไฟล์และการตั้งชื่อ ZIP แบบกำหนดเองเป็นคุณสมบัติพิเศษของ PRO",
+  "work.resPro": "คุณภาพ: Ultra-HD 4K (Lossless ดั้งเดิม)",
+  "work.resFree": "คุณภาพ: HD มาตรฐาน (สูงสุด 1920px)",
+  "work.unlock4k": "ปลดล็อค 4K",
+  "work.downscaleNotice": "ภาพถ่ายที่ส่งออกในรูปแบบ Standard HD (1080p) ปลดล็อค PRO สำหรับความละเอียด 4K ดั้งเดิม!",
+  "work.downscaleZipNotice": "ไฟล์ ZIP ที่ส่งออกในรูปแบบ Standard HD (1080p) อัปเกรดเป็น PRO เพื่อการส่งออก 4K ต้นฉบับ!",
+  "work.batchMaxProNotice": "สูงสุด 100 ภาพต่อชุด PRO",
+  "editor.downloadPro": "ดาวน์โหลด Ultra-HD (4K ดั้งเดิม)"
 }

@@ -2246,5 +2246,14 @@
   "auth.newPasswordLabel": "새 비밀번호",
   "auth.submitNewPassword": "새 비밀번호 저장",
   "auth.savingPassword": "비밀번호 저장 중...",
-  "auth.passwordResetSuccess": "비밀번호가 성공적으로 업데이트되었습니다! 로그인하세요."
+  "auth.passwordResetSuccess": "비밀번호가 성공적으로 업데이트되었습니다! 로그인하세요.",
+  "work.renameProNotice": "스마트 이름 바꾸기 및 사용자 정의 ZIP은 독점적인 PRO 기능입니다. 지금 업그레이드하세요!",
+  "work.renameLocked": "파일 이름 바꾸기 및 사용자 정의 ZIP 이름 지정은 독점적인 PRO 기능입니다.",
+  "work.resPro": "품질: Ultra-HD 4K(원본 무손실)",
+  "work.resFree": "품질: 표준 HD(최대 1920px)",
+  "work.unlock4k": "4K 잠금 해제",
+  "work.downscaleNotice": "표준 HD(1080p)로 내보낸 사진입니다. 원본 4K 해상도를 위한 PRO 잠금을 해제하세요!",
+  "work.downscaleZipNotice": "표준 HD(1080p)로 내보낸 ZIP 파일입니다. 원본 4K 내보내기를 위해 PRO로 업그레이드하세요!",
+  "work.batchMaxProNotice": "PRO 배치당 최대 100장의 사진.",
+  "editor.downloadPro": "Ultra-HD(원본 4K) 다운로드"
 }

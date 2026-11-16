@@ -2246,5 +2246,14 @@
   "auth.newPasswordLabel": "Nieuw wachtwoord",
   "auth.submitNewPassword": "Nieuw wachtwoord opslaan",
   "auth.savingPassword": "Wachtwoord opslaan...",
-  "auth.passwordResetSuccess": "Wachtwoord is succesvol bijgewerkt! Meld u aan."
+  "auth.passwordResetSuccess": "Wachtwoord is succesvol bijgewerkt! Meld u aan.",
+  "work.renameProNotice": "Slim hernoemen en Custom ZIP zijn exclusieve PRO-functies. Upgrade nu!",
+  "work.renameLocked": "Bestandshernoeming en aangepaste ZIP-naamgeving zijn exclusieve PRO-functies.",
+  "work.resPro": "Kwaliteit: Ultra-HD 4K (origineel verliesvrij)",
+  "work.resFree": "Kwaliteit: Standaard HD (max. 1920px)",
+  "work.unlock4k": "Ontgrendel 4K",
+  "work.downscaleNotice": "Foto geëxporteerd in Standaard HD (1080p). Ontgrendel PRO voor originele 4K-resolutie!",
+  "work.downscaleZipNotice": "ZIP-bestanden geëxporteerd in Standaard HD (1080p). Upgrade naar PRO voor originele 4K-exports!",
+  "work.batchMaxProNotice": "Maximaal 100 foto's per PRO-batch.",
+  "editor.downloadPro": "Download Ultra-HD (origineel 4K)"
 }

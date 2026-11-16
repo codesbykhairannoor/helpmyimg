@@ -2246,5 +2246,14 @@
   "auth.newPasswordLabel": "新しいパスワード",
   "auth.submitNewPassword": "新しいパスワードを保存する",
   "auth.savingPassword": "パスワードを保存しています...",
-  "auth.passwordResetSuccess": "パスワードが正常に更新されました。 サインインしてください。"
+  "auth.passwordResetSuccess": "パスワードが正常に更新されました。 サインインしてください。",
+  "work.renameProNotice": "スマートな名前変更とカスタム ZIP は PRO 独自の機能です。 今すぐアップグレードしてください！",
+  "work.renameLocked": "ファイルの名前変更とカスタム ZIP 命名は PRO 独自の機能です。",
+  "work.resPro": "品質: Ultra-HD 4K (オリジナルロスレス)",
+  "work.resFree": "品質: 標準 HD (最大 1920px)",
+  "work.unlock4k": "4Kのロックを解除する",
+  "work.downscaleNotice": "写真は標準 HD (1080p) でエクスポートされました。 オリジナルの 4K 解像度で PRO のロックを解除してください!",
+  "work.downscaleZipNotice": "標準 HD (1080p) でエクスポートされた ZIP ファイル。 オリジナル 4K エクスポートのために PRO にアップグレードしてください!",
+  "work.batchMaxProNotice": "PRO バッチあたり最大 100 枚の写真。",
+  "editor.downloadPro": "Ultra-HD (オリジナル 4K) をダウンロード"
 }

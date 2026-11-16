@@ -2246,5 +2246,14 @@
   "auth.newPasswordLabel": "New Password",
   "auth.submitNewPassword": "Save New Password",
   "auth.savingPassword": "Saving password...",
-  "auth.passwordResetSuccess": "Password has been successfully updated! Please sign in."
+  "auth.passwordResetSuccess": "Password has been successfully updated! Please sign in.",
+  "work.renameProNotice": "Smart Renaming and Custom ZIP are exclusive PRO features. Upgrade now!",
+  "work.renameLocked": "File renaming & custom ZIP naming are exclusive PRO features.",
+  "work.resPro": "Quality: Ultra-HD 4K (Original Lossless)",
+  "work.resFree": "Quality: Standard HD (Max 1920px)",
+  "work.unlock4k": "Unlock 4K",
+  "work.downscaleNotice": "Photo exported in Standard HD (1080p). Unlock PRO for original 4K resolution!",
+  "work.downscaleZipNotice": "ZIP files exported in Standard HD (1080p). Upgrade to PRO for original 4K exports!",
+  "work.batchMaxProNotice": "Maximum 100 photos per PRO batch.",
+  "editor.downloadPro": "Download Ultra-HD (Original 4K)"
 }

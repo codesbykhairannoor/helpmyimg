@@ -2312,5 +2312,14 @@
   "auth.newPasswordLabel": "Kata Sandi Baru",
   "auth.submitNewPassword": "Simpan Kata Sandi Baru",
   "auth.savingPassword": "Menyimpan kata sandi...",
-  "auth.passwordResetSuccess": "Kata sandi berhasil diperbarui! Silakan masuk dengan kata sandi baru Anda."
+  "auth.passwordResetSuccess": "Kata sandi berhasil diperbarui! Silakan masuk dengan kata sandi baru Anda.",
+  "work.renameProNotice": "Fitur Ganti Nama (Smart Rename) & Custom ZIP adalah fitur eksklusif PRO. Upgrade sekarang!",
+  "work.renameLocked": "Ganti nama file & custom ZIP adalah fitur eksklusif PRO.",
+  "work.resPro": "Kualitas: Ultra-HD 4K (Original Lossless)",
+  "work.resFree": "Kualitas: Standar HD (Maks. 1920px)",
+  "work.unlock4k": "Buka 4K",
+  "work.downscaleNotice": "Foto diekspor dalam resolusi Standar HD (1080p). Buka PRO untuk resolusi asli 4K!",
+  "work.downscaleZipNotice": "File ZIP diekspor dalam resolusi Standar HD (1080p). Upgrade ke PRO untuk mengunduh 4K asli!",
+  "work.batchMaxProNotice": "Maksimal 100 foto sekaligus dalam satu batch PRO.",
+  "editor.downloadPro": "Download Ultra-HD (4K Asli)"
 }

@@ -2246,5 +2246,14 @@
   "auth.newPasswordLabel": "Новий пароль",
   "auth.submitNewPassword": "Зберегти новий пароль",
   "auth.savingPassword": "Збереження пароля...",
-  "auth.passwordResetSuccess": "Пароль успішно оновлено! Будь ласка, увійдіть."
+  "auth.passwordResetSuccess": "Пароль успішно оновлено! Будь ласка, увійдіть.",
+  "work.renameProNotice": "Інтелектуальне перейменування та спеціальний ZIP є ексклюзивними функціями PRO. Оновіть зараз!",
+  "work.renameLocked": "Перейменування файлів і настроюване ZIP-іменування є ексклюзивними функціями PRO.",
+  "work.resPro": "Якість: Ultra-HD 4K (Original Lossless)",
+  "work.resFree": "Якість: стандартна HD (макс. 1920 пікселів)",
+  "work.unlock4k": "Розблокуйте 4K",
+  "work.downscaleNotice": "Фотографію експортовано у форматі Standard HD (1080p). Розблокуйте PRO для оригінальної роздільної здатності 4K!",
+  "work.downscaleZipNotice": "ZIP-файли, експортовані у форматі Standard HD (1080p). Оновіть до PRO для оригінального експорту 4K!",
+  "work.batchMaxProNotice": "Максимум 100 фото на партію PRO.",
+  "editor.downloadPro": "Завантажити Ultra-HD (оригінал 4K)"
 }

@@ -2246,5 +2246,14 @@
   "auth.newPasswordLabel": "Új jelszó",
   "auth.submitNewPassword": "Új jelszó mentése",
   "auth.savingPassword": "Jelszó mentése...",
-  "auth.passwordResetSuccess": "A jelszó sikeresen frissítve! Kérjük, jelentkezzen be."
+  "auth.passwordResetSuccess": "A jelszó sikeresen frissítve! Kérjük, jelentkezzen be.",
+  "work.renameProNotice": "Az intelligens átnevezés és az egyéni ZIP exkluzív PRO-funkciók. Frissítsen most!",
+  "work.renameLocked": "A fájlok átnevezése és az egyéni ZIP-elnevezés exkluzív PRO-funkciók.",
+  "work.resPro": "Minőség: Ultra-HD 4K (eredeti veszteségmentes)",
+  "work.resFree": "Minőség: normál HD (max. 1920 képpont)",
+  "work.unlock4k": "Oldja fel a 4K-t",
+  "work.downscaleNotice": "A fénykép szabványos HD-ben (1080p) exportálva. Oldja fel a PRO-t az eredeti 4K felbontásért!",
+  "work.downscaleZipNotice": "Standard HD (1080p) formátumban exportált ZIP-fájlok. Frissítsen PRO-ra az eredeti 4K-s exporthoz!",
+  "work.batchMaxProNotice": "Maximum 100 fotó PRO kötegenként.",
+  "editor.downloadPro": "Letöltés Ultra-HD (eredeti 4K)"
 }

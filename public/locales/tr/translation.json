@@ -2246,5 +2246,14 @@
   "auth.newPasswordLabel": "Yeni Şifre",
   "auth.submitNewPassword": "Yeni Şifreyi Kaydet",
   "auth.savingPassword": "Şifre kaydediliyor...",
-  "auth.passwordResetSuccess": "Şifre başarıyla güncellendi! Lütfen oturum açın."
+  "auth.passwordResetSuccess": "Şifre başarıyla güncellendi! Lütfen oturum açın.",
+  "work.renameProNotice": "Akıllı Yeniden Adlandırma ve Özel ZIP, özel PRO özellikleridir. Şimdi yükseltin!",
+  "work.renameLocked": "Dosya yeniden adlandırma ve özel ZIP adlandırma, özel PRO özellikleridir.",
+  "work.resPro": "Kalite: Ultra HD 4K (Orijinal Kayıpsız)",
+  "work.resFree": "Kalite: Standart HD (Maks. 1920 piksel)",
+  "work.unlock4k": "4K'nın kilidini açın",
+  "work.downscaleNotice": "Fotoğraf Standart HD (1080p) formatında dışa aktarılır. Orijinal 4K çözünürlük için PRO'nun kilidini açın!",
+  "work.downscaleZipNotice": "Standart HD (1080p) formatında dışa aktarılan ZIP dosyaları. Orijinal 4K dışa aktarım için PRO'ya yükseltin!",
+  "work.batchMaxProNotice": "PRO toplu iş başına maksimum 100 fotoğraf.",
+  "editor.downloadPro": "Ultra-HD'yi (Orijinal 4K) İndirin"
 }

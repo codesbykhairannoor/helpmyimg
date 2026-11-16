@@ -2246,5 +2246,14 @@
   "auth.newPasswordLabel": "Nuova parola d'ordine",
   "auth.submitNewPassword": "Salva nuova password",
   "auth.savingPassword": "Salvataggio della password...",
-  "auth.passwordResetSuccess": "La password è stata aggiornata con successo! Per favore accedi."
+  "auth.passwordResetSuccess": "La password è stata aggiornata con successo! Per favore accedi.",
+  "work.renameProNotice": "La ridenominazione intelligente e lo ZIP personalizzato sono funzionalità PRO esclusive. Aggiorna ora!",
+  "work.renameLocked": "La ridenominazione dei file e la denominazione ZIP personalizzata sono funzionalità PRO esclusive.",
+  "work.resPro": "Qualità: Ultra-HD 4K (lossless originale)",
+  "work.resFree": "Qualità: HD standard (massimo 1920px)",
+  "work.unlock4k": "Sblocca 4K",
+  "work.downscaleNotice": "Foto esportata in HD standard (1080p). Sblocca PRO per la risoluzione 4K originale!",
+  "work.downscaleZipNotice": "File ZIP esportati in Standard HD (1080p). Passa a PRO per le esportazioni 4K originali!",
+  "work.batchMaxProNotice": "Massimo 100 foto per batch PRO.",
+  "editor.downloadPro": "Scarica Ultra-HD (4K originale)"
 }

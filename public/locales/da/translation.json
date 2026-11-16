@@ -2246,5 +2246,14 @@
   "auth.newPasswordLabel": "Ny adgangskode",
   "auth.submitNewPassword": "Gem ny adgangskode",
   "auth.savingPassword": "Gemmer adgangskoden...",
-  "auth.passwordResetSuccess": "Adgangskoden er blevet opdateret! Log venligst ind."
+  "auth.passwordResetSuccess": "Adgangskoden er blevet opdateret! Log venligst ind.",
+  "work.renameProNotice": "Smart omdøbning og Custom ZIP er eksklusive PRO-funktioner. Opgrader nu!",
+  "work.renameLocked": "Filomdøbning og brugerdefineret ZIP-navngivning er eksklusive PRO-funktioner.",
+  "work.resPro": "Kvalitet: Ultra-HD 4K (Original Lossless)",
+  "work.resFree": "Kvalitet: Standard HD (maks. 1920 px)",
+  "work.unlock4k": "Lås 4K op",
+  "work.downscaleNotice": "Foto eksporteret i Standard HD (1080p). Lås PRO op for original 4K-opløsning!",
+  "work.downscaleZipNotice": "ZIP-filer eksporteret i Standard HD (1080p). Opgrader til PRO for original 4K-eksport!",
+  "work.batchMaxProNotice": "Maksimalt 100 billeder pr. PRO batch.",
+  "editor.downloadPro": "Download Ultra-HD (Original 4K)"
 }

@@ -2246,5 +2246,14 @@
   "auth.newPasswordLabel": "Νέος κωδικός πρόσβασης",
   "auth.submitNewPassword": "Αποθήκευση νέου κωδικού πρόσβασης",
   "auth.savingPassword": "Αποθήκευση κωδικού πρόσβασης...",
-  "auth.passwordResetSuccess": "Ο κωδικός πρόσβασης ενημερώθηκε με επιτυχία! Παρακαλώ συνδεθείτε."
+  "auth.passwordResetSuccess": "Ο κωδικός πρόσβασης ενημερώθηκε με επιτυχία! Παρακαλώ συνδεθείτε.",
+  "work.renameProNotice": "Η έξυπνη μετονομασία και το προσαρμοσμένο ZIP είναι αποκλειστικές λειτουργίες PRO. Αναβάθμιση τώρα!",
+  "work.renameLocked": "Η μετονομασία αρχείων και η προσαρμοσμένη ονομασία ZIP είναι αποκλειστικές λειτουργίες PRO.",
+  "work.resPro": "Ποιότητα: Ultra-HD 4K (Original Lossless)",
+  "work.resFree": "Ποιότητα: Τυπική HD (Μέγ. 1920 px)",
+  "work.unlock4k": "Ξεκλείδωμα 4K",
+  "work.downscaleNotice": "Εξαγωγή φωτογραφίας σε Standard HD (1080p). Ξεκλειδώστε το PRO για αρχική ανάλυση 4K!",
+  "work.downscaleZipNotice": "Τα αρχεία ZIP εξάγονται σε Standard HD (1080p). Αναβάθμιση σε PRO για πρωτότυπες εξαγωγές 4K!",
+  "work.batchMaxProNotice": "Έως 100 φωτογραφίες ανά παρτίδα PRO.",
+  "editor.downloadPro": "Λήψη Ultra-HD (Πρωτότυπο 4K)"
 }

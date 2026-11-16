@@ -2260,5 +2260,14 @@
   "auth.newPasswordLabel": "كلمة المرور الجديدة",
   "auth.submitNewPassword": "حفظ كلمة المرور الجديدة",
   "auth.savingPassword": "جارٍ حفظ كلمة المرور...",
-  "auth.passwordResetSuccess": "تم تحديث كلمة المرور بنجاح! الرجاء تسجيل الدخول."
+  "auth.passwordResetSuccess": "تم تحديث كلمة المرور بنجاح! الرجاء تسجيل الدخول.",
+  "work.renameProNotice": "تعتبر إعادة التسمية الذكية والرمز البريدي المخصص من الميزات الحصرية الاحترافية. الترقية الآن!",
+  "work.renameLocked": "تعد إعادة تسمية الملفات وتسمية ZIP المخصصة من ميزات PRO الحصرية.",
+  "work.resPro": "الجودة: Ultra HD 4K (أصلي بدون فقدان)",
+  "work.resFree": "الجودة: دقة عالية قياسية (بحد أقصى 1920 بكسل)",
+  "work.unlock4k": "فتح 4K",
+  "work.downscaleNotice": "تم تصدير الصورة بدقة عالية قياسية (1080 بكسل). فتح PRO للحصول على دقة 4K الأصلية!",
+  "work.downscaleZipNotice": "ملفات ZIP تم تصديرها بجودة Standard HD (1080p). قم بالترقية إلى PRO لصادرات 4K الأصلية!",
+  "work.batchMaxProNotice": "الحد الأقصى 100 صورة لكل دفعة احترافية.",
+  "editor.downloadPro": "تنزيل Ultra HD (الأصلي 4K)"
 }

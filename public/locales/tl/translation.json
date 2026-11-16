@@ -2246,5 +2246,14 @@
   "auth.newPasswordLabel": "Bagong Password",
   "auth.submitNewPassword": "I-save ang Bagong Password",
   "auth.savingPassword": "Sine-save ang password...",
-  "auth.passwordResetSuccess": "Matagumpay na na-update ang password! Mangyaring mag-sign in."
+  "auth.passwordResetSuccess": "Matagumpay na na-update ang password! Mangyaring mag-sign in.",
+  "work.renameProNotice": "Ang Smart Renaming at Custom ZIP ay eksklusibong PRO feature. Mag-upgrade ngayon!",
+  "work.renameLocked": "Ang pagpapalit ng pangalan ng file at custom na ZIP na pagpapangalan ay mga eksklusibong tampok ng PRO.",
+  "work.resPro": "Kalidad: Ultra-HD 4K (Original Lossless)",
+  "work.resFree": "Kalidad: Karaniwang HD (Max 1920px)",
+  "work.unlock4k": "I-unlock ang 4K",
+  "work.downscaleNotice": "Na-export ang larawan sa Standard HD (1080p). I-unlock ang PRO para sa orihinal na 4K na resolusyon!",
+  "work.downscaleZipNotice": "ZIP file na na-export sa Standard HD (1080p). Mag-upgrade sa PRO para sa orihinal na 4K na pag-export!",
+  "work.batchMaxProNotice": "Maximum na 100 larawan bawat PRO batch.",
+  "editor.downloadPro": "I-download ang Ultra-HD (Orihinal na 4K)"
 }

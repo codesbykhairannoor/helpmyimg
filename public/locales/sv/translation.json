@@ -2246,5 +2246,14 @@
   "auth.newPasswordLabel": "Nytt lösenord",
   "auth.submitNewPassword": "Spara nytt lösenord",
   "auth.savingPassword": "Sparar lösenord...",
-  "auth.passwordResetSuccess": "Lösenordet har uppdaterats! Logga in."
+  "auth.passwordResetSuccess": "Lösenordet har uppdaterats! Logga in.",
+  "work.renameProNotice": "Smart Rename och Custom ZIP är exklusiva PRO-funktioner. Uppgradera nu!",
+  "work.renameLocked": "Filbyte och anpassade ZIP-namn är exklusiva PRO-funktioner.",
+  "work.resPro": "Kvalitet: Ultra-HD 4K (Original Lossless)",
+  "work.resFree": "Kvalitet: Standard HD (max 1920px)",
+  "work.unlock4k": "Lås upp 4K",
+  "work.downscaleNotice": "Foto exporterat i Standard HD (1080p). Lås upp PRO för original 4K-upplösning!",
+  "work.downscaleZipNotice": "ZIP-filer exporterade i Standard HD (1080p). Uppgradera till PRO för original 4K-export!",
+  "work.batchMaxProNotice": "Max 100 bilder per PRO batch.",
+  "editor.downloadPro": "Ladda ner Ultra-HD (Original 4K)"
 }

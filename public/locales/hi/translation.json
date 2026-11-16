@@ -2246,5 +2246,14 @@
   "auth.newPasswordLabel": "नया पासवर्ड",
   "auth.submitNewPassword": "नया पासवर्ड सहेजें",
   "auth.savingPassword": "पासवर्ड सहेजा जा रहा है...",
-  "auth.passwordResetSuccess": "पासवर्ड सफलतापूर्वक अपडेट कर दिया गया है! साइन इन करें।"
+  "auth.passwordResetSuccess": "पासवर्ड सफलतापूर्वक अपडेट कर दिया गया है! साइन इन करें।",
+  "work.renameProNotice": "स्मार्ट रीनेमिंग और कस्टम ज़िप विशेष PRO विशेषताएं हैं। अभी अपग्रेड करें!",
+  "work.renameLocked": "फ़ाइल का नाम बदलना और कस्टम ज़िप नामकरण विशिष्ट PRO सुविधाएँ हैं।",
+  "work.resPro": "गुणवत्ता: अल्ट्रा-एचडी 4K (मूल दोषरहित)",
+  "work.resFree": "गुणवत्ता: मानक एचडी (अधिकतम 1920px)",
+  "work.unlock4k": "4K अनलॉक करें",
+  "work.downscaleNotice": "फ़ोटो मानक HD (1080p) में निर्यात किया गया। मूल 4K रिज़ॉल्यूशन के लिए PRO अनलॉक करें!",
+  "work.downscaleZipNotice": "ज़िप फ़ाइलें मानक HD (1080p) में निर्यात की गईं। मूल 4K निर्यात के लिए PRO में अपग्रेड करें!",
+  "work.batchMaxProNotice": "प्रति PRO बैच अधिकतम 100 फ़ोटो।",
+  "editor.downloadPro": "अल्ट्रा-एचडी डाउनलोड करें (मूल 4K)"
 }

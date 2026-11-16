@@ -2245,5 +2245,14 @@
   "auth.newPasswordLabel": "新密码",
   "auth.submitNewPassword": "保存新密码",
   "auth.savingPassword": "正在保存密码...",
-  "auth.passwordResetSuccess": "密码已成功更新！ 请登录。"
+  "auth.passwordResetSuccess": "密码已成功更新！ 请登录。",
+  "work.renameProNotice": "智能重命名和自定义 ZIP 是 PRO 独有的功能。 立即升级！",
+  "work.renameLocked": "文件重命名和自定义 ZIP 命名是 PRO 独有的功能。",
+  "work.resPro": "画质：超高清4K（原版无损）",
+  "work.resFree": "质量：标准高清（最大 1920 像素）",
+  "work.unlock4k": "解锁4K",
+  "work.downscaleNotice": "以标准高清 (1080p) 导出的照片。 解锁 PRO 以获得原始 4K 分辨率！",
+  "work.downscaleZipNotice": "以标准高清 (1080p) 导出的 ZIP 文件。 升级到 PRO 即可导出原始 4K！",
+  "work.batchMaxProNotice": "每个 PRO 批次最多 100 张照片。",
+  "editor.downloadPro": "下载超高清（原始 4K）"
 }

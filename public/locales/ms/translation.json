@@ -2246,5 +2246,14 @@
   "auth.newPasswordLabel": "Kata Laluan Baharu",
   "auth.submitNewPassword": "Simpan Kata Laluan Baharu",
   "auth.savingPassword": "Menyimpan kata laluan...",
-  "auth.passwordResetSuccess": "Kata laluan telah berjaya dikemas kini! Sila log masuk."
+  "auth.passwordResetSuccess": "Kata laluan telah berjaya dikemas kini! Sila log masuk.",
+  "work.renameProNotice": "Penamaan Semula Pintar dan ZIP Tersuai ialah ciri PRO eksklusif. Tingkatkan sekarang!",
+  "work.renameLocked": "Penamaan semula fail & penamaan ZIP tersuai ialah ciri PRO eksklusif.",
+  "work.resPro": "Kualiti: Ultra-HD 4K (Original Lossless)",
+  "work.resFree": "Kualiti: HD Standard (Maks 1920px)",
+  "work.unlock4k": "Buka kunci 4K",
+  "work.downscaleNotice": "Foto dieksport dalam Standard HD (1080p). Buka kunci PRO untuk resolusi 4K asal!",
+  "work.downscaleZipNotice": "Fail ZIP dieksport dalam Standard HD (1080p). Naik taraf kepada PRO untuk eksport 4K asal!",
+  "work.batchMaxProNotice": "Maksimum 100 foto setiap kelompok PRO.",
+  "editor.downloadPro": "Muat turun Ultra-HD (4K Asal)"
 }

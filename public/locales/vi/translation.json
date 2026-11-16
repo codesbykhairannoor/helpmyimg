@@ -2246,5 +2246,14 @@
   "auth.newPasswordLabel": "Mật khẩu mới",
   "auth.submitNewPassword": "Lưu mật khẩu mới",
   "auth.savingPassword": "Đang lưu mật khẩu...",
-  "auth.passwordResetSuccess": "Mật khẩu đã được cập nhật thành công! Vui lòng đăng nhập."
+  "auth.passwordResetSuccess": "Mật khẩu đã được cập nhật thành công! Vui lòng đăng nhập.",
+  "work.renameProNotice": "Đổi tên thông minh và ZIP tùy chỉnh là các tính năng PRO độc quyền. Hãy nâng cấp ngay bây giờ!",
+  "work.renameLocked": "Đổi tên tệp và đặt tên ZIP tùy chỉnh là các tính năng PRO độc quyền.",
+  "work.resPro": "Chất lượng: Ultra-HD 4K (Bản gốc lossless)",
+  "work.resFree": "Chất lượng: Chuẩn HD (Tối đa 1920px)",
+  "work.unlock4k": "Mở khóa 4K",
+  "work.downscaleNotice": "Ảnh được xuất ở chuẩn HD (1080p). Mở khóa PRO để có độ phân giải 4K gốc!",
+  "work.downscaleZipNotice": "Các tệp ZIP được xuất ở chuẩn HD (1080p). Nâng cấp lên PRO để xuất 4K gốc!",
+  "work.batchMaxProNotice": "Tối đa 100 ảnh mỗi đợt PRO.",
+  "editor.downloadPro": "Tải xuống Ultra-HD (4K gốc)"
 }

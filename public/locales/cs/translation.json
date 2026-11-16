@@ -2246,5 +2246,14 @@
   "auth.newPasswordLabel": "Nové heslo",
   "auth.submitNewPassword": "Uložit nové heslo",
   "auth.savingPassword": "Ukládání hesla...",
-  "auth.passwordResetSuccess": "Heslo bylo úspěšně aktualizováno! Přihlaste se prosím."
+  "auth.passwordResetSuccess": "Heslo bylo úspěšně aktualizováno! Přihlaste se prosím.",
+  "work.renameProNotice": "Inteligentní přejmenování a vlastní ZIP jsou exkluzivní funkce PRO. Upgradujte nyní!",
+  "work.renameLocked": "Přejmenování souborů a vlastní pojmenování ZIP jsou exkluzivní funkce PRO.",
+  "work.resPro": "Kvalita: Ultra-HD 4K (Original Lossless)",
+  "work.resFree": "Kvalita: Standardní HD (Max 1920px)",
+  "work.unlock4k": "Odemkněte 4K",
+  "work.downscaleNotice": "Fotografie exportovaná ve standardním HD (1080p). Odemkněte PRO pro původní rozlišení 4K!",
+  "work.downscaleZipNotice": "Soubory ZIP exportované ve standardním HD (1080p). Upgradujte na PRO pro původní exporty ve 4K!",
+  "work.batchMaxProNotice": "Maximálně 100 fotografií na PRO dávku.",
+  "editor.downloadPro": "Stáhnout Ultra-HD (původní 4K)"
 }

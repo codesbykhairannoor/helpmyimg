@@ -2246,5 +2246,14 @@
   "auth.newPasswordLabel": "סיסמה חדשה",
   "auth.submitNewPassword": "שמור סיסמה חדשה",
   "auth.savingPassword": "שומר סיסמה...",
-  "auth.passwordResetSuccess": "הסיסמה עודכנה בהצלחה! נא להיכנס."
+  "auth.passwordResetSuccess": "הסיסמה עודכנה בהצלחה! נא להיכנס.",
+  "work.renameProNotice": "שינוי שם חכם ו-ZIP מותאם אישית הם תכונות PRO בלעדיות. שדרג עכשיו!",
+  "work.renameLocked": "שינוי שם הקבצים ושם ZIP מותאם אישית הם תכונות PRO בלעדיות.",
+  "work.resPro": "איכות: Ultra-HD 4K (ללא אובדן מקורי)",
+  "work.resFree": "איכות: HD רגילה (מקסימום 1920px)",
+  "work.unlock4k": "פתח את הנעילה של 4K",
+  "work.downscaleNotice": "תמונה מיוצאת ב-HD רגיל (1080p). פתח את הנעילה של PRO עבור רזולוציית 4K מקורית!",
+  "work.downscaleZipNotice": "קובצי ZIP מיוצאים ב-HD Standard (1080p). שדרג ל-PRO ליצוא מקורי של 4K!",
+  "work.batchMaxProNotice": "מקסימום 100 תמונות לכל אצווה PRO.",
+  "editor.downloadPro": "הורד Ultra-HD (4K מקורי)"
 }

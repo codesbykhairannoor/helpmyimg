@@ -1,9 +1,11 @@
 // src/components/workspace/hooks/useWorkspaceCore.ts
 // Core workspace coordinator for Batch Items, Uploads, Selection, Drag-and-Drop, and File Export
+// Enforces: Batch Limits (Free: 10, PRO: 100) & Resolution Limits (Free: Max 1920px HD, PRO: Uncompressed 4K)
 
 import { useState, useRef, useEffect, useCallback } from 'react';
 import { useTranslation } from '../../../context/LanguageContext';
 import { useAuth } from '../../../context/AuthContext';
+import { getExportUrl } from '../../../utils/resolutionHelper';
 import type { BatchItem, TabType } from '../types';
 
 export interface UseWorkspaceCoreReturn {
@@ -25,14 +27,14 @@ export interface UseWorkspaceCoreReturn {
   handleReset: () => void;
   handleUploadOther: () => void;
   handleDownloadSingle: (item: BatchItem) => void;
-  handleDownloadZip: () => Promise<void>;
+  handleDownloadZip: (customZipName?: string) => Promise<void>;
   removeItem: (id: string) => void;
   clearAllItems: () => void;
 }
 
 export function useWorkspaceCore(initialTab: TabType = 'remove'): UseWorkspaceCoreReturn {
   const { t } = useTranslation();
-  const { isPro } = useAuth();
+  const { isPro, openAuthModal } = useAuth();
   const [batchItems, setBatchItems] = useState<BatchItem[]>([]);
   const [selectedIndex, setSelectedIndex] = useState<number>(0);
   const [isDragging, setIsDragging] = useState(false);
@@ -44,33 +46,53 @@ export function useWorkspaceCore(initialTab: TabType = 'remove'): UseWorkspaceCo
 
   const currentItem = batchItems[selectedIndex] || null;
 
-  // Auto hide toast after 3s
+  // Auto hide toast after 3.5s
   useEffect(() => {
     if (toastMessage) {
-      const timer = setTimeout(() => setToastMessage(null), 3000);
+      const timer = setTimeout(() => setToastMessage(null), 3500);
       return () => clearTimeout(timer);
     }
   }, [toastMessage]);
 
   const isReplacingRef = useRef(false);
 
-  // Handle file uploads
+  // Handle file uploads across all tools
   const handleFiles = useCallback(
     async (files: FileList | File[], forceReplace?: boolean) => {
       const rawFiles = Array.from(files);
+      const isReplacing = forceReplace ?? isReplacingRef.current;
+      isReplacingRef.current = false;
+
       const maxBatch = isPro ? 100 : 10;
-      if (!isPro && rawFiles.length > 10) {
+      const currentCount = isReplacing ? 0 : batchItems.length;
+      const availableSlots = Math.max(0, maxBatch - currentCount);
+
+      if (availableSlots <= 0) {
+        setToastMessage(
+          isPro
+            ? t('work.batchMaxProNotice', {
+                defaultValue: 'Maksimal 100 foto sekaligus dalam satu batch PRO.',
+              })
+            : t('work.batchLimitNotice', {
+                defaultValue:
+                  'Batas paket gratis adalah 10 foto sekaligus. Upgrade ke PRO untuk memproses hingga 100 foto!',
+              })
+        );
+        if (!isPro) openAuthModal();
+        return;
+      }
+
+      if (!isPro && rawFiles.length > availableSlots) {
         setToastMessage(
           t('work.batchLimitNotice', {
-            defaultValue: 'Batas paket gratis adalah 10 foto sekaligus. Upgrade ke PRO untuk proses tanpa batas!'
+            defaultValue:
+              'Batas paket gratis adalah 10 foto sekaligus. Upgrade ke PRO untuk memproses hingga 100 foto!',
           })
         );
       }
-      const fileArray = rawFiles.slice(0, maxBatch);
-      if (fileArray.length === 0) return;
 
-      const isReplacing = forceReplace ?? isReplacingRef.current;
-      isReplacingRef.current = false;
+      const fileArray = rawFiles.slice(0, availableSlots);
+      if (fileArray.length === 0) return;
 
       // Revoke old URLs if replacing
       if (isReplacing) {
@@ -147,7 +169,7 @@ export function useWorkspaceCore(initialTab: TabType = 'remove'): UseWorkspaceCo
 
       if (isReplacing || batchItems.length === 0) setSelectedIndex(0);
     },
-    [batchItems, initialTab, t, isPro]
+    [batchItems, initialTab, t, isPro, openAuthModal]
   );
 
   // Reset current item back to original unedited state (Keep file in workspace)
@@ -199,27 +221,41 @@ export function useWorkspaceCore(initialTab: TabType = 'remove'): UseWorkspaceCo
     setSelectedIndex(0);
   }, [batchItems]);
 
-  // Download single item
+  // Download single item with 4K vs HD 1080p resolution gate
   const handleDownloadSingle = useCallback(
-    (item: BatchItem) => {
+    async (item: BatchItem) => {
       const urlToDownload = item.processedUrl || item.transparentUrl || item.originalUrl;
       if (!urlToDownload) return;
 
+      const { url: finalUrl, revoked, wasDownscaled } = await getExportUrl(urlToDownload, isPro);
+      if (wasDownscaled && !isPro) {
+        setToastMessage(
+          t('work.downscaleNotice', {
+            defaultValue: 'Foto diekspor dalam resolusi Standar HD (1080p). Buka PRO untuk resolusi asli 4K!',
+          })
+        );
+      }
+
       const a = document.createElement('a');
-      a.href = urlToDownload;
+      a.href = finalUrl;
       const baseName = item.name.replace(/\.[^/.]+$/, '');
       a.download = `${baseName}_HelpMyIMG.png`;
       document.body.appendChild(a);
       a.click();
       document.body.removeChild(a);
+
+      if (revoked) {
+        setTimeout(() => URL.revokeObjectURL(finalUrl), 5000);
+      }
     },
-    []
+    [isPro, t]
   );
 
-  // Download all as ZIP
-  const handleDownloadZip = useCallback(async () => {
+  // Download all as ZIP with 4K vs HD 1080p resolution gate
+  const handleDownloadZip = useCallback(async (customZipName?: string) => {
     if (batchItems.length === 0) return;
     setIsZipping(true);
+    let anyDownscaled = false;
     try {
       const JSZip = (await import('jszip')).default;
       const zip = new JSZip();
@@ -227,27 +263,47 @@ export function useWorkspaceCore(initialTab: TabType = 'remove'): UseWorkspaceCo
       for (const item of batchItems) {
         const url = item.processedUrl || item.transparentUrl || item.originalUrl;
         if (!url) continue;
-        const res = await fetch(url);
+
+        const { url: finalUrl, revoked, wasDownscaled } = await getExportUrl(url, isPro);
+        if (wasDownscaled) anyDownscaled = true;
+
+        const res = await fetch(finalUrl);
         const blob = await res.blob();
         const baseName = item.name.replace(/\.[^/.]+$/, '');
         zip.file(`${baseName}_HelpMyIMG.png`, blob);
+
+        if (revoked) {
+          URL.revokeObjectURL(finalUrl);
+        }
       }
 
       const content = await zip.generateAsync({ type: 'blob' });
       const a = document.createElement('a');
       a.href = URL.createObjectURL(content);
-      a.download = `HelpMyIMG_Batch_${Date.now()}.zip`;
+      const zipFileName = isPro && customZipName?.trim()
+        ? `${customZipName.trim().replace(/\.zip$/i, '')}.zip`
+        : `HelpMyIMG_Batch_${Date.now()}.zip`;
+      a.download = zipFileName;
       document.body.appendChild(a);
       a.click();
       document.body.removeChild(a);
-      setToastMessage(t('editor.zipSuccess', { defaultValue: 'Batch ZIP downloaded successfully!' }));
+
+      if (anyDownscaled && !isPro) {
+        setToastMessage(
+          t('work.downscaleZipNotice', {
+            defaultValue: 'File ZIP diekspor dalam resolusi Standar HD (1080p). Upgrade ke PRO untuk mengunduh 4K asli!',
+          })
+        );
+      } else {
+        setToastMessage(t('editor.zipSuccess', { defaultValue: 'Batch ZIP downloaded successfully!' }));
+      }
     } catch (err) {
       console.error('ZIP Error:', err);
       setToastMessage(t('editor.zipError', { defaultValue: 'Failed to create ZIP.' }));
     } finally {
       setIsZipping(false);
     }
-  }, [batchItems, t]);
+  }, [batchItems, isPro, t]);
 
   return {
     t,

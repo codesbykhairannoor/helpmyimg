@@ -2246,5 +2246,14 @@
   "auth.newPasswordLabel": "Parolă Nouă",
   "auth.submitNewPassword": "Salvați parola nouă",
   "auth.savingPassword": "Se salvează parola...",
-  "auth.passwordResetSuccess": "Parola a fost actualizată cu succes! Vă rugăm să vă conectați."
+  "auth.passwordResetSuccess": "Parola a fost actualizată cu succes! Vă rugăm să vă conectați.",
+  "work.renameProNotice": "Redenumirea inteligentă și ZIP personalizat sunt funcții PRO exclusive. Upgrade acum!",
+  "work.renameLocked": "Redenumirea fișierelor și denumirea ZIP personalizată sunt funcții PRO exclusive.",
+  "work.resPro": "Calitate: Ultra-HD 4K (Original Lossless)",
+  "work.resFree": "Calitate: HD standard (max. 1920 px)",
+  "work.unlock4k": "Deblocați 4K",
+  "work.downscaleNotice": "Fotografie exportată în standard HD (1080p). Deblocați PRO pentru rezoluția originală 4K!",
+  "work.downscaleZipNotice": "Fișiere ZIP exportate în standard HD (1080p). Faceți upgrade la PRO pentru exporturi originale 4K!",
+  "work.batchMaxProNotice": "Maximum 100 de fotografii per lot PRO.",
+  "editor.downloadPro": "Descărcați Ultra-HD (original 4K)"
 }
