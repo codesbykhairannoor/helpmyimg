@@ -2,7 +2,7 @@ import React from 'react';
 import { useTranslation } from '../../context/LanguageContext';
 import { SeoHead } from '../../components/seo/SeoHead';
 import { getLocalizedInfoSlug } from '../../utils/infoUrlMapper';
-import { ShieldCheck, Lock, EyeOff, ServerOff, Cookie, Activity, Database, CheckSquare } from 'lucide-react';
+import { ShieldCheck, Lock, EyeOff, ServerOff, Cookie, Activity, Database, CheckSquare, KeyRound } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 export const PrivacyPage: React.FC = () => {
@@ -52,7 +52,7 @@ export const PrivacyPage: React.FC = () => {
             {t('privacy.lastUpdated', { defaultValue: 'Effective Date: July 11, 2026' })}
           </p>
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-neon-emerald/10 border border-neon-emerald/20 text-neon-emerald text-sm md:text-base font-bold max-w-2xl mx-auto text-center">
-            {t('info.freePromo', { defaultValue: '100% Free, 0 Rupiah, No Subscriptions.' })}
+            {t('info.freePromo', { defaultValue: '100% Private Client-Side AI • Free Forever Tier Available' })}
           </div>
         </motion.div>
 
@@ -155,14 +155,43 @@ export const PrivacyPage: React.FC = () => {
                 <p>{t('privacy.s5.desc2')}</p>
               </div>
             </section>
+
+            <section className="bg-dark-800/50 p-8 md:p-12 rounded-3xl border border-dark-600">
+              <h2 className="text-3xl text-white mb-6 flex items-center gap-4">
+                <div className="p-3 bg-dark-700 rounded-xl text-neon-cyan"><KeyRound className="w-6 h-6" /></div>
+                {t('privacy.s6.title', { defaultValue: 'User Accounts & Authentication Privacy' })}
+              </h2>
+              <div className="space-y-4">
+                <p>{t('privacy.s6.desc1', { defaultValue: 'Creating an account or signing in via Google or Email is completely voluntary. For free standard usage, no account or login is required. When you choose to authenticate, we collect only essential profile information (email address and display name) strictly for account security, subscription validation, and preference synchronization.' })}</p>
+                <p>{t('privacy.s6.desc2', { defaultValue: 'We never correlate your account identity with the images you edit. Because image processing occurs entirely client-side, our servers have zero visibility into your files, metadata, or editing history. You may delete your account and associated authentication records at any time.' })}</p>
+                <ul className="list-disc pl-6 space-y-2 mt-4 text-slate-300">
+                  <li>{t('privacy.s6.bullet1', { defaultValue: 'Voluntary Authentication: You may browse and edit without an account at any time.' })}</li>
+                  <li>{t('privacy.s6.bullet2', { defaultValue: 'Zero Image Storage: Files and canvas renders remain 100% on your local device.' })}</li>
+                  <li>{t('privacy.s6.bullet3', { defaultValue: 'Instant Deletion: Delete your account and authentication credentials with immediate effect.' })}</li>
+                </ul>
+                <div className="p-4 rounded-2xl bg-dark-900 border border-dark-600 mt-6 flex items-start gap-4">
+                  <div className="p-2 rounded-xl bg-neon-emerald/10 text-neon-emerald mt-1">
+                    <CheckSquare className="w-5 h-5" />
+                  </div>
+                  <div>
+                    <h4 className="text-white font-bold text-base font-heading">
+                      {t('privacy.s6.boxTitle', { defaultValue: 'Encrypted Credential Isolation' })}
+                    </h4>
+                    <p className="text-slate-400 text-sm mt-1 leading-relaxed">
+                      {t('privacy.s6.boxDesc', { defaultValue: 'Authentication tokens are managed through Firebase Auth using industry-standard TLS encryption. Session tokens never have access to your local image buffers or offline WebAssembly workspaces.' })}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </section>
             
             <section className="pt-12 text-center">
               <div className="inline-block bg-gradient-to-r from-dark-800 to-dark-900 border border-dark-600 rounded-[30px] p-12 w-full max-w-3xl">
                 <h2 className="text-3xl font-black text-white mb-6 font-heading">
-                  {t('privacy.s6.title')}
+                  {t('privacy.s7.title', { defaultValue: t('privacy.s6.title') })}
                 </h2>
                 <p className="text-slate-400 text-lg leading-relaxed mb-8">
-                  {t('privacy.s6.desc')}
+                  {t('privacy.s7.desc', { defaultValue: t('privacy.s6.desc') })}
                 </p>
                 <a href="mailto:privacy@helpmyimg.com" className="inline-flex items-center justify-center px-8 py-4 rounded-xl bg-neon-emerald text-dark-900 font-bold text-lg hover:bg-white transition-all shadow-[0_0_20px_rgba(16,185,129,0.4)]">
                   privacy@helpmyimg.com

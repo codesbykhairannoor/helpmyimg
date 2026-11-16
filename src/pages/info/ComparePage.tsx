@@ -58,7 +58,7 @@ export const ComparePage: React.FC = () => {
             {t('compare.subtitle', { defaultValue: 'We rebuilt AI image processing from the ground up to run locally. See why the cloud is obsolete.' })}
           </p>
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-neon-emerald/10 border border-neon-emerald/20 text-neon-emerald text-sm md:text-base font-bold max-w-2xl mx-auto text-center">
-            {t('info.freePromo', { defaultValue: '100% Free, 0 Rupiah, No Subscriptions.' })}
+            {t('info.freePromo', { defaultValue: '100% Private Client-Side AI • Free Forever Tier Available' })}
           </div>
         </motion.div>
 

@@ -24,7 +24,7 @@ export const JsonLd: React.FC = () => {
           "Batch AI Background Removal (up to 10 photos)",
           "100% Client-Side Privacy (Zero Server Upload)",
           "Local WebAssembly Processing",
-          "No Watermarks, No Subscriptions"
+          "No Watermarks, Free Tier Available"
         ]
       },
       {

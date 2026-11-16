@@ -2,20 +2,21 @@ import React, { useState } from 'react';
 import { useTranslation } from '../../context/LanguageContext';
 import { SeoHead } from '../../components/seo/SeoHead';
 import { getLocalizedInfoSlug } from '../../utils/infoUrlMapper';
-import { HelpCircle, ChevronDown, MessageCircleQuestion, Zap, Shield, Image as ImageIcon, Settings } from 'lucide-react';
+import { HelpCircle, ChevronDown, MessageCircleQuestion, Zap, Shield, Image as ImageIcon, Settings, Sparkles } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 export const FaqPage: React.FC = () => {
   const { t, lang } = useTranslation();
   const [openIndex, setOpenIndex] = useState<number | null>(0);
-  const [activeCategory, setActiveCategory] = useState<'general' | 'privacy' | 'tech' | 'usage'>('general');
+  const [activeCategory, setActiveCategory] = useState<'general' | 'privacy' | 'tech' | 'usage' | 'account'>('general');
 
-  // We organize 12 FAQs into categories
+  // We organize 16 FAQs into categories
   const faqCategories = {
     general: [1, 2, 3],
     privacy: [4, 5, 6],
     tech: [7, 8, 9],
-    usage: [10, 11, 12]
+    usage: [10, 11, 12],
+    account: [13, 14, 15, 16]
   };
 
   const categories = [
@@ -23,6 +24,7 @@ export const FaqPage: React.FC = () => {
     { id: 'privacy', icon: Shield, label: t('faq.cat.privacy', { defaultValue: 'Privacy & Security' }) },
     { id: 'tech', icon: Zap, label: t('faq.cat.tech', { defaultValue: 'Technology' }) },
     { id: 'usage', icon: ImageIcon, label: t('faq.cat.usage', { defaultValue: 'Usage & Limits' }) },
+    { id: 'account', icon: Sparkles, label: t('faq.cat.account', { defaultValue: 'Account & PRO' }) },
   ] as const;
 
   const currentFaqs = faqCategories[activeCategory];
@@ -72,7 +74,7 @@ export const FaqPage: React.FC = () => {
             {t('faq.subtitle')}
           </p>
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-neon-emerald/10 border border-neon-emerald/20 text-neon-emerald text-sm md:text-base font-bold max-w-2xl mx-auto text-center">
-            {t('info.freePromo', { defaultValue: '100% Free, 0 Rupiah, No Subscriptions.' })}
+            {t('info.freePromo', { defaultValue: '100% Private Client-Side AI • Free Forever Tier Available' })}
           </div>
         </motion.div>
 
@@ -153,13 +155,43 @@ export const FaqPage: React.FC = () => {
           })}
         </motion.div>
 
+        {/* PRO ARCHITECTURE INSIGHT */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="mt-16 p-8 md:p-10 rounded-[32px] bg-dark-800/60 border border-neon-cyan/20 relative overflow-hidden"
+        >
+          <div className="flex flex-col md:flex-row items-center gap-6 justify-between">
+            <div className="flex items-center gap-4">
+              <div className="w-14 h-14 rounded-2xl bg-neon-cyan/10 border border-neon-cyan/30 flex items-center justify-center text-neon-cyan shrink-0">
+                <Sparkles className="w-7 h-7" />
+              </div>
+              <div>
+                <h4 className="text-xl font-bold text-white font-heading">
+                  {t('faq.proBox.title', { defaultValue: 'Ready to Process 100+ Photos in 4K?' })}
+                </h4>
+                <p className="text-slate-400 text-sm mt-1">
+                  {t('faq.proBox.desc', { defaultValue: 'Explore the full power of HelpMyIMG PRO with uncompressed exports, smart renaming, and priority multi-core speed.' })}
+                </p>
+              </div>
+            </div>
+            <a
+              href={`/${lang}/pricing`}
+              className="inline-flex items-center justify-center px-6 py-3 rounded-xl bg-neon-cyan text-dark-900 font-bold hover:bg-white hover:scale-105 transition-all text-sm shrink-0 whitespace-nowrap shadow-[0_0_20px_rgba(34,211,238,0.3)]"
+            >
+              {t('nav.pricing', { defaultValue: 'Pricing & Plans' })}
+            </a>
+          </div>
+        </motion.div>
+
         {/* SUPPORT CTA SECTION */}
         <motion.div 
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.2 }}
-          className="mt-24 text-center bg-gradient-to-tr from-dark-800 to-dark-900 rounded-[40px] p-10 md:p-16 border border-dark-600 relative overflow-hidden"
+          className="mt-16 text-center bg-gradient-to-tr from-dark-800 to-dark-900 rounded-[40px] p-10 md:p-16 border border-dark-600 relative overflow-hidden"
         >
           <div className="absolute top-0 right-0 w-64 h-64 bg-neon-purple/10 blur-[80px] rounded-full pointer-events-none" />
           <Settings className="w-16 h-16 text-slate-500 mx-auto mb-8 opacity-50" />

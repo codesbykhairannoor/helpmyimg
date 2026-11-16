@@ -100,7 +100,7 @@ export const PricingPage: React.FC = () => {
     ]
     : [
       t('pricing.pro.f1', { defaultValue: 'Semua fitur yang ada di Paket Gratis' }),
-      t('pricing.pro.f2', { defaultValue: 'Batch processing tanpa batas (50+ foto sekaligus)' }),
+      t('pricing.pro.f2', { defaultValue: 'Batch processing tanpa batas (100+ foto sekaligus)' }),
       t('pricing.pro.f3', { defaultValue: 'Ekspor Ultra-HD & resolusi asli 4K lossless' }),
       t('pricing.pro.f4', { defaultValue: 'Mode AI Ultra-Presisi untuk helai rambut halus' }),
       t('pricing.pro.f5', { defaultValue: 'Akselerasi multi-core Web Worker prioritas' }),

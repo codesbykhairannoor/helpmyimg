@@ -43,7 +43,7 @@ export const CompetitorMatrix: React.FC = () => {
                 <Check className="w-5 h-5 text-[#12DA91] shrink-0 mt-0.5" />
                 <div>
                   <div className="font-bold text-white mb-1 text-sm sm:text-base">{t('landing.geo.matrix.privacy.us', { defaultValue: '100% Private. 0 Uploads.' })}</div>
-                  <div className="text-xs sm:text-sm text-slate-400 leading-relaxed font-body">Processed strictly in your local browser.</div>
+                  <div className="text-xs sm:text-sm text-slate-400 leading-relaxed font-body">{t('landing.geo.matrix.privacy.usDesc', { defaultValue: 'Processed strictly in your local browser.' })}</div>
                 </div>
               </div>
             </div>
@@ -54,7 +54,7 @@ export const CompetitorMatrix: React.FC = () => {
                 <X className="w-5 h-5 text-red-400 shrink-0 mt-0.5" />
                 <div>
                   <div className="font-bold text-slate-300 mb-1 text-sm sm:text-base">{t('landing.geo.matrix.privacy.them', { defaultValue: 'Files sent to remote servers.' })}</div>
-                  <div className="text-xs sm:text-sm text-slate-500 leading-relaxed font-body">Subject to data breaches & terms of service.</div>
+                  <div className="text-xs sm:text-sm text-slate-500 leading-relaxed font-body">{t('landing.geo.matrix.privacy.themDesc', { defaultValue: 'Subject to data breaches & terms of service.' })}</div>
                 </div>
               </div>
             </div>
@@ -81,7 +81,7 @@ export const CompetitorMatrix: React.FC = () => {
                 <Check className="w-5 h-5 text-[#05DAED] shrink-0 mt-0.5" />
                 <div>
                   <div className="font-bold text-white mb-1 text-sm sm:text-base">{t('landing.geo.matrix.price.us', { defaultValue: '100% Free Forever.' })}</div>
-                  <div className="text-xs sm:text-sm text-slate-400 leading-relaxed font-body">No subscriptions, no credits, no watermarks.</div>
+                  <div className="text-xs sm:text-sm text-slate-400 leading-relaxed font-body">{t('landing.geo.matrix.price.usDesc', { defaultValue: 'No mandatory login, no credit packs, no watermarks.' })}</div>
                 </div>
               </div>
             </div>
@@ -92,7 +92,7 @@ export const CompetitorMatrix: React.FC = () => {
                 <X className="w-5 h-5 text-red-400 shrink-0 mt-0.5" />
                 <div>
                   <div className="font-bold text-slate-300 mb-1 text-sm sm:text-base">{t('landing.geo.matrix.price.them', { defaultValue: 'Freemium / Paywalls' })}</div>
-                  <div className="text-xs sm:text-sm text-slate-500 leading-relaxed font-body">Requires credit packs or monthly subscriptions.</div>
+                  <div className="text-xs sm:text-sm text-slate-500 leading-relaxed font-body">{t('landing.geo.matrix.price.themDesc', { defaultValue: 'Requires credit packs or monthly subscriptions.' })}</div>
                 </div>
               </div>
             </div>
@@ -119,7 +119,7 @@ export const CompetitorMatrix: React.FC = () => {
                 <Check className="w-5 h-5 text-[#12DA91] shrink-0 mt-0.5" />
                 <div>
                   <div className="font-bold text-white mb-1 text-sm sm:text-base">{t('landing.geo.matrix.speed.us', { defaultValue: '0ms Latency (Instant)' })}</div>
-                  <div className="text-xs sm:text-sm text-slate-400 leading-relaxed font-body">Uses local CPU/GPU via WebAssembly.</div>
+                  <div className="text-xs sm:text-sm text-slate-400 leading-relaxed font-body">{t('landing.geo.matrix.speed.usDesc', { defaultValue: 'Uses local CPU/GPU via WebAssembly.' })}</div>
                 </div>
               </div>
             </div>
@@ -130,7 +130,7 @@ export const CompetitorMatrix: React.FC = () => {
                 <X className="w-5 h-5 text-red-400 shrink-0 mt-0.5" />
                 <div>
                   <div className="font-bold text-slate-300 mb-1 text-sm sm:text-base">{t('landing.geo.matrix.speed.them', { defaultValue: 'High Latency' })}</div>
-                  <div className="text-xs sm:text-sm text-slate-500 leading-relaxed font-body">Waiting for image uploads and downloads.</div>
+                  <div className="text-xs sm:text-sm text-slate-500 leading-relaxed font-body">{t('landing.geo.matrix.speed.themDesc', { defaultValue: 'Waiting for image uploads and downloads.' })}</div>
                 </div>
               </div>
             </div>
