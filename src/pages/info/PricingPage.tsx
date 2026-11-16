@@ -47,15 +47,24 @@ export const PricingPage: React.FC = () => {
   const handleProAction = () => {
     if (!user) {
       openAuthModal();
-    } else if (isPro) {
-      navigatePath(lang === 'en' ? '/' : `/${lang}/`);
-    } else {
-      alert(
-        lang === 'id'
-          ? 'Fitur gateway pembayaran sedang dihubungkan. Akun Anda telah siap untuk aktivasi PRO.'
-          : 'Payment gateway integration is ready. Your account is primed for PRO activation.'
-      );
+      return;
     }
+    if (isPro) {
+      navigatePath(lang === 'en' ? '/' : `/${lang}/`);
+      return;
+    }
+
+    // Arahkan langsung ke Checkout Lemon Squeezy resmi
+    const checkoutBase = 'https://thismyown.lemonsqueezy.com/checkout/buy/bd84d992-e4ed-4d88-a5ff-f1ab944f5815';
+    const checkoutUrl = new URL(checkoutBase);
+    if (user.email) {
+      checkoutUrl.searchParams.set('checkout[email]', user.email);
+    }
+    if (user.displayName) {
+      checkoutUrl.searchParams.set('checkout[name]', user.displayName);
+    }
+    checkoutUrl.searchParams.set('checkout[custom][user_id]', user.uid);
+    window.location.href = checkoutUrl.toString();
   };
 
   const isLifetime = billingCycle === 'lifetime';
