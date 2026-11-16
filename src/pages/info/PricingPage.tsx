@@ -258,8 +258,8 @@ export const PricingPage: React.FC = () => {
               type="button"
               onClick={() => setBillingCycle('monthly')}
               className={`px-5 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all cursor-pointer ${billingCycle === 'monthly'
-                  ? 'bg-white dark:bg-dark-700 text-slate-900 dark:text-white shadow-sm'
-                  : 'text-slate-500 hover:text-slate-800 dark:text-slate-400 dark:hover:text-white'
+                ? 'bg-white dark:bg-dark-700 text-slate-900 dark:text-white shadow-sm'
+                : 'text-slate-500 hover:text-slate-800 dark:text-slate-400 dark:hover:text-white'
                 }`}
             >
               {t('pricing.billing.monthly', { defaultValue: 'Langganan Bulanan' })}
@@ -268,8 +268,8 @@ export const PricingPage: React.FC = () => {
               type="button"
               onClick={() => setBillingCycle('lifetime')}
               className={`relative px-5 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all flex items-center gap-2 cursor-pointer ${billingCycle === 'lifetime'
-                  ? 'bg-gradient-to-r from-cyan-500 to-blue-600 text-white shadow-md shadow-cyan-500/20'
-                  : 'text-slate-500 hover:text-slate-800 dark:text-slate-400 dark:hover:text-white'
+                ? 'bg-gradient-to-r from-cyan-500 to-blue-600 text-white shadow-md shadow-cyan-500/20'
+                : 'text-slate-500 hover:text-slate-800 dark:text-slate-400 dark:hover:text-white'
                 }`}
             >
               <Crown className="w-4 h-4 text-amber-300" />
@@ -546,8 +546,8 @@ export const PricingPage: React.FC = () => {
                   </span>
                   <div
                     className={`shrink-0 w-7 h-7 rounded-full flex items-center justify-center transition-transform duration-200 ${openFaq === idx
-                        ? 'rotate-180 bg-cyan-500/20 text-[#05DAED]'
-                        : 'text-slate-400 bg-slate-100 dark:bg-dark-700'
+                      ? 'rotate-180 bg-cyan-500/20 text-[#05DAED]'
+                      : 'text-slate-400 bg-slate-100 dark:bg-dark-700'
                       }`}
                   >
                     <ChevronDown className="w-4 h-4" />
