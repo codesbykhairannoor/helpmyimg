@@ -70,7 +70,7 @@ export const PricingPage: React.FC = () => {
   const isLifetime = billingCycle === 'lifetime';
 
   const proPrice = isLifetime
-    ? (lang === 'id' ? 'Rp 249.000' : '$24.99')
+    ? (lang === 'id' ? 'Rp 249.000' : '$39')
     : (lang === 'id' ? 'Rp 49.000' : '$4.99');
 
   const proPeriod = isLifetime
@@ -88,25 +88,26 @@ export const PricingPage: React.FC = () => {
 
   const proFeatures = isLifetime
     ? [
-        t('pricing.lifetime.f1', { defaultValue: 'Akses seumur hidup ke semua 14+ alat AI lokal' }),
-        t('pricing.lifetime.f2', { defaultValue: 'Batch processing tanpa batas (100+ foto sekaligus)' }),
-        t('pricing.lifetime.f3', { defaultValue: 'Ekspor Ultra-HD 4K & resolusi asli lossless' }),
-        t('pricing.lifetime.f4', { defaultValue: 'Akses gratis ke semua fitur & model AI baru di masa depan' }),
-        t('pricing.lifetime.f5', { defaultValue: '1-Click Export ZIP & Preset Kanvas Marketplace' }),
-        t('pricing.lifetime.f6', { defaultValue: 'Lencana eksklusif Founder Member di profil akun' }),
-        t('pricing.lifetime.f7', { defaultValue: 'Zero Server Uploads & Lisensi Komersial Lengkap' }),
-        t('pricing.lifetime.f8', { defaultValue: 'Sekali bayar, tanpa tagihan tersembunyi' }),
-      ]
+      t('pricing.lifetime.f0', { defaultValue: '✨ All-in-One Suite: Akses PRO di 4 Web (HelpMyIMG + HandleMyFile + SolveMyMedia + CreateMy-QR)' }),
+      t('pricing.lifetime.f1', { defaultValue: 'Akses seumur hidup ke semua 14+ alat AI lokal' }),
+      t('pricing.lifetime.f2', { defaultValue: 'Batch processing tanpa batas (100+ foto sekaligus)' }),
+      t('pricing.lifetime.f3', { defaultValue: 'Ekspor Ultra-HD 4K & resolusi asli lossless' }),
+      t('pricing.lifetime.f4', { defaultValue: '100% Privasi di perangkat (0 upload server, GDPR compliant)' }),
+      t('pricing.lifetime.f5', { defaultValue: '1-Click Export ZIP & Preset Kanvas Marketplace' }),
+      t('pricing.lifetime.f6', { defaultValue: 'Lencana eksklusif Founder Member di profil akun' }),
+      t('pricing.lifetime.f7', { defaultValue: 'Lisensi Komersial Lengkap & Gratis Update AI Masa Depan' }),
+      t('pricing.lifetime.f8', { defaultValue: 'Sekali bayar selamanya, tanpa biaya langganan bulanan' }),
+    ]
     : [
-        t('pricing.pro.f1', { defaultValue: 'Semua fitur yang ada di Paket Gratis' }),
-        t('pricing.pro.f2', { defaultValue: 'Batch processing tanpa batas (50+ foto sekaligus)' }),
-        t('pricing.pro.f3', { defaultValue: 'Ekspor Ultra-HD & resolusi asli 4K lossless' }),
-        t('pricing.pro.f4', { defaultValue: 'Mode AI Ultra-Presisi untuk helai rambut halus' }),
-        t('pricing.pro.f5', { defaultValue: 'Akselerasi multi-core Web Worker prioritas' }),
-        t('pricing.pro.f6', { defaultValue: 'Lencana akun PRO resmi & sinkronisasi cloud' }),
-        t('pricing.pro.f7', { defaultValue: 'Ruang kerja studio 100% bebas iklan' }),
-        t('pricing.pro.f8', { defaultValue: 'Dukungan pelanggan prioritas & akses fitur baru lebih awal' }),
-      ];
+      t('pricing.pro.f1', { defaultValue: 'Semua fitur yang ada di Paket Gratis' }),
+      t('pricing.pro.f2', { defaultValue: 'Batch processing tanpa batas (50+ foto sekaligus)' }),
+      t('pricing.pro.f3', { defaultValue: 'Ekspor Ultra-HD & resolusi asli 4K lossless' }),
+      t('pricing.pro.f4', { defaultValue: 'Mode AI Ultra-Presisi untuk helai rambut halus' }),
+      t('pricing.pro.f5', { defaultValue: 'Akselerasi multi-core Web Worker prioritas' }),
+      t('pricing.pro.f6', { defaultValue: 'Lencana akun PRO resmi & sinkronisasi cloud' }),
+      t('pricing.pro.f7', { defaultValue: 'Ruang kerja studio 100% bebas iklan' }),
+      t('pricing.pro.f8', { defaultValue: 'Dukungan pelanggan prioritas & akses fitur baru lebih awal' }),
+    ];
 
   const matrixRows = [
     {
@@ -256,22 +257,20 @@ export const PricingPage: React.FC = () => {
             <button
               type="button"
               onClick={() => setBillingCycle('monthly')}
-              className={`px-5 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all cursor-pointer ${
-                billingCycle === 'monthly'
+              className={`px-5 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all cursor-pointer ${billingCycle === 'monthly'
                   ? 'bg-white dark:bg-dark-700 text-slate-900 dark:text-white shadow-sm'
                   : 'text-slate-500 hover:text-slate-800 dark:text-slate-400 dark:hover:text-white'
-              }`}
+                }`}
             >
               {t('pricing.billing.monthly', { defaultValue: 'Langganan Bulanan' })}
             </button>
             <button
               type="button"
               onClick={() => setBillingCycle('lifetime')}
-              className={`relative px-5 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all flex items-center gap-2 cursor-pointer ${
-                billingCycle === 'lifetime'
+              className={`relative px-5 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all flex items-center gap-2 cursor-pointer ${billingCycle === 'lifetime'
                   ? 'bg-gradient-to-r from-cyan-500 to-blue-600 text-white shadow-md shadow-cyan-500/20'
                   : 'text-slate-500 hover:text-slate-800 dark:text-slate-400 dark:hover:text-white'
-              }`}
+                }`}
             >
               <Crown className="w-4 h-4 text-amber-300" />
               <span>{t('pricing.billing.lifetime', { defaultValue: 'Founder Lifetime Pass' })}</span>
@@ -367,10 +366,15 @@ export const PricingPage: React.FC = () => {
                 </span>
               </div>
 
-              <div className="flex items-baseline gap-2 mb-4">
+              <div className="flex items-baseline gap-2.5 mb-4">
                 <span className="text-4xl sm:text-5xl font-black text-white font-heading tracking-tight">
                   {proPrice}
                 </span>
+                {isLifetime && (
+                  <span className="text-lg text-slate-400 line-through font-semibold">
+                    {lang === 'id' ? 'Rp 499.000' : '$99'}
+                  </span>
+                )}
                 <span className="text-sm text-slate-400 font-medium">
                   {proPeriod}
                 </span>
@@ -379,13 +383,13 @@ export const PricingPage: React.FC = () => {
               <p className="text-sm text-slate-300 mb-8 leading-relaxed">
                 {isLifetime
                   ? t('pricing.lifetime.desc', {
-                      defaultValue:
-                        'Akses penuh tanpa batas seumur hidup ke seluruh ekosistem HelpMyIMG. Tanpa tagihan berulang, tanpa biaya bulanan, dan jaminan gratis selamanya untuk pembaruan fitur baru.',
-                    })
+                    defaultValue:
+                      'Akses penuh tanpa batas seumur hidup ke seluruh ekosistem HelpMyIMG. Tanpa tagihan berulang, tanpa biaya bulanan, dan jaminan gratis selamanya untuk pembaruan fitur baru.',
+                  })
                   : t('pricing.pro.desc', {
-                      defaultValue:
-                        'Kekuatan batch tak terbatas, ekspor Ultra-HD 4K tanpa kompresi, dan kecepatan prioritas multi-core.',
-                    })}
+                    defaultValue:
+                      'Kekuatan batch tak terbatas, ekspor Ultra-HD 4K tanpa kompresi, dan kecepatan prioritas multi-core.',
+                  })}
               </p>
 
               <div className="space-y-3.5 mb-8">
@@ -412,8 +416,8 @@ export const PricingPage: React.FC = () => {
                   {isPro
                     ? t('pricing.pro.btnActive', { defaultValue: 'Member PRO Aktif' })
                     : isLifetime
-                    ? t('pricing.lifetime.btn', { defaultValue: 'Klaim Founder Lifetime Pass' })
-                    : t('pricing.pro.btn', { defaultValue: 'Berlangganan PRO Sekarang' })}
+                      ? t('pricing.lifetime.btn', { defaultValue: 'Klaim Founder Lifetime Pass' })
+                      : t('pricing.pro.btn', { defaultValue: 'Berlangganan PRO Sekarang' })}
                 </span>
                 <ArrowRight className="w-4 h-4" />
               </button>
@@ -541,11 +545,10 @@ export const PricingPage: React.FC = () => {
                     {faq.q}
                   </span>
                   <div
-                    className={`shrink-0 w-7 h-7 rounded-full flex items-center justify-center transition-transform duration-200 ${
-                      openFaq === idx
+                    className={`shrink-0 w-7 h-7 rounded-full flex items-center justify-center transition-transform duration-200 ${openFaq === idx
                         ? 'rotate-180 bg-cyan-500/20 text-[#05DAED]'
                         : 'text-slate-400 bg-slate-100 dark:bg-dark-700'
-                    }`}
+                      }`}
                   >
                     <ChevronDown className="w-4 h-4" />
                   </div>
