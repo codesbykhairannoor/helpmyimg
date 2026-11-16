@@ -10,7 +10,12 @@ lerna-debug.log*
 node_modules
 dist
 dist-ssr
+
+# Environment variables & local configs
 *.local
+.env
+.env.*
+!.env.example
 
 # Editor directories and files
 .vscode/*
@@ -23,7 +28,7 @@ dist-ssr
 *.sln
 *.sw?
 
-# Google Service Account Credentials
+# Google Service Account Credentials & Private Keys
 google-service-account.json
 helpmyimg-*.json
 thismyown-*.json
@@ -32,5 +37,6 @@ thismyown-*.json
 *serviceaccount*.json
 credentials.json
 *.pem
+*.key
 3x4_Khairan*.jpg
 scratch/
