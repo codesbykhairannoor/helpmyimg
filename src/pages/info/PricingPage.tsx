@@ -352,10 +352,10 @@ export const PricingPage: React.FC = () => {
             </button>
           </div>
 
-          {/* ── CARD 2: ANNUAL / MONTHLY PLAN (FEATURED BLUE CARD) ── */}
-          <div className="rounded-3xl p-7 sm:p-8 bg-white dark:bg-dark-800 border-2 border-blue-600 dark:border-cyan-400 shadow-xl relative flex flex-col justify-between">
+          {/* ── CARD 2: ANNUAL / MONTHLY PLAN (FEATURED CYAN BRAND CARD) ── */}
+          <div className="rounded-3xl p-7 sm:p-8 bg-white dark:bg-dark-800 border-2 border-cyan-500/80 dark:border-[#05DAED] shadow-xl shadow-cyan-500/10 relative flex flex-col justify-between">
             {/* Top floating badge */}
-            <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-blue-600 text-white font-black text-xs uppercase px-4 py-1 rounded-full shadow-md flex items-center gap-1.5 whitespace-nowrap">
+            <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-gradient-to-r from-cyan-500 to-emerald-500 text-slate-950 font-black text-xs uppercase px-4 py-1 rounded-full shadow-md shadow-cyan-500/25 flex items-center gap-1.5 whitespace-nowrap tracking-wider">
               {isYearly ? (
                 <>
                   <Sparkles className="w-3.5 h-3.5" />
@@ -376,7 +376,7 @@ export const PricingPage: React.FC = () => {
                     SAVE 34%
                   </span>
                 ) : (
-                  <span className="px-2.5 py-0.5 rounded-md bg-blue-500/10 text-blue-600 dark:text-blue-400 border border-blue-500/25 text-xs font-bold uppercase tracking-wider">
+                  <span className="px-2.5 py-0.5 rounded-md bg-cyan-500/10 text-cyan-700 dark:text-[#05DAED] border border-cyan-500/25 text-xs font-bold uppercase tracking-wider">
                     FLEXIBLE
                   </span>
                 )}
@@ -402,7 +402,7 @@ export const PricingPage: React.FC = () => {
               <div className="my-6 pt-4 border-t border-slate-100 dark:border-dark-700">
                 <div className="flex items-baseline gap-2">
                   {isYearly && <span className="text-xl text-slate-400 line-through font-semibold">$119.88</span>}
-                  <span className="text-5xl font-black text-blue-600 dark:text-cyan-400 font-heading">
+                  <span className="text-5xl font-black text-cyan-600 dark:text-[#05DAED] font-heading">
                     {isYearly ? '$79' : '$9.99'}
                   </span>
                   <span className="text-slate-500 dark:text-slate-400 font-medium text-sm">
@@ -422,7 +422,7 @@ export const PricingPage: React.FC = () => {
                 </div>
                 <ul className="space-y-3">
                   <li className="flex items-start gap-2.5 text-xs sm:text-sm text-slate-800 dark:text-slate-200 font-semibold">
-                    <div className="w-4 h-4 rounded-full bg-blue-100 dark:bg-blue-900/60 text-blue-600 dark:text-cyan-400 flex items-center justify-center shrink-0 mt-0.5">
+                    <div className="w-4 h-4 rounded-full bg-cyan-500/15 text-cyan-600 dark:text-[#05DAED] flex items-center justify-center shrink-0 mt-0.5">
                       <Check className="w-3 h-3 stroke-[3]" />
                     </div>
                     <span>{lang === 'id' ? 'Akses penuh terhubung ke semua 4 Web Apps' : 'Connected full access to all 4 Web Apps'}</span>
@@ -457,7 +457,7 @@ export const PricingPage: React.FC = () => {
 
             <button
               onClick={() => handleSubscribeAction(isYearly ? 'yearly' : 'monthly')}
-              className="w-full py-3.5 px-6 rounded-2xl font-bold text-sm bg-blue-600 hover:bg-blue-700 text-white shadow-lg shadow-blue-500/25 transition-all flex items-center justify-center gap-2 cursor-pointer"
+              className="w-full py-3.5 px-6 rounded-2xl font-black text-sm bg-gradient-to-r from-cyan-500 to-emerald-500 hover:from-cyan-400 hover:to-emerald-400 text-slate-950 shadow-lg shadow-cyan-500/25 transition-all flex items-center justify-center gap-2 cursor-pointer"
             >
               <span>
                 {isYearly
@@ -507,7 +507,7 @@ export const PricingPage: React.FC = () => {
                     <span>{lang === 'id' ? 'Akses Seumur Hidup ke semua 4 Web Apps' : 'Lifetime access to all 4 Web Apps'}</span>
                   </li>
                   <li className="flex items-start gap-2.5 text-xs sm:text-sm text-slate-800 dark:text-slate-200 font-semibold">
-                    <Monitor className="w-4 h-4 text-blue-500 shrink-0 mt-0.5" />
+                    <Monitor className="w-4 h-4 text-cyan-500 shrink-0 mt-0.5" />
                     <span>{lang === 'id' ? 'Aplikasi Windows Desktop khusus disertakan (Native offline)' : 'Dedicated Windows Desktop App included (Native offline)'}</span>
                   </li>
                   <li className="flex items-start gap-2.5 text-xs sm:text-sm text-slate-800 dark:text-slate-200 font-semibold">

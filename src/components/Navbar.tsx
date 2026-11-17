@@ -290,22 +290,8 @@ export const Navbar: React.FC = () => {
             </nav>
           </div>
 
-          {/* Kanan: Theme Toggle, Language Switcher, Sign In, 9-Dots Launcher Drawer, Mobile Menu Button */}
+          {/* Kanan: Language Switcher, Sign In, 9-Dots Launcher Drawer, Mobile Menu Button */}
           <div className="flex items-center justify-end gap-2 sm:gap-2.5 flex-shrink-0">
-
-            {/* Desktop Theme Mode Toggle Button */}
-            <button
-              onClick={toggleTheme}
-              className="hidden lg:flex items-center justify-center w-[38px] h-[38px] bg-slate-100 dark:bg-dark-800 hover:bg-slate-200 dark:hover:bg-dark-700 border border-slate-200 dark:border-dark-600 rounded-xl text-slate-700 dark:text-slate-200 transition-all duration-150 shadow-xs cursor-pointer"
-              aria-label="Toggle Theme"
-              title={theme === 'dark' ? (lang === 'id' ? 'Mode Terang' : 'Light Mode') : (lang === 'id' ? 'Mode Gelap' : 'Dark Mode')}
-            >
-              {theme === 'dark' ? (
-                <Sun className="w-4 h-4 text-amber-500 hover:rotate-45 transition-transform duration-300" />
-              ) : (
-                <Moon className="w-4 h-4 text-indigo-400 hover:-rotate-12 transition-transform duration-300" />
-              )}
-            </button>
 
             {/* Desktop Language Switcher Dropdown (30 Bahasa with Search) */}
             <div className="relative hidden lg:flex items-center" ref={desktopLangRef}>
@@ -329,19 +315,19 @@ export const Navbar: React.FC = () => {
                   <>
                     <div className="fixed inset-0 z-[55]" onClick={() => setLangOpen(false)} />
                     <motion.div
-                      initial={{ opacity: 0, y: -10, scale: 0.95 }}
+                      initial={{ opacity: 0, y: -6, scale: 0.98 }}
                       animate={{ opacity: 1, y: 0, scale: 1 }}
-                      exit={{ opacity: 0, y: -10, scale: 0.95 }}
+                      exit={{ opacity: 0, y: -6, scale: 0.98 }}
                       transition={{ duration: 0.15 }}
-                      className="absolute right-0 mt-2 w-64 bg-white dark:bg-dark-800 border border-slate-200 dark:border-dark-600 rounded-2xl shadow-2xl py-2 z-[60] max-h-96 flex flex-col overflow-hidden"
+                      className="absolute top-[calc(100%+8px)] right-0 w-64 bg-white dark:bg-dark-800 border border-slate-200 dark:border-dark-600 rounded-2xl shadow-2xl py-2 z-[60] max-h-[calc(100vh-80px)] flex flex-col overflow-hidden"
                     >
-                      <div className="px-3.5 py-2 text-[12.5px] font-bold text-slate-500 dark:text-slate-400 uppercase border-b border-slate-100 dark:border-dark-700/60 mb-1 flex items-center justify-between">
+                      <div className="px-3.5 py-2 text-[12.5px] font-bold text-slate-500 dark:text-slate-400 uppercase border-b border-slate-100 dark:border-dark-700/60 mb-1 flex items-center justify-between shrink-0">
                         <span>{lang === 'id' ? 'Pilih Bahasa' : 'Select Language'}</span>
                         <span className="text-cyan-600 dark:text-neon-cyan font-mono font-bold">30</span>
                       </div>
 
                       {/* Search Input */}
-                      <div className="px-3 py-1.5 border-b border-slate-100 dark:border-dark-700/60 bg-slate-50/50 dark:bg-dark-900/50">
+                      <div className="px-3 py-1.5 border-b border-slate-100 dark:border-dark-700/60 bg-slate-50/50 dark:bg-dark-900/50 shrink-0">
                         <input
                           type="text"
                           placeholder={lang === 'id' ? 'Cari bahasa...' : 'Search language...'}
@@ -365,8 +351,8 @@ export const Navbar: React.FC = () => {
                                 setLangOpen(false);
                               }}
                               className={`w-full flex items-center justify-between px-3.5 py-2 text-[13.5px] transition-colors ${lang === l.code
-                                  ? 'bg-cyan-500/10 text-cyan-600 dark:text-neon-cyan font-bold'
-                                  : 'text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-dark-700 hover:text-slate-900 dark:hover:text-white'
+                                ? 'bg-cyan-500/10 text-cyan-600 dark:text-neon-cyan font-bold'
+                                : 'text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-dark-700 hover:text-slate-900 dark:hover:text-white'
                                 }`}
                             >
                               <span className="flex items-center gap-2.5">
@@ -434,11 +420,11 @@ export const Navbar: React.FC = () => {
                     <>
                       <div className="fixed inset-0 z-[55]" onClick={() => setUserMenuOpen(false)} />
                       <motion.div
-                        initial={{ opacity: 0, y: -10, scale: 0.95 }}
+                        initial={{ opacity: 0, y: -6, scale: 0.98 }}
                         animate={{ opacity: 1, y: 0, scale: 1 }}
-                        exit={{ opacity: 0, y: -10, scale: 0.95 }}
+                        exit={{ opacity: 0, y: -6, scale: 0.98 }}
                         transition={{ duration: 0.15 }}
-                        className="absolute right-0 mt-2 w-64 bg-white dark:bg-dark-800 border border-slate-200 dark:border-dark-500/80 rounded-2xl shadow-2xl py-3 z-[60] overflow-hidden"
+                        className="absolute top-[calc(100%+8px)] right-0 w-64 bg-white dark:bg-dark-800 border border-slate-200 dark:border-dark-500/80 rounded-2xl shadow-2xl py-3 z-[60] overflow-hidden"
                       >
                         <div className="px-4 pb-3 border-b border-slate-100 dark:border-dark-700/60">
                           <div className="font-bold text-sm text-slate-900 dark:text-white truncate">
@@ -507,8 +493,8 @@ export const Navbar: React.FC = () => {
                 aria-label="Aplikasi & Pengaturan"
                 title={lang === 'id' ? 'Aplikasi & Pengaturan' : 'Apps & Preferences'}
                 className={`w-[38px] h-[38px] rounded-xl flex items-center justify-center transition-all duration-150 border cursor-pointer ${isSuiteOpen
-                    ? 'bg-cyan-500/15 border-cyan-500/50 text-cyan-600 dark:text-neon-cyan shadow-xs'
-                    : 'bg-slate-100 dark:bg-dark-800 hover:bg-slate-200 dark:hover:bg-dark-700 border-slate-200 dark:border-dark-600 text-slate-700 dark:text-slate-300'
+                  ? 'bg-cyan-500/15 border-cyan-500/50 text-cyan-600 dark:text-neon-cyan shadow-xs'
+                  : 'bg-slate-100 dark:bg-dark-800 hover:bg-slate-200 dark:hover:bg-dark-700 border-slate-200 dark:border-dark-600 text-slate-700 dark:text-slate-300'
                   }`}
               >
                 {/* 3x3 Grid Dots SVG */}
@@ -788,18 +774,21 @@ export const Navbar: React.FC = () => {
                           </span>
                         </button>
 
-                        {/* Language Selector Drilldown Button */}
-                        <button
-                          onClick={() => setSuiteView('language')}
-                          className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-lg bg-white dark:bg-dark-800 hover:bg-slate-100 dark:hover:bg-dark-750 border border-slate-200 dark:border-dark-700 text-slate-800 dark:text-slate-200 text-[14px] font-bold cursor-pointer transition-all duration-150 shadow-xs"
+                        {/* Klaim Promo Founder Pass (Directs to /pricing/) */}
+                        <a
+                          href={lang === 'en' ? '/pricing/' : `/${lang}/pricing/`}
+                          onClick={(e) => {
+                            e.preventDefault();
+                            setIsSuiteOpen(false);
+                            navigatePath(lang === 'en' ? '/pricing/' : `/${lang}/pricing/`);
+                          }}
+                          className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-lg bg-gradient-to-r from-amber-500/10 via-orange-500/10 to-amber-500/15 hover:from-amber-500/20 hover:to-orange-500/25 border border-amber-500/35 hover:border-amber-500/60 text-amber-700 dark:text-amber-400 text-[14px] font-bold cursor-pointer transition-all duration-150 shadow-xs group"
+                          title={lang === 'id' ? 'Klaim Penawaran Founder Pass' : 'Claim Founder Pass Deal'}
                         >
-                          <span className="text-[15px]">{currentLang.flag}</span>
-                          <span>{currentLang.name}</span>
-                          <span className="text-[12.5px] text-slate-400 dark:text-slate-500 font-normal">
-                            ({lang === 'id' ? '30 Bahasa' : '30 Languages'})
-                          </span>
-                          <ArrowRight className="w-3.5 h-3.5 text-slate-400" />
-                        </button>
+                          <Crown className="w-4 h-4 text-amber-500 group-hover:scale-110 transition-transform" />
+                          <span>{lang === 'id' ? 'Klaim Promo Founder' : 'Claim Founder Pass'}</span>
+                          <ArrowRight className="w-3.5 h-3.5 text-amber-500 group-hover:translate-x-0.5 transition-transform" />
+                        </a>
                       </div>
                     </div>
                   ) : (
@@ -852,8 +841,8 @@ export const Navbar: React.FC = () => {
                                 handleLangChange(l.code);
                               }}
                               className={`flex items-center justify-between p-2 rounded-lg text-[14px] transition-colors ${lang === l.code
-                                  ? 'bg-cyan-500/15 text-cyan-700 dark:text-neon-cyan font-bold border border-cyan-500/30'
-                                  : 'text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-dark-800'
+                                ? 'bg-cyan-500/15 text-cyan-700 dark:text-neon-cyan font-bold border border-cyan-500/30'
+                                : 'text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-dark-800'
                                 }`}
                             >
                               <span className="flex items-center gap-2 truncate">
@@ -1131,8 +1120,8 @@ export const Navbar: React.FC = () => {
                                 document.body.style.overflow = '';
                               }}
                               className={`flex items-center justify-between p-2 rounded-xl text-xs transition-colors ${lang === l.code
-                                  ? 'bg-cyan-500/15 text-cyan-700 dark:text-neon-cyan font-bold border border-cyan-500/30'
-                                  : 'text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-dark-700'
+                                ? 'bg-cyan-500/15 text-cyan-700 dark:text-neon-cyan font-bold border border-cyan-500/30'
+                                : 'text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-dark-700'
                                 }`}
                             >
                               <span className="flex items-center gap-1.5 truncate">
