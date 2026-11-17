@@ -134,12 +134,16 @@
     }
 
     .hidden {
-      display: none !important;
+      display: none;
     }
 
     @media (min-width: 640px) {
       .sm\:flex {
         display: flex !important;
+      }
+
+      .sm\:block {
+        display: block !important;
       }
 
       .brand-logo-container {
@@ -156,6 +160,14 @@
     @media (min-width: 1024px) {
       .lg\:flex {
         display: flex !important;
+      }
+
+      .lg\:block {
+        display: block !important;
+      }
+
+      .lg\:inline-flex {
+        display: inline-flex !important;
       }
 
       .lg\:hidden {
