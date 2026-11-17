@@ -28,7 +28,7 @@ export const PricingPage: React.FC = () => {
   const { user, isPro, openAuthModal } = useAuth();
   const { navigatePath } = useRouter();
   const [openFaq, setOpenFaq] = useState<number | null>(0);
-  const [billingCycle, setBillingCycle] = useState<'monthly' | 'lifetime'>('lifetime');
+  const [billingCycle, setBillingCycle] = useState<'monthly' | 'yearly' | 'lifetime'>('yearly');
 
   const toggleFaq = (index: number) => {
     setOpenFaq(openFaq === index ? null : index);
@@ -68,14 +68,19 @@ export const PricingPage: React.FC = () => {
   };
 
   const isLifetime = billingCycle === 'lifetime';
+  const isYearly = billingCycle === 'yearly';
 
   const proPrice = isLifetime
-    ? (lang === 'id' ? 'Rp 249.000' : '$39')
-    : (lang === 'id' ? 'Rp 49.000' : '$4.99');
+    ? (lang === 'id' ? 'Rp 1.290.000' : '$129')
+    : isYearly
+      ? (lang === 'id' ? 'Rp 790.000' : '$79')
+      : (lang === 'id' ? 'Rp 99.000' : '$9.99');
 
   const proPeriod = isLifetime
     ? t('pricing.lifetime.period', { defaultValue: 'Sekali bayar, akses selamanya' })
-    : t('pricing.pro.period', { defaultValue: '/ bulan' });
+    : isYearly
+      ? t('pricing.yearly.period', { defaultValue: '/ tahun ($6.58/bln)' })
+      : t('pricing.pro.period', { defaultValue: '/ bulan' });
 
   const freeFeatures = [
     t('pricing.free.f1', { defaultValue: 'Akses ke semua 14 alat foto AI lokal' }),
@@ -174,7 +179,7 @@ export const PricingPage: React.FC = () => {
       q: t('pricing.faq6.q', { defaultValue: 'Apa itu Founder Lifetime Pass dan bagaimana cara kerjanya?' }),
       a: t('pricing.faq6.a', {
         defaultValue:
-          'Founder Lifetime Pass adalah penawaran khusus early-bird di mana Anda hanya perlu membayar 1 kali (Rp 249.000 / $24.99) untuk mendapatkan seluruh kapabilitas PRO selamanya. Tidak ada biaya langganan bulanan atau tahunan, dan akun Anda otomatis mendapatkan semua alat baru yang kami rilis di masa depan.',
+          'Founder Lifetime Pass adalah penawaran khusus early-bird di mana Anda hanya perlu membayar 1 kali (Rp 1.290.000 / $129) untuk mendapatkan seluruh kapabilitas PRO selamanya di seluruh ekosistem (4 Web Apps, Windows App, dan APK Mobile). Tidak ada biaya langganan bulanan atau tahunan, dan akun Anda otomatis mendapatkan semua alat baru yang kami rilis di masa depan.',
       }),
     },
     {
@@ -257,25 +262,39 @@ export const PricingPage: React.FC = () => {
             <button
               type="button"
               onClick={() => setBillingCycle('monthly')}
-              className={`px-5 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all cursor-pointer ${billingCycle === 'monthly'
+              className={`px-4 sm:px-5 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all cursor-pointer ${billingCycle === 'monthly'
                 ? 'bg-white dark:bg-dark-700 text-slate-900 dark:text-white shadow-sm'
                 : 'text-slate-500 hover:text-slate-800 dark:text-slate-400 dark:hover:text-white'
                 }`}
             >
-              {t('pricing.billing.monthly', { defaultValue: 'Langganan Bulanan' })}
+              {t('pricing.billing.monthly', { defaultValue: 'Bulanan' })}
             </button>
             <button
               type="button"
-              onClick={() => setBillingCycle('lifetime')}
-              className={`relative px-5 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all flex items-center gap-2 cursor-pointer ${billingCycle === 'lifetime'
+              onClick={() => setBillingCycle('yearly')}
+              className={`relative px-4 sm:px-5 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all flex items-center gap-1.5 cursor-pointer ${billingCycle === 'yearly'
                 ? 'bg-gradient-to-r from-cyan-500 to-blue-600 text-white shadow-md shadow-cyan-500/20'
                 : 'text-slate-500 hover:text-slate-800 dark:text-slate-400 dark:hover:text-white'
                 }`}
             >
-              <Crown className="w-4 h-4 text-amber-300" />
-              <span>{t('pricing.billing.lifetime', { defaultValue: 'Founder Lifetime Pass' })}</span>
-              <span className="px-2 py-0.5 rounded-full bg-amber-400 text-slate-950 font-black text-[10px] uppercase tracking-wider">
-                {t('pricing.billing.saveBadge', { defaultValue: 'HEMAT 80%' })}
+              <Zap className="w-4 h-4 text-cyan-200" />
+              <span>{t('pricing.billing.yearly', { defaultValue: 'Tahunan' })}</span>
+              <span className="px-1.5 py-0.5 rounded-full bg-emerald-400 text-slate-950 font-black text-[10px] uppercase tracking-wider">
+                {t('pricing.billing.saveYearly', { defaultValue: 'HEMAT 34%' })}
+              </span>
+            </button>
+            <button
+              type="button"
+              onClick={() => setBillingCycle('lifetime')}
+              className={`relative px-4 sm:px-5 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all flex items-center gap-1.5 cursor-pointer ${billingCycle === 'lifetime'
+                ? 'bg-gradient-to-r from-amber-500 to-yellow-500 text-slate-950 shadow-md shadow-amber-500/20 font-black'
+                : 'text-slate-500 hover:text-slate-800 dark:text-slate-400 dark:hover:text-white'
+                }`}
+            >
+              <Crown className="w-4 h-4 text-amber-600 dark:text-amber-400" />
+              <span>{t('pricing.billing.lifetime', { defaultValue: 'Founder Lifetime' })}</span>
+              <span className="px-1.5 py-0.5 rounded-full bg-amber-400 text-slate-950 font-black text-[10px] uppercase tracking-wider">
+                {t('pricing.billing.saveBadge', { defaultValue: 'PROMO' })}
               </span>
             </button>
           </div>
@@ -287,6 +306,16 @@ export const PricingPage: React.FC = () => {
             >
               <Sparkles className="w-3.5 h-3.5" />
               <span>{t('pricing.billing.slotsLeft', { defaultValue: 'Sisa 47 dari 200 Kuota Early Bird' })}</span>
+            </motion.div>
+          )}
+          {isYearly && (
+            <motion.div
+              initial={{ opacity: 0, y: -4 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="mt-3 text-xs font-mono font-medium text-emerald-600 dark:text-emerald-400 flex items-center gap-1.5"
+            >
+              <Sparkles className="w-3.5 h-3.5" />
+              <span>{t('pricing.billing.yearlyBanner', { defaultValue: 'Paket Paling Populer: Setara hanya $6.58 / bulan' })}</span>
             </motion.div>
           )}
         </div>
@@ -353,7 +382,9 @@ export const PricingPage: React.FC = () => {
             <div className="absolute top-0 right-0 bg-gradient-to-r from-amber-500 to-yellow-400 text-slate-950 font-black text-[11px] uppercase tracking-wider py-1.5 px-4 rounded-bl-xl shadow-sm">
               {isLifetime
                 ? t('pricing.lifetime.badge', { defaultValue: 'FOUNDER PASS (SLOT TERBATAS)' })
-                : t('pricing.pro.badge', { defaultValue: 'PALING DIMINATI' })}
+                : isYearly
+                  ? t('pricing.yearly.badge', { defaultValue: 'PALING POPULER • HEMAT $40' })
+                  : t('pricing.pro.badge', { defaultValue: 'FLEKSIBEL' })}
             </div>
 
             <div>
@@ -362,7 +393,9 @@ export const PricingPage: React.FC = () => {
                 <span className="text-sm font-bold uppercase tracking-wider text-cyan-400 font-mono">
                   {isLifetime
                     ? t('pricing.lifetime.name', { defaultValue: 'Paket PRO Founder Lifetime' })
-                    : t('pricing.pro.name', { defaultValue: 'Paket PRO Studio' })}
+                    : isYearly
+                      ? t('pricing.yearly.name', { defaultValue: 'Paket PRO Studio (Tahunan)' })
+                      : t('pricing.pro.name', { defaultValue: 'Paket PRO Studio (Bulanan)' })}
                 </span>
               </div>
 
@@ -372,7 +405,12 @@ export const PricingPage: React.FC = () => {
                 </span>
                 {isLifetime && (
                   <span className="text-lg text-slate-400 line-through font-semibold">
-                    {lang === 'id' ? 'Rp 499.000' : '$99'}
+                    {lang === 'id' ? 'Rp 1.690.000' : '$169'}
+                  </span>
+                )}
+                {isYearly && (
+                  <span className="text-lg text-slate-400 line-through font-semibold">
+                    {lang === 'id' ? 'Rp 1.188.000' : '$119.88'}
                   </span>
                 )}
                 <span className="text-sm text-slate-400 font-medium">
@@ -386,10 +424,15 @@ export const PricingPage: React.FC = () => {
                     defaultValue:
                       'Akses penuh tanpa batas seumur hidup ke seluruh ekosistem HelpMyIMG. Tanpa tagihan berulang, tanpa biaya bulanan, dan jaminan gratis selamanya untuk pembaruan fitur baru.',
                   })
-                  : t('pricing.pro.desc', {
-                    defaultValue:
-                      'Kekuatan batch tak terbatas, ekspor Ultra-HD 4K tanpa kompresi, dan kecepatan prioritas multi-core.',
-                  })}
+                  : isYearly
+                    ? t('pricing.yearly.desc', {
+                      defaultValue:
+                        'Akses PRO penuh 1 tahun untuk seluruh ekosistem. Hemat 34% dibanding tagihan bulanan dan nikmati seluruh fitur studio tanpa batas.',
+                    })
+                    : t('pricing.pro.desc', {
+                      defaultValue:
+                        'Kekuatan batch tak terbatas, ekspor Ultra-HD 4K tanpa kompresi, dan kecepatan prioritas multi-core.',
+                    })}
               </p>
 
               <div className="space-y-3.5 mb-8">
@@ -417,7 +460,9 @@ export const PricingPage: React.FC = () => {
                     ? t('pricing.pro.btnActive', { defaultValue: 'Member PRO Aktif' })
                     : isLifetime
                       ? t('pricing.lifetime.btn', { defaultValue: 'Klaim Founder Lifetime Pass' })
-                      : t('pricing.pro.btn', { defaultValue: 'Berlangganan PRO Sekarang' })}
+                      : isYearly
+                        ? t('pricing.yearly.btn', { defaultValue: 'Berlangganan PRO Tahunan' })
+                        : t('pricing.pro.btn', { defaultValue: 'Berlangganan PRO Bulanan' })}
                 </span>
                 <ArrowRight className="w-4 h-4" />
               </button>
