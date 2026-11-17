@@ -76,7 +76,7 @@ const AppLayout = () => {
   const { hasActiveFiles } = useRouter();
 
   return (
-    <div className="min-h-screen bg-dark-900 text-slate-900 dark:text-slate-100 font-body flex flex-col transition-colors duration-300 selection:bg-[#05DAED]/30 selection:text-[#05DAED]">
+    <div className="min-h-screen bg-dark-900 text-slate-900 dark:text-slate-100 font-body flex flex-col selection:bg-[#05DAED]/30 selection:text-[#05DAED]">
       <JsonLd />
       <Navbar />
       <MainContent />

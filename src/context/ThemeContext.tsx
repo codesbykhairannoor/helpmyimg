@@ -1,7 +1,7 @@
 // src/context/ThemeContext.tsx
 // Konteks Tema (Dark Mode & Light Mode Toggle) untuk Pengalaman Studio AI Profesional
 
-import React, { createContext, useContext, useState, useEffect, type ReactNode } from 'react';
+import React, { createContext, useContext, useState, useLayoutEffect, useEffect, type ReactNode } from 'react';
 
 type Theme = 'dark' | 'light';
 
@@ -14,6 +14,8 @@ interface ThemeContextType {
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
 const THEME_STORAGE_KEY = 'helpmyimg_theme_preference';
+
+const useIsomorphicLayoutEffect = typeof window !== 'undefined' ? useLayoutEffect : useEffect;
 
 export const ThemeProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
   const [theme, setThemeState] = useState<Theme>(() => {
@@ -28,12 +30,14 @@ export const ThemeProvider: React.FC<{ children: ReactNode }> = ({ children }) =
     }
   });
 
-  useEffect(() => {
+  useIsomorphicLayoutEffect(() => {
     const root = document.documentElement;
     if (theme === 'dark') {
       root.classList.add('dark');
+      root.style.colorScheme = 'dark';
     } else {
       root.classList.remove('dark');
+      root.style.colorScheme = 'light';
     }
     try {
       localStorage.setItem(THEME_STORAGE_KEY, theme);
@@ -43,11 +47,36 @@ export const ThemeProvider: React.FC<{ children: ReactNode }> = ({ children }) =
   }, [theme]);
 
   const toggleTheme = () => {
-    setThemeState((prev) => (prev === 'dark' ? 'light' : 'dark'));
+    setThemeState((prev) => {
+      const next = prev === 'dark' ? 'light' : 'dark';
+      const root = document.documentElement;
+      if (next === 'dark') {
+        root.classList.add('dark');
+        root.style.colorScheme = 'dark';
+      } else {
+        root.classList.remove('dark');
+        root.style.colorScheme = 'light';
+      }
+      try {
+        localStorage.setItem(THEME_STORAGE_KEY, next);
+      } catch {}
+      return next;
+    });
   };
 
   const setTheme = (newTheme: Theme) => {
     setThemeState(newTheme);
+    const root = document.documentElement;
+    if (newTheme === 'dark') {
+      root.classList.add('dark');
+      root.style.colorScheme = 'dark';
+    } else {
+      root.classList.remove('dark');
+      root.style.colorScheme = 'light';
+    }
+    try {
+      localStorage.setItem(THEME_STORAGE_KEY, newTheme);
+    } catch {}
   };
 
   return (

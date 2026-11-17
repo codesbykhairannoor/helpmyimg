@@ -978,7 +978,7 @@ function generateSemanticHtml(lang, urlPath, title, desc, tool, infoPage, transl
 
   // Pre-rendered Footer - Matches React src/components/Footer.tsx
   const footerHtml = `
-    <footer class="w-full border-t border-dark-600/60 bg-dark-900/90 backdrop-blur-xl py-12 mt-20 text-slate-600 dark:text-slate-300">
+    <footer class="w-full border-t border-slate-200 dark:border-dark-600/60 bg-white dark:bg-dark-900/90 backdrop-blur-xl py-12 mt-20 text-slate-600 dark:text-slate-300">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
           <div class="space-y-4">
@@ -1571,7 +1571,7 @@ function generateSemanticHtml(lang, urlPath, title, desc, tool, infoPage, transl
     }
 
     return `
-      <div class="min-h-screen bg-dark-900 text-slate-900 dark:text-slate-100 font-body flex flex-col transition-colors duration-300 selection:bg-[#05DAED]/30 selection:text-[#05DAED]" ${dirAttr}>
+      <div class="min-h-screen bg-dark-900 text-slate-900 dark:text-slate-100 font-body flex flex-col selection:bg-[#05DAED]/30 selection:text-[#05DAED]" ${dirAttr}>
         <div class="fixed top-1/2 left-0 w-[500px] h-[500px] -translate-x-1/2 -translate-y-1/2 bg-[radial-gradient(circle_at_center,rgba(5,218,237,0.12)_0%,transparent_60%)] rounded-full pointer-events-none -z-10"></div>
         <div class="fixed top-1/3 right-0 w-[600px] h-[600px] translate-x-1/3 -translate-y-1/2 bg-[radial-gradient(circle_at_center,rgba(79,70,229,0.1)_0%,transparent_60%)] rounded-full pointer-events-none -z-10"></div>
         ${navbarHtml}
@@ -1637,7 +1637,7 @@ function generateSemanticHtml(lang, urlPath, title, desc, tool, infoPage, transl
     }
 
     return `
-      <div class="min-h-screen bg-dark-900 text-slate-900 dark:text-slate-100 font-body flex flex-col transition-colors duration-300 selection:bg-[#05DAED]/30 selection:text-[#05DAED]" ${dirAttr}>
+      <div class="min-h-screen bg-dark-900 text-slate-900 dark:text-slate-100 font-body flex flex-col selection:bg-[#05DAED]/30 selection:text-[#05DAED]" ${dirAttr}>
         <div class="fixed top-1/2 left-0 w-[500px] h-[500px] -translate-x-1/2 -translate-y-1/2 bg-[radial-gradient(circle_at_center,rgba(5,218,237,0.12)_0%,transparent_60%)] rounded-full pointer-events-none -z-10"></div>
         <div class="fixed top-1/3 right-0 w-[600px] h-[600px] translate-x-1/3 -translate-y-1/2 bg-[radial-gradient(circle_at_center,rgba(79,70,229,0.1)_0%,transparent_60%)] rounded-full pointer-events-none -z-10"></div>
         ${navbarHtml}
@@ -1923,7 +1923,7 @@ function generateSemanticHtml(lang, urlPath, title, desc, tool, infoPage, transl
   }
 
   return `
-    <div class="min-h-screen bg-dark-900 text-slate-900 dark:text-slate-100 font-body flex flex-col transition-colors duration-300 selection:bg-[#05DAED]/30 selection:text-[#05DAED]" ${dirAttr}>
+    <div class="min-h-screen bg-dark-900 text-slate-900 dark:text-slate-100 font-body flex flex-col selection:bg-[#05DAED]/30 selection:text-[#05DAED]" ${dirAttr}>
       <div class="fixed top-1/2 left-0 w-[500px] h-[500px] -translate-x-1/2 -translate-y-1/2 bg-[radial-gradient(circle_at_center,rgba(5,218,237,0.12)_0%,transparent_60%)] rounded-full pointer-events-none -z-10"></div>
       <div class="fixed top-1/3 right-0 w-[600px] h-[600px] translate-x-1/3 -translate-y-1/2 bg-[radial-gradient(circle_at_center,rgba(79,70,229,0.1)_0%,transparent_60%)] rounded-full pointer-events-none -z-10"></div>
       ${navbarHtml}
@@ -2053,8 +2053,8 @@ const generateHtml = (lang, urlPath, rawTitle, rawDesc, tool = null, translation
   html = html.replace(/<meta name="description"[^>]*>\n?\s*/gi, '');
   html = html.replace(/<title>.*?<\/title>/i, '');
 
-  // 1. Replace <html lang="..."> and enforce dark mode class
-  html = html.replace(/<html[^>]*>/i, `<html lang="${lang}" class="dark">`);
+  // 1. Replace <html lang="..."> (Theme is handled instantly by inline head script without flash)
+  html = html.replace(/<html[^>]*>/i, `<html lang="${lang}">`);
 
   // 2. Generate and inject dynamic hreflangs for THIS specific route
   let dynamicHreflangs = `<!-- Dynamic Localized Hreflang Tags for 30 Languages -->\n`;

@@ -1,7 +1,23 @@
 <!doctype html>
-<html lang="en" class="dark">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <script>
+      (function() {
+        try {
+          var key = 'helpmyimg_theme_preference';
+          var saved = localStorage.getItem(key);
+          var isDark = saved ? saved === 'dark' : true;
+          if (isDark) {
+            document.documentElement.classList.add('dark');
+            document.documentElement.style.colorScheme = 'dark';
+          } else {
+            document.documentElement.classList.remove('dark');
+            document.documentElement.style.colorScheme = 'light';
+          }
+        } catch (e) {}
+      })();
+    </script>
     <link rel="icon" type="image/png" href="/logobaru.png" />
     <link rel="apple-touch-icon" href="/logobaru.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -10,14 +26,9 @@
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"></noscript>
     
-    <!-- Critical CSS Guard: 0ms First Paint, Zero CLS & FOUC Prevention (Google Core Web Vitals) -->
+    <!-- Critical CSS Guard: 0ms First Paint, Zero CLS & Theme-Aware FOUC Prevention -->
     <style id="critical-fouc-guard">
-      :root {
-        color-scheme: dark;
-      }
       html {
-        background-color: #080c14 !important;
-        color: #f1f5f9 !important;
         font-family: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif !important;
         -webkit-text-size-adjust: 100%;
         box-sizing: border-box;
@@ -28,21 +39,38 @@
       body {
         margin: 0;
         padding: 0;
-        background-color: #080c14 !important;
-        color: #f1f5f9 !important;
         min-height: 100vh;
         overflow-x: clip;
         -webkit-font-smoothing: antialiased;
       }
-      a {
-        color: inherit;
-        text-decoration: none;
+      /* Theme-Adaptive Base Colors - Zero Flash on Refresh */
+      html.dark,
+      html.dark body {
+        color-scheme: dark;
+        background-color: #080c14;
+        color: #f1f5f9;
       }
-      h1, h2, h3, h4, h5, h6 {
+      html:not(.dark),
+      html:not(.dark) body {
+        color-scheme: light;
+        background-color: #f8fafc;
+        color: #0f172a;
+      }
+      html.dark h1, html.dark h2, html.dark h3, html.dark h4, html.dark h5, html.dark h6 {
         font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif !important;
         color: #ffffff;
         letter-spacing: -0.025em;
         margin-top: 0;
+      }
+      html:not(.dark) h1, html:not(.dark) h2, html:not(.dark) h3, html:not(.dark) h4, html:not(.dark) h5, html:not(.dark) h6 {
+        font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif !important;
+        color: #0f172a;
+        letter-spacing: -0.025em;
+        margin-top: 0;
+      }
+      a {
+        color: inherit;
+        text-decoration: none;
       }
       img, svg, video { max-width: 100%; height: auto; }
       header { min-height: 60px; height: 60px; width: 100%; z-index: 10001; }
@@ -60,6 +88,15 @@
         body { zoom: 0.8; }
       }
     </style>
+    <noscript>
+      <style>
+        html {
+          color-scheme: dark;
+          background-color: #080c14;
+          color: #f1f5f9;
+        }
+      </style>
+    </noscript>
     <title>HelpMyIMG - Free AI Image Editor</title>
     <meta name="description" content="Free local AI photo editor. Remove backgrounds, compress, resize, and convert images instantly in your browser. 100% private and highly secure." />
     <meta name="google-site-verification" content="U2tOAPAwL2V7dbXLgj7VHzZgxwwIvhiZdMqe7YxrxZA" />
