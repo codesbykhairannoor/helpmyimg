@@ -2319,5 +2319,20 @@
   "pricing.yearly.desc": "Πλήρης πρόσβαση PRO 1 έτους σε ολόκληρο το οικοσύστημά μας. Εξοικονομήστε 34% σε σύγκριση με τη μηνιαία χρέωση με μηδενική ταχύτητα ή όρια παρτίδας.",
   "pricing.billing.yearly": "Ετήσιος",
   "pricing.billing.saveYearly": "ΕΞΟΙΚΟΝΟΜΗΣΗ 34%",
-  "pricing.billing.yearlyBanner": "Πιο δημοφιλή: Ισοδυναμεί με μόλις 6,58 $ / μήνα"
+  "pricing.billing.yearlyBanner": "Πιο δημοφιλή: Ισοδυναμεί με μόλις 6,58 $ / μήνα",
+  "pricing.trust.privacy": "100% στη συσκευή",
+  "pricing.trust.activation": "Άμεση ενεργοποίηση",
+  "pricing.trust.cancel": "Εγγύηση 14 ημερών",
+  "pricing.trust.crossPlatform": "Web, Windows, Mobile",
+  "pricing.suite.title": "1 Λογαριασμός Ξεκλειδώνει Ολόκληρη τη Σουίτα Προστασίας Προσωπικών Δεδομένων 4 σε 1",
+  "pricing.suite.img": "AI Photo & 4K Studio",
+  "pricing.suite.imgDesc": "Άμεση αφαίρεση φόντου, αναβάθμιση 4K, συμπίεση χωρίς απώλειες και καθαριστικό EXIF.",
+  "pricing.suite.file": "Σουίτα εγγράφων και PDF",
+  "pricing.suite.fileDesc": "Συγχώνευση PDF, συμπίεση εγγράφων, μετατροπή πολλαπλών μορφών και τοπική προστασία.",
+  "pricing.suite.media": "Περικοπή βίντεο & ήχου",
+  "pricing.suite.mediaDesc": "Περικοπή βίντεο στη συσκευή, εξαγωγή ήχου MP3 και ιδιωτική μετατροπή.",
+  "pricing.suite.qr": "Vector & Dynamic QR",
+  "pricing.suite.qrDesc": "Γεννήτρια κώδικα QR υψηλής ανάλυσης, διανυσματική προσαρμογή λογότυπου SVG και μηδενική λήξη.",
+  "pricing.capabilities.title": "Δυνατότητες Studio & Προτεραιότητα υλικού",
+  "pricing.free.stripDesc": "Πλήρης πρόσβαση και στα 14 τοπικά εργαλεία AI, δέσμες 10 φωτογραφιών, τυπικό HD, μηδενικά υδατογραφήματα και 100% τοπικό απόρρητο."
 }

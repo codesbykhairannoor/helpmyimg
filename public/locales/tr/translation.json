@@ -2319,5 +2319,20 @@
   "pricing.yearly.desc": "Ekosistemimizin tamamında 1 yıllık tam PRO erişimi. Sıfır hız veya toplu limitlerle aylık faturalandırmaya kıyasla %34 tasarruf edin.",
   "pricing.billing.yearly": "Yıllık",
   "pricing.billing.saveYearly": "%34 TASARRUF EDİN",
-  "pricing.billing.yearlyBanner": "En Popüler: Aylık yalnızca 6,58$'a eşdeğer"
+  "pricing.billing.yearlyBanner": "En Popüler: Aylık yalnızca 6,58$'a eşdeğer",
+  "pricing.trust.privacy": "%100 Cihazda",
+  "pricing.trust.activation": "Anında Etkinleştirme",
+  "pricing.trust.cancel": "14 Günlük Garanti",
+  "pricing.trust.crossPlatform": "Web, Windows, Mobil",
+  "pricing.suite.title": "1 Hesap Tüm 4'ü 1 Arada Gizlilik Paketinin Kilidini Açar",
+  "pricing.suite.img": "Yapay Zeka Fotoğraf ve 4K Stüdyo",
+  "pricing.suite.imgDesc": "Anında arka plan kaldırma, 4K yükseltme, kayıpsız sıkıştırma ve EXIF ​​temizleyici.",
+  "pricing.suite.file": "Belge ve PDF Paketi",
+  "pricing.suite.fileDesc": "PDF'yi birleştirin, belgeleri sıkıştırın, çok formatlı dönüştürme ve yerel koruma.",
+  "pricing.suite.media": "Video ve Ses Düzeltici",
+  "pricing.suite.mediaDesc": "Cihaz üzerinde video kırpma, MP3 ses çıkarma ve özel dönüştürme.",
+  "pricing.suite.qr": "Vektör ve Dinamik QR",
+  "pricing.suite.qrDesc": "Yüksek çözünürlüklü QR kod oluşturucu, vektör SVG logo özelleştirme ve sıfır son kullanma tarihi.",
+  "pricing.capabilities.title": "Stüdyo Özellikleri ve Donanım Önceliği",
+  "pricing.free.stripDesc": "14 yerel yapay zeka aracının tümüne, toplu 10 fotoğrafa, standart HD'ye, sıfır filigrana ve %100 yerel gizliliğe tam erişim."
 }

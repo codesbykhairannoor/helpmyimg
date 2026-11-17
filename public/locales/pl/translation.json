@@ -2324,5 +2324,20 @@
   "pricing.yearly.desc": "Pełny roczny dostęp PRO w całym naszym ekosystemie. Zaoszczędź 34% w porównaniu do rozliczeń miesięcznych przy zerowej prędkości lub limitach partii.",
   "pricing.billing.yearly": "Coroczny",
   "pricing.billing.saveYearly": "OSZCZĘDŹ 34%",
-  "pricing.billing.yearlyBanner": "Najpopularniejszy: równowartość zaledwie 6,58 USD miesięcznie"
+  "pricing.billing.yearlyBanner": "Najpopularniejszy: równowartość zaledwie 6,58 USD miesięcznie",
+  "pricing.trust.privacy": "100% na urządzeniu",
+  "pricing.trust.activation": "Natychmiastowa aktywacja",
+  "pricing.trust.cancel": "14-dniowa gwarancja",
+  "pricing.trust.crossPlatform": "Internet, Windows, urządzenia mobilne",
+  "pricing.suite.title": "1 konto odblokowuje cały pakiet prywatności 4 w 1",
+  "pricing.suite.img": "Studio fotograficzne AI i 4K",
+  "pricing.suite.imgDesc": "Natychmiastowe usuwanie tła, skalowanie do 4K, bezstratna kompresja i czyszczenie EXIF.",
+  "pricing.suite.file": "Pakiet dokumentów i plików PDF",
+  "pricing.suite.fileDesc": "Scal pliki PDF, kompresuj dokumenty, konwertuj wiele formatów i lokalną ochronę.",
+  "pricing.suite.media": "Trymer wideo i audio",
+  "pricing.suite.mediaDesc": "Przycinanie wideo na urządzeniu, ekstrakcja dźwięku MP3 i konwersja prywatna.",
+  "pricing.suite.qr": "Wektorowe i dynamiczne kody QR",
+  "pricing.suite.qrDesc": "Generator kodów QR o wysokiej rozdzielczości, dostosowywanie logo wektorowego SVG i zerowa data ważności.",
+  "pricing.capabilities.title": "Możliwości studia i priorytet sprzętu",
+  "pricing.free.stripDesc": "Pełny dostęp do wszystkich 14 lokalnych narzędzi AI, 10 zdjęć w formacie HD, brak znaków wodnych i 100% prywatności lokalnej."
 }

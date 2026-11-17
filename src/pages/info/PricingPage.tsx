@@ -114,6 +114,33 @@ export const PricingPage: React.FC = () => {
       t('pricing.pro.f8', { defaultValue: 'Dukungan pelanggan prioritas & akses fitur baru lebih awal' }),
     ];
 
+  const suiteApps = [
+    {
+      icon: '🖼️',
+      name: 'HelpMyIMG',
+      role: t('pricing.suite.img', { defaultValue: 'Studio AI Foto & 4K Cutout' }),
+      desc: t('pricing.suite.imgDesc', { defaultValue: 'Hapus background instan, 4K upscaling, kompresi lossless, & EXIF cleaner.' }),
+    },
+    {
+      icon: '📄',
+      name: 'HandleMyFile',
+      role: t('pricing.suite.file', { defaultValue: 'Dokumen & PDF Suite' }),
+      desc: t('pricing.suite.fileDesc', { defaultValue: 'Gabung PDF, kompres dokumen, konversi multi-format, & proteksi lokal.' }),
+    },
+    {
+      icon: '🎬',
+      name: 'SolveMyMedia',
+      role: t('pricing.suite.media', { defaultValue: 'Video & Audio Trimmer' }),
+      desc: t('pricing.suite.mediaDesc', { defaultValue: 'Pemangkasan video on-device, ekstraksi audio MP3, & konversi privat.' }),
+    },
+    {
+      icon: '🏁',
+      name: 'CreateMy-QR',
+      role: t('pricing.suite.qr', { defaultValue: 'Vector & Dynamic QR' }),
+      desc: t('pricing.suite.qrDesc', { defaultValue: 'Generator QR code resolusi tinggi, kustomisasi logo vektor SVG, & tanpa batas.' }),
+    },
+  ];
+
   const matrixRows = [
     {
       name: t('pricing.matrix.row1.name', { defaultValue: 'Batas Pemrosesan Batch' }),
@@ -320,153 +347,200 @@ export const PricingPage: React.FC = () => {
           )}
         </div>
 
-        {/* SECTION 2: DUA PAKET HARGA (FREE & PRO) */}
-        <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto mb-24 items-stretch">
-          {/* TIER 1: PAKET GRATIS (FREE) */}
-          <div className="flex flex-col justify-between bg-white dark:bg-dark-800 rounded-3xl border border-slate-200 dark:border-dark-600 p-8 sm:p-10 shadow-sm hover:shadow-md transition-shadow relative">
-            <div>
-              <div className="flex items-center justify-between mb-4">
-                <span className="text-sm font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400">
-                  {t('pricing.free.name', { defaultValue: 'Paket Gratis (Free)' })}
-                </span>
-                <span className="text-xs font-semibold px-2.5 py-1 rounded-full bg-slate-100 dark:bg-dark-700 text-slate-600 dark:text-slate-300">
-                  {t('pricing.free.period', { defaultValue: 'Gratis Selamanya' })}
-                </span>
-              </div>
-
-              <div className="flex items-baseline gap-2 mb-4">
-                <span className="text-4xl sm:text-5xl font-black text-slate-900 dark:text-white font-heading">
-                  $0
-                </span>
-                <span className="text-sm text-slate-500 dark:text-slate-400 font-medium">
-                  {t('pricing.free.period', { defaultValue: 'Gratis Selamanya' })}
-                </span>
-              </div>
-
-              <p className="text-sm text-slate-600 dark:text-slate-300 mb-8 leading-relaxed">
-                {t('pricing.free.desc', {
-                  defaultValue:
-                    'Alat AI lokal esensial untuk kreator individu, pelajar, dan kebutuhan editing foto harian.',
-                })}
-              </p>
-
-              <div className="space-y-3.5 mb-8">
-                {freeFeatures.map((feat, idx) => (
-                  <div key={idx} className="flex items-start gap-3 text-sm text-slate-700 dark:text-slate-200">
-                    <div className="w-5 h-5 rounded-full bg-emerald-500/10 text-emerald-500 flex items-center justify-center shrink-0 mt-0.5">
-                      <Check className="w-3.5 h-3.5 stroke-[2.5]" />
-                    </div>
-                    <span>{feat}</span>
-                  </div>
-                ))}
-              </div>
+        {/* SECTION 2: MASTER PRO SUITE SHOWCASE */}
+        <div className="max-w-6xl mx-auto mb-24">
+          <div className="relative rounded-3xl bg-gradient-to-b from-dark-800 to-dark-900 border-2 border-cyan-500/80 dark:border-[#05DAED]/80 shadow-2xl shadow-cyan-500/10 p-6 sm:p-10 lg:p-12 overflow-hidden">
+            {/* Top decorative badge */}
+            <div className="absolute top-0 right-0 bg-gradient-to-r from-amber-500 to-yellow-400 text-slate-950 font-black text-xs uppercase tracking-wider py-1.5 px-5 rounded-bl-2xl shadow-md flex items-center gap-1.5">
+              <Crown className="w-3.5 h-3.5 text-slate-950" />
+              <span>
+                {isLifetime
+                  ? t('pricing.lifetime.badge', { defaultValue: 'FOUNDER PASS (SLOT TERBATAS)' })
+                  : isYearly
+                    ? t('pricing.yearly.badge', { defaultValue: 'PALING POPULER • HEMAT $40' })
+                    : t('pricing.pro.badge', { defaultValue: 'FLEKSIBEL' })}
+              </span>
             </div>
 
-            <div>
-              <button
-                onClick={handleFreeAction}
-                className="w-full py-3.5 px-6 rounded-2xl font-bold text-sm bg-slate-100 hover:bg-slate-200 dark:bg-dark-700 dark:hover:bg-dark-600 text-slate-800 dark:text-white border border-slate-300 dark:border-dark-500/80 transition-colors flex items-center justify-center gap-2 cursor-pointer"
-              >
-                <span>
-                  {user && !isPro
-                    ? t('pricing.free.btnActive', { defaultValue: 'Paket Aktif Saat Ini' })
-                    : t('pricing.free.btn', { defaultValue: 'Mulai Gratis Sekarang' })}
-                </span>
-                <ArrowRight className="w-4 h-4" />
-              </button>
+            <div className="grid lg:grid-cols-12 gap-8 lg:gap-12 items-stretch">
+              {/* LEFT PANE: Pricing & Big CTA (5 cols on lg) */}
+              <div className="lg:col-span-5 flex flex-col justify-between pr-0 lg:pr-6 border-b lg:border-b-0 lg:border-r border-slate-700/60 pb-8 lg:pb-0">
+                <div>
+                  <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 text-xs font-mono font-bold uppercase tracking-wider mb-4">
+                    <Sparkles className="w-3.5 h-3.5" />
+                    <span>
+                      {isLifetime
+                        ? t('pricing.lifetime.name', { defaultValue: 'Paket PRO Founder Lifetime' })
+                        : isYearly
+                          ? t('pricing.yearly.name', { defaultValue: 'Paket PRO Studio (Tahunan)' })
+                          : t('pricing.pro.name', { defaultValue: 'Paket PRO Studio (Bulanan)' })}
+                    </span>
+                  </div>
+
+                  {/* Price display with animation */}
+                  <div className="flex items-baseline gap-3 mb-3">
+                    <span className="text-5xl sm:text-6xl font-black text-white font-heading tracking-tight">
+                      {proPrice}
+                    </span>
+                    {isLifetime && (
+                      <span className="text-xl text-slate-400 line-through font-semibold">
+                        $169
+                      </span>
+                    )}
+                    {isYearly && (
+                      <span className="text-xl text-slate-400 line-through font-semibold">
+                        $119.88
+                      </span>
+                    )}
+                    <span className="text-sm sm:text-base text-slate-300 font-medium">
+                      {proPeriod}
+                    </span>
+                  </div>
+
+                  <p className="text-sm text-slate-300 mb-8 leading-relaxed">
+                    {isLifetime
+                      ? t('pricing.lifetime.desc', {
+                        defaultValue:
+                          'Akses penuh tanpa batas seumur hidup ke seluruh ekosistem HelpMyIMG. Tanpa tagihan berulang, tanpa biaya bulanan, dan jaminan gratis selamanya untuk pembaruan fitur baru.',
+                      })
+                      : isYearly
+                        ? t('pricing.yearly.desc', {
+                          defaultValue:
+                            'Akses PRO penuh 1 tahun untuk seluruh ekosistem. Hemat 34% dibanding tagihan bulanan dan nikmati seluruh fitur studio tanpa batas.',
+                        })
+                        : t('pricing.pro.desc', {
+                          defaultValue:
+                            'Kekuatan batch tak terbatas, ekspor Ultra-HD 4K tanpa kompresi, dan kecepatan prioritas multi-core.',
+                        })}
+                  </p>
+                </div>
+
+                <div className="space-y-4">
+                  <button
+                    onClick={handleProAction}
+                    className="w-full py-4 px-6 rounded-2xl font-bold text-base bg-gradient-to-r from-cyan-500 via-blue-600 to-indigo-600 hover:from-cyan-400 hover:to-blue-500 text-white shadow-xl shadow-cyan-500/25 transition-all flex items-center justify-center gap-2 cursor-pointer"
+                  >
+                    <Crown className="w-5 h-5 text-amber-300" />
+                    <span>
+                      {isPro
+                        ? t('pricing.pro.btnActive', { defaultValue: 'Member PRO Aktif' })
+                        : isLifetime
+                          ? t('pricing.lifetime.btn', { defaultValue: 'Klaim Founder Lifetime Pass' })
+                          : isYearly
+                            ? t('pricing.yearly.btn', { defaultValue: 'Berlangganan PRO Tahunan ($79)' })
+                            : t('pricing.pro.btn', { defaultValue: 'Berlangganan PRO Bulanan ($9.99)' })}
+                    </span>
+                    <ArrowRight className="w-5 h-5" />
+                  </button>
+
+                  {/* Trust markers */}
+                  <div className="grid grid-cols-2 gap-2 text-xs text-slate-400 pt-2 border-t border-slate-700/50">
+                    <div className="flex items-center gap-1.5">
+                      <ShieldCheck className="w-4 h-4 text-emerald-400 shrink-0" />
+                      <span>{t('pricing.trust.privacy', { defaultValue: '100% On-Device' })}</span>
+                    </div>
+                    <div className="flex items-center gap-1.5">
+                      <Zap className="w-4 h-4 text-cyan-400 shrink-0" />
+                      <span>{t('pricing.trust.activation', { defaultValue: 'Aktivasi Instan' })}</span>
+                    </div>
+                    <div className="flex items-center gap-1.5">
+                      <Clock className="w-4 h-4 text-indigo-400 shrink-0" />
+                      <span>{t('pricing.trust.cancel', { defaultValue: 'Garansi 14 Hari' })}</span>
+                    </div>
+                    <div className="flex items-center gap-1.5">
+                      <Cpu className="w-4 h-4 text-amber-400 shrink-0" />
+                      <span>{t('pricing.trust.crossPlatform', { defaultValue: 'Web, Windows, Mobile' })}</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* RIGHT PANE: The 4 Web Apps Suite Showcase & Checklist (7 cols on lg) */}
+              <div className="lg:col-span-7 flex flex-col justify-between space-y-6">
+                <div>
+                  <div className="flex items-center justify-between mb-3">
+                    <h3 className="text-sm font-bold uppercase tracking-wider text-cyan-400 flex items-center gap-2">
+                      <Layers className="w-4 h-4" />
+                      <span>{t('pricing.suite.title', { defaultValue: '1 Akun Membuka Seluruh 4-in-1 Privacy Suite' })}</span>
+                    </h3>
+                    <span className="text-xs font-mono px-2 py-0.5 rounded-full bg-cyan-500/20 text-[#05DAED] font-bold">
+                      ALL-ACCESS
+                    </span>
+                  </div>
+
+                  {/* 4 Web Apps Grid */}
+                  <div className="grid sm:grid-cols-2 gap-3 mb-6">
+                    {suiteApps.map((app, idx) => (
+                      <div
+                        key={idx}
+                        className="p-3.5 rounded-2xl bg-dark-700/60 hover:bg-dark-700 border border-slate-700/60 hover:border-cyan-500/40 transition-all flex items-start gap-3"
+                      >
+                        <span className="text-2xl shrink-0 p-1.5 rounded-xl bg-dark-800 border border-slate-700/60 leading-none">
+                          {app.icon}
+                        </span>
+                        <div className="min-w-0">
+                          <h4 className="text-sm font-bold text-white tracking-tight flex items-center gap-1.5">
+                            <span>{app.name}</span>
+                            <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 shrink-0"></span>
+                          </h4>
+                          <p className="text-xs text-slate-300 font-medium truncate">{app.role}</p>
+                          <p className="text-xs text-slate-400 line-clamp-1 mt-0.5">{app.desc}</p>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Studio Capabilities Checklist */}
+                <div>
+                  <h4 className="text-xs font-mono uppercase tracking-wider text-slate-400 mb-3 font-semibold">
+                    {t('pricing.capabilities.title', { defaultValue: 'Kapabilitas Studio & Prioritas Mesin' })}
+                  </h4>
+                  <div className="grid sm:grid-cols-2 gap-2.5">
+                    {proFeatures.slice(0, 6).map((feat, idx) => (
+                      <div key={idx} className="flex items-start gap-2.5 text-xs sm:text-sm text-slate-200">
+                        <div className="w-4 h-4 rounded-full bg-cyan-400/20 text-[#05DAED] flex items-center justify-center shrink-0 mt-0.5">
+                          <Check className="w-3 h-3 stroke-[3]" />
+                        </div>
+                        <span className="leading-snug">{feat}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
 
-          {/* TIER 2: PAKET BERBAYAR PRO (PRO STUDIO / FOUNDER LIFETIME) */}
-          <div className="flex flex-col justify-between bg-gradient-to-b from-dark-800 to-dark-900 rounded-3xl border-2 border-cyan-500 dark:border-[#05DAED] p-8 sm:p-10 shadow-xl shadow-cyan-500/10 relative overflow-hidden">
-            <div className="absolute top-0 right-0 bg-gradient-to-r from-amber-500 to-yellow-400 text-slate-950 font-black text-[11px] uppercase tracking-wider py-1.5 px-4 rounded-bl-xl shadow-sm">
-              {isLifetime
-                ? t('pricing.lifetime.badge', { defaultValue: 'FOUNDER PASS (SLOT TERBATAS)' })
-                : isYearly
-                  ? t('pricing.yearly.badge', { defaultValue: 'PALING POPULER • HEMAT $40' })
-                  : t('pricing.pro.badge', { defaultValue: 'FLEKSIBEL' })}
-            </div>
-
-            <div>
-              <div className="flex items-center gap-2 mb-4">
-                <Crown className="w-5 h-5 text-amber-400" />
-                <span className="text-sm font-bold uppercase tracking-wider text-cyan-400 font-mono">
-                  {isLifetime
-                    ? t('pricing.lifetime.name', { defaultValue: 'Paket PRO Founder Lifetime' })
-                    : isYearly
-                      ? t('pricing.yearly.name', { defaultValue: 'Paket PRO Studio (Tahunan)' })
-                      : t('pricing.pro.name', { defaultValue: 'Paket PRO Studio (Bulanan)' })}
-                </span>
+          {/* COMPACT FREE STARTER HORIZONTAL STRIP */}
+          <div className="mt-6 p-5 sm:p-6 rounded-2xl bg-white dark:bg-dark-800 border border-slate-200 dark:border-dark-600 shadow-sm flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div className="flex items-center gap-4 text-center sm:text-left">
+              <div className="w-11 h-11 rounded-2xl bg-cyan-500/10 text-cyan-600 dark:text-[#05DAED] flex items-center justify-center shrink-0">
+                <Sparkles className="w-5 h-5" />
               </div>
-
-              <div className="flex items-baseline gap-2.5 mb-4">
-                <span className="text-4xl sm:text-5xl font-black text-white font-heading tracking-tight">
-                  {proPrice}
-                </span>
-                {isLifetime && (
-                  <span className="text-lg text-slate-400 line-through font-semibold">
-                    $169
+              <div>
+                <h4 className="text-sm sm:text-base font-bold text-slate-900 dark:text-white flex items-center justify-center sm:justify-start gap-2">
+                  <span>{t('pricing.free.name', { defaultValue: 'Paket Gratis (Free Starter)' })}</span>
+                  <span className="text-xs font-semibold px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-500 font-mono">
+                    $0 / Forever Free
                   </span>
-                )}
-                {isYearly && (
-                  <span className="text-lg text-slate-400 line-through font-semibold">
-                    $119.88
-                  </span>
-                )}
-                <span className="text-sm text-slate-400 font-medium">
-                  {proPeriod}
-                </span>
-              </div>
-
-              <p className="text-sm text-slate-300 mb-8 leading-relaxed">
-                {isLifetime
-                  ? t('pricing.lifetime.desc', {
-                    defaultValue:
-                      'Akses penuh tanpa batas seumur hidup ke seluruh ekosistem HelpMyIMG. Tanpa tagihan berulang, tanpa biaya bulanan, dan jaminan gratis selamanya untuk pembaruan fitur baru.',
-                  })
-                  : isYearly
-                    ? t('pricing.yearly.desc', {
-                      defaultValue:
-                        'Akses PRO penuh 1 tahun untuk seluruh ekosistem. Hemat 34% dibanding tagihan bulanan dan nikmati seluruh fitur studio tanpa batas.',
-                    })
-                    : t('pricing.pro.desc', {
-                      defaultValue:
-                        'Kekuatan batch tak terbatas, ekspor Ultra-HD 4K tanpa kompresi, dan kecepatan prioritas multi-core.',
-                    })}
-              </p>
-
-              <div className="space-y-3.5 mb-8">
-                {proFeatures.map((feat, idx) => (
-                  <div key={idx} className="flex items-start gap-3 text-sm text-slate-100">
-                    <div className="w-5 h-5 rounded-full bg-cyan-400/20 text-[#05DAED] flex items-center justify-center shrink-0 mt-0.5">
-                      <Check className="w-3.5 h-3.5 stroke-[2.5]" />
-                    </div>
-                    <span className={idx === 1 || idx === 2 ? 'font-bold text-[#05DAED]' : ''}>
-                      {feat}
-                    </span>
-                  </div>
-                ))}
+                </h4>
+                <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 mt-0.5">
+                  {t('pricing.free.stripDesc', { defaultValue: 'Akses lengkap ke semua 14 alat AI lokal, batch 10 foto, HD standar, tanpa watermark, dan privasi 100% lokal.' })}
+                </p>
               </div>
             </div>
 
-            <div>
-              <button
-                onClick={handleProAction}
-                className="w-full py-3.5 px-6 rounded-2xl font-bold text-sm bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-white shadow-lg shadow-cyan-500/25 transition-all flex items-center justify-center gap-2 cursor-pointer"
-              >
-                <Crown className="w-4 h-4 text-amber-300" />
-                <span>
-                  {isPro
-                    ? t('pricing.pro.btnActive', { defaultValue: 'Member PRO Aktif' })
-                    : isLifetime
-                      ? t('pricing.lifetime.btn', { defaultValue: 'Klaim Founder Lifetime Pass' })
-                      : isYearly
-                        ? t('pricing.yearly.btn', { defaultValue: 'Berlangganan PRO Tahunan' })
-                        : t('pricing.pro.btn', { defaultValue: 'Berlangganan PRO Bulanan' })}
-                </span>
-                <ArrowRight className="w-4 h-4" />
-              </button>
-            </div>
+            <button
+              onClick={handleFreeAction}
+              className="w-full sm:w-auto px-5 py-2.5 rounded-xl font-bold text-xs sm:text-sm bg-slate-100 hover:bg-slate-200 dark:bg-dark-700 dark:hover:bg-dark-600 text-slate-800 dark:text-white border border-slate-300 dark:border-dark-500/80 transition-colors flex items-center justify-center gap-2 shrink-0 cursor-pointer"
+            >
+              <span>
+                {user && !isPro
+                  ? t('pricing.free.btnActive', { defaultValue: 'Paket Aktif Saat Ini' })
+                  : t('pricing.free.btn', { defaultValue: 'Mulai Gratis Sekarang' })}
+              </span>
+              <ArrowRight className="w-4 h-4" />
+            </button>
           </div>
         </div>
 

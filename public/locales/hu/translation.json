@@ -2319,5 +2319,20 @@
   "pricing.yearly.desc": "Teljes 1 éves PRO hozzáférés a teljes ökoszisztémánkra. Takarítson meg 34%-ot a havi számlázáshoz képest nulla sebesség- vagy kötegkorlátozás mellett.",
   "pricing.billing.yearly": "Évi",
   "pricing.billing.saveYearly": "34% megtakarítás",
-  "pricing.billing.yearlyBanner": "Legnépszerűbb: mindössze 6,58 dollárnak felel meg / hó"
+  "pricing.billing.yearlyBanner": "Legnépszerűbb: mindössze 6,58 dollárnak felel meg / hó",
+  "pricing.trust.privacy": "100%-ban az eszközön",
+  "pricing.trust.activation": "Azonnali aktiválás",
+  "pricing.trust.cancel": "14 napos garancia",
+  "pricing.trust.crossPlatform": "Web, Windows, Mobile",
+  "pricing.suite.title": "1 fiók feloldja a teljes 4 az 1-ben adatvédelmi csomagot",
+  "pricing.suite.img": "AI Photo & 4K Studio",
+  "pricing.suite.imgDesc": "Azonnali háttér eltávolítás, 4K felskálázás, veszteségmentes tömörítés és EXIF-tisztító.",
+  "pricing.suite.file": "Dokumentum és PDF Suite",
+  "pricing.suite.fileDesc": "PDF egyesítése, dokumentumok tömörítése, többformátumú átalakítás és helyi védelem.",
+  "pricing.suite.media": "Videó és audio vágó",
+  "pricing.suite.mediaDesc": "Videóvágás az eszközön, MP3 audio kinyerés és privát konvertálás.",
+  "pricing.suite.qr": "Vektoros és dinamikus QR",
+  "pricing.suite.qrDesc": "Nagy felbontású QR-kód generátor, vektoros SVG logó testreszabása és nulla lejárat.",
+  "pricing.capabilities.title": "Stúdió képességei és hardverprioritása",
+  "pricing.free.stripDesc": "Teljes hozzáférés mind a 14 helyi mesterséges intelligencia-eszközhöz, 10 fotó köteggel, normál HD, nulla vízjel és 100%-os helyi adatvédelem."
 }

@@ -2319,5 +2319,20 @@
   "pricing.yearly.desc": "전체 생태계에 걸쳐 전체 1년 PRO 액세스가 가능합니다. 속도나 배치 제한이 없는 월별 청구에 비해 34% 절약됩니다.",
   "pricing.billing.yearly": "연간",
   "pricing.billing.saveYearly": "34% 할인",
-  "pricing.billing.yearlyBanner": "가장 인기 있는 제품: 월 $6.58에 해당"
+  "pricing.billing.yearlyBanner": "가장 인기 있는 제품: 월 $6.58에 해당",
+  "pricing.trust.privacy": "100% 온디바이스",
+  "pricing.trust.activation": "즉각적인 활성화",
+  "pricing.trust.cancel": "14일 보증",
+  "pricing.trust.crossPlatform": "웹, 윈도우, 모바일",
+  "pricing.suite.title": "1개의 계정으로 전체 4-in-1 개인 정보 보호 제품군 잠금 해제",
+  "pricing.suite.img": "AI 사진 및 4K 스튜디오",
+  "pricing.suite.imgDesc": "즉각적인 배경 제거, 4K 업스케일링, 무손실 압축 및 EXIF ​​클리너.",
+  "pricing.suite.file": "문서 및 PDF 제품군",
+  "pricing.suite.fileDesc": "PDF 병합, 문서 압축, 다중 형식 변환 및 로컬 보호.",
+  "pricing.suite.media": "비디오 및 오디오 트리머",
+  "pricing.suite.mediaDesc": "기기 내 비디오 트리밍, MP3 오디오 추출 및 비공개 변환.",
+  "pricing.suite.qr": "벡터 및 동적 QR",
+  "pricing.suite.qrDesc": "고해상도 QR 코드 생성기, 벡터 SVG 로고 사용자 정의 및 만료 시간 없음.",
+  "pricing.capabilities.title": "스튜디오 기능 및 하드웨어 우선순위",
+  "pricing.free.stripDesc": "14개의 로컬 AI 도구 모두에 대한 완전한 액세스, 일괄 10개의 사진, 표준 HD, 제로 워터마크 및 100% 로컬 개인 정보 보호."
 }

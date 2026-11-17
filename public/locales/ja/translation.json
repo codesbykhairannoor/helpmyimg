@@ -2319,5 +2319,20 @@
   "pricing.yearly.desc": "エコシステム全体にわたる 1 年間の完全な PRO アクセス。 速度制限やバッチ制限をゼロにした月々の請求と比較して 34% 節約できます。",
   "pricing.billing.yearly": "年間",
   "pricing.billing.saveYearly": "34% 節約",
-  "pricing.billing.yearlyBanner": "最も人気のあるもの: 月額わずか 6.58 ドル相当"
+  "pricing.billing.yearlyBanner": "最も人気のあるもの: 月額わずか 6.58 ドル相当",
+  "pricing.trust.privacy": "100% オンデバイス",
+  "pricing.trust.activation": "インスタントアクティベーション",
+  "pricing.trust.cancel": "14日間の保証",
+  "pricing.trust.crossPlatform": "ウェブ、ウィンドウズ、モバイル",
+  "pricing.suite.title": "1 つのアカウントで 4-in-1 プライバシー スイート全体のロックを解除",
+  "pricing.suite.img": "AIフォト＆4Kスタジオ",
+  "pricing.suite.imgDesc": "瞬時の背景除去、4K アップスケーリング、可逆圧縮、EXIF クリーナー。",
+  "pricing.suite.file": "ドキュメントと PDF スイート",
+  "pricing.suite.fileDesc": "PDF の結合、ドキュメントの圧縮、マルチフォーマット変換、ローカル保護。",
+  "pricing.suite.media": "ビデオ&オーディオトリマー",
+  "pricing.suite.mediaDesc": "デバイス上のビデオ トリミング、MP3 オーディオ抽出、プライベート変換。",
+  "pricing.suite.qr": "ベクター & ダイナミック QR",
+  "pricing.suite.qrDesc": "高解像度 QR コード ジェネレーター、ベクター SVG ロゴのカスタマイズ、有効期限なし。",
+  "pricing.capabilities.title": "スタジオの機能とハードウェアの優先順位",
+  "pricing.free.stripDesc": "14 個のローカル AI ツールすべて、バッチ 10 枚の写真、標準 HD、ゼロ ウォーターマーク、および 100% のローカル プライバシーへの完全なアクセス。"
 }

@@ -2319,5 +2319,20 @@
   "pricing.yearly.desc": "Täysi 1 vuoden PRO-käyttöoikeus koko ekosysteemiimme. Säästä 34 % verrattuna kuukausilaskutukseen ilman nopeus- tai erärajoja.",
   "pricing.billing.yearly": "Vuosittainen",
   "pricing.billing.saveYearly": "SÄÄSTÄ 34 %",
-  "pricing.billing.yearlyBanner": "Suosituin: Vastaa vain 6,58 dollaria kuukaudessa"
+  "pricing.billing.yearlyBanner": "Suosituin: Vastaa vain 6,58 dollaria kuukaudessa",
+  "pricing.trust.privacy": "100 % Laitteessa",
+  "pricing.trust.activation": "Välitön aktivointi",
+  "pricing.trust.cancel": "14 päivän takuu",
+  "pricing.trust.crossPlatform": "Web, Windows, Mobile",
+  "pricing.suite.title": "1 tili avaa koko 4-in-1 Privacy Suiten",
+  "pricing.suite.img": "AI Photo & 4K Studio",
+  "pricing.suite.imgDesc": "Välitön taustan poisto, 4K-skaalaus, häviötön pakkaus ja EXIF-puhdistin.",
+  "pricing.suite.file": "Asiakirja & PDF Suite",
+  "pricing.suite.fileDesc": "Yhdistä PDF, pakkaa asiakirjoja, muunnos monimuotoiseksi ja paikallinen suojaus.",
+  "pricing.suite.media": "Video- ja äänileikkuri",
+  "pricing.suite.mediaDesc": "Laitteen videon leikkaus, MP3-äänen poiminta ja yksityinen muuntaminen.",
+  "pricing.suite.qr": "Vektori & dynaaminen QR",
+  "pricing.suite.qrDesc": "Korkearesoluutioinen QR-koodigeneraattori, vektori-SVG-logon räätälöinti ja nolla vanheneminen.",
+  "pricing.capabilities.title": "Studion ominaisuudet ja laitteiston prioriteetti",
+  "pricing.free.stripDesc": "Täydellinen pääsy kaikkiin 14 paikalliseen tekoälytyökaluun, erä 10 valokuvaa, standardi HD, nolla vesileimaa ja 100 % paikallinen yksityisyys."
 }

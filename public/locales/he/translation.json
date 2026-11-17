@@ -2319,5 +2319,20 @@
   "pricing.yearly.desc": "גישת PRO מלאה לשנה בכל המערכת האקולוגית שלנו. חיסכון של 34% בהשוואה לחיוב חודשי ללא מגבלות מהירות או אצווה.",
   "pricing.billing.yearly": "שְׁנָתִי",
   "pricing.billing.saveYearly": "חסוך 34%",
-  "pricing.billing.yearlyBanner": "הפופולרי ביותר: שווה ערך ל-$6.58 בלבד לחודש"
+  "pricing.billing.yearlyBanner": "הפופולרי ביותר: שווה ערך ל-$6.58 בלבד לחודש",
+  "pricing.trust.privacy": "100% במכשיר",
+  "pricing.trust.activation": "הפעלה מיידית",
+  "pricing.trust.cancel": "אחריות ל-14 יום",
+  "pricing.trust.crossPlatform": "אינטרנט, חלונות, מובייל",
+  "pricing.suite.title": "חשבון אחד פותח את כל חבילת הפרטיות 4 ב-1",
+  "pricing.suite.img": "צילום בינה מלאכותית וסטודיו 4K",
+  "pricing.suite.imgDesc": "הסרת רקע מיידית, העלאת קנה מידה 4K, דחיסה ללא הפסדים ומנקה EXIF.",
+  "pricing.suite.file": "חבילת מסמכים ו-PDF",
+  "pricing.suite.fileDesc": "מיזוג PDF, דחיסה של מסמכים, המרה מרובת פורמטים והגנה מקומית.",
+  "pricing.suite.media": "גוזם וידאו ואודיו",
+  "pricing.suite.mediaDesc": "חיתוך וידאו במכשיר, חילוץ אודיו MP3 והמרה פרטית.",
+  "pricing.suite.qr": "QR וקטור ודינמי",
+  "pricing.suite.qrDesc": "מחולל קוד QR ברזולוציה גבוהה, התאמה אישית של לוגו וקטור SVG ואפס תפוגה.",
+  "pricing.capabilities.title": "יכולות סטודיו ועדיפות חומרה",
+  "pricing.free.stripDesc": "גישה מלאה לכל 14 כלי הבינה המלאכותית המקומיים, אצווה 10 תמונות, HD רגיל, אפס סימני מים ו-100% פרטיות מקומית."
 }

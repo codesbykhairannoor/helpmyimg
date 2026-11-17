@@ -2319,5 +2319,20 @@
   "pricing.yearly.desc": "Acces PRO complet de 1 an în întregul nostru ecosistem. Economisiți 34% în comparație cu facturarea lunară cu viteză zero sau limite de lot.",
   "pricing.billing.yearly": "Anual",
   "pricing.billing.saveYearly": "Economisiți 34%",
-  "pricing.billing.yearlyBanner": "Cele mai populare: Echivalent cu doar 6,58 USD / lună"
+  "pricing.billing.yearlyBanner": "Cele mai populare: Echivalent cu doar 6,58 USD / lună",
+  "pricing.trust.privacy": "100% pe dispozitiv",
+  "pricing.trust.activation": "Activare instantanee",
+  "pricing.trust.cancel": "Garanție de 14 zile",
+  "pricing.trust.crossPlatform": "Web, Windows, Mobile",
+  "pricing.suite.title": "1 Cont deblochează întreaga suită de confidențialitate 4-în-1",
+  "pricing.suite.img": "AI Photo și Studio 4K",
+  "pricing.suite.imgDesc": "Eliminare instantanee de fundal, upscaling 4K, compresie fără pierderi și curățare EXIF.",
+  "pricing.suite.file": "Suită de documente și PDF",
+  "pricing.suite.fileDesc": "Îmbinați PDF, comprimați documente, conversie multi-format și protecție locală.",
+  "pricing.suite.media": "Trimmer video și audio",
+  "pricing.suite.mediaDesc": "Tăiere video de pe dispozitiv, extracție audio MP3 și conversie privată.",
+  "pricing.suite.qr": "Vector & QR dinamic",
+  "pricing.suite.qrDesc": "Generator de coduri QR de înaltă rezoluție, personalizare a logo-ului SVG vectorial și expirare zero.",
+  "pricing.capabilities.title": "Capacități studio și prioritate hardware",
+  "pricing.free.stripDesc": "Acces complet la toate cele 14 instrumente locale AI, loturi de 10 fotografii, HD standard, zero filigrane și confidențialitate 100% locală."
 }

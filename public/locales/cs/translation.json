@@ -2319,5 +2319,20 @@
   "pricing.yearly.desc": "Plný 1letý PRO přístup v celém našem ekosystému. Ušetřete 34 % ve srovnání s měsíční fakturací s nulovou rychlostí nebo dávkovým limitem.",
   "pricing.billing.yearly": "Výroční",
   "pricing.billing.saveYearly": "Ušetříte 34 %",
-  "pricing.billing.yearlyBanner": "Nejoblíbenější: Ekvivalent pouhých 6,58 $ / měsíc"
+  "pricing.billing.yearlyBanner": "Nejoblíbenější: Ekvivalent pouhých 6,58 $ / měsíc",
+  "pricing.trust.privacy": "100% na zařízení",
+  "pricing.trust.activation": "Okamžitá aktivace",
+  "pricing.trust.cancel": "14denní záruka",
+  "pricing.trust.crossPlatform": "Web, Windows, Mobile",
+  "pricing.suite.title": "1 účet odemkne celou sadu ochrany osobních údajů 4 v 1",
+  "pricing.suite.img": "AI Photo & 4K Studio",
+  "pricing.suite.imgDesc": "Okamžité odstranění pozadí, 4K upscaling, bezztrátová komprese a EXIF ​​čistič.",
+  "pricing.suite.file": "Sada dokumentů a PDF",
+  "pricing.suite.fileDesc": "Sloučit PDF, komprimovat dokumenty, převod do více formátů a místní ochrana.",
+  "pricing.suite.media": "Zastřihovač videa a zvuku",
+  "pricing.suite.mediaDesc": "Oříznutí videa na zařízení, extrakce zvuku MP3 a soukromá konverze.",
+  "pricing.suite.qr": "Vektorové a dynamické QR",
+  "pricing.suite.qrDesc": "Generátor QR kódu ve vysokém rozlišení, přizpůsobení vektorového loga SVG a nulová expirace.",
+  "pricing.capabilities.title": "Možnosti studia a priorita hardwaru",
+  "pricing.free.stripDesc": "Kompletní přístup ke všem 14 místním nástrojům umělé inteligence, dávkové 10 fotografií, standardní HD, nulové vodoznaky a 100% místní soukromí."
 }

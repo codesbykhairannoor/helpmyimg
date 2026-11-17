@@ -2319,5 +2319,20 @@
   "pricing.yearly.desc": "Vollständiger 1-jähriger PRO-Zugriff auf unser gesamtes Ökosystem. Sparen Sie 34 % im Vergleich zur monatlichen Abrechnung ohne Geschwindigkeits- oder Batch-Limits.",
   "pricing.billing.yearly": "Jährlich",
   "pricing.billing.saveYearly": "SPAREN SIE 34 %",
-  "pricing.billing.yearlyBanner": "Am beliebtesten: Entspricht nur 6,58 $/Monat"
+  "pricing.billing.yearlyBanner": "Am beliebtesten: Entspricht nur 6,58 $/Monat",
+  "pricing.trust.privacy": "100 % auf dem Gerät",
+  "pricing.trust.activation": "Sofortige Aktivierung",
+  "pricing.trust.cancel": "14-Tage-Garantie",
+  "pricing.trust.crossPlatform": "Web, Windows, Mobil",
+  "pricing.suite.title": "1 Konto schaltet die gesamte 4-in-1-Datenschutzsuite frei",
+  "pricing.suite.img": "KI-Foto- und 4K-Studio",
+  "pricing.suite.imgDesc": "Sofortige Hintergrundentfernung, 4K-Upscaling, verlustfreie Komprimierung und EXIF-Cleaner.",
+  "pricing.suite.file": "Dokumenten- und PDF-Suite",
+  "pricing.suite.fileDesc": "PDF zusammenführen, Dokumente komprimieren, Multiformatkonvertierung und lokaler Schutz.",
+  "pricing.suite.media": "Video- und Audio-Trimmer",
+  "pricing.suite.mediaDesc": "Videozuschnitt auf dem Gerät, MP3-Audioextraktion und private Konvertierung.",
+  "pricing.suite.qr": "Vektor- und dynamischer QR",
+  "pricing.suite.qrDesc": "Hochauflösender QR-Code-Generator, Anpassung des Vektor-SVG-Logos und kein Ablaufdatum.",
+  "pricing.capabilities.title": "Studio-Funktionen und Hardware-Priorität",
+  "pricing.free.stripDesc": "Vollständiger Zugriff auf alle 14 lokalen KI-Tools, Batch-10-Fotos, Standard-HD, keine Wasserzeichen und 100 % lokaler Datenschutz."
 }

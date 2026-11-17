@@ -2385,5 +2385,20 @@
   "pricing.yearly.desc": "Akses PRO penuh 1 tahun untuk seluruh ekosistem. Hemat 34% dibanding tagihan bulanan dan nikmati seluruh fitur studio tanpa batas.",
   "pricing.billing.yearly": "Tahunan",
   "pricing.billing.saveYearly": "HEMAT 34%",
-  "pricing.billing.yearlyBanner": "Paket Paling Populer: Setara hanya $6.58 / bulan"
+  "pricing.billing.yearlyBanner": "Paket Paling Populer: Setara hanya $6.58 / bulan",
+  "pricing.trust.privacy": "100% Di Perangkat",
+  "pricing.trust.activation": "Aktivasi Instan",
+  "pricing.trust.cancel": "Garansi 14 Hari",
+  "pricing.trust.crossPlatform": "Web, Windows, Mobile",
+  "pricing.suite.title": "1 Akun Membuka Seluruh 4-in-1 Privacy Suite",
+  "pricing.suite.img": "Studio AI Foto & 4K Cutout",
+  "pricing.suite.imgDesc": "Hapus background instan, 4K upscaling, kompresi lossless, & EXIF cleaner.",
+  "pricing.suite.file": "Dokumen & PDF Suite",
+  "pricing.suite.fileDesc": "Gabung PDF, kompres dokumen, konversi multi-format, & proteksi lokal.",
+  "pricing.suite.media": "Video & Audio Trimmer",
+  "pricing.suite.mediaDesc": "Pemangkasan video on-device, ekstraksi audio MP3, & konversi privat.",
+  "pricing.suite.qr": "Vector & Dynamic QR",
+  "pricing.suite.qrDesc": "Generator QR code resolusi tinggi, kustomisasi logo vektor SVG, & tanpa batas.",
+  "pricing.capabilities.title": "Kapabilitas Studio & Prioritas Mesin",
+  "pricing.free.stripDesc": "Akses lengkap ke semua 14 alat AI lokal, batch 10 foto, HD standar, tanpa watermark, dan privasi 100% lokal."
 }

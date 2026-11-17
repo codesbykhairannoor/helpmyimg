@@ -2319,5 +2319,20 @@
   "pricing.yearly.desc": "Buong 1-taong PRO na access sa aming buong ecosystem. Makatipid ng 34% kumpara sa buwanang pagsingil na walang bilis o mga limitasyon sa batch.",
   "pricing.billing.yearly": "Taunang",
   "pricing.billing.saveYearly": "MAKAtipid ng 34%",
-  "pricing.billing.yearlyBanner": "Pinakasikat: Katumbas ng $6.58 lamang / buwan"
+  "pricing.billing.yearlyBanner": "Pinakasikat: Katumbas ng $6.58 lamang / buwan",
+  "pricing.trust.privacy": "100% On-Device",
+  "pricing.trust.activation": "Instant Activation",
+  "pricing.trust.cancel": "14 na Araw na Garantiya",
+  "pricing.trust.crossPlatform": "Web, Windows, Mobile",
+  "pricing.suite.title": "Binubuksan ng 1 Account ang Buong 4-in-1 Privacy Suite",
+  "pricing.suite.img": "AI Photo at 4K Studio",
+  "pricing.suite.imgDesc": "Instant na pag-aalis ng background, 4K upscaling, lossless compression, at EXIF ​​cleaner.",
+  "pricing.suite.file": "Dokumento at PDF Suite",
+  "pricing.suite.fileDesc": "Pagsamahin ang PDF, i-compress ang mga dokumento, multi-format na conversion, at lokal na proteksyon.",
+  "pricing.suite.media": "Trimmer ng Video at Audio",
+  "pricing.suite.mediaDesc": "On-device na video trimming, MP3 audio extraction, at pribadong conversion.",
+  "pricing.suite.qr": "Vector at Dynamic na QR",
+  "pricing.suite.qrDesc": "High-res QR code generator, vector SVG logo customization, at zero expiration.",
+  "pricing.capabilities.title": "Mga Kakayahan sa Studio at Priyoridad sa Hardware",
+  "pricing.free.stripDesc": "Kumpletuhin ang access sa lahat ng 14 na lokal na AI tool, batch 10 na larawan, karaniwang HD, zero watermark, at 100% lokal na privacy."
 }

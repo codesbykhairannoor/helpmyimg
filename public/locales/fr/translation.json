@@ -2319,5 +2319,20 @@
   "pricing.yearly.desc": "Accès PRO complet pendant 1 an sur l'ensemble de notre écosystème. Économisez 34 % par rapport à la facturation mensuelle sans limite de vitesse ou de lot.",
   "pricing.billing.yearly": "Annuelle",
   "pricing.billing.saveYearly": "ÉCONOMISEZ 34 %",
-  "pricing.billing.yearlyBanner": "Le plus populaire : équivalent à seulement 6,58 $/mois"
+  "pricing.billing.yearlyBanner": "Le plus populaire : équivalent à seulement 6,58 $/mois",
+  "pricing.trust.privacy": "100 % sur l'appareil",
+  "pricing.trust.activation": "Activation instantanée",
+  "pricing.trust.cancel": "Garantie de 14 jours",
+  "pricing.trust.crossPlatform": "Web, Windows, Mobile",
+  "pricing.suite.title": "1 compte déverrouille l’intégralité de la suite de confidentialité 4-en-1",
+  "pricing.suite.img": "Photo IA et studio 4K",
+  "pricing.suite.imgDesc": "Suppression instantanée de l’arrière-plan, mise à l’échelle 4K, compression sans perte et nettoyeur EXIF.",
+  "pricing.suite.file": "Suite de documents et PDF",
+  "pricing.suite.fileDesc": "Fusionnez des PDF, compressez des documents, conversion multiformat et protection locale.",
+  "pricing.suite.media": "Tondeuse vidéo et audio",
+  "pricing.suite.mediaDesc": "Découpage vidéo sur l'appareil, extraction audio MP3 et conversion privée.",
+  "pricing.suite.qr": "QR vectoriel et dynamique",
+  "pricing.suite.qrDesc": "Générateur de code QR haute résolution, personnalisation du logo vectoriel SVG et zéro expiration.",
+  "pricing.capabilities.title": "Capacités du studio et priorité matérielle",
+  "pricing.free.stripDesc": "Accès complet aux 14 outils d'IA locaux, lot de 10 photos, HD standard, zéro filigrane et confidentialité 100 % locale."
 }

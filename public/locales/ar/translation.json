@@ -2333,5 +2333,20 @@
   "pricing.yearly.desc": "وصول كامل للمحترفين لمدة عام واحد عبر نظامنا البيئي بأكمله. وفر 34% مقارنة بالفاتورة الشهرية مع عدم وجود حدود للسرعة أو الدفعة.",
   "pricing.billing.yearly": "سنوي",
   "pricing.billing.saveYearly": "وفر 34%",
-  "pricing.billing.yearlyBanner": "الأكثر شيوعًا: ما يعادل 6.58 دولارًا أمريكيًا فقط في الشهر"
+  "pricing.billing.yearlyBanner": "الأكثر شيوعًا: ما يعادل 6.58 دولارًا أمريكيًا فقط في الشهر",
+  "pricing.trust.privacy": "100% على الجهاز",
+  "pricing.trust.activation": "التنشيط الفوري",
+  "pricing.trust.cancel": "ضمان لمدة 14 يومًا",
+  "pricing.trust.crossPlatform": "الويب، ويندوز، الجوال",
+  "pricing.suite.title": "حساب واحد يفتح مجموعة الخصوصية 4 في 1 بالكامل",
+  "pricing.suite.img": "صور AI واستوديو 4K",
+  "pricing.suite.imgDesc": "إزالة فورية للخلفية، ورفع مستوى 4K، وضغط بدون فقدان، ومنظف EXIF.",
+  "pricing.suite.file": "مجموعة المستندات وملفات PDF",
+  "pricing.suite.fileDesc": "دمج ملفات PDF وضغط المستندات والتحويل متعدد التنسيقات والحماية المحلية.",
+  "pricing.suite.media": "الفيديو والصوت المتقلب",
+  "pricing.suite.mediaDesc": "تشذيب الفيديو على الجهاز، واستخراج صوت MP3، والتحويل الخاص.",
+  "pricing.suite.qr": "المتجهات والديناميكية QR",
+  "pricing.suite.qrDesc": "مولد رمز QR عالي الدقة، وتخصيص شعار Vector SVG، وعدم انتهاء الصلاحية.",
+  "pricing.capabilities.title": "قدرات الاستوديو وأولوية الأجهزة",
+  "pricing.free.stripDesc": "وصول كامل إلى جميع أدوات الذكاء الاصطناعي المحلية البالغ عددها 14، ومجموعة من 10 صور، ودقة قياسية عالية الدقة، وبدون علامات مائية، وخصوصية محلية بنسبة 100%."
 }

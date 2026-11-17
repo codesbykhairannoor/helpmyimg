@@ -2319,5 +2319,20 @@
   "pricing.yearly.desc": "Full 1-year PRO access across our entire ecosystem. Save 34% compared to monthly billing with zero speed or batch limits.",
   "pricing.billing.yearly": "Annual",
   "pricing.billing.saveYearly": "SAVE 34%",
-  "pricing.billing.yearlyBanner": "Most Popular: Equivalent to just $6.58 / month"
+  "pricing.billing.yearlyBanner": "Most Popular: Equivalent to just $6.58 / month",
+  "pricing.trust.privacy": "100% On-Device",
+  "pricing.trust.activation": "Instant Activation",
+  "pricing.trust.cancel": "14-Day Guarantee",
+  "pricing.trust.crossPlatform": "Web, Windows, Mobile",
+  "pricing.suite.title": "1 Account Unlocks The Entire 4-in-1 Privacy Suite",
+  "pricing.suite.img": "AI Photo & 4K Studio",
+  "pricing.suite.imgDesc": "Instant background removal, 4K upscaling, lossless compression, & EXIF cleaner.",
+  "pricing.suite.file": "Document & PDF Suite",
+  "pricing.suite.fileDesc": "Merge PDF, compress documents, multi-format conversion, & local protection.",
+  "pricing.suite.media": "Video & Audio Trimmer",
+  "pricing.suite.mediaDesc": "On-device video trimming, MP3 audio extraction, & private conversion.",
+  "pricing.suite.qr": "Vector & Dynamic QR",
+  "pricing.suite.qrDesc": "High-res QR code generator, vector SVG logo customization, & zero expiration.",
+  "pricing.capabilities.title": "Studio Capabilities & Hardware Priority",
+  "pricing.free.stripDesc": "Complete access to all 14 local AI tools, batch 10 photos, standard HD, zero watermarks, and 100% local privacy."
 }

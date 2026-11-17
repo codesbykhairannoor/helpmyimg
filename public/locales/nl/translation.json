@@ -2319,5 +2319,20 @@
   "pricing.yearly.desc": "Volledige PRO-toegang van 1 jaar tot ons hele ecosysteem. Bespaar 34% vergeleken met maandelijkse facturering zonder snelheids- of batchlimieten.",
   "pricing.billing.yearly": "Jaarlijks",
   "pricing.billing.saveYearly": "BESPAAR 34%",
-  "pricing.billing.yearlyBanner": "Meest populair: komt overeen met slechts $ 6,58 / maand"
+  "pricing.billing.yearlyBanner": "Meest populair: komt overeen met slechts $ 6,58 / maand",
+  "pricing.trust.privacy": "100% op het apparaat",
+  "pricing.trust.activation": "Onmiddellijke activering",
+  "pricing.trust.cancel": "14 dagen garantie",
+  "pricing.trust.crossPlatform": "Web, Windows, mobiel",
+  "pricing.suite.title": "1 Account ontgrendelt de volledige 4-in-1 Privacy Suite",
+  "pricing.suite.img": "AI-foto en 4K-studio",
+  "pricing.suite.imgDesc": "Directe achtergrondverwijdering, 4K-opschaling, compressie zonder verlies en EXIF-opschoning.",
+  "pricing.suite.file": "Document- en PDF-suite",
+  "pricing.suite.fileDesc": "PDF samenvoegen, documenten comprimeren, conversie naar meerdere formaten en lokale bescherming.",
+  "pricing.suite.media": "Video- en audiotrimmer",
+  "pricing.suite.mediaDesc": "Video-bijsnijden op het apparaat, MP3-audio-extractie en privéconversie.",
+  "pricing.suite.qr": "Vector- en dynamische QR",
+  "pricing.suite.qrDesc": "Hoge resolutie QR-codegenerator, vector-SVG-logo-aanpassing en nulvervaldatum.",
+  "pricing.capabilities.title": "Studiomogelijkheden en hardwareprioriteit",
+  "pricing.free.stripDesc": "Volledige toegang tot alle 14 lokale AI-tools, 10 batchfoto's, standaard HD, geen watermerken en 100% lokale privacy."
 }

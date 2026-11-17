@@ -2319,5 +2319,20 @@
   "pricing.yearly.desc": "Fullständig 1-års PRO-åtkomst över hela vårt ekosystem. Spara 34 % jämfört med månadsfakturering utan hastighets- eller batchgränser.",
   "pricing.billing.yearly": "Årlig",
   "pricing.billing.saveYearly": "SPARA 34%",
-  "pricing.billing.yearlyBanner": "Mest populära: Motsvarar bara $6,58/månad"
+  "pricing.billing.yearlyBanner": "Mest populära: Motsvarar bara $6,58/månad",
+  "pricing.trust.privacy": "100 % på enheten",
+  "pricing.trust.activation": "Omedelbar aktivering",
+  "pricing.trust.cancel": "14 dagars garanti",
+  "pricing.trust.crossPlatform": "Webb, Windows, Mobile",
+  "pricing.suite.title": "1 konto låser upp hela 4-i-1 Privacy Suite",
+  "pricing.suite.img": "AI Photo & 4K Studio",
+  "pricing.suite.imgDesc": "Omedelbar bakgrundsborttagning, 4K-uppskalning, förlustfri komprimering och EXIF-rengörare.",
+  "pricing.suite.file": "Dokument & PDF Suite",
+  "pricing.suite.fileDesc": "Slå samman PDF, komprimera dokument, konvertering av flera format och lokalt skydd.",
+  "pricing.suite.media": "Video- och ljudtrimmer",
+  "pricing.suite.mediaDesc": "Videoklippning på enheten, extrahering av MP3-ljud och privat konvertering.",
+  "pricing.suite.qr": "Vektor & Dynamisk QR",
+  "pricing.suite.qrDesc": "Högupplöst QR-kodgenerator, anpassning av vektor-SVG-logotyp och noll utgångsdatum.",
+  "pricing.capabilities.title": "Studiofunktioner och hårdvaruprioritet",
+  "pricing.free.stripDesc": "Fullständig tillgång till alla 14 lokala AI-verktyg, batch 10 foton, standard HD, noll vattenstämplar och 100 % lokal sekretess."
 }

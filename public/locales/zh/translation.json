@@ -2318,5 +2318,20 @@
   "pricing.yearly.desc": "整个生态系统的完整 1 年 PRO 访问权限。 与零速度或批量限制的按月计费相比，节省 34%。",
   "pricing.billing.yearly": "年度的",
   "pricing.billing.saveYearly": "节省 34%",
-  "pricing.billing.yearlyBanner": "最受欢迎：每月仅需 6.58 美元"
+  "pricing.billing.yearlyBanner": "最受欢迎：每月仅需 6.58 美元",
+  "pricing.trust.privacy": "100% 设备上",
+  "pricing.trust.activation": "即时激活",
+  "pricing.trust.cancel": "14 天保证",
+  "pricing.trust.crossPlatform": "网络、Windows、移动设备",
+  "pricing.suite.title": "1 个帐户解锁整个 4 合 1 隐私套件",
+  "pricing.suite.img": "AI摄影&4K工作室",
+  "pricing.suite.imgDesc": "即时背景去除、4K 升级、无损压缩和 EXIF 清理。",
+  "pricing.suite.file": "文档和 PDF 套件",
+  "pricing.suite.fileDesc": "合并 PDF、压缩文档、多格式转换和本地保护。",
+  "pricing.suite.media": "视频和音频修剪器",
+  "pricing.suite.mediaDesc": "设备上视频修剪、MP3 音频提取和私人转换。",
+  "pricing.suite.qr": "矢量和动态二维码",
+  "pricing.suite.qrDesc": "高分辨率 QR 代码生成器、矢量 SVG 徽标定制和零过期。",
+  "pricing.capabilities.title": "工作室能力和硬件优先级",
+  "pricing.free.stripDesc": "完全访问全部14种本地AI工具，批量10张照片，标准高清，零水印，100%本地隐私。"
 }

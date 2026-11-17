@@ -2319,5 +2319,20 @@
   "pricing.yearly.desc": "Quyền truy cập PRO đầy đủ trong 1 năm trên toàn bộ hệ sinh thái của chúng tôi. Tiết kiệm 34% so với thanh toán hàng tháng với tốc độ bằng 0 hoặc giới hạn lô.",
   "pricing.billing.yearly": "Hàng năm",
   "pricing.billing.saveYearly": "TIẾT KIỆM 34%",
-  "pricing.billing.yearlyBanner": "Phổ biến nhất: Tương đương chỉ 6,58 USD / tháng"
+  "pricing.billing.yearlyBanner": "Phổ biến nhất: Tương đương chỉ 6,58 USD / tháng",
+  "pricing.trust.privacy": "100% trên thiết bị",
+  "pricing.trust.activation": "Kích hoạt tức thì",
+  "pricing.trust.cancel": "Bảo hành 14 ngày",
+  "pricing.trust.crossPlatform": "Web, Windows, Di động",
+  "pricing.suite.title": "1 tài khoản mở khóa toàn bộ bộ quyền riêng tư 4 trong 1",
+  "pricing.suite.img": "AI Photo & Studio 4K",
+  "pricing.suite.imgDesc": "Xóa nền tức thì, nâng cấp 4K, nén không mất dữ liệu và dọn dẹp EXIF.",
+  "pricing.suite.file": "Bộ tài liệu & PDF",
+  "pricing.suite.fileDesc": "Hợp nhất PDF, nén tài liệu, chuyển đổi nhiều định dạng và bảo vệ cục bộ.",
+  "pricing.suite.media": "Bộ cắt video và âm thanh",
+  "pricing.suite.mediaDesc": "Cắt video trên thiết bị, trích xuất âm thanh MP3 và chuyển đổi riêng tư.",
+  "pricing.suite.qr": "Vector & QR động",
+  "pricing.suite.qrDesc": "Trình tạo mã QR có độ phân giải cao, tùy chỉnh logo SVG vector và không hết hạn.",
+  "pricing.capabilities.title": "Khả năng của Studio & Ưu tiên phần cứng",
+  "pricing.free.stripDesc": "Toàn quyền truy cập vào tất cả 14 công cụ AI cục bộ, 10 ảnh hàng loạt, HD tiêu chuẩn, không có hình mờ và 100% quyền riêng tư cục bộ."
 }
