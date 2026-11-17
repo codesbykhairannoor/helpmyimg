@@ -1,5 +1,5 @@
 // src/components/Navbar.tsx
-// Navigasi Atas dengan Launcher Ekosistem 9-Dots, 30 Bahasa, Desain Capitalize, & Mobile Drawer Lengkap
+// Navigasi Atas dengan Launcher Ekosistem 9-Dots, 30 Bahasa, Desain Capitalize, Darkmode & Mobile Drawer Lengkap
 
 import React, { useState, useEffect, useRef } from 'react';
 import { createPortal } from 'react-dom';
@@ -62,7 +62,11 @@ export const Navbar: React.FC = () => {
   const { user, isPro, openAuthModal, signOut } = useAuth();
   const { navigatePath } = useRouter();
 
-  // Desktop Suite & Launcher Drawer states
+  // Desktop Language Dropdown & Launcher Drawer states
+  const [langOpen, setLangOpen] = useState(false);
+  const [desktopLangSearch, setDesktopLangSearch] = useState('');
+  const desktopLangRef = useRef<HTMLDivElement>(null);
+
   const [isSuiteOpen, setIsSuiteOpen] = useState(false);
   const [suiteView, setSuiteView] = useState<'main' | 'language'>('main');
   const [suiteLangSearch, setSuiteLangSearch] = useState('');
@@ -74,6 +78,21 @@ export const Navbar: React.FC = () => {
   const [mobileSearch, setMobileSearch] = useState('');
   const [mobileLangOpen, setMobileLangOpen] = useState(false);
   const [mobileLangSearch, setMobileLangSearch] = useState('');
+
+  // Close Desktop Language Dropdown on outside click
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (desktopLangRef.current && !desktopLangRef.current.contains(event.target as Node)) {
+        setLangOpen(false);
+      }
+    };
+    if (langOpen) {
+      document.addEventListener('mousedown', handleClickOutside);
+    }
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [langOpen]);
 
   // Close Suite Launcher on outside click
   useEffect(() => {
@@ -110,6 +129,7 @@ export const Navbar: React.FC = () => {
   const handleLangChange = (newLang: Language) => {
     setLang(newLang);
     setIsSuiteOpen(false);
+    setLangOpen(false);
 
     const currentPath = window.location.pathname;
     const pathParts = currentPath.split('/').filter(Boolean);
@@ -181,9 +201,9 @@ export const Navbar: React.FC = () => {
             </a>
           </div>
 
-          {/* Tengah: Navigation Links (Desktop) - Clean Capitalize / Title Case without uppercase */}
+          {/* Tengah: Navigation Links (Desktop) - Clean Capitalize / Title Case with +1px font size (15px) */}
           <div className="hidden lg:flex items-center justify-center flex-1 relative group px-4">
-            <nav className="flex items-center gap-2 xl:gap-4 text-sm font-medium text-slate-700 dark:text-slate-300">
+            <nav className="flex items-center gap-2 xl:gap-4 font-medium text-slate-700 dark:text-slate-300">
               <a
                 href={lang === 'en' ? `/${getLocalizedSlug('remove', lang)}/` : `/${lang}/${getLocalizedSlug('remove', lang)}/`}
                 onClick={(e) => {
@@ -191,7 +211,7 @@ export const Navbar: React.FC = () => {
                   navigatePath(lang === 'en' ? `/${getLocalizedSlug('remove', lang)}/` : `/${lang}/${getLocalizedSlug('remove', lang)}/`);
                   (document.activeElement as HTMLElement)?.blur();
                 }}
-                className="hover:text-neon-cyan transition-colors font-bold text-[14px] px-2.5 py-1.5 flex items-center whitespace-nowrap rounded-lg hover:bg-slate-50 dark:hover:bg-dark-800/50"
+                className="hover:text-neon-cyan transition-colors font-bold text-[15px] px-2.5 py-1.5 flex items-center whitespace-nowrap rounded-lg hover:bg-slate-50 dark:hover:bg-dark-800/50"
               >
                 {t('nav.removeBg', { defaultValue: 'Remove Background' })}
               </a>
@@ -202,7 +222,7 @@ export const Navbar: React.FC = () => {
                   navigatePath(lang === 'en' ? `/${getLocalizedSlug('compress', lang)}/` : `/${lang}/${getLocalizedSlug('compress', lang)}/`);
                   (document.activeElement as HTMLElement)?.blur();
                 }}
-                className="hover:text-neon-cyan transition-colors font-bold text-[14px] px-2.5 py-1.5 flex items-center whitespace-nowrap rounded-lg hover:bg-slate-50 dark:hover:bg-dark-800/50"
+                className="hover:text-neon-cyan transition-colors font-bold text-[15px] px-2.5 py-1.5 flex items-center whitespace-nowrap rounded-lg hover:bg-slate-50 dark:hover:bg-dark-800/50"
               >
                 {t('nav.compress', { defaultValue: 'Compress Image' })}
               </a>
@@ -213,14 +233,14 @@ export const Navbar: React.FC = () => {
                   navigatePath(lang === 'en' ? `/${getLocalizedSlug('resize', lang)}/` : `/${lang}/${getLocalizedSlug('resize', lang)}/`);
                   (document.activeElement as HTMLElement)?.blur();
                 }}
-                className="hover:text-neon-cyan transition-colors font-bold text-[14px] px-2.5 py-1.5 flex items-center whitespace-nowrap rounded-lg hover:bg-slate-50 dark:hover:bg-dark-800/50"
+                className="hover:text-neon-cyan transition-colors font-bold text-[15px] px-2.5 py-1.5 flex items-center whitespace-nowrap rounded-lg hover:bg-slate-50 dark:hover:bg-dark-800/50"
               >
                 {t('nav.resize', { defaultValue: 'Resize Image' })}
               </a>
               
               {/* Menu Dropdown All Photo Tools */}
               <div className="relative group/dropdown ml-1">
-                <button className="flex items-center gap-2 bg-neon-cyan/10 hover:bg-neon-cyan/20 border border-neon-cyan/30 text-cyan-800 dark:text-neon-cyan px-3.5 py-1.5 rounded-lg transition-all duration-200 font-bold text-[14px]">
+                <button className="flex items-center gap-2 bg-neon-cyan/10 hover:bg-neon-cyan/20 border border-neon-cyan/30 text-cyan-800 dark:text-neon-cyan px-3.5 py-1.5 rounded-lg transition-all duration-200 font-bold text-[15px]">
                   <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                     <rect width="7" height="7" x="3" y="3" rx="1"/><rect width="7" height="7" x="14" y="3" rx="1"/><rect width="7" height="7" x="14" y="14" rx="1"/><rect width="7" height="7" x="3" y="14" rx="1"/>
                   </svg>
@@ -228,7 +248,7 @@ export const Navbar: React.FC = () => {
                   <ChevronDown className="w-4 h-4 group-hover/dropdown:rotate-180 transition-transform duration-200" />
                 </button>
                 
-                {/* Premium Full-Width Mega Menu (4 Columns) */}
+                {/* Premium Full-Width Mega Menu (4 Columns) - +1px font size */}
                 <div className="fixed left-0 right-0 top-[55px] bg-white dark:bg-dark-900/95 backdrop-blur-2xl border-b-2 border-neon-cyan shadow-[0_24px_60px_rgba(0,0,0,0.15)] dark:shadow-[0_24px_60px_rgba(0,0,0,0.4)] opacity-0 invisible group-hover/dropdown:opacity-100 group-hover/dropdown:visible transition-all duration-200 py-8 z-50">
                   <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-x-8 gap-y-8 text-left">
                     {categories.filter(c => c.id !== 'all').map(cat => {
@@ -237,7 +257,7 @@ export const Navbar: React.FC = () => {
 
                       return (
                         <div key={cat.id} className="flex flex-col">
-                          <div className="flex items-center gap-2 text-[14px] font-bold text-cyan-600 dark:text-neon-cyan border-b border-slate-100 dark:border-dark-700 pb-2 mb-3">
+                          <div className="flex items-center gap-2 text-[15px] font-bold text-cyan-600 dark:text-neon-cyan border-b border-slate-100 dark:border-dark-700 pb-2 mb-3">
                             {t(cat.labelKey, { defaultValue: cat.defaultLabel })}
                           </div>
                           <div className="flex flex-col gap-1.5">
@@ -254,7 +274,7 @@ export const Navbar: React.FC = () => {
                                   className="flex items-center gap-3.5 py-2 px-3 -mx-3 rounded-xl hover:bg-slate-50 dark:hover:bg-dark-800 transition-colors group/item"
                                 >
                                   <tool.icon strokeWidth={1.5} className="w-5 h-5 flex-shrink-0 text-slate-600 dark:text-slate-400 group-hover/item:text-neon-emerald transition-colors" />
-                                  <span className="text-[14px] text-slate-700 dark:text-slate-200 font-bold truncate group-hover/item:text-neon-emerald transition-colors">
+                                  <span className="text-[15px] text-slate-700 dark:text-slate-200 font-bold truncate group-hover/item:text-neon-emerald transition-colors">
                                     {t(tool.titleKey, { defaultValue: tool.defaultTitle })}
                                   </span>
                                 </a>
@@ -270,14 +290,108 @@ export const Navbar: React.FC = () => {
             </nav>
           </div>
 
-          {/* Kanan: Auth Action, 9-Dots Launcher Drawer (Desktop), Mobile Menu Button */}
+          {/* Kanan: Theme Toggle, Language Switcher, Sign In, 9-Dots Launcher Drawer, Mobile Menu Button */}
           <div className="flex items-center justify-end gap-2 sm:gap-2.5 flex-shrink-0">
+
+            {/* Desktop Theme Mode Toggle Button */}
+            <button
+              onClick={toggleTheme}
+              className="hidden lg:flex items-center justify-center w-[38px] h-[38px] bg-slate-100 dark:bg-dark-800 hover:bg-slate-200 dark:hover:bg-dark-700 border border-slate-200 dark:border-dark-600 rounded-xl text-slate-700 dark:text-slate-200 transition-all duration-150 shadow-xs cursor-pointer"
+              aria-label="Toggle Theme"
+              title={theme === 'dark' ? (lang === 'id' ? 'Mode Terang' : 'Light Mode') : (lang === 'id' ? 'Mode Gelap' : 'Dark Mode')}
+            >
+              {theme === 'dark' ? (
+                <Sun className="w-4 h-4 text-amber-500 hover:rotate-45 transition-transform duration-300" />
+              ) : (
+                <Moon className="w-4 h-4 text-indigo-400 hover:-rotate-12 transition-transform duration-300" />
+              )}
+            </button>
+
+            {/* Desktop Language Switcher Dropdown (30 Bahasa with Search) */}
+            <div className="relative hidden lg:block" ref={desktopLangRef}>
+              <button
+                onClick={() => {
+                  setLangOpen(!langOpen);
+                  setDesktopLangSearch('');
+                  setIsSuiteOpen(false);
+                  setUserMenuOpen(false);
+                }}
+                className="flex items-center gap-1.5 bg-slate-100 dark:bg-dark-800 hover:bg-slate-200 dark:hover:bg-dark-700 border border-slate-200 dark:border-dark-600 px-2.5 h-[38px] rounded-xl text-[13.5px] font-bold text-slate-700 dark:text-slate-200 transition-all duration-150 shadow-xs cursor-pointer"
+                aria-label="Pilih Bahasa"
+              >
+                <span className="text-[15px]">{currentLang.flag}</span>
+                <span className="uppercase font-mono text-[13px]">{currentLang.code}</span>
+                <ChevronDown className={`w-3.5 h-3.5 text-slate-400 transition-transform duration-200 ${langOpen ? 'rotate-180' : ''}`} />
+              </button>
+
+              <AnimatePresence>
+                {langOpen && (
+                  <>
+                    <div className="fixed inset-0 z-[55]" onClick={() => setLangOpen(false)} />
+                    <motion.div
+                      initial={{ opacity: 0, y: -10, scale: 0.95 }}
+                      animate={{ opacity: 1, y: 0, scale: 1 }}
+                      exit={{ opacity: 0, y: -10, scale: 0.95 }}
+                      transition={{ duration: 0.15 }}
+                      className="absolute right-0 mt-2 w-64 bg-white dark:bg-dark-800 border border-slate-200 dark:border-dark-600 rounded-2xl shadow-2xl py-2 z-[60] max-h-96 flex flex-col overflow-hidden"
+                    >
+                      <div className="px-3.5 py-2 text-[12.5px] font-bold text-slate-500 dark:text-slate-400 uppercase border-b border-slate-100 dark:border-dark-700/60 mb-1 flex items-center justify-between">
+                        <span>{lang === 'id' ? 'Pilih Bahasa' : 'Select Language'}</span>
+                        <span className="text-cyan-600 dark:text-neon-cyan font-mono font-bold">30</span>
+                      </div>
+                      
+                      {/* Search Input */}
+                      <div className="px-3 py-1.5 border-b border-slate-100 dark:border-dark-700/60 bg-slate-50/50 dark:bg-dark-900/50">
+                        <input
+                          type="text"
+                          placeholder={lang === 'id' ? 'Cari bahasa...' : 'Search language...'}
+                          value={desktopLangSearch}
+                          onChange={(e) => setDesktopLangSearch(e.target.value)}
+                          className="w-full bg-white dark:bg-dark-750 text-xs text-slate-900 dark:text-white px-2.5 py-1.5 rounded-lg border border-slate-200 dark:border-dark-600 focus:outline-none focus:border-neon-cyan transition-colors"
+                          autoFocus
+                        />
+                      </div>
+
+                      <div className="overflow-y-auto flex-1 divide-y divide-slate-100 dark:divide-dark-700/40">
+                        {SUPPORTED_LANGUAGES
+                          .filter(l => l.name.toLowerCase().includes(desktopLangSearch.toLowerCase()) || l.code.toLowerCase().includes(desktopLangSearch.toLowerCase()))
+                          .map((l) => (
+                            <a
+                              key={l.code}
+                              href={l.code === 'en' ? '/' : `/${l.code}`}
+                              onClick={(e) => {
+                                e.preventDefault();
+                                handleLangChange(l.code);
+                                setLangOpen(false);
+                              }}
+                              className={`w-full flex items-center justify-between px-3.5 py-2 text-[13.5px] transition-colors ${
+                                lang === l.code
+                                  ? 'bg-cyan-500/10 text-cyan-600 dark:text-neon-cyan font-bold'
+                                  : 'text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-dark-700 hover:text-slate-900 dark:hover:text-white'
+                              }`}
+                            >
+                              <span className="flex items-center gap-2.5">
+                                <span className="text-base">{l.flag}</span>
+                                <span>{l.name}</span>
+                                <span className="text-[11px] font-mono text-slate-400 uppercase">({l.code})</span>
+                              </span>
+                              {lang === l.code && (
+                                <Check className="w-3.5 h-3.5 text-cyan-600 dark:text-neon-cyan shrink-0" />
+                              )}
+                            </a>
+                          ))}
+                      </div>
+                    </motion.div>
+                  </>
+                )}
+              </AnimatePresence>
+            </div>
 
             {/* Auth Action: Sign In Button or User Profile Menu */}
             {!user ? (
               <button
                 onClick={openAuthModal}
-                className="flex items-center gap-1.5 sm:gap-2 bg-cyan-500/10 hover:bg-cyan-500/20 text-cyan-700 dark:text-[#05DAED] border border-cyan-500/30 hover:border-[#05DAED]/60 px-2.5 sm:px-3 h-8 sm:h-9 rounded-xl text-[12.5px] sm:text-[14px] font-semibold transition-all duration-200 shadow-xs cursor-pointer"
+                className="flex items-center gap-1.5 sm:gap-2 bg-cyan-500/10 hover:bg-cyan-500/20 text-cyan-700 dark:text-[#05DAED] border border-cyan-500/30 hover:border-[#05DAED]/60 px-2.5 sm:px-3 h-8 sm:h-[38px] rounded-xl text-[12.5px] sm:text-[14px] font-semibold transition-all duration-200 shadow-xs cursor-pointer"
                 aria-label="Sign In"
               >
                 <LogIn className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
@@ -287,7 +401,7 @@ export const Navbar: React.FC = () => {
               <div className="relative">
                 <button
                   onClick={() => setUserMenuOpen(!userMenuOpen)}
-                  className="relative flex items-center gap-2 bg-slate-100 dark:bg-dark-800 hover:bg-slate-200 dark:hover:bg-dark-700 border border-slate-200 dark:border-dark-500/60 pl-1.5 pr-2.5 h-8 sm:h-9 rounded-xl text-slate-700 dark:text-slate-200 transition-all duration-200 shadow-sm cursor-pointer"
+                  className="relative flex items-center gap-2 bg-slate-100 dark:bg-dark-800 hover:bg-slate-200 dark:hover:bg-dark-700 border border-slate-200 dark:border-dark-500/60 pl-1.5 pr-2.5 h-8 sm:h-[38px] rounded-xl text-slate-700 dark:text-slate-200 transition-all duration-200 shadow-sm cursor-pointer"
                   aria-label="User Account"
                 >
                   {user.photoURL ? (
@@ -382,13 +496,14 @@ export const Navbar: React.FC = () => {
               </div>
             )}
 
-            {/* Desktop 9-Dots Launcher Button & Drawer (+1px font size, no globe icon) */}
+            {/* Desktop 9-Dots Launcher Button & Drawer (+1px font size) */}
             <div className="relative hidden lg:block" ref={suiteRef}>
               <button
                 onClick={() => {
                   setIsSuiteOpen(!isSuiteOpen);
                   setSuiteView('main');
                   setUserMenuOpen(false);
+                  setLangOpen(false);
                 }}
                 aria-label="Aplikasi & Pengaturan"
                 title={lang === 'id' ? 'Aplikasi & Pengaturan' : 'Apps & Preferences'}
@@ -659,7 +774,7 @@ export const Navbar: React.FC = () => {
                         </div>
                       </div>
 
-                      {/* Footer Bar: Appearance Toggle + Sliding Language Selector Trigger (NO GLOBE ICON) */}
+                      {/* Footer Bar: Appearance Toggle + Sliding Language Selector Trigger */}
                       <div className="flex items-center justify-between px-5 py-3 border-t border-slate-200 dark:border-dark-700/80 bg-slate-50 dark:bg-dark-900/70">
                         {/* Theme Mode Toggle Button */}
                         <button
@@ -675,7 +790,7 @@ export const Navbar: React.FC = () => {
                           </span>
                         </button>
 
-                        {/* Language Selector Drilldown Button (Flag + Native Name + 30 Bahasa -> No Globe) */}
+                        {/* Language Selector Drilldown Button */}
                         <button
                           onClick={() => setSuiteView('language')}
                           className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-lg bg-white dark:bg-dark-800 hover:bg-slate-100 dark:hover:bg-dark-750 border border-slate-200 dark:border-dark-700 text-slate-800 dark:text-slate-200 text-[14px] font-bold cursor-pointer transition-all duration-150 shadow-xs"
@@ -967,7 +1082,7 @@ export const Navbar: React.FC = () => {
                   </button>
                 </div>
 
-                {/* 2. Language Change Option (30 Bahasa - No Globe Icon) */}
+                {/* 2. Language Change Option (30 Bahasa) */}
                 <div className="p-3.5 rounded-2xl bg-slate-100 dark:bg-dark-800 border border-slate-200 dark:border-dark-700">
                   <button
                     type="button"
@@ -1036,7 +1151,7 @@ export const Navbar: React.FC = () => {
                   )}
                 </div>
 
-                {/* 3. Promo Offer Card directing to Pricing */}
+                {/* 3. Promo Offer Card directing to Pricing - High-Contrast Class-Guarded */}
                 <a
                   href={lang === 'en' ? '/pricing/' : `/${lang}/pricing/`}
                   onClick={(e) => {
@@ -1045,20 +1160,20 @@ export const Navbar: React.FC = () => {
                     setMobileMenuOpen(false);
                     document.body.style.overflow = '';
                   }}
-                  className="relative group block overflow-hidden rounded-2xl p-4 bg-gradient-to-br from-cyan-950 via-slate-900 to-indigo-950 border border-cyan-500/40 hover:border-cyan-400 transition-all shadow-lg text-left cursor-pointer"
+                  className="mobile-promo-card relative group block overflow-hidden rounded-2xl p-4 transition-all shadow-md text-left cursor-pointer"
                 >
                   <div className="flex items-center justify-between gap-2 mb-2">
-                    <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[10.5px] font-black uppercase tracking-wider bg-gradient-to-r from-amber-400 to-amber-500 text-slate-950 shadow-xs">
-                      <Crown className="w-3 h-3" /> {lang === 'id' ? 'PROMO FOUNDER PASS' : 'FOUNDER PASS DEAL'}
+                    <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[10.5px] font-black uppercase tracking-wider bg-amber-500 text-slate-950 shadow-xs">
+                      <Crown className="w-3 h-3 text-slate-950" /> {lang === 'id' ? 'PROMO FOUNDER PASS' : 'FOUNDER PASS DEAL'}
                     </span>
-                    <span className="text-[11.5px] font-bold text-cyan-300 group-hover:translate-x-0.5 transition-transform flex items-center gap-0.5">
-                      {lang === 'id' ? 'Buka Paket' : 'View Plans'} <ChevronRight className="w-3.5 h-3.5" />
+                    <span className="text-[12px] font-bold text-cyan-600 dark:text-cyan-400 group-hover:translate-x-0.5 transition-transform flex items-center gap-0.5">
+                      {lang === 'id' ? 'Lihat Paket' : 'View Plans'} <ChevronRight className="w-3.5 h-3.5" />
                     </span>
                   </div>
-                  <div className="text-[14px] font-heading font-extrabold text-white leading-snug mb-1">
+                  <div className="mobile-promo-title text-[15px] font-heading font-extrabold leading-snug mb-1">
                     {lang === 'id' ? 'All-in-One 4 Web Suite Selamanya' : '4-in-1 Lifetime Suite Access'}
                   </div>
-                  <p className="text-[12px] text-slate-300 leading-relaxed">
+                  <p className="mobile-promo-desc text-[12.5px] leading-relaxed font-normal">
                     {lang === 'id'
                       ? 'Sekali bayar tanpa langganan. Dapatkan akses penuh ke HelpMyIMG, HandleMyFile, SolveMyMedia, & CreateMy-QR.'
                       : 'One-time payment, zero subscriptions. Get full lifetime access across all 4 ecosystem web apps.'}

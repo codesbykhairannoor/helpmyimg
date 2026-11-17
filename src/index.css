@@ -406,3 +406,30 @@ html:not(.dark) .border-dark-600\/40 {
   background: #111827;
   border-color: #1f2937;
 }
+
+/* Mobile Nav Promo Card Text Clarity (Light & Dark Mode) */
+.mobile-promo-card {
+  background: linear-gradient(135deg, rgba(6, 182, 212, 0.08) 0%, rgba(248, 250, 252, 0.95) 100%);
+  border: 1px solid rgba(6, 182, 212, 0.35);
+}
+
+.dark .mobile-promo-card {
+  background: linear-gradient(135deg, rgba(8, 51, 68, 0.7) 0%, #0f172a 50%, #1e1b4b 100%);
+  border-color: rgba(6, 182, 212, 0.4);
+}
+
+.mobile-promo-card .mobile-promo-title {
+  color: #0f172a !important;
+}
+
+.dark .mobile-promo-card .mobile-promo-title {
+  color: #ffffff !important;
+}
+
+.mobile-promo-card .mobile-promo-desc {
+  color: #475569 !important;
+}
+
+.dark .mobile-promo-card .mobile-promo-desc {
+  color: #cbd5e1 !important;
+}

@@ -943,17 +943,17 @@ function generateSemanticHtml(lang, urlPath, title, desc, tool, infoPage, transl
         </div>
         <div class="hidden lg:flex items-center justify-center flex-1 relative px-4">
           <nav class="flex items-center gap-2 xl:gap-4 text-sm font-medium text-slate-700 dark:text-slate-300">
-            <a href="${removeLink}" class="hover:text-neon-cyan transition-colors font-bold text-[14px] px-2.5 py-1.5 flex items-center whitespace-nowrap rounded-lg">
+            <a href="${removeLink}" class="hover:text-neon-cyan transition-colors font-bold text-[15px] px-2.5 py-1.5 flex items-center whitespace-nowrap rounded-lg">
               ${translations['nav.removeBg'] || 'Remove Background'}
             </a>
-            <a href="${compressLink}" class="hover:text-neon-cyan transition-colors font-bold text-[14px] px-2.5 py-1.5 flex items-center whitespace-nowrap rounded-lg">
+            <a href="${compressLink}" class="hover:text-neon-cyan transition-colors font-bold text-[15px] px-2.5 py-1.5 flex items-center whitespace-nowrap rounded-lg">
               ${translations['nav.compress'] || 'Compress Image'}
             </a>
-            <a href="${resizeLink}" class="hover:text-neon-cyan transition-colors font-bold text-[14px] px-2.5 py-1.5 flex items-center whitespace-nowrap rounded-lg">
+            <a href="${resizeLink}" class="hover:text-neon-cyan transition-colors font-bold text-[15px] px-2.5 py-1.5 flex items-center whitespace-nowrap rounded-lg">
               ${translations['nav.resize'] || 'Resize Image'}
             </a>
             <div class="relative ml-1">
-              <div class="flex items-center gap-2 bg-neon-cyan/10 border border-neon-cyan/30 text-cyan-800 dark:text-neon-cyan px-3.5 py-1.5 rounded-lg font-bold text-[14px]">
+              <div class="flex items-center gap-2 bg-neon-cyan/10 border border-neon-cyan/30 text-cyan-800 dark:text-neon-cyan px-3.5 py-1.5 rounded-lg font-bold text-[15px]">
                 <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect width="7" height="7" x="3" y="3" rx="1"/><rect width="7" height="7" x="14" y="3" rx="1"/><rect width="7" height="7" x="14" y="14" rx="1"/><rect width="7" height="7" x="3" y="14" rx="1"/></svg>
                 <span>${translations['nav.tools'] === 'AI Tools' ? 'All Photo Tools' : (translations['nav.tools'] || 'All Photo Tools')}</span>
               </div>
@@ -961,7 +961,14 @@ function generateSemanticHtml(lang, urlPath, title, desc, tool, infoPage, transl
           </nav>
         </div>
         <div class="flex items-center justify-end gap-2 sm:gap-2.5 flex-shrink-0">
-          <a href="${lang === 'en' ? '/pricing/' : `/${lang}/pricing/`}" class="flex items-center gap-1.5 sm:gap-2 bg-cyan-500/10 hover:bg-cyan-500/20 text-cyan-700 dark:text-[#05DAED] border border-cyan-500/30 px-2.5 sm:px-3 h-8 sm:h-9 rounded-xl text-[12.5px] sm:text-[14px] font-semibold transition-all">
+          <div class="hidden lg:flex items-center justify-center w-[38px] h-[38px] bg-slate-100 dark:bg-dark-800 border border-slate-200 dark:border-dark-600 rounded-xl text-slate-700 dark:text-slate-200">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-amber-500"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>
+          </div>
+          <div class="hidden lg:flex items-center gap-1.5 bg-slate-100 dark:bg-dark-800 border border-slate-200 dark:border-dark-600 px-2.5 h-[38px] rounded-xl text-[13.5px] font-bold text-slate-700 dark:text-slate-200">
+            <span class="uppercase font-mono text-[13px]">${lang}</span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-slate-400"><path d="m6 9 6 6 6-6"/></svg>
+          </div>
+          <a href="${lang === 'en' ? '/pricing/' : `/${lang}/pricing/`}" class="flex items-center gap-1.5 sm:gap-2 bg-cyan-500/10 hover:bg-cyan-500/20 text-cyan-700 dark:text-[#05DAED] border border-cyan-500/30 px-2.5 sm:px-3 h-8 sm:h-[38px] rounded-xl text-[12.5px] sm:text-[14px] font-semibold transition-all">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"/><polyline points="10 17 15 12 10 7"/><line x1="15" x2="3" y1="12" y2="12"/></svg>
             <span>${translations['nav.signIn'] || (lang === 'id' ? 'Masuk' : 'Sign In')}</span>
           </a>
