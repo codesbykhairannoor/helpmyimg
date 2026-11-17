@@ -28,8 +28,9 @@ export default {
         }
       },
       fontFamily: {
-        heading: ['var(--font-display)', 'system-ui', 'sans-serif'],
-        body: ['var(--font-main)', 'system-ui', 'sans-serif'],
+        heading: ['"Plus Jakarta Sans"', 'var(--font-display)', 'system-ui', 'sans-serif'],
+        body: ['"Plus Jakarta Sans"', 'var(--font-main)', 'system-ui', 'sans-serif'],
+        sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
       },
       boxShadow: {
         'glass': '0 8px 32px 0 rgba(0, 0, 0, 0.37)',
