@@ -59,7 +59,7 @@ export const ThemeProvider: React.FC<{ children: ReactNode }> = ({ children }) =
       }
       try {
         localStorage.setItem(THEME_STORAGE_KEY, next);
-      } catch {}
+      } catch { }
       return next;
     });
   };
@@ -76,7 +76,7 @@ export const ThemeProvider: React.FC<{ children: ReactNode }> = ({ children }) =
     }
     try {
       localStorage.setItem(THEME_STORAGE_KEY, newTheme);
-    } catch {}
+    } catch { }
   };
 
   return (
