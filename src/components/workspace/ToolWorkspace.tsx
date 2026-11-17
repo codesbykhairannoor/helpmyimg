@@ -34,7 +34,7 @@ import type { TabType, BatchItem, ColorInfo, WatermarkPosition, ToolWorkspacePro
 
 export type { TabType, BatchItem, ColorInfo, WatermarkPosition, ToolWorkspaceProps };
 
-export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({ 
+export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({
   initialTab: rawInitialTab = 'remove',
   onActiveChange,
 }) => {
@@ -541,12 +541,12 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({
                             prev.map((item) =>
                               item.id === currentItem.id
                                 ? {
-                                    ...item,
-                                    compressSourceSize: sourceBlob.size,
-                                    compressBlob: finalBlob,
-                                    compressUrl: url,
-                                    processedUrl: url,
-                                  }
+                                  ...item,
+                                  compressSourceSize: sourceBlob.size,
+                                  compressBlob: finalBlob,
+                                  compressUrl: url,
+                                  processedUrl: url,
+                                }
                                 : item
                             )
                           );
@@ -764,13 +764,13 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({
                           prev.map((item) =>
                             item.id === currentItem.id
                               ? {
-                                  ...item,
-                                  file: newFile,
-                                  originalUrl: url,
-                                  transparentUrl: item.transparentUrl ? url : null,
-                                  processedUrl: url,
-                                  status: 'done',
-                                }
+                                ...item,
+                                file: newFile,
+                                originalUrl: url,
+                                transparentUrl: item.transparentUrl ? url : null,
+                                processedUrl: url,
+                                status: 'done',
+                              }
                               : item
                           )
                         );
@@ -839,13 +839,13 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({
                           prev.map((item) =>
                             item.id === currentItem.id
                               ? {
-                                  ...item,
-                                  file: newFile,
-                                  originalUrl: url,
-                                  transparentUrl: item.transparentUrl ? url : null,
-                                  processedUrl: url,
-                                  status: 'done',
-                                }
+                                ...item,
+                                file: newFile,
+                                originalUrl: url,
+                                transparentUrl: item.transparentUrl ? url : null,
+                                processedUrl: url,
+                                status: 'done',
+                              }
                               : item
                           )
                         );
@@ -900,13 +900,13 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({
                           prev.map((item) =>
                             item.id === currentItem.id
                               ? {
-                                  ...item,
-                                  file: newFile,
-                                  originalUrl: url,
-                                  transparentUrl: item.transparentUrl ? url : null,
-                                  processedUrl: url,
-                                  status: 'done',
-                                }
+                                ...item,
+                                file: newFile,
+                                originalUrl: url,
+                                transparentUrl: item.transparentUrl ? url : null,
+                                processedUrl: url,
+                                status: 'done',
+                              }
                               : item
                           )
                         );
@@ -979,13 +979,13 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({
                         prev.map((item) =>
                           item.id === currentItem.id
                             ? {
-                                ...item,
-                                file: newFile,
-                                originalUrl: url,
-                                transparentUrl: item.transparentUrl ? url : null,
-                                processedUrl: url,
-                                status: 'done',
-                              }
+                              ...item,
+                              file: newFile,
+                              originalUrl: url,
+                              transparentUrl: item.transparentUrl ? url : null,
+                              processedUrl: url,
+                              status: 'done',
+                            }
                             : item
                         )
                       );
@@ -1071,12 +1071,12 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({
                           prev.map((item) =>
                             item.id === currentItem.id
                               ? {
-                                  ...item,
-                                  file: newFile,
-                                  name: newName,
-                                  processedUrl: newUrl,
-                                  status: 'done',
-                                }
+                                ...item,
+                                file: newFile,
+                                name: newName,
+                                processedUrl: newUrl,
+                                status: 'done',
+                              }
                               : item
                           )
                         );
@@ -1159,12 +1159,12 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({
                           prev.map((item) =>
                             item.id === currentItem.id
                               ? {
-                                  ...item,
-                                  file: newFile,
-                                  name: newName,
-                                  processedUrl: newUrl,
-                                  status: 'done',
-                                }
+                                ...item,
+                                file: newFile,
+                                name: newName,
+                                processedUrl: newUrl,
+                                status: 'done',
+                              }
                               : item
                           )
                         );

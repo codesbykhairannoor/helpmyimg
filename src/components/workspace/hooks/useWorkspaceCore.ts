@@ -71,12 +71,12 @@ export function useWorkspaceCore(initialTab: TabType = 'remove'): UseWorkspaceCo
         setToastMessage(
           isPro
             ? t('work.batchMaxProNotice', {
-                defaultValue: 'Maximum 100 photos per PRO batch.',
-              })
+              defaultValue: 'Maximum 100 photos per PRO batch.',
+            })
             : t('work.batchLimitNotice', {
-                defaultValue:
-                  'Free tier limit is 10 photos per batch. Upgrade to PRO to process up to 100 photos!',
-              })
+              defaultValue:
+                'Free tier limit is 10 photos per batch. Upgrade to PRO to process up to 100 photos!',
+            })
         );
         if (!isPro) openAuthModal();
         return;
@@ -180,13 +180,13 @@ export function useWorkspaceCore(initialTab: TabType = 'remove'): UseWorkspaceCo
       prev.map((i) =>
         i.id === currentItem.id
           ? {
-              ...i,
-              processedUrl: i.originalUrl,
-              transparentUrl: isRemoveTab ? null : i.originalUrl,
-              status: isRemoveTab ? 'idle' : 'done',
-              progress: isRemoveTab ? 0 : 100,
-              progressStep: t('work.waiting', { defaultValue: 'Ready to process' }),
-            }
+            ...i,
+            processedUrl: i.originalUrl,
+            transparentUrl: isRemoveTab ? null : i.originalUrl,
+            status: isRemoveTab ? 'idle' : 'done',
+            progress: isRemoveTab ? 0 : 100,
+            progressStep: t('work.waiting', { defaultValue: 'Ready to process' }),
+          }
           : i
       )
     );

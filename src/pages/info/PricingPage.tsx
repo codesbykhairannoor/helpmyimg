@@ -1,6 +1,6 @@
 // src/pages/info/PricingPage.tsx
 // Halaman Pilihan Harga Resmi HelpMyIMG: 3 Pilihan Bersih (Free Plan, Monthly/Annual Plan, Founder Lifetime Pass)
-// Sesuai Layout Referensi Resmi Multi-Platform Suite
+// Sesuai Layout Referensi Resmi Multi-Platform Suite & 100% Tokenized i18n
 
 import React, { useState } from 'react';
 import { useTranslation } from '../../context/LanguageContext';
@@ -103,11 +103,11 @@ export const PricingPage: React.FC = () => {
     {
       name: t('pricing.matrix.row1.name', { defaultValue: 'Batas Pemrosesan Batch' }),
       free: t('pricing.matrix.row1.free', { defaultValue: 'Hingga 10 foto / batch' }),
-      pro: t('pricing.matrix.row1.pro', { defaultValue: 'Tanpa Batas foto / batch' }),
+      pro: t('pricing.matrix.row1.pro', { defaultValue: 'Tanpa Batas foto / batch (100+)' }),
     },
     {
       name: t('pricing.matrix.row2.name', { defaultValue: 'Resolusi Ekspor' }),
-      free: t('pricing.matrix.row2.free', { defaultValue: 'High-Definition Standar' }),
+      free: t('pricing.matrix.row2.free', { defaultValue: 'High-Definition Standar (1080p)' }),
       pro: t('pricing.matrix.row2.pro', { defaultValue: 'Ultra-HD 4K & Lossless Asli' }),
     },
     {
@@ -122,8 +122,8 @@ export const PricingPage: React.FC = () => {
     },
     {
       name: t('pricing.matrix.row5.name', { defaultValue: 'Privasi Tanpa Upload Server' }),
-      free: t('pricing.matrix.row5.free', { defaultValue: '100% Terlindungi' }),
-      pro: t('pricing.matrix.row5.pro', { defaultValue: '100% Terlindungi' }),
+      free: t('pricing.matrix.row5.free', { defaultValue: '100% Terlindungi di Browser' }),
+      pro: t('pricing.matrix.row5.pro', { defaultValue: '100% Terlindungi di Browser' }),
     },
     {
       name: t('pricing.matrix.row6.name', { defaultValue: 'Watermark Hasil Ekspor' }),
@@ -148,7 +148,7 @@ export const PricingPage: React.FC = () => {
     {
       name: t('pricing.matrix.row10.name', { defaultValue: 'Preset Marketplace & Export ZIP' }),
       free: t('pricing.matrix.row10.free', { defaultValue: 'Download 1-per-1 manual' }),
-      pro: t('pricing.matrix.row10.pro', { defaultValue: '1-Click Bulk ZIP & Preset Resmi' }),
+      pro: t('pricing.matrix.row10.pro', { defaultValue: '1-Click Bulk ZIP & Smart Renaming' }),
     },
   ];
 
@@ -157,49 +157,49 @@ export const PricingPage: React.FC = () => {
       q: t('pricing.faq1.q', { defaultValue: 'Apa perbedaan utama antara Paket Gratis dan Paket PRO?' }),
       a: t('pricing.faq1.a', {
         defaultValue:
-          'Paket Gratis memberikan akses ke semua 14 alat AI dengan batas batch 10 foto dan resolusi HD. Paket PRO menghapus batas batch, membuka ekspor Ultra-HD 4K tanpa kompresi, mengaktifkan AI ultra-presisi untuk rambut, dan memberikan ruang kerja bebas iklan.',
+          'Paket Gratis memberikan akses ke semua 14 alat AI lokal dengan batas batch 10 foto dan resolusi HD. Paket PRO menghapus batas batch (100+ foto), membuka ekspor Ultra-HD 4K tanpa kompresi, dan memberikan ruang kerja bebas iklan.',
       }),
     },
     {
-      q: t('pricing.faq6.q', { defaultValue: 'Apa itu Founder Lifetime Pass dan bagaimana cara kerjanya?' }),
-      a: t('pricing.faq6.a', {
+      q: t('pricing.faq2.q', { defaultValue: 'Apa itu Founder Lifetime Pass dan bagaimana cara kerjanya?' }),
+      a: t('pricing.faq2.a', {
         defaultValue:
-          'Founder Lifetime Pass adalah penawaran khusus early-bird di mana Anda hanya perlu membayar 1 kali ($129) untuk mendapatkan seluruh kapabilitas PRO selamanya di seluruh ekosistem (4 Web Apps, Windows App, dan APK Mobile). Tidak ada biaya langganan bulanan atau tahunan, dan akun Anda otomatis mendapatkan semua alat baru yang kami rilis di masa depan.',
+          'Founder Lifetime Pass adalah penawaran khusus early-bird di mana Anda hanya perlu membayar 1 kali ($129) untuk mendapatkan seluruh kapabilitas PRO selamanya di seluruh ekosistem 4 Web Apps kami tanpa biaya langganan bulanan atau tahunan, serta akses prioritas ke update mendatang.',
       }),
     },
     {
-      q: t('pricing.faq7.q', { defaultValue: 'Mengapa HelpMyIMG bisa menawarkan Lifetime Deal tanpa membebani biaya server?' }),
-      a: t('pricing.faq7.a', {
+      q: t('pricing.faq3.q', { defaultValue: 'Mengapa HelpMyIMG bisa menawarkan Lifetime Deal secara berkelanjutan?' }),
+      a: t('pricing.faq3.a', {
         defaultValue:
           'Tidak seperti layanan cloud AI lain yang membakar biaya server per gambar, arsitektur HelpMyIMG berjalan 100% lokal di browser Anda menggunakan WebAssembly dan Web Workers. Karena beban komputasi terjadi di perangkat Anda, biaya marginal server kami adalah $0.00, memungkinkan kami memberikan penawaran sekali bayar yang berkelanjutan.',
       }),
     },
     {
-      q: t('pricing.faq2.q', { defaultValue: 'Apakah saya bisa membatalkan langganan PRO kapan saja?' }),
-      a: t('pricing.faq2.a', {
-        defaultValue:
-          'Ya, tentu saja. Anda dapat membatalkan langganan bulanan atau tahunan kapan saja lewat menu akun Anda. Akun Anda akan tetap berstatus PRO sampai akhir periode tagihan berjalan.',
-      }),
-    },
-    {
-      q: t('pricing.faq3.q', { defaultValue: 'Apakah foto saya di-upload ke server jika menggunakan akun PRO?' }),
-      a: t('pricing.faq3.a', {
-        defaultValue:
-          'Sama sekali tidak. Bahkan pada akun PRO, seluruh pemrosesan gambar tetap berjalan 100% lokal di perangkat Anda menggunakan Web Workers dan ONNX Runtime. Foto Anda tidak pernah menyentuh server mana pun.',
-      }),
-    },
-    {
-      q: t('pricing.faq4.q', { defaultValue: 'Metode pembayaran apa saja yang diterima?' }),
+      q: t('pricing.faq4.q', { defaultValue: 'Apakah saya bisa membatalkan langganan PRO kapan saja?' }),
       a: t('pricing.faq4.a', {
         defaultValue:
-          'Kami menerima kartu kredit/debit (Visa, Mastercard), QRIS, transfer bank lokal, GoPay, OVO, ShopeePay, Apple Pay, dan Google Pay via Lemon Squeezy resmi.',
+          'Ya, tentu saja. Anda dapat membatalkan langganan bulanan atau tahunan kapan saja lewat menu akun Anda dengan satu klik. Akun Anda akan tetap berstatus PRO sampai akhir periode tagihan berjalan.',
       }),
     },
     {
-      q: t('pricing.faq5.q', { defaultValue: 'Apakah akun PRO bisa digunakan di perangkat berbeda?' }),
+      q: t('pricing.faq5.q', { defaultValue: 'Apakah foto saya tetap aman dan tidak di-upload ke server jika menggunakan PRO?' }),
       a: t('pricing.faq5.a', {
         defaultValue:
-          'Bisa. Anda cukup login menggunakan Akun Google yang sama di laptop, komputer kantor, atau perangkat lain, status PRO Anda akan langsung aktif.',
+          'Sama sekali tidak di-upload. Bahkan pada akun PRO, seluruh pemrosesan gambar tetap berjalan 100% lokal di perangkat Anda menggunakan Web Workers dan WebAssembly. Foto Anda tidak pernah menyentuh server mana pun.',
+      }),
+    },
+    {
+      q: t('pricing.faq6.q', { defaultValue: 'Metode pembayaran apa saja yang diterima?' }),
+      a: t('pricing.faq6.a', {
+        defaultValue:
+          'Kami menerima kartu kredit/debit (Visa, Mastercard, American Express), Apple Pay, Google Pay, dan transfer bank lokal / e-wallet resmi melalui Lemon Squeezy yang terjamin aman.',
+      }),
+    },
+    {
+      q: t('pricing.faq7.q', { defaultValue: 'Apakah akun PRO bisa digunakan di beberapa perangkat?' }),
+      a: t('pricing.faq7.a', {
+        defaultValue:
+          'Bisa. Anda cukup login menggunakan akun yang sama di laptop, komputer kantor, atau perangkat lain mana pun, status PRO Anda akan langsung aktif secara otomatis.',
       }),
     },
   ];
@@ -253,7 +253,7 @@ export const PricingPage: React.FC = () => {
                 : 'text-slate-500 hover:text-slate-800 dark:text-slate-400 dark:hover:text-white'
                 }`}
             >
-              {t('pricing.billing.monthly', { defaultValue: 'Monthly Plan' })}
+              {t('pricing.billing.monthly', { defaultValue: 'Paket Bulanan' })}
             </button>
             <button
               type="button"
@@ -263,17 +263,17 @@ export const PricingPage: React.FC = () => {
                 : 'text-slate-500 hover:text-slate-800 dark:text-slate-400 dark:hover:text-white'
                 }`}
             >
-              <span>{t('pricing.billing.yearly', { defaultValue: 'Annual Plan' })}</span>
+              <span>{t('pricing.billing.yearly', { defaultValue: 'Paket Tahunan' })}</span>
               <span className="px-2 py-0.5 rounded-full bg-emerald-500 text-white font-black text-[10px] uppercase tracking-wider">
-                SAVE 34%
+                {t('pricing.billing.save34', { defaultValue: 'HEMAT 34%' })}
               </span>
             </button>
           </div>
 
           <div className="mt-3 text-xs sm:text-sm text-slate-500 dark:text-slate-400 font-medium text-center">
             {isYearly
-              ? (lang === 'id' ? 'Setara $6.58/bln • Hemat 34% ($79/tahun)' : 'Equivalent to $6.58/mo • Save 34% ($79/year)')
-              : (lang === 'id' ? '$9.99/bulan • Ditagih bulanan • Batal kapan saja' : '$9.99/month • Billed monthly • Cancel anytime')}
+              ? t('pricing.billing.yearlyEq', { defaultValue: 'Setara $6.58/bln • Hemat 34% ($79/tahun)' })
+              : t('pricing.billing.monthlyEq', { defaultValue: '$9.99/bulan • Ditagih bulanan • Batal kapan saja' })}
           </div>
         </div>
 
@@ -284,35 +284,37 @@ export const PricingPage: React.FC = () => {
           <div className="rounded-3xl p-7 sm:p-8 bg-white dark:bg-dark-800 border border-slate-200 dark:border-dark-700 shadow-sm flex flex-col justify-between">
             <div>
               <span className="inline-block px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-slate-100 dark:bg-dark-700 text-slate-600 dark:text-slate-300">
-                FREE FOREVER
+                {t('pricing.free.badge', { defaultValue: 'GRATIS SELAMANYA' })}
               </span>
 
               <h3 className="text-2xl font-black text-slate-900 dark:text-white mt-4 mb-2">
-                {t('pricing.free.name', { defaultValue: 'Free Plan' })}
+                {t('pricing.free.name', { defaultValue: 'Paket Gratis' })}
               </h3>
 
               <p className="text-sm text-slate-500 dark:text-slate-400 min-h-[44px] leading-relaxed">
-                {lang === 'id'
-                  ? 'Alat AI foto penting untuk kebutuhan harian dan pengeditan cepat.'
-                  : 'Essential AI Photo & Image editing tools for personal projects and everyday editing.'}
+                {t('pricing.free.desc', { defaultValue: 'Alat AI foto penting untuk kebutuhan harian dan pengeditan cepat.' })}
               </p>
 
               <div className="my-6 pt-4 border-t border-slate-100 dark:border-dark-700">
                 <div className="flex items-baseline gap-1">
                   <span className="text-5xl font-black text-slate-900 dark:text-white font-heading">$0</span>
-                  <span className="text-slate-500 dark:text-slate-400 font-medium text-sm">/ forever</span>
+                  <span className="text-slate-500 dark:text-slate-400 font-medium text-sm">
+                    {t('pricing.free.period', { defaultValue: '/ selamanya' })}
+                  </span>
                 </div>
-                <p className="text-xs text-slate-400 dark:text-slate-500 mt-1">100% Free • No Credit Card Required</p>
+                <p className="text-xs text-slate-400 dark:text-slate-500 mt-1">
+                  {t('pricing.free.sub', { defaultValue: '100% Gratis • Tanpa Kartu Kredit' })}
+                </p>
               </div>
 
               <div className="mb-8">
                 <div className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-4">
-                  INCLUDED FEATURES
+                  {t('pricing.includedFeatures', { defaultValue: 'FITUR TERMASUK' })}
                 </div>
                 <ul className="space-y-3">
                   <li className="flex items-start gap-2.5 text-xs sm:text-sm text-slate-700 dark:text-slate-300">
                     <Check className="w-4 h-4 text-emerald-500 shrink-0 mt-0.5" />
-                    <span>{lang === 'id' ? 'Terhubung ke semua 4 Web Apps (Free tier)' : 'Connected to all 4 Web Apps (Free tier)'}</span>
+                    <span>{t('pricing.free.f7', { defaultValue: 'Terhubung ke semua 4 Web Apps (Free tier)' })}</span>
                   </li>
                   <li className="flex items-start gap-2.5 text-xs sm:text-sm text-slate-700 dark:text-slate-300">
                     <Check className="w-4 h-4 text-emerald-500 shrink-0 mt-0.5" />
@@ -328,15 +330,15 @@ export const PricingPage: React.FC = () => {
                   </li>
                   <li className="flex items-start gap-2.5 text-xs sm:text-sm text-slate-700 dark:text-slate-300">
                     <Check className="w-4 h-4 text-emerald-500 shrink-0 mt-0.5" />
-                    <span>{t('pricing.free.f3', { defaultValue: 'Ekspor gambar resolusi HD standar' })}</span>
+                    <span>{t('pricing.free.f3', { defaultValue: 'Ekspor gambar resolusi HD standar (1080p)' })}</span>
                   </li>
                   <li className="flex items-start gap-2.5 text-xs sm:text-sm text-slate-700 dark:text-slate-300">
                     <Check className="w-4 h-4 text-emerald-500 shrink-0 mt-0.5" />
-                    <span>{lang === 'id' ? 'Unduhan format standar PNG & WebP' : 'Standard PNG & WebP format downloads'}</span>
+                    <span>{t('pricing.free.f5', { defaultValue: 'Unduhan format standar PNG & WebP' })}</span>
                   </li>
                   <li className="flex items-start gap-2.5 text-xs sm:text-sm text-slate-700 dark:text-slate-300">
                     <Check className="w-4 h-4 text-emerald-500 shrink-0 mt-0.5" />
-                    <span>{lang === 'id' ? 'Penyimpanan riwayat browser lokal (IndexedDB)' : 'Local browser history storage (IndexedDB)'}</span>
+                    <span>{t('pricing.free.f6', { defaultValue: 'Penyimpanan riwayat browser lokal (IndexedDB)' })}</span>
                   </li>
                 </ul>
               </div>
@@ -347,8 +349,8 @@ export const PricingPage: React.FC = () => {
               className="w-full py-3.5 px-6 rounded-2xl font-bold text-sm bg-slate-100 hover:bg-slate-200 dark:bg-dark-700 dark:hover:bg-dark-600 text-slate-800 dark:text-white border border-slate-200 dark:border-dark-600 transition-all cursor-pointer text-center"
             >
               {user && !isPro
-                ? (lang === 'id' ? 'Paket Aktif Saat Ini' : 'Current Plan')
-                : (lang === 'id' ? 'Mulai Gratis Sekarang' : 'Start Free Now')}
+                ? t('pricing.free.btnActive', { defaultValue: 'Paket Aktif Saat Ini' })
+                : t('pricing.free.btnStart', { defaultValue: 'Mulai Gratis Sekarang' })}
             </button>
           </div>
 
@@ -359,12 +361,12 @@ export const PricingPage: React.FC = () => {
               {isYearly ? (
                 <>
                   <Sparkles className="w-3.5 h-3.5" />
-                  <span>{lang === 'id' ? 'PALING POPULER' : 'MOST POPULAR'}</span>
+                  <span>{t('pricing.pro.badgePopular', { defaultValue: 'PALING POPULER' })}</span>
                 </>
               ) : (
                 <>
                   <Zap className="w-3.5 h-3.5" />
-                  <span>{lang === 'id' ? 'FLEKSIBEL' : 'FLEXIBLE'}</span>
+                  <span>{t('pricing.pro.badgeFlexible', { defaultValue: 'FLEKSIBEL' })}</span>
                 </>
               )}
             </div>
@@ -373,30 +375,30 @@ export const PricingPage: React.FC = () => {
               <div className="flex items-center justify-between mb-2 mt-2">
                 {isYearly ? (
                   <span className="px-2.5 py-0.5 rounded-md bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/25 text-xs font-bold uppercase tracking-wider">
-                    SAVE 34%
+                    {t('pricing.billing.save34', { defaultValue: 'HEMAT 34%' })}
                   </span>
                 ) : (
                   <span className="px-2.5 py-0.5 rounded-md bg-cyan-500/10 text-cyan-700 dark:text-[#05DAED] border border-cyan-500/25 text-xs font-bold uppercase tracking-wider">
-                    FLEXIBLE
+                    {t('pricing.pro.badgeFlexible', { defaultValue: 'FLEKSIBEL' })}
                   </span>
                 )}
                 <span className="text-xs text-slate-500 dark:text-slate-400">
                   {isYearly
-                    ? (lang === 'id' ? 'Setara $6.58 / bln' : 'Equivalent to $6.58 / mo')
-                    : (lang === 'id' ? 'Batal Kapan Saja' : 'Cancel Anytime')}
+                    ? t('pricing.billing.yearlyEq', { defaultValue: 'Setara $6.58 / bln' })
+                    : t('pricing.pro.monthlySub', { defaultValue: 'Batal Kapan Saja' })}
                 </span>
               </div>
 
               <h3 className="text-2xl font-black text-slate-900 dark:text-white mt-2 mb-2">
                 {isYearly
-                  ? (lang === 'id' ? 'Paket Tahunan' : 'Annual Plan')
-                  : (lang === 'id' ? 'Paket Bulanan' : 'Monthly Plan')}
+                  ? t('pricing.pro.yearlyName', { defaultValue: 'Paket Tahunan' })
+                  : t('pricing.pro.monthlyName', { defaultValue: 'Paket Bulanan' })}
               </h3>
 
               <p className="text-sm text-slate-500 dark:text-slate-400 min-h-[44px] leading-relaxed">
                 {isYearly
-                  ? (lang === 'id' ? 'Ditagih tahunan (setara $6.58/bln). Pilihan terbaik untuk kreator & bisnis.' : 'Billed annually ($6.58/mo equivalent). Best value for creators & agencies.')
-                  : (lang === 'id' ? 'Fleksibilitas penuh untuk desainer, profesional, dan kebutuhan aktif.' : 'Full flexibility for professionals, designers, and active businesses.')}
+                  ? t('pricing.pro.yearlyDesc', { defaultValue: 'Ditagih tahunan (setara $6.58/bln). Pilihan terbaik untuk kreator & bisnis.' })
+                  : t('pricing.pro.monthlyDesc', { defaultValue: 'Fleksibilitas penuh untuk desainer, profesional, dan kebutuhan aktif.' })}
               </p>
 
               <div className="my-6 pt-4 border-t border-slate-100 dark:border-dark-700">
@@ -406,26 +408,28 @@ export const PricingPage: React.FC = () => {
                     {isYearly ? '$79' : '$9.99'}
                   </span>
                   <span className="text-slate-500 dark:text-slate-400 font-medium text-sm">
-                    {isYearly ? '/ year' : '/ month'}
+                    {isYearly
+                      ? t('pricing.pro.periodYearly', { defaultValue: '/ tahun' })
+                      : t('pricing.pro.periodMonthly', { defaultValue: '/ bulan' })}
                   </span>
                 </div>
                 <p className="text-xs text-emerald-600 dark:text-emerald-400 font-medium mt-1">
                   {isYearly
-                    ? (lang === 'id' ? 'Hemat $40.88 tiap tahun • Diskon 34%' : 'Save $40.88 every year • 34% Discount')
-                    : (lang === 'id' ? 'Ditagih bulanan • Bebas batalkan kapan saja' : 'Billed monthly • Cancel anytime')}
+                    ? t('pricing.pro.yearlySub', { defaultValue: 'Hemat $40.88 tiap tahun • Diskon 34%' })
+                    : t('pricing.pro.monthlySub', { defaultValue: 'Ditagih bulanan • Bebas batalkan kapan saja' })}
                 </p>
               </div>
 
               <div className="mb-8">
                 <div className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-4">
-                  INCLUDED FEATURES
+                  {t('pricing.includedFeatures', { defaultValue: 'FITUR TERMASUK' })}
                 </div>
                 <ul className="space-y-3">
                   <li className="flex items-start gap-2.5 text-xs sm:text-sm text-slate-800 dark:text-slate-200 font-semibold">
                     <div className="w-4 h-4 rounded-full bg-cyan-500/15 text-cyan-600 dark:text-[#05DAED] flex items-center justify-center shrink-0 mt-0.5">
                       <Check className="w-3 h-3 stroke-[3]" />
                     </div>
-                    <span>{lang === 'id' ? 'Akses penuh terhubung ke semua 4 Web Apps' : 'Connected full access to all 4 Web Apps'}</span>
+                    <span>{t('pricing.pro.f1', { defaultValue: 'Akses penuh terhubung ke semua 4 Web Apps' })}</span>
                   </li>
                   <li className="flex items-start gap-2.5 text-xs sm:text-sm text-slate-700 dark:text-slate-300">
                     <Check className="w-4 h-4 text-emerald-500 shrink-0 mt-0.5" />
@@ -441,7 +445,7 @@ export const PricingPage: React.FC = () => {
                   </li>
                   <li className="flex items-start gap-2.5 text-xs sm:text-sm text-slate-700 dark:text-slate-300">
                     <Check className="w-4 h-4 text-emerald-500 shrink-0 mt-0.5" />
-                    <span>{lang === 'id' ? 'Lisensi komersial & penggunaan proyek klien' : 'Commercial & client project usage license'}</span>
+                    <span>{t('pricing.pro.f6', { defaultValue: 'Lisensi komersial & penggunaan proyek klien' })}</span>
                   </li>
                   <li className="flex items-start gap-2.5 text-xs sm:text-sm text-slate-700 dark:text-slate-300">
                     <Check className="w-4 h-4 text-emerald-500 shrink-0 mt-0.5" />
@@ -449,7 +453,7 @@ export const PricingPage: React.FC = () => {
                   </li>
                   <li className="flex items-start gap-2.5 text-xs sm:text-sm text-slate-700 dark:text-slate-300">
                     <Check className="w-4 h-4 text-emerald-500 shrink-0 mt-0.5" />
-                    <span>{isYearly ? (lang === 'id' ? 'Hemat 34% dibanding tagihan bulanan reguler' : 'Save 34% compared to regular monthly billing') : (lang === 'id' ? 'Ruang kerja 100% bebas iklan & prioritas support' : '100% ad-free studio & fast customer support')}</span>
+                    <span>{isYearly ? t('pricing.pro.f7Yearly', { defaultValue: 'Hemat 34% dibanding tagihan bulanan reguler' }) : t('pricing.pro.f7Monthly', { defaultValue: 'Ruang kerja 100% bebas iklan & prioritas support' })}</span>
                   </li>
                 </ul>
               </div>
@@ -461,8 +465,8 @@ export const PricingPage: React.FC = () => {
             >
               <span>
                 {isYearly
-                  ? (lang === 'id' ? 'Masuk untuk Paket Tahunan' : 'Sign In for Annual Plan')
-                  : (lang === 'id' ? 'Masuk untuk Berlangganan' : 'Sign In to Subscribe')}
+                  ? t('pricing.pro.btnYearly', { defaultValue: 'Masuk untuk Paket Tahunan' })
+                  : t('pricing.pro.btnMonthly', { defaultValue: 'Masuk untuk Berlangganan' })}
               </span>
               <ArrowRight className="w-4 h-4" />
             </button>
@@ -473,58 +477,58 @@ export const PricingPage: React.FC = () => {
             <div>
               <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-black uppercase tracking-wider bg-amber-500/15 text-amber-700 dark:text-amber-300 border border-amber-500/30">
                 <Crown className="w-3.5 h-3.5 text-amber-600 dark:text-amber-400" />
-                VIP FOUNDER SPECIAL
+                {t('pricing.founder.badge', { defaultValue: 'VIP FOUNDER SPECIAL' })}
               </span>
 
               <h3 className="text-2xl font-black text-slate-900 dark:text-white mt-4 mb-2">
-                Founder Lifetime Pass
+                {t('pricing.founder.name', { defaultValue: 'Founder Lifetime Pass' })}
               </h3>
 
               <p className="text-sm text-slate-500 dark:text-slate-400 min-h-[44px] leading-relaxed">
-                {lang === 'id'
-                  ? 'Sekali bayar, miliki selamanya di seluruh platform, aplikasi web, dan aplikasi desktop.'
-                  : 'Pay once, own forever across all platforms, web apps, and desktop tools.'}
+                {t('pricing.founder.desc', { defaultValue: 'Sekali bayar, miliki selamanya di seluruh platform dan aplikasi web.' })}
               </p>
 
               <div className="my-6 pt-4 border-t border-slate-100 dark:border-dark-700">
                 <div className="flex items-baseline gap-2">
                   <span className="text-xl text-slate-400 line-through font-semibold">$169</span>
                   <span className="text-5xl font-black text-amber-600 dark:text-amber-400 font-heading">$129</span>
-                  <span className="text-slate-500 dark:text-slate-400 font-medium text-sm">/ one-time</span>
+                  <span className="text-slate-500 dark:text-slate-400 font-medium text-sm">
+                    {t('pricing.founder.period', { defaultValue: '/ sekali bayar' })}
+                  </span>
                 </div>
                 <p className="text-xs text-amber-600 dark:text-amber-400 font-medium mt-1">
-                  {lang === 'id' ? 'Hemat $40 • Pembayaran Sekali Saja' : 'Save $40 • One-Time Payment'}
+                  {t('pricing.founder.sub', { defaultValue: 'Hemat $40 • Pembayaran Sekali Saja' })}
                 </p>
               </div>
 
               <div className="mb-8">
                 <div className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-4">
-                  INCLUDED FEATURES
+                  {t('pricing.includedFeatures', { defaultValue: 'FITUR TERMASUK' })}
                 </div>
                 <ul className="space-y-3">
                   <li className="flex items-start gap-2.5 text-xs sm:text-sm text-slate-800 dark:text-slate-200 font-semibold">
                     <Crown className="w-4 h-4 text-amber-500 shrink-0 mt-0.5" />
-                    <span>{lang === 'id' ? 'Akses Seumur Hidup ke semua 4 Web Apps' : 'Lifetime access to all 4 Web Apps'}</span>
+                    <span>{t('pricing.founder.f1', { defaultValue: 'Akses Seumur Hidup ke semua 4 Web Apps' })}</span>
                   </li>
                   <li className="flex items-start gap-2.5 text-xs sm:text-sm text-slate-800 dark:text-slate-200 font-semibold">
                     <Monitor className="w-4 h-4 text-cyan-500 shrink-0 mt-0.5" />
-                    <span>{lang === 'id' ? 'Aplikasi Windows Desktop khusus disertakan (Native offline)' : 'Dedicated Windows Desktop App included (Native offline)'}</span>
+                    <span>{t('pricing.founder.f2', { defaultValue: 'Akses Prioritas: Aplikasi Windows Desktop (Segera Hadir)' })}</span>
                   </li>
                   <li className="flex items-start gap-2.5 text-xs sm:text-sm text-slate-800 dark:text-slate-200 font-semibold">
                     <Smartphone className="w-4 h-4 text-emerald-500 shrink-0 mt-0.5" />
-                    <span>{lang === 'id' ? 'Aplikasi Mobile (Android APK & iOS) disertakan' : 'Mobile App (Android APK & iOS) included'}</span>
+                    <span>{t('pricing.founder.f3', { defaultValue: 'Akses Prioritas: Aplikasi Mobile Android APK (Segera Hadir)' })}</span>
                   </li>
                   <li className="flex items-start gap-2.5 text-xs sm:text-sm text-slate-700 dark:text-slate-300">
                     <Check className="w-4 h-4 text-amber-500 shrink-0 mt-0.5" />
-                    <span>{lang === 'id' ? 'Semua update, tools & fitur masa depan disertakan selamanya' : 'All future updates, tools & major features included forever'}</span>
+                    <span>{t('pricing.founder.f4', { defaultValue: 'Semua update, tools & fitur masa depan disertakan selamanya' })}</span>
                   </li>
                   <li className="flex items-start gap-2.5 text-xs sm:text-sm text-slate-700 dark:text-slate-300">
                     <Check className="w-4 h-4 text-amber-500 shrink-0 mt-0.5" />
-                    <span>{lang === 'id' ? 'Lencana VIP Founder eksklusif & akses komunitas' : 'VIP Founder badge & exclusive community access'}</span>
+                    <span>{t('pricing.founder.f5', { defaultValue: 'Lencana VIP Founder eksklusif & akses komunitas' })}</span>
                   </li>
                   <li className="flex items-start gap-2.5 text-xs sm:text-sm text-slate-700 dark:text-slate-300">
                     <Check className="w-4 h-4 text-amber-500 shrink-0 mt-0.5" />
-                    <span>{lang === 'id' ? 'Kanal dukungan developer VIP langsung 1-on-1' : 'Direct 1-on-1 VIP developer support channel'}</span>
+                    <span>{t('pricing.founder.f6', { defaultValue: 'Kanal dukungan developer VIP langsung 1-on-1' })}</span>
                   </li>
                 </ul>
               </div>
@@ -536,7 +540,7 @@ export const PricingPage: React.FC = () => {
             >
               <Sparkles className="w-4 h-4" />
               <span>
-                {lang === 'id' ? 'Masuk untuk Akses Lifetime' : 'Sign In for Lifetime Access'}
+                {t('pricing.founder.btn', { defaultValue: 'Masuk untuk Akses Lifetime' })}
               </span>
               <ArrowRight className="w-4 h-4" />
             </button>
@@ -554,11 +558,11 @@ export const PricingPage: React.FC = () => {
                   <span>{t('pricing.suite.title', { defaultValue: '1 Akun Membuka Seluruh 4-in-1 Privacy Suite' })}</span>
                 </h3>
                 <p className="text-sm text-slate-500 dark:text-slate-400 mt-1">
-                  {lang === 'id' ? 'Akses penuh ke seluruh produk privasi tanpa batas.' : 'Full access across all privacy web applications.'}
+                  {t('pricing.suite.subtitle', { defaultValue: 'Akses penuh ke seluruh produk privasi tanpa batas.' })}
                 </p>
               </div>
               <span className="self-start sm:self-auto text-xs font-mono px-3 py-1 rounded-full bg-cyan-500/15 text-cyan-600 dark:text-[#05DAED] font-bold">
-                ALL-ACCESS SUITE
+                {t('pricing.suite.badge', { defaultValue: 'ALL-ACCESS SUITE' })}
               </span>
             </div>
 
@@ -640,12 +644,10 @@ export const PricingPage: React.FC = () => {
               <Cpu className="w-6 h-6" />
             </div>
             <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">
-              {lang === 'id' ? 'Komputasi Lokal di Browser' : 'Local In-Browser Compute'}
+              {t('pricing.value.c1Title', { defaultValue: 'Komputasi Lokal di Browser' })}
             </h3>
             <p className="text-sm text-slate-500 dark:text-slate-400 leading-relaxed">
-              {lang === 'id'
-                ? 'Karena AI berjalan langsung di memori perangkat Anda via WebAssembly, tidak ada tagihan server GPU mahal yang kami bebankan kepada Anda.'
-                : 'Because AI runs directly on your hardware via WebAssembly, we do not burden you with inflated cloud GPU server bills.'}
+              {t('pricing.value.c1Desc', { defaultValue: 'Karena AI berjalan langsung di memori perangkat Anda via WebAssembly, tidak ada tagihan server GPU mahal yang kami bebankan kepada Anda.' })}
             </p>
           </div>
 
@@ -654,12 +656,10 @@ export const PricingPage: React.FC = () => {
               <Shield className="w-6 h-6" />
             </div>
             <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">
-              {lang === 'id' ? '100% Privasi & Tanpa Risiko' : '100% Privacy Guarantee'}
+              {t('pricing.value.c2Title', { defaultValue: '100% Privasi & Tanpa Risiko' })}
             </h3>
             <p className="text-sm text-slate-500 dark:text-slate-400 leading-relaxed">
-              {lang === 'id'
-                ? 'Foto keluarga, berkas identitas paspor, maupun portofolio klien Anda tidak pernah di-upload ke server cloud manapun.'
-                : 'Family portraits, official passport scans, and sensitive client work never upload to any remote cloud database.'}
+              {t('pricing.value.c2Desc', { defaultValue: 'Foto keluarga, berkas identitas paspor, maupun portofolio klien Anda tidak pernah di-upload ke server cloud manapun.' })}
             </p>
           </div>
 
@@ -668,23 +668,24 @@ export const PricingPage: React.FC = () => {
               <Clock className="w-6 h-6" />
             </div>
             <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">
-              {lang === 'id' ? 'Batal Kapan Saja & Bebas Risiko' : 'Cancel Anytime & Zero Risk'}
+              {t('pricing.value.c3Title', { defaultValue: 'Batal Kapan Saja & Bebas Risiko' })}
             </h3>
             <p className="text-sm text-slate-500 dark:text-slate-400 leading-relaxed">
-              {lang === 'id'
-                ? 'Tanpa kontrak mengikat. Anda dapat membatalkan langganan PRO sewaktu-waktu dengan 1 klik mudah di pengaturan akun Anda.'
-                : 'No lock-in contracts. Cancel your monthly subscription with 1 simple click anytime from your account settings.'}
+              {t('pricing.value.c3Desc', { defaultValue: 'Tanpa kontrak mengikat. Anda dapat membatalkan langganan PRO sewaktu-waktu dengan 1 klik mudah di pengaturan akun Anda.' })}
             </p>
           </div>
         </div>
 
-        {/* SECTION 7: PRICING FAQ ACCORDION */}
-        <div className="max-w-3xl mx-auto mb-20">
-          <div className="text-center mb-10">
-            <h2 className="text-2xl sm:text-3xl font-heading font-black text-slate-900 dark:text-white mb-2">
+        {/* SECTION 7: PRICING FAQ ACCORDION (Redesigned & High-End) */}
+        <div className="max-w-4xl mx-auto mb-24">
+          <div className="text-center mb-12">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/25 text-cyan-600 dark:text-neon-cyan text-xs font-mono font-bold uppercase tracking-wider mb-3">
+              FAQ
+            </div>
+            <h2 className="text-2xl sm:text-4xl font-heading font-black text-slate-900 dark:text-white mb-3 tracking-tight">
               {t('pricing.faq.title', { defaultValue: 'Pertanyaan Umum Seputar Harga' })}
             </h2>
-            <p className="text-sm text-slate-500 dark:text-slate-400">
+            <p className="text-sm sm:text-base text-slate-600 dark:text-slate-400 max-w-xl mx-auto">
               {t('pricing.faq.subtitle', {
                 defaultValue: 'Semua jawaban yang Anda butuhkan seputar Paket Gratis dan PRO di HelpMyIMG.',
               })}
@@ -692,43 +693,64 @@ export const PricingPage: React.FC = () => {
           </div>
 
           <div className="space-y-3.5">
-            {faqs.map((faq, idx) => (
-              <div
-                key={idx}
-                className="bg-white dark:bg-dark-800 border border-slate-200 dark:border-dark-600 rounded-2xl overflow-hidden transition-all duration-200"
-              >
-                <button
-                  onClick={() => toggleFaq(idx)}
-                  className="w-full px-6 py-4.5 flex items-center justify-between text-left focus:outline-none cursor-pointer"
+            {faqs.map((faq, idx) => {
+              const isOpen = openFaq === idx;
+              return (
+                <div
+                  key={idx}
+                  className={`rounded-2xl transition-all duration-200 border ${
+                    isOpen
+                      ? 'bg-white dark:bg-dark-800 border-cyan-500/50 dark:border-cyan-500/40 shadow-lg shadow-cyan-500/5 ring-1 ring-cyan-500/20'
+                      : 'bg-white dark:bg-dark-800/80 border-slate-200/90 dark:border-dark-700 hover:border-slate-300 dark:hover:border-dark-600 shadow-xs hover:shadow-sm'
+                  } overflow-hidden`}
                 >
-                  <span className="text-base font-bold text-slate-900 dark:text-white pr-4">
-                    {faq.q}
-                  </span>
-                  <div
-                    className={`shrink-0 w-7 h-7 rounded-full flex items-center justify-center transition-transform duration-200 ${openFaq === idx
-                      ? 'rotate-180 bg-cyan-500/20 text-[#05DAED]'
-                      : 'text-slate-400 bg-slate-100 dark:bg-dark-700'
-                      }`}
+                  <button
+                    type="button"
+                    onClick={() => toggleFaq(idx)}
+                    className="w-full p-5 sm:p-6 flex items-center justify-between text-left focus:outline-none cursor-pointer gap-4 group"
+                    aria-expanded={isOpen}
                   >
-                    <ChevronDown className="w-4 h-4" />
-                  </div>
-                </button>
-                <AnimatePresence>
-                  {openFaq === idx && (
-                    <motion.div
-                      initial={{ height: 0, opacity: 0 }}
-                      animate={{ height: 'auto', opacity: 1 }}
-                      exit={{ height: 0, opacity: 0 }}
-                      transition={{ duration: 0.2 }}
+                    <div className="flex items-center gap-3.5 sm:gap-4 flex-1">
+                      <span
+                        className={`w-7 h-7 sm:w-8 sm:h-8 rounded-xl font-mono text-xs sm:text-sm font-bold flex items-center justify-center shrink-0 transition-colors ${
+                          isOpen
+                            ? 'bg-cyan-500 text-slate-950 font-black'
+                            : 'bg-slate-100 dark:bg-dark-700 text-slate-500 dark:text-slate-400 group-hover:bg-cyan-500/10 group-hover:text-cyan-600 dark:group-hover:text-neon-cyan'
+                        }`}
+                      >
+                        {String(idx + 1).padStart(2, '0')}
+                      </span>
+                      <h3 className="text-base sm:text-lg font-bold text-slate-900 dark:text-white leading-snug group-hover:text-cyan-600 dark:group-hover:text-neon-cyan transition-colors">
+                        {faq.q}
+                      </h3>
+                    </div>
+                    <div
+                      className={`w-8 h-8 rounded-xl flex items-center justify-center shrink-0 transition-all duration-200 ${
+                        isOpen
+                          ? 'bg-cyan-500/15 text-cyan-600 dark:text-neon-cyan rotate-180'
+                          : 'bg-slate-100 dark:bg-dark-700 text-slate-400 group-hover:bg-slate-200 dark:group-hover:bg-dark-600 group-hover:text-slate-600 dark:group-hover:text-slate-200'
+                      }`}
                     >
-                      <div className="px-6 pb-5 text-sm text-slate-600 dark:text-slate-300 leading-relaxed border-t border-slate-100 dark:border-dark-700/50 pt-3">
-                        {faq.a}
-                      </div>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
-              </div>
-            ))}
+                      <ChevronDown className="w-4 h-4 stroke-[2.5]" />
+                    </div>
+                  </button>
+                  <AnimatePresence initial={false}>
+                    {isOpen && (
+                      <motion.div
+                        initial={{ height: 0, opacity: 0 }}
+                        animate={{ height: 'auto', opacity: 1 }}
+                        exit={{ height: 0, opacity: 0 }}
+                        transition={{ duration: 0.22, ease: 'easeInOut' }}
+                      >
+                        <div className="px-5 sm:px-6 pb-6 pt-2 text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed border-t border-slate-100 dark:border-dark-700/60 ml-11 sm:ml-12 mr-2">
+                          {faq.a}
+                        </div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
+              );
+            })}
           </div>
         </div>
 
