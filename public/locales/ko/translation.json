@@ -2211,7 +2211,7 @@
   "pricing.matrix.row10.free": "수동 1:1 다운로드",
   "pricing.matrix.row10.pro": "1-클릭 대량 ZIP 및 공식 사전 설정",
   "pricing.faq6.q": "'파운더 라이프타임 패스'는 무엇을 의미하며 무엇이 포함되나요?",
-  "pricing.faq6.a": "Founder Lifetime Pass는 반복 구독 없이 4개의 웹 앱, Windows 데스크톱 앱 및 모바일 APK 모두에 걸쳐 영구적인 평생 PRO 상태를 부여하는 제한된 조기 일회성 결제($129 / Rp 1.290.000)입니다.",
+  "pricing.faq6.a": "Founder Lifetime Pass는 반복 구독 없이 4개의 웹 앱, Windows 데스크톱 앱 및 모바일 APK 모두에 걸쳐 영구적인 평생 PRO 상태를 부여하는 제한된 조기 일회성 결제($129)입니다.",
   "pricing.faq7.q": "서버 종료 위험 없이 평생 거래를 어떻게 지속할 수 있나요?",
   "pricing.faq7.a": "모든 사용자 업로드에 대해 막대한 월별 GPU 서버 요금을 지불하는 기존 클라우드 SaaS 회사와 달리 당사의 모든 도구는 WebAssembly 및 Web Workers를 사용하여 브라우저에서 100% 로컬로 실행됩니다. 컴퓨팅은 귀하의 장치에서 직접 이루어지기 때문에 한계 서버 비용이 사실상 0이므로 이 일회성 라이선스는 경제적으로 영구적이고 지속 가능합니다.",
   "auth.signUpTitle": "계정 만들기",

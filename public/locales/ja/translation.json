@@ -2211,7 +2211,7 @@
   "pricing.matrix.row10.free": "1 つずつ手動でダウンロード",
   "pricing.matrix.row10.pro": "1-Click 一括 ZIP と公式プリセット",
   "pricing.faq6.q": "「Founder Lifetime Pass」とは何を意味し、何が含まれますか?",
-  "pricing.faq6.a": "Founder Lifetime Pass は、限定された早期割引の 1 回限りの支払い ($129 / Rp 1.290.000) で、定期的なサブスクリプションなしで 4 つの Web アプリ、Windows デスクトップ アプリ、モバイル APK のすべてで永続的な永久 PRO ステータスを付与します。",
+  "pricing.faq6.a": "Founder Lifetime Pass は、限定された早期割引の 1 回限りの支払い ($129) で、定期的なサブスクリプションなしで 4 つの Web アプリすべて、Windows デスクトップ アプリ、モバイル APK の永続的な永久 PRO ステータスを付与します。",
   "pricing.faq7.q": "サーバーシャ​​ットダウンのリスクなしでライフタイムディールを維持するにはどうすればよいですか?",
   "pricing.faq7.a": "ユーザーがアップロードするたびに毎月多額の GPU サーバー料金を支払う従来のクラウド SaaS 企業とは異なり、当社のツールはすべて、WebAssembly と Web Workers を使用してブラウザーで 100% ローカルに実行されます。 コンピューティングはデバイス上で直接行われるため、サーバーの限界コストは事実上ゼロであり、この 1 回限りのライセンスは経済的に永続的で持続可能なものになります。",
   "auth.signUpTitle": "アカウントを作成する",

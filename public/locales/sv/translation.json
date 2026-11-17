@@ -2211,7 +2211,7 @@
   "pricing.matrix.row10.free": "Manuell nedladdning 1 efter 1",
   "pricing.matrix.row10.pro": "1-Klicka på Bulk ZIP och officiella förinställningar",
   "pricing.faq6.q": "Vad betyder \"Founder Lifetime Pass\" och vad ingår?",
-  "pricing.faq6.a": "Founder Lifetime Pass är en begränsad engångsbetalning ($129 / Rp 1 290 000) som ger permanent livstids PRO-status för alla 4 webbappar, Windows Desktop App och Mobile APK utan återkommande prenumerationer.",
+  "pricing.faq6.a": "Founder Lifetime Pass är en begränsad engångsbetalning ($129) som ger permanent livstids PRO-status för alla 4 webbappar, Windows Desktop App och Mobile APK utan återkommande prenumerationer.",
   "pricing.faq7.q": "Hur är en livstidsaffär hållbar utan risker för serveravstängning?",
   "pricing.faq7.a": "Till skillnad från traditionella moln-SaaS-företag som betalar massiva månatliga GPU-serverräkningar för varje användaruppladdning, körs alla våra verktyg 100 % lokalt i din webbläsare med hjälp av WebAssembly och Web Workers. Eftersom datoranvändning sker direkt på din enhet är vår marginalserverkostnad praktiskt taget noll, vilket gör denna engångslicens ekonomiskt permanent och hållbar.",
   "auth.signUpTitle": "Skapa ett konto",

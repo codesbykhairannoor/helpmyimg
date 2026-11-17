@@ -71,10 +71,10 @@ export const PricingPage: React.FC = () => {
   const isYearly = billingCycle === 'yearly';
 
   const proPrice = isLifetime
-    ? (lang === 'id' ? 'Rp 1.290.000' : '$129')
+    ? '$129'
     : isYearly
-      ? (lang === 'id' ? 'Rp 790.000' : '$79')
-      : (lang === 'id' ? 'Rp 99.000' : '$9.99');
+      ? '$79'
+      : '$9.99';
 
   const proPeriod = isLifetime
     ? t('pricing.lifetime.period', { defaultValue: 'Sekali bayar, akses selamanya' })
@@ -179,7 +179,7 @@ export const PricingPage: React.FC = () => {
       q: t('pricing.faq6.q', { defaultValue: 'Apa itu Founder Lifetime Pass dan bagaimana cara kerjanya?' }),
       a: t('pricing.faq6.a', {
         defaultValue:
-          'Founder Lifetime Pass adalah penawaran khusus early-bird di mana Anda hanya perlu membayar 1 kali (Rp 1.290.000 / $129) untuk mendapatkan seluruh kapabilitas PRO selamanya di seluruh ekosistem (4 Web Apps, Windows App, dan APK Mobile). Tidak ada biaya langganan bulanan atau tahunan, dan akun Anda otomatis mendapatkan semua alat baru yang kami rilis di masa depan.',
+          'Founder Lifetime Pass adalah penawaran khusus early-bird di mana Anda hanya perlu membayar 1 kali ($129) untuk mendapatkan seluruh kapabilitas PRO selamanya di seluruh ekosistem (4 Web Apps, Windows App, dan APK Mobile). Tidak ada biaya langganan bulanan atau tahunan, dan akun Anda otomatis mendapatkan semua alat baru yang kami rilis di masa depan.',
       }),
     },
     {
@@ -336,7 +336,7 @@ export const PricingPage: React.FC = () => {
 
               <div className="flex items-baseline gap-2 mb-4">
                 <span className="text-4xl sm:text-5xl font-black text-slate-900 dark:text-white font-heading">
-                  {lang === 'id' ? 'Rp 0' : '$0'}
+                  $0
                 </span>
                 <span className="text-sm text-slate-500 dark:text-slate-400 font-medium">
                   {t('pricing.free.period', { defaultValue: 'Gratis Selamanya' })}
@@ -405,12 +405,12 @@ export const PricingPage: React.FC = () => {
                 </span>
                 {isLifetime && (
                   <span className="text-lg text-slate-400 line-through font-semibold">
-                    {lang === 'id' ? 'Rp 1.690.000' : '$169'}
+                    $169
                   </span>
                 )}
                 {isYearly && (
                   <span className="text-lg text-slate-400 line-through font-semibold">
-                    {lang === 'id' ? 'Rp 1.188.000' : '$119.88'}
+                    $119.88
                   </span>
                 )}
                 <span className="text-sm text-slate-400 font-medium">

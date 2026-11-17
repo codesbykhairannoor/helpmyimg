@@ -2211,7 +2211,7 @@
   "pricing.matrix.row10.free": "Manual 1-by-1 download",
   "pricing.matrix.row10.pro": "1-Click Bulk ZIP & Official Presets",
   "pricing.faq6.q": "What does 'Founder Lifetime Pass' mean and what is included?",
-  "pricing.faq6.a": "The Founder Lifetime Pass is a limited early-bird one-time payment ($129 / Rp 1.290.000) granting permanent lifetime PRO status across all 4 Web Apps, Windows Desktop App, and Mobile APK without recurring subscriptions.",
+  "pricing.faq6.a": "The Founder Lifetime Pass is a limited early-bird one-time payment ($129) granting permanent lifetime PRO status across all 4 Web Apps, Windows Desktop App, and Mobile APK without recurring subscriptions.",
   "pricing.faq7.q": "How is a Lifetime Deal sustainable without server shutdown risks?",
   "pricing.faq7.a": "Unlike traditional cloud SaaS companies that pay massive monthly GPU server bills for every user upload, all our tools run 100% locally in your browser using WebAssembly and Web Workers. Because computing happens directly on your device, our marginal server cost is virtually zero, making this one-time license economically permanent and sustainable.",
   "auth.signUpTitle": "Create an Account",
