@@ -71,11 +71,11 @@ export function useWorkspaceCore(initialTab: TabType = 'remove'): UseWorkspaceCo
         setToastMessage(
           isPro
             ? t('work.batchMaxProNotice', {
-                defaultValue: 'Maksimal 100 foto sekaligus dalam satu batch PRO.',
+                defaultValue: 'Maximum 100 photos per PRO batch.',
               })
             : t('work.batchLimitNotice', {
                 defaultValue:
-                  'Batas paket gratis adalah 10 foto sekaligus. Upgrade ke PRO untuk memproses hingga 100 foto!',
+                  'Free tier limit is 10 photos per batch. Upgrade to PRO to process up to 100 photos!',
               })
         );
         if (!isPro) openAuthModal();
@@ -86,7 +86,7 @@ export function useWorkspaceCore(initialTab: TabType = 'remove'): UseWorkspaceCo
         setToastMessage(
           t('work.batchLimitNotice', {
             defaultValue:
-              'Batas paket gratis adalah 10 foto sekaligus. Upgrade ke PRO untuk memproses hingga 100 foto!',
+              'Free tier limit is 10 photos per batch. Upgrade to PRO to process up to 100 photos!',
           })
         );
       }

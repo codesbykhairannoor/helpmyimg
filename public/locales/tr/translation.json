@@ -2334,5 +2334,9 @@
   "pricing.suite.qr": "Vektör ve Dinamik QR",
   "pricing.suite.qrDesc": "Yüksek çözünürlüklü QR kod oluşturucu, vektör SVG logo özelleştirme ve sıfır son kullanma tarihi.",
   "pricing.capabilities.title": "Stüdyo Özellikleri ve Donanım Önceliği",
-  "pricing.free.stripDesc": "14 yerel yapay zeka aracının tümüne, toplu 10 fotoğrafa, standart HD'ye, sıfır filigrana ve %100 yerel gizliliğe tam erişim."
+  "pricing.free.stripDesc": "14 yerel yapay zeka aracının tümüne, toplu 10 fotoğrafa, standart HD'ye, sıfır filigrana ve %100 yerel gizliliğe tam erişim.",
+  "work.batchLimitNotice": "Ücretsiz katman sınırı, grup başına 10 fotoğraftır. 100'e kadar fotoğrafı işlemek için PRO'ya yükseltin!",
+  "editor.zipSuccess": "Toplu ZIP başarıyla indirildi!",
+  "editor.zipError": "ZIP oluşturulamadı.",
+  "editor.downloadError": "Resim indirilemedi."
 }

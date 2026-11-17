@@ -2334,5 +2334,9 @@
   "pricing.suite.qr": "ベクター & ダイナミック QR",
   "pricing.suite.qrDesc": "高解像度 QR コード ジェネレーター、ベクター SVG ロゴのカスタマイズ、有効期限なし。",
   "pricing.capabilities.title": "スタジオの機能とハードウェアの優先順位",
-  "pricing.free.stripDesc": "14 個のローカル AI ツールすべて、バッチ 10 枚の写真、標準 HD、ゼロ ウォーターマーク、および 100% のローカル プライバシーへの完全なアクセス。"
+  "pricing.free.stripDesc": "14 個のローカル AI ツールすべて、バッチ 10 枚の写真、標準 HD、ゼロ ウォーターマーク、および 100% のローカル プライバシーへの完全なアクセス。",
+  "work.batchLimitNotice": "無料利用枠の制限は、バッチあたり 10 枚の写真です。 PRO にアップグレードすると、最大 100 枚の写真を処理できます。",
+  "editor.zipSuccess": "バッチ ZIP が正常にダウンロードされました。",
+  "editor.zipError": "ZIPの作成に失敗しました。",
+  "editor.downloadError": "画像のダウンロードに失敗しました。"
 }

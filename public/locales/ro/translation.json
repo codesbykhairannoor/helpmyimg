@@ -2334,5 +2334,9 @@
   "pricing.suite.qr": "Vector & QR dinamic",
   "pricing.suite.qrDesc": "Generator de coduri QR de înaltă rezoluție, personalizare a logo-ului SVG vectorial și expirare zero.",
   "pricing.capabilities.title": "Capacități studio și prioritate hardware",
-  "pricing.free.stripDesc": "Acces complet la toate cele 14 instrumente locale AI, loturi de 10 fotografii, HD standard, zero filigrane și confidențialitate 100% locală."
+  "pricing.free.stripDesc": "Acces complet la toate cele 14 instrumente locale AI, loturi de 10 fotografii, HD standard, zero filigrane și confidențialitate 100% locală.",
+  "work.batchLimitNotice": "Limita nivelului gratuit este de 10 fotografii per lot. Faceți upgrade la PRO pentru a procesa până la 100 de fotografii!",
+  "editor.zipSuccess": "Lotul ZIP descărcat cu succes!",
+  "editor.zipError": "Nu s-a putut crea ZIP.",
+  "editor.downloadError": "Nu s-a putut descărca imaginea."
 }

@@ -2334,5 +2334,9 @@
   "pricing.suite.qr": "Vektor og dynamisk QR",
   "pricing.suite.qrDesc": "Højopløselig QR-kodegenerator, vektor SVG-logotilpasning og nul udløb.",
   "pricing.capabilities.title": "Studiefunktioner og hardwareprioritet",
-  "pricing.free.stripDesc": "Fuldstændig adgang til alle 14 lokale AI-værktøjer, batch 10 billeder, standard HD, nul vandmærker og 100 % lokalt privatliv."
+  "pricing.free.stripDesc": "Fuldstændig adgang til alle 14 lokale AI-værktøjer, batch 10 billeder, standard HD, nul vandmærker og 100 % lokalt privatliv.",
+  "work.batchLimitNotice": "Gratis niveaugrænse er 10 billeder pr. batch. Opgrader til PRO for at behandle op til 100 billeder!",
+  "editor.zipSuccess": "Batch ZIP blev downloadet med succes!",
+  "editor.zipError": "Kunne ikke oprette ZIP.",
+  "editor.downloadError": "Kunne ikke downloade billedet."
 }

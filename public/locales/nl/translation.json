@@ -2334,5 +2334,9 @@
   "pricing.suite.qr": "Vector- en dynamische QR",
   "pricing.suite.qrDesc": "Hoge resolutie QR-codegenerator, vector-SVG-logo-aanpassing en nulvervaldatum.",
   "pricing.capabilities.title": "Studiomogelijkheden en hardwareprioriteit",
-  "pricing.free.stripDesc": "Volledige toegang tot alle 14 lokale AI-tools, 10 batchfoto's, standaard HD, geen watermerken en 100% lokale privacy."
+  "pricing.free.stripDesc": "Volledige toegang tot alle 14 lokale AI-tools, 10 batchfoto's, standaard HD, geen watermerken en 100% lokale privacy.",
+  "work.batchLimitNotice": "De limiet voor het gratis niveau is 10 foto's per batch. Upgrade naar PRO om tot 100 foto's te verwerken!",
+  "editor.zipSuccess": "Batch-ZIP succesvol gedownload!",
+  "editor.zipError": "Kan ZIP niet maken.",
+  "editor.downloadError": "Kan afbeelding niet downloaden."
 }

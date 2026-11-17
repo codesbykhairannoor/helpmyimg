@@ -2334,5 +2334,9 @@
   "pricing.suite.qr": "벡터 및 동적 QR",
   "pricing.suite.qrDesc": "고해상도 QR 코드 생성기, 벡터 SVG 로고 사용자 정의 및 만료 시간 없음.",
   "pricing.capabilities.title": "스튜디오 기능 및 하드웨어 우선순위",
-  "pricing.free.stripDesc": "14개의 로컬 AI 도구 모두에 대한 완전한 액세스, 일괄 10개의 사진, 표준 HD, 제로 워터마크 및 100% 로컬 개인 정보 보호."
+  "pricing.free.stripDesc": "14개의 로컬 AI 도구 모두에 대한 완전한 액세스, 일괄 10개의 사진, 표준 HD, 제로 워터마크 및 100% 로컬 개인 정보 보호.",
+  "work.batchLimitNotice": "무료 등급 제한은 배치당 사진 10장입니다. PRO로 업그레이드하여 최대 100장의 사진을 처리하세요!",
+  "editor.zipSuccess": "일괄 ZIP이 성공적으로 다운로드되었습니다!",
+  "editor.zipError": "ZIP을 생성하지 못했습니다.",
+  "editor.downloadError": "이미지를 다운로드하지 못했습니다."
 }

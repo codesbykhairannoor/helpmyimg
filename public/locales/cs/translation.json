@@ -2334,5 +2334,9 @@
   "pricing.suite.qr": "Vektorové a dynamické QR",
   "pricing.suite.qrDesc": "Generátor QR kódu ve vysokém rozlišení, přizpůsobení vektorového loga SVG a nulová expirace.",
   "pricing.capabilities.title": "Možnosti studia a priorita hardwaru",
-  "pricing.free.stripDesc": "Kompletní přístup ke všem 14 místním nástrojům umělé inteligence, dávkové 10 fotografií, standardní HD, nulové vodoznaky a 100% místní soukromí."
+  "pricing.free.stripDesc": "Kompletní přístup ke všem 14 místním nástrojům umělé inteligence, dávkové 10 fotografií, standardní HD, nulové vodoznaky a 100% místní soukromí.",
+  "work.batchLimitNotice": "Limit bezplatné úrovně je 10 fotografií na dávku. Upgradujte na PRO a zpracujte až 100 fotografií!",
+  "editor.zipSuccess": "Dávkový ZIP byl úspěšně stažen!",
+  "editor.zipError": "Vytvoření ZIP se nezdařilo.",
+  "editor.downloadError": "Stažení obrázku se nezdařilo."
 }

@@ -2334,5 +2334,9 @@
   "pricing.suite.qr": "QR vectorial y dinámico",
   "pricing.suite.qrDesc": "Generador de códigos QR de alta resolución, personalización de logotipos SVG vectoriales y caducidad cero.",
   "pricing.capabilities.title": "Capacidades de estudio y prioridad de hardware",
-  "pricing.free.stripDesc": "Acceso completo a las 14 herramientas locales de IA, lotes de 10 fotos, HD estándar, cero marcas de agua y 100 % de privacidad local."
+  "pricing.free.stripDesc": "Acceso completo a las 14 herramientas locales de IA, lotes de 10 fotos, HD estándar, cero marcas de agua y 100 % de privacidad local.",
+  "work.batchLimitNotice": "El límite del nivel gratuito es de 10 fotos por lote. ¡Actualiza a PRO para procesar hasta 100 fotos!",
+  "editor.zipSuccess": "¡El lote ZIP se descargó exitosamente!",
+  "editor.zipError": "No se pudo crear el ZIP.",
+  "editor.downloadError": "No se pudo descargar la imagen."
 }

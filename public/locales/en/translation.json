@@ -2334,5 +2334,9 @@
   "pricing.suite.qr": "Vector & Dynamic QR",
   "pricing.suite.qrDesc": "High-res QR code generator, vector SVG logo customization, & zero expiration.",
   "pricing.capabilities.title": "Studio Capabilities & Hardware Priority",
-  "pricing.free.stripDesc": "Complete access to all 14 local AI tools, batch 10 photos, standard HD, zero watermarks, and 100% local privacy."
+  "pricing.free.stripDesc": "Complete access to all 14 local AI tools, batch 10 photos, standard HD, zero watermarks, and 100% local privacy.",
+  "work.batchLimitNotice": "Free tier limit is 10 photos per batch. Upgrade to PRO to process up to 100 photos!",
+  "editor.zipSuccess": "Batch ZIP downloaded successfully!",
+  "editor.zipError": "Failed to create ZIP.",
+  "editor.downloadError": "Failed to download image."
 }

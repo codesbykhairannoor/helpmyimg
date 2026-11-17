@@ -2400,5 +2400,9 @@
   "pricing.suite.qr": "Vector & Dynamic QR",
   "pricing.suite.qrDesc": "Generator QR code resolusi tinggi, kustomisasi logo vektor SVG, & tanpa batas.",
   "pricing.capabilities.title": "Kapabilitas Studio & Prioritas Mesin",
-  "pricing.free.stripDesc": "Akses lengkap ke semua 14 alat AI lokal, batch 10 foto, HD standar, tanpa watermark, dan privasi 100% lokal."
+  "pricing.free.stripDesc": "Akses lengkap ke semua 14 alat AI lokal, batch 10 foto, HD standar, tanpa watermark, dan privasi 100% lokal.",
+  "work.batchLimitNotice": "Batas paket gratis adalah 10 foto sekaligus. Upgrade ke PRO untuk memproses hingga 100 foto!",
+  "editor.zipSuccess": "Batch ZIP berhasil diunduh!",
+  "editor.zipError": "Gagal membuat file ZIP.",
+  "editor.downloadError": "Gagal mengunduh gambar."
 }

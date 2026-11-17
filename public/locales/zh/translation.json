@@ -2333,5 +2333,9 @@
   "pricing.suite.qr": "矢量和动态二维码",
   "pricing.suite.qrDesc": "高分辨率 QR 代码生成器、矢量 SVG 徽标定制和零过期。",
   "pricing.capabilities.title": "工作室能力和硬件优先级",
-  "pricing.free.stripDesc": "完全访问全部14种本地AI工具，批量10张照片，标准高清，零水印，100%本地隐私。"
+  "pricing.free.stripDesc": "完全访问全部14种本地AI工具，批量10张照片，标准高清，零水印，100%本地隐私。",
+  "work.batchLimitNotice": "免费等级限制为每批 10 张照片。 升级到 PRO 可以处理多达 100 张照片！",
+  "editor.zipSuccess": "批量 ZIP 下载成功！",
+  "editor.zipError": "创建 ZIP 失败。",
+  "editor.downloadError": "下载图像失败。"
 }

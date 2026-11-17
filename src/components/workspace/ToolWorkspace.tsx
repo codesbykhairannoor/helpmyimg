@@ -2,7 +2,8 @@
 // Ruang Kerja Utama: Drag-and-Drop Batch Upload, Canvas Viewport, Navigasi Tab Utilitas & Engine Selector
 
 import React, { Suspense } from 'react';
-import { Loader2, Sparkles, Download } from 'lucide-react';
+import { createPortal } from 'react-dom';
+import { Loader2, Sparkles, Download, AlertTriangle } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 import { useWorkspaceState } from './hooks/useWorkspaceState';
@@ -1224,23 +1225,30 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({
         </div>
       </div>
 
-      {/* Global Toast Alert */}
-      <AnimatePresence>
-        {toastMessage && (
-          <motion.div
-            initial={{ opacity: 0, y: -20, scale: 0.95 }}
-            animate={{ opacity: 1, y: 0, scale: 1 }}
-            exit={{ opacity: 0, y: -10, scale: 0.95 }}
-            transition={{ type: 'spring', damping: 25, stiffness: 400 }}
-            className="fixed top-24 left-1/2 -translate-x-1/2 z-[100] px-5 py-3 bg-dark-800 border border-dark-600 shadow-2xl rounded-2xl flex items-center gap-3"
-          >
-            <div className="w-8 h-8 rounded-full bg-red-500/20 flex items-center justify-center shrink-0">
-              <span className="text-red-500 text-lg">⚠️</span>
+      {/* Global Toast Alert - Rendered at document.body level for true screen-center placement */}
+      {typeof document !== 'undefined' && createPortal(
+        <AnimatePresence>
+          {toastMessage && (
+            <div className="fixed top-6 sm:top-8 inset-x-0 z-[999999] flex justify-center pointer-events-none px-4">
+              <motion.div
+                initial={{ opacity: 0, y: -20, scale: 0.95 }}
+                animate={{ opacity: 1, y: 0, scale: 1 }}
+                exit={{ opacity: 0, y: -16, scale: 0.95 }}
+                transition={{ type: 'spring', damping: 26, stiffness: 420 }}
+                className="pointer-events-auto max-w-lg w-auto bg-white/95 dark:bg-dark-850/95 border border-slate-200/90 dark:border-dark-600/80 shadow-[0_20px_50px_rgba(0,0,0,0.18)] dark:shadow-[0_24px_60px_rgba(0,0,0,0.55)] rounded-2xl px-4.5 py-3 flex items-center gap-3 backdrop-blur-md"
+              >
+                <div className="w-8 h-8 rounded-xl bg-amber-500/15 border border-amber-500/30 flex items-center justify-center shrink-0">
+                  <AlertTriangle className="w-4 h-4 text-amber-500 shrink-0" />
+                </div>
+                <span className="text-xs sm:text-sm font-bold text-slate-800 dark:text-white tracking-wide">
+                  {toastMessage}
+                </span>
+              </motion.div>
             </div>
-            <span className="text-sm font-bold text-white tracking-wide">{toastMessage}</span>
-          </motion.div>
-        )}
-      </AnimatePresence>
+          )}
+        </AnimatePresence>,
+        document.body
+      )}
     </section>
   );
 };

@@ -2334,5 +2334,9 @@
   "pricing.suite.qr": "Vektor- und dynamischer QR",
   "pricing.suite.qrDesc": "Hochauflösender QR-Code-Generator, Anpassung des Vektor-SVG-Logos und kein Ablaufdatum.",
   "pricing.capabilities.title": "Studio-Funktionen und Hardware-Priorität",
-  "pricing.free.stripDesc": "Vollständiger Zugriff auf alle 14 lokalen KI-Tools, Batch-10-Fotos, Standard-HD, keine Wasserzeichen und 100 % lokaler Datenschutz."
+  "pricing.free.stripDesc": "Vollständiger Zugriff auf alle 14 lokalen KI-Tools, Batch-10-Fotos, Standard-HD, keine Wasserzeichen und 100 % lokaler Datenschutz.",
+  "work.batchLimitNotice": "Das kostenlose Kontingent beträgt 10 Fotos pro Stapel. Upgraden Sie auf PRO, um bis zu 100 Fotos zu verarbeiten!",
+  "editor.zipSuccess": "Batch-ZIP erfolgreich heruntergeladen!",
+  "editor.zipError": "Die ZIP-Datei konnte nicht erstellt werden.",
+  "editor.downloadError": "Bild konnte nicht heruntergeladen werden."
 }

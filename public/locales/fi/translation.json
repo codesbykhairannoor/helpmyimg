@@ -2334,5 +2334,9 @@
   "pricing.suite.qr": "Vektori & dynaaminen QR",
   "pricing.suite.qrDesc": "Korkearesoluutioinen QR-koodigeneraattori, vektori-SVG-logon räätälöinti ja nolla vanheneminen.",
   "pricing.capabilities.title": "Studion ominaisuudet ja laitteiston prioriteetti",
-  "pricing.free.stripDesc": "Täydellinen pääsy kaikkiin 14 paikalliseen tekoälytyökaluun, erä 10 valokuvaa, standardi HD, nolla vesileimaa ja 100 % paikallinen yksityisyys."
+  "pricing.free.stripDesc": "Täydellinen pääsy kaikkiin 14 paikalliseen tekoälytyökaluun, erä 10 valokuvaa, standardi HD, nolla vesileimaa ja 100 % paikallinen yksityisyys.",
+  "work.batchLimitNotice": "Ilmaisen tason raja on 10 kuvaa erää kohden. Päivitä PRO:ksi käsitelläksesi jopa 100 valokuvaa!",
+  "editor.zipSuccess": "Erä ZIP ladattu onnistuneesti!",
+  "editor.zipError": "ZIP-tiedoston luominen epäonnistui.",
+  "editor.downloadError": "Kuvan lataaminen epäonnistui."
 }

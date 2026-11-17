@@ -10,7 +10,9 @@ export default {
       colors: {
         dark: {
           900: 'hsl(var(--color-bg-900) / <alpha-value>)',
+          850: '#0c121e',
           800: 'hsl(var(--color-bg-800) / <alpha-value>)',
+          750: '#1b2537',
           700: 'hsl(var(--color-bg-700) / <alpha-value>)',
           600: 'hsl(var(--color-bg-600) / <alpha-value>)',
           500: 'hsl(var(--color-bg-500) / <alpha-value>)',

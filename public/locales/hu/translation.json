@@ -2334,5 +2334,9 @@
   "pricing.suite.qr": "Vektoros és dinamikus QR",
   "pricing.suite.qrDesc": "Nagy felbontású QR-kód generátor, vektoros SVG logó testreszabása és nulla lejárat.",
   "pricing.capabilities.title": "Stúdió képességei és hardverprioritása",
-  "pricing.free.stripDesc": "Teljes hozzáférés mind a 14 helyi mesterséges intelligencia-eszközhöz, 10 fotó köteggel, normál HD, nulla vízjel és 100%-os helyi adatvédelem."
+  "pricing.free.stripDesc": "Teljes hozzáférés mind a 14 helyi mesterséges intelligencia-eszközhöz, 10 fotó köteggel, normál HD, nulla vízjel és 100%-os helyi adatvédelem.",
+  "work.batchLimitNotice": "Az ingyenes szintkorlát 10 fotó kötegenként. Frissítsen PRO-ra akár 100 fénykép feldolgozásához!",
+  "editor.zipSuccess": "A kötegelt ZIP-fájl sikeresen letöltve!",
+  "editor.zipError": "Nem sikerült létrehozni a ZIP-fájlt.",
+  "editor.downloadError": "Nem sikerült letölteni a képet."
 }

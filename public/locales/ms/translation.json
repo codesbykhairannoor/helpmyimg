@@ -2334,5 +2334,9 @@
   "pricing.suite.qr": "QR Vektor & Dinamik",
   "pricing.suite.qrDesc": "Penjana kod QR resolusi tinggi, penyesuaian logo SVG vektor, & sifar tamat tempoh.",
   "pricing.capabilities.title": "Keupayaan Studio & Keutamaan Perkakasan",
-  "pricing.free.stripDesc": "Akses lengkap kepada semua 14 alatan AI tempatan, foto kumpulan 10, HD standard, tera air sifar dan privasi setempat 100%."
+  "pricing.free.stripDesc": "Akses lengkap kepada semua 14 alatan AI tempatan, foto kumpulan 10, HD standard, tera air sifar dan privasi setempat 100%.",
+  "work.batchLimitNotice": "Had peringkat percuma ialah 10 foto setiap kelompok. Naik taraf kepada PRO untuk memproses sehingga 100 foto!",
+  "editor.zipSuccess": "ZIP kumpulan berjaya dimuat turun!",
+  "editor.zipError": "Gagal membuat ZIP.",
+  "editor.downloadError": "Gagal memuat turun imej."
 }

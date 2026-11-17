@@ -2334,5 +2334,9 @@
   "pricing.suite.qr": "Vector at Dynamic na QR",
   "pricing.suite.qrDesc": "High-res QR code generator, vector SVG logo customization, at zero expiration.",
   "pricing.capabilities.title": "Mga Kakayahan sa Studio at Priyoridad sa Hardware",
-  "pricing.free.stripDesc": "Kumpletuhin ang access sa lahat ng 14 na lokal na AI tool, batch 10 na larawan, karaniwang HD, zero watermark, at 100% lokal na privacy."
+  "pricing.free.stripDesc": "Kumpletuhin ang access sa lahat ng 14 na lokal na AI tool, batch 10 na larawan, karaniwang HD, zero watermark, at 100% lokal na privacy.",
+  "work.batchLimitNotice": "Ang limitasyon ng libreng tier ay 10 larawan bawat batch. Mag-upgrade sa PRO para magproseso ng hanggang 100 larawan!",
+  "editor.zipSuccess": "Matagumpay na na-download ang Batch ZIP!",
+  "editor.zipError": "Nabigong gumawa ng ZIP.",
+  "editor.downloadError": "Nabigong i-download ang larawan."
 }

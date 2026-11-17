@@ -72,6 +72,56 @@ export const Navbar: React.FC = () => {
   const [suiteLangSearch, setSuiteLangSearch] = useState('');
   const suiteRef = useRef<HTMLDivElement>(null);
 
+  // Hover timers for desktop flyouts (smooth hover-to-open + debounce close)
+  const suiteHoverTimerRef = useRef<NodeJS.Timeout | null>(null);
+  const langHoverTimerRef = useRef<NodeJS.Timeout | null>(null);
+
+  const handleSuiteMouseEnter = () => {
+    if (suiteHoverTimerRef.current) {
+      clearTimeout(suiteHoverTimerRef.current);
+      suiteHoverTimerRef.current = null;
+    }
+    setIsSuiteOpen(true);
+    setSuiteView('main');
+    setLangOpen(false);
+    setUserMenuOpen(false);
+  };
+
+  const handleSuiteMouseLeave = () => {
+    if (suiteHoverTimerRef.current) {
+      clearTimeout(suiteHoverTimerRef.current);
+    }
+    suiteHoverTimerRef.current = setTimeout(() => {
+      setIsSuiteOpen(false);
+    }, 220);
+  };
+
+  const handleLangMouseEnter = () => {
+    if (langHoverTimerRef.current) {
+      clearTimeout(langHoverTimerRef.current);
+      langHoverTimerRef.current = null;
+    }
+    setLangOpen(true);
+    setIsSuiteOpen(false);
+    setUserMenuOpen(false);
+  };
+
+  const handleLangMouseLeave = () => {
+    if (langHoverTimerRef.current) {
+      clearTimeout(langHoverTimerRef.current);
+    }
+    langHoverTimerRef.current = setTimeout(() => {
+      setLangOpen(false);
+    }, 220);
+  };
+
+  useEffect(() => {
+    return () => {
+      if (suiteHoverTimerRef.current) clearTimeout(suiteHoverTimerRef.current);
+      if (langHoverTimerRef.current) clearTimeout(langHoverTimerRef.current);
+    };
+  }, []);
+
   // User menu & Mobile states
   const [userMenuOpen, setUserMenuOpen] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -294,7 +344,12 @@ export const Navbar: React.FC = () => {
           <div className="flex items-center justify-end gap-2 sm:gap-2.5 flex-shrink-0">
 
             {/* Desktop Language Switcher Dropdown (30 Bahasa with Search) */}
-            <div className="relative hidden lg:flex items-center" ref={desktopLangRef}>
+            <div
+              className="relative hidden lg:flex items-center"
+              ref={desktopLangRef}
+              onMouseEnter={handleLangMouseEnter}
+              onMouseLeave={handleLangMouseLeave}
+            >
               <button
                 onClick={() => {
                   setLangOpen(!langOpen);
@@ -482,7 +537,12 @@ export const Navbar: React.FC = () => {
             )}
 
             {/* Desktop 9-Dots Launcher Button & Drawer (+1px font size) */}
-            <div className="relative hidden lg:flex items-center" ref={suiteRef}>
+            <div
+              className="relative hidden lg:flex items-center"
+              ref={suiteRef}
+              onMouseEnter={handleSuiteMouseEnter}
+              onMouseLeave={handleSuiteMouseLeave}
+            >
               <button
                 onClick={() => {
                   setIsSuiteOpen(!isSuiteOpen);
@@ -522,7 +582,7 @@ export const Navbar: React.FC = () => {
                       <div className="grid grid-cols-[1.42fr_1fr] min-h-[330px]">
 
                         {/* LEFT PANE: ECOSYSTEM APPS & PLATFORMS */}
-                        <div className="p-5 border-r border-slate-200 dark:border-dark-700/80">
+                        <div className="p-5 border-r border-slate-200 dark:border-dark-700/80 bg-white dark:bg-dark-850">
                           <div className="text-[13px] font-extrabold text-cyan-600 dark:text-neon-cyan tracking-wider uppercase mb-3">
                             {lang === 'id' ? 'Aplikasi Web Ekosistem (0% Upload)' : 'Ecosystem Web Apps (0% Server Upload)'}
                           </div>
@@ -793,7 +853,7 @@ export const Navbar: React.FC = () => {
                     </div>
                   ) : (
                     /* ── Sliding Language Selector Sub-Panel ── */
-                    <div className="animate-in fade-in-0 duration-150">
+                    <div className="animate-in fade-in-0 duration-150 bg-white dark:bg-dark-850">
                       {/* Sub-Header with Back Button */}
                       <div className="flex items-center justify-between px-5 py-3 border-b border-slate-200 dark:border-dark-700/80 bg-slate-50 dark:bg-dark-900/70">
                         <button

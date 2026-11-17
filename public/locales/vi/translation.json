@@ -2334,5 +2334,9 @@
   "pricing.suite.qr": "Vector & QR động",
   "pricing.suite.qrDesc": "Trình tạo mã QR có độ phân giải cao, tùy chỉnh logo SVG vector và không hết hạn.",
   "pricing.capabilities.title": "Khả năng của Studio & Ưu tiên phần cứng",
-  "pricing.free.stripDesc": "Toàn quyền truy cập vào tất cả 14 công cụ AI cục bộ, 10 ảnh hàng loạt, HD tiêu chuẩn, không có hình mờ và 100% quyền riêng tư cục bộ."
+  "pricing.free.stripDesc": "Toàn quyền truy cập vào tất cả 14 công cụ AI cục bộ, 10 ảnh hàng loạt, HD tiêu chuẩn, không có hình mờ và 100% quyền riêng tư cục bộ.",
+  "work.batchLimitNotice": "Giới hạn cấp miễn phí là 10 ảnh mỗi đợt. Nâng cấp lên PRO để xử lý tối đa 100 ảnh!",
+  "editor.zipSuccess": "Đã tải xuống hàng loạt ZIP thành công!",
+  "editor.zipError": "Không tạo được ZIP.",
+  "editor.downloadError": "Không thể tải xuống hình ảnh."
 }

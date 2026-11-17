@@ -2334,5 +2334,9 @@
   "pricing.suite.qr": "Vektor & Dynamisk QR",
   "pricing.suite.qrDesc": "Högupplöst QR-kodgenerator, anpassning av vektor-SVG-logotyp och noll utgångsdatum.",
   "pricing.capabilities.title": "Studiofunktioner och hårdvaruprioritet",
-  "pricing.free.stripDesc": "Fullständig tillgång till alla 14 lokala AI-verktyg, batch 10 foton, standard HD, noll vattenstämplar och 100 % lokal sekretess."
+  "pricing.free.stripDesc": "Fullständig tillgång till alla 14 lokala AI-verktyg, batch 10 foton, standard HD, noll vattenstämplar och 100 % lokal sekretess.",
+  "work.batchLimitNotice": "Gratis nivågräns är 10 foton per batch. Uppgradera till PRO för att bearbeta upp till 100 foton!",
+  "editor.zipSuccess": "Batch ZIP har laddats ned!",
+  "editor.zipError": "Det gick inte att skapa ZIP.",
+  "editor.downloadError": "Det gick inte att ladda ner bilden."
 }
