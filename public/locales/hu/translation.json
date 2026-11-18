@@ -2407,5 +2407,9 @@
   "gate.quotaPill": "4K kvóta: {{max.}}/{{max}} maradt ma",
   "gate.claimFree4k": "Igényeljen 3x 4K ingyenes",
   "gate.quotaSuccessToast": "Eredeti 4K exportálva! ({{maradék}} ingyenes 4K maradt mára)",
-  "work.unlockUnlimited": "Korlátlan PRO"
+  "work.unlockUnlimited": "Korlátlan PRO",
+  "gate.badgeProUpgrade": "👑 VIP PRO PASS",
+  "gate.descProQuotaAvailable": "Ma még maradt {{max.}}/{{max}} ingyenes 4K-exportálása. Frissítsen PRO-ra a korlátlan 4K Ultra-HD exportért örökre nulla napi limittel!",
+  "work.downloadZipHd": "ZIP letöltése (HD 1080p)",
+  "work.downloadZip4k": "⚡ ZIP (4K Ultra-HD) letöltése"
 }

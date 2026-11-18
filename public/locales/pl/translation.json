@@ -2412,5 +2412,9 @@
   "gate.quotaPill": "Limit 4 tys.: dzisiaj pozostało {{remaining}}/{{max}}",
   "gate.claimFree4k": "Odbierz 3x 4K za darmo",
   "gate.quotaSuccessToast": "Eksport oryginalnego 4K! ({{remaining}} pozostało dzisiaj darmowe 4K)",
-  "work.unlockUnlimited": "Nieograniczone PRO"
+  "work.unlockUnlimited": "Nieograniczone PRO",
+  "gate.badgeProUpgrade": "👑KARNET VIP PRO",
+  "gate.descProQuotaAvailable": "Pozostało Ci jeszcze {{remaining}}/{{max}} darmowego eksportu 4K na dzisiaj. Przejdź na PRO, aby na zawsze uzyskać nieograniczony eksport 4K Ultra-HD z zerowymi limitami dziennymi!",
+  "work.downloadZipHd": "Pobierz ZIP (HD 1080p)",
+  "work.downloadZip4k": "⚡ Pobierz ZIP (4K Ultra HD)"
 }

@@ -2407,5 +2407,9 @@
   "gate.quotaPill": "מכסת 4K: נותרו היום {{remaining}}/{{max}}",
   "gate.claimFree4k": "תבע 3x 4K בחינם",
   "gate.quotaSuccessToast": "4K מקורי מיוצא! (נותרו היום {{remaining}} 4K בחינם)",
-  "work.unlockUnlimited": "PRO ללא הגבלה"
+  "work.unlockUnlimited": "PRO ללא הגבלה",
+  "gate.badgeProUpgrade": "👑 VIP PRO PASS",
+  "gate.descProQuotaAvailable": "עדיין נותרו לך {{remaining}}/{{max}} ייצוא 4K בחינם היום. שדרג ל-PRO ליצוא 4K Ultra-HD בלתי מוגבל לנצח עם אפס מגבלות יומיות!",
+  "work.downloadZipHd": "הורד ZIP (HD 1080p)",
+  "work.downloadZip4k": "⚡ הורד ZIP (4K Ultra-HD)"
 }

@@ -2407,5 +2407,9 @@
   "gate.quotaPill": "โควต้า 4K: เหลือ {{remaining}}/{{max}} วันนี้",
   "gate.claimFree4k": "รับสิทธิ์ 3x 4K ฟรี",
   "gate.quotaSuccessToast": "ส่งออก 4K ต้นฉบับแล้ว! (เหลืออีก {{remaining}} ฟรี 4K วันนี้)",
-  "work.unlockUnlimited": "โปรไม่จำกัด"
+  "work.unlockUnlimited": "โปรไม่จำกัด",
+  "gate.badgeProUpgrade": "👑 บัตรวีไอพีโปร",
+  "gate.descProQuotaAvailable": "วันนี้คุณยังมีการส่งออก 4K ฟรีเหลืออีก {{remaining}}/{{max}} รายการ อัปเกรดเป็น PRO เพื่อส่งออก 4K Ultra-HD แบบไม่จำกัดตลอดไปโดยไม่มีขีดจำกัดรายวัน!",
+  "work.downloadZipHd": "ดาวน์โหลด ZIP (HD 1080p)",
+  "work.downloadZip4k": "⚡ ดาวน์โหลด ZIP (4K Ultra-HD)"
 }

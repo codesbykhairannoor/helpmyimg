@@ -2473,5 +2473,9 @@
   "gate.quotaPill": "Kuota 4K: {{remaining}}/{{max}} tersisa hari ini",
   "gate.claimFree4k": "Klaim 3x 4K Gratis",
   "gate.quotaSuccessToast": "Ekspor 4K Asli Berhasil! (Sisa kuota 4K hari ini: {{remaining}})",
-  "work.unlockUnlimited": "Unlimited PRO"
+  "work.unlockUnlimited": "Unlimited PRO",
+  "gate.badgeProUpgrade": "👑 VIP PRO PASS",
+  "gate.descProQuotaAvailable": "Anda masih memiliki {{remaining}}/{{max}} kuota 4K hari ini. Upgrade ke PRO untuk menikmati ekspor 4K tanpa batas selamanya tanpa batasan harian!",
+  "work.downloadZipHd": "Download ZIP (HD Standar)",
+  "work.downloadZip4k": "⚡ Download ZIP (4K Ultra-HD)"
 }

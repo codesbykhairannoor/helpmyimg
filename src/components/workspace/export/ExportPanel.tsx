@@ -18,6 +18,7 @@ import { useTranslation } from '../../../context/LanguageContext';
 import { useAuth } from '../../../context/AuthContext';
 import { useProGate } from '../../../context/ProGateContext';
 import { getExportUrl, getImageDimensions } from '../../../utils/resolutionHelper';
+import { exportTo4k } from '../../../utils/upscaleHelper';
 import { trackEvent } from '../../../utils/analytics';
 import type { BatchItem } from '../types';
 
@@ -44,6 +45,7 @@ export const ExportPanel: React.FC<ExportPanelProps> = ({
   const [showExportOptions, setShowExportOptions] = useState(false);
   const [customZipName, setCustomZipName] = useState('');
   const [isExportingSingle, setIsExportingSingle] = useState(false);
+  const [isExporting4k, setIsExporting4k] = useState(false);
 
   if (batchItems.length === 0 || initialTab === 'picker') return null;
 
@@ -55,7 +57,8 @@ export const ExportPanel: React.FC<ExportPanelProps> = ({
     setShowExportOptions(!showExportOptions);
   };
 
-  const handleSingleDownload = async () => {
+  // Unduh versi Standar HD (100% Gratis & Bebas Kuota)
+  const handleSingleDownloadStandard = async () => {
     const item = batchItems[0];
     if (!item || !item.name.trim() || item.name.startsWith('.')) {
       showToast(
@@ -69,29 +72,58 @@ export const ExportPanel: React.FC<ExportPanelProps> = ({
     const sourceUrl = item.processedUrl || item.transparentUrl || item.originalUrl;
     if (!sourceUrl) return;
 
-    const dims = await getImageDimensions(sourceUrl);
-    const isHighRes = dims.width > 1920 || dims.height > 1920;
+    try {
+      setIsExportingSingle(true);
+      trackEvent('file_downloaded', { count: 1, type: 'single-hd', tool: initialTab });
 
-    const performDownload = async (forceDownscale: boolean = false) => {
+      const { url: finalUrl, revoked } = await getExportUrl(sourceUrl, false);
+
+      const a = document.createElement('a');
+      a.href = finalUrl;
+      a.download = item.name;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+
+      if (revoked) {
+        setTimeout(() => URL.revokeObjectURL(finalUrl), 5000);
+      }
+    } catch (err) {
+      console.error('Download error:', err);
+      showToast(t('editor.downloadError', { defaultValue: 'Gagal mengunduh gambar.' }));
+    } finally {
+      setIsExportingSingle(false);
+    }
+  };
+
+  // Unduh versi Real Ultra-HD 4K (Upscaled murni ke 3840px / Asli Lossless)
+  const handleSingleDownload4k = async () => {
+    const item = batchItems[0];
+    if (!item || !item.name.trim() || item.name.startsWith('.')) {
+      showToast(
+        t('work.emptyFileNameAlert', {
+          defaultValue: 'Nama file tidak boleh kosong! / File name cannot be empty!',
+        })
+      );
+      return;
+    }
+
+    const sourceUrl = item.processedUrl || item.transparentUrl || item.originalUrl;
+    if (!sourceUrl) return;
+
+    const execute4k = async () => {
       try {
-        setIsExportingSingle(true);
-        trackEvent('file_downloaded', { count: 1, type: 'single', tool: initialTab });
+        setIsExporting4k(true);
+        trackEvent('file_downloaded', { count: 1, type: 'single-4k', tool: initialTab });
 
-        const allow4k = !forceDownscale && (isPro || quotaState.canExport4k);
-        const { url: finalUrl, revoked, wasDownscaled } = await getExportUrl(sourceUrl, allow4k);
-
-        if (wasDownscaled && !isPro) {
-          showToast(
-            t('work.downscaleNotice', {
-              defaultValue:
-                'Foto diekspor dalam resolusi Standar HD (1080p).',
-            })
-          );
-        }
+        const { url: finalUrl, width, height, revoked } = await exportTo4k(sourceUrl, 3840);
 
         const a = document.createElement('a');
         a.href = finalUrl;
-        a.download = item.name;
+        const nameParts = item.name.split('.');
+        const ext = nameParts.length > 1 ? `.${nameParts.pop()}` : '.png';
+        const base = nameParts.join('.');
+        a.download = `${base}_4K_UltraHD${ext}`;
         document.body.appendChild(a);
         a.click();
         document.body.removeChild(a);
@@ -100,15 +132,20 @@ export const ExportPanel: React.FC<ExportPanelProps> = ({
           setTimeout(() => URL.revokeObjectURL(finalUrl), 5000);
         }
       } catch (err) {
-        console.error('Download error:', err);
-        showToast(t('editor.downloadError', { defaultValue: 'Gagal mengunduh gambar.' }));
+        console.error('4K Export Error:', err);
+        showToast(t('editor.downloadError', { defaultValue: 'Gagal mengunduh gambar 4K.' }));
       } finally {
-        setIsExportingSingle(false);
+        setIsExporting4k(false);
       }
     };
 
-    if (isHighRes && !isPro) {
-      if (user && quotaState.remaining4k > 0) {
+    if (isPro) {
+      await execute4k();
+      return;
+    }
+
+    if (user) {
+      if (quotaState.remaining4k > 0) {
         consume4k();
         showToast(
           t('gate.quotaSuccessToast', {
@@ -116,20 +153,23 @@ export const ExportPanel: React.FC<ExportPanelProps> = ({
             defaultValue: `Ekspor 4K Asli Berhasil! (Sisa kuota 4K hari ini: ${quotaState.remaining4k - 1})`,
           })
         );
-        await performDownload(false);
+        await execute4k();
       } else {
         openProGate({
           feature: 'export-4k',
-          onProceedFallback: () => performDownload(true),
-          onSuccess: () => {
-            consume4k();
-            performDownload(false);
-          },
+          onProceedFallback: () => handleSingleDownloadStandard(),
         });
-        return;
       }
     } else {
-      await performDownload(false);
+      // Guest
+      openProGate({
+        feature: 'export-4k',
+        onProceedFallback: () => handleSingleDownloadStandard(),
+        onSuccess: () => {
+          consume4k();
+          execute4k();
+        },
+      });
     }
   };
 
@@ -294,21 +334,20 @@ export const ExportPanel: React.FC<ExportPanelProps> = ({
             {isPro
               ? t('work.resPro', { defaultValue: 'Kualitas: Ultra-HD 4K (Original Lossless)' })
               : user
-              ? t('gate.quotaPill', {
+                ? t('gate.quotaPill', {
                   remaining: quotaState.remaining4k,
                   max: quotaState.max4k,
                   defaultValue: `Kuota 4K: ${quotaState.remaining4k}/${quotaState.max4k} tersisa hari ini`,
                 })
-              : t('work.resFree', { defaultValue: 'Kualitas: Standar HD (Maks. 1920px)' })}
+                : t('work.resFree', { defaultValue: 'Kualitas: Standar HD (Maks. 1920px)' })}
           </span>
         </div>
         {!isPro ? (
           <button
             type="button"
             onClick={() => openProGate({ feature: 'export-4k' })}
-            className={`text-[11px] font-bold flex items-center gap-1 cursor-pointer transition-colors ${
-              user ? 'text-cyan-400 hover:text-cyan-300' : 'text-amber-400 hover:text-amber-300'
-            }`}
+            className={`text-[11px] font-bold flex items-center gap-1 cursor-pointer transition-colors ${user ? 'text-cyan-400 hover:text-cyan-300' : 'text-amber-400 hover:text-amber-300'
+              }`}
           >
             {user ? <Crown className="w-3 h-3 text-amber-400" /> : <Sparkles className="w-3 h-3" />}
             <span>
@@ -324,53 +363,107 @@ export const ExportPanel: React.FC<ExportPanelProps> = ({
         )}
       </div>
 
-      {/* Main Download Buttons */}
-      <div className="flex gap-2">
+      {/* Main Download Buttons: Dual Resolution Controls (HD Standard vs 4K Ultra-HD) */}
+      <div className="flex flex-col gap-2.5">
         {batchItems.length > 1 ? (
-          <button
-            type="button"
-            onClick={() => {
-              if (batchItems.some((i) => !i.name.trim() || i.name.startsWith('.'))) {
-                showToast(
-                  t('work.emptyFileNameAlert', {
-                    defaultValue: 'Nama file tidak boleh kosong! / File name cannot be empty!',
-                  })
-                );
-                return;
-              }
-              trackEvent('file_downloaded', { count: batchItems.length, type: 'zip', tool: initialTab });
-              onZipDownload(customZipName);
-            }}
-            disabled={isZipping || batchItems.some((i) => i.status !== 'done')}
-            className="flex-1 px-4 py-3.5 bg-gradient-to-r from-neon-cyan via-neon-emerald to-neon-indigo text-dark-900 font-extrabold rounded-xl text-sm flex items-center justify-center gap-2 shadow-glow-cyan transition-all disabled:opacity-50 disabled:cursor-not-allowed transform hover:-translate-y-0.5 hover:opacity-95 cursor-pointer"
-          >
-            {isZipping ? <Loader2 className="w-5 h-5 animate-spin" /> : <Archive className="w-5 h-5" />}
-            <span>
-              {isPro
-                ? t('work.downloadZipPro', { defaultValue: 'Download All ZIP (4K Ultra-HD)' })
-                : t('work.downloadZip', { defaultValue: 'Download All (ZIP)' })}
-            </span>
-          </button>
+          <div className="flex flex-col sm:flex-row gap-2.5">
+            {/* Batch ZIP: Standard HD */}
+            <button
+              type="button"
+              onClick={() => {
+                if (batchItems.some((i) => !i.name.trim() || i.name.startsWith('.'))) {
+                  showToast(
+                    t('work.emptyFileNameAlert', {
+                      defaultValue: 'Nama file tidak boleh kosong! / File name cannot be empty!',
+                    })
+                  );
+                  return;
+                }
+                trackEvent('file_downloaded', { count: batchItems.length, type: 'zip-hd', tool: initialTab });
+                onZipDownload(customZipName);
+              }}
+              disabled={isZipping || batchItems.some((i) => i.status !== 'done')}
+              className="flex-1 px-4 py-3 bg-dark-800/80 hover:bg-dark-750 text-slate-200 border border-dark-600/80 hover:border-dark-500 font-bold rounded-xl text-xs sm:text-sm flex items-center justify-center gap-2 transition-all cursor-pointer disabled:opacity-50"
+            >
+              {isZipping ? <Loader2 className="w-4 h-4 animate-spin" /> : <Archive className="w-4 h-4 text-slate-400" />}
+              <span>{t('work.downloadZip', { defaultValue: 'Download ZIP (HD Standar)' })}</span>
+            </button>
+
+            {/* Batch ZIP: Ultra-HD 4K */}
+            <button
+              type="button"
+              onClick={() => {
+                if (batchItems.some((i) => !i.name.trim() || i.name.startsWith('.'))) {
+                  showToast(
+                    t('work.emptyFileNameAlert', {
+                      defaultValue: 'Nama file tidak boleh kosong! / File name cannot be empty!',
+                    })
+                  );
+                  return;
+                }
+                if (!isPro && (!user || quotaState.remaining4k <= 0)) {
+                  openProGate({ feature: 'export-4k', onProceedFallback: () => onZipDownload(customZipName) });
+                  return;
+                }
+                if (!isPro && user && quotaState.remaining4k > 0) {
+                  consume4k();
+                  showToast(
+                    t('gate.quotaSuccessToast', {
+                      remaining: quotaState.remaining4k - 1,
+                      defaultValue: `Ekspor 4K Asli Berhasil! (Sisa kuota 4K hari ini: ${quotaState.remaining4k - 1})`,
+                    })
+                  );
+                }
+                trackEvent('file_downloaded', { count: batchItems.length, type: 'zip-4k', tool: initialTab });
+                onZipDownload(customZipName);
+              }}
+              disabled={isZipping || batchItems.some((i) => i.status !== 'done')}
+              className="flex-1 px-4 py-3 bg-gradient-to-r from-[#05DAED] via-cyan-400 to-[#12DA91] hover:from-cyan-400 hover:to-emerald-400 text-slate-950 font-black rounded-xl text-xs sm:text-sm flex items-center justify-center gap-2 shadow-glow-cyan transition-all transform hover:-translate-y-0.5 cursor-pointer disabled:opacity-50"
+            >
+              <Sparkles className="w-4 h-4 text-slate-950 stroke-[2.5]" />
+              <span>{t('work.downloadZipPro', { defaultValue: '⚡ Download ZIP (4K Ultra-HD)' })}</span>
+            </button>
+          </div>
         ) : (
-          <button
-            type="button"
-            onClick={handleSingleDownload}
-            disabled={isExportingSingle || batchItems[0]?.status !== 'done'}
-            className="flex-1 px-4 py-3.5 bg-gradient-to-r from-neon-cyan via-neon-emerald to-neon-indigo text-dark-900 font-extrabold rounded-xl text-sm flex items-center justify-center gap-2 shadow-glow-cyan transition-all disabled:opacity-50 disabled:cursor-not-allowed transform hover:-translate-y-0.5 hover:opacity-95 cursor-pointer"
-          >
-            {isExportingSingle ? (
-              <Loader2 className="w-5 h-5 animate-spin" />
-            ) : (
-              <Download className="w-5 h-5" />
-            )}
-            <span>
-              {initialTab === 'convert' && batchItems[0]?.status !== 'done'
-                ? t('convert.convertFirst', { defaultValue: 'Konversi Dahulu untuk Download' })
-                : isPro
-                ? t('editor.downloadPro', { defaultValue: 'Download Ultra-HD (4K Asli)' })
-                : t('editor.download', { defaultValue: 'Download HD (Standar)' })}
-            </span>
-          </button>
+          <div className="flex flex-col sm:flex-row gap-2.5">
+            {/* Button 1: Download HD (100% Free Forever) */}
+            <button
+              type="button"
+              onClick={handleSingleDownloadStandard}
+              disabled={isExportingSingle || isExporting4k || batchItems[0]?.status !== 'done'}
+              className="flex-1 px-4 py-3 bg-dark-800/80 hover:bg-dark-750 text-slate-200 border border-dark-600/80 hover:border-dark-500 font-bold rounded-xl text-xs sm:text-sm flex items-center justify-center gap-2 transition-all cursor-pointer disabled:opacity-50"
+            >
+              {isExportingSingle ? (
+                <Loader2 className="w-4 h-4 animate-spin text-cyan-400" />
+              ) : (
+                <Download className="w-4 h-4 text-slate-400" />
+              )}
+              <span>
+                {initialTab === 'convert' && batchItems[0]?.status !== 'done'
+                  ? t('convert.convertFirst', { defaultValue: 'Konversi Dahulu' })
+                  : t('editor.download', { defaultValue: 'Download HD (Gratis)' })}
+              </span>
+            </button>
+
+            {/* Button 2: Real 4K Ultra-HD (3840px Upscale & Lossless) */}
+            <button
+              type="button"
+              onClick={handleSingleDownload4k}
+              disabled={isExportingSingle || isExporting4k || batchItems[0]?.status !== 'done'}
+              className="flex-1 px-4 py-3 bg-gradient-to-r from-[#05DAED] via-cyan-400 to-[#12DA91] hover:from-cyan-400 hover:to-emerald-400 text-slate-950 font-black rounded-xl text-xs sm:text-sm flex items-center justify-center gap-2 shadow-glow-cyan transition-all transform hover:-translate-y-0.5 cursor-pointer disabled:opacity-50"
+            >
+              {isExporting4k ? (
+                <Loader2 className="w-4 h-4 animate-spin text-slate-950" />
+              ) : (
+                <Sparkles className="w-4 h-4 text-slate-950 stroke-[2.5]" />
+              )}
+              <span>
+                {initialTab === 'convert' && batchItems[0]?.status !== 'done'
+                  ? t('convert.convertFirst', { defaultValue: 'Konversi Dahulu' })
+                  : t('editor.downloadPro', { defaultValue: '⚡ Download 4K Ultra-HD' })}
+              </span>
+            </button>
+          </div>
         )}
       </div>
     </div>

@@ -2407,5 +2407,9 @@
   "gate.quotaPill": "Kvóta 4K: dnes zbývá {{remaining}}/{{max}}",
   "gate.claimFree4k": "Získejte 3x 4K zdarma",
   "gate.quotaSuccessToast": "Původní 4K exportováno! (dnes zbývá {{remaining}} zdarma 4K)",
-  "work.unlockUnlimited": "Neomezené PRO"
+  "work.unlockUnlimited": "Neomezené PRO",
+  "gate.badgeProUpgrade": "👑 VIP PRO PASS",
+  "gate.descProQuotaAvailable": "Dnes vám stále zbývá {{remaining}}/{{max}} bezplatných exportů ve 4K. Upgradujte na PRO a získejte neomezený export 4K Ultra-HD navždy s nulovými denními limity!",
+  "work.downloadZipHd": "Stáhnout ZIP (HD 1080p)",
+  "work.downloadZip4k": "⚡ Stáhnout ZIP (4K Ultra-HD)"
 }

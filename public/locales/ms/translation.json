@@ -2407,5 +2407,9 @@
   "gate.quotaPill": "Kuota 4K: {{baki}}/{{maks}} tinggal hari ini",
   "gate.claimFree4k": "Tuntut 3x 4K Percuma",
   "gate.quotaSuccessToast": "4K Asal Dieksport! ({{baki}} percuma tinggal 4K hari ini)",
-  "work.unlockUnlimited": "PRO tanpa had"
+  "work.unlockUnlimited": "PRO tanpa had",
+  "gate.badgeProUpgrade": "👑 PAS PRO VIP",
+  "gate.descProQuotaAvailable": "Anda masih mempunyai {{baki}}/{{maks}} eksport percuma 4K hari ini. Naik taraf kepada PRO untuk eksport 4K Ultra-HD tanpa had selama-lamanya dengan sifar had harian!",
+  "work.downloadZipHd": "Muat turun ZIP (HD 1080p)",
+  "work.downloadZip4k": "⚡ Muat turun ZIP (4K Ultra-HD)"
 }

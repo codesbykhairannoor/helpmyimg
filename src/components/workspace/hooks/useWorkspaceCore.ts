@@ -7,6 +7,7 @@ import { useTranslation } from '../../../context/LanguageContext';
 import { useAuth } from '../../../context/AuthContext';
 import { useProGate } from '../../../context/ProGateContext';
 import { getExportUrl, getImageDimensions } from '../../../utils/resolutionHelper';
+import { exportTo4k } from '../../../utils/upscaleHelper';
 import { getMaxBatchAllowed } from '../../../utils/quotaManager';
 import type { BatchItem, TabType } from '../types';
 
@@ -218,21 +219,26 @@ export function useWorkspaceCore(initialTab: TabType = 'remove'): UseWorkspaceCo
       const dims = await getImageDimensions(urlToDownload);
       const isHighRes = dims.width > 1920 || dims.height > 1920;
 
-      const performDownload = async (forceDownscale: boolean = false) => {
-        const allow4k = !forceDownscale && (isPro || quotaState.canExport4k);
-        const { url: finalUrl, revoked, wasDownscaled } = await getExportUrl(urlToDownload, allow4k);
-        if (wasDownscaled && !isPro) {
-          setToastMessage(
-            t('work.downscaleNotice', {
-              defaultValue: 'Foto diekspor dalam resolusi Standar HD (1080p).',
-            })
-          );
+      const performDownload = async (is4k: boolean = false) => {
+        let finalUrl: string;
+        let revoked = false;
+
+        if (is4k) {
+          const res = await exportTo4k(urlToDownload, 3840);
+          finalUrl = res.url;
+          revoked = res.revoked;
+        } else {
+          const res = await getExportUrl(urlToDownload, false);
+          finalUrl = res.url;
+          revoked = res.revoked;
         }
 
         const a = document.createElement('a');
         a.href = finalUrl;
-        const baseName = item.name.replace(/\.[^/.]+$/, '');
-        a.download = `${baseName}_HelpMyIMG.png`;
+        const nameParts = item.name.split('.');
+        const ext = nameParts.length > 1 ? `.${nameParts.pop()}` : '.png';
+        const base = nameParts.join('.');
+        a.download = is4k ? `${base}_4K_UltraHD${ext}` : `${base}_HelpMyIMG${ext}`;
         document.body.appendChild(a);
         a.click();
         document.body.removeChild(a);
@@ -251,20 +257,20 @@ export function useWorkspaceCore(initialTab: TabType = 'remove'): UseWorkspaceCo
               defaultValue: `Ekspor 4K Asli Berhasil! (Sisa kuota 4K hari ini: ${quotaState.remaining4k - 1})`,
             })
           );
-          await performDownload(false);
+          await performDownload(true);
         } else {
           openProGate({
             feature: 'export-4k',
-            onProceedFallback: () => performDownload(true),
+            onProceedFallback: () => performDownload(false),
             onSuccess: () => {
               consume4k();
-              performDownload(false);
+              performDownload(true);
             },
           });
           return;
         }
       } else {
-        await performDownload(false);
+        await performDownload(isPro);
       }
     },
     [isPro, user, quotaState, consume4k, openProGate, t]

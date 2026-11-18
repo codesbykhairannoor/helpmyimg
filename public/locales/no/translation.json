@@ -2407,5 +2407,9 @@
   "gate.quotaPill": "4K-kvote: {{remaining}}/{{max}} igjen i dag",
   "gate.claimFree4k": "Gjør krav på 3x 4K gratis",
   "gate.quotaSuccessToast": "Original 4K eksportert! ({{remaining}} gratis 4K igjen i dag)",
-  "work.unlockUnlimited": "Ubegrenset PRO"
+  "work.unlockUnlimited": "Ubegrenset PRO",
+  "gate.badgeProUpgrade": "👑 VIP PRO PASS",
+  "gate.descProQuotaAvailable": "Du har fortsatt {{remaining}}/{{max}} gratis 4K-eksporter igjen i dag. Oppgrader til PRO for ubegrenset 4K Ultra-HD-eksport for alltid med null daglige grenser!",
+  "work.downloadZipHd": "Last ned ZIP (HD 1080p)",
+  "work.downloadZip4k": "⚡ Last ned ZIP (4K Ultra-HD)"
 }

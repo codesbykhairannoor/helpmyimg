@@ -2407,5 +2407,9 @@
   "gate.quotaPill": "Cotă 4K: {{remaining}}/{{max}} rămas astăzi",
   "gate.claimFree4k": "Revendicați 3x 4K gratuit",
   "gate.quotaSuccessToast": "Original 4K exportat! ({{remaining}} 4K gratuit rămas astăzi)",
-  "work.unlockUnlimited": "PRO nelimitat"
+  "work.unlockUnlimited": "PRO nelimitat",
+  "gate.badgeProUpgrade": "👑 VIP PRO PASS",
+  "gate.descProQuotaAvailable": "Mai aveți {{rămase}}/{{max}} exporturi gratuite 4K astăzi. Faceți upgrade la PRO pentru exporturi nelimitate 4K Ultra-HD pentru totdeauna, cu zero limite zilnice!",
+  "work.downloadZipHd": "Descărcați ZIP (HD 1080p)",
+  "work.downloadZip4k": "⚡ Descărcați ZIP (4K Ultra-HD)"
 }

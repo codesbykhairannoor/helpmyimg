@@ -2407,5 +2407,9 @@
   "gate.quotaPill": "Quota 4K: {{remaining}}/{{max}} rimasti oggi",
   "gate.claimFree4k": "Richiedi 3x 4K gratis",
   "gate.quotaSuccessToast": "4K originale esportato! ({{remaining}} 4K gratuiti rimasti oggi)",
-  "work.unlockUnlimited": "PRO illimitato"
+  "work.unlockUnlimited": "PRO illimitato",
+  "gate.badgeProUpgrade": "👑 PASS VIP PRO",
+  "gate.descProQuotaAvailable": "Oggi ti restano ancora {{remaining}}/{{max}} esportazioni 4K gratuite. Passa a PRO per esportazioni illimitate in 4K Ultra-HD per sempre senza limiti giornalieri!",
+  "work.downloadZipHd": "Scarica ZIP (HD 1080p)",
+  "work.downloadZip4k": "⚡ Scarica ZIP (4K Ultra HD)"
 }

@@ -2407,5 +2407,9 @@
   "gate.quotaPill": "Hạn ngạch 4K: Còn lại {{remaining}}/{{max}} hôm nay",
   "gate.claimFree4k": "Yêu cầu 3x 4K miễn phí",
   "gate.quotaSuccessToast": "Đã xuất 4K gốc! ({{remaining}} còn lại 4K miễn phí hôm nay)",
-  "work.unlockUnlimited": "CHUYÊN NGHIỆP không giới hạn"
+  "work.unlockUnlimited": "CHUYÊN NGHIỆP không giới hạn",
+  "gate.badgeProUpgrade": "👑 THẺ VIP PRO",
+  "gate.descProQuotaAvailable": "Hôm nay, bạn vẫn còn {{remaining}}/{{max}} bản xuất 4K miễn phí. Nâng cấp lên PRO để xuất 4K Ultra-HD không giới hạn mãi mãi mà không có giới hạn hàng ngày!",
+  "work.downloadZipHd": "Tải xuống ZIP (HD 1080p)",
+  "work.downloadZip4k": "⚡ Tải xuống ZIP (4K Ultra-HD)"
 }

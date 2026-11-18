@@ -2407,5 +2407,9 @@
   "gate.quotaPill": "4K Kotası: Bugün {{remaining}}/{{max}} kaldı",
   "gate.claimFree4k": "3x 4K Ücretsiz Talep Edin",
   "gate.quotaSuccessToast": "Orijinal 4K İhraç Edildi! (Bugün {{remaining}} ücretsiz 4K kaldı)",
-  "work.unlockUnlimited": "Sınırsız PRO"
+  "work.unlockUnlimited": "Sınırsız PRO",
+  "gate.badgeProUpgrade": "👑 VIP PRO PASS",
+  "gate.descProQuotaAvailable": "Bugün hâlâ {{remaining}}/{{max}} adet ücretsiz 4K dışa aktarma hakkınız kaldı. Sıfır günlük limitle sonsuza kadar sınırsız 4K Ultra HD dışa aktarma için PRO'ya yükseltin!",
+  "work.downloadZipHd": "ZIP'i indirin (HD 1080p)",
+  "work.downloadZip4k": "⚡ ZIP'i indirin (4K Ultra HD)"
 }

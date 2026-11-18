@@ -2406,5 +2406,9 @@
   "gate.quotaPill": "4K 配额：今天还剩 {{remaining}}/{{max}}",
   "gate.claimFree4k": "索取 3x 4K 免费",
   "gate.quotaSuccessToast": "原版4K导出！ （今天还剩 {{remaining}} 免费 4K）",
-  "work.unlockUnlimited": "无限专业版"
+  "work.unlockUnlimited": "无限专业版",
+  "gate.badgeProUpgrade": "👑 VIP 专业通行证",
+  "gate.descProQuotaAvailable": "今天您还有 {{remain}}/{{max}} 个免费 4K 导出内容。 升级到 PRO 即可永久无限制地导出 4K 超高清内容，每日限额为零！",
+  "work.downloadZipHd": "下载 ZIP（高清 1080p）",
+  "work.downloadZip4k": "⚡ 下载 ZIP（4K 超高清）"
 }

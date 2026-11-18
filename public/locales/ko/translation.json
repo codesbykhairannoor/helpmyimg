@@ -2407,5 +2407,9 @@
   "gate.quotaPill": "4K 할당량: 오늘 {{remaining}}/{{max}} 남음",
   "gate.claimFree4k": "4K 무료 3회 신청",
   "gate.quotaSuccessToast": "원본 4K 내보내기! (오늘 {{remaining}} 무료 4K 남음)",
-  "work.unlockUnlimited": "무제한 프로"
+  "work.unlockUnlimited": "무제한 프로",
+  "gate.badgeProUpgrade": "😘 VIP 프로 패스",
+  "gate.descProQuotaAvailable": "오늘은 아직 {{remaining}}/{{max}}개의 무료 4K 내보내기가 남아 있습니다. PRO로 업그레이드하면 일일 제한 없이 영원히 4K Ultra-HD를 무제한으로 내보낼 수 있습니다!",
+  "work.downloadZipHd": "ZIP 다운로드(HD 1080p)",
+  "work.downloadZip4k": "⚡ ZIP 다운로드(4K Ultra-HD)"
 }

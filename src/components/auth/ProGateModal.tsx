@@ -104,11 +104,21 @@ export const ProGateModal: React.FC = () => {
       });
     } else {
       // Default: export-4k
-      badgeText = t('gate.badgePro4k', { defaultValue: '👑 FITUR PRO' });
-      titleText = t('gate.titlePro4k', { defaultValue: 'Buka Ekspor 4K Tanpa Batas' });
-      descText = t('gate.descPro4k', {
-        defaultValue: 'Anda telah menggunakan kuota 3x ekspor 4K gratis hari ini. Tingkatkan ke PRO untuk ekspor 4K tanpa batas & tanpa kompresi.',
-      });
+      if (quotaState.remaining4k > 0) {
+        badgeText = t('gate.badgeProUpgrade', { defaultValue: '👑 VIP PRO PASS' });
+        titleText = t('gate.titlePro4k', { defaultValue: 'Buka Ekspor 4K Tanpa Batas' });
+        descText = t('gate.descProQuotaAvailable', {
+          remaining: quotaState.remaining4k,
+          max: quotaState.max4k,
+          defaultValue: `Anda masih memiliki ${quotaState.remaining4k}/${quotaState.max4k} kuota ekspor 4K gratis hari ini. Tingkatkan ke PRO untuk menikmati ekspor 4K tanpa batas selamanya tanpa batasan harian!`,
+        });
+      } else {
+        badgeText = t('gate.badgePro4k', { defaultValue: '👑 FITUR PRO' });
+        titleText = t('gate.titlePro4k', { defaultValue: 'Buka Ekspor 4K Tanpa Batas' });
+        descText = t('gate.descPro4k', {
+          defaultValue: 'Anda telah menggunakan kuota 3x ekspor 4K gratis hari ini. Tingkatkan ke PRO untuk ekspor 4K tanpa batas & tanpa kompresi.',
+        });
+      }
     }
   }
 
@@ -135,14 +145,10 @@ export const ProGateModal: React.FC = () => {
           animate={{ opacity: 1, scale: 1, y: 0 }}
           exit={{ opacity: 0, scale: 0.94, y: 12 }}
           transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
-          className="relative w-full max-w-[420px] rounded-3xl bg-white dark:bg-dark-850 border border-slate-200/90 dark:border-dark-700/80 shadow-2xl p-6 sm:p-8 z-10 flex flex-col items-center text-center overflow-hidden"
+          className="relative w-full max-w-[420px] rounded-3xl bg-white dark:bg-dark-850 border border-slate-200/90 dark:border-cyan-500/25 shadow-2xl p-6 sm:p-8 z-10 flex flex-col items-center text-center overflow-hidden"
         >
-          {/* Subtle Ambient Top Glow */}
-          <div
-            className={`absolute -top-24 left-1/2 -translate-x-1/2 w-56 h-56 rounded-full blur-3xl pointer-events-none -z-10 ${
-              isTrial ? 'bg-cyan-500/20' : 'bg-blue-600/20'
-            }`}
-          />
+          {/* Subtle Ambient Top Glow - Signature Cyan & Emerald */}
+          <div className="absolute -top-24 left-1/2 -translate-x-1/2 w-56 h-56 rounded-full blur-3xl pointer-events-none -z-10 bg-cyan-500/20" />
 
           {/* Close button (X) */}
           <button
@@ -154,15 +160,9 @@ export const ProGateModal: React.FC = () => {
             <X className="w-4 h-4" />
           </button>
 
-          {/* Top Glowing Icon Box */}
+          {/* Top Glowing Icon Box - HelpMyIMG Signature Cyan to Emerald */}
           <div className="relative mb-3.5">
-            <div
-              className={`w-14 h-14 rounded-2xl flex items-center justify-center shadow-lg relative ${
-                isTrial
-                  ? 'bg-gradient-to-tr from-[#05DAED] to-[#12DA91] text-slate-950 shadow-cyan-500/30'
-                  : 'bg-gradient-to-tr from-blue-600 to-indigo-600 text-white shadow-blue-500/30'
-              }`}
-            >
+            <div className="w-14 h-14 rounded-2xl flex items-center justify-center shadow-lg relative bg-gradient-to-tr from-[#05DAED] to-[#12DA91] text-slate-950 shadow-cyan-500/30">
               {isTrial ? (
                 <Sparkles className="w-7 h-7 stroke-[2.2]" />
               ) : (
@@ -170,17 +170,13 @@ export const ProGateModal: React.FC = () => {
               )}
             </div>
             {/* Soft Radial Under-Glow */}
-            <div
-              className={`absolute -inset-1.5 rounded-2xl blur-md opacity-60 -z-10 ${
-                isTrial ? 'bg-cyan-400' : 'bg-indigo-500'
-              }`}
-            />
+            <div className="absolute -inset-1.5 rounded-2xl blur-md opacity-60 -z-10 bg-cyan-400" />
           </div>
 
           {/* Badge Pill */}
           <span
             className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-black uppercase tracking-wider mb-2.5 ${
-              isTrial
+              isTrial || quotaState.remaining4k > 0
                 ? 'bg-cyan-500/10 text-cyan-600 dark:text-neon-cyan border border-cyan-500/25'
                 : 'bg-amber-500/10 text-amber-600 dark:text-amber-400 border border-amber-500/25'
             }`}
@@ -252,14 +248,14 @@ export const ProGateModal: React.FC = () => {
                 </button>
               </>
             ) : (
-              /* PRO Upgrade Primary Button */
+              /* PRO Upgrade Primary Button - Signature Cyan-Emerald Gradient */
               <button
                 type="button"
                 onClick={handleGoToPricing}
-                className="w-full py-3.5 px-6 rounded-2xl bg-gradient-to-r from-blue-600 via-indigo-600 to-blue-700 hover:from-blue-500 hover:to-indigo-500 text-white font-black text-sm flex items-center justify-center gap-2 shadow-lg shadow-blue-500/25 transition-all cursor-pointer transform hover:-translate-y-0.5"
+                className="w-full py-3.5 px-6 rounded-2xl bg-gradient-to-r from-[#05DAED] via-cyan-400 to-[#12DA91] hover:from-cyan-400 hover:to-emerald-400 text-slate-950 font-black text-sm flex items-center justify-center gap-2 shadow-lg shadow-cyan-500/25 transition-all cursor-pointer transform hover:-translate-y-0.5"
               >
                 <span>{t('gate.btnUpgrade', { defaultValue: 'Upgrade to PRO — From $6.58/mo' })}</span>
-                <ArrowRight className="w-4 h-4" />
+                <ArrowRight className="w-4 h-4 stroke-[2.5]" />
               </button>
             )}
 

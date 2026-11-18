@@ -2407,5 +2407,9 @@
   "gate.quotaPill": "Όριο 4K: Απομένει σήμερα {{remaining}}/{{max}}",
   "gate.claimFree4k": "Αξίωση 3x 4K Δωρεάν",
   "gate.quotaSuccessToast": "Εξαγωγή πρωτότυπου 4K! ({{remaining}} απομένουν δωρεάν 4K σήμερα)",
-  "work.unlockUnlimited": "Απεριόριστο PRO"
+  "work.unlockUnlimited": "Απεριόριστο PRO",
+  "gate.badgeProUpgrade": "👑 VIP PRO PASS",
+  "gate.descProQuotaAvailable": "Έχετε ακόμη {{remaining}}/{{max}} δωρεάν εξαγωγές 4K σήμερα. Αναβαθμίστε σε PRO για απεριόριστες εξαγωγές 4K Ultra-HD για πάντα με μηδενικά ημερήσια όρια!",
+  "work.downloadZipHd": "Λήψη ZIP (HD 1080p)",
+  "work.downloadZip4k": "⚡ Λήψη ZIP (4K Ultra-HD)"
 }
