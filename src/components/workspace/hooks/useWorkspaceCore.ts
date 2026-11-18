@@ -5,7 +5,9 @@
 import { useState, useRef, useEffect, useCallback } from 'react';
 import { useTranslation } from '../../../context/LanguageContext';
 import { useAuth } from '../../../context/AuthContext';
-import { getExportUrl } from '../../../utils/resolutionHelper';
+import { useProGate } from '../../../context/ProGateContext';
+import { getExportUrl, getImageDimensions } from '../../../utils/resolutionHelper';
+import { getMaxBatchAllowed } from '../../../utils/quotaManager';
 import type { BatchItem, TabType } from '../types';
 
 export interface UseWorkspaceCoreReturn {
@@ -34,7 +36,8 @@ export interface UseWorkspaceCoreReturn {
 
 export function useWorkspaceCore(initialTab: TabType = 'remove'): UseWorkspaceCoreReturn {
   const { t } = useTranslation();
-  const { isPro, openAuthModal } = useAuth();
+  const { user, isPro, openAuthModal } = useAuth();
+  const { openProGate, quotaState, consume4k } = useProGate();
   const [batchItems, setBatchItems] = useState<BatchItem[]>([]);
   const [selectedIndex, setSelectedIndex] = useState<number>(0);
   const [isDragging, setIsDragging] = useState(false);
@@ -63,32 +66,17 @@ export function useWorkspaceCore(initialTab: TabType = 'remove'): UseWorkspaceCo
       const isReplacing = forceReplace ?? isReplacingRef.current;
       isReplacingRef.current = false;
 
-      const maxBatch = isPro ? 100 : 10;
+      const maxBatch = getMaxBatchAllowed(Boolean(user), isPro);
       const currentCount = isReplacing ? 0 : batchItems.length;
       const availableSlots = Math.max(0, maxBatch - currentCount);
 
       if (availableSlots <= 0) {
-        setToastMessage(
-          isPro
-            ? t('work.batchMaxProNotice', {
-              defaultValue: 'Maximum 100 photos per PRO batch.',
-            })
-            : t('work.batchLimitNotice', {
-              defaultValue:
-                'Free tier limit is 10 photos per batch. Upgrade to PRO to process up to 100 photos!',
-            })
-        );
-        if (!isPro) openAuthModal();
+        openProGate({ feature: 'batch-limit' });
         return;
       }
 
-      if (!isPro && rawFiles.length > availableSlots) {
-        setToastMessage(
-          t('work.batchLimitNotice', {
-            defaultValue:
-              'Free tier limit is 10 photos per batch. Upgrade to PRO to process up to 100 photos!',
-          })
-        );
+      if (rawFiles.length > availableSlots) {
+        openProGate({ feature: 'batch-limit' });
       }
 
       const fileArray = rawFiles.slice(0, availableSlots);
@@ -221,34 +209,65 @@ export function useWorkspaceCore(initialTab: TabType = 'remove'): UseWorkspaceCo
     setSelectedIndex(0);
   }, [batchItems]);
 
-  // Download single item with 4K vs HD 1080p resolution gate
+  // Download single item with 4K vs HD 1080p resolution gate & daily trial quota
   const handleDownloadSingle = useCallback(
     async (item: BatchItem) => {
       const urlToDownload = item.processedUrl || item.transparentUrl || item.originalUrl;
       if (!urlToDownload) return;
 
-      const { url: finalUrl, revoked, wasDownscaled } = await getExportUrl(urlToDownload, isPro);
-      if (wasDownscaled && !isPro) {
-        setToastMessage(
-          t('work.downscaleNotice', {
-            defaultValue: 'Foto diekspor dalam resolusi Standar HD (1080p). Buka PRO untuk resolusi asli 4K!',
-          })
-        );
-      }
+      const dims = await getImageDimensions(urlToDownload);
+      const isHighRes = dims.width > 1920 || dims.height > 1920;
 
-      const a = document.createElement('a');
-      a.href = finalUrl;
-      const baseName = item.name.replace(/\.[^/.]+$/, '');
-      a.download = `${baseName}_HelpMyIMG.png`;
-      document.body.appendChild(a);
-      a.click();
-      document.body.removeChild(a);
+      const performDownload = async (forceDownscale: boolean = false) => {
+        const allow4k = !forceDownscale && (isPro || quotaState.canExport4k);
+        const { url: finalUrl, revoked, wasDownscaled } = await getExportUrl(urlToDownload, allow4k);
+        if (wasDownscaled && !isPro) {
+          setToastMessage(
+            t('work.downscaleNotice', {
+              defaultValue: 'Foto diekspor dalam resolusi Standar HD (1080p).',
+            })
+          );
+        }
 
-      if (revoked) {
-        setTimeout(() => URL.revokeObjectURL(finalUrl), 5000);
+        const a = document.createElement('a');
+        a.href = finalUrl;
+        const baseName = item.name.replace(/\.[^/.]+$/, '');
+        a.download = `${baseName}_HelpMyIMG.png`;
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+
+        if (revoked) {
+          setTimeout(() => URL.revokeObjectURL(finalUrl), 5000);
+        }
+      };
+
+      if (isHighRes && !isPro) {
+        if (user && quotaState.remaining4k > 0) {
+          consume4k();
+          setToastMessage(
+            t('gate.quotaSuccessToast', {
+              remaining: quotaState.remaining4k - 1,
+              defaultValue: `Ekspor 4K Asli Berhasil! (Sisa kuota 4K hari ini: ${quotaState.remaining4k - 1})`,
+            })
+          );
+          await performDownload(false);
+        } else {
+          openProGate({
+            feature: 'export-4k',
+            onProceedFallback: () => performDownload(true),
+            onSuccess: () => {
+              consume4k();
+              performDownload(false);
+            },
+          });
+          return;
+        }
+      } else {
+        await performDownload(false);
       }
     },
-    [isPro, t]
+    [isPro, user, quotaState, consume4k, openProGate, t]
   );
 
   // Download all as ZIP with 4K vs HD 1080p resolution gate

@@ -16,7 +16,8 @@ import {
 } from 'lucide-react';
 import { useTranslation } from '../../../context/LanguageContext';
 import { useAuth } from '../../../context/AuthContext';
-import { getExportUrl } from '../../../utils/resolutionHelper';
+import { useProGate } from '../../../context/ProGateContext';
+import { getExportUrl, getImageDimensions } from '../../../utils/resolutionHelper';
 import { trackEvent } from '../../../utils/analytics';
 import type { BatchItem } from '../types';
 
@@ -38,7 +39,8 @@ export const ExportPanel: React.FC<ExportPanelProps> = ({
   showToast,
 }) => {
   const { t } = useTranslation();
-  const { isPro, openAuthModal } = useAuth();
+  const { user, isPro } = useAuth();
+  const { openProGate, quotaState, consume4k } = useProGate();
   const [showExportOptions, setShowExportOptions] = useState(false);
   const [customZipName, setCustomZipName] = useState('');
   const [isExportingSingle, setIsExportingSingle] = useState(false);
@@ -47,13 +49,7 @@ export const ExportPanel: React.FC<ExportPanelProps> = ({
 
   const handleToggleExportOptions = () => {
     if (!isPro) {
-      showToast(
-        t('work.renameProNotice', {
-          defaultValue:
-            'Fitur Ganti Nama (Smart Rename) & Custom ZIP adalah fitur eksklusif PRO. Upgrade sekarang!',
-        })
-      );
-      openAuthModal();
+      openProGate({ feature: 'rename-zip' });
       return;
     }
     setShowExportOptions(!showExportOptions);
@@ -73,36 +69,67 @@ export const ExportPanel: React.FC<ExportPanelProps> = ({
     const sourceUrl = item.processedUrl || item.transparentUrl || item.originalUrl;
     if (!sourceUrl) return;
 
-    try {
-      setIsExportingSingle(true);
-      trackEvent('file_downloaded', { count: 1, type: 'single', tool: initialTab });
+    const dims = await getImageDimensions(sourceUrl);
+    const isHighRes = dims.width > 1920 || dims.height > 1920;
 
-      const { url: finalUrl, revoked, wasDownscaled } = await getExportUrl(sourceUrl, isPro);
+    const performDownload = async (forceDownscale: boolean = false) => {
+      try {
+        setIsExportingSingle(true);
+        trackEvent('file_downloaded', { count: 1, type: 'single', tool: initialTab });
 
-      if (wasDownscaled && !isPro) {
+        const allow4k = !forceDownscale && (isPro || quotaState.canExport4k);
+        const { url: finalUrl, revoked, wasDownscaled } = await getExportUrl(sourceUrl, allow4k);
+
+        if (wasDownscaled && !isPro) {
+          showToast(
+            t('work.downscaleNotice', {
+              defaultValue:
+                'Foto diekspor dalam resolusi Standar HD (1080p).',
+            })
+          );
+        }
+
+        const a = document.createElement('a');
+        a.href = finalUrl;
+        a.download = item.name;
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+
+        if (revoked) {
+          setTimeout(() => URL.revokeObjectURL(finalUrl), 5000);
+        }
+      } catch (err) {
+        console.error('Download error:', err);
+        showToast(t('editor.downloadError', { defaultValue: 'Gagal mengunduh gambar.' }));
+      } finally {
+        setIsExportingSingle(false);
+      }
+    };
+
+    if (isHighRes && !isPro) {
+      if (user && quotaState.remaining4k > 0) {
+        consume4k();
         showToast(
-          t('work.downscaleNotice', {
-            defaultValue:
-              'Foto diekspor dalam resolusi Standar HD (1080p). Buka PRO untuk resolusi asli 4K!',
+          t('gate.quotaSuccessToast', {
+            remaining: quotaState.remaining4k - 1,
+            defaultValue: `Ekspor 4K Asli Berhasil! (Sisa kuota 4K hari ini: ${quotaState.remaining4k - 1})`,
           })
         );
+        await performDownload(false);
+      } else {
+        openProGate({
+          feature: 'export-4k',
+          onProceedFallback: () => performDownload(true),
+          onSuccess: () => {
+            consume4k();
+            performDownload(false);
+          },
+        });
+        return;
       }
-
-      const a = document.createElement('a');
-      a.href = finalUrl;
-      a.download = item.name;
-      document.body.appendChild(a);
-      a.click();
-      document.body.removeChild(a);
-
-      if (revoked) {
-        setTimeout(() => URL.revokeObjectURL(finalUrl), 5000);
-      }
-    } catch (err) {
-      console.error('Download error:', err);
-      showToast(t('editor.downloadError', { defaultValue: 'Gagal mengunduh gambar.' }));
-    } finally {
-      setIsExportingSingle(false);
+    } else {
+      await performDownload(false);
     }
   };
 
@@ -258,23 +285,37 @@ export const ExportPanel: React.FC<ExportPanelProps> = ({
         <div className="flex items-center gap-2">
           {isPro ? (
             <Crown className="w-4 h-4 text-amber-400 shrink-0" />
-          ) : (
+          ) : user ? (
             <Sparkles className="w-3.5 h-3.5 text-cyan-400 shrink-0" />
+          ) : (
+            <Sparkles className="w-3.5 h-3.5 text-slate-400 shrink-0" />
           )}
           <span className="text-slate-300 font-medium">
             {isPro
               ? t('work.resPro', { defaultValue: 'Kualitas: Ultra-HD 4K (Original Lossless)' })
+              : user
+              ? t('gate.quotaPill', {
+                  remaining: quotaState.remaining4k,
+                  max: quotaState.max4k,
+                  defaultValue: `Kuota 4K: ${quotaState.remaining4k}/${quotaState.max4k} tersisa hari ini`,
+                })
               : t('work.resFree', { defaultValue: 'Kualitas: Standar HD (Maks. 1920px)' })}
           </span>
         </div>
         {!isPro ? (
           <button
             type="button"
-            onClick={openAuthModal}
-            className="text-[11px] font-bold text-amber-400 hover:text-amber-300 flex items-center gap-1 cursor-pointer transition-colors"
+            onClick={() => openProGate({ feature: 'export-4k' })}
+            className={`text-[11px] font-bold flex items-center gap-1 cursor-pointer transition-colors ${
+              user ? 'text-cyan-400 hover:text-cyan-300' : 'text-amber-400 hover:text-amber-300'
+            }`}
           >
-            <Crown className="w-3 h-3" />
-            <span>{t('work.unlock4k', { defaultValue: 'Buka 4K' })}</span>
+            {user ? <Crown className="w-3 h-3 text-amber-400" /> : <Sparkles className="w-3 h-3" />}
+            <span>
+              {user
+                ? t('work.unlockUnlimited', { defaultValue: 'Unlimited PRO' })
+                : t('gate.claimFree4k', { defaultValue: 'Klaim 3x 4K Gratis' })}
+            </span>
           </button>
         ) : (
           <span className="text-[10px] font-mono text-cyan-400 uppercase tracking-wider font-bold">

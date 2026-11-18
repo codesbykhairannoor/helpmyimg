@@ -10,6 +10,26 @@ export interface ExportUrlResult {
 }
 
 /**
+ * Mendapatkan resolusi dimensi asli gambar secara asynchronous
+ */
+export async function getImageDimensions(sourceUrl: string): Promise<{ width: number; height: number }> {
+  return new Promise((resolve) => {
+    const img = new Image();
+    img.crossOrigin = 'anonymous';
+    img.onload = () => {
+      resolve({
+        width: img.naturalWidth || img.width,
+        height: img.naturalHeight || img.height,
+      });
+    };
+    img.onerror = () => {
+      resolve({ width: 0, height: 0 });
+    };
+    img.src = sourceUrl;
+  });
+}
+
+/**
  * Ensures that free users are constrained to Standard HD (max 1920px dimension)
  * while PRO users receive 100% full original native 4K/8K lossless resolution.
  */

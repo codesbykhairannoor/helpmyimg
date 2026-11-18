@@ -11,6 +11,8 @@ import { Footer } from './components/Footer';
 import { JsonLd } from './components/seo/JsonLd';
 import { AuthProvider } from './context/AuthContext';
 import { AuthModal } from './components/auth/AuthModal';
+import { ProGateProvider } from './context/ProGateContext';
+import { ProGateModal } from './components/auth/ProGateModal';
 
 import { ToolLandingPage } from './pages/ToolLandingPage';
 import { AboutPage } from './pages/info/AboutPage';
@@ -82,6 +84,7 @@ const AppLayout = () => {
       <MainContent />
       {!hasActiveFiles && <Footer />}
       <AuthModal />
+      <ProGateModal />
     </div>
   );
 };
@@ -92,9 +95,11 @@ function App() {
       <ThemeProvider>
         <LanguageProvider>
           <AuthProvider>
-            <RouterProvider>
-              <AppLayout />
-            </RouterProvider>
+            <ProGateProvider>
+              <RouterProvider>
+                <AppLayout />
+              </RouterProvider>
+            </ProGateProvider>
           </AuthProvider>
         </LanguageProvider>
       </ThemeProvider>

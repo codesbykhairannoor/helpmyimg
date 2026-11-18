@@ -698,11 +698,10 @@ export const PricingPage: React.FC = () => {
               return (
                 <div
                   key={idx}
-                  className={`rounded-2xl transition-all duration-200 border ${
-                    isOpen
+                  className={`rounded-2xl transition-all duration-200 border ${isOpen
                       ? 'bg-white dark:bg-dark-800 border-cyan-500/50 dark:border-cyan-500/40 shadow-lg shadow-cyan-500/5 ring-1 ring-cyan-500/20'
                       : 'bg-white dark:bg-dark-800/80 border-slate-200/90 dark:border-dark-700 hover:border-slate-300 dark:hover:border-dark-600 shadow-xs hover:shadow-sm'
-                  } overflow-hidden`}
+                    } overflow-hidden`}
                 >
                   <button
                     type="button"
@@ -712,11 +711,10 @@ export const PricingPage: React.FC = () => {
                   >
                     <div className="flex items-center gap-3.5 sm:gap-4 flex-1">
                       <span
-                        className={`w-7 h-7 sm:w-8 sm:h-8 rounded-xl font-mono text-xs sm:text-sm font-bold flex items-center justify-center shrink-0 transition-colors ${
-                          isOpen
+                        className={`w-7 h-7 sm:w-8 sm:h-8 rounded-xl font-mono text-xs sm:text-sm font-bold flex items-center justify-center shrink-0 transition-colors ${isOpen
                             ? 'bg-cyan-500 text-slate-950 font-black'
                             : 'bg-slate-100 dark:bg-dark-700 text-slate-500 dark:text-slate-400 group-hover:bg-cyan-500/10 group-hover:text-cyan-600 dark:group-hover:text-neon-cyan'
-                        }`}
+                          }`}
                       >
                         {String(idx + 1).padStart(2, '0')}
                       </span>
@@ -725,11 +723,10 @@ export const PricingPage: React.FC = () => {
                       </h3>
                     </div>
                     <div
-                      className={`w-8 h-8 rounded-xl flex items-center justify-center shrink-0 transition-all duration-200 ${
-                        isOpen
+                      className={`w-8 h-8 rounded-xl flex items-center justify-center shrink-0 transition-all duration-200 ${isOpen
                           ? 'bg-cyan-500/15 text-cyan-600 dark:text-neon-cyan rotate-180'
                           : 'bg-slate-100 dark:bg-dark-700 text-slate-400 group-hover:bg-slate-200 dark:group-hover:bg-dark-600 group-hover:text-slate-600 dark:group-hover:text-slate-200'
-                      }`}
+                        }`}
                     >
                       <ChevronDown className="w-4 h-4 stroke-[2.5]" />
                     </div>
