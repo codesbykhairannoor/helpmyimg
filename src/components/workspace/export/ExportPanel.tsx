@@ -329,7 +329,7 @@ export const ExportPanel: React.FC<ExportPanelProps> = ({
                 </div>
                 <button
                   type="button"
-                  onClick={openAuthModal}
+                  onClick={() => openAuthModal('signin')}
                   className="px-2.5 py-1 rounded-lg bg-neon-cyan/20 hover:bg-neon-cyan/30 text-neon-cyan border border-neon-cyan/40 font-bold text-[11px] shrink-0 cursor-pointer transition-colors flex items-center gap-1"
                 >
                   <LogIn className="w-3 h-3" />

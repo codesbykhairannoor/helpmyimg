@@ -421,7 +421,18 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
   };
 
   const openAuthModal = (initialMode?: 'signin' | 'signup' | 'forgot' | 'reset' | 'verifyEmail') => {
-    setAuthModalInitialMode(initialMode || null);
+    const validModes: Array<'signin' | 'signup' | 'forgot' | 'reset' | 'verifyEmail'> = [
+      'signin',
+      'signup',
+      'forgot',
+      'reset',
+      'verifyEmail',
+    ];
+    const safeMode =
+      typeof initialMode === 'string' && validModes.includes(initialMode as any)
+        ? initialMode
+        : 'signin';
+    setAuthModalInitialMode(safeMode);
     setIsAuthModalOpen(true);
   };
   const closeAuthModal = () => {

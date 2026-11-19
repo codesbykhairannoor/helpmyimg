@@ -106,8 +106,13 @@ export const AuthModal: React.FC = () => {
 
   // Set initial mode jika diminta via openAuthModal
   useEffect(() => {
-    if (isAuthModalOpen && authModalInitialMode) {
-      setMode(authModalInitialMode);
+    if (isAuthModalOpen) {
+      const validModes: AuthMode[] = ['signin', 'signup', 'forgot', 'reset', 'verifyEmail'];
+      if (typeof authModalInitialMode === 'string' && validModes.includes(authModalInitialMode as AuthMode)) {
+        setMode(authModalInitialMode as AuthMode);
+      } else {
+        setMode('signin');
+      }
     }
   }, [isAuthModalOpen, authModalInitialMode]);
 
@@ -386,33 +391,36 @@ export const AuthModal: React.FC = () => {
               )}
             </div>
             <h3 className="text-xl font-bold text-slate-900 dark:text-white">
-              {mode === 'signin' && t('auth.signInTitle', { defaultValue: 'Sign in to HelpMyIMG' })}
-              {mode === 'signup' && t('auth.signUpTitle', { defaultValue: 'Create an Account' })}
-              {mode === 'forgot' && t('auth.forgotPasswordTitle', { defaultValue: 'Reset Password' })}
-              {mode === 'reset' && t('auth.resetNewPasswordTitle', { defaultValue: 'Set New Password' })}
-              {mode === 'verifyEmail' && t('auth.verifyEmailTitle', { defaultValue: 'Verify Your Email' })}
+              {mode === 'signup'
+                ? t('auth.signUpTitle', { defaultValue: 'Create an Account' })
+                : mode === 'forgot'
+                ? t('auth.forgotPasswordTitle', { defaultValue: 'Reset Password' })
+                : mode === 'reset'
+                ? t('auth.resetNewPasswordTitle', { defaultValue: 'Set New Password' })
+                : mode === 'verifyEmail'
+                ? t('auth.verifyEmailTitle', { defaultValue: 'Verify Your Email' })
+                : t('auth.signInTitle', { defaultValue: 'Sign in to HelpMyIMG' })}
             </h3>
             <p className="text-sm text-slate-500 dark:text-slate-400 mt-1">
-              {mode === 'signin' &&
-                t('auth.signInSubtitle', {
-                  defaultValue: 'Access your account, save preferences, and unlock exclusive PRO features.',
-                })}
-              {mode === 'signup' &&
-                t('auth.signUpSubtitle', {
-                  defaultValue: 'Sign up and enjoy unlimited local image processing directly in your browser.',
-                })}
-              {mode === 'forgot' &&
-                t('auth.forgotPasswordSubtitle', {
-                  defaultValue: 'Enter your email address to receive a secure password reset link.',
-                })}
-              {mode === 'reset' &&
-                t('auth.resetNewPasswordSubtitle', {
-                  defaultValue: 'Enter your new password below.',
-                })}
-              {mode === 'verifyEmail' &&
-                t('auth.verifyEmailSubtitle', {
-                  defaultValue: 'Please verify your email address to activate your account and prevent abuse.',
-                })}
+              {mode === 'signup'
+                ? t('auth.signUpSubtitle', {
+                    defaultValue: 'Sign up and enjoy unlimited local image processing directly in your browser.',
+                  })
+                : mode === 'forgot'
+                ? t('auth.forgotPasswordSubtitle', {
+                    defaultValue: 'Enter your email address to receive a secure password reset link.',
+                  })
+                : mode === 'reset'
+                ? t('auth.resetNewPasswordSubtitle', {
+                    defaultValue: 'Enter your new password below.',
+                  })
+                : mode === 'verifyEmail'
+                ? t('auth.verifyEmailSubtitle', {
+                    defaultValue: 'Please verify your email address to activate your account and prevent abuse.',
+                  })
+                : t('auth.signInSubtitle', {
+                    defaultValue: 'Access your account, save preferences, and unlock exclusive PRO features.',
+                  })}
             </p>
           </div>
 
@@ -577,18 +585,24 @@ export const AuthModal: React.FC = () => {
                   <>
                     <Loader2 className="w-4 h-4 animate-spin text-dark-900" />
                     <span>
-                      {mode === 'signin' && t('auth.signingIn', { defaultValue: 'Signing in...' })}
-                      {mode === 'signup' && t('auth.creatingAccount', { defaultValue: 'Creating account...' })}
-                      {mode === 'forgot' && t('auth.sendingReset', { defaultValue: 'Sending link...' })}
-                      {mode === 'reset' && t('auth.savingPassword', { defaultValue: 'Saving password...' })}
+                      {mode === 'signup'
+                        ? t('auth.creatingAccount', { defaultValue: 'Creating account...' })
+                        : mode === 'forgot'
+                        ? t('auth.sendingReset', { defaultValue: 'Sending link...' })
+                        : mode === 'reset'
+                        ? t('auth.savingPassword', { defaultValue: 'Saving password...' })
+                        : t('auth.signingIn', { defaultValue: 'Signing in...' })}
                     </span>
                   </>
                 ) : (
                   <span>
-                    {mode === 'signin' && t('auth.submitSignIn', { defaultValue: 'Sign In' })}
-                    {mode === 'signup' && t('auth.submitSignUp', { defaultValue: 'Create Account' })}
-                    {mode === 'forgot' && t('auth.submitReset', { defaultValue: 'Send Reset Link' })}
-                    {mode === 'reset' && t('auth.submitNewPassword', { defaultValue: 'Save New Password' })}
+                    {mode === 'signup'
+                      ? t('auth.submitSignUp', { defaultValue: 'Create Account' })
+                      : mode === 'forgot'
+                      ? t('auth.submitReset', { defaultValue: 'Send Reset Link' })
+                      : mode === 'reset'
+                      ? t('auth.submitNewPassword', { defaultValue: 'Save New Password' })
+                      : t('auth.submitSignIn', { defaultValue: 'Sign In' })}
                   </span>
                 )}
               </button>

@@ -438,7 +438,7 @@ export const Navbar: React.FC = () => {
             {/* Auth Action: Sign In Button or User Profile Menu */}
             {!user ? (
               <button
-                onClick={openAuthModal}
+                onClick={() => openAuthModal('signin')}
                 className="flex items-center gap-1.5 sm:gap-2 bg-cyan-500/10 hover:bg-cyan-500/20 text-cyan-700 dark:text-[#05DAED] border border-cyan-500/30 hover:border-[#05DAED]/60 px-2.5 sm:px-3 h-8 sm:h-[38px] rounded-xl text-[12.5px] sm:text-[14px] font-semibold transition-all duration-200 shadow-xs cursor-pointer"
                 aria-label="Sign In"
               >
