@@ -87,7 +87,7 @@ export const DeleteAccountModal: React.FC<DeleteAccountModalProps> = ({ isOpen, 
           animate={{ opacity: 1, scale: 1, y: 0 }}
           exit={{ opacity: 0, scale: 0.95, y: 10 }}
           transition={{ duration: 0.2 }}
-          className="relative w-full max-w-md bg-white dark:bg-dark-800 rounded-2xl shadow-2xl border border-rose-300 dark:border-rose-900/60 p-6 md:p-8 z-10 overflow-hidden"
+          className="relative w-full max-w-md bg-white dark:bg-dark-800 rounded-2xl shadow-2xl border border-slate-200 dark:border-slate-700/80 p-6 md:p-8 z-10 overflow-hidden"
         >
           {/* Close button */}
           <button
@@ -158,7 +158,7 @@ export const DeleteAccountModal: React.FC<DeleteAccountModalProps> = ({ isOpen, 
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   placeholder="••••••••"
-                  className="w-full pl-3.5 pr-10 py-2.5 text-sm rounded-xl border border-rose-300 dark:border-rose-700/80 bg-rose-50/40 dark:bg-dark-900/80 text-rose-900 dark:text-rose-100 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-rose-500/50"
+                  className="w-full pl-3.5 pr-10 py-2.5 text-sm rounded-xl border border-slate-300 dark:border-slate-600 bg-slate-50/50 dark:bg-dark-900/60 text-slate-900 dark:text-slate-100 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-rose-500/50 focus:border-rose-500"
                 />
                 <button
                   type="button"
@@ -181,7 +181,7 @@ export const DeleteAccountModal: React.FC<DeleteAccountModalProps> = ({ isOpen, 
               value={confirmInput}
               onChange={(e) => setConfirmInput(e.target.value)}
               placeholder="DELETE"
-              className="w-full px-3.5 py-2.5 text-sm rounded-xl border border-rose-300 dark:border-rose-700/80 bg-rose-50/40 dark:bg-dark-900/80 text-rose-900 dark:text-rose-100 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-rose-500/50 uppercase tracking-widest font-mono font-bold"
+              className="w-full px-3.5 py-2.5 text-sm rounded-xl border border-slate-300 dark:border-slate-600 bg-slate-50/50 dark:bg-dark-900/60 text-slate-900 dark:text-slate-100 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-rose-500/50 focus:border-rose-500 uppercase tracking-widest font-mono font-bold"
             />
           </div>
 

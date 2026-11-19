@@ -153,8 +153,8 @@ export const ChangePasswordModal: React.FC<ChangePasswordModalProps> = ({ isOpen
 
           {/* Header */}
           <div className="flex items-center gap-3 mb-5 pr-8">
-            <div className="w-10 h-10 rounded-xl bg-rose-50 dark:bg-rose-950/40 text-rose-500 border border-rose-200 dark:border-rose-900/60 flex items-center justify-center shrink-0">
-              <KeyRound className="w-5 h-5 text-rose-500" />
+            <div className="w-10 h-10 rounded-xl bg-cyan-50 dark:bg-cyan-950/40 text-[#05DAED] border border-cyan-100 dark:border-cyan-800/40 flex items-center justify-center shrink-0">
+              <KeyRound className="w-5 h-5 text-[#05DAED]" />
             </div>
             <div className="min-w-0 flex-1">
               <h3 className="text-base sm:text-lg font-bold text-slate-900 dark:text-white leading-tight">
@@ -219,7 +219,7 @@ export const ChangePasswordModal: React.FC<ChangePasswordModalProps> = ({ isOpen
                     value={currentPassword}
                     onChange={(e) => setCurrentPassword(e.target.value)}
                     placeholder="••••••••"
-                    className="w-full pl-3.5 pr-10 py-2.5 text-sm rounded-xl border border-slate-300 dark:border-slate-600 bg-slate-50/50 dark:bg-dark-900/60 text-slate-900 dark:text-slate-100 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-rose-500/40 focus:border-rose-500 transition-all"
+                    className="w-full pl-3.5 pr-10 py-2.5 text-sm rounded-xl border border-slate-300 dark:border-slate-600 bg-slate-50/50 dark:bg-dark-900/60 text-slate-900 dark:text-slate-100 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-[#05DAED]/50 focus:border-[#05DAED] transition-all"
                   />
                   <button
                     type="button"
@@ -236,7 +236,7 @@ export const ChangePasswordModal: React.FC<ChangePasswordModalProps> = ({ isOpen
                     setSuccessMsg(null);
                     setView('reset');
                   }}
-                  className="mt-1 text-xs text-rose-500 hover:text-rose-600 dark:hover:text-rose-400 font-medium cursor-pointer"
+                  className="mt-1 text-xs text-cyan-600 dark:text-[#05DAED] hover:underline font-medium cursor-pointer"
                 >
                   {t('auth.forgotCurrentPassLink', { defaultValue: 'Forgot current password? Send reset link to email' })}
                 </button>
@@ -255,7 +255,7 @@ export const ChangePasswordModal: React.FC<ChangePasswordModalProps> = ({ isOpen
                     value={newPassword}
                     onChange={(e) => setNewPassword(e.target.value)}
                     placeholder={t('auth.min6Chars', { defaultValue: 'Min. 6 characters' })}
-                    className="w-full pl-3.5 pr-10 py-2.5 text-sm rounded-xl border border-slate-300 dark:border-slate-600 bg-slate-50/50 dark:bg-dark-900/60 text-slate-900 dark:text-slate-100 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-rose-500/40 focus:border-rose-500 transition-all"
+                    className="w-full pl-3.5 pr-10 py-2.5 text-sm rounded-xl border border-slate-300 dark:border-slate-600 bg-slate-50/50 dark:bg-dark-900/60 text-slate-900 dark:text-slate-100 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-[#05DAED]/50 focus:border-[#05DAED] transition-all"
                   />
                   <button
                     type="button"
@@ -280,7 +280,7 @@ export const ChangePasswordModal: React.FC<ChangePasswordModalProps> = ({ isOpen
                     value={confirmPassword}
                     onChange={(e) => setConfirmPassword(e.target.value)}
                     placeholder="••••••••"
-                    className="w-full pl-3.5 pr-10 py-2.5 text-sm rounded-xl border border-slate-300 dark:border-slate-600 bg-slate-50/50 dark:bg-dark-900/60 text-slate-900 dark:text-slate-100 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-rose-500/40 focus:border-rose-500 transition-all"
+                    className="w-full pl-3.5 pr-10 py-2.5 text-sm rounded-xl border border-slate-300 dark:border-slate-600 bg-slate-50/50 dark:bg-dark-900/60 text-slate-900 dark:text-slate-100 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-[#05DAED]/50 focus:border-[#05DAED] transition-all"
                   />
                   <button
                     type="button"
@@ -296,12 +296,12 @@ export const ChangePasswordModal: React.FC<ChangePasswordModalProps> = ({ isOpen
               <button
                 type="submit"
                 disabled={loading}
-                className="w-full py-3 px-4 bg-gradient-to-r from-rose-600 to-pink-600 hover:from-rose-500 hover:to-pink-500 text-white font-bold text-xs sm:text-sm rounded-xl shadow-md hover:shadow-lg transition-all flex items-center justify-center gap-2 cursor-pointer disabled:opacity-50 mt-1"
+                className="w-full py-3 px-4 bg-gradient-to-r from-[#05DAED] to-[#12DA91] text-dark-900 font-extrabold text-xs sm:text-sm rounded-xl shadow-md hover:brightness-105 active:scale-[0.99] transition-all flex items-center justify-center gap-2 cursor-pointer disabled:opacity-50 mt-1"
               >
                 {loading ? (
-                  <Loader2 className="w-4 h-4 animate-spin text-white" />
+                  <Loader2 className="w-4 h-4 animate-spin text-dark-900" />
                 ) : (
-                  <Lock className="w-4 h-4 text-white" />
+                  <Lock className="w-4 h-4 text-dark-900 stroke-[2.5]" />
                 )}
                 <span>{t('auth.updatePasswordBtn', { defaultValue: 'Update Password' })}</span>
               </button>
@@ -326,7 +326,7 @@ export const ChangePasswordModal: React.FC<ChangePasswordModalProps> = ({ isOpen
               </p>
 
               <div className="relative">
-                <Mail className="w-4 h-4 text-rose-500 absolute left-3.5 top-1/2 -translate-y-1/2 pointer-events-none" />
+                <Mail className="w-4 h-4 text-[#05DAED] absolute left-3.5 top-1/2 -translate-y-1/2 pointer-events-none" />
                 <input
                   type="email"
                   readOnly
@@ -339,12 +339,12 @@ export const ChangePasswordModal: React.FC<ChangePasswordModalProps> = ({ isOpen
                 type="button"
                 onClick={handleSendReset}
                 disabled={loading || cooldown > 0}
-                className="w-full py-3 px-4 bg-gradient-to-r from-rose-600 to-pink-600 hover:from-rose-500 hover:to-pink-500 text-white font-bold text-xs sm:text-sm rounded-xl shadow-md hover:shadow-lg transition-all flex items-center justify-center gap-2 cursor-pointer disabled:opacity-50"
+                className="w-full py-3 px-4 bg-gradient-to-r from-[#05DAED] to-[#12DA91] text-dark-900 font-extrabold text-xs sm:text-sm rounded-xl shadow-md hover:brightness-105 active:scale-[0.99] transition-all flex items-center justify-center gap-2 cursor-pointer disabled:opacity-50"
               >
                 {loading ? (
-                  <Loader2 className="w-4 h-4 animate-spin text-white" />
+                  <Loader2 className="w-4 h-4 animate-spin text-dark-900" />
                 ) : (
-                  <Send className="w-4 h-4 text-white" />
+                  <Send className="w-4 h-4 text-dark-900 stroke-[2.5]" />
                 )}
                 <span>
                   {cooldown > 0
@@ -361,7 +361,7 @@ export const ChangePasswordModal: React.FC<ChangePasswordModalProps> = ({ isOpen
                     setSuccessMsg(null);
                     setView('direct');
                   }}
-                  className="text-xs text-rose-500 hover:text-rose-600 dark:hover:text-rose-400 font-medium cursor-pointer"
+                  className="text-xs text-cyan-600 dark:text-[#05DAED] hover:underline font-medium cursor-pointer"
                 >
                   {t('auth.knowCurrentPassLink', { defaultValue: 'Know your current password? Update directly' })}
                 </button>

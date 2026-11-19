@@ -465,7 +465,7 @@ export const Navbar: React.FC = () => {
                       </div>
                     )}
                     {!user.emailVerified && (
-                      <span className="w-2 h-2 rounded-full bg-rose-500 absolute -top-0.5 -right-0.5 ring-2 ring-white dark:ring-dark-800 animate-pulse" />
+                      <span className="w-2 h-2 rounded-full bg-amber-400 absolute -top-0.5 -right-0.5 ring-2 ring-white dark:ring-dark-800 animate-pulse" />
                     )}
                   </div>
                   <span className="text-[12.5px] sm:text-[13px] font-semibold max-w-[80px] sm:max-w-[90px] truncate hidden md:inline">
@@ -502,8 +502,8 @@ export const Navbar: React.FC = () => {
                             {user.email}
                           </div>
                           {!user.emailVerified && (
-                            <div className="mt-2.5 p-2 rounded-xl bg-rose-50 dark:bg-rose-950/40 border border-rose-200 dark:border-rose-900/60 flex items-center justify-between">
-                              <span className="text-xs font-bold text-rose-600 dark:text-rose-400">
+                            <div className="mt-2.5 p-2 rounded-xl bg-amber-500/10 dark:bg-amber-950/30 border border-amber-500/30 flex items-center justify-between">
+                              <span className="text-xs font-bold text-amber-600 dark:text-amber-400">
                                 {t('auth.unverified', { defaultValue: 'Unverified' })}
                               </span>
                               <button
@@ -512,7 +512,7 @@ export const Navbar: React.FC = () => {
                                   setUserMenuOpen(false);
                                   openAuthModal('verifyEmail');
                                 }}
-                                className="px-2.5 py-1 text-[11px] font-bold bg-rose-500 hover:bg-rose-600 text-white rounded-lg transition-colors cursor-pointer shadow-xs"
+                                className="px-2.5 py-1 text-[11px] font-bold bg-gradient-to-r from-[#05DAED] to-[#12DA91] text-dark-900 hover:brightness-105 rounded-lg transition-all cursor-pointer shadow-xs"
                               >
                                 {t('auth.verifyBtn', { defaultValue: 'Verify' })}
                               </button>
@@ -1020,7 +1020,7 @@ export const Navbar: React.FC = () => {
                           </div>
                         )}
                         {!user.emailVerified && (
-                          <span className="w-2 h-2 rounded-full bg-rose-500 absolute -top-0.5 -right-0.5 ring-2 ring-white dark:ring-dark-800 animate-pulse" />
+                          <span className="w-2 h-2 rounded-full bg-amber-400 absolute -top-0.5 -right-0.5 ring-2 ring-white dark:ring-dark-800 animate-pulse" />
                         )}
                       </div>
                       <div className="min-w-0">
@@ -1082,8 +1082,8 @@ export const Navbar: React.FC = () => {
                   </div>
 
                   {!user.emailVerified && (
-                    <div className="p-2 rounded-xl bg-rose-50 dark:bg-rose-950/40 border border-rose-200 dark:border-rose-900/60 flex items-center justify-between">
-                      <span className="text-[11px] font-bold text-rose-600 dark:text-rose-400">
+                    <div className="p-2 rounded-xl bg-amber-500/10 dark:bg-amber-950/30 border border-amber-500/30 flex items-center justify-between">
+                      <span className="text-[11px] font-bold text-amber-600 dark:text-amber-400">
                         {t('auth.unverified', { defaultValue: 'Unverified' })}
                       </span>
                       <button
@@ -1092,7 +1092,7 @@ export const Navbar: React.FC = () => {
                           setMobileMenuOpen(false);
                           openAuthModal('verifyEmail');
                         }}
-                        className="px-2.5 py-0.5 text-[10px] font-bold bg-rose-500 hover:bg-rose-600 text-white rounded-md transition-colors cursor-pointer"
+                        className="px-2.5 py-1 text-[10px] font-bold bg-gradient-to-r from-[#05DAED] to-[#12DA91] text-dark-900 hover:brightness-105 rounded-md transition-all cursor-pointer shadow-xs"
                       >
                         {t('auth.verifyBtn', { defaultValue: 'Verify' })}
                       </button>
