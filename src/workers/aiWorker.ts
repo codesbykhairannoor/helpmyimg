@@ -52,12 +52,14 @@ async function detectGpuTier(): Promise<GpuTier> {
       const adapter = await gpu.requestAdapter();
       if (adapter) {
         const maxStorageBuffers = adapter.limits?.maxStorageBuffersPerShaderStage ?? 0;
-        if (maxStorageBuffers >= 18) {
+        // ONNX Runtime WebGPU kernels require at least 18 storage buffers per shader stage (Current: 17).
+        // Adapters with <= 16 (e.g. Intel UHD/Iris Xe & integrated GPUs) will abort during OrtRun():
+        // "numbers_storage_buffers_ <= limits_.maxStorageBuffersPerShaderStage was false. Current: 17, Max is 16".
+        if (maxStorageBuffers >= 24) {
           cachedGpuTier = 'webgpu-high';
           return cachedGpuTier;
         }
-        if (maxStorageBuffers >= 8) {
-          // Adapters with 8..17 storage buffers crash on BiRefNet-1024 but run BiRefNet-512 cleanly!
+        if (maxStorageBuffers >= 18) {
           cachedGpuTier = 'webgpu-std';
           return cachedGpuTier;
         }
@@ -307,6 +309,9 @@ async function runStage1Segmentation(
       const key = `${cand.modelId}::${cand.device}::${cand.dtype}`;
       segBundleCache.delete(key);
       segInitPromises.delete(key);
+      if (cand.device === 'webgpu') {
+        cachedGpuTier = 'wasm';
+      }
     }
   }
 
@@ -443,9 +448,19 @@ self.onmessage = async (e: MessageEvent) => {
         self.postMessage({ type: 'PROGRESS', id, payload: { status, progress } });
       };
       if (gpuTier === 'webgpu-high') {
-        await initSegModel('onnx-community/BiRefNet_lite-ONNX', 'webgpu', 'fp16', reportProgress);
+        try {
+          await initSegModel('onnx-community/BiRefNet_lite-ONNX', 'webgpu', 'fp16', reportProgress);
+        } catch {
+          cachedGpuTier = 'wasm';
+          await initSegModel('briaai/RMBG-1.4', 'wasm', 'q8', reportProgress);
+        }
       } else if (gpuTier === 'webgpu-std') {
-        await initSegModel('JONNYVERSE/birefnet-lite-512', 'webgpu', 'fp16', reportProgress);
+        try {
+          await initSegModel('JONNYVERSE/birefnet-lite-512', 'webgpu', 'fp16', reportProgress);
+        } catch {
+          cachedGpuTier = 'wasm';
+          await initSegModel('briaai/RMBG-1.4', 'wasm', 'q8', reportProgress);
+        }
       } else {
         await initSegModel('briaai/RMBG-1.4', 'wasm', 'q8', reportProgress);
       }
