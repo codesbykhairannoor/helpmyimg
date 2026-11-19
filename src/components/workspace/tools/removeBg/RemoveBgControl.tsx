@@ -1,11 +1,9 @@
 // src/components/workspace/tools/removeBg/RemoveBgControl.tsx
-// Kontrol UI untuk Background Removal: Photo AI & Vector Mode Terpisah Secara Eksplisit
+// Kontrol UI untuk Background Removal: Otomatis & Presisi Tinggi Seperti Remove.bg
 
 import React from 'react';
 import { useTranslation } from '../../../../context/LanguageContext';
-import { RefreshCw, Sparkles, Image as ImageIcon, PaintBucket, RotateCcw, Upload, Crown } from 'lucide-react';
-import { useAuth } from '../../../../context/AuthContext';
-import { useProGate } from '../../../../context/ProGateContext';
+import { RefreshCw, Sparkles, RotateCcw, Upload, CheckCircle2 } from 'lucide-react';
 import type { AiModelTier } from '../../../../workers/aiWorker';
 import type { CutoutMode } from '../../types';
 
@@ -36,101 +34,32 @@ export const RemoveBgControl: React.FC<RemoveBgControlProps> = ({
   onProcessNow,
   onProcessBatch,
   batchCount = 0,
-  imageType = 'photo',
-  setImageType,
-  modelTier = 'standard',
-  setModelTier,
   hasProcessedAi = true,
 }) => {
   const { t } = useTranslation();
-  const { isPro } = useAuth();
-  const { openProGate } = useProGate();
 
   return (
     <div className="space-y-6">
-      {/* Mode Selection UI (2 Explicit Clean Modes: Photo AI vs Logo Non-AI) */}
-      {setImageType && (
-        <div className="space-y-3 bg-dark-800/50 p-4 rounded-2xl border border-dark-600/80 shadow-inner">
-          <label className="text-xs font-bold text-white flex items-center justify-between">
-            <span className="flex items-center gap-1.5">
-              <Sparkles className="w-3.5 h-3.5 text-neon-cyan" />
-              <span>{t('remove.modeTitle', { defaultValue: 'Cutout Engine' })}</span>
-            </span>
-            <span className="text-[10px] text-neon-cyan font-mono font-semibold px-2 py-0.5 rounded-full bg-neon-cyan/10 border border-neon-cyan/30">
-              {imageType === 'logo'
-                ? t('remove.modeLogoActive', { defaultValue: 'Vector Mode' })
-                : t('remove.modeAiActive', { defaultValue: 'AI Neural Mode' })}
-            </span>
-          </label>
-          
-          <div className="grid grid-cols-2 gap-2 bg-dark-900/70 p-1.5 rounded-xl border border-dark-700">
-            {/* 1. Photo AI (Default) */}
-            <button
-              type="button"
-              onClick={() => setImageType('photo')}
-              className={`flex flex-col items-center justify-center gap-1 py-2.5 px-2 rounded-lg transition-all cursor-pointer ${
-                imageType === 'photo' 
-                  ? 'bg-gradient-to-b from-dark-700 to-dark-800 shadow-md border border-neon-cyan/50 text-white' 
-                  : 'hover:bg-dark-800/50 text-slate-400 hover:text-slate-200 border border-transparent'
-              }`}
-            >
-              <ImageIcon className={`w-4 h-4 ${imageType === 'photo' ? 'text-neon-cyan' : 'opacity-70'}`} />
-              <span className="text-xs font-bold truncate">{t('remove.modeAi', { defaultValue: 'Photo AI' })}</span>
-              <span className="text-[9px] text-slate-400 font-medium text-center truncate">{t('remove.modeAiDesc', { defaultValue: 'Human, Portrait & Object' })}</span>
-            </button>
-
-            {/* 2. Logo Vector Mode */}
-            <button
-              type="button"
-              onClick={() => setImageType('logo')}
-              className={`flex flex-col items-center justify-center gap-1 py-2.5 px-2 rounded-lg transition-all cursor-pointer ${
-                imageType === 'logo' 
-                  ? 'bg-gradient-to-b from-dark-700 to-dark-800 shadow-md border border-neon-pink/50 text-white' 
-                  : 'hover:bg-dark-800/50 text-slate-400 hover:text-slate-200 border border-transparent'
-              }`}
-            >
-              <PaintBucket className={`w-4 h-4 ${imageType === 'logo' ? 'text-neon-pink' : 'opacity-70'}`} />
-              <span className="text-xs font-bold truncate">{t('remove.modeLogo', { defaultValue: 'Logo / Vector' })}</span>
-              <span className="text-[9px] text-slate-400 font-medium text-center truncate">{t('remove.modeLogoDesc', { defaultValue: 'Flat Color Graphics (0ms)' })}</span>
-            </button>
+      {/* Engine Status Info Header */}
+      <div className="flex items-center justify-between bg-dark-800/60 p-3.5 rounded-2xl border border-dark-600/80">
+        <div className="flex items-center gap-2">
+          <div className="w-8 h-8 rounded-xl bg-neon-cyan/10 border border-neon-cyan/30 flex items-center justify-center text-neon-cyan">
+            <Sparkles className="w-4 h-4" />
           </div>
-
-          {/* Concise AI Model Selector when Photo AI is selected */}
-          {imageType === 'photo' && setModelTier && (
-            <div className="grid grid-cols-2 gap-1.5 pt-1">
-              <button
-                type="button"
-                onClick={() => setModelTier('standard')}
-                className={`py-1.5 px-2.5 rounded-lg text-[11px] font-bold border transition-all cursor-pointer truncate ${
-                  modelTier === 'standard'
-                    ? 'bg-neon-cyan/15 border-neon-cyan/50 text-neon-cyan'
-                    : 'bg-dark-900/60 border-dark-700 text-slate-400 hover:text-white'
-                }`}
-              >
-                {t('remove.tierStandard', { defaultValue: 'Standard AI' })}
-              </button>
-              <button
-                type="button"
-                onClick={() => {
-                  if (!isPro) {
-                    openProGate({ feature: 'pro-engine' });
-                    return;
-                  }
-                  setModelTier('pro');
-                }}
-                className={`py-1.5 px-2.5 rounded-lg text-[11px] font-bold border transition-all cursor-pointer flex items-center justify-center gap-1 truncate ${
-                  modelTier === 'pro'
-                    ? 'bg-amber-400/15 border-amber-400/60 text-amber-300'
-                    : 'bg-dark-900/60 border-dark-700 text-slate-300 hover:text-amber-300'
-                }`}
-              >
-                <Crown className="w-3 h-3 text-amber-400 shrink-0" />
-                <span className="truncate">{t('remove.tierPro', { defaultValue: 'BiRefNet Ultra (PRO)' })}</span>
-              </button>
+          <div>
+            <div className="text-xs font-bold text-white">
+              {t('remove.engineTitle', { defaultValue: 'Auto AI Cutout' })}
             </div>
-          )}
+            <div className="text-[10px] text-slate-400">
+              {t('remove.engineSubtitle', { defaultValue: 'Subpixel edge matting & zero color fringing' })}
+            </div>
+          </div>
         </div>
-      )}
+        <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-[10px] font-semibold text-emerald-400">
+          <CheckCircle2 className="w-3 h-3" />
+          <span>{t('remove.readyBadge', { defaultValue: 'Ready' })}</span>
+        </div>
+      </div>
 
       {/* Tombol Action Utama */}
       <div className="space-y-3">
@@ -187,10 +116,9 @@ export const RemoveBgControl: React.FC<RemoveBgControlProps> = ({
         </div>
       )}
 
-      {/* Tombol Reset ke Asli & Upload Gambar Lain (Dua Opsi Berbeda & Terpisah) */}
+      {/* Tombol Reset ke Asli & Upload Gambar Lain */}
       {batchCount >= 1 && (
         <div className="grid grid-cols-2 gap-2.5 pt-3 border-t border-dark-700/80 mt-2">
-          {/* Opsi 1: Reset ke Asli (Foto tetap ada di workspace, dibersihkan seperti awal upload) */}
           <button
             type="button"
             onClick={onReset}
@@ -202,7 +130,6 @@ export const RemoveBgControl: React.FC<RemoveBgControlProps> = ({
             <span className="truncate">{t('editor.resetOriginal', { defaultValue: 'Reset ke Asli' })}</span>
           </button>
 
-          {/* Opsi 2: Upload Gambar Lain (Pilih foto baru dari komputer) */}
           <button
             type="button"
             onClick={onUploadOther}

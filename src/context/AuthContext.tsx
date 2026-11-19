@@ -10,6 +10,8 @@ import {
   createUserWithEmailAndPassword,
   sendPasswordResetEmail,
   confirmPasswordReset,
+  sendEmailVerification,
+  applyActionCode,
   signOut as firebaseSignOut,
   onAuthStateChanged,
   type User,
@@ -36,6 +38,8 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
       subscriptionStatus: 'inactive',
       createdAt: Date.now(),
       lastLoginAt: Date.now(),
+      emailVerified: Boolean(firebaseUser.emailVerified),
+      app: 'helpmyimg',
     };
 
     if (!db) {
@@ -58,10 +62,12 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
             plan: 'free',
             subscriptionStatus: 'inactive',
             lastLoginAt: Date.now(),
+            emailVerified: Boolean(firebaseUser.emailVerified),
           });
         } else {
           await updateDoc(userDocRef, {
             lastLoginAt: Date.now(),
+            emailVerified: Boolean(firebaseUser.emailVerified),
             displayName: firebaseUser.displayName || data.displayName,
             photoURL: firebaseUser.photoURL || data.photoURL,
           });
@@ -72,6 +78,8 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
           plan: currentPlan,
           subscriptionStatus: currentStatus,
           lastLoginAt: Date.now(),
+          emailVerified: Boolean(firebaseUser.emailVerified),
+          app: 'helpmyimg',
         };
       } else {
         await setDoc(userDocRef, fallbackProfile);
@@ -185,10 +193,88 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
       );
     }
 
+    const currentLang = typeof window !== 'undefined' ? (localStorage.getItem('i18nextLng') || 'en') : 'en';
+    auth.languageCode = currentLang.split('-')[0] || 'en';
+
     const result = await createUserWithEmailAndPassword(auth, email.trim(), password);
+
+    const origin =
+      typeof window !== 'undefined' && window.location.origin
+        ? window.location.origin
+        : 'https://helpmyimg.com';
+
+    const actionCodeSettings = {
+      url: `${origin}/?mode=verifyEmail`,
+      handleCodeInApp: true,
+    };
+
+    try {
+      await sendEmailVerification(result.user, actionCodeSettings);
+    } catch (emailErr) {
+      console.warn('Initial verification email failed:', emailErr);
+    }
+
     const userProfile = await fetchOrCreateProfile(result.user);
     setProfile(userProfile);
-    setIsAuthModalOpen(false);
+  };
+
+  const sendEmailVerificationLink = async () => {
+    if (!isFirebaseConfigured || !auth || !auth.currentUser) {
+      throw new Error('No user is currently signed in.');
+    }
+
+    const origin =
+      typeof window !== 'undefined' && window.location.origin
+        ? window.location.origin
+        : 'https://helpmyimg.com';
+
+    const currentLang = typeof window !== 'undefined' ? (localStorage.getItem('i18nextLng') || 'en') : 'en';
+    auth.languageCode = currentLang.split('-')[0] || 'en';
+
+    const actionCodeSettings = {
+      url: `${origin}/?mode=verifyEmail`,
+      handleCodeInApp: true,
+    };
+
+    await sendEmailVerification(auth.currentUser, actionCodeSettings);
+  };
+
+  const verifyEmailWithCode = async (oobCode: string) => {
+    if (!isFirebaseConfigured || !auth) {
+      throw new Error('Firebase belum dikonfigurasi.');
+    }
+
+    await applyActionCode(auth, oobCode);
+    if (auth.currentUser) {
+      await auth.currentUser.reload();
+      setUser({ ...auth.currentUser });
+      if (db) {
+        const userDocRef = doc(db, 'users', auth.currentUser.uid);
+        await updateDoc(userDocRef, {
+          emailVerified: true,
+          lastLoginAt: Date.now(),
+        }).catch(() => {});
+      }
+      const updatedProfile = await fetchOrCreateProfile(auth.currentUser);
+      setProfile(updatedProfile);
+    }
+  };
+
+  const reloadUser = async (): Promise<boolean> => {
+    if (!auth || !auth.currentUser) return false;
+    await auth.currentUser.reload();
+    const isVerified = Boolean(auth.currentUser.emailVerified);
+    setUser({ ...auth.currentUser });
+    if (isVerified && db) {
+      const userDocRef = doc(db, 'users', auth.currentUser.uid);
+      await updateDoc(userDocRef, {
+        emailVerified: true,
+        lastLoginAt: Date.now(),
+      }).catch(() => {});
+    }
+    const updatedProfile = await fetchOrCreateProfile(auth.currentUser);
+    setProfile(updatedProfile);
+    return isVerified;
   };
 
   const sendPasswordReset = async (email: string) => {
@@ -263,6 +349,9 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
         signInWithGoogle,
         signInWithEmail,
         signUpWithEmail,
+        sendEmailVerificationLink,
+        verifyEmailWithCode,
+        reloadUser,
         sendPasswordReset,
         confirmNewPassword,
         signOut,

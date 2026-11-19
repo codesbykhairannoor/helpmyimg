@@ -1,12 +1,26 @@
 // src/components/auth/AuthModal.tsx
-// Modal masuk, daftar akun, dan lupa kata sandi dengan dukungan penuh 30 bahasa
+// Modal masuk, daftar akun, verifikasi email, dan lupa kata sandi dengan perlindungan anti-abuse
 
-import React, { useState } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, Loader2, AlertCircle, CheckCircle2, ShieldCheck, Mail, Lock, ArrowLeft, KeyRound } from 'lucide-react';
+import {
+  X,
+  Loader2,
+  AlertCircle,
+  CheckCircle2,
+  ShieldCheck,
+  Mail,
+  Lock,
+  ArrowLeft,
+  KeyRound,
+  Send,
+  RefreshCw,
+} from 'lucide-react';
 import { useAuth } from '../../context/AuthContext';
 import { useTranslation } from '../../context/LanguageContext';
-import { isFirebaseConfigured } from '../../config/firebase';
+import { isFirebaseConfigured, auth } from '../../config/firebase';
+
+type AuthMode = 'signin' | 'signup' | 'forgot' | 'reset' | 'verifyEmail';
 
 export const AuthModal: React.FC = () => {
   const {
@@ -17,21 +31,34 @@ export const AuthModal: React.FC = () => {
     signInWithGoogle,
     signInWithEmail,
     signUpWithEmail,
+    sendEmailVerificationLink,
+    verifyEmailWithCode,
+    reloadUser,
     sendPasswordReset,
     confirmNewPassword,
   } = useAuth();
   const { t } = useTranslation();
 
-  const [mode, setMode] = useState<'signin' | 'signup' | 'forgot' | 'reset'>('signin');
+  const [mode, setMode] = useState<AuthMode>('signin');
   const [resetCode, setResetCode] = useState<string | null>(null);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
   const [errorMsg, setErrorMsg] = useState<string | null>(null);
   const [successMsg, setSuccessMsg] = useState<string | null>(null);
+  const [resendCooldown, setResendCooldown] = useState(0);
 
-  // Periksa apakah ada parameter reset password dari URL email
-  React.useEffect(() => {
+  // Timer cooldown untuk pengiriman ulang email verifikasi
+  useEffect(() => {
+    if (resendCooldown <= 0) return;
+    const interval = setInterval(() => {
+      setResendCooldown((prev) => Math.max(0, prev - 1));
+    }, 1000);
+    return () => clearInterval(interval);
+  }, [resendCooldown]);
+
+  // Periksa apakah ada parameter reset password atau verify email dari URL email
+  useEffect(() => {
     if (typeof window === 'undefined') return;
     const urlParams = new URLSearchParams(window.location.search);
     const urlMode = urlParams.get('mode');
@@ -42,10 +69,31 @@ export const AuthModal: React.FC = () => {
       setMode('reset');
       openAuthModal();
       window.history.replaceState({}, document.title, window.location.pathname);
+    } else if ((urlMode === 'verifyEmail' || urlMode === 'signIn') && oobCode) {
+      setLoading(true);
+      verifyEmailWithCode(oobCode)
+        .then(() => {
+          setSuccessMsg(
+            t('auth.emailVerifiedSuccess', {
+              defaultValue: 'Email successfully verified! Welcome to HelpMyIMG.',
+            })
+          );
+          setMode('signin');
+          openAuthModal();
+        })
+        .catch((err: any) => {
+          setErrorMsg(err?.message || 'Failed to verify email. Link may have expired.');
+          setMode('signin');
+          openAuthModal();
+        })
+        .finally(() => {
+          setLoading(false);
+          window.history.replaceState({}, document.title, window.location.pathname);
+        });
     }
-  }, [openAuthModal]);
+  }, [openAuthModal, verifyEmailWithCode, t]);
 
-  const resetForm = React.useCallback(() => {
+  const resetForm = useCallback(() => {
     setEmail('');
     setPassword('');
     setErrorMsg(null);
@@ -53,17 +101,20 @@ export const AuthModal: React.FC = () => {
     setLoading(false);
   }, []);
 
-  // Otomatis tutup modal jika user sudah dalam keadaan login
-  React.useEffect(() => {
-    if (user && isAuthModalOpen) {
-      resetForm();
-      closeAuthModal();
+  // Otomatis tutup modal jika user sudah login dan terverifikasi
+  useEffect(() => {
+    if (user && isAuthModalOpen && mode !== 'verifyEmail') {
+      if (user.emailVerified) {
+        resetForm();
+        closeAuthModal();
+      }
     }
-  }, [user, isAuthModalOpen, closeAuthModal, resetForm]);
+  }, [user, isAuthModalOpen, closeAuthModal, resetForm, mode]);
 
-  if (!isAuthModalOpen || user) return null;
+  if (!isAuthModalOpen) return null;
+  if (user && user.emailVerified && mode !== 'verifyEmail') return null;
 
-  const handleSwitchMode = (newMode: 'signin' | 'signup' | 'forgot' | 'reset') => {
+  const handleSwitchMode = (newMode: AuthMode) => {
     setMode(newMode);
     setErrorMsg(null);
     setSuccessMsg(null);
@@ -159,11 +210,30 @@ export const AuthModal: React.FC = () => {
     try {
       if (mode === 'signin') {
         await signInWithEmail(email, password);
+        // Periksa apakah email sudah diverifikasi
+        if (auth?.currentUser && !auth.currentUser.emailVerified) {
+          setMode('verifyEmail');
+          setErrorMsg(
+            t('auth.unverifiedNotice', {
+              defaultValue: 'Please verify your email address before using your account.',
+            })
+          );
+          setResendCooldown(60);
+          return;
+        }
+        resetForm();
+        closeAuthModal();
       } else {
+        // Pendaftaran manual: Buat akun & kirim email verifikasi Firebase secara otomatis
         await signUpWithEmail(email, password);
+        setMode('verifyEmail');
+        setSuccessMsg(
+          t('auth.verificationSent', {
+            defaultValue: 'Verification email sent! Please check your inbox or spam folder.',
+          })
+        );
+        setResendCooldown(60);
       }
-      resetForm();
-      closeAuthModal();
     } catch (err: any) {
       const code = err?.code;
       if (
@@ -180,6 +250,55 @@ export const AuthModal: React.FC = () => {
       } else {
         setErrorMsg(err?.message || 'An error occurred. Please try again.');
       }
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const handleResendVerification = async () => {
+    if (resendCooldown > 0) return;
+    setLoading(true);
+    setErrorMsg(null);
+    setSuccessMsg(null);
+    try {
+      await sendEmailVerificationLink();
+      setResendCooldown(60);
+      setSuccessMsg(
+        t('auth.verificationSent', {
+          defaultValue: 'Verification email sent! Please check your inbox or spam folder.',
+        })
+      );
+    } catch (err: any) {
+      setErrorMsg(err?.message || 'Failed to resend verification email.');
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const handleCheckVerified = async () => {
+    setLoading(true);
+    setErrorMsg(null);
+    try {
+      const isVerified = await reloadUser();
+      if (isVerified) {
+        setSuccessMsg(
+          t('auth.emailVerifiedSuccess', {
+            defaultValue: 'Email successfully verified! Welcome to HelpMyIMG.',
+          })
+        );
+        setTimeout(() => {
+          resetForm();
+          closeAuthModal();
+        }, 1200);
+      } else {
+        setErrorMsg(
+          t('auth.notVerifiedYet', {
+            defaultValue: 'Email is not verified yet. Please click the link in your email and try again.',
+          })
+        );
+      }
+    } catch (err: any) {
+      setErrorMsg(err?.message || 'Error checking verification status.');
     } finally {
       setLoading(false);
     }
@@ -248,13 +367,20 @@ export const AuthModal: React.FC = () => {
           {/* Header */}
           <div className="text-center mb-5">
             <div className="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-cyan-50 dark:bg-cyan-950/40 text-[#05DAED] mb-3 border border-cyan-100 dark:border-cyan-800/40">
-              {mode === 'forgot' || mode === 'reset' ? <KeyRound className="w-6 h-6" /> : <ShieldCheck className="w-6 h-6" />}
+              {mode === 'forgot' || mode === 'reset' ? (
+                <KeyRound className="w-6 h-6" />
+              ) : mode === 'verifyEmail' ? (
+                <Mail className="w-6 h-6" />
+              ) : (
+                <ShieldCheck className="w-6 h-6" />
+              )}
             </div>
             <h3 className="text-xl font-bold text-slate-900 dark:text-white">
               {mode === 'signin' && t('auth.signInTitle', { defaultValue: 'Sign in to HelpMyIMG' })}
               {mode === 'signup' && t('auth.signUpTitle', { defaultValue: 'Create an Account' })}
               {mode === 'forgot' && t('auth.forgotPasswordTitle', { defaultValue: 'Reset Password' })}
               {mode === 'reset' && t('auth.resetNewPasswordTitle', { defaultValue: 'Set New Password' })}
+              {mode === 'verifyEmail' && t('auth.verifyEmailTitle', { defaultValue: 'Verify Your Email' })}
             </h3>
             <p className="text-sm text-slate-500 dark:text-slate-400 mt-1">
               {mode === 'signin' &&
@@ -272,6 +398,10 @@ export const AuthModal: React.FC = () => {
               {mode === 'reset' &&
                 t('auth.resetNewPasswordSubtitle', {
                   defaultValue: 'Enter your new password below.',
+                })}
+              {mode === 'verifyEmail' &&
+                t('auth.verifyEmailSubtitle', {
+                  defaultValue: 'Please verify your email address to activate your account and prevent abuse.',
                 })}
             </p>
           </div>
@@ -292,85 +422,145 @@ export const AuthModal: React.FC = () => {
             </div>
           )}
 
-          {/* Email / Password Form */}
-          <form onSubmit={handleEmailAuth} className="space-y-3.5 mb-4">
-            {mode !== 'reset' && (
-              <div>
-                <label className="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1">
-                  {t('auth.emailLabel', { defaultValue: 'Email Address' })}
-                </label>
-                <div className="relative">
-                  <Mail className="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2 pointer-events-none" />
-                  <input
-                    type="email"
-                    required
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    placeholder={t('auth.emailPlaceholder', { defaultValue: 'name@example.com' })}
-                    className="w-full pl-10 pr-3.5 py-2.5 text-sm rounded-xl border border-slate-300 dark:border-slate-600 bg-slate-50/50 dark:bg-dark-900/60 text-slate-900 dark:text-slate-100 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-[#05DAED]/50 focus:border-[#05DAED] transition-all"
-                  />
-                </div>
+          {/* Verification Screen Mode */}
+          {mode === 'verifyEmail' ? (
+            <div className="space-y-4 py-1">
+              <div className="text-center p-4 bg-slate-50 dark:bg-dark-900/70 border border-slate-200 dark:border-slate-700/80 rounded-2xl">
+                <p className="text-xs text-slate-500 dark:text-slate-400 font-medium mb-1">
+                  {t('auth.sentToEmail', { defaultValue: 'Verification link sent to:' })}
+                </p>
+                <p className="text-sm font-bold text-slate-800 dark:text-white break-all">
+                  {email || user?.email}
+                </p>
+                <p className="text-xs text-slate-600 dark:text-slate-300 mt-3 leading-relaxed">
+                  {t('auth.verifyInstruction', {
+                    defaultValue: 'Please check your inbox or spam folder, then click the link to activate your HelpMyIMG account.',
+                  })}
+                </p>
               </div>
-            )}
 
-            {mode !== 'forgot' && (
-              <div>
-                <div className="flex items-center justify-between mb-1">
-                  <label className="block text-xs font-semibold text-slate-700 dark:text-slate-300">
-                    {mode === 'reset'
-                      ? t('auth.newPasswordLabel', { defaultValue: 'New Password' })
-                      : t('auth.passwordLabel', { defaultValue: 'Password' })}
-                  </label>
-                  {mode === 'signin' && (
-                    <button
-                      type="button"
-                      onClick={() => handleSwitchMode('forgot')}
-                      className="text-xs text-cyan-600 dark:text-[#05DAED] hover:underline cursor-pointer font-medium"
-                    >
-                      {t('auth.forgotPasswordLink', { defaultValue: 'Forgot password?' })}
-                    </button>
+              <div className="space-y-2.5 pt-2">
+                <button
+                  type="button"
+                  onClick={handleCheckVerified}
+                  disabled={loading}
+                  className="w-full py-3 px-4 bg-gradient-to-r from-[#05DAED] to-[#12DA91] text-dark-900 font-extrabold text-sm rounded-xl shadow-md hover:brightness-105 active:scale-[0.99] transition-all flex items-center justify-center gap-2 cursor-pointer disabled:opacity-60"
+                >
+                  {loading ? (
+                    <Loader2 className="w-4 h-4 animate-spin text-dark-900" />
+                  ) : (
+                    <CheckCircle2 className="w-4 h-4 text-dark-900" />
                   )}
-                </div>
-                <div className="relative">
-                  <Lock className="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2 pointer-events-none" />
-                  <input
-                    type="password"
-                    required
-                    minLength={6}
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                    placeholder={t('auth.passwordPlaceholder', { defaultValue: '••••••••' })}
-                    className="w-full pl-10 pr-3.5 py-2.5 text-sm rounded-xl border border-slate-300 dark:border-slate-600 bg-slate-50/50 dark:bg-dark-900/60 text-slate-900 dark:text-slate-100 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-[#05DAED]/50 focus:border-[#05DAED] transition-all"
-                  />
-                </div>
-              </div>
-            )}
+                  <span>{t('auth.checkVerifiedBtn', { defaultValue: 'I Have Verified My Email' })}</span>
+                </button>
 
-            <button
-              type="submit"
-              disabled={loading}
-              className="w-full py-2.5 px-4 bg-gradient-to-r from-[#05DAED] to-[#12DA91] text-dark-900 font-bold text-sm rounded-xl shadow-md hover:brightness-105 active:scale-[0.99] transition-all duration-200 flex items-center justify-center gap-2 disabled:opacity-60 disabled:cursor-not-allowed cursor-pointer"
-            >
-              {loading ? (
-                <>
-                  <Loader2 className="w-4 h-4 animate-spin text-dark-900" />
+                <button
+                  type="button"
+                  onClick={handleResendVerification}
+                  disabled={loading || resendCooldown > 0}
+                  className="w-full py-2.5 px-4 bg-slate-100 hover:bg-slate-200 dark:bg-dark-700 dark:hover:bg-dark-600 text-slate-700 dark:text-slate-200 font-semibold text-xs rounded-xl border border-slate-300 dark:border-dark-600 transition-all flex items-center justify-center gap-2 cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
+                >
+                  <Send className="w-3.5 h-3.5 text-cyan-600 dark:text-neon-cyan" />
                   <span>
-                    {mode === 'signin' && t('auth.signingIn', { defaultValue: 'Signing in...' })}
-                    {mode === 'signup' && t('auth.creatingAccount', { defaultValue: 'Creating account...' })}
-                    {mode === 'forgot' && t('auth.sendingReset', { defaultValue: 'Sending link...' })}
-                    {mode === 'reset' && t('auth.savingPassword', { defaultValue: 'Saving password...' })}
+                    {resendCooldown > 0
+                      ? `${t('auth.resendCooldown', { defaultValue: 'Resend in' })} ${resendCooldown}s`
+                      : t('auth.resendVerification', { defaultValue: 'Resend Verification Email' })}
                   </span>
-                </>
-              ) : (
-                <span>
-                  {mode === 'signin' && t('auth.submitSignIn', { defaultValue: 'Sign In' })}
-                  {mode === 'signup' && t('auth.submitSignUp', { defaultValue: 'Create Account' })}
-                  {mode === 'forgot' && t('auth.submitReset', { defaultValue: 'Send Reset Link' })}
-                  {mode === 'reset' && t('auth.submitNewPassword', { defaultValue: 'Save New Password' })}
-                </span>
+                </button>
+              </div>
+
+              <div className="text-center pt-2">
+                <button
+                  type="button"
+                  onClick={() => handleSwitchMode('signin')}
+                  className="inline-flex items-center gap-1.5 text-xs font-semibold text-slate-600 dark:text-slate-300 hover:text-cyan-600 dark:hover:text-[#05DAED] transition-colors cursor-pointer"
+                >
+                  <ArrowLeft className="w-3.5 h-3.5" />
+                  <span>{t('auth.backToSignIn', { defaultValue: 'Back to Sign In' })}</span>
+                </button>
+              </div>
+            </div>
+          ) : (
+            /* Email / Password Form */
+            <form onSubmit={handleEmailAuth} className="space-y-3.5 mb-4">
+              {mode !== 'reset' && (
+                <div>
+                  <label className="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1">
+                    {t('auth.emailLabel', { defaultValue: 'Email Address' })}
+                  </label>
+                  <div className="relative">
+                    <Mail className="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2 pointer-events-none" />
+                    <input
+                      type="email"
+                      required
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                      placeholder={t('auth.emailPlaceholder', { defaultValue: 'name@example.com' })}
+                      className="w-full pl-10 pr-3.5 py-2.5 text-sm rounded-xl border border-slate-300 dark:border-slate-600 bg-slate-50/50 dark:bg-dark-900/60 text-slate-900 dark:text-slate-100 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-[#05DAED]/50 focus:border-[#05DAED] transition-all"
+                    />
+                  </div>
+                </div>
               )}
-            </button>
-          </form>
+
+              {mode !== 'forgot' && (
+                <div>
+                  <div className="flex items-center justify-between mb-1">
+                    <label className="block text-xs font-semibold text-slate-700 dark:text-slate-300">
+                      {mode === 'reset'
+                        ? t('auth.newPasswordLabel', { defaultValue: 'New Password' })
+                        : t('auth.passwordLabel', { defaultValue: 'Password' })}
+                    </label>
+                    {mode === 'signin' && (
+                      <button
+                        type="button"
+                        onClick={() => handleSwitchMode('forgot')}
+                        className="text-xs text-cyan-600 dark:text-[#05DAED] hover:underline cursor-pointer font-medium"
+                      >
+                        {t('auth.forgotPasswordLink', { defaultValue: 'Forgot password?' })}
+                      </button>
+                    )}
+                  </div>
+                  <div className="relative">
+                    <Lock className="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2 pointer-events-none" />
+                    <input
+                      type="password"
+                      required
+                      minLength={6}
+                      value={password}
+                      onChange={(e) => setPassword(e.target.value)}
+                      placeholder={t('auth.passwordPlaceholder', { defaultValue: '••••••••' })}
+                      className="w-full pl-10 pr-3.5 py-2.5 text-sm rounded-xl border border-slate-300 dark:border-slate-600 bg-slate-50/50 dark:bg-dark-900/60 text-slate-900 dark:text-slate-100 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-[#05DAED]/50 focus:border-[#05DAED] transition-all"
+                    />
+                  </div>
+                </div>
+              )}
+
+              <button
+                type="submit"
+                disabled={loading}
+                className="w-full py-2.5 px-4 bg-gradient-to-r from-[#05DAED] to-[#12DA91] text-dark-900 font-bold text-sm rounded-xl shadow-md hover:brightness-105 active:scale-[0.99] transition-all duration-200 flex items-center justify-center gap-2 disabled:opacity-60 disabled:cursor-not-allowed cursor-pointer"
+              >
+                {loading ? (
+                  <>
+                    <Loader2 className="w-4 h-4 animate-spin text-dark-900" />
+                    <span>
+                      {mode === 'signin' && t('auth.signingIn', { defaultValue: 'Signing in...' })}
+                      {mode === 'signup' && t('auth.creatingAccount', { defaultValue: 'Creating account...' })}
+                      {mode === 'forgot' && t('auth.sendingReset', { defaultValue: 'Sending link...' })}
+                      {mode === 'reset' && t('auth.savingPassword', { defaultValue: 'Saving password...' })}
+                    </span>
+                  </>
+                ) : (
+                  <span>
+                    {mode === 'signin' && t('auth.submitSignIn', { defaultValue: 'Sign In' })}
+                    {mode === 'signup' && t('auth.submitSignUp', { defaultValue: 'Create Account' })}
+                    {mode === 'forgot' && t('auth.submitReset', { defaultValue: 'Send Reset Link' })}
+                    {mode === 'reset' && t('auth.submitNewPassword', { defaultValue: 'Save New Password' })}
+                  </span>
+                )}
+              </button>
+            </form>
+          )}
 
           {/* Forgot / Reset Password Mode: Back Button */}
           {(mode === 'forgot' || mode === 'reset') && (
@@ -387,7 +577,7 @@ export const AuthModal: React.FC = () => {
           )}
 
           {/* Social Sign In (Only for signin & signup modes) */}
-          {mode !== 'forgot' && mode !== 'reset' && (
+          {mode !== 'forgot' && mode !== 'reset' && mode !== 'verifyEmail' && (
             <>
               {/* Divider */}
               <div className="relative flex items-center justify-center my-4">

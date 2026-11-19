@@ -43,7 +43,132 @@ async function detectComputeDevice(): Promise<'webgpu' | 'wasm'> {
   return 'wasm';
 }
 
-async function rawImageToPngBlob(raw: RawImage): Promise<Blob> {
+function refineMattingAndDespill(rgba: Uint8ClampedArray, width: number, height: number): void {
+  const numPixels = width * height;
+
+  // 1. First pass: Apply smooth Hermite S-curve to alpha channel to eliminate staircase edges
+  for (let i = 0; i < numPixels; i++) {
+    const a = rgba[i * 4 + 3];
+    if (a <= 6) {
+      rgba[i * 4 + 3] = 0;
+    } else if (a >= 246) {
+      rgba[i * 4 + 3] = 255;
+    } else {
+      const t = (a - 6) / (246 - 6);
+      const s = t * t * (3 - 2 * t);
+      rgba[i * 4 + 3] = Math.round(s * 255);
+    }
+  }
+
+  // 2. Sample background color from border/outer pixels where alpha is near 0
+  let bgR = 0, bgG = 0, bgB = 0, bgCount = 0;
+  // Sample along perimeter (top, bottom, left, right borders)
+  for (let x = 0; x < width; x += 2) {
+    const topIdx = x * 4;
+    if (rgba[topIdx + 3] <= 10) {
+      bgR += rgba[topIdx];
+      bgG += rgba[topIdx + 1];
+      bgB += rgba[topIdx + 2];
+      bgCount++;
+    }
+    const botIdx = ((height - 1) * width + x) * 4;
+    if (rgba[botIdx + 3] <= 10) {
+      bgR += rgba[botIdx];
+      bgG += rgba[botIdx + 1];
+      bgB += rgba[botIdx + 2];
+      bgCount++;
+    }
+  }
+  for (let y = 0; y < height; y += 2) {
+    const leftIdx = (y * width) * 4;
+    if (rgba[leftIdx + 3] <= 10) {
+      bgR += rgba[leftIdx];
+      bgG += rgba[leftIdx + 1];
+      bgB += rgba[leftIdx + 2];
+      bgCount++;
+    }
+    const rightIdx = (y * width + (width - 1)) * 4;
+    if (rgba[rightIdx + 3] <= 10) {
+      bgR += rgba[rightIdx];
+      bgG += rgba[rightIdx + 1];
+      bgB += rgba[rightIdx + 2];
+      bgCount++;
+    }
+  }
+
+  // If perimeter had few pixels, sample general background pixels
+  if (bgCount < 20) {
+    const step = Math.max(1, Math.floor(numPixels / 1000));
+    for (let i = 0; i < numPixels; i += step) {
+      const idx = i * 4;
+      if (rgba[idx + 3] <= 10) {
+        bgR += rgba[idx];
+        bgG += rgba[idx + 1];
+        bgB += rgba[idx + 2];
+        bgCount++;
+      }
+    }
+  }
+
+  if (bgCount > 0) {
+    bgR = Math.round(bgR / bgCount);
+    bgG = Math.round(bgG / bgCount);
+    bgB = Math.round(bgB / bgCount);
+  }
+
+  // Detect if the sampled background has a strong saturated chroma (Red, Blue, Green backdrops)
+  const isRedBg = bgR > 90 && bgR > bgG + 25 && bgR > bgB + 25;
+  const isBlueBg = bgB > 90 && bgB > bgR + 25 && bgB > bgG + 25;
+  const isGreenBg = bgG > 90 && bgG > bgR + 25 && bgG > bgB + 25;
+
+  // 3. Second pass: Optical color unmixing & spill suppression on semi-transparent transition pixels
+  for (let i = 0; i < numPixels; i++) {
+    const idx = i * 4;
+    const a = rgba[idx + 3];
+
+    if (a > 0 && a < 250 && bgCount > 0) {
+      const alphaNorm = a / 255;
+      const r = rgba[idx];
+      const g = rgba[idx + 1];
+      const b = rgba[idx + 2];
+
+      const cleanR = Math.min(255, Math.max(0, Math.round((r - (1 - alphaNorm) * bgR) / alphaNorm)));
+      const cleanG = Math.min(255, Math.max(0, Math.round((g - (1 - alphaNorm) * bgG) / alphaNorm)));
+      const cleanB = Math.min(255, Math.max(0, Math.round((b - (1 - alphaNorm) * bgB) / alphaNorm)));
+
+      rgba[idx] = cleanR;
+      rgba[idx + 1] = cleanG;
+      rgba[idx + 2] = cleanB;
+    }
+
+    // 4. Spill suppression for saturated backdrop reflections on borders
+    if (a > 0) {
+      const r = rgba[idx];
+      const g = rgba[idx + 1];
+      const b = rgba[idx + 2];
+
+      if (isRedBg) {
+        // Neutralize red bounce on near-neutral objects (white collars, hair, gray tones)
+        const maxOther = Math.max(g, b);
+        if (r > maxOther + 12 && Math.abs(g - b) < 40) {
+          rgba[idx] = Math.round(maxOther + (r - maxOther) * 0.25);
+        }
+      } else if (isBlueBg) {
+        const maxOther = Math.max(r, g);
+        if (b > maxOther + 12 && Math.abs(r - g) < 40) {
+          rgba[idx + 2] = Math.round(maxOther + (b - maxOther) * 0.25);
+        }
+      } else if (isGreenBg) {
+        const maxOther = Math.max(r, b);
+        if (g > maxOther + 12 && Math.abs(r - g) < 40) {
+          rgba[idx + 1] = Math.round(maxOther + (g - maxOther) * 0.25);
+        }
+      }
+    }
+  }
+}
+
+async function rawImageToPngBlob(raw: RawImage, applyRefinement: boolean = false): Promise<Blob> {
   const canvas = new OffscreenCanvas(raw.width, raw.height);
   const ctx = canvas.getContext('2d');
   if (!ctx) throw new Error('OffscreenCanvas 2D context unavailable');
@@ -68,6 +193,10 @@ async function rawImageToPngBlob(raw: RawImage): Promise<Blob> {
       rgba[i * 4 + 2] = v;
       rgba[i * 4 + 3] = 255;
     }
+  }
+
+  if (applyRefinement) {
+    refineMattingAndDespill(rgba, raw.width, raw.height);
   }
 
   ctx.putImageData(new ImageData(rgba, raw.width, raw.height), 0, 0);
@@ -317,11 +446,11 @@ async function runRmbgInference(
       rgbaData[i * 4 + 2] = image.data[i];
     }
 
-    let alpha = mask.data[i];
-    if (alpha < 20) alpha = 0;
-    else if (alpha > 238) alpha = 255;
-    rgbaData[i * 4 + 3] = alpha;
+    rgbaData[i * 4 + 3] = mask.data[i];
   }
+
+  // Apply smooth anti-aliased matting and edge color despill
+  refineMattingAndDespill(rgbaData, image.width, image.height);
 
   ctx.putImageData(new ImageData(rgbaData, image.width, image.height), 0, 0);
   return canvas.convertToBlob({ type: 'image/png' });
@@ -355,21 +484,20 @@ self.onmessage = async (e: MessageEvent) => {
       };
 
       const image = await loadInputRawImage(payload);
-      const modelTier: AiModelTier = payload.modelTier === 'pro' ? 'pro' : 'standard';
 
-      if (modelTier === 'pro') {
-        try {
-          const segmenter = await initProBirefnet(reportProgress);
-          reportProgress('processing', 100);
-          const resultRaw: RawImage = await segmenter(image);
-          const blob = await rawImageToPngBlob(resultRaw);
-          self.postMessage({ type: 'RESULT', id, payload: blob });
-          return;
-        } catch (proErr) {
-          console.warn('[aiWorker] PRO BiRefNet fallback to RMBG-1.4:', proErr);
-        }
+      // Attempt BiRefNet Lite first (state-of-the-art bilateral segmentation)
+      try {
+        const segmenter = await initProBirefnet(reportProgress);
+        reportProgress('processing', 100);
+        const resultRaw: RawImage = await segmenter(image);
+        const blob = await rawImageToPngBlob(resultRaw, true);
+        self.postMessage({ type: 'RESULT', id, payload: blob });
+        return;
+      } catch (birefnetErr) {
+        console.warn('[aiWorker] BiRefNet unavailable or memory limit, using RMBG-1.4 fallback:', birefnetErr);
       }
 
+      // High-accuracy RMBG-1.4 fallback with matting refinement & despill
       const blob = await runRmbgInference(image, reportProgress);
       self.postMessage({ type: 'RESULT', id, payload: blob });
     } catch (error: any) {

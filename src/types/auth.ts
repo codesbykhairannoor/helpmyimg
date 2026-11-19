@@ -16,6 +16,8 @@ export interface UserProfile {
   expiresAt?: number | null; // Timestamp millisecond
   createdAt: number;
   lastLoginAt: number;
+  emailVerified?: boolean;
+  app?: string;
 }
 
 export interface AuthContextType {
@@ -26,11 +28,14 @@ export interface AuthContextType {
   signInWithGoogle: () => Promise<void>;
   signInWithEmail: (email: string, password: string) => Promise<void>;
   signUpWithEmail: (email: string, password: string) => Promise<void>;
+  sendEmailVerificationLink: () => Promise<void>;
+  verifyEmailWithCode: (oobCode: string) => Promise<void>;
+  reloadUser: () => Promise<boolean>;
   sendPasswordReset: (email: string) => Promise<void>;
   confirmNewPassword: (oobCode: string, newPassword: string) => Promise<void>;
   signOut: () => Promise<void>;
   isAuthModalOpen: boolean;
-  openAuthModal: () => void;
+  openAuthModal: (initialMode?: 'signin' | 'signup' | 'forgot' | 'reset' | 'verifyEmail') => void;
   closeAuthModal: () => void;
   refreshProfile: () => Promise<void>;
 }
