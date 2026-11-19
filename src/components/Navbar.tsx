@@ -883,37 +883,55 @@ export const Navbar: React.FC = () => {
                         </div>
                       </div>
 
-                      {/* Footer Bar: Appearance Toggle + Sliding Language Selector Trigger */}
-                      <div className="flex items-center justify-between px-5 py-3 border-t border-slate-200 dark:border-dark-700/80 bg-slate-50 dark:bg-dark-900/70">
-                        {/* Theme Mode Toggle Button */}
-                        <button
-                          onClick={toggleTheme}
-                          className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-lg bg-white dark:bg-dark-800 hover:bg-slate-100 dark:hover:bg-dark-750 border border-slate-200 dark:border-dark-700 text-slate-800 dark:text-slate-200 text-[14px] font-bold cursor-pointer transition-all duration-150 shadow-xs"
-                          title={lang === 'id' ? 'Ganti mode terang/gelap' : 'Toggle appearance'}
-                        >
-                          {theme === 'dark' ? <Sun className="w-4 h-4 text-amber-400" /> : <Moon className="w-4 h-4 text-indigo-400" />}
-                          <span>
-                            {lang === 'id'
-                              ? (theme === 'dark' ? 'Mode Terang' : 'Mode Gelap')
-                              : (theme === 'dark' ? 'Light Mode' : 'Dark Mode')}
-                          </span>
-                        </button>
+                      {/* Footer Bar: Appearance Toggle + Discord Community + Claim Founder Pass */}
+                      <div className="flex items-center justify-between px-5 py-3 border-t border-slate-200 dark:border-dark-700/80 bg-slate-50 dark:bg-dark-900/70 gap-2">
+                        <div className="flex items-center gap-2">
+                          {/* Theme Mode Toggle Button */}
+                          <button
+                            onClick={toggleTheme}
+                            className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-lg bg-white dark:bg-dark-800 hover:bg-slate-100 dark:hover:bg-dark-750 border border-slate-200 dark:border-dark-700 text-slate-800 dark:text-slate-200 text-[14px] font-bold cursor-pointer transition-all duration-150 shadow-xs"
+                            title={lang === 'id' ? 'Ganti mode terang/gelap' : 'Toggle appearance'}
+                          >
+                            {theme === 'dark' ? <Sun className="w-4 h-4 text-amber-400" /> : <Moon className="w-4 h-4 text-indigo-400" />}
+                            <span>
+                              {lang === 'id'
+                                ? (theme === 'dark' ? 'Mode Terang' : 'Mode Gelap')
+                                : (theme === 'dark' ? 'Light Mode' : 'Dark Mode')}
+                            </span>
+                          </button>
 
-                        {/* Klaim Promo Founder Pass (Directs to /pricing/) */}
-                        <a
-                          href={lang === 'en' ? '/pricing/' : `/${lang}/pricing/`}
-                          onClick={(e) => {
-                            e.preventDefault();
-                            setIsSuiteOpen(false);
-                            navigatePath(lang === 'en' ? '/pricing/' : `/${lang}/pricing/`);
-                          }}
-                          className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-lg bg-gradient-to-r from-amber-500/10 via-orange-500/10 to-amber-500/15 hover:from-amber-500/20 hover:to-orange-500/25 border border-amber-500/35 hover:border-amber-500/60 text-amber-700 dark:text-amber-400 text-[14px] font-bold cursor-pointer transition-all duration-150 shadow-xs group"
-                          title={lang === 'id' ? 'Klaim Penawaran Founder Pass' : 'Claim Founder Pass Deal'}
-                        >
-                          <Crown className="w-4 h-4 text-amber-500 group-hover:scale-110 transition-transform" />
-                          <span>{lang === 'id' ? 'Klaim Promo Founder' : 'Claim Founder Pass'}</span>
-                          <ArrowRight className="w-3.5 h-3.5 text-amber-500 group-hover:translate-x-0.5 transition-transform" />
-                        </a>
+                          {/* Discord Community Button (Side by side with Dark Mode) */}
+                          <a
+                            href="https://discord.gg/NcWY6bcVdN"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-lg bg-[#5865F2]/10 hover:bg-[#5865F2]/20 dark:bg-[#5865F2]/15 dark:hover:bg-[#5865F2]/25 border border-[#5865F2]/30 hover:border-[#5865F2]/60 text-[#5865F2] text-[14px] font-bold cursor-pointer transition-all duration-150 shadow-xs group"
+                            title="Discord Community"
+                          >
+                            <svg className="w-4 h-4 fill-current shrink-0 group-hover:scale-110 transition-transform" viewBox="0 0 24 24">
+                              <path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994.021-.041.001-.09-.041-.106a13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.929 1.793 8.18 1.793 12.061 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.894.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.028zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.974 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z" />
+                            </svg>
+                            <span>Discord</span>
+                          </a>
+                        </div>
+
+                        {/* Klaim Promo Founder Pass (Directs to /pricing/ - Hidden if already Pro) */}
+                        {!isPro && (
+                          <a
+                            href={lang === 'en' ? '/pricing/' : `/${lang}/pricing/`}
+                            onClick={(e) => {
+                              e.preventDefault();
+                              setIsSuiteOpen(false);
+                              navigatePath(lang === 'en' ? '/pricing/' : `/${lang}/pricing/`);
+                            }}
+                            className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-lg bg-gradient-to-r from-amber-500/10 via-orange-500/10 to-amber-500/15 hover:from-amber-500/20 hover:to-orange-500/25 border border-amber-500/35 hover:border-amber-500/60 text-amber-700 dark:text-amber-400 text-[14px] font-bold cursor-pointer transition-all duration-150 shadow-xs group"
+                            title={lang === 'id' ? 'Klaim Penawaran Founder Pass' : 'Claim Founder Pass Deal'}
+                          >
+                            <Crown className="w-4 h-4 text-amber-500 group-hover:scale-110 transition-transform" />
+                            <span>{lang === 'id' ? 'Klaim Promo Founder' : 'Claim Founder Pass'}</span>
+                            <ArrowRight className="w-3.5 h-3.5 text-amber-500 group-hover:translate-x-0.5 transition-transform" />
+                          </a>
+                        )}
                       </div>
                     </div>
                   ) : (
@@ -1307,34 +1325,62 @@ export const Navbar: React.FC = () => {
                   )}
                 </div>
 
-                {/* 3. Promo Offer Card directing to Pricing - High-Contrast Class-Guarded */}
+                {/* Discord Community Option (Mobile Drawer) */}
                 <a
-                  href={lang === 'en' ? '/pricing/' : `/${lang}/pricing/`}
-                  onClick={(e) => {
-                    e.preventDefault();
-                    navigatePath(lang === 'en' ? '/pricing/' : `/${lang}/pricing/`);
-                    setMobileMenuOpen(false);
-                    document.body.style.overflow = '';
-                  }}
-                  className="mobile-promo-card relative group block overflow-hidden rounded-2xl p-4 transition-all shadow-md text-left cursor-pointer"
+                  href="https://discord.gg/NcWY6bcVdN"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="p-3.5 rounded-2xl bg-[#5865F2]/10 hover:bg-[#5865F2]/15 dark:bg-[#5865F2]/15 dark:hover:bg-[#5865F2]/25 border border-[#5865F2]/30 hover:border-[#5865F2]/60 flex items-center justify-between transition-all group"
                 >
-                  <div className="flex items-center justify-between gap-2 mb-2">
-                    <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[10.5px] font-black uppercase tracking-wider bg-amber-500 text-slate-950 shadow-xs">
-                      <Crown className="w-3 h-3 text-slate-950" /> {lang === 'id' ? 'PROMO FOUNDER PASS' : 'FOUNDER PASS DEAL'}
-                    </span>
-                    <span className="text-[12px] font-bold text-cyan-600 dark:text-cyan-400 group-hover:translate-x-0.5 transition-transform flex items-center gap-0.5">
-                      {lang === 'id' ? 'Lihat Paket' : 'View Plans'} <ChevronRight className="w-3.5 h-3.5" />
-                    </span>
+                  <div className="flex items-center gap-3">
+                    <div className="w-9 h-9 rounded-xl bg-[#5865F2] text-white flex items-center justify-center shadow-xs">
+                      <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                        <path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994.021-.041.001-.09-.041-.106a13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.929 1.793 8.18 1.793 12.061 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.894.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.028zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.974 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z" />
+                      </svg>
+                    </div>
+                    <div>
+                      <div className="text-[13.5px] font-bold text-slate-900 dark:text-white flex items-center gap-1.5">
+                        <span>Discord Community</span>
+                        <span className="text-[10px] font-bold px-1.5 py-0.2 rounded bg-[#5865F2]/20 text-[#5865F2]">Official</span>
+                      </div>
+                      <div className="text-[11.5px] text-slate-500 dark:text-slate-400">
+                        {lang === 'id' ? 'Gabung komunitas & info update' : 'Join community & announcements'}
+                      </div>
+                    </div>
                   </div>
-                  <div className="mobile-promo-title text-[15px] font-heading font-extrabold leading-snug mb-1">
-                    {lang === 'id' ? 'All-in-One 4 Web Suite Selamanya' : '4-in-1 Lifetime Suite Access'}
-                  </div>
-                  <p className="mobile-promo-desc text-[12.5px] leading-relaxed font-normal">
-                    {lang === 'id'
-                      ? 'Sekali bayar tanpa langganan. Dapatkan akses penuh ke HelpMyIMG, HandleMyFile, SolveMyMedia, & CreateMy-QR.'
-                      : 'One-time payment, zero subscriptions. Get full lifetime access across all 4 ecosystem web apps.'}
-                  </p>
+                  <ExternalLink className="w-4 h-4 text-slate-400 group-hover:text-[#5865F2] transition-colors" />
                 </a>
+
+                {/* 3. Promo Offer Card directing to Pricing (Hidden if already Pro) */}
+                {!isPro && (
+                  <a
+                    href={lang === 'en' ? '/pricing/' : `/${lang}/pricing/`}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      navigatePath(lang === 'en' ? '/pricing/' : `/${lang}/pricing/`);
+                      setMobileMenuOpen(false);
+                      document.body.style.overflow = '';
+                    }}
+                    className="mobile-promo-card relative group block overflow-hidden rounded-2xl p-4 transition-all shadow-md text-left cursor-pointer"
+                  >
+                    <div className="flex items-center justify-between gap-2 mb-2">
+                      <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[10.5px] font-black uppercase tracking-wider bg-amber-500 text-slate-950 shadow-xs">
+                        <Crown className="w-3 h-3 text-slate-950" /> {lang === 'id' ? 'PROMO FOUNDER PASS' : 'FOUNDER PASS DEAL'}
+                      </span>
+                      <span className="text-[12px] font-bold text-cyan-600 dark:text-cyan-400 group-hover:translate-x-0.5 transition-transform flex items-center gap-0.5">
+                        {lang === 'id' ? 'Lihat Paket' : 'View Plans'} <ChevronRight className="w-3.5 h-3.5" />
+                      </span>
+                    </div>
+                    <div className="mobile-promo-title text-[15px] font-heading font-extrabold leading-snug mb-1">
+                      {lang === 'id' ? 'All-in-One 4 Web Suite Selamanya' : '4-in-1 Lifetime Suite Access'}
+                    </div>
+                    <p className="mobile-promo-desc text-[12.5px] leading-relaxed font-normal">
+                      {lang === 'id'
+                        ? 'Sekali bayar tanpa langganan. Dapatkan akses penuh ke HelpMyIMG, HandleMyFile, SolveMyMedia, & CreateMy-QR.'
+                        : 'One-time payment, zero subscriptions. Get full lifetime access across all 4 ecosystem web apps.'}
+                    </p>
+                  </a>
+                )}
               </div>
             </div>
           </div>
