@@ -1,4 +1,12 @@
-import { AutoModel, AutoProcessor, env, pipeline, RawImage } from '@huggingface/transformers';
+import {
+  AutoModel,
+  AutoProcessor,
+  VitMatteForImageMatting,
+  env,
+  pipeline,
+  RawImage,
+} from '@huggingface/transformers';
+import { refineNeuralAlphaWithWasm, type VitMatteCropRunner } from '../utils/wasmMatting';
 
 // Disable local file resolution inside Web Worker
 env.allowLocalModels = false;
@@ -10,14 +18,25 @@ if (env.backends?.onnx?.wasm) {
 }
 
 export type AiModelTier = 'standard' | 'pro';
+export type GpuTier = 'webgpu-high' | 'webgpu-std' | 'wasm';
 
-let cachedDevice: 'webgpu' | 'wasm' | null = null;
-let rmbgModel: any = null;
-let rmbgProcessor: any = null;
-let rmbgInitPromise: Promise<{ model: any; processor: any }> | null = null;
+interface SegModelBundle {
+  model: any;
+  processor: any;
+  device: 'webgpu' | 'wasm';
+  modelId: string;
+}
 
-let birefnetPipeline: any = null;
-let birefnetInitPromise: Promise<any> | null = null;
+let cachedGpuTier: GpuTier | null = null;
+
+// Cached Stage-1 segmentation models
+let segBundleCache = new Map<string, SegModelBundle>();
+let segInitPromises = new Map<string, Promise<SegModelBundle>>();
+
+// Cached Stage-2 hair/fur trimap matting model (ViTMatte-S)
+let vitMatteModel: any = null;
+let vitMatteProcessor: any = null;
+let vitMatteInitPromise: Promise<{ model: any; processor: any }> | null = null;
 
 let upscalePipeline: any = null;
 let upscaleInitPromise: Promise<any> | null = null;
@@ -25,166 +44,38 @@ let upscaleInitPromise: Promise<any> | null = null;
 let depthPipeline: any = null;
 let depthInitPromise: Promise<any> | null = null;
 
-async function detectComputeDevice(): Promise<'webgpu' | 'wasm'> {
-  if (cachedDevice) return cachedDevice;
+async function detectGpuTier(): Promise<GpuTier> {
+  if (cachedGpuTier) return cachedGpuTier;
   try {
     const gpu = (navigator as any).gpu;
     if (gpu && typeof gpu.requestAdapter === 'function') {
       const adapter = await gpu.requestAdapter();
       if (adapter) {
-        // Critical WebGPU Limit Check:
-        // ONNX Runtime WebGPU provider throws fatal abort during OrtRun():
-        // "numbers_storage_buffers_ <= limits_.maxStorageBuffersPerShaderStage was false. Too many storage buffers in shader. Current: 17, Max is 16"
-        // if adapter.limits.maxStorageBuffersPerShaderStage < 18 (standard on Intel UHD/Iris & mobile GPUs).
         const maxStorageBuffers = adapter.limits?.maxStorageBuffersPerShaderStage ?? 0;
-        if (maxStorageBuffers < 18) {
-          console.warn(
-            `[aiWorker] WebGPU maxStorageBuffersPerShaderStage is ${maxStorageBuffers} (< 18). Falling back to WASM for safe execution.`
-          );
-          cachedDevice = 'wasm';
-          return 'wasm';
+        if (maxStorageBuffers >= 18) {
+          cachedGpuTier = 'webgpu-high';
+          return cachedGpuTier;
         }
-        cachedDevice = 'webgpu';
-        return 'webgpu';
+        if (maxStorageBuffers >= 8) {
+          // Adapters with 8..17 storage buffers crash on BiRefNet-1024 but run BiRefNet-512 cleanly!
+          cachedGpuTier = 'webgpu-std';
+          return cachedGpuTier;
+        }
       }
     }
   } catch {
     // WebGPU unavailable in worker context
   }
-  cachedDevice = 'wasm';
-  return 'wasm';
+  cachedGpuTier = 'wasm';
+  return cachedGpuTier;
 }
 
-function refineMattingAndDespill(rgba: Uint8ClampedArray, width: number, height: number): void {
-  const numPixels = width * height;
-
-  // 1. First pass: Apply smooth Hermite S-curve to alpha channel to eliminate staircase edges
-  for (let i = 0; i < numPixels; i++) {
-    const a = rgba[i * 4 + 3];
-    if (a <= 6) {
-      rgba[i * 4 + 3] = 0;
-    } else if (a >= 246) {
-      rgba[i * 4 + 3] = 255;
-    } else {
-      const t = (a - 6) / (246 - 6);
-      const s = t * t * (3 - 2 * t);
-      rgba[i * 4 + 3] = Math.round(s * 255);
-    }
-  }
-
-  // 2. Sample background color from border/outer pixels where alpha is near 0
-  let bgR = 0, bgG = 0, bgB = 0, bgCount = 0;
-  // Sample along perimeter (top, bottom, left, right borders)
-  for (let x = 0; x < width; x += 2) {
-    const topIdx = x * 4;
-    if (rgba[topIdx + 3] <= 10) {
-      bgR += rgba[topIdx];
-      bgG += rgba[topIdx + 1];
-      bgB += rgba[topIdx + 2];
-      bgCount++;
-    }
-    const botIdx = ((height - 1) * width + x) * 4;
-    if (rgba[botIdx + 3] <= 10) {
-      bgR += rgba[botIdx];
-      bgG += rgba[botIdx + 1];
-      bgB += rgba[botIdx + 2];
-      bgCount++;
-    }
-  }
-  for (let y = 0; y < height; y += 2) {
-    const leftIdx = (y * width) * 4;
-    if (rgba[leftIdx + 3] <= 10) {
-      bgR += rgba[leftIdx];
-      bgG += rgba[leftIdx + 1];
-      bgB += rgba[leftIdx + 2];
-      bgCount++;
-    }
-    const rightIdx = (y * width + (width - 1)) * 4;
-    if (rgba[rightIdx + 3] <= 10) {
-      bgR += rgba[rightIdx];
-      bgG += rgba[rightIdx + 1];
-      bgB += rgba[rightIdx + 2];
-      bgCount++;
-    }
-  }
-
-  // If perimeter had few pixels, sample general background pixels
-  if (bgCount < 20) {
-    const step = Math.max(1, Math.floor(numPixels / 1000));
-    for (let i = 0; i < numPixels; i += step) {
-      const idx = i * 4;
-      if (rgba[idx + 3] <= 10) {
-        bgR += rgba[idx];
-        bgG += rgba[idx + 1];
-        bgB += rgba[idx + 2];
-        bgCount++;
-      }
-    }
-  }
-
-  if (bgCount > 0) {
-    bgR = Math.round(bgR / bgCount);
-    bgG = Math.round(bgG / bgCount);
-    bgB = Math.round(bgB / bgCount);
-  }
-
-  // Detect if the sampled background has a strong saturated chroma (Red, Blue, Green backdrops)
-  const isRedBg = bgR > 90 && bgR > bgG + 25 && bgR > bgB + 25;
-  const isBlueBg = bgB > 90 && bgB > bgR + 25 && bgB > bgG + 25;
-  const isGreenBg = bgG > 90 && bgG > bgR + 25 && bgG > bgB + 25;
-
-  // 3. Second pass: Optical color unmixing & spill suppression on semi-transparent transition pixels
-  for (let i = 0; i < numPixels; i++) {
-    const idx = i * 4;
-    const a = rgba[idx + 3];
-
-    if (a > 0 && a < 250 && bgCount > 0) {
-      const alphaNorm = a / 255;
-      const r = rgba[idx];
-      const g = rgba[idx + 1];
-      const b = rgba[idx + 2];
-
-      const cleanR = Math.min(255, Math.max(0, Math.round((r - (1 - alphaNorm) * bgR) / alphaNorm)));
-      const cleanG = Math.min(255, Math.max(0, Math.round((g - (1 - alphaNorm) * bgG) / alphaNorm)));
-      const cleanB = Math.min(255, Math.max(0, Math.round((b - (1 - alphaNorm) * bgB) / alphaNorm)));
-
-      rgba[idx] = cleanR;
-      rgba[idx + 1] = cleanG;
-      rgba[idx + 2] = cleanB;
-    }
-
-    // 4. Spill suppression for saturated backdrop reflections on borders
-    if (a > 0) {
-      const r = rgba[idx];
-      const g = rgba[idx + 1];
-      const b = rgba[idx + 2];
-
-      if (isRedBg) {
-        // Neutralize red bounce on near-neutral objects (white collars, hair, gray tones)
-        const maxOther = Math.max(g, b);
-        if (r > maxOther + 12 && Math.abs(g - b) < 40) {
-          rgba[idx] = Math.round(maxOther + (r - maxOther) * 0.25);
-        }
-      } else if (isBlueBg) {
-        const maxOther = Math.max(r, g);
-        if (b > maxOther + 12 && Math.abs(r - g) < 40) {
-          rgba[idx + 2] = Math.round(maxOther + (b - maxOther) * 0.25);
-        }
-      } else if (isGreenBg) {
-        const maxOther = Math.max(r, b);
-        if (g > maxOther + 12 && Math.abs(r - g) < 40) {
-          rgba[idx + 1] = Math.round(maxOther + (g - maxOther) * 0.25);
-        }
-      }
-    }
-  }
+async function detectComputeDevice(): Promise<'webgpu' | 'wasm'> {
+  const tier = await detectGpuTier();
+  return tier === 'wasm' ? 'wasm' : 'webgpu';
 }
 
-async function rawImageToPngBlob(raw: RawImage, applyRefinement: boolean = false): Promise<Blob> {
-  const canvas = new OffscreenCanvas(raw.width, raw.height);
-  const ctx = canvas.getContext('2d');
-  if (!ctx) throw new Error('OffscreenCanvas 2D context unavailable');
-
+function rawImageToRgba(raw: RawImage): Uint8ClampedArray {
   const numPixels = raw.width * raw.height;
   const rgba = new Uint8ClampedArray(numPixels * 4);
 
@@ -206,13 +97,20 @@ async function rawImageToPngBlob(raw: RawImage, applyRefinement: boolean = false
       rgba[i * 4 + 3] = 255;
     }
   }
+  return rgba;
+}
 
-  if (applyRefinement) {
-    refineMattingAndDespill(rgba, raw.width, raw.height);
-  }
-
-  ctx.putImageData(new ImageData(rgba, raw.width, raw.height), 0, 0);
+async function rgbaToPngBlob(rgba: Uint8ClampedArray, width: number, height: number): Promise<Blob> {
+  const canvas = new OffscreenCanvas(width, height);
+  const ctx = canvas.getContext('2d');
+  if (!ctx) throw new Error('OffscreenCanvas 2D context unavailable');
+  ctx.putImageData(new ImageData(new Uint8ClampedArray(rgba), width, height), 0, 0);
   return canvas.convertToBlob({ type: 'image/png' });
+}
+
+async function rawImageToPngBlob(raw: RawImage): Promise<Blob> {
+  const rgba = rawImageToRgba(raw);
+  return rgbaToPngBlob(rgba, raw.width, raw.height);
 }
 
 async function loadInputRawImage(payload: { imageBlob?: Blob; imageUrl?: string }): Promise<RawImage> {
@@ -225,110 +123,216 @@ async function loadInputRawImage(payload: { imageBlob?: Blob; imageUrl?: string 
   throw new Error('No image data provided.');
 }
 
-async function initStandardRmbg(onProgress: (status: string, progress: number) => void) {
-  if (rmbgModel && rmbgProcessor) return { model: rmbgModel, processor: rmbgProcessor };
-  if (rmbgInitPromise) return rmbgInitPromise;
+async function initSegModel(
+  modelId: string,
+  targetDevice: 'webgpu' | 'wasm',
+  dtype: 'fp16' | 'fp32' | 'q8',
+  onProgress: (status: string, progress: number) => void
+): Promise<SegModelBundle> {
+  const cacheKey = `${modelId}::${targetDevice}::${dtype}`;
+  const cached = segBundleCache.get(cacheKey);
+  if (cached) return cached;
 
-  rmbgInitPromise = (async () => {
+  const existingPromise = segInitPromises.get(cacheKey);
+  if (existingPromise) return existingPromise;
+
+  const promise = (async () => {
     try {
-      const device = await detectComputeDevice();
       onProgress('downloading:0', 0);
 
-      const loadWithDevice = async (targetDevice: 'webgpu' | 'wasm') => {
-        return AutoModel.from_pretrained('briaai/RMBG-1.4', {
-          // @ts-ignore - custom model type required for Bria RMBG-1.4
-          config: { model_type: 'custom' },
-          device: targetDevice,
-          dtype: 'q8',
-          progress_callback: (data: any) => {
-            if (data.status === 'progress') {
-              const pct = Math.round(data.progress || 0);
-              onProgress(`downloading:${pct}`, pct);
-            } else if (data.status === 'ready') {
-              onProgress('ready', 100);
-            }
-          },
-        });
-      };
-
-      try {
-        rmbgModel = await loadWithDevice(device);
-      } catch (webgpuErr) {
-        if (device === 'webgpu') {
-          cachedDevice = 'wasm';
-          rmbgModel = await loadWithDevice('wasm');
-        } else {
-          throw webgpuErr;
-        }
-      }
-
-      rmbgProcessor = await AutoProcessor.from_pretrained('briaai/RMBG-1.4', {
-        config: {
-          do_normalize: true,
-          do_pad: false,
-          do_rescale: true,
-          do_resize: true,
-          image_mean: [0.5, 0.5, 0.5],
-          feature_extractor_type: 'ImageFeatureExtractor',
-          image_std: [1, 1, 1],
-          resample: 2,
-          rescale_factor: 0.00392156862745098,
-          size: { width: 1024, height: 1024 },
+      const isRmbg = modelId === 'briaai/RMBG-1.4';
+      const model = await AutoModel.from_pretrained(modelId, {
+        ...(isRmbg ? { config: { model_type: 'custom' } as any } : {}),
+        device: targetDevice,
+        dtype,
+        progress_callback: (data: any) => {
+          if (data.status === 'progress') {
+            const pct = Math.round(data.progress || 0);
+            onProgress(`downloading:${pct}`, pct);
+          } else if (data.status === 'ready') {
+            onProgress('ready', 100);
+          }
         },
       });
 
-      return { model: rmbgModel, processor: rmbgProcessor };
+      const processor = isRmbg
+        ? await AutoProcessor.from_pretrained('briaai/RMBG-1.4', {
+            config: {
+              do_normalize: true,
+              do_pad: false,
+              do_rescale: true,
+              do_resize: true,
+              image_mean: [0.5, 0.5, 0.5],
+              feature_extractor_type: 'ImageFeatureExtractor',
+              image_std: [1, 1, 1],
+              resample: 2,
+              rescale_factor: 0.00392156862745098,
+              size: { width: 1024, height: 1024 },
+            },
+          })
+        : await AutoProcessor.from_pretrained(modelId, {});
+
+      const bundle: SegModelBundle = { model, processor, device: targetDevice, modelId };
+      segBundleCache.set(cacheKey, bundle);
+      return bundle;
     } catch (err) {
-      rmbgInitPromise = null;
+      segInitPromises.delete(cacheKey);
       throw err;
     }
   })();
 
-  return rmbgInitPromise;
+  segInitPromises.set(cacheKey, promise);
+  return promise;
 }
 
-async function initProBirefnet(onProgress: (status: string, progress: number) => void) {
-  if (birefnetPipeline) return birefnetPipeline;
-  if (birefnetInitPromise) return birefnetInitPromise;
+async function initVitMatte(
+  onProgress?: (status: string, progress: number) => void
+): Promise<{ model: any; processor: any }> {
+  if (vitMatteModel && vitMatteProcessor) {
+    return { model: vitMatteModel, processor: vitMatteProcessor };
+  }
+  if (vitMatteInitPromise) return vitMatteInitPromise;
 
-  birefnetInitPromise = (async () => {
+  vitMatteInitPromise = (async () => {
     try {
-      const device = await detectComputeDevice();
-      onProgress('downloading:0', 0);
-
-      const loadBiRefNet = async (targetDevice: 'webgpu' | 'wasm') => {
-        return pipeline('background-removal', 'onnx-community/BiRefNet_lite-ONNX', {
-          device: targetDevice,
-          dtype: targetDevice === 'webgpu' ? 'fp16' : 'q8',
+      // Quantized ViTMatte-S (26.2 MB) runs fast and reliably on WASM without GPU storage-buffer issues
+      const [processor, model] = await Promise.all([
+        AutoProcessor.from_pretrained('Xenova/vitmatte-small-distinctions-646'),
+        VitMatteForImageMatting.from_pretrained('Xenova/vitmatte-small-distinctions-646', {
+          device: 'wasm',
+          dtype: 'q8',
           progress_callback: (data: any) => {
-            if (data.status === 'progress') {
+            if (onProgress && data.status === 'progress') {
               const pct = Math.round(data.progress || 0);
               onProgress(`downloading:${pct}`, pct);
-            } else if (data.status === 'ready') {
-              onProgress('ready', 100);
             }
           },
-        });
-      };
-
-      try {
-        birefnetPipeline = await loadBiRefNet(device);
-      } catch {
-        if (device === 'webgpu') {
-          birefnetPipeline = await loadBiRefNet('wasm');
-        } else {
-          throw new Error('BiRefNet load failed');
-        }
-      }
-
-      return birefnetPipeline;
+        }),
+      ]);
+      vitMatteProcessor = processor;
+      vitMatteModel = model;
+      return { model, processor };
     } catch (err) {
-      birefnetInitPromise = null;
+      vitMatteInitPromise = null;
       throw err;
     }
   })();
 
-  return birefnetInitPromise;
+  return vitMatteInitPromise;
+}
+
+async function runSegBundleInference(
+  bundle: SegModelBundle,
+  image: RawImage
+): Promise<{ rawMask: Float32Array; mw: number; mh: number }> {
+  const inputs = await bundle.processor(image);
+  const modelSession = bundle.model.sessions?.['model'];
+  const inputNames: string[] = modelSession?.inputNames ?? ['pixel_values'];
+  const outputNames: string[] = modelSession?.outputNames ?? ['output'];
+
+  const feeds: Record<string, any> = {};
+  if (inputNames.includes('pixel_values')) {
+    feeds.pixel_values = inputs.pixel_values;
+  } else {
+    feeds[inputNames[0]] = inputs.pixel_values;
+  }
+
+  const output = await bundle.model(feeds);
+  const outTensor = output[outputNames[0]] || output.output || output.logits || output[0];
+  if (!outTensor || !outTensor.data || !outTensor.dims) {
+    throw new Error(`Invalid segmentation tensor output from ${bundle.modelId}`);
+  }
+
+  const dims: number[] = outTensor.dims;
+  const mh = dims[dims.length - 2];
+  const mw = dims[dims.length - 1];
+  const planeSize = mw * mh;
+
+  const rawData = outTensor.data;
+  const rawMask = new Float32Array(planeSize);
+  for (let i = 0; i < planeSize; i++) {
+    rawMask[i] = Number(rawData[i]);
+  }
+
+  // Guard against broken GPU shader NaNs or constant degenerate masks
+  let minVal = Infinity;
+  let maxVal = -Infinity;
+  for (let i = 0; i < planeSize; i++) {
+    const v = rawMask[i];
+    if (Number.isNaN(v)) {
+      throw new Error(`NaN encountered in segmentation output from ${bundle.modelId}`);
+    }
+    if (v < minVal) minVal = v;
+    if (v > maxVal) maxVal = v;
+  }
+  if (maxVal - minVal < 1e-4) {
+    throw new Error(`Degenerate constant mask produced by ${bundle.modelId} on ${bundle.device}`);
+  }
+
+  return { rawMask, mw, mh };
+}
+
+async function runStage1Segmentation(
+  image: RawImage,
+  modelTier: AiModelTier,
+  onProgress: (status: string, progress: number) => void
+): Promise<{ rawMask: Float32Array; mw: number; mh: number; modelId: string }> {
+  const gpuTier = await detectGpuTier();
+
+  // Ordered candidate cascade tailored to hardware & tier
+  const candidates: Array<{ modelId: string; device: 'webgpu' | 'wasm'; dtype: 'fp16' | 'fp32' | 'q8' }> = [];
+
+  if (gpuTier === 'webgpu-high') {
+    candidates.push({ modelId: 'onnx-community/BiRefNet_lite-ONNX', device: 'webgpu', dtype: 'fp16' });
+    candidates.push({ modelId: 'JONNYVERSE/birefnet-lite-512', device: 'webgpu', dtype: 'fp16' });
+  } else if (gpuTier === 'webgpu-std') {
+    candidates.push({ modelId: 'JONNYVERSE/birefnet-lite-512', device: 'webgpu', dtype: 'fp16' });
+  }
+
+  if (modelTier === 'pro') {
+    candidates.push({ modelId: 'JONNYVERSE/birefnet-lite-512', device: 'wasm', dtype: 'fp32' });
+  }
+  candidates.push({ modelId: 'briaai/RMBG-1.4', device: 'wasm', dtype: 'q8' });
+
+  let lastErr: any = null;
+  for (const cand of candidates) {
+    try {
+      const bundle = await initSegModel(cand.modelId, cand.device, cand.dtype, onProgress);
+      onProgress('processing', 100);
+      const { rawMask, mw, mh } = await runSegBundleInference(bundle, image);
+      return { rawMask, mw, mh, modelId: cand.modelId };
+    } catch (err) {
+      lastErr = err;
+      console.warn(`[aiWorker] Stage-1 candidate ${cand.modelId} (${cand.device}/${cand.dtype}) failed:`, err);
+      const key = `${cand.modelId}::${cand.device}::${cand.dtype}`;
+      segBundleCache.delete(key);
+      segInitPromises.delete(key);
+    }
+  }
+
+  throw lastErr || new Error('All background removal segmentation models failed');
+}
+
+function createVitMatteRunner(
+  onProgress?: (status: string, progress: number) => void
+): VitMatteCropRunner {
+  return async (cropRgb, cropTrimap, cropW, cropH) => {
+    const { model, processor } = await initVitMatte(onProgress);
+    const rgbImg = new RawImage(new Uint8ClampedArray(cropRgb), cropW, cropH, 3);
+    const trimapImg = new RawImage(new Uint8ClampedArray(cropTrimap), cropW, cropH, 1);
+
+    const inputs = await processor(rgbImg, trimapImg);
+    const { alphas } = await model(inputs);
+    if (!alphas || !alphas.data || !alphas.dims) {
+      return null;
+    }
+
+    const padW = alphas.dims[alphas.dims.length - 1];
+    return {
+      alphas: new Float32Array(alphas.data),
+      padW,
+    };
+  };
 }
 
 async function initUpscalePipeline(onProgress: (status: string, progress: number) => void) {
@@ -419,86 +423,32 @@ async function initDepthPipeline(onProgress: (status: string, progress: number) 
   return depthInitPromise;
 }
 
-async function runRmbgInference(
-  image: RawImage,
-  onProgress: (status: string, progress: number) => void
-): Promise<Blob> {
-  let rmbgInstance = await initStandardRmbg(onProgress);
-  onProgress('processing', 100);
-
-  const { pixel_values } = await rmbgInstance.processor(image);
-  let modelOutput: any;
-  try {
-    modelOutput = await rmbgInstance.model({ input: pixel_values });
-  } catch (inferenceErr: any) {
-    console.warn('[aiWorker] RMBG inference failed on primary compute device:', inferenceErr);
-    // If WebGPU failed, invalidate cache and fallback to WASM
-    if (cachedDevice === 'webgpu') {
-      console.warn('[aiWorker] Falling back RMBG inference to WASM device...');
-      cachedDevice = 'wasm';
-      rmbgModel = null;
-      rmbgInitPromise = null;
-      rmbgInstance = await initStandardRmbg(onProgress);
-      modelOutput = await rmbgInstance.model({ input: pixel_values });
-    } else {
-      throw inferenceErr;
-    }
-  }
-
-  const rawTensor = modelOutput.output || modelOutput[0] || modelOutput;
-  const tensor3D = rawTensor[0] || rawTensor;
-
-  const mask = await RawImage.fromTensor(tensor3D.mul(255).to('uint8')).resize(image.width, image.height);
-
-  const canvas = new OffscreenCanvas(image.width, image.height);
-  const ctx = canvas.getContext('2d');
-  if (!ctx) throw new Error('OffscreenCanvas 2D context unavailable');
-
-  const numPixels = image.width * image.height;
-  const rgbaData = new Uint8ClampedArray(numPixels * 4);
-  const isRGB = image.channels === 3;
-  const isRGBA = image.channels === 4;
-  const isGray = image.channels === 1;
-
-  for (let i = 0; i < numPixels; i++) {
-    if (isRGB) {
-      rgbaData[i * 4] = image.data[i * 3];
-      rgbaData[i * 4 + 1] = image.data[i * 3 + 1];
-      rgbaData[i * 4 + 2] = image.data[i * 3 + 2];
-    } else if (isRGBA) {
-      rgbaData[i * 4] = image.data[i * 4];
-      rgbaData[i * 4 + 1] = image.data[i * 4 + 1];
-      rgbaData[i * 4 + 2] = image.data[i * 4 + 2];
-    } else if (isGray) {
-      rgbaData[i * 4] = image.data[i];
-      rgbaData[i * 4 + 1] = image.data[i];
-      rgbaData[i * 4 + 2] = image.data[i];
-    }
-
-    rgbaData[i * 4 + 3] = mask.data[i];
-  }
-
-  // Apply smooth anti-aliased matting and edge color despill
-  refineMattingAndDespill(rgbaData, image.width, image.height);
-
-  ctx.putImageData(new ImageData(rgbaData, image.width, image.height), 0, 0);
-  return canvas.convertToBlob({ type: 'image/png' });
-}
-
 self.onmessage = async (e: MessageEvent) => {
   const { type, payload, id } = e.data;
 
   if (type === 'CHECK_CAPABILITIES') {
-    const device = await detectComputeDevice();
-    self.postMessage({ type: 'RESULT', id, payload: { webgpu: device === 'webgpu', device } });
+    const gpuTier = await detectGpuTier();
+    self.postMessage({
+      type: 'RESULT',
+      id,
+      payload: { webgpu: gpuTier !== 'wasm', device: gpuTier === 'wasm' ? 'wasm' : 'webgpu', gpuTier },
+    });
     return;
   }
 
   if (type === 'INIT') {
     try {
-      await initStandardRmbg((status, progress) => {
+      const gpuTier = await detectGpuTier();
+      const reportProgress = (status: string, progress: number) => {
         self.postMessage({ type: 'PROGRESS', id, payload: { status, progress } });
-      });
+      };
+      if (gpuTier === 'webgpu-high') {
+        await initSegModel('onnx-community/BiRefNet_lite-ONNX', 'webgpu', 'fp16', reportProgress);
+      } else if (gpuTier === 'webgpu-std') {
+        await initSegModel('JONNYVERSE/birefnet-lite-512', 'webgpu', 'fp16', reportProgress);
+      } else {
+        await initSegModel('briaai/RMBG-1.4', 'wasm', 'q8', reportProgress);
+      }
       self.postMessage({ type: 'INIT_DONE', id });
     } catch (error: any) {
       self.postMessage({ type: 'ERROR', id, payload: error.message });
@@ -512,24 +462,39 @@ self.onmessage = async (e: MessageEvent) => {
         self.postMessage({ type: 'PROGRESS', id, payload: { status, progress } });
       };
 
+      const modelTier: AiModelTier = payload?.modelTier === 'pro' ? 'pro' : 'standard';
       const image = await loadInputRawImage(payload);
+      const rgba = rawImageToRgba(image);
 
-      // Attempt BiRefNet Lite first (state-of-the-art bilateral segmentation)
-      try {
-        const segmenter = await initProBirefnet(reportProgress);
-        reportProgress('processing', 100);
-        const resultRaw: RawImage = await segmenter(image);
-        const blob = await rawImageToPngBlob(resultRaw, true);
-        self.postMessage({ type: 'RESULT', id, payload: blob });
-        return;
-      } catch (birefnetErr) {
-        console.warn('[aiWorker] BiRefNet unavailable or memory limit, using RMBG-1.4 fallback:', birefnetErr);
-        birefnetPipeline = null;
-        birefnetInitPromise = null;
-      }
+      // Stage 1: Dichotomous / Saliency Neural Segmentation (raw float32 tensor, no premature uint8 truncation)
+      const { rawMask, mw, mh, modelId } = await runStage1Segmentation(image, modelTier, reportProgress);
 
-      // High-accuracy RMBG-1.4 fallback with matting refinement & despill
-      const blob = await runRmbgInference(image, reportProgress);
+      // Stage 2 + Stage 3:
+      // Native C-WASM Bicubic Upsample -> Island Cleaner -> Trimap + ViTMatte-S (26MB) Hair/Fur Refinement
+      // -> 3x3 RGB Fast Guided Filter -> Photoroom 2-Pass Blur-Fusion Foreground Color Decontamination
+      reportProgress('processing', 100);
+
+      // Use ViTMatte-S edge refinement when in PRO mode OR when Stage-1 was RMBG-1.4 / BiRefNet-512
+      // (BiRefNet-1024 already has razor-sharp resolution, though PRO mode still refines hair with ViTMatte-S!)
+      const useVitMatte =
+        modelTier === 'pro' ||
+        modelId === 'briaai/RMBG-1.4' ||
+        modelId === 'JONNYVERSE/birefnet-lite-512';
+
+      const vitmatteMaxSide = modelTier === 'pro' ? 672 : 512;
+      const finalRgba = await refineNeuralAlphaWithWasm({
+        rawMask,
+        maskWidth: mw,
+        maskHeight: mh,
+        rgba,
+        width: image.width,
+        height: image.height,
+        vitmatteRunner: useVitMatte ? createVitMatteRunner() : null,
+        vitmatteMaxSide,
+        enableBlurFusion: true,
+      });
+
+      const blob = await rgbaToPngBlob(finalRgba, image.width, image.height);
       self.postMessage({ type: 'RESULT', id, payload: blob });
     } catch (error: any) {
       self.postMessage({ type: 'ERROR', id, payload: error.message });

@@ -142,7 +142,7 @@ class AIService {
   }
 
   /**
-   * Hapus background dengan Color-Key Flood Fill (Magic Wand dari 8 arah & Global Color Key).
+   * Hapus background dengan Color-Key Flood Fill (Magic Wand O(N) dari 8 arah & Perceptual Edge Unmixing).
    */
   public async removeBackgroundByColorKey(file: File | Blob, tolerance: number = 45): Promise<Blob> {
     return new Promise((resolve, reject) => {
@@ -162,24 +162,54 @@ class AIService {
         const h = canvas.height;
         const totalPixels = w * h;
 
-        // 1. Deteksi warna dominan pada keliling/border gambar
-        const borderPixels: { r: number; g: number; b: number }[] = [];
+        // 1. Sample perimeter border pixels to detect uniform backdrop color
+        const borderPixels: { r: number; g: number; b: number; lum: number }[] = [];
         for (let x = 0; x < w; x++) {
-          let pi = (0 * w + x) * 4;
-          if (data[pi + 3] > 20) borderPixels.push({ r: data[pi], g: data[pi + 1], b: data[pi + 2] });
+          let pi = x * 4;
+          if (data[pi + 3] > 20) {
+            borderPixels.push({
+              r: data[pi],
+              g: data[pi + 1],
+              b: data[pi + 2],
+              lum: data[pi] + data[pi + 1] + data[pi + 2],
+            });
+          }
           pi = ((h - 1) * w + x) * 4;
-          if (data[pi + 3] > 20) borderPixels.push({ r: data[pi], g: data[pi + 1], b: data[pi + 2] });
+          if (data[pi + 3] > 20) {
+            borderPixels.push({
+              r: data[pi],
+              g: data[pi + 1],
+              b: data[pi + 2],
+              lum: data[pi] + data[pi + 1] + data[pi + 2],
+            });
+          }
         }
         for (let y = 1; y < h - 1; y++) {
-          let pi = (y * w + 0) * 4;
-          if (data[pi + 3] > 20) borderPixels.push({ r: data[pi], g: data[pi + 1], b: data[pi + 2] });
+          let pi = (y * w) * 4;
+          if (data[pi + 3] > 20) {
+            borderPixels.push({
+              r: data[pi],
+              g: data[pi + 1],
+              b: data[pi + 2],
+              lum: data[pi] + data[pi + 1] + data[pi + 2],
+            });
+          }
           pi = (y * w + (w - 1)) * 4;
-          if (data[pi + 3] > 20) borderPixels.push({ r: data[pi], g: data[pi + 1], b: data[pi + 2] });
+          if (data[pi + 3] > 20) {
+            borderPixels.push({
+              r: data[pi],
+              g: data[pi + 1],
+              b: data[pi + 2],
+              lum: data[pi] + data[pi + 1] + data[pi + 2],
+            });
+          }
         }
 
-        let targetR = 255, targetG = 255, targetB = 255;
+        let targetR = 255;
+        let targetG = 255;
+        let targetB = 255;
         if (borderPixels.length > 0) {
-          borderPixels.sort((a, b) => (a.r + a.g + a.b) - (b.r + b.g + b.b));
+          borderPixels.sort((a, b) => a.lum - b.lum);
           const median = borderPixels[Math.floor(borderPixels.length / 2)];
           targetR = median.r;
           targetG = median.g;
@@ -188,60 +218,73 @@ class AIService {
 
         const alphaMap = new Uint8Array(totalPixels).fill(255);
         const visited = new Uint8Array(totalPixels).fill(0);
+        const bfsQueue = new Int32Array(totalPixels);
 
-        const colorMatchDistSq = (idx: number, tr: number, tg: number, tb: number): number => {
+        // Perceptual redmean color distance (matches human sensitivity to G/R/B ratios)
+        const perceptualDist = (idx: number, tr: number, tg: number, tb: number): number => {
           const pi = idx * 4;
           if (data[pi + 3] < 10) return 0;
+          const rmean = (data[pi] + tr) * 0.5;
           const dr = data[pi] - tr;
           const dg = data[pi + 1] - tg;
           const db = data[pi + 2] - tb;
-          return dr * dr + dg * dg + db * db;
+          const weighted =
+            (((512 + rmean) * dr * dr) >> 8) +
+            4 * dg * dg +
+            (((767 - rmean) * db * db) >> 8);
+          return Math.sqrt(weighted / 9);
         };
 
-        const tolSq = tolerance * tolerance * 3;
-        const globalTolSq = (tolerance * 1.35) * (tolerance * 1.35) * 3;
+        const hardTol = Math.max(8, tolerance * 0.75);
+        const softTol = Math.max(hardTol + 8, tolerance * 1.45);
 
         const floodFill = (startX: number, startY: number) => {
           const startIdx = startY * w + startX;
           if (visited[startIdx]) return;
+          if (perceptualDist(startIdx, targetR, targetG, targetB) > softTol) return;
+
           visited[startIdx] = 1;
+          let head = 0;
+          let tail = 0;
+          bfsQueue[tail++] = startIdx;
 
-          const pi = startIdx * 4;
-          const tr = data[pi];
-          const tg = data[pi + 1];
-          const tb = data[pi + 2];
-
-          const queue: number[] = [startIdx];
-          while (queue.length > 0) {
-            const idx = queue.shift()!;
+          while (head < tail) {
+            const idx = bfsQueue[head++];
             alphaMap[idx] = 0;
 
             const x = idx % w;
-            const y = Math.floor(idx / w);
+            const y = (idx / w) | 0;
 
-            const neighbors = [
-              x > 0 ? idx - 1 : -1,
-              x < w - 1 ? idx + 1 : -1,
-              y > 0 ? idx - w : -1,
-              y < h - 1 ? idx + w : -1,
-              x > 0 && y > 0 ? idx - w - 1 : -1,
-              x < w - 1 && y > 0 ? idx - w + 1 : -1,
-              x > 0 && y < h - 1 ? idx + w - 1 : -1,
-              x < w - 1 && y < h - 1 ? idx + w + 1 : -1,
-            ];
+            const pi = idx * 4;
+            const curR = data[pi];
+            const curG = data[pi + 1];
+            const curB = data[pi + 2];
 
-            for (const nIdx of neighbors) {
-              if (nIdx >= 0 && !visited[nIdx]) {
-                const distSq = colorMatchDistSq(nIdx, tr, tg, tb);
-                if (distSq <= tolSq) {
+            // 8-connected neighbors
+            for (let dy = -1; dy <= 1; dy++) {
+              const ny = y + dy;
+              if (ny < 0 || ny >= h) continue;
+              for (let dx = -1; dx <= 1; dx++) {
+                if (dx === 0 && dy === 0) continue;
+                const nx = x + dx;
+                if (nx < 0 || nx >= w) continue;
+                const nIdx = ny * w + nx;
+                if (visited[nIdx]) continue;
+
+                // Must match both local neighbor continuity and detected backdrop tone
+                if (
+                  perceptualDist(nIdx, curR, curG, curB) <= hardTol &&
+                  perceptualDist(nIdx, targetR, targetG, targetB) <= softTol
+                ) {
                   visited[nIdx] = 1;
-                  queue.push(nIdx);
+                  bfsQueue[tail++] = nIdx;
                 }
               }
             }
           }
         };
 
+        // Flood fill from corners and mid-edges
         floodFill(0, 0);
         floodFill(w - 1, 0);
         floodFill(0, h - 1);
@@ -251,13 +294,14 @@ class AIService {
         floodFill(0, Math.floor(h / 2));
         floodFill(w - 1, Math.floor(h / 2));
 
+        // Feather & unmix interior holes and anti-aliased border edges
         for (let i = 0; i < totalPixels; i++) {
           if (alphaMap[i] === 0) continue;
-          const distSq = colorMatchDistSq(i, targetR, targetG, targetB);
-          if (distSq <= tolSq) {
+          const dist = perceptualDist(i, targetR, targetG, targetB);
+          if (dist <= hardTol) {
             alphaMap[i] = 0;
-          } else if (distSq <= globalTolSq) {
-            const ratio = (Math.sqrt(distSq) - Math.sqrt(tolSq)) / (Math.sqrt(globalTolSq) - Math.sqrt(tolSq));
+          } else if (dist <= softTol) {
+            const ratio = (dist - hardTol) / (softTol - hardTol);
             const smoothAlpha = Math.min(255, Math.max(0, Math.round(ratio * 255)));
             if (smoothAlpha < alphaMap[i]) {
               alphaMap[i] = smoothAlpha;
@@ -265,8 +309,17 @@ class AIService {
           }
         }
 
+        // Foreground color unmixing on semi-transparent anti-aliased edge pixels
         for (let i = 0; i < totalPixels; i++) {
-          data[i * 4 + 3] = Math.min(data[i * 4 + 3], alphaMap[i]);
+          const a = Math.min(data[i * 4 + 3], alphaMap[i]);
+          data[i * 4 + 3] = a;
+          if (a > 0 && a < 252) {
+            const an = a / 255;
+            const pi = i * 4;
+            data[pi] = Math.min(255, Math.max(0, Math.round((data[pi] - (1 - an) * targetR) / an)));
+            data[pi + 1] = Math.min(255, Math.max(0, Math.round((data[pi + 1] - (1 - an) * targetG) / an)));
+            data[pi + 2] = Math.min(255, Math.max(0, Math.round((data[pi + 2] - (1 - an) * targetB) / an)));
+          }
         }
 
         ctx.putImageData(imageData, 0, 0);
