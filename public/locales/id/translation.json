@@ -2500,5 +2500,11 @@
   "gate.titleTrialEngine": "Buka Mesin AI BiRefNet & WebGPU",
   "gate.descTrialEngine": "Masuk dengan Google atau Email untuk menikmati pemrosesan cepat GPU WebGPU & akselerasi AI resolusi penuh.",
   "gate.titleProEngine": "Buka BiRefNet Ultra Hair & Swin2SR 4K",
-  "gate.descProEngine": "Upgrade ke PRO untuk membuka segmentasi rambut super halus BiRefNet WebGPU, AI Super-Resolution Swin2SR, dan Studio Efek tanpa batas."
+  "gate.descProEngine": "Upgrade ke PRO untuk membuka segmentasi rambut super halus BiRefNet WebGPU, AI Super-Resolution Swin2SR, dan Studio Efek tanpa batas.",
+  "longtail.features": "Core Features",
+  "work.badge.metadata": "Clean AI & EXIF",
+  "work.badge.editexif": "Manual EXIF",
+  "convert.failed": "Gagal mengonversi foto.",
+  "work.downloadZipPro": "⚡ Download ZIP (4K Ultra-HD)",
+  "nav.pricing": "Pricing & Plans"
 }
