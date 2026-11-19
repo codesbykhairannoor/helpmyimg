@@ -131,7 +131,16 @@ export function useWorkspaceCore(initialTab: TabType = 'remove'): UseWorkspaceCo
       setBatchItems((prev) => {
         const baseList = isReplacing ? [] : prev;
         const merged = [...baseList, ...newItems];
-        if (['convert', 'convertwebp'].includes(initialTab)) {
+        if (
+          [
+            'convert',
+            'convertwebp',
+            'compress',
+            'compress100kb',
+            'compress50kb',
+            'compress200kb',
+          ].includes(initialTab)
+        ) {
           return merged.map((i) =>
             newItems.some((n) => n.id === i.id)
               ? { ...i, status: 'idle', transparentUrl: i.originalUrl, processedUrl: null, progress: 0 }
@@ -144,10 +153,6 @@ export function useWorkspaceCore(initialTab: TabType = 'remove'): UseWorkspaceCo
           [
             'watermark',
             'watermarkbulk',
-            'compress',
-            'compress100kb',
-            'compress50kb',
-            'compress200kb',
             'resize',
             'resizeig',
             'resizepassport',
@@ -227,6 +232,29 @@ export function useWorkspaceCore(initialTab: TabType = 'remove'): UseWorkspaceCo
   // Download single item with 4K vs HD 1080p resolution gate & daily trial quota
   const handleDownloadSingle = useCallback(
     async (item: BatchItem) => {
+      const isCompressTool = ['compress', 'compress50kb', 'compress100kb', 'compress200kb'].includes(initialTab || '');
+      const isUpscaleTool = ['remove', 'removeperson', 'removelogo', 'color', 'colorwhite', 'design', 'brush'].includes(initialTab || '');
+
+      // Compress, convert, resize, crop, rotate, watermark, metadata: Direct download without resolution/quality mutations
+      if (isCompressTool || item.compressBlob || !isUpscaleTool) {
+        const downloadUrl = item.compressUrl || item.processedUrl || item.transparentUrl || item.originalUrl;
+        if (!downloadUrl) return;
+
+        let baseName = item.name || `HelpMyIMG_${Date.now()}`;
+        if (baseName.includes('.')) baseName = baseName.substring(0, baseName.lastIndexOf('.'));
+        const ext = item.compressBlob
+          ? (item.compressBlob.type === 'image/png' ? 'png' : item.compressBlob.type === 'image/webp' ? 'webp' : 'jpg')
+          : (item.name.split('.').pop() || 'jpg');
+
+        const a = document.createElement('a');
+        a.href = downloadUrl;
+        a.download = `${baseName}.${ext}`;
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        return;
+      }
+
       const urlToDownload = item.processedUrl || item.transparentUrl || item.originalUrl;
       if (!urlToDownload) return;
 
@@ -290,7 +318,7 @@ export function useWorkspaceCore(initialTab: TabType = 'remove'): UseWorkspaceCo
     [isPro, user, quotaState, consume4k, openProGate, t]
   );
 
-  // Download all as ZIP with 4K vs HD 1080p resolution gate
+  // Download all as ZIP with intelligent format and resolution preservation
   const handleDownloadZip = useCallback(async (customZipName?: string) => {
     if (batchItems.length === 0) return;
     setIsZipping(true);
@@ -299,19 +327,34 @@ export function useWorkspaceCore(initialTab: TabType = 'remove'): UseWorkspaceCo
       const JSZip = (await import('jszip')).default;
       const zip = new JSZip();
 
-      for (const item of batchItems) {
-        const url = item.processedUrl || item.transparentUrl || item.originalUrl;
-        if (!url) continue;
+      const isCompressTool = ['compress', 'compress50kb', 'compress100kb', 'compress200kb'].includes(initialTab || '');
+      const isUpscaleTool = ['remove', 'removeperson', 'removelogo', 'color', 'colorwhite', 'design'].includes(initialTab || '');
 
-        const { url: finalUrl, revoked, wasDownscaled } = await getExportUrl(url, isPro);
-        if (wasDownscaled) anyDownscaled = true;
+      for (const item of batchItems) {
+        let finalUrl = item.compressUrl || item.processedUrl || item.transparentUrl || item.originalUrl;
+        let isRevokable = false;
+        let ext = item.name.split('.').pop() || 'png';
+
+        if (isCompressTool || item.compressBlob) {
+          finalUrl = item.compressUrl || item.processedUrl || item.originalUrl;
+        } else if (!isPro && isUpscaleTool) {
+          const rawUrl = item.processedUrl || item.transparentUrl || item.originalUrl;
+          if (rawUrl) {
+            const expRes = await getExportUrl(rawUrl, false);
+            finalUrl = expRes.url;
+            isRevokable = expRes.revoked;
+            if (expRes.wasDownscaled) anyDownscaled = true;
+          }
+        }
+
+        if (!finalUrl) continue;
 
         const res = await fetch(finalUrl);
         const blob = await res.blob();
         const baseName = item.name.replace(/\.[^/.]+$/, '');
-        zip.file(`${baseName}_HelpMyIMG.png`, blob);
+        zip.file(`${baseName}_HelpMyIMG.${ext}`, blob);
 
-        if (revoked) {
+        if (isRevokable) {
           URL.revokeObjectURL(finalUrl);
         }
       }

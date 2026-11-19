@@ -91,6 +91,10 @@ export async function getExportUrl(
       }
       srcCtx.drawImage(img, 0, 0, width, height);
 
+      const isJpeg = sourceUrl.includes('image/jpeg') || sourceUrl.toLowerCase().endsWith('.jpg') || sourceUrl.toLowerCase().endsWith('.jpeg');
+      const targetMime = isJpeg ? 'image/jpeg' : 'image/png';
+      const targetQuality = isJpeg ? 0.92 : 1.0;
+
       (async () => {
         try {
           const { resizeImageDataWasm } = await import('./wasmEncoder');
@@ -121,8 +125,8 @@ export async function getExportUrl(
                   originalHeight: height,
                 });
               },
-              'image/png',
-              1.0
+              targetMime,
+              targetQuality
             );
             return;
           }
@@ -162,8 +166,8 @@ export async function getExportUrl(
               originalHeight: height,
             });
           },
-          'image/png',
-          1.0
+          targetMime,
+          targetQuality
         );
       })();
     };
