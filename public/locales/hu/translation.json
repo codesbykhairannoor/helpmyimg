@@ -2495,5 +2495,14 @@
   "auth.deleteConfirmBtn": "Fiók végleges törlése",
   "auth.deleteCancelBtn": "Mégse",
   "auth.deleteSuccess": "A fiók sikeresen törölve.",
-  "auth.deleteReauthRequired": "Biztonsági okokból a bejelentkezési munkamenete lejárt. Kérjük, jelentkezzen ki, majd jelentkezzen be újra, mielőtt törölné fiókját."
+  "auth.deleteReauthRequired": "Biztonsági okokból a bejelentkezési munkamenete lejárt. Kérjük, jelentkezzen ki, majd jelentkezzen be újra, mielőtt törölné fiókját.",
+  "auth.changePassword": "Jelszó módosítása",
+  "auth.changePassTitle": "Jelszó módosítása",
+  "auth.changePassSubtitle": "Biztonságosan frissítse fiókja jelszavát e-mailes ellenőrzéssel.",
+  "auth.changePassEmailSent": "Jelszó-visszaállítási linket elküldtünk az e-mail címére. Kérjük, ellenőrizze a beérkező leveleket vagy a spam mappát.",
+  "auth.googlePassNote": "Fiókja össze van kapcsolva a Google bejelentkezéssel. A jelszó és a hitelesítési adatok kezelése közvetlenül az Ön Google Fiókján keresztül történik.",
+  "auth.manageGoogleSecurity": "A Google Fiók biztonságának kezelése",
+  "auth.passResetDestination": "A biztonságos jelszó-visszaállítási linket a rendszer elküldi a következő címre:",
+  "auth.passResetInstructions": "Az e-mailben található hivatkozásra kattintva biztonságosan beállíthat új jelszót a böngészőjében.",
+  "auth.sendChangePassLink": "Jelszó-visszaállítási e-mail küldése"
 }

@@ -2495,5 +2495,14 @@
   "auth.deleteConfirmBtn": "Hesabı Kalıcı Olarak Sil",
   "auth.deleteCancelBtn": "İptal etmek",
   "auth.deleteSuccess": "Hesap başarıyla silindi.",
-  "auth.deleteReauthRequired": "Güvenlik nedeniyle oturum açma oturumunuzun süresi doldu. Lütfen hesabınızı silmeden önce oturumu kapatıp tekrar oturum açın."
+  "auth.deleteReauthRequired": "Güvenlik nedeniyle oturum açma oturumunuzun süresi doldu. Lütfen hesabınızı silmeden önce oturumu kapatıp tekrar oturum açın.",
+  "auth.changePassword": "Şifre değiştir",
+  "auth.changePassTitle": "Şifre değiştir",
+  "auth.changePassSubtitle": "Hesap şifrenizi e-posta doğrulama yoluyla güvenli bir şekilde güncelleyin.",
+  "auth.changePassEmailSent": "Şifre sıfırlama bağlantısı e-postanıza gönderildi. Lütfen gelen kutunuzu veya spam klasörünüzü kontrol edin.",
+  "auth.googlePassNote": "Hesabınız Google Oturum Açma'ya bağlı. Şifre ve kimlik doğrulama bilgileri doğrudan Google Hesabınız üzerinden yönetilir.",
+  "auth.manageGoogleSecurity": "Google Hesap Güvenliğini Yönetin",
+  "auth.passResetDestination": "Güvenli bir şifre sıfırlama bağlantısı şu adrese gönderilecektir:",
+  "auth.passResetInstructions": "E-postanızdaki bağlantıya tıklamak, tarayıcınızda güvenli bir şekilde yeni bir şifre belirlemenize olanak tanır.",
+  "auth.sendChangePassLink": "Şifre Sıfırlama E-postası Gönder"
 }

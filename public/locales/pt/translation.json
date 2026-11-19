@@ -2495,5 +2495,14 @@
   "auth.deleteConfirmBtn": "Excluir conta permanentemente",
   "auth.deleteCancelBtn": "Cancelar",
   "auth.deleteSuccess": "A conta foi excluída com sucesso.",
-  "auth.deleteReauthRequired": "Por motivos de segurança, sua sessão de login expirou. Saia e faça login novamente antes de excluir sua conta."
+  "auth.deleteReauthRequired": "Por motivos de segurança, sua sessão de login expirou. Saia e faça login novamente antes de excluir sua conta.",
+  "auth.changePassword": "Alterar a senha",
+  "auth.changePassTitle": "Alterar a senha",
+  "auth.changePassSubtitle": "Atualize a senha da sua conta com segurança por meio de verificação por e-mail.",
+  "auth.changePassEmailSent": "Link de redefinição de senha enviado para seu e-mail. Verifique sua caixa de entrada ou pasta de spam.",
+  "auth.googlePassNote": "Sua conta está vinculada ao Login do Google. A senha e as credenciais de autenticação são gerenciadas diretamente pela sua Conta do Google.",
+  "auth.manageGoogleSecurity": "Gerenciar a segurança da Conta do Google",
+  "auth.passResetDestination": "Um link seguro de redefinição de senha será enviado para:",
+  "auth.passResetInstructions": "Clicar no link em seu e-mail permitirá que você defina uma nova senha com segurança em seu navegador.",
+  "auth.sendChangePassLink": "Enviar e-mail de redefinição de senha"
 }

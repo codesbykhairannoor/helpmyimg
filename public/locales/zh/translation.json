@@ -2494,5 +2494,14 @@
   "auth.deleteConfirmBtn": "永久删除帐户",
   "auth.deleteCancelBtn": "取消",
   "auth.deleteSuccess": "帐户已成功删除。",
-  "auth.deleteReauthRequired": "出于安全原因，您的登录会话已过期。 请先退出并重新登录，然后再删除您的帐户。"
+  "auth.deleteReauthRequired": "出于安全原因，您的登录会话已过期。 请先退出并重新登录，然后再删除您的帐户。",
+  "auth.changePassword": "更改密码",
+  "auth.changePassTitle": "更改密码",
+  "auth.changePassSubtitle": "通过电子邮件验证安全地更新您的帐户密码。",
+  "auth.changePassEmailSent": "密码重置链接已发送到您的电子邮件。 请检查您的收件箱或垃圾邮件文件夹。",
+  "auth.googlePassNote": "您的帐户已与 Google 登录关联。 密码和身份验证凭据直接通过您的 Google 帐户进行管理。",
+  "auth.manageGoogleSecurity": "管理 Google 帐户安全",
+  "auth.passResetDestination": "安全密码重置链接将发送至：",
+  "auth.passResetInstructions": "单击电子邮件中的链接将允许您在浏览器中安全地设置新密码。",
+  "auth.sendChangePassLink": "发送密码重置电子邮件"
 }

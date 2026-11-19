@@ -1,0 +1,193 @@
+// src/components/auth/ChangePasswordModal.tsx
+// Modal ganti / reset kata sandi untuk pengguna yang sedang login
+
+import React, { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { KeyRound, Mail, X, CheckCircle2, AlertCircle, Loader2, Send, ExternalLink } from 'lucide-react';
+import { useAuth } from '../../context/AuthContext';
+import { useTranslation } from '../../context/LanguageContext';
+
+interface ChangePasswordModalProps {
+  isOpen: boolean;
+  onClose: () => void;
+}
+
+export const ChangePasswordModal: React.FC<ChangePasswordModalProps> = ({ isOpen, onClose }) => {
+  const { user, sendPasswordReset } = useAuth();
+  const { t } = useTranslation();
+
+  const [loading, setLoading] = useState(false);
+  const [successMsg, setSuccessMsg] = useState<string | null>(null);
+  const [errorMsg, setErrorMsg] = useState<string | null>(null);
+  const [cooldown, setCooldown] = useState(0);
+
+  useEffect(() => {
+    if (cooldown <= 0) return;
+    const timer = setInterval(() => {
+      setCooldown((prev) => Math.max(0, prev - 1));
+    }, 1000);
+    return () => clearInterval(timer);
+  }, [cooldown]);
+
+  if (!isOpen || !user) return null;
+
+  const isGoogleUser = user.providerData?.some((p: any) => p.providerId === 'google.com');
+
+  const handleSendReset = async () => {
+    if (!user.email || cooldown > 0) return;
+    setLoading(true);
+    setErrorMsg(null);
+    setSuccessMsg(null);
+
+    try {
+      await sendPasswordReset(user.email);
+      setCooldown(60);
+      setSuccessMsg(
+        t('auth.changePassEmailSent', {
+          defaultValue: 'Password reset link sent to your email. Please check your inbox or spam folder.',
+        })
+      );
+    } catch (err: any) {
+      setErrorMsg(err?.message || 'Failed to send password reset email. Please try again.');
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  return (
+    <AnimatePresence>
+      <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
+        {/* Backdrop */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          onClick={() => {
+            if (!loading) onClose();
+          }}
+          className="fixed inset-0 bg-black/60 backdrop-blur-sm"
+        />
+
+        {/* Modal Window */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.95, y: 10 }}
+          animate={{ opacity: 1, scale: 1, y: 0 }}
+          exit={{ opacity: 0, scale: 0.95, y: 10 }}
+          transition={{ duration: 0.2 }}
+          className="relative w-full max-w-md bg-white dark:bg-dark-800 rounded-2xl shadow-2xl border border-slate-200 dark:border-slate-700/80 p-6 md:p-8 z-10 overflow-hidden"
+        >
+          {/* Close button */}
+          <button
+            onClick={() => {
+              if (!loading) onClose();
+            }}
+            disabled={loading}
+            className="absolute top-4 right-4 p-2 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 rounded-full hover:bg-slate-100 dark:hover:bg-slate-700/50 transition-colors cursor-pointer"
+            aria-label="Close"
+          >
+            <X className="w-5 h-5" />
+          </button>
+
+          {/* Header */}
+          <div className="text-center mb-5">
+            <div className="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-cyan-50 dark:bg-cyan-950/40 text-[#05DAED] mb-3 border border-cyan-100 dark:border-cyan-800/40">
+              <KeyRound className="w-6 h-6" />
+            </div>
+            <h3 className="text-xl font-bold text-slate-900 dark:text-white">
+              {t('auth.changePassTitle', { defaultValue: 'Change Password' })}
+            </h3>
+            <p className="text-sm text-slate-500 dark:text-slate-400 mt-1">
+              {t('auth.changePassSubtitle', {
+                defaultValue: 'Securely update your account password via email verification.',
+              })}
+            </p>
+          </div>
+
+          {/* Error Message */}
+          {errorMsg && (
+            <div className="mb-4 p-3 rounded-lg bg-rose-50 dark:bg-rose-950/40 border border-rose-200 dark:border-rose-800/50 flex items-start gap-2.5 text-xs text-rose-600 dark:text-rose-400">
+              <AlertCircle className="w-4 h-4 shrink-0 mt-0.5" />
+              <span>{errorMsg}</span>
+            </div>
+          )}
+
+          {/* Success Message */}
+          {successMsg && (
+            <div className="mb-4 p-3 rounded-lg bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-200 dark:border-emerald-800/50 flex items-start gap-2.5 text-xs text-emerald-600 dark:text-emerald-400">
+              <CheckCircle2 className="w-4 h-4 shrink-0 mt-0.5" />
+              <span>{successMsg}</span>
+            </div>
+          )}
+
+          {/* Case 1: Google Authenticated User */}
+          {isGoogleUser ? (
+            <div className="space-y-4 py-2">
+              <div className="p-4 bg-slate-50 dark:bg-dark-900/70 border border-slate-200 dark:border-slate-700/80 rounded-2xl text-center">
+                <p className="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+                  {t('auth.googlePassNote', {
+                    defaultValue:
+                      'Your account is linked with Google Sign-In. Password and authentication credentials are managed directly through your Google Account.',
+                  })}
+                </p>
+              </div>
+
+              <a
+                href="https://myaccount.google.com/security"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full py-2.5 px-4 bg-slate-100 hover:bg-slate-200 dark:bg-dark-700 dark:hover:bg-dark-600 text-slate-700 dark:text-slate-200 font-semibold text-xs rounded-xl border border-slate-300 dark:border-dark-600 transition-all flex items-center justify-center gap-2 cursor-pointer"
+              >
+                <span>{t('auth.manageGoogleSecurity', { defaultValue: 'Manage Google Account Security' })}</span>
+                <ExternalLink className="w-3.5 h-3.5" />
+              </a>
+            </div>
+          ) : (
+            /* Case 2: Email & Password User */
+            <div className="space-y-4 py-1">
+              <div className="p-4 bg-slate-50 dark:bg-dark-900/70 border border-slate-200 dark:border-slate-700/80 rounded-2xl text-center space-y-1.5">
+                <p className="text-xs text-slate-500 dark:text-slate-400 font-medium">
+                  {t('auth.passResetDestination', { defaultValue: 'A secure password reset link will be sent to:' })}
+                </p>
+                <div className="flex items-center justify-center gap-1.5 text-sm font-bold text-slate-800 dark:text-white break-all">
+                  <Mail className="w-4 h-4 text-cyan-600 dark:text-[#05DAED] shrink-0" />
+                  <span>{user.email}</span>
+                </div>
+                <p className="text-[11px] text-slate-500 dark:text-slate-400 pt-2 border-t border-slate-200 dark:border-slate-800 leading-relaxed">
+                  {t('auth.passResetInstructions', {
+                    defaultValue:
+                      'Clicking the link in your email will allow you to set a new password safely in your browser.',
+                  })}
+                </p>
+              </div>
+
+              <div className="pt-2">
+                <button
+                  type="button"
+                  onClick={handleSendReset}
+                  disabled={loading || cooldown > 0}
+                  className="w-full py-3 px-4 bg-gradient-to-r from-[#05DAED] to-[#12DA91] text-dark-900 font-extrabold text-sm rounded-xl shadow-md hover:brightness-105 active:scale-[0.99] transition-all flex items-center justify-center gap-2 cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
+                >
+                  {loading ? (
+                    <>
+                      <Loader2 className="w-4 h-4 animate-spin text-dark-900" />
+                      <span>{t('auth.sendingReset', { defaultValue: 'Sending link...' })}</span>
+                    </>
+                  ) : (
+                    <>
+                      <Send className="w-4 h-4 text-dark-900" />
+                      <span>
+                        {cooldown > 0
+                          ? `${t('auth.resendCooldown', { defaultValue: 'Resend in' })} ${cooldown}s`
+                          : t('auth.sendChangePassLink', { defaultValue: 'Send Password Reset Email' })}
+                      </span>
+                    </>
+                  )}
+                </button>
+              </div>
+            </div>
+          )}
+        </motion.div>
+      </div>
+    </AnimatePresence>
+  );
+};

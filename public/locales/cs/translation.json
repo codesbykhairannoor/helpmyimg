@@ -2495,5 +2495,14 @@
   "auth.deleteConfirmBtn": "Trvale smazat účet",
   "auth.deleteCancelBtn": "Zrušit",
   "auth.deleteSuccess": "Účet byl úspěšně smazán.",
-  "auth.deleteReauthRequired": "Z bezpečnostních důvodů vaše přihlašovací relace vypršela. Před smazáním účtu se prosím odhlaste a znovu přihlaste."
+  "auth.deleteReauthRequired": "Z bezpečnostních důvodů vaše přihlašovací relace vypršela. Před smazáním účtu se prosím odhlaste a znovu přihlaste.",
+  "auth.changePassword": "Změnit heslo",
+  "auth.changePassTitle": "Změnit heslo",
+  "auth.changePassSubtitle": "Bezpečně aktualizujte heslo k účtu prostřednictvím ověření e-mailem.",
+  "auth.changePassEmailSent": "Odkaz pro obnovení hesla byl odeslán na váš e-mail. Zkontrolujte prosím svou doručenou poštu nebo složku se spamem.",
+  "auth.googlePassNote": "Váš účet je propojen s Google Sign-In. Heslo a ověřovací údaje se spravují přímo prostřednictvím vašeho účtu Google.",
+  "auth.manageGoogleSecurity": "Správa zabezpečení účtu Google",
+  "auth.passResetDestination": "Zabezpečený odkaz pro resetování hesla bude odeslán na adresu:",
+  "auth.passResetInstructions": "Kliknutím na odkaz ve vašem e-mailu vám umožní bezpečně nastavit nové heslo ve vašem prohlížeči.",
+  "auth.sendChangePassLink": "Odeslat e-mail pro resetování hesla"
 }

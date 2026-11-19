@@ -2500,5 +2500,14 @@
   "auth.deleteConfirmBtn": "Trwale usuń konto",
   "auth.deleteCancelBtn": "Anulować",
   "auth.deleteSuccess": "Konto zostało pomyślnie usunięte.",
-  "auth.deleteReauthRequired": "Ze względów bezpieczeństwa Twoja sesja logowania wygasła. Przed usunięciem konta wyloguj się i zaloguj ponownie."
+  "auth.deleteReauthRequired": "Ze względów bezpieczeństwa Twoja sesja logowania wygasła. Przed usunięciem konta wyloguj się i zaloguj ponownie.",
+  "auth.changePassword": "Zmień hasło",
+  "auth.changePassTitle": "Zmień hasło",
+  "auth.changePassSubtitle": "Bezpiecznie zaktualizuj hasło do swojego konta poprzez weryfikację e-mailową.",
+  "auth.changePassEmailSent": "Link do resetowania hasła wysłany na Twój e-mail. Sprawdź swoją skrzynkę odbiorczą lub folder ze spamem.",
+  "auth.googlePassNote": "Twoje konto jest połączone z logowaniem Google. Hasłem i danymi uwierzytelniającymi zarządzasz bezpośrednio poprzez swoje konto Google.",
+  "auth.manageGoogleSecurity": "Zarządzaj bezpieczeństwem konta Google",
+  "auth.passResetDestination": "Link do bezpiecznego resetowania hasła zostanie wysłany na adres:",
+  "auth.passResetInstructions": "Kliknięcie linku w wiadomości e-mail umożliwi Ci bezpieczne ustawienie nowego hasła w przeglądarce.",
+  "auth.sendChangePassLink": "Wyślij e-mail dotyczący resetowania hasła"
 }

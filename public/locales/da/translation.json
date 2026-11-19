@@ -2495,5 +2495,14 @@
   "auth.deleteConfirmBtn": "Slet konto permanent",
   "auth.deleteCancelBtn": "Ophæve",
   "auth.deleteSuccess": "Kontoen er blevet slettet.",
-  "auth.deleteReauthRequired": "Af sikkerhedsmæssige årsager er din login-session udløbet. Log venligst ud og log ind igen, før du sletter din konto."
+  "auth.deleteReauthRequired": "Af sikkerhedsmæssige årsager er din login-session udløbet. Log venligst ud og log ind igen, før du sletter din konto.",
+  "auth.changePassword": "Skift adgangskode",
+  "auth.changePassTitle": "Skift adgangskode",
+  "auth.changePassSubtitle": "Opdater din kontos adgangskode sikkert via e-mailbekræftelse.",
+  "auth.changePassEmailSent": "Link til nulstilling af adgangskode sendt til din e-mail. Tjek venligst din indbakke eller spam-mappe.",
+  "auth.googlePassNote": "Din konto er knyttet til Google Log-In. Adgangskode og godkendelsesoplysninger administreres direkte via din Google-konto.",
+  "auth.manageGoogleSecurity": "Administrer Google-kontosikkerhed",
+  "auth.passResetDestination": "Et sikkert link til nulstilling af adgangskode vil blive sendt til:",
+  "auth.passResetInstructions": "Hvis du klikker på linket i din e-mail, kan du indstille en ny adgangskode sikkert i din browser.",
+  "auth.sendChangePassLink": "Send e-mail til nulstilling af adgangskode"
 }

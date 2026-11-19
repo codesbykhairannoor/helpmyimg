@@ -2503,5 +2503,14 @@
   "auth.deleteConfirmBtn": "Permanently Delete Account",
   "auth.deleteCancelBtn": "Cancel",
   "auth.deleteSuccess": "Account has been successfully deleted.",
-  "auth.deleteReauthRequired": "For security reasons, your login session has expired. Please sign out and sign in again before deleting your account."
+  "auth.deleteReauthRequired": "For security reasons, your login session has expired. Please sign out and sign in again before deleting your account.",
+  "auth.changePassword": "Change Password",
+  "auth.changePassTitle": "Change Password",
+  "auth.changePassSubtitle": "Securely update your account password via email verification.",
+  "auth.changePassEmailSent": "Password reset link sent to your email. Please check your inbox or spam folder.",
+  "auth.googlePassNote": "Your account is linked with Google Sign-In. Password and authentication credentials are managed directly through your Google Account.",
+  "auth.manageGoogleSecurity": "Manage Google Account Security",
+  "auth.passResetDestination": "A secure password reset link will be sent to:",
+  "auth.passResetInstructions": "Clicking the link in your email will allow you to set a new password safely in your browser.",
+  "auth.sendChangePassLink": "Send Password Reset Email"
 }

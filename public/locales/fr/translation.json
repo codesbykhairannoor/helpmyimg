@@ -2495,5 +2495,14 @@
   "auth.deleteConfirmBtn": "Supprimer définitivement le compte",
   "auth.deleteCancelBtn": "Annuler",
   "auth.deleteSuccess": "Le compte a été supprimé avec succès.",
-  "auth.deleteReauthRequired": "Pour des raisons de sécurité, votre session de connexion a expiré. Veuillez vous déconnecter et vous reconnecter avant de supprimer votre compte."
+  "auth.deleteReauthRequired": "Pour des raisons de sécurité, votre session de connexion a expiré. Veuillez vous déconnecter et vous reconnecter avant de supprimer votre compte.",
+  "auth.changePassword": "Changer le mot de passe",
+  "auth.changePassTitle": "Changer le mot de passe",
+  "auth.changePassSubtitle": "Mettez à jour en toute sécurité le mot de passe de votre compte via une vérification par e-mail.",
+  "auth.changePassEmailSent": "Lien de réinitialisation du mot de passe envoyé à votre adresse e-mail. Veuillez vérifier votre boîte de réception ou votre dossier spam.",
+  "auth.googlePassNote": "Votre compte est lié à Google Sign-In. Le mot de passe et les informations d'authentification sont gérés directement via votre compte Google.",
+  "auth.manageGoogleSecurity": "Gérer la sécurité du compte Google",
+  "auth.passResetDestination": "Un lien sécurisé de réinitialisation du mot de passe sera envoyé à :",
+  "auth.passResetInstructions": "En cliquant sur le lien dans votre e-mail, vous pourrez définir un nouveau mot de passe en toute sécurité dans votre navigateur.",
+  "auth.sendChangePassLink": "Envoyer un e-mail de réinitialisation du mot de passe"
 }

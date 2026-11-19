@@ -2495,5 +2495,14 @@
   "auth.deleteConfirmBtn": "Slett konto permanent",
   "auth.deleteCancelBtn": "Kansellere",
   "auth.deleteSuccess": "Kontoen er slettet.",
-  "auth.deleteReauthRequired": "Av sikkerhetsgrunner har påloggingsøkten din utløpt. Logg av og logg på igjen før du sletter kontoen din."
+  "auth.deleteReauthRequired": "Av sikkerhetsgrunner har påloggingsøkten din utløpt. Logg av og logg på igjen før du sletter kontoen din.",
+  "auth.changePassword": "Endre passord",
+  "auth.changePassTitle": "Endre passord",
+  "auth.changePassSubtitle": "Oppdater kontopassordet ditt på en sikker måte via e-postbekreftelse.",
+  "auth.changePassEmailSent": "Link for tilbakestilling av passord sendt til e-posten din. Vennligst sjekk innboksen eller søppelpostmappen.",
+  "auth.googlePassNote": "Kontoen din er knyttet til Google-pålogging. Passord og autentiseringslegitimasjon administreres direkte gjennom Google-kontoen din.",
+  "auth.manageGoogleSecurity": "Administrer Google-kontosikkerhet",
+  "auth.passResetDestination": "En sikker lenke for tilbakestilling av passord vil bli sendt til:",
+  "auth.passResetInstructions": "Ved å klikke på lenken i e-posten din kan du sette et nytt passord trygt i nettleseren din.",
+  "auth.sendChangePassLink": "Send e-post for tilbakestilling av passord"
 }

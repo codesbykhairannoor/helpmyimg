@@ -2495,5 +2495,14 @@
   "auth.deleteConfirmBtn": "Poista tili pysyvästi",
   "auth.deleteCancelBtn": "Peruuttaa",
   "auth.deleteSuccess": "Tili on poistettu onnistuneesti.",
-  "auth.deleteReauthRequired": "Turvallisuussyistä kirjautumisistuntosi on vanhentunut. Kirjaudu ulos ja kirjaudu sisään uudelleen ennen tilisi poistamista."
+  "auth.deleteReauthRequired": "Turvallisuussyistä kirjautumisistuntosi on vanhentunut. Kirjaudu ulos ja kirjaudu sisään uudelleen ennen tilisi poistamista.",
+  "auth.changePassword": "Vaihda salasana",
+  "auth.changePassTitle": "Vaihda salasana",
+  "auth.changePassSubtitle": "Päivitä tilisi salasana turvallisesti sähköpostivahvistuksen avulla.",
+  "auth.changePassEmailSent": "Salasanan palautuslinkki lähetetty sähköpostiisi. Tarkista postilaatikkosi tai roskapostikansiosi.",
+  "auth.googlePassNote": "Tilisi on yhdistetty Google-sisäänkirjautumiseen. Salasanaa ja todennustietoja hallitaan suoraan Google-tilisi kautta.",
+  "auth.manageGoogleSecurity": "Hallinnoi Google-tilin suojausta",
+  "auth.passResetDestination": "Suojattu salasanan palautuslinkki lähetetään osoitteeseen:",
+  "auth.passResetInstructions": "Napsauttamalla sähköpostissasi olevaa linkkiä voit asettaa uuden salasanan turvallisesti selaimessasi.",
+  "auth.sendChangePassLink": "Lähetä salasanan palautusviesti"
 }

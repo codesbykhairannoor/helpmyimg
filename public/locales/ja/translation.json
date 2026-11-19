@@ -2495,5 +2495,14 @@
   "auth.deleteConfirmBtn": "アカウントを完全に削除",
   "auth.deleteCancelBtn": "キャンセル",
   "auth.deleteSuccess": "アカウントは正常に削除されました。",
-  "auth.deleteReauthRequired": "セキュリティ上の理由により、ログイン セッションの有効期限が切れました。 アカウントを削除する前に、サインアウトして再度サインインしてください。"
+  "auth.deleteReauthRequired": "セキュリティ上の理由により、ログイン セッションの有効期限が切れました。 アカウントを削除する前に、サインアウトして再度サインインしてください。",
+  "auth.changePassword": "パスワードを変更する",
+  "auth.changePassTitle": "パスワードを変更する",
+  "auth.changePassSubtitle": "電子メール認証を通じてアカウントのパスワードを安全に更新します。",
+  "auth.changePassEmailSent": "パスワードのリセットリンクがメールに送信されます。 受信箱またはスパムフォルダーを確認してください。",
+  "auth.googlePassNote": "アカウントは Google サインインにリンクされています。 パスワードと認証資格情報は、Google アカウントを通じて直接管理されます。",
+  "auth.manageGoogleSecurity": "Google アカウントのセキュリティを管理する",
+  "auth.passResetDestination": "安全なパスワード リセット リンクが次の宛先に送信されます。",
+  "auth.passResetInstructions": "メール内のリンクをクリックすると、ブラウザで新しいパスワードを安全に設定できます。",
+  "auth.sendChangePassLink": "パスワードリセットメールを送信する"
 }

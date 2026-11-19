@@ -2495,5 +2495,14 @@
   "auth.deleteConfirmBtn": "Padam Akaun Secara Kekal",
   "auth.deleteCancelBtn": "Batal",
   "auth.deleteSuccess": "Akaun telah berjaya dipadamkan.",
-  "auth.deleteReauthRequired": "Atas sebab keselamatan, sesi log masuk anda telah tamat tempoh. Sila log keluar dan log masuk semula sebelum memadamkan akaun anda."
+  "auth.deleteReauthRequired": "Atas sebab keselamatan, sesi log masuk anda telah tamat tempoh. Sila log keluar dan log masuk semula sebelum memadamkan akaun anda.",
+  "auth.changePassword": "Tukar Kata Laluan",
+  "auth.changePassTitle": "Tukar Kata Laluan",
+  "auth.changePassSubtitle": "Kemas kini kata laluan akaun anda dengan selamat melalui pengesahan e-mel.",
+  "auth.changePassEmailSent": "Pautan tetapan semula kata laluan dihantar ke e-mel anda. Sila semak peti masuk atau folder spam anda.",
+  "auth.googlePassNote": "Akaun anda dipautkan dengan Log Masuk Google. Kata laluan dan bukti kelayakan pengesahan diuruskan terus melalui Akaun Google anda.",
+  "auth.manageGoogleSecurity": "Urus Keselamatan Akaun Google",
+  "auth.passResetDestination": "Pautan tetapan semula kata laluan yang selamat akan dihantar ke:",
+  "auth.passResetInstructions": "Mengklik pautan dalam e-mel anda akan membolehkan anda menetapkan kata laluan baharu dengan selamat dalam penyemak imbas anda.",
+  "auth.sendChangePassLink": "Hantar E-mel Tetapan Semula Kata Laluan"
 }

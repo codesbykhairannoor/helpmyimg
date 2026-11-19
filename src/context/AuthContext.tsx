@@ -295,24 +295,27 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
         ? window.location.origin
         : 'https://helpmyimg.com';
 
-    // Panggil serverless custom branded Resend API (gunakan trailing slash agar sesuai vercel.json)
-    const response = await fetch('/api/reset-password/', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ email: email.trim(), origin }),
-    });
+    const currentLang = typeof window !== 'undefined' ? (localStorage.getItem('i18nextLng') || 'en') : 'en';
+    auth.languageCode = currentLang.split('-')[0] || 'en';
 
-    const data = await response.json().catch(() => ({}));
-
-    if (!response.ok) {
-      const err = new Error(data.error || 'Failed to send password reset email');
-      if (response.status === 404) {
-        (err as any).code = 'auth/user-not-found';
-      } else if (response.status === 429) {
-        (err as any).code = 'auth/too-many-requests';
-      }
-      throw err;
+    // 1. Coba serverless custom branded Resend API jika endpoint tersedia
+    try {
+      const response = await fetch('/api/reset-password/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email: email.trim(), origin }),
+      });
+      if (response.ok) return;
+    } catch {
+      // Endpoint lokal/offline: fallback otomatis ke Firebase native
     }
+
+    // 2. Fallback aman ke Firebase native sendPasswordResetEmail dengan actionCodeSettings
+    const actionCodeSettings = {
+      url: `${origin}/?mode=resetPassword`,
+      handleCodeInApp: true,
+    };
+    await sendPasswordResetEmail(auth, email.trim(), actionCodeSettings);
   };
 
   const confirmNewPassword = async (oobCode: string, newPassword: string) => {

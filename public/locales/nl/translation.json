@@ -2495,5 +2495,14 @@
   "auth.deleteConfirmBtn": "Account definitief verwijderen",
   "auth.deleteCancelBtn": "Annuleren",
   "auth.deleteSuccess": "Account is succesvol verwijderd.",
-  "auth.deleteReauthRequired": "Om veiligheidsredenen is uw inlogsessie verlopen. Meld u af en opnieuw aan voordat u uw account verwijdert."
+  "auth.deleteReauthRequired": "Om veiligheidsredenen is uw inlogsessie verlopen. Meld u af en opnieuw aan voordat u uw account verwijdert.",
+  "auth.changePassword": "Wachtwoord wijzigen",
+  "auth.changePassTitle": "Wachtwoord wijzigen",
+  "auth.changePassSubtitle": "Werk uw accountwachtwoord veilig bij via e-mailverificatie.",
+  "auth.changePassEmailSent": "Link voor het opnieuw instellen van uw wachtwoord verzonden naar uw e-mailadres. Controleer uw inbox of spammap.",
+  "auth.googlePassNote": "Uw account is gekoppeld aan Google Sign-In. Wachtwoord- en authenticatiegegevens worden rechtstreeks via uw Google-account beheerd.",
+  "auth.manageGoogleSecurity": "Beheer Google-accountbeveiliging",
+  "auth.passResetDestination": "Er wordt een beveiligde link voor het opnieuw instellen van het wachtwoord verzonden naar:",
+  "auth.passResetInstructions": "Als u op de link in uw e-mail klikt, kunt u veilig een nieuw wachtwoord in uw browser instellen.",
+  "auth.sendChangePassLink": "Stuur een e-mail voor het opnieuw instellen van uw wachtwoord"
 }

@@ -2495,5 +2495,14 @@
   "auth.deleteConfirmBtn": "Elimina definitivamente l'account",
   "auth.deleteCancelBtn": "Cancellare",
   "auth.deleteSuccess": "L'account è stato eliminato con successo.",
-  "auth.deleteReauthRequired": "Per motivi di sicurezza, la tua sessione di accesso è scaduta. Esci e accedi nuovamente prima di eliminare il tuo account."
+  "auth.deleteReauthRequired": "Per motivi di sicurezza, la tua sessione di accesso è scaduta. Esci e accedi nuovamente prima di eliminare il tuo account.",
+  "auth.changePassword": "Cambiare la password",
+  "auth.changePassTitle": "Cambiare la password",
+  "auth.changePassSubtitle": "Aggiorna in modo sicuro la password del tuo account tramite verifica e-mail.",
+  "auth.changePassEmailSent": "Link per la reimpostazione della password inviato alla tua email. Controlla la tua casella di posta o la cartella spam.",
+  "auth.googlePassNote": "Il tuo account è collegato all'accesso con Google. La password e le credenziali di autenticazione vengono gestite direttamente tramite il tuo Account Google.",
+  "auth.manageGoogleSecurity": "Gestisci la sicurezza dell'account Google",
+  "auth.passResetDestination": "Un collegamento sicuro per la reimpostazione della password verrà inviato a:",
+  "auth.passResetInstructions": "Facendo clic sul collegamento nella tua email potrai impostare una nuova password in modo sicuro nel tuo browser.",
+  "auth.sendChangePassLink": "Invia e-mail di reimpostazione della password"
 }

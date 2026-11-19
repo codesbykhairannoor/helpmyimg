@@ -2495,5 +2495,14 @@
   "auth.deleteConfirmBtn": "Konto dauerhaft löschen",
   "auth.deleteCancelBtn": "Stornieren",
   "auth.deleteSuccess": "Das Konto wurde erfolgreich gelöscht.",
-  "auth.deleteReauthRequired": "Aus Sicherheitsgründen ist Ihre Anmeldesitzung abgelaufen. Bitte melden Sie sich ab und erneut an, bevor Sie Ihr Konto löschen."
+  "auth.deleteReauthRequired": "Aus Sicherheitsgründen ist Ihre Anmeldesitzung abgelaufen. Bitte melden Sie sich ab und erneut an, bevor Sie Ihr Konto löschen.",
+  "auth.changePassword": "Kennwort ändern",
+  "auth.changePassTitle": "Kennwort ändern",
+  "auth.changePassSubtitle": "Aktualisieren Sie Ihr Kontopasswort sicher per E-Mail-Bestätigung.",
+  "auth.changePassEmailSent": "Der Link zum Zurücksetzen des Passworts wurde an Ihre E-Mail-Adresse gesendet. Bitte überprüfen Sie Ihren Posteingang oder Spam-Ordner.",
+  "auth.googlePassNote": "Ihr Konto ist mit der Google-Anmeldung verknüpft. Passwörter und Authentifizierungsdaten werden direkt über Ihr Google-Konto verwaltet.",
+  "auth.manageGoogleSecurity": "Verwalten Sie die Sicherheit Ihres Google-Kontos",
+  "auth.passResetDestination": "Ein sicherer Link zum Zurücksetzen des Passworts wird gesendet an:",
+  "auth.passResetInstructions": "Durch Klicken auf den Link in Ihrer E-Mail können Sie sicher in Ihrem Browser ein neues Passwort festlegen.",
+  "auth.sendChangePassLink": "Senden Sie eine E-Mail zum Zurücksetzen des Passworts"
 }

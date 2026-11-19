@@ -2538,5 +2538,14 @@
   "auth.deleteConfirmBtn": "Hapus Akun Sekarang",
   "auth.deleteCancelBtn": "Batal",
   "auth.deleteSuccess": "Akun berhasil dihapus.",
-  "auth.deleteReauthRequired": "Demi keamanan, sesi login Anda telah kedaluwarsa. Silakan keluar dan masuk kembali sebelum menghapus akun."
+  "auth.deleteReauthRequired": "Demi keamanan, sesi login Anda telah kedaluwarsa. Silakan keluar dan masuk kembali sebelum menghapus akun.",
+  "auth.changePassword": "Ganti Kata Sandi",
+  "auth.changePassTitle": "Ganti Kata Sandi",
+  "auth.changePassSubtitle": "Perbarui kata sandi akun Anda secara aman melalui verifikasi email.",
+  "auth.changePassEmailSent": "Tautan reset kata sandi telah dikirim ke email Anda. Silakan periksa kotak masuk atau folder spam Anda.",
+  "auth.googlePassNote": "Akun Anda terhubung dengan Google Sign-In. Kata sandi dan kredensial autentikasi dikelola langsung melalui Akun Google Anda.",
+  "auth.manageGoogleSecurity": "Kelola Keamanan Akun Google",
+  "auth.passResetDestination": "Tautan pengaturan ulang kata sandi yang aman akan dikirim ke:",
+  "auth.passResetInstructions": "Mengklik tautan di email akan mengizinkan Anda memasukkan kata sandi baru secara aman di browser.",
+  "auth.sendChangePassLink": "Kirim Email Ganti Kata Sandi"
 }

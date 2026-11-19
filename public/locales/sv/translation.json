@@ -2495,5 +2495,14 @@
   "auth.deleteConfirmBtn": "Ta bort konto permanent",
   "auth.deleteCancelBtn": "Avboka",
   "auth.deleteSuccess": "Kontot har raderats.",
-  "auth.deleteReauthRequired": "Av säkerhetsskäl har din inloggningssession gått ut. Logga ut och logga in igen innan du tar bort ditt konto."
+  "auth.deleteReauthRequired": "Av säkerhetsskäl har din inloggningssession gått ut. Logga ut och logga in igen innan du tar bort ditt konto.",
+  "auth.changePassword": "Ändra lösenord",
+  "auth.changePassTitle": "Ändra lösenord",
+  "auth.changePassSubtitle": "Uppdatera ditt kontolösenord på ett säkert sätt via e-postverifiering.",
+  "auth.changePassEmailSent": "Länk för återställning av lösenord skickas till din e-post. Kontrollera din inkorg eller skräppostmapp.",
+  "auth.googlePassNote": "Ditt konto är länkat till Google Inloggning. Lösenord och autentiseringsuppgifter hanteras direkt via ditt Google-konto.",
+  "auth.manageGoogleSecurity": "Hantera Google-kontosäkerhet",
+  "auth.passResetDestination": "En länk för säker lösenordsåterställning kommer att skickas till:",
+  "auth.passResetInstructions": "Genom att klicka på länken i ditt e-postmeddelande kan du ställa in ett nytt lösenord på ett säkert sätt i din webbläsare.",
+  "auth.sendChangePassLink": "Skicka e-post för återställning av lösenord"
 }

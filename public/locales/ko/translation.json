@@ -2495,5 +2495,14 @@
   "auth.deleteConfirmBtn": "계정을 영구적으로 삭제",
   "auth.deleteCancelBtn": "취소",
   "auth.deleteSuccess": "계정이 성공적으로 삭제되었습니다.",
-  "auth.deleteReauthRequired": "보안상의 이유로 로그인 세션이 만료되었습니다. 계정을 삭제하기 전에 로그아웃했다가 다시 로그인하세요."
+  "auth.deleteReauthRequired": "보안상의 이유로 로그인 세션이 만료되었습니다. 계정을 삭제하기 전에 로그아웃했다가 다시 로그인하세요.",
+  "auth.changePassword": "비밀번호 변경",
+  "auth.changePassTitle": "비밀번호 변경",
+  "auth.changePassSubtitle": "이메일 확인을 통해 계정 비밀번호를 안전하게 업데이트하세요.",
+  "auth.changePassEmailSent": "귀하의 이메일로 비밀번호 재설정 링크가 전송되었습니다. 받은 편지함이나 스팸 폴더를 확인해 보세요.",
+  "auth.googlePassNote": "귀하의 계정은 Google 로그인과 연결되어 있습니다. 비밀번호와 인증 정보는 Google 계정을 통해 직접 관리됩니다.",
+  "auth.manageGoogleSecurity": "Google 계정 보안 관리",
+  "auth.passResetDestination": "안전한 비밀번호 재설정 링크가 다음 주소로 전송됩니다:",
+  "auth.passResetInstructions": "이메일에 있는 링크를 클릭하면 브라우저에 안전하게 새 비밀번호를 설정할 수 있습니다.",
+  "auth.sendChangePassLink": "비밀번호 재설정 이메일 보내기"
 }

@@ -2495,5 +2495,14 @@
   "auth.deleteConfirmBtn": "Permanenteng Tanggalin ang Account",
   "auth.deleteCancelBtn": "Kanselahin",
   "auth.deleteSuccess": "Ang account ay matagumpay na natanggal.",
-  "auth.deleteReauthRequired": "Para sa mga kadahilanang pangseguridad, ang iyong session sa pag-log in ay nag-expire na. Mangyaring mag-sign out at mag-sign in muli bago tanggalin ang iyong account."
+  "auth.deleteReauthRequired": "Para sa mga kadahilanang pangseguridad, ang iyong session sa pag-log in ay nag-expire na. Mangyaring mag-sign out at mag-sign in muli bago tanggalin ang iyong account.",
+  "auth.changePassword": "Baguhin ang Password",
+  "auth.changePassTitle": "Baguhin ang Password",
+  "auth.changePassSubtitle": "Ligtas na i-update ang password ng iyong account sa pamamagitan ng email verification.",
+  "auth.changePassEmailSent": "Ipinadala ang link sa pag-reset ng password sa iyong email. Pakisuri ang iyong inbox o spam folder.",
+  "auth.googlePassNote": "Naka-link ang iyong account sa Google Sign-In. Direktang pinamamahalaan ang password at mga kredensyal sa pagpapatotoo sa pamamagitan ng iyong Google Account.",
+  "auth.manageGoogleSecurity": "Pamahalaan ang Google Account Security",
+  "auth.passResetDestination": "Ang isang secure na link sa pag-reset ng password ay ipapadala sa:",
+  "auth.passResetInstructions": "Ang pag-click sa link sa iyong email ay magbibigay-daan sa iyong magtakda ng bagong password nang ligtas sa iyong browser.",
+  "auth.sendChangePassLink": "Magpadala ng Email sa Pag-reset ng Password"
 }

@@ -28,11 +28,13 @@ import {
   ArrowRight,
   ArrowLeft,
   Check,
-  Trash2
+  Trash2,
+  KeyRound
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useAuth } from '../context/AuthContext';
 import { DeleteAccountModal } from './auth/DeleteAccountModal';
+import { ChangePasswordModal } from './auth/ChangePasswordModal';
 import { getToolFromSlug, getLocalizedSlug } from '../utils/urlMapper';
 import { getInfoPageFromSlug, getLocalizedInfoSlug, type InfoPageType } from '../utils/infoUrlMapper';
 // Suppress unused InfoPageType import warning
@@ -129,6 +131,7 @@ export const Navbar: React.FC = () => {
   // User menu & Mobile states
   const [userMenuOpen, setUserMenuOpen] = useState(false);
   const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
+  const [isChangePasswordOpen, setIsChangePasswordOpen] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [mobileSearch, setMobileSearch] = useState('');
   const [mobileLangOpen, setMobileLangOpen] = useState(false);
@@ -533,6 +536,17 @@ export const Navbar: React.FC = () => {
                               <span>{t('auth.upgradeToPro', { defaultValue: 'Upgrade ke PRO' })}</span>
                             </a>
                           )}
+
+                          <button
+                            onClick={() => {
+                              setUserMenuOpen(false);
+                              setIsChangePasswordOpen(true);
+                            }}
+                            className="w-full flex items-center gap-2.5 px-3 py-2 text-xs font-medium rounded-xl text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-700/40 transition-colors cursor-pointer mb-1"
+                          >
+                            <KeyRound className="w-4 h-4 text-cyan-600 dark:text-[#05DAED]" />
+                            <span>{t('auth.changePassword', { defaultValue: 'Ganti Kata Sandi' })}</span>
+                          </button>
 
                           <button
                             onClick={() => {
@@ -1009,6 +1023,16 @@ export const Navbar: React.FC = () => {
                     )}
                     <button
                       onClick={() => {
+                        setMobileMenuOpen(false);
+                        setIsChangePasswordOpen(true);
+                      }}
+                      className="p-1.5 text-cyan-600 dark:text-[#05DAED] hover:bg-cyan-50 dark:hover:bg-cyan-950/30 rounded-lg cursor-pointer"
+                      title={t('auth.changePassword', { defaultValue: 'Ganti Kata Sandi' })}
+                    >
+                      <KeyRound size={16} />
+                    </button>
+                    <button
+                      onClick={() => {
                         signOut();
                       }}
                       className="p-1.5 text-slate-400 hover:text-slate-200 rounded-lg cursor-pointer"
@@ -1272,6 +1296,12 @@ export const Navbar: React.FC = () => {
       <DeleteAccountModal
         isOpen={isDeleteModalOpen}
         onClose={() => setIsDeleteModalOpen(false)}
+      />
+
+      {/* Modal Ganti Kata Sandi untuk Pengguna Login */}
+      <ChangePasswordModal
+        isOpen={isChangePasswordOpen}
+        onClose={() => setIsChangePasswordOpen(false)}
       />
     </>
   );

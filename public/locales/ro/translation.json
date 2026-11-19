@@ -2495,5 +2495,14 @@
   "auth.deleteConfirmBtn": "Ștergeți permanent contul",
   "auth.deleteCancelBtn": "Anula",
   "auth.deleteSuccess": "Contul a fost șters cu succes.",
-  "auth.deleteReauthRequired": "Din motive de securitate, sesiunea dvs. de conectare a expirat. Vă rugăm să vă deconectați și să vă conectați din nou înainte de a vă șterge contul."
+  "auth.deleteReauthRequired": "Din motive de securitate, sesiunea dvs. de conectare a expirat. Vă rugăm să vă deconectați și să vă conectați din nou înainte de a vă șterge contul.",
+  "auth.changePassword": "Schimbaţi parola",
+  "auth.changePassTitle": "Schimbaţi parola",
+  "auth.changePassSubtitle": "Actualizați în siguranță parola contului prin verificarea prin e-mail.",
+  "auth.changePassEmailSent": "Linkul de resetare a parolei a fost trimis pe adresa ta de e-mail. Vă rugăm să verificați căsuța de e-mail sau dosarul de spam.",
+  "auth.googlePassNote": "Contul dvs. este conectat la Google Sign-In. Parola și acreditările de autentificare sunt gestionate direct prin Contul dvs. Google.",
+  "auth.manageGoogleSecurity": "Gestionați securitatea contului Google",
+  "auth.passResetDestination": "Un link securizat de resetare a parolei va fi trimis la:",
+  "auth.passResetInstructions": "Făcând clic pe linkul din e-mailul dvs., vă va permite să setați o nouă parolă în siguranță în browser.",
+  "auth.sendChangePassLink": "Trimite e-mail pentru resetarea parolei"
 }

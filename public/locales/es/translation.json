@@ -2495,5 +2495,14 @@
   "auth.deleteConfirmBtn": "Eliminar cuenta permanentemente",
   "auth.deleteCancelBtn": "Cancelar",
   "auth.deleteSuccess": "La cuenta se ha eliminado correctamente.",
-  "auth.deleteReauthRequired": "Por razones de seguridad, su sesión de inicio de sesión ha caducado. Cierra sesión y vuelve a iniciar sesión antes de eliminar tu cuenta."
+  "auth.deleteReauthRequired": "Por razones de seguridad, su sesión de inicio de sesión ha caducado. Cierra sesión y vuelve a iniciar sesión antes de eliminar tu cuenta.",
+  "auth.changePassword": "Cambiar la contraseña",
+  "auth.changePassTitle": "Cambiar la contraseña",
+  "auth.changePassSubtitle": "Actualice de forma segura la contraseña de su cuenta mediante verificación por correo electrónico.",
+  "auth.changePassEmailSent": "Enlace para restablecer contraseña enviado a su correo electrónico. Por favor revisa tu bandeja de entrada o carpeta de spam.",
+  "auth.googlePassNote": "Su cuenta está vinculada con el inicio de sesión de Google. La contraseña y las credenciales de autenticación se administran directamente a través de su cuenta de Google.",
+  "auth.manageGoogleSecurity": "Administrar la seguridad de la cuenta de Google",
+  "auth.passResetDestination": "Se enviará un enlace seguro para restablecer la contraseña a:",
+  "auth.passResetInstructions": "Al hacer clic en el enlace de su correo electrónico podrá establecer una nueva contraseña de forma segura en su navegador.",
+  "auth.sendChangePassLink": "Enviar correo electrónico para restablecer contraseña"
 }

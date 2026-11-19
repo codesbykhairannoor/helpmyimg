@@ -2495,5 +2495,14 @@
   "auth.deleteConfirmBtn": "מחק חשבון לצמיתות",
   "auth.deleteCancelBtn": "לְבַטֵל",
   "auth.deleteSuccess": "החשבון נמחק בהצלחה.",
-  "auth.deleteReauthRequired": "מטעמי אבטחה, פג תוקף הפעלת הכניסה שלך. אנא צא והיכנס שוב לפני מחיקת חשבונך."
+  "auth.deleteReauthRequired": "מטעמי אבטחה, פג תוקף הפעלת הכניסה שלך. אנא צא והיכנס שוב לפני מחיקת חשבונך.",
+  "auth.changePassword": "שנה סיסמה",
+  "auth.changePassTitle": "שנה סיסמה",
+  "auth.changePassSubtitle": "עדכן בצורה מאובטחת את סיסמת החשבון שלך באמצעות אימות דוא\"ל.",
+  "auth.changePassEmailSent": "קישור לאיפוס סיסמה נשלח למייל שלך. בדוק את תיבת הדואר הנכנס או בתיקיית הספאם שלך.",
+  "auth.googlePassNote": "החשבון שלך מקושר לכניסה של Google. סיסמא ואישורי אימות מנוהלים ישירות דרך חשבון Google שלך.",
+  "auth.manageGoogleSecurity": "נהל את אבטחת חשבון Google",
+  "auth.passResetDestination": "קישור לאיפוס סיסמה מאובטח יישלח אל:",
+  "auth.passResetInstructions": "לחיצה על הקישור בדוא\"ל שלך תאפשר לך להגדיר סיסמה חדשה בבטחה בדפדפן שלך.",
+  "auth.sendChangePassLink": "שלח אימייל לאיפוס סיסמה"
 }
