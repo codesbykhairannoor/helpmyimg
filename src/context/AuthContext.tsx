@@ -13,6 +13,9 @@ import {
   sendEmailVerification,
   applyActionCode,
   deleteUser,
+  EmailAuthProvider,
+  reauthenticateWithCredential,
+  updatePassword,
   signOut as firebaseSignOut,
   onAuthStateChanged,
   type User,
@@ -28,6 +31,9 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
   const [profile, setProfile] = useState<UserProfile | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
   const [isAuthModalOpen, setIsAuthModalOpen] = useState<boolean>(false);
+  const [authModalInitialMode, setAuthModalInitialMode] = useState<
+    'signin' | 'signup' | 'forgot' | 'reset' | 'verifyEmail' | null
+  >(null);
 
   const fetchOrCreateProfile = useCallback(async (firebaseUser: User): Promise<UserProfile> => {
     const fallbackProfile: UserProfile = {
@@ -328,7 +334,38 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     await confirmPasswordReset(auth, oobCode, newPassword);
   };
 
-  const deleteAccount = async () => {
+  const updateUserPassword = async (currentPassword: string, newPassword: string) => {
+    if (!isFirebaseConfigured || !auth || !auth.currentUser) {
+      throw new Error('No user is currently signed in.');
+    }
+    const currentUser = auth.currentUser;
+    if (!currentUser.email) {
+      throw new Error('User has no email associated.');
+    }
+
+    try {
+      const credential = EmailAuthProvider.credential(currentUser.email, currentPassword);
+      await reauthenticateWithCredential(currentUser, credential);
+      await updatePassword(currentUser, newPassword);
+    } catch (err: any) {
+      if (
+        err?.code === 'auth/wrong-password' ||
+        err?.code === 'auth/invalid-credential' ||
+        err?.code === 'auth/invalid-login-credentials'
+      ) {
+        throw new Error('WRONG_PASSWORD');
+      }
+      if (err?.code === 'auth/weak-password') {
+        throw new Error('WEAK_PASSWORD');
+      }
+      if (err?.code === 'auth/requires-recent-login') {
+        throw new Error('REQUIRES_RECENT_LOGIN');
+      }
+      throw err;
+    }
+  };
+
+  const deleteAccount = async (password?: string) => {
     if (!isFirebaseConfigured || !auth || !auth.currentUser) {
       throw new Error('No user is currently signed in.');
     }
@@ -336,6 +373,12 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     const uid = currentUser.uid;
 
     try {
+      const isPasswordProvider = currentUser.providerData.some((p) => p.providerId === 'password');
+      if (isPasswordProvider && password && currentUser.email) {
+        const credential = EmailAuthProvider.credential(currentUser.email, password);
+        await reauthenticateWithCredential(currentUser, credential);
+      }
+
       // 1. Bersihkan dokumen profil pengguna di Firestore
       if (db) {
         try {
@@ -352,6 +395,13 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
       setProfile(null);
       setIsAuthModalOpen(false);
     } catch (err: any) {
+      if (
+        err?.code === 'auth/wrong-password' ||
+        err?.code === 'auth/invalid-credential' ||
+        err?.code === 'auth/invalid-login-credentials'
+      ) {
+        throw new Error('WRONG_PASSWORD');
+      }
       if (err?.code === 'auth/requires-recent-login') {
         throw new Error('REQUIRES_RECENT_LOGIN');
       }
@@ -370,8 +420,14 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     }
   };
 
-  const openAuthModal = () => setIsAuthModalOpen(true);
-  const closeAuthModal = () => setIsAuthModalOpen(false);
+  const openAuthModal = (initialMode?: 'signin' | 'signup' | 'forgot' | 'reset' | 'verifyEmail') => {
+    setAuthModalInitialMode(initialMode || null);
+    setIsAuthModalOpen(true);
+  };
+  const closeAuthModal = () => {
+    setAuthModalInitialMode(null);
+    setIsAuthModalOpen(false);
+  };
 
   const isPro = Boolean(
     profile?.plan === 'pro' &&
@@ -393,10 +449,12 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
         verifyEmailWithCode,
         reloadUser,
         deleteAccount,
+        updateUserPassword,
         sendPasswordReset,
         confirmNewPassword,
         signOut,
         isAuthModalOpen,
+        authModalInitialMode,
         openAuthModal,
         closeAuthModal,
         refreshProfile,

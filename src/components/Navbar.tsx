@@ -452,17 +452,22 @@ export const Navbar: React.FC = () => {
                   className="relative flex items-center gap-2 bg-slate-100 dark:bg-dark-800 hover:bg-slate-200 dark:hover:bg-dark-700 border border-slate-200 dark:border-dark-500/60 pl-1.5 pr-2.5 h-8 sm:h-[38px] rounded-xl text-slate-700 dark:text-slate-200 transition-all duration-200 shadow-sm cursor-pointer"
                   aria-label="User Account"
                 >
-                  {user.photoURL ? (
-                    <img
-                      src={user.photoURL}
-                      alt={user.displayName || 'User'}
-                      className="w-5 h-5 sm:w-6 sm:h-6 rounded-full object-cover ring-1 ring-cyan-500/40"
-                    />
-                  ) : (
-                    <div className="w-5 h-5 sm:w-6 sm:h-6 rounded-full bg-cyan-600 text-white font-bold flex items-center justify-center text-xs">
-                      {(user.displayName || user.email || 'U')[0].toUpperCase()}
-                    </div>
-                  )}
+                  <div className="relative">
+                    {user.photoURL ? (
+                      <img
+                        src={user.photoURL}
+                        alt={user.displayName || 'User'}
+                        className="w-5 h-5 sm:w-6 sm:h-6 rounded-full object-cover ring-1 ring-cyan-500/40"
+                      />
+                    ) : (
+                      <div className="w-5 h-5 sm:w-6 sm:h-6 rounded-full bg-cyan-600 text-white font-bold flex items-center justify-center text-xs">
+                        {(user.displayName || user.email || 'U')[0].toUpperCase()}
+                      </div>
+                    )}
+                    {!user.emailVerified && (
+                      <span className="w-2 h-2 rounded-full bg-rose-500 absolute -top-0.5 -right-0.5 ring-2 ring-white dark:ring-dark-800 animate-pulse" />
+                    )}
+                  </div>
                   <span className="text-[12.5px] sm:text-[13px] font-semibold max-w-[80px] sm:max-w-[90px] truncate hidden md:inline">
                     {user.displayName?.split(' ')[0] || user.email?.split('@')[0]}
                   </span>
@@ -491,12 +496,29 @@ export const Navbar: React.FC = () => {
                       >
                         <div className="px-4 pb-3 border-b border-slate-100 dark:border-dark-700/60">
                           <div className="font-bold text-sm text-slate-900 dark:text-white truncate">
-                            {user.displayName || 'Pengguna'}
+                            {user.displayName || t('auth.accountTitle', { defaultValue: 'Account' })}
                           </div>
                           <div className="text-xs text-slate-500 dark:text-slate-400 truncate">
                             {user.email}
                           </div>
-                          <div className="mt-2 flex items-center justify-between">
+                          {!user.emailVerified && (
+                            <div className="mt-2.5 p-2 rounded-xl bg-rose-50 dark:bg-rose-950/40 border border-rose-200 dark:border-rose-900/60 flex items-center justify-between">
+                              <span className="text-xs font-bold text-rose-600 dark:text-rose-400">
+                                {t('auth.unverified', { defaultValue: 'Unverified' })}
+                              </span>
+                              <button
+                                type="button"
+                                onClick={() => {
+                                  setUserMenuOpen(false);
+                                  openAuthModal('verifyEmail');
+                                }}
+                                className="px-2.5 py-1 text-[11px] font-bold bg-rose-500 hover:bg-rose-600 text-white rounded-lg transition-colors cursor-pointer shadow-xs"
+                              >
+                                {t('auth.verifyBtn', { defaultValue: 'Verify' })}
+                              </button>
+                            </div>
+                          )}
+                          <div className="mt-2.5 flex items-center justify-between">
                             <span className="text-xs text-slate-500 dark:text-slate-400">Status:</span>
                             {isPro ? (
                               <span className="inline-flex items-center gap-1 text-xs font-bold text-amber-500 bg-amber-500/10 px-2 py-0.5 rounded-full border border-amber-500/20">
@@ -504,7 +526,7 @@ export const Navbar: React.FC = () => {
                               </span>
                             ) : (
                               <span className="inline-flex items-center gap-1 text-xs font-medium text-slate-600 dark:text-slate-300 bg-slate-100 dark:bg-slate-700/60 px-2 py-0.5 rounded-full">
-                                Free Plan
+                                {t('auth.freeStarter', { defaultValue: 'Free Starter' })}
                               </span>
                             )}
                           </div>
@@ -986,71 +1008,96 @@ export const Navbar: React.FC = () => {
             <div className="mobile-nav-inner">
               {/* Mobile User Profile Card */}
               {user && (
-                <div className="p-3 rounded-2xl bg-slate-100 dark:bg-dark-800 border border-slate-200 dark:border-dark-600/70 mb-3 flex items-center justify-between">
-                  <div className="flex items-center gap-2.5 min-w-0">
-                    {user.photoURL ? (
-                      <img src={user.photoURL} alt={user.displayName || 'User'} className="w-8 h-8 rounded-full object-cover ring-2 ring-cyan-500/30 shrink-0" />
-                    ) : (
-                      <div className="w-8 h-8 rounded-full bg-cyan-600 text-white font-bold flex items-center justify-center text-xs shrink-0">
-                        {(user.displayName || user.email || 'U')[0].toUpperCase()}
+                <div className="p-3 rounded-2xl bg-slate-100 dark:bg-dark-800 border border-slate-200 dark:border-dark-600/70 mb-3 flex flex-col gap-2">
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center gap-2.5 min-w-0">
+                      <div className="relative">
+                        {user.photoURL ? (
+                          <img src={user.photoURL} alt={user.displayName || 'User'} className="w-8 h-8 rounded-full object-cover ring-2 ring-cyan-500/30 shrink-0" />
+                        ) : (
+                          <div className="w-8 h-8 rounded-full bg-cyan-600 text-white font-bold flex items-center justify-center text-xs shrink-0">
+                            {(user.displayName || user.email || 'U')[0].toUpperCase()}
+                          </div>
+                        )}
+                        {!user.emailVerified && (
+                          <span className="w-2 h-2 rounded-full bg-rose-500 absolute -top-0.5 -right-0.5 ring-2 ring-white dark:ring-dark-800 animate-pulse" />
+                        )}
                       </div>
-                    )}
-                    <div className="min-w-0">
-                      <div className="text-xs font-bold text-slate-900 dark:text-white truncate">
-                        {user.displayName || 'User'}
-                      </div>
-                      <div className="text-[11px] text-slate-500 dark:text-slate-400 truncate">
-                        {user.email}
+                      <div className="min-w-0">
+                        <div className="text-xs font-bold text-slate-900 dark:text-white truncate">
+                          {user.displayName || t('auth.accountTitle', { defaultValue: 'Account' })}
+                        </div>
+                        <div className="text-[11px] text-slate-500 dark:text-slate-400 truncate">
+                          {user.email}
+                        </div>
                       </div>
                     </div>
-                  </div>
-                  <div className="flex items-center gap-2 shrink-0">
-                    {isPro ? (
-                      <span className="bg-amber-500/20 text-amber-500 border border-amber-500/30 text-[10px] font-black px-2 py-0.5 rounded-full uppercase">
-                        PRO
-                      </span>
-                    ) : (
+                    <div className="flex items-center gap-2 shrink-0">
+                      {isPro ? (
+                        <span className="bg-amber-500/20 text-amber-500 border border-amber-500/30 text-[10px] font-black px-2 py-0.5 rounded-full uppercase">
+                          PRO
+                        </span>
+                      ) : (
+                        <button
+                          onClick={() => {
+                            navigatePath(lang === 'en' ? '/pricing/' : `/${lang}/pricing/`);
+                            setMobileMenuOpen(false);
+                            document.body.style.overflow = '';
+                          }}
+                          className="text-[11px] font-bold text-amber-600 dark:text-amber-400 bg-amber-500/10 px-2 py-1 rounded-lg border border-amber-500/30 cursor-pointer"
+                        >
+                          Upgrade
+                        </button>
+                      )}
                       <button
                         onClick={() => {
-                          navigatePath(lang === 'en' ? '/pricing/' : `/${lang}/pricing/`);
                           setMobileMenuOpen(false);
-                          document.body.style.overflow = '';
+                          setIsChangePasswordOpen(true);
                         }}
-                        className="text-[11px] font-bold text-amber-600 dark:text-amber-400 bg-amber-500/10 px-2 py-1 rounded-lg border border-amber-500/30 cursor-pointer"
+                        className="p-1.5 text-cyan-600 dark:text-[#05DAED] hover:bg-cyan-50 dark:hover:bg-cyan-950/30 rounded-lg cursor-pointer"
+                        title={t('auth.changePassword', { defaultValue: 'Ganti Kata Sandi' })}
                       >
-                        Upgrade
+                        <KeyRound size={16} />
                       </button>
-                    )}
-                    <button
-                      onClick={() => {
-                        setMobileMenuOpen(false);
-                        setIsChangePasswordOpen(true);
-                      }}
-                      className="p-1.5 text-cyan-600 dark:text-[#05DAED] hover:bg-cyan-50 dark:hover:bg-cyan-950/30 rounded-lg cursor-pointer"
-                      title={t('auth.changePassword', { defaultValue: 'Ganti Kata Sandi' })}
-                    >
-                      <KeyRound size={16} />
-                    </button>
-                    <button
-                      onClick={() => {
-                        signOut();
-                      }}
-                      className="p-1.5 text-slate-400 hover:text-slate-200 rounded-lg cursor-pointer"
-                      title={t('auth.signOut', { defaultValue: 'Keluar Akun' })}
-                    >
-                      <LogOut size={16} />
-                    </button>
-                    <button
-                      onClick={() => {
-                        setMobileMenuOpen(false);
-                        setIsDeleteModalOpen(true);
-                      }}
-                      className="p-1.5 text-rose-500 hover:text-rose-400 rounded-lg cursor-pointer"
-                      title={t('auth.deleteAccount', { defaultValue: 'Hapus Akun' })}
-                    >
-                      <Trash2 size={16} />
-                    </button>
+                      <button
+                        onClick={() => {
+                          signOut();
+                        }}
+                        className="p-1.5 text-slate-400 hover:text-slate-200 rounded-lg cursor-pointer"
+                        title={t('auth.signOut', { defaultValue: 'Keluar Akun' })}
+                      >
+                        <LogOut size={16} />
+                      </button>
+                      <button
+                        onClick={() => {
+                          setMobileMenuOpen(false);
+                          setIsDeleteModalOpen(true);
+                        }}
+                        className="p-1.5 text-rose-500 hover:text-rose-400 rounded-lg cursor-pointer"
+                        title={t('auth.deleteAccount', { defaultValue: 'Hapus Akun' })}
+                      >
+                        <Trash2 size={16} />
+                      </button>
+                    </div>
                   </div>
+
+                  {!user.emailVerified && (
+                    <div className="p-2 rounded-xl bg-rose-50 dark:bg-rose-950/40 border border-rose-200 dark:border-rose-900/60 flex items-center justify-between">
+                      <span className="text-[11px] font-bold text-rose-600 dark:text-rose-400">
+                        {t('auth.unverified', { defaultValue: 'Unverified' })}
+                      </span>
+                      <button
+                        type="button"
+                        onClick={() => {
+                          setMobileMenuOpen(false);
+                          openAuthModal('verifyEmail');
+                        }}
+                        className="px-2.5 py-0.5 text-[10px] font-bold bg-rose-500 hover:bg-rose-600 text-white rounded-md transition-colors cursor-pointer"
+                      >
+                        {t('auth.verifyBtn', { defaultValue: 'Verify' })}
+                      </button>
+                    </div>
+                  )}
                 </div>
               )}
 

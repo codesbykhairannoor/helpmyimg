@@ -536,8 +536,8 @@ export const ExportPanel: React.FC<ExportPanelProps> = ({
                 }}
                 disabled={isZipping || !areAllReady}
                 className={`flex-1 px-4 py-3 rounded-xl text-xs sm:text-sm font-black flex items-center justify-center gap-2 transition-all cursor-pointer disabled:opacity-50 ${isPro
-                    ? 'bg-dark-800/80 hover:bg-dark-750 text-slate-200 border border-dark-600/80 hover:border-dark-500'
-                    : 'bg-gradient-to-r from-[#05DAED] via-cyan-400 to-[#12DA91] hover:from-cyan-400 hover:to-emerald-400 text-slate-950 shadow-glow-cyan transform hover:-translate-y-0.5'
+                  ? 'bg-dark-800/80 hover:bg-dark-750 text-slate-200 border border-dark-600/80 hover:border-dark-500'
+                  : 'bg-gradient-to-r from-[#05DAED] via-cyan-400 to-[#12DA91] hover:from-cyan-400 hover:to-emerald-400 text-slate-950 shadow-glow-cyan transform hover:-translate-y-0.5'
                   }`}
               >
                 {isZipping ? (
@@ -577,10 +577,10 @@ export const ExportPanel: React.FC<ExportPanelProps> = ({
                 }}
                 disabled={isZipping || !areAllReady}
                 className={`flex-1 px-4 py-3 rounded-xl text-xs sm:text-sm font-bold flex items-center justify-center gap-2 transition-all cursor-pointer disabled:opacity-50 group ${isPro
-                    ? 'bg-gradient-to-r from-[#05DAED] via-cyan-400 to-[#12DA91] hover:from-cyan-400 hover:to-emerald-400 text-slate-950 font-black shadow-glow-cyan transform hover:-translate-y-0.5'
-                    : user && quotaState.remaining4k > 0
-                      ? 'bg-dark-800 hover:bg-dark-750 text-cyan-300 border border-cyan-500/50 hover:border-cyan-400 shadow-[0_0_15px_rgba(5,218,237,0.15)]'
-                      : 'bg-dark-800/80 hover:bg-dark-750 text-slate-400 hover:text-slate-200 border border-amber-500/30 hover:border-amber-400/60'
+                  ? 'bg-gradient-to-r from-[#05DAED] via-cyan-400 to-[#12DA91] hover:from-cyan-400 hover:to-emerald-400 text-slate-950 font-black shadow-glow-cyan transform hover:-translate-y-0.5'
+                  : user && quotaState.remaining4k > 0
+                    ? 'bg-dark-800 hover:bg-dark-750 text-cyan-300 border border-cyan-500/50 hover:border-cyan-400 shadow-[0_0_15px_rgba(5,218,237,0.15)]'
+                    : 'bg-dark-800/80 hover:bg-dark-750 text-slate-400 hover:text-slate-200 border border-amber-500/30 hover:border-amber-400/60'
                   }`}
               >
                 {isZipping ? (
@@ -662,8 +662,8 @@ export const ExportPanel: React.FC<ExportPanelProps> = ({
                 onClick={handleSingleDownloadStandard}
                 disabled={isExportingSingle || isExporting4k || !isSingleReady}
                 className={`flex-1 px-4 py-3 rounded-xl text-xs sm:text-sm font-black flex items-center justify-center gap-2 transition-all cursor-pointer disabled:opacity-50 ${isPro
-                    ? 'bg-dark-800/80 hover:bg-dark-750 text-slate-200 border border-dark-600/80 hover:border-dark-500'
-                    : 'bg-gradient-to-r from-[#05DAED] via-cyan-400 to-[#12DA91] hover:from-cyan-400 hover:to-emerald-400 text-slate-950 shadow-glow-cyan transform hover:-translate-y-0.5'
+                  ? 'bg-dark-800/80 hover:bg-dark-750 text-slate-200 border border-dark-600/80 hover:border-dark-500'
+                  : 'bg-gradient-to-r from-[#05DAED] via-cyan-400 to-[#12DA91] hover:from-cyan-400 hover:to-emerald-400 text-slate-950 shadow-glow-cyan transform hover:-translate-y-0.5'
                   }`}
               >
                 {isExportingSingle ? (
@@ -680,10 +680,10 @@ export const ExportPanel: React.FC<ExportPanelProps> = ({
                 onClick={handleSingleDownload4k}
                 disabled={isExportingSingle || isExporting4k || !isSingleReady}
                 className={`flex-1 px-4 py-3 rounded-xl text-xs sm:text-sm font-bold flex items-center justify-center gap-2 transition-all cursor-pointer disabled:opacity-50 group ${isPro
-                    ? 'bg-gradient-to-r from-[#05DAED] via-cyan-400 to-[#12DA91] hover:from-cyan-400 hover:to-emerald-400 text-slate-950 font-black shadow-glow-cyan transform hover:-translate-y-0.5'
-                    : user && quotaState.remaining4k > 0
-                      ? 'bg-dark-800 hover:bg-dark-750 text-cyan-300 border border-cyan-500/50 hover:border-cyan-400 shadow-[0_0_15px_rgba(5,218,237,0.15)]'
-                      : 'bg-dark-800/80 hover:bg-dark-750 text-slate-400 hover:text-slate-200 border border-amber-500/30 hover:border-amber-400/60'
+                  ? 'bg-gradient-to-r from-[#05DAED] via-cyan-400 to-[#12DA91] hover:from-cyan-400 hover:to-emerald-400 text-slate-950 font-black shadow-glow-cyan transform hover:-translate-y-0.5'
+                  : user && quotaState.remaining4k > 0
+                    ? 'bg-dark-800 hover:bg-dark-750 text-cyan-300 border border-cyan-500/50 hover:border-cyan-400 shadow-[0_0_15px_rgba(5,218,237,0.15)]'
+                    : 'bg-dark-800/80 hover:bg-dark-750 text-slate-400 hover:text-slate-200 border border-amber-500/30 hover:border-amber-400/60'
                   }`}
               >
                 {isExporting4k ? (

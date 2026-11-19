@@ -79,11 +79,10 @@ export const ConvertControl: React.FC<ConvertControlProps> = ({
               key={f.value}
               type="button"
               onClick={() => setFormat(f.value)}
-              className={`py-2 px-1 rounded-xl border text-xs font-bold transition-all duration-150 cursor-pointer text-center ${
-                format === f.value
+              className={`py-2 px-1 rounded-xl border text-xs font-bold transition-all duration-150 cursor-pointer text-center ${format === f.value
                   ? 'border-neon-cyan bg-neon-cyan/20 text-neon-cyan shadow-glow-cyan'
                   : 'border-dark-600 bg-dark-800 hover:bg-dark-700 text-slate-300 hover:text-white hover:border-dark-500'
-              }`}
+                }`}
             >
               {f.label}
             </button>
@@ -101,22 +100,20 @@ export const ConvertControl: React.FC<ConvertControlProps> = ({
             <button
               type="button"
               onClick={() => setSvgMode('color')}
-              className={`py-1.5 px-2.5 rounded-lg text-[11px] font-bold transition-all cursor-pointer truncate ${
-                svgMode === 'color'
+              className={`py-1.5 px-2.5 rounded-lg text-[11px] font-bold transition-all cursor-pointer truncate ${svgMode === 'color'
                   ? 'bg-neon-cyan/20 border border-neon-cyan/50 text-neon-cyan'
                   : 'text-slate-400 hover:text-white border border-transparent'
-              }`}
+                }`}
             >
               {t('convert.svgColor', { defaultValue: 'Full-Color Curves' })}
             </button>
             <button
               type="button"
               onClick={() => setSvgMode('monochrome')}
-              className={`py-1.5 px-2.5 rounded-lg text-[11px] font-bold transition-all cursor-pointer truncate ${
-                svgMode === 'monochrome'
+              className={`py-1.5 px-2.5 rounded-lg text-[11px] font-bold transition-all cursor-pointer truncate ${svgMode === 'monochrome'
                   ? 'bg-neon-cyan/20 border border-neon-cyan/50 text-neon-cyan'
                   : 'text-slate-400 hover:text-white border border-transparent'
-              }`}
+                }`}
             >
               {t('convert.svgMono', { defaultValue: 'Monochrome Potrace' })}
             </button>

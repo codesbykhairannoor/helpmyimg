@@ -26,6 +26,7 @@ export const AuthModal: React.FC = () => {
   const {
     user,
     isAuthModalOpen,
+    authModalInitialMode,
     openAuthModal,
     closeAuthModal,
     signInWithGoogle,
@@ -102,6 +103,13 @@ export const AuthModal: React.FC = () => {
     setSuccessMsg(null);
     setLoading(false);
   }, []);
+
+  // Set initial mode jika diminta via openAuthModal
+  useEffect(() => {
+    if (isAuthModalOpen && authModalInitialMode) {
+      setMode(authModalInitialMode);
+    }
+  }, [isAuthModalOpen, authModalInitialMode]);
 
   // Otomatis tutup modal jika user sudah login dan terverifikasi
   useEffect(() => {

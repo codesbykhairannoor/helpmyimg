@@ -552,128 +552,128 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({
                 initialTab === 'compress50kb' ||
                 initialTab === 'compress100kb' ||
                 initialTab === 'compress200kb') && (
-                <CompressControl
-                  quality={compressQuality}
-                  setQuality={setCompressQuality}
-                  compressMode={compressMode}
-                  setCompressMode={setCompressMode}
-                  targetKB={targetKB}
-                  setTargetKB={setTargetKB}
-                  hasCompressed={!!currentItem?.compressBlob}
-                  compressedSize={currentItem?.compressBlob?.size}
-                  onProcess={async () => {
-                    if (currentItem) {
-                      setBatchItems((prev) =>
-                        prev.map((item) =>
-                          item.id === currentItem.id ? { ...item, status: 'processing' } : item
-                        )
-                      );
-                      try {
-                        let sourceBlob = currentItem.file;
-                        if (currentItem.transparentUrl && currentItem.transparentUrl !== currentItem.originalUrl) {
-                          const res = await fetch(currentItem.transparentUrl);
-                          sourceBlob = await res.blob();
-                        } else if (!sourceBlob && currentItem.originalUrl) {
-                          const res = await fetch(currentItem.originalUrl);
-                          sourceBlob = await res.blob();
-                        }
+                  <CompressControl
+                    quality={compressQuality}
+                    setQuality={setCompressQuality}
+                    compressMode={compressMode}
+                    setCompressMode={setCompressMode}
+                    targetKB={targetKB}
+                    setTargetKB={setTargetKB}
+                    hasCompressed={!!currentItem?.compressBlob}
+                    compressedSize={currentItem?.compressBlob?.size}
+                    onProcess={async () => {
+                      if (currentItem) {
+                        setBatchItems((prev) =>
+                          prev.map((item) =>
+                            item.id === currentItem.id ? { ...item, status: 'processing' } : item
+                          )
+                        );
+                        try {
+                          let sourceBlob = currentItem.file;
+                          if (currentItem.transparentUrl && currentItem.transparentUrl !== currentItem.originalUrl) {
+                            const res = await fetch(currentItem.transparentUrl);
+                            sourceBlob = await res.blob();
+                          } else if (!sourceBlob && currentItem.originalUrl) {
+                            const res = await fetch(currentItem.originalUrl);
+                            sourceBlob = await res.blob();
+                          }
 
-                        if (sourceBlob) {
-                          const finalBlob = await CompressEngine.compress(sourceBlob, {
-                            quality: compressQuality,
-                            compressMode,
-                            targetKB,
-                            mimeType: sourceBlob.type || 'image/jpeg',
-                          });
-                          const url = URL.createObjectURL(finalBlob);
+                          if (sourceBlob) {
+                            const finalBlob = await CompressEngine.compress(sourceBlob, {
+                              quality: compressQuality,
+                              compressMode,
+                              targetKB,
+                              mimeType: sourceBlob.type || 'image/jpeg',
+                            });
+                            const url = URL.createObjectURL(finalBlob);
+                            setBatchItems((prev) =>
+                              prev.map((item) =>
+                                item.id === currentItem.id
+                                  ? {
+                                    ...item,
+                                    compressSourceSize: sourceBlob.size,
+                                    compressBlob: finalBlob,
+                                    compressUrl: url,
+                                    processedUrl: url,
+                                    status: 'done',
+                                  }
+                                  : item
+                              )
+                            );
+                          }
+                        } catch (err: any) {
+                          console.error('Compress preview failed', err);
                           setBatchItems((prev) =>
                             prev.map((item) =>
                               item.id === currentItem.id
-                                ? {
-                                  ...item,
-                                  compressSourceSize: sourceBlob.size,
-                                  compressBlob: finalBlob,
-                                  compressUrl: url,
-                                  processedUrl: url,
-                                  status: 'done',
-                                }
+                                ? { ...item, status: 'error', errorMessage: err?.message || 'Compress failed' }
                                 : item
                             )
                           );
                         }
-                      } catch (err: any) {
-                        console.error('Compress preview failed', err);
-                        setBatchItems((prev) =>
-                          prev.map((item) =>
-                            item.id === currentItem.id
-                              ? { ...item, status: 'error', errorMessage: err?.message || 'Compress failed' }
-                              : item
-                          )
-                        );
                       }
-                    }
-                  }}
-                  batchCount={batchItems.length}
-                  onProcessBatch={async () => {
-                    setBatchItems((prev) => prev.map((item) => ({ ...item, status: 'processing' })));
-                    const newItems = [...batchItems];
-                    for (let i = 0; i < newItems.length; i++) {
-                      const item = newItems[i];
-                      try {
-                        let sourceBlob = item.file;
-                        if (item.transparentUrl && item.transparentUrl !== item.originalUrl) {
-                          const res = await fetch(item.transparentUrl);
-                          sourceBlob = await res.blob();
-                        } else if (!sourceBlob && item.originalUrl) {
-                          const res = await fetch(item.originalUrl);
-                          sourceBlob = await res.blob();
-                        }
+                    }}
+                    batchCount={batchItems.length}
+                    onProcessBatch={async () => {
+                      setBatchItems((prev) => prev.map((item) => ({ ...item, status: 'processing' })));
+                      const newItems = [...batchItems];
+                      for (let i = 0; i < newItems.length; i++) {
+                        const item = newItems[i];
+                        try {
+                          let sourceBlob = item.file;
+                          if (item.transparentUrl && item.transparentUrl !== item.originalUrl) {
+                            const res = await fetch(item.transparentUrl);
+                            sourceBlob = await res.blob();
+                          } else if (!sourceBlob && item.originalUrl) {
+                            const res = await fetch(item.originalUrl);
+                            sourceBlob = await res.blob();
+                          }
 
-                        if (sourceBlob) {
-                          const finalBlob = await CompressEngine.compress(sourceBlob, {
-                            quality: compressQuality,
-                            compressMode,
-                            targetKB,
-                            mimeType: sourceBlob.type || 'image/jpeg',
-                          });
-                          const url = URL.createObjectURL(finalBlob);
-                          newItems[i] = {
-                            ...item,
-                            compressSourceSize: sourceBlob.size,
-                            compressBlob: finalBlob,
-                            compressUrl: url,
-                            processedUrl: url,
-                            status: 'done',
-                          };
+                          if (sourceBlob) {
+                            const finalBlob = await CompressEngine.compress(sourceBlob, {
+                              quality: compressQuality,
+                              compressMode,
+                              targetKB,
+                              mimeType: sourceBlob.type || 'image/jpeg',
+                            });
+                            const url = URL.createObjectURL(finalBlob);
+                            newItems[i] = {
+                              ...item,
+                              compressSourceSize: sourceBlob.size,
+                              compressBlob: finalBlob,
+                              compressUrl: url,
+                              processedUrl: url,
+                              status: 'done',
+                            };
+                          }
+                        } catch (err) {
+                          newItems[i] = { ...item, status: 'error', errorMessage: 'Compress failed' };
                         }
-                      } catch (err) {
-                        newItems[i] = { ...item, status: 'error', errorMessage: 'Compress failed' };
+                        setBatchItems([...newItems]);
                       }
-                      setBatchItems([...newItems]);
-                    }
-                  }}
-                  onDownload={() => {
-                    if (currentItem?.compressBlob && currentItem) {
-                      const url = URL.createObjectURL(currentItem.compressBlob);
-                      const a = document.createElement('a');
-                      a.href = url;
-                      let baseName = currentItem.name || `HelpMyIMG_${Date.now()}`;
-                      if (baseName.includes('.')) baseName = baseName.substring(0, baseName.lastIndexOf('.'));
-                      const ext =
-                        currentItem.compressBlob.type === 'image/png'
-                          ? 'png'
-                          : currentItem.compressBlob.type === 'image/webp'
-                          ? 'webp'
-                          : 'jpg';
-                      a.download = `${baseName}.${ext}`;
-                      a.click();
-                    }
-                  }}
-                  onReset={handleResetCurrent}
-                  onUploadOther={handleUploadOther}
-                  isProcessing={currentItem?.status === 'processing'}
-                />
-              )}
+                    }}
+                    onDownload={() => {
+                      if (currentItem?.compressBlob && currentItem) {
+                        const url = URL.createObjectURL(currentItem.compressBlob);
+                        const a = document.createElement('a');
+                        a.href = url;
+                        let baseName = currentItem.name || `HelpMyIMG_${Date.now()}`;
+                        if (baseName.includes('.')) baseName = baseName.substring(0, baseName.lastIndexOf('.'));
+                        const ext =
+                          currentItem.compressBlob.type === 'image/png'
+                            ? 'png'
+                            : currentItem.compressBlob.type === 'image/webp'
+                              ? 'webp'
+                              : 'jpg';
+                        a.download = `${baseName}.${ext}`;
+                        a.click();
+                      }
+                    }}
+                    onReset={handleResetCurrent}
+                    onUploadOther={handleUploadOther}
+                    isProcessing={currentItem?.status === 'processing'}
+                  />
+                )}
 
               {initialTab === 'convert' && (
                 <ConvertControl

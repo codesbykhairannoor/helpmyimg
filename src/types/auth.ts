@@ -31,11 +31,13 @@ export interface AuthContextType {
   sendEmailVerificationLink: () => Promise<void>;
   verifyEmailWithCode: (oobCode: string) => Promise<void>;
   reloadUser: () => Promise<boolean>;
-  deleteAccount: () => Promise<void>;
+  deleteAccount: (password?: string) => Promise<void>;
+  updateUserPassword: (currentPassword: string, newPassword: string) => Promise<void>;
   sendPasswordReset: (email: string) => Promise<void>;
   confirmNewPassword: (oobCode: string, newPassword: string) => Promise<void>;
   signOut: () => Promise<void>;
   isAuthModalOpen: boolean;
+  authModalInitialMode?: 'signin' | 'signup' | 'forgot' | 'reset' | 'verifyEmail' | null;
   openAuthModal: (initialMode?: 'signin' | 'signup' | 'forgot' | 'reset' | 'verifyEmail') => void;
   closeAuthModal: () => void;
   refreshProfile: () => Promise<void>;
