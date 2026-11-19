@@ -159,19 +159,19 @@ async function initSegModel(
 
       const processor = isRmbg
         ? await AutoProcessor.from_pretrained('briaai/RMBG-1.4', {
-            config: {
-              do_normalize: true,
-              do_pad: false,
-              do_rescale: true,
-              do_resize: true,
-              image_mean: [0.5, 0.5, 0.5],
-              feature_extractor_type: 'ImageFeatureExtractor',
-              image_std: [1, 1, 1],
-              resample: 2,
-              rescale_factor: 0.00392156862745098,
-              size: { width: 1024, height: 1024 },
-            },
-          })
+          config: {
+            do_normalize: true,
+            do_pad: false,
+            do_rescale: true,
+            do_resize: true,
+            image_mean: [0.5, 0.5, 0.5],
+            feature_extractor_type: 'ImageFeatureExtractor',
+            image_std: [1, 1, 1],
+            resample: 2,
+            rescale_factor: 0.00392156862745098,
+            size: { width: 1024, height: 1024 },
+          },
+        })
         : await AutoProcessor.from_pretrained(modelId, {});
 
       const bundle: SegModelBundle = { model, processor, device: targetDevice, modelId };
