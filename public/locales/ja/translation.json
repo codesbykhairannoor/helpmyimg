@@ -2522,5 +2522,10 @@
   "auth.sendPasswordResetLink": "パスワードリセットリンクを送信する",
   "auth.knowCurrentPassLink": "現在のパスワードを知っていますか? 直接更新する",
   "auth.deletePasswordLabel": "確認のためにパスワードを入力してください:",
-  "auth.wrongPassword": "パスワードが間違っています。 もう一度試してください。"
+  "auth.wrongPassword": "パスワードが間違っています。 もう一度試してください。",
+  "auth.signOutModalTitle": "HelpMyIMG からサインアウトする",
+  "auth.signOutModalDesc": "サインアウトしてもよろしいですか? いつでも再度サインインして、保存した設定や PRO 機能にアクセスできます。",
+  "auth.signOutConfirmBtn": "サインアウト",
+  "auth.signOutCancelBtn": "キャンセル",
+  "auth.signingOut": "サインアウト中..."
 }

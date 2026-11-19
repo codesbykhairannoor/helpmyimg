@@ -2522,5 +2522,10 @@
   "auth.sendPasswordResetLink": "Отправить ссылку для сброса пароля",
   "auth.knowCurrentPassLink": "Знаете свой текущий пароль? Обновить напрямую",
   "auth.deletePasswordLabel": "Введите свой пароль для подтверждения:",
-  "auth.wrongPassword": "Неправильный пароль. Пожалуйста, попробуйте еще раз."
+  "auth.wrongPassword": "Неправильный пароль. Пожалуйста, попробуйте еще раз.",
+  "auth.signOutModalTitle": "Выйти из HelpMyIMG",
+  "auth.signOutModalDesc": "Вы уверены, что хотите выйти? Вы можете войти в систему в любое время, чтобы получить доступ к сохраненным настройкам и функциям PRO.",
+  "auth.signOutConfirmBtn": "Выход",
+  "auth.signOutCancelBtn": "Отмена",
+  "auth.signingOut": "Выход из системы..."
 }

@@ -119,7 +119,7 @@ export const ChangePasswordModal: React.FC<ChangePasswordModalProps> = ({ isOpen
 
   return (
     <AnimatePresence>
-      <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
+      <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4">
         {/* Backdrop */}
         <motion.div
           initial={{ opacity: 0 }}
@@ -137,7 +137,7 @@ export const ChangePasswordModal: React.FC<ChangePasswordModalProps> = ({ isOpen
           animate={{ opacity: 1, scale: 1, y: 0 }}
           exit={{ opacity: 0, scale: 0.95, y: 10 }}
           transition={{ duration: 0.2 }}
-          className="relative w-full max-w-md bg-white dark:bg-dark-800 rounded-2xl shadow-2xl border border-slate-200 dark:border-slate-700/80 p-6 md:p-8 z-10 overflow-hidden"
+          className="relative w-full max-w-md bg-white dark:bg-dark-800 rounded-2xl shadow-2xl border border-slate-200 dark:border-slate-700/80 p-5 sm:p-6 md:p-8 z-10 max-h-[90vh] overflow-y-auto"
         >
           {/* Close button */}
           <button
@@ -145,7 +145,7 @@ export const ChangePasswordModal: React.FC<ChangePasswordModalProps> = ({ isOpen
               if (!loading) onClose();
             }}
             disabled={loading}
-            className="absolute top-4 right-4 p-2 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 rounded-full hover:bg-slate-100 dark:hover:bg-slate-700/50 transition-colors cursor-pointer"
+            className="absolute top-3.5 right-3.5 sm:top-4 sm:right-4 p-2 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 rounded-full hover:bg-slate-100 dark:hover:bg-slate-700/50 transition-colors cursor-pointer"
             aria-label="Close"
           >
             <X className="w-5 h-5" />

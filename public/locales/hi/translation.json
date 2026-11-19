@@ -2522,5 +2522,10 @@
   "auth.sendPasswordResetLink": "पासवर्ड रीसेट लिंक भेजें",
   "auth.knowCurrentPassLink": "क्या आप अपना वर्तमान पासवर्ड जानते हैं? सीधे अपडेट करें",
   "auth.deletePasswordLabel": "पुष्टि करने के लिए अपना पासवर्ड दर्ज करें:",
-  "auth.wrongPassword": "गलत पासवर्ड। कृपया पुन: प्रयास करें।"
+  "auth.wrongPassword": "गलत पासवर्ड। कृपया पुन: प्रयास करें।",
+  "auth.signOutModalTitle": "हेल्पमायआईएमजी से साइन आउट करें",
+  "auth.signOutModalDesc": "क्या आप द्वारा साइन आउट किया जाना सुनिश्चित है? आप अपनी सहेजी गई प्राथमिकताओं और PRO सुविधाओं तक पहुंचने के लिए किसी भी समय वापस साइन इन कर सकते हैं।",
+  "auth.signOutConfirmBtn": "साइन आउट",
+  "auth.signOutCancelBtn": "रद्द करना",
+  "auth.signingOut": "साइन आउट हो रहा है..."
 }

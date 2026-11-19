@@ -2522,5 +2522,10 @@
   "auth.sendPasswordResetLink": "Odeslat odkaz pro resetování hesla",
   "auth.knowCurrentPassLink": "Znáte své aktuální heslo? Aktualizujte přímo",
   "auth.deletePasswordLabel": "Pro potvrzení zadejte své heslo:",
-  "auth.wrongPassword": "Nesprávné heslo. Zkuste to prosím znovu."
+  "auth.wrongPassword": "Nesprávné heslo. Zkuste to prosím znovu.",
+  "auth.signOutModalTitle": "Odhlaste se z HelpMyIMG",
+  "auth.signOutModalDesc": "Opravdu se chcete odhlásit? Chcete-li získat přístup k uloženým předvolbám a funkcím PRO, můžete se kdykoli znovu přihlásit.",
+  "auth.signOutConfirmBtn": "Odhlásit se",
+  "auth.signOutCancelBtn": "Zrušit",
+  "auth.signingOut": "Odhlašování..."
 }

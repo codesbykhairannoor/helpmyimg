@@ -2522,5 +2522,10 @@
   "auth.sendPasswordResetLink": "Gửi liên kết đặt lại mật khẩu",
   "auth.knowCurrentPassLink": "Biết mật khẩu hiện tại của bạn? Cập nhật trực tiếp",
   "auth.deletePasswordLabel": "Nhập mật khẩu của bạn để xác nhận:",
-  "auth.wrongPassword": "Mật khẩu không chính xác. Vui lòng thử lại."
+  "auth.wrongPassword": "Mật khẩu không chính xác. Vui lòng thử lại.",
+  "auth.signOutModalTitle": "Đăng xuất khỏi Trợ giúpMyIMG",
+  "auth.signOutModalDesc": "Bạn có chắc chắn muốn đăng xuất không? Bạn có thể đăng nhập lại bất cứ lúc nào để truy cập các tùy chọn đã lưu và các tính năng PRO của mình.",
+  "auth.signOutConfirmBtn": "Đăng xuất",
+  "auth.signOutCancelBtn": "Hủy bỏ",
+  "auth.signingOut": "Đang đăng xuất..."
 }

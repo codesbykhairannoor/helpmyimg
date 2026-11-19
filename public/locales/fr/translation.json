@@ -2522,5 +2522,10 @@
   "auth.sendPasswordResetLink": "Envoyer le lien de réinitialisation du mot de passe",
   "auth.knowCurrentPassLink": "Connaissez-vous votre mot de passe actuel ? Mettre à jour directement",
   "auth.deletePasswordLabel": "Entrez votre mot de passe pour confirmer :",
-  "auth.wrongPassword": "Mot de passe incorrect. Veuillez réessayer."
+  "auth.wrongPassword": "Mot de passe incorrect. Veuillez réessayer.",
+  "auth.signOutModalTitle": "Se déconnecter de HelpMyIMG",
+  "auth.signOutModalDesc": "Êtes-vous sûr de vouloir vous déconnecter ? Vous pouvez vous reconnecter à tout moment pour accéder à vos préférences enregistrées et à vos fonctionnalités PRO.",
+  "auth.signOutConfirmBtn": "Se déconnecter",
+  "auth.signOutCancelBtn": "Annuler",
+  "auth.signingOut": "Déconnexion..."
 }

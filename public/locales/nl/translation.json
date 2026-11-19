@@ -2522,5 +2522,10 @@
   "auth.sendPasswordResetLink": "Link voor wachtwoordherstel verzenden",
   "auth.knowCurrentPassLink": "Kent u uw huidige wachtwoord? Direct bijwerken",
   "auth.deletePasswordLabel": "Voer uw wachtwoord in om te bevestigen:",
-  "auth.wrongPassword": "Onjuist wachtwoord. Probeer het opnieuw."
+  "auth.wrongPassword": "Onjuist wachtwoord. Probeer het opnieuw.",
+  "auth.signOutModalTitle": "Meld u af bij HelpMijnIMG",
+  "auth.signOutModalDesc": "Weet u zeker dat u zich wilt afmelden? U kunt zich op elk gewenst moment opnieuw aanmelden om toegang te krijgen tot uw opgeslagen voorkeuren en PRO-functies.",
+  "auth.signOutConfirmBtn": "Uitloggen",
+  "auth.signOutCancelBtn": "Annuleren",
+  "auth.signingOut": "Afmelden..."
 }

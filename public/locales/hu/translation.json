@@ -2522,5 +2522,10 @@
   "auth.sendPasswordResetLink": "Jelszó-visszaállítási hivatkozás küldése",
   "auth.knowCurrentPassLink": "Ismeri jelenlegi jelszavát? Frissítse közvetlenül",
   "auth.deletePasswordLabel": "A megerősítéshez adja meg jelszavát:",
-  "auth.wrongPassword": "Helytelen jelszó. Kérjük, próbálja újra."
+  "auth.wrongPassword": "Helytelen jelszó. Kérjük, próbálja újra.",
+  "auth.signOutModalTitle": "Jelentkezzen ki a HelpMyIMG szolgáltatásból",
+  "auth.signOutModalDesc": "Biztosan ki szeretne jelentkezni? Bármikor újra bejelentkezhet, hogy elérje mentett beállításait és PRO-funkcióit.",
+  "auth.signOutConfirmBtn": "Jelentkezzen ki",
+  "auth.signOutCancelBtn": "Mégsem",
+  "auth.signingOut": "Kijelentkezés..."
 }

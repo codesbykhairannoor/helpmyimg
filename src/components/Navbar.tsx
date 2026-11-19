@@ -35,6 +35,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useAuth } from '../context/AuthContext';
 import { DeleteAccountModal } from './auth/DeleteAccountModal';
 import { ChangePasswordModal } from './auth/ChangePasswordModal';
+import { SignOutConfirmModal } from './auth/SignOutConfirmModal';
 import { getToolFromSlug, getLocalizedSlug } from '../utils/urlMapper';
 import { getInfoPageFromSlug, getLocalizedInfoSlug, type InfoPageType } from '../utils/infoUrlMapper';
 // Suppress unused InfoPageType import warning
@@ -130,6 +131,7 @@ export const Navbar: React.FC = () => {
 
   // User menu & Mobile states
   const [userMenuOpen, setUserMenuOpen] = useState(false);
+  const [isSignOutModalOpen, setIsSignOutModalOpen] = useState(false);
   const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
   const [isChangePasswordOpen, setIsChangePasswordOpen] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -572,8 +574,8 @@ export const Navbar: React.FC = () => {
 
                           <button
                             onClick={() => {
-                              signOut();
                               setUserMenuOpen(false);
+                              setIsSignOutModalOpen(true);
                             }}
                             className="w-full flex items-center gap-2.5 px-3 py-2 text-xs font-medium rounded-xl text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700/40 transition-colors cursor-pointer"
                           >
@@ -1061,7 +1063,8 @@ export const Navbar: React.FC = () => {
                       </button>
                       <button
                         onClick={() => {
-                          signOut();
+                          setMobileMenuOpen(false);
+                          setIsSignOutModalOpen(true);
                         }}
                         className="p-1.5 text-slate-400 hover:text-slate-200 rounded-lg cursor-pointer"
                         title={t('auth.signOut', { defaultValue: 'Keluar Akun' })}
@@ -1338,6 +1341,16 @@ export const Navbar: React.FC = () => {
         </>,
         document.body
       )}
+
+      {/* Modal Konfirmasi Keluar Akun (Sign Out) */}
+      <SignOutConfirmModal
+        isOpen={isSignOutModalOpen}
+        onClose={() => setIsSignOutModalOpen(false)}
+        onConfirm={async () => {
+          setIsSignOutModalOpen(false);
+          await signOut();
+        }}
+      />
 
       {/* Modal Hapus Akun Permanen (GDPR / Standar Global) */}
       <DeleteAccountModal

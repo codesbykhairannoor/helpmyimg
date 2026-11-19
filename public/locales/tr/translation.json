@@ -2522,5 +2522,10 @@
   "auth.sendPasswordResetLink": "Şifre Sıfırlama Bağlantısını Gönder",
   "auth.knowCurrentPassLink": "Mevcut şifrenizi biliyor musunuz? Doğrudan güncelle",
   "auth.deletePasswordLabel": "Onaylamak için şifrenizi girin:",
-  "auth.wrongPassword": "Yanlış şifre. Lütfen tekrar deneyin."
+  "auth.wrongPassword": "Yanlış şifre. Lütfen tekrar deneyin.",
+  "auth.signOutModalTitle": "HelpMyIMG'den Çıkış Yapın",
+  "auth.signOutModalDesc": "Oturumu kapatmak istediğinizden emin misiniz? Kaydedilen tercihlerinize ve PRO özelliklerine erişmek için istediğiniz zaman tekrar oturum açabilirsiniz.",
+  "auth.signOutConfirmBtn": "Oturumu Kapat",
+  "auth.signOutCancelBtn": "İptal etmek",
+  "auth.signingOut": "Oturum kapatılıyor..."
 }

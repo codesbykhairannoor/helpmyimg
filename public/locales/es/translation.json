@@ -2522,5 +2522,10 @@
   "auth.sendPasswordResetLink": "Enviar enlace para restablecer contraseña",
   "auth.knowCurrentPassLink": "¿Conoce su contraseña actual? Actualizar directamente",
   "auth.deletePasswordLabel": "Ingrese su contraseña para confirmar:",
-  "auth.wrongPassword": "Contraseña incorrecta. Por favor inténtalo de nuevo."
+  "auth.wrongPassword": "Contraseña incorrecta. Por favor inténtalo de nuevo.",
+  "auth.signOutModalTitle": "Cerrar sesión en HelpMyIMG",
+  "auth.signOutModalDesc": "¿Estás seguro de que deseas cerrar sesión? Puede volver a iniciar sesión en cualquier momento para acceder a sus preferencias guardadas y funciones PRO.",
+  "auth.signOutConfirmBtn": "Desconectar",
+  "auth.signOutCancelBtn": "Cancelar",
+  "auth.signingOut": "Cerrando sesión..."
 }

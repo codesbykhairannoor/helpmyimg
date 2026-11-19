@@ -2522,5 +2522,10 @@
   "auth.sendPasswordResetLink": "Enviar link de redefinição de senha",
   "auth.knowCurrentPassLink": "Sabe sua senha atual? Atualizar diretamente",
   "auth.deletePasswordLabel": "Digite sua senha para confirmar:",
-  "auth.wrongPassword": "Senha incorreta. Por favor, tente novamente."
+  "auth.wrongPassword": "Senha incorreta. Por favor, tente novamente.",
+  "auth.signOutModalTitle": "Sair do HelpMyIMG",
+  "auth.signOutModalDesc": "Tem certeza de que deseja sair? Você pode fazer login novamente a qualquer momento para acessar suas preferências salvas e recursos PRO.",
+  "auth.signOutConfirmBtn": "Sair",
+  "auth.signOutCancelBtn": "Cancelar",
+  "auth.signingOut": "Saindo..."
 }

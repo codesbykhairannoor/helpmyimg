@@ -2522,5 +2522,10 @@
   "auth.sendPasswordResetLink": "Invia collegamento per la reimpostazione della password",
   "auth.knowCurrentPassLink": "Conosci la tua password attuale? Aggiorna direttamente",
   "auth.deletePasswordLabel": "Inserisci la tua password per confermare:",
-  "auth.wrongPassword": "Password errata. Per favore riprova."
+  "auth.wrongPassword": "Password errata. Per favore riprova.",
+  "auth.signOutModalTitle": "Esci da HelpMyIMG",
+  "auth.signOutModalDesc": "Sei sicuro di voler uscire? Puoi accedere nuovamente in qualsiasi momento per accedere alle preferenze salvate e alle funzionalità PRO.",
+  "auth.signOutConfirmBtn": "Disconnessione",
+  "auth.signOutCancelBtn": "Cancellare",
+  "auth.signingOut": "Uscita..."
 }

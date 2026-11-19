@@ -2522,5 +2522,10 @@
   "auth.sendPasswordResetLink": "Lähetä salasanan palautuslinkki",
   "auth.knowCurrentPassLink": "Tiedätkö nykyisen salasanasi? Päivitä suoraan",
   "auth.deletePasswordLabel": "Vahvista antamalla salasanasi:",
-  "auth.wrongPassword": "Väärä salasana. Yritä uudelleen."
+  "auth.wrongPassword": "Väärä salasana. Yritä uudelleen.",
+  "auth.signOutModalTitle": "Kirjaudu ulos HelpMyIMG:stä",
+  "auth.signOutModalDesc": "Haluatko varmasti kirjautua ulos? Voit kirjautua takaisin sisään milloin tahansa päästäksesi käsiksi tallennettuihin asetuksiin ja PRO-ominaisuuksiin.",
+  "auth.signOutConfirmBtn": "Kirjaudu ulos",
+  "auth.signOutCancelBtn": "Peruuttaa",
+  "auth.signingOut": "Kirjaudutaan ulos..."
 }

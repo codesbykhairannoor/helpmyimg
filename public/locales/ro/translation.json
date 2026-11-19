@@ -2522,5 +2522,10 @@
   "auth.sendPasswordResetLink": "Trimiteți linkul de resetare a parolei",
   "auth.knowCurrentPassLink": "Știți parola dvs. actuală? Actualizați direct",
   "auth.deletePasswordLabel": "Introduceți parola pentru a confirma:",
-  "auth.wrongPassword": "Parolă incorectă. Vă rugăm să încercați din nou."
+  "auth.wrongPassword": "Parolă incorectă. Vă rugăm să încercați din nou.",
+  "auth.signOutModalTitle": "Deconectați-vă de la HelpMyIMG",
+  "auth.signOutModalDesc": "Sigur doriți să vă deconectați? Vă puteți conecta din nou oricând pentru a accesa preferințele salvate și funcțiile PRO.",
+  "auth.signOutConfirmBtn": "Sign out",
+  "auth.signOutCancelBtn": "Anula",
+  "auth.signingOut": "Se deconectează..."
 }

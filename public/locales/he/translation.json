@@ -2522,5 +2522,10 @@
   "auth.sendPasswordResetLink": "שלח קישור לאיפוס סיסמה",
   "auth.knowCurrentPassLink": "יודע את הסיסמה הנוכחית שלך? עדכן ישירות",
   "auth.deletePasswordLabel": "הזן את הסיסמה שלך כדי לאשר:",
-  "auth.wrongPassword": "סיסמה שגויה. אנא נסה שוב."
+  "auth.wrongPassword": "סיסמה שגויה. אנא נסה שוב.",
+  "auth.signOutModalTitle": "צא מ-HelpMyIMG",
+  "auth.signOutModalDesc": "האם אתה בטוח שאתה רוצה לצאת? אתה יכול להיכנס שוב בכל עת כדי לגשת להעדפות השמורות ולתכונות PRO.",
+  "auth.signOutConfirmBtn": "צא",
+  "auth.signOutCancelBtn": "לְבַטֵל",
+  "auth.signingOut": "יוצא..."
 }

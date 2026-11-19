@@ -1,9 +1,9 @@
 // src/components/auth/DeleteAccountModal.tsx
-// Modal konfirmasi penghapusan akun permanen berstandar global (GDPR/CCPA) dengan password verification & peringatan 4 website
+// Modal konfirmasi penghapusan akun permanen berstandar global (GDPR/CCPA) dengan HelpMyIMG brand styling & mobile responsive
 
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { AlertTriangle, Trash2, X, Loader2, ShieldAlert, Eye, EyeOff } from 'lucide-react';
+import { AlertCircle, Trash2, X, Loader2, ShieldAlert, Eye, EyeOff } from 'lucide-react';
 import { useAuth } from '../../context/AuthContext';
 import { useTranslation } from '../../context/LanguageContext';
 
@@ -69,7 +69,7 @@ export const DeleteAccountModal: React.FC<DeleteAccountModalProps> = ({ isOpen, 
 
   return (
     <AnimatePresence>
-      <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
+      <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4">
         {/* Backdrop */}
         <motion.div
           initial={{ opacity: 0 }}
@@ -78,7 +78,7 @@ export const DeleteAccountModal: React.FC<DeleteAccountModalProps> = ({ isOpen, 
           onClick={() => {
             if (!loading) onClose();
           }}
-          className="fixed inset-0 bg-black/70 backdrop-blur-sm"
+          className="fixed inset-0 bg-black/75 backdrop-blur-sm"
         />
 
         {/* Modal Window */}
@@ -87,7 +87,7 @@ export const DeleteAccountModal: React.FC<DeleteAccountModalProps> = ({ isOpen, 
           animate={{ opacity: 1, scale: 1, y: 0 }}
           exit={{ opacity: 0, scale: 0.95, y: 10 }}
           transition={{ duration: 0.2 }}
-          className="relative w-full max-w-md bg-white dark:bg-dark-800 rounded-2xl shadow-2xl border border-slate-200 dark:border-slate-700/80 p-6 md:p-8 z-10 overflow-hidden"
+          className="relative w-full max-w-md bg-white dark:bg-dark-800 rounded-2xl shadow-2xl border border-slate-200 dark:border-slate-700/80 p-5 sm:p-6 md:p-8 z-10 max-h-[90vh] overflow-y-auto"
         >
           {/* Close button */}
           <button
@@ -95,42 +95,42 @@ export const DeleteAccountModal: React.FC<DeleteAccountModalProps> = ({ isOpen, 
               if (!loading) onClose();
             }}
             disabled={loading}
-            className="absolute top-4 right-4 p-2 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 rounded-full hover:bg-slate-100 dark:hover:bg-slate-700/50 transition-colors cursor-pointer"
+            className="absolute top-3.5 right-3.5 sm:top-4 sm:right-4 p-2 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 rounded-full hover:bg-slate-100 dark:hover:bg-slate-700/50 transition-colors cursor-pointer"
             aria-label="Close"
           >
             <X className="w-5 h-5" />
           </button>
 
-          {/* Header Icon */}
-          <div className="text-center mb-4">
-            <div className="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-rose-100 dark:bg-rose-950/60 text-rose-600 dark:text-rose-400 mb-3 border border-rose-200 dark:border-rose-800/60">
-              <Trash2 className="w-7 h-7" />
+          {/* Header Brand Icon */}
+          <div className="text-center mb-4 pt-1">
+            <div className="inline-flex items-center justify-center w-13 h-13 sm:w-14 sm:h-14 rounded-2xl bg-cyan-50 dark:bg-cyan-950/40 text-[#05DAED] mb-3 border border-cyan-200/80 dark:border-cyan-800/40 shadow-sm">
+              <Trash2 className="w-6 h-6 sm:w-7 sm:h-7 text-cyan-600 dark:text-[#05DAED]" />
             </div>
-            <h3 className="text-xl font-extrabold text-slate-900 dark:text-white">
+            <h3 className="text-lg sm:text-xl font-extrabold text-slate-900 dark:text-white leading-tight">
               {t('auth.deleteModalTitle', { defaultValue: 'Permanently Delete Account' })}
             </h3>
-            <p className="text-xs text-rose-600 dark:text-rose-400 font-semibold mt-1">
+            <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 font-medium mt-1">
               {t('auth.deleteModalSubtitle', { defaultValue: 'This action is permanent and cannot be undone.' })}
             </p>
           </div>
 
-          {/* Important 4-Websites Warning Box */}
-          <div className="mb-4 p-4 rounded-xl bg-rose-50 dark:bg-rose-950/40 border border-rose-300 dark:border-rose-800/80 space-y-2">
-            <div className="flex items-center gap-2 text-rose-700 dark:text-rose-300 font-bold text-xs">
-              <ShieldAlert className="w-4 h-4 shrink-0 text-rose-600 dark:text-rose-400" />
+          {/* Important 4-Websites Warning Box in HelpMyIMG Brand Styling */}
+          <div className="mb-4 p-3.5 sm:p-4 rounded-xl bg-slate-50 dark:bg-dark-900/70 border border-slate-200 dark:border-dark-600/90 space-y-2">
+            <div className="flex items-center gap-2 text-slate-900 dark:text-slate-100 font-bold text-xs sm:text-sm">
+              <ShieldAlert className="w-4 h-4 shrink-0 text-[#05DAED]" />
               <span>
                 {t('auth.deleteWarning4WebsTitle', {
                   defaultValue: 'Important Warning: Login for 4 Connected Websites Will Be Erased',
                 })}
               </span>
             </div>
-            <p className="text-xs text-rose-800 dark:text-rose-200/90 leading-relaxed">
+            <p className="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
               {t('auth.deleteWarning4WebsDesc', {
                 defaultValue:
                   'Your account credentials are unified across 4 websites in our network. Deleting this account will permanently erase your login credentials on HelpMyIMG and all 3 other connected companion websites.',
               })}
             </p>
-            <p className="text-[11px] text-rose-700 dark:text-rose-300/80 pt-1 border-t border-rose-200 dark:border-rose-900/60">
+            <p className="text-[11px] text-slate-500 dark:text-slate-400 pt-1.5 border-t border-slate-200 dark:border-dark-700">
               • {t('auth.deleteConsequences', {
                 defaultValue:
                   'All saved preferences, active PRO subscriptions, and account data will be wiped immediately.',
@@ -140,8 +140,8 @@ export const DeleteAccountModal: React.FC<DeleteAccountModalProps> = ({ isOpen, 
 
           {/* Error Message */}
           {errorMsg && (
-            <div className="mb-4 p-3 rounded-lg bg-rose-100 dark:bg-rose-950/80 border border-rose-300 dark:border-rose-800 flex items-start gap-2.5 text-xs text-rose-700 dark:text-rose-300">
-              <AlertTriangle className="w-4 h-4 shrink-0 mt-0.5 text-rose-600 dark:text-rose-400" />
+            <div className="mb-4 p-3 rounded-lg bg-rose-50 dark:bg-rose-950/40 border border-rose-200 dark:border-rose-800/60 flex items-start gap-2.5 text-xs text-rose-600 dark:text-rose-400">
+              <AlertCircle className="w-4 h-4 shrink-0 mt-0.5" />
               <span>{errorMsg}</span>
             </div>
           )}
@@ -158,12 +158,12 @@ export const DeleteAccountModal: React.FC<DeleteAccountModalProps> = ({ isOpen, 
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   placeholder="••••••••"
-                  className="w-full pl-3.5 pr-10 py-2.5 text-sm rounded-xl border border-slate-300 dark:border-slate-600 bg-slate-50/50 dark:bg-dark-900/60 text-slate-900 dark:text-slate-100 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-rose-500/50 focus:border-rose-500"
+                  className="w-full pl-3.5 pr-10 py-2.5 text-sm rounded-xl border border-slate-300 dark:border-slate-600 bg-slate-50/50 dark:bg-dark-900/60 text-slate-900 dark:text-slate-100 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-[#05DAED]/50 focus:border-[#05DAED]"
                 />
                 <button
                   type="button"
                   onClick={() => setShowPassword(!showPassword)}
-                  className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 cursor-pointer"
+                  className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 cursor-pointer p-1"
                 >
                   {showPassword ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
                 </button>
@@ -181,17 +181,17 @@ export const DeleteAccountModal: React.FC<DeleteAccountModalProps> = ({ isOpen, 
               value={confirmInput}
               onChange={(e) => setConfirmInput(e.target.value)}
               placeholder="DELETE"
-              className="w-full px-3.5 py-2.5 text-sm rounded-xl border border-slate-300 dark:border-slate-600 bg-slate-50/50 dark:bg-dark-900/60 text-slate-900 dark:text-slate-100 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-rose-500/50 focus:border-rose-500 uppercase tracking-widest font-mono font-bold"
+              className="w-full px-3.5 py-2.5 text-sm rounded-xl border border-slate-300 dark:border-slate-600 bg-slate-50/50 dark:bg-dark-900/60 text-slate-900 dark:text-slate-100 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-[#05DAED]/50 focus:border-[#05DAED] uppercase tracking-widest font-mono font-bold"
             />
           </div>
 
           {/* Buttons */}
-          <div className="grid grid-cols-2 gap-3">
+          <div className="grid grid-cols-2 gap-2.5 sm:gap-3">
             <button
               type="button"
               onClick={onClose}
               disabled={loading}
-              className="w-full py-2.5 px-4 bg-slate-100 hover:bg-slate-200 dark:bg-dark-700 dark:hover:bg-dark-600 text-slate-700 dark:text-slate-200 font-bold text-xs rounded-xl border border-slate-300 dark:border-dark-600 transition-all cursor-pointer disabled:opacity-50"
+              className="w-full py-2.5 sm:py-3 px-3 bg-slate-100 hover:bg-slate-200 dark:bg-dark-700 dark:hover:bg-dark-600 text-slate-700 dark:text-slate-200 font-bold text-xs sm:text-sm rounded-xl border border-slate-300 dark:border-dark-600 transition-all cursor-pointer disabled:opacity-50 text-center"
             >
               {t('auth.deleteCancelBtn', { defaultValue: 'Cancel' })}
             </button>
@@ -200,16 +200,16 @@ export const DeleteAccountModal: React.FC<DeleteAccountModalProps> = ({ isOpen, 
               type="button"
               onClick={handleDelete}
               disabled={!isConfirmed || loading}
-              className="w-full py-2.5 px-4 bg-rose-600 hover:bg-rose-700 text-white font-bold text-xs rounded-xl shadow-md transition-all flex items-center justify-center gap-1.5 cursor-pointer disabled:opacity-40 disabled:cursor-not-allowed"
+              className="w-full py-2.5 sm:py-3 px-3 bg-gradient-to-r from-neon-cyan via-cyan-400 to-neon-emerald hover:opacity-95 text-dark-900 font-black text-xs sm:text-sm rounded-xl shadow-glow-cyan transition-all flex items-center justify-center gap-1.5 cursor-pointer disabled:opacity-40 disabled:cursor-not-allowed text-center"
             >
               {loading ? (
                 <>
-                  <Loader2 className="w-3.5 h-3.5 animate-spin text-white" />
+                  <Loader2 className="w-3.5 h-3.5 animate-spin text-dark-900" />
                   <span>Deleting...</span>
                 </>
               ) : (
                 <>
-                  <Trash2 className="w-3.5 h-3.5 text-white" />
+                  <Trash2 className="w-3.5 h-3.5 text-dark-900 stroke-[2.5]" />
                   <span>{t('auth.deleteConfirmBtn', { defaultValue: 'Delete Account' })}</span>
                 </>
               )}

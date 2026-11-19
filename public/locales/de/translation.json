@@ -2522,5 +2522,10 @@
   "auth.sendPasswordResetLink": "Link zum Zurücksetzen des Passworts senden",
   "auth.knowCurrentPassLink": "Kennen Sie Ihr aktuelles Passwort? Direkt aktualisieren",
   "auth.deletePasswordLabel": "Geben Sie zur Bestätigung Ihr Passwort ein:",
-  "auth.wrongPassword": "Falsches Passwort. Bitte versuchen Sie es erneut."
+  "auth.wrongPassword": "Falsches Passwort. Bitte versuchen Sie es erneut.",
+  "auth.signOutModalTitle": "Melden Sie sich von HelpMyIMG ab",
+  "auth.signOutModalDesc": "Sind Sie sicher, dass Sie sich abmelden möchten? Sie können sich jederzeit wieder anmelden, um auf Ihre gespeicherten Einstellungen und PRO-Funktionen zuzugreifen.",
+  "auth.signOutConfirmBtn": "Abmelden",
+  "auth.signOutCancelBtn": "Stornieren",
+  "auth.signingOut": "Abmelden..."
 }

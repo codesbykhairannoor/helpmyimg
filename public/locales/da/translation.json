@@ -2522,5 +2522,10 @@
   "auth.sendPasswordResetLink": "Send link til nulstilling af adgangskode",
   "auth.knowCurrentPassLink": "Kender du din nuværende adgangskode? Opdater direkte",
   "auth.deletePasswordLabel": "Indtast din adgangskode for at bekræfte:",
-  "auth.wrongPassword": "Forkert adgangskode. Prøv venligst igen."
+  "auth.wrongPassword": "Forkert adgangskode. Prøv venligst igen.",
+  "auth.signOutModalTitle": "Log ud af HelpMyIMG",
+  "auth.signOutModalDesc": "Er du sikker på, at du vil logge ud? Du kan til enhver tid logge ind igen for at få adgang til dine gemte præferencer og PRO-funktioner.",
+  "auth.signOutConfirmBtn": "Log ud",
+  "auth.signOutCancelBtn": "Ophæve",
+  "auth.signingOut": "Logger ud..."
 }

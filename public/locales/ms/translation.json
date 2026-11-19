@@ -2522,5 +2522,10 @@
   "auth.sendPasswordResetLink": "Hantar Pautan Tetapan Semula Kata Laluan",
   "auth.knowCurrentPassLink": "Know your current password? Kemas kini terus",
   "auth.deletePasswordLabel": "Masukkan kata laluan anda untuk mengesahkan:",
-  "auth.wrongPassword": "Kata laluan salah. Sila cuba lagi."
+  "auth.wrongPassword": "Kata laluan salah. Sila cuba lagi.",
+  "auth.signOutModalTitle": "Log Keluar dari HelpMyIMG",
+  "auth.signOutModalDesc": "Adakah anda pasti mahu log keluar? Anda boleh log masuk semula pada bila-bila masa untuk mengakses pilihan anda yang disimpan dan ciri PRO.",
+  "auth.signOutConfirmBtn": "Log Keluar",
+  "auth.signOutCancelBtn": "Batal",
+  "auth.signingOut": "Melog keluar..."
 }

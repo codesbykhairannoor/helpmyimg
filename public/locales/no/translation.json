@@ -2522,5 +2522,10 @@
   "auth.sendPasswordResetLink": "Send lenke for tilbakestilling av passord",
   "auth.knowCurrentPassLink": "Vet du ditt nåværende passord? Oppdater direkte",
   "auth.deletePasswordLabel": "Skriv inn passordet ditt for å bekrefte:",
-  "auth.wrongPassword": "Feil passord. Vennligst prøv igjen."
+  "auth.wrongPassword": "Feil passord. Vennligst prøv igjen.",
+  "auth.signOutModalTitle": "Logg av HelpMyIMG",
+  "auth.signOutModalDesc": "Er du sikker på at du vil logge av? Du kan logge på igjen når som helst for å få tilgang til dine lagrede preferanser og PRO-funksjoner.",
+  "auth.signOutConfirmBtn": "Logg ut",
+  "auth.signOutCancelBtn": "Kansellere",
+  "auth.signingOut": "Logger av..."
 }

@@ -2536,5 +2536,10 @@
   "auth.sendPasswordResetLink": "إرسال رابط إعادة تعيين كلمة المرور",
   "auth.knowCurrentPassLink": "هل تعرف كلمة المرور الحالية؟ التحديث مباشرة",
   "auth.deletePasswordLabel": "أدخل كلمة المرور الخاصة بك للتأكيد:",
-  "auth.wrongPassword": "كلمة مرور غير صحيحة. يرجى المحاولة مرة أخرى."
+  "auth.wrongPassword": "كلمة مرور غير صحيحة. يرجى المحاولة مرة أخرى.",
+  "auth.signOutModalTitle": "تسجيل الخروج من HelpMyIMG",
+  "auth.signOutModalDesc": "هل أنت متأكد أنك تريد تسجيل الخروج؟ يمكنك تسجيل الدخول مرة أخرى في أي وقت للوصول إلى تفضيلاتك المحفوظة وميزات PRO.",
+  "auth.signOutConfirmBtn": "تسجيل الخروج",
+  "auth.signOutCancelBtn": "يلغي",
+  "auth.signingOut": "تسجيل الخروج..."
 }

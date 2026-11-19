@@ -2530,5 +2530,10 @@
   "auth.sendPasswordResetLink": "Send Password Reset Link",
   "auth.knowCurrentPassLink": "Know your current password? Update directly",
   "auth.deletePasswordLabel": "Enter your password to confirm:",
-  "auth.wrongPassword": "Incorrect password. Please try again."
+  "auth.wrongPassword": "Incorrect password. Please try again.",
+  "auth.signOutModalTitle": "Sign Out of HelpMyIMG",
+  "auth.signOutModalDesc": "Are you sure you want to sign out? You can sign back in anytime to access your saved preferences and PRO features.",
+  "auth.signOutConfirmBtn": "Sign Out",
+  "auth.signOutCancelBtn": "Cancel",
+  "auth.signingOut": "Signing out..."
 }

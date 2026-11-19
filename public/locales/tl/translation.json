@@ -2522,5 +2522,10 @@
   "auth.sendPasswordResetLink": "Magpadala ng Link sa Pag-reset ng Password",
   "auth.knowCurrentPassLink": "Alam mo ang iyong kasalukuyang password? Direktang i-update",
   "auth.deletePasswordLabel": "Ipasok ang iyong password upang kumpirmahin:",
-  "auth.wrongPassword": "Maling password. Pakisubukang muli."
+  "auth.wrongPassword": "Maling password. Pakisubukang muli.",
+  "auth.signOutModalTitle": "Mag-sign Out sa HelpMyIMG",
+  "auth.signOutModalDesc": "Sigurado ka bang gusto mong mag-sign out? Maaari kang mag-sign in muli anumang oras upang ma-access ang iyong mga naka-save na kagustuhan at mga tampok na PRO.",
+  "auth.signOutConfirmBtn": "Mag-sign Out",
+  "auth.signOutCancelBtn": "Kanselahin",
+  "auth.signingOut": "Nagsa-sign out..."
 }

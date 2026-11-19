@@ -2522,5 +2522,10 @@
   "auth.sendPasswordResetLink": "ส่งลิงค์รีเซ็ตรหัสผ่าน",
   "auth.knowCurrentPassLink": "ทราบรหัสผ่านปัจจุบันของคุณ? อัพเดทโดยตรง",
   "auth.deletePasswordLabel": "ป้อนรหัสผ่านของคุณเพื่อยืนยัน:",
-  "auth.wrongPassword": "รหัสผ่านไม่ถูกต้อง โปรดลองอีกครั้ง"
+  "auth.wrongPassword": "รหัสผ่านไม่ถูกต้อง โปรดลองอีกครั้ง",
+  "auth.signOutModalTitle": "ออกจากระบบ HelpMyIMG",
+  "auth.signOutModalDesc": "คุณแน่ใจหรือไม่ว่าต้องการออกจากระบบ? คุณสามารถลงชื่อเข้าใช้อีกครั้งได้ตลอดเวลาเพื่อเข้าถึงการตั้งค่าที่บันทึกไว้และคุณสมบัติ PRO",
+  "auth.signOutConfirmBtn": "ออกจากระบบ",
+  "auth.signOutCancelBtn": "ยกเลิก",
+  "auth.signingOut": "กำลังออกจากระบบ..."
 }

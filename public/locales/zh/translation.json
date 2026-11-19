@@ -2521,5 +2521,10 @@
   "auth.sendPasswordResetLink": "发送密码重置链接",
   "auth.knowCurrentPassLink": "知道您当前的密码吗？ 直接更新",
   "auth.deletePasswordLabel": "输入您的密码进行确认：",
-  "auth.wrongPassword": "密码不正确。 请再试一次。"
+  "auth.wrongPassword": "密码不正确。 请再试一次。",
+  "auth.signOutModalTitle": "退出 HelpMyIMG",
+  "auth.signOutModalDesc": "您确定要退出吗？ 您可以随时重新登录以访问您保存的首选项和 PRO 功能。",
+  "auth.signOutConfirmBtn": "登出",
+  "auth.signOutCancelBtn": "取消",
+  "auth.signingOut": "正在退出..."
 }

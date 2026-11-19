@@ -2565,5 +2565,10 @@
   "auth.sendPasswordResetLink": "Kirim Tautan Reset Kata Sandi",
   "auth.knowCurrentPassLink": "Ingat kata sandi saat ini? Perbarui langsung",
   "auth.deletePasswordLabel": "Masukkan kata sandi Anda untuk konfirmasi:",
-  "auth.wrongPassword": "Kata sandi salah. Silakan coba lagi."
+  "auth.wrongPassword": "Kata sandi salah. Silakan coba lagi.",
+  "auth.signOutModalTitle": "Keluar dari HelpMyIMG",
+  "auth.signOutModalDesc": "Apakah Anda yakin ingin keluar akun? Anda dapat masuk kembali kapan saja untuk mengakses preferensi tersimpan dan fitur PRO Anda.",
+  "auth.signOutConfirmBtn": "Keluar Akun",
+  "auth.signOutCancelBtn": "Batal",
+  "auth.signingOut": "Sedang keluar..."
 }

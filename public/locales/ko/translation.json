@@ -2522,5 +2522,10 @@
   "auth.sendPasswordResetLink": "비밀번호 재설정 링크 보내기",
   "auth.knowCurrentPassLink": "현재 비밀번호를 알고 계십니까? 직접 업데이트",
   "auth.deletePasswordLabel": "확인을 위해 비밀번호를 입력하세요:",
-  "auth.wrongPassword": "비밀번호가 잘못되었습니다. 다시 시도해 주세요."
+  "auth.wrongPassword": "비밀번호가 잘못되었습니다. 다시 시도해 주세요.",
+  "auth.signOutModalTitle": "HelpMyIMG에서 로그아웃",
+  "auth.signOutModalDesc": "정말로 로그아웃하시겠습니까? 언제든지 다시 로그인하여 저장된 기본 설정과 PRO 기능에 액세스할 수 있습니다.",
+  "auth.signOutConfirmBtn": "로그아웃",
+  "auth.signOutCancelBtn": "취소",
+  "auth.signingOut": "로그아웃 중..."
 }

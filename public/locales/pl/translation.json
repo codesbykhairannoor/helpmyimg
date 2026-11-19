@@ -2527,5 +2527,10 @@
   "auth.sendPasswordResetLink": "Wyślij link do resetowania hasła",
   "auth.knowCurrentPassLink": "Znasz swoje aktualne hasło? Aktualizuj bezpośrednio",
   "auth.deletePasswordLabel": "Wpisz swoje hasło, aby potwierdzić:",
-  "auth.wrongPassword": "Nieprawidłowe hasło. Spróbuj ponownie."
+  "auth.wrongPassword": "Nieprawidłowe hasło. Spróbuj ponownie.",
+  "auth.signOutModalTitle": "Wyloguj się z HelpMyIMG",
+  "auth.signOutModalDesc": "Czy na pewno chcesz się wylogować? Możesz zalogować się ponownie w dowolnym momencie, aby uzyskać dostęp do zapisanych preferencji i funkcji PRO.",
+  "auth.signOutConfirmBtn": "Wyloguj się",
+  "auth.signOutCancelBtn": "Anulować",
+  "auth.signingOut": "Wylogowywanie się..."
 }

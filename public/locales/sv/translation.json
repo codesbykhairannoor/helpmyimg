@@ -2522,5 +2522,10 @@
   "auth.sendPasswordResetLink": "Skicka länk för återställning av lösenord",
   "auth.knowCurrentPassLink": "Vet du ditt nuvarande lösenord? Uppdatera direkt",
   "auth.deletePasswordLabel": "Ange ditt lösenord för att bekräfta:",
-  "auth.wrongPassword": "Felaktigt lösenord. Försök igen."
+  "auth.wrongPassword": "Felaktigt lösenord. Försök igen.",
+  "auth.signOutModalTitle": "Logga ut från HelpMyIMG",
+  "auth.signOutModalDesc": "Är du säker på att du vill logga ut? Du kan logga in igen när som helst för att komma åt dina sparade inställningar och PRO-funktioner.",
+  "auth.signOutConfirmBtn": "Logga ut",
+  "auth.signOutCancelBtn": "Avboka",
+  "auth.signingOut": "Loggar ut..."
 }
