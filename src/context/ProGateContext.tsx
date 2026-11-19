@@ -5,7 +5,7 @@ import React, { createContext, useContext, useState, useEffect, useCallback } fr
 import { useAuth } from './AuthContext';
 import { get4kQuotaInfo, consume4kQuota, type QuotaState } from '../utils/quotaManager';
 
-export type ProGateFeature = 'export-4k' | 'batch-limit' | 'rename-zip' | 'general';
+export type ProGateFeature = 'export-4k' | 'batch-limit' | 'rename-zip' | 'pro-engine' | 'general';
 
 export interface ProGateOptions {
   feature?: ProGateFeature;

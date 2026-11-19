@@ -3,6 +3,7 @@
 
 import { useState, useEffect } from 'react';
 import type { BgMode } from '../../types';
+import type { StudioShadowEffect } from '../../../../services/aiService';
 import { GRADIENT_PRESETS, PRESET_SCENES } from '../ColorBgControl';
 import { ColorBgEngine } from './colorBgEngine';
 
@@ -23,6 +24,8 @@ export interface UseColorBgReturn {
   presetBgImageElement: HTMLImageElement | null;
   bgBlur: number;
   setBgBlur: (blur: number) => void;
+  shadowEffect: StudioShadowEffect;
+  setShadowEffect: (effect: StudioShadowEffect) => void;
   renderCanvas: (transparentImg: HTMLImageElement | HTMLCanvasElement) => HTMLCanvasElement;
 }
 
@@ -36,6 +39,7 @@ export function useColorBg(initialColor: string = '#DB1514'): UseColorBgReturn {
   const [selectedPreset, setSelectedPreset] = useState<string>(PRESET_SCENES[0].id);
   const [presetBgImageElement, setPresetBgImageElement] = useState<HTMLImageElement | null>(null);
   const [bgBlur, setBgBlur] = useState<number>(0);
+  const [shadowEffect, setShadowEffect] = useState<StudioShadowEffect>('none');
 
   // Pre-load preset image whenever selectedPreset changes
   useEffect(() => {
@@ -45,7 +49,7 @@ export function useColorBg(initialColor: string = '#DB1514'): UseColorBgReturn {
         const img = new Image();
         img.crossOrigin = 'anonymous';
         img.onload = () => setPresetBgImageElement(img);
-        img.src = scene.url;
+        img.src = scene.dataUrl;
       }
     }
   }, [bgMode, selectedPreset]);
@@ -59,7 +63,7 @@ export function useColorBg(initialColor: string = '#DB1514'): UseColorBgReturn {
     img.crossOrigin = 'anonymous';
     img.onload = () => setCustomBgImageElement(img);
     img.src = url;
-    setBgMode('custom');
+    setBgMode('image');
   };
 
   const handleClearCustomBg = () => {
@@ -78,6 +82,7 @@ export function useColorBg(initialColor: string = '#DB1514'): UseColorBgReturn {
       customBgElement: customBgImageElement,
       presetBgElement: presetBgImageElement,
       blur: bgBlur,
+      shadowEffect,
     });
   };
 
@@ -98,6 +103,8 @@ export function useColorBg(initialColor: string = '#DB1514'): UseColorBgReturn {
     presetBgImageElement,
     bgBlur,
     setBgBlur,
+    shadowEffect,
+    setShadowEffect,
     renderCanvas,
   };
 }

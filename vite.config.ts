@@ -46,8 +46,24 @@ export default defineConfig({
     strictPort: true,
   },
   plugins: [react(), apiDevPlugin()],
+  assetsInclude: ['**/*.wasm'],
+  worker: {
+    format: 'es',
+  },
   optimizeDeps: {
-    exclude: ['@huggingface/transformers'],
+    exclude: [
+      '@huggingface/transformers',
+      '@jsquash/jpeg',
+      '@jsquash/oxipng',
+      '@jsquash/webp',
+      '@jsquash/avif',
+      '@jsquash/jxl',
+      '@jsquash/resize',
+      'heic-to',
+      'esm-potrace-wasm',
+      '@colorhythm/libraw-wasm',
+    ],
+    include: ['upng-js', 'utif', 'ag-psd', 'imagetracerjs'],
   },
   build: {
     chunkSizeWarningLimit: 2000,

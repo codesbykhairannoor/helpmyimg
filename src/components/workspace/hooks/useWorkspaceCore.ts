@@ -9,6 +9,7 @@ import { useProGate } from '../../../context/ProGateContext';
 import { getExportUrl, getImageDimensions } from '../../../utils/resolutionHelper';
 import { exportTo4k } from '../../../utils/upscaleHelper';
 import { getMaxBatchAllowed } from '../../../utils/quotaManager';
+import { decodeForeignImageToPngBlob, needsForeignDecode } from '../../../utils/wasmDecoder';
 import type { BatchItem, TabType } from '../types';
 
 export interface UseWorkspaceCoreReturn {
@@ -60,7 +61,7 @@ export function useWorkspaceCore(initialTab: TabType = 'remove'): UseWorkspaceCo
 
   const isReplacingRef = useRef(false);
 
-  // Handle file uploads across all tools
+  // Handle file uploads across all tools (including HEIC, RAW, PSD, TIFF, JXL via WASM decoder)
   const handleFiles = useCallback(
     async (files: FileList | File[], forceReplace?: boolean) => {
       const rawFiles = Array.from(files);
@@ -92,27 +93,40 @@ export function useWorkspaceCore(initialTab: TabType = 'remove'): UseWorkspaceCo
         });
       }
 
-      const newItems: BatchItem[] = fileArray.map((rawFile) => {
-        let f = rawFile;
-        if (rawFile.name.toLowerCase().endsWith('.svg') && (!rawFile.type || !rawFile.type.includes('svg'))) {
-          f = new File([rawFile], rawFile.name, { type: 'image/svg+xml' });
-        }
-        const url = URL.createObjectURL(f);
-        return {
-          id: `img_${Date.now()}_${Math.random().toString(36).substring(2, 7)}`,
-          name: f.name,
-          file: f,
-          originalUrl: url,
-          transparentUrl: null,
-          processedUrl: url,
-          initialFile: f,
-          initialOriginalUrl: url,
-          modelType: 'rmbg',
-          status: 'idle',
-          progress: 0,
-          progressStep: t('work.waiting', { defaultValue: 'Ready to process' }),
-        };
-      });
+      const decodedItems = await Promise.all(
+        fileArray.map(async (rawFile) => {
+          let f: File = rawFile;
+          if (rawFile.name.toLowerCase().endsWith('.svg') && (!rawFile.type || !rawFile.type.includes('svg'))) {
+            f = new File([rawFile], rawFile.name, { type: 'image/svg+xml' });
+          } else if (needsForeignDecode(rawFile)) {
+            try {
+              const { blob, decoded } = await decodeForeignImageToPngBlob(rawFile);
+              if (decoded) {
+                f = new File([blob], rawFile.name, { type: blob.type || 'image/png' });
+              }
+            } catch (decodeErr) {
+              console.warn('[HelpMyIMG] Foreign WASM decode skipped:', decodeErr);
+            }
+          }
+          const url = URL.createObjectURL(f);
+          return {
+            id: `img_${Date.now()}_${Math.random().toString(36).substring(2, 7)}`,
+            name: rawFile.name,
+            file: f,
+            originalUrl: url,
+            transparentUrl: null,
+            processedUrl: url,
+            initialFile: f,
+            initialOriginalUrl: url,
+            modelType: 'rmbg' as const,
+            status: 'idle' as const,
+            progress: 0,
+            progressStep: t('work.waiting', { defaultValue: 'Ready to process' }),
+          };
+        })
+      );
+
+      const newItems: BatchItem[] = decodedItems;
 
       setBatchItems((prev) => {
         const baseList = isReplacing ? [] : prev;
@@ -224,7 +238,7 @@ export function useWorkspaceCore(initialTab: TabType = 'remove'): UseWorkspaceCo
         let revoked = false;
 
         if (is4k) {
-          const res = await exportTo4k(urlToDownload, 3840);
+          const res = await exportTo4k(urlToDownload, 3840, { useAiSr: isPro });
           finalUrl = res.url;
           revoked = res.revoked;
         } else {

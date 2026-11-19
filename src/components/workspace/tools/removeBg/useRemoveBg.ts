@@ -3,12 +3,16 @@
 
 import { useState, useRef, useEffect, useCallback } from 'react';
 import type { CutoutMode, BatchItem } from '../../types';
+import type { AiModelTier } from '../../../../workers/aiWorker';
 import { RemoveBgEngine } from './removeBgEngine';
 
 export interface UseRemoveBgReturn {
   imageType: CutoutMode;
   setImageType: (val: CutoutMode) => void;
   imageTypeRef: React.MutableRefObject<CutoutMode>;
+  modelTier: AiModelTier;
+  setModelTier: (tier: AiModelTier) => void;
+  modelTierRef: React.MutableRefObject<AiModelTier>;
   processItem: (
     item: BatchItem,
     updateProgress?: (step: string, progress: number) => void
@@ -18,10 +22,16 @@ export interface UseRemoveBgReturn {
 export function useRemoveBg(initialMode: CutoutMode = 'photo'): UseRemoveBgReturn {
   const [imageType, setImageType] = useState<CutoutMode>(initialMode);
   const imageTypeRef = useRef<CutoutMode>(initialMode);
+  const [modelTier, setModelTier] = useState<AiModelTier>('standard');
+  const modelTierRef = useRef<AiModelTier>('standard');
 
   useEffect(() => {
     imageTypeRef.current = imageType;
   }, [imageType]);
+
+  useEffect(() => {
+    modelTierRef.current = modelTier;
+  }, [modelTier]);
 
   const processItem = useCallback(
     async (
@@ -30,6 +40,7 @@ export function useRemoveBg(initialMode: CutoutMode = 'photo'): UseRemoveBgRetur
     ): Promise<{ transparentUrl: string }> => {
       const result = await RemoveBgEngine.process(item.file, {
         mode: imageTypeRef.current,
+        modelTier: modelTierRef.current,
         onProgress: (step, pct) => {
           if (updateProgress) updateProgress(step, pct);
         },
@@ -44,6 +55,9 @@ export function useRemoveBg(initialMode: CutoutMode = 'photo'): UseRemoveBgRetur
     imageType,
     setImageType,
     imageTypeRef,
+    modelTier,
+    setModelTier,
+    modelTierRef,
     processItem,
   };
 }

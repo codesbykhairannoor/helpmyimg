@@ -11,6 +11,7 @@ import { InteractiveCropOverlay } from '../tools/InteractiveCropOverlay';
 import { BlurBoxOverlay } from '../tools/BlurBoxOverlay';
 import { DesignEditorControl } from '../tools/DesignEditorControl';
 import type { BatchItem, BlurBox } from '../types';
+import type { BrushMode } from '../tools/brush/brushEngine';
 
 interface WorkspaceViewportProps {
   initialTab: string;
@@ -48,7 +49,7 @@ interface WorkspaceViewportProps {
   resizeMode?: 'standard' | 'smart';
   // Brush states for dynamic hover cursor
   brushSize?: number;
-  brushMode?: 'restore' | 'erase';
+  brushMode?: BrushMode;
 }
 
 export const WorkspaceViewport: React.FC<WorkspaceViewportProps> = ({
@@ -242,12 +243,23 @@ export const WorkspaceViewport: React.FC<WorkspaceViewportProps> = ({
                   width: `${brushSize}px`,
                   height: `${brushSize}px`,
                   transform: 'translate(-50%, -50%)',
-                  border: brushMode === 'restore' ? '2.5px solid #10b981' : '2.5px solid #f43f5e',
+                  border:
+                    brushMode === 'restore'
+                      ? '2.5px solid #10b981'
+                      : brushMode === 'inpaint'
+                      ? '2.5px solid #f59e0b'
+                      : '2.5px solid #f43f5e',
                   backgroundColor:
-                    brushMode === 'restore' ? 'rgba(16, 185, 129, 0.22)' : 'rgba(244, 63, 94, 0.22)',
+                    brushMode === 'restore'
+                      ? 'rgba(16, 185, 129, 0.22)'
+                      : brushMode === 'inpaint'
+                      ? 'rgba(245, 158, 11, 0.22)'
+                      : 'rgba(244, 63, 94, 0.22)',
                   boxShadow:
                     brushMode === 'restore'
                       ? '0 0 14px rgba(16, 185, 129, 0.8), inset 0 0 6px rgba(16, 185, 129, 0.4)'
+                      : brushMode === 'inpaint'
+                      ? '0 0 14px rgba(245, 158, 11, 0.8), inset 0 0 6px rgba(245, 158, 11, 0.4)'
                       : '0 0 14px rgba(244, 63, 94, 0.8), inset 0 0 6px rgba(244, 63, 94, 0.4)',
                 }}
               >
@@ -255,7 +267,8 @@ export const WorkspaceViewport: React.FC<WorkspaceViewportProps> = ({
                 <div
                   className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-1.5 h-1.5 rounded-full"
                   style={{
-                    backgroundColor: brushMode === 'restore' ? '#10b981' : '#f43f5e',
+                    backgroundColor:
+                      brushMode === 'restore' ? '#10b981' : brushMode === 'inpaint' ? '#f59e0b' : '#f43f5e',
                     boxShadow: '0 0 3px rgba(0, 0, 0, 0.9)',
                   }}
                 />

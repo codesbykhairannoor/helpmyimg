@@ -74,6 +74,12 @@ export const ProGateModal: React.FC = () => {
       descText = t('gate.descTrialBatch', {
         defaultValue: 'Masuk dengan Google atau Email untuk memproses hingga 10 foto sekaligus langsung di browser Anda.',
       });
+    } else if (feature === 'pro-engine') {
+      badgeText = t('gate.badgeProEngine', { defaultValue: '⚡ WEBGPU + BIREFNET AI (PRO)' });
+      titleText = t('gate.titleTrialEngine', { defaultValue: 'Buka Mesin AI BiRefNet & WebGPU' });
+      descText = t('gate.descTrialEngine', {
+        defaultValue: 'Masuk dengan Google atau Email untuk menikmati pemrosesan cepat GPU WebGPU & akselerasi AI resolusi penuh.',
+      });
     } else if (feature === 'rename-zip') {
       badgeText = t('gate.badgeTrialGeneral', { defaultValue: '✨ FITUR ANGGOTA GRATIS' });
       titleText = t('gate.titleTrialGeneral', { defaultValue: 'Masuk untuk Membuka Fitur' });
@@ -95,6 +101,12 @@ export const ProGateModal: React.FC = () => {
       titleText = t('gate.titleProBatch', { defaultValue: 'Buka Batch 100+ Foto Sekaligus' });
       descText = t('gate.descProBatch', {
         defaultValue: 'Akun gratis dibatasi 10 foto per batch. Tingkatkan ke PRO untuk memproses hingga 100 foto sekaligus dengan akselerasi multi-core.',
+      });
+    } else if (feature === 'pro-engine') {
+      badgeText = t('gate.badgeProEngine', { defaultValue: '👑 PRO WEBGPU ENGINE' });
+      titleText = t('gate.titleProEngine', { defaultValue: 'Buka BiRefNet Ultra Hair & Swin2SR 4K' });
+      descText = t('gate.descProEngine', {
+        defaultValue: 'Upgrade ke PRO untuk membuka segmentasi rambut super halus BiRefNet WebGPU, AI Super-Resolution Swin2SR, dan Studio Efek tanpa batas.',
       });
     } else if (feature === 'rename-zip') {
       badgeText = t('gate.badgeProRename', { defaultValue: '👑 FITUR PRO' });

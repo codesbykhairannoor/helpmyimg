@@ -3,7 +3,10 @@
 
 import React from 'react';
 import { useTranslation } from '../../../../context/LanguageContext';
-import { RefreshCw, Sparkles, Image as ImageIcon, PaintBucket, RotateCcw, Upload } from 'lucide-react';
+import { RefreshCw, Sparkles, Image as ImageIcon, PaintBucket, RotateCcw, Upload, Crown } from 'lucide-react';
+import { useAuth } from '../../../../context/AuthContext';
+import { useProGate } from '../../../../context/ProGateContext';
+import type { AiModelTier } from '../../../../workers/aiWorker';
 import type { CutoutMode } from '../../types';
 
 export interface RemoveBgControlProps {
@@ -19,6 +22,8 @@ export interface RemoveBgControlProps {
   batchCount?: number;
   imageType?: CutoutMode;
   setImageType?: (val: CutoutMode) => void;
+  modelTier?: AiModelTier;
+  setModelTier?: (tier: AiModelTier) => void;
   hasProcessedAi?: boolean;
 }
 
@@ -33,9 +38,13 @@ export const RemoveBgControl: React.FC<RemoveBgControlProps> = ({
   batchCount = 0,
   imageType = 'photo',
   setImageType,
+  modelTier = 'standard',
+  setModelTier,
   hasProcessedAi = true,
 }) => {
   const { t } = useTranslation();
+  const { isPro } = useAuth();
+  const { openProGate } = useProGate();
 
   return (
     <div className="space-y-6">
@@ -85,6 +94,41 @@ export const RemoveBgControl: React.FC<RemoveBgControlProps> = ({
               <span className="text-[9px] text-slate-400 font-medium text-center truncate">{t('remove.modeLogoDesc', { defaultValue: 'Flat Color Graphics (0ms)' })}</span>
             </button>
           </div>
+
+          {/* Concise AI Model Selector when Photo AI is selected */}
+          {imageType === 'photo' && setModelTier && (
+            <div className="grid grid-cols-2 gap-1.5 pt-1">
+              <button
+                type="button"
+                onClick={() => setModelTier('standard')}
+                className={`py-1.5 px-2.5 rounded-lg text-[11px] font-bold border transition-all cursor-pointer truncate ${
+                  modelTier === 'standard'
+                    ? 'bg-neon-cyan/15 border-neon-cyan/50 text-neon-cyan'
+                    : 'bg-dark-900/60 border-dark-700 text-slate-400 hover:text-white'
+                }`}
+              >
+                {t('remove.tierStandard', { defaultValue: 'Standard AI' })}
+              </button>
+              <button
+                type="button"
+                onClick={() => {
+                  if (!isPro) {
+                    openProGate({ feature: 'pro-engine' });
+                    return;
+                  }
+                  setModelTier('pro');
+                }}
+                className={`py-1.5 px-2.5 rounded-lg text-[11px] font-bold border transition-all cursor-pointer flex items-center justify-center gap-1 truncate ${
+                  modelTier === 'pro'
+                    ? 'bg-amber-400/15 border-amber-400/60 text-amber-300'
+                    : 'bg-dark-900/60 border-dark-700 text-slate-300 hover:text-amber-300'
+                }`}
+              >
+                <Crown className="w-3 h-3 text-amber-400 shrink-0" />
+                <span className="truncate">{t('remove.tierPro', { defaultValue: 'BiRefNet Ultra (PRO)' })}</span>
+              </button>
+            </div>
+          )}
         </div>
       )}
 

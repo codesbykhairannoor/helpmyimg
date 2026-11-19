@@ -28,6 +28,8 @@ import { MetadataControl } from './tools/MetadataControl';
 import { EditExifControl } from './tools/EditExifControl';
 
 import { processImage, cropImage, rotateImage, smartCropImage, applyWatermark } from '../../utils/imageOperations';
+import { ACCEPTED_UPLOAD_TYPES } from '../../utils/wasmDecoder';
+import { CompressEngine } from './tools/compress/compressEngine';
 import { applyStudioPreset, applyManualExif, stripAllPhotoMetadata } from '../../utils/metadataEngine';
 import { hexToColorInfo } from '../../utils/colorUtils';
 import type { TabType, BatchItem, ColorInfo, WatermarkPosition, ToolWorkspaceProps } from './types';
@@ -75,7 +77,7 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({
   }, [rawInitialTab]);
 
   const currentTab = activeTabOverride || initialTab;
-  const state = useWorkspaceState(initialTab);
+  const state = useWorkspaceState(initialTab, undefined, rawInitialTab);
 
   React.useEffect(() => {
     onActiveChange?.(state.batchItems.length > 0);
@@ -93,6 +95,9 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({
     imageType,
     setImageType,
     imageTypeRef,
+    modelTier,
+    setModelTier,
+    modelTierRef,
     // Background
     bgMode,
     setBgMode,
@@ -107,6 +112,8 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({
     setSelectedPreset,
     bgBlur,
     setBgBlur,
+    shadowEffect,
+    setShadowEffect,
     // Brush
     brushMode,
     setBrushMode,
@@ -138,8 +145,14 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({
     // Compression & Conversion
     compressQuality,
     setCompressQuality,
+    compressMode,
+    setCompressMode,
+    targetKB,
+    setTargetKB,
     convertFormat,
     setConvertFormat,
+    svgMode,
+    setSvgMode,
     // Resize
     resizeWidth,
     setResizeWidth,
@@ -149,6 +162,8 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({
     setResizeMaintainRatio,
     resizeMode,
     setResizeMode,
+    resizeMethod,
+    setResizeMethod,
     originalDimensions,
     setOriginalDimensions,
     // Crop
@@ -206,6 +221,10 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({
       if (mime.includes('png')) return 'PNG';
       if (mime.includes('webp')) return 'WEBP';
       if (mime.includes('avif')) return 'AVIF';
+      if (mime.includes('jxl')) return 'JXL';
+      if (mime.includes('heic') || mime.includes('heif')) return 'HEIC';
+      if (mime.includes('tiff')) return 'TIFF';
+      if (mime.includes('photoshop') || mime.includes('psd')) return 'PSD';
       if (mime.includes('gif')) return 'GIF';
       if (mime.includes('bmp')) return 'BMP';
       if (mime.includes('svg')) return 'SVG';
@@ -224,7 +243,7 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({
             ref={fileInputRef}
             type="file"
             multiple
-            accept="image/*,.svg,image/svg+xml,image/png,image/jpeg,image/webp,image/jpg,image/avif,image/gif,image/bmp,image/x-icon"
+            accept={ACCEPTED_UPLOAD_TYPES}
             onChange={(e) => {
               if (e.target.files && e.target.files.length > 0) {
                 handleFiles(e.target.files);
@@ -385,9 +404,15 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({
                     setImageType(newType);
                     imageTypeRef.current = newType;
                     if (currentItem) {
-                      setTimeout(() => {
-                        processSingleItem(currentItem);
-                      }, 20);
+                      processSingleItem(currentItem);
+                    }
+                  }}
+                  modelTier={modelTier}
+                  setModelTier={(tier) => {
+                    setModelTier(tier);
+                    modelTierRef.current = tier;
+                    if (currentItem) {
+                      processSingleItem(currentItem);
                     }
                   }}
                   hasProcessedAi={Boolean(
@@ -412,6 +437,8 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({
                   setSelectedPreset={setSelectedPreset}
                   bgBlur={bgBlur}
                   setBgBlur={setBgBlur}
+                  shadowEffect={shadowEffect}
+                  setShadowEffect={setShadowEffect}
                   onReset={handleResetCurrent}
                   onUploadOther={handleUploadOther}
                   isProcessing={
@@ -483,7 +510,6 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({
                   batchCount={batchItems.length}
                   onProcessBatch={async () => {
                     setBatchItems((prev) => prev.map((item) => ({ ...item, status: 'processing' })));
-                    await new Promise((r) => setTimeout(r, 50));
                     const newItems = [...batchItems];
                     for (let i = 0; i < newItems.length; i++) {
                       const item = newItems[i];
@@ -504,7 +530,6 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({
                         newItems[i] = { ...item, status: 'error', errorMessage: 'Watermark failed' };
                       }
                       setBatchItems([...newItems]);
-                      await new Promise((r) => setTimeout(r, 60));
                     }
                   }}
                   onReset={handleResetCurrent}
@@ -513,17 +538,29 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({
                 />
               )}
 
-              {(initialTab === 'compress' || initialTab === 'compress100kb') && (
+              {(initialTab === 'compress' ||
+                initialTab === 'compress50kb' ||
+                initialTab === 'compress100kb' ||
+                initialTab === 'compress200kb') && (
                 <CompressControl
                   quality={compressQuality}
                   setQuality={setCompressQuality}
+                  compressMode={compressMode}
+                  setCompressMode={setCompressMode}
+                  targetKB={targetKB}
+                  setTargetKB={setTargetKB}
                   hasCompressed={!!currentItem?.compressBlob}
                   onProcess={async () => {
                     if (currentItem) {
+                      setBatchItems((prev) =>
+                        prev.map((item) =>
+                          item.id === currentItem.id ? { ...item, status: 'processing' } : item
+                        )
+                      );
                       try {
                         let sourceBlob = currentItem.file;
-                        if (currentItem.processedUrl && currentItem.processedUrl !== currentItem.originalUrl) {
-                          const res = await fetch(currentItem.processedUrl);
+                        if (currentItem.transparentUrl && currentItem.transparentUrl !== currentItem.originalUrl) {
+                          const res = await fetch(currentItem.transparentUrl);
                           sourceBlob = await res.blob();
                         } else if (!sourceBlob && currentItem.originalUrl) {
                           const res = await fetch(currentItem.originalUrl);
@@ -531,11 +568,12 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({
                         }
 
                         if (sourceBlob) {
-                          const blob = await processImage(sourceBlob, {
-                            mimeType: 'image/jpeg',
+                          const finalBlob = await CompressEngine.compress(sourceBlob, {
                             quality: compressQuality,
+                            compressMode,
+                            targetKB,
+                            mimeType: sourceBlob.type || 'image/jpeg',
                           });
-                          const finalBlob = blob.size > sourceBlob.size ? sourceBlob : blob;
                           const url = URL.createObjectURL(finalBlob);
                           setBatchItems((prev) =>
                             prev.map((item) =>
@@ -546,21 +584,27 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({
                                   compressBlob: finalBlob,
                                   compressUrl: url,
                                   processedUrl: url,
+                                  status: 'done',
                                 }
                                 : item
                             )
                           );
                         }
-                      } catch (err) {
+                      } catch (err: any) {
                         console.error('Compress preview failed', err);
+                        setBatchItems((prev) =>
+                          prev.map((item) =>
+                            item.id === currentItem.id
+                              ? { ...item, status: 'error', errorMessage: err?.message || 'Compress failed' }
+                              : item
+                          )
+                        );
                       }
                     }
                   }}
                   batchCount={batchItems.length}
                   onProcessBatch={async () => {
                     setBatchItems((prev) => prev.map((item) => ({ ...item, status: 'processing' })));
-                    await new Promise((r) => setTimeout(r, 50));
-
                     const newItems = [...batchItems];
                     for (let i = 0; i < newItems.length; i++) {
                       const item = newItems[i];
@@ -575,11 +619,12 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({
                         }
 
                         if (sourceBlob) {
-                          const blob = await processImage(sourceBlob, {
-                            mimeType: 'image/jpeg',
+                          const finalBlob = await CompressEngine.compress(sourceBlob, {
                             quality: compressQuality,
+                            compressMode,
+                            targetKB,
+                            mimeType: sourceBlob.type || 'image/jpeg',
                           });
-                          const finalBlob = blob.size > sourceBlob.size ? sourceBlob : blob;
                           const url = URL.createObjectURL(finalBlob);
                           newItems[i] = {
                             ...item,
@@ -594,7 +639,6 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({
                         newItems[i] = { ...item, status: 'error', errorMessage: 'Compress failed' };
                       }
                       setBatchItems([...newItems]);
-                      await new Promise((r) => setTimeout(r, 60));
                     }
                   }}
                   onDownload={() => {
@@ -604,7 +648,13 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({
                       a.href = url;
                       let baseName = currentItem.name || `HelpMyIMG_${Date.now()}`;
                       if (baseName.includes('.')) baseName = baseName.substring(0, baseName.lastIndexOf('.'));
-                      a.download = `${baseName}.jpg`;
+                      const ext =
+                        currentItem.compressBlob.type === 'image/png'
+                          ? 'png'
+                          : currentItem.compressBlob.type === 'image/webp'
+                          ? 'webp'
+                          : 'jpg';
+                      a.download = `${baseName}.${ext}`;
                       a.click();
                     }
                   }}
@@ -617,6 +667,8 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({
               {initialTab === 'convert' && (
                 <ConvertControl
                   format={convertFormat}
+                  svgMode={svgMode}
+                  setSvgMode={setSvgMode}
                   sourceFormat={detectedSourceFormat}
                   setFormat={(newF) => {
                     setConvertFormat(newF);
@@ -637,6 +689,7 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({
                         const blob = await processImage(currentItem.file, {
                           mimeType: convertFormat,
                           quality: 0.95,
+                          svgMode,
                         });
                         const url = URL.createObjectURL(blob);
                         const extMap: Record<string, string> = {
@@ -646,6 +699,7 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({
                           'image/gif': 'gif',
                           'image/bmp': 'bmp',
                           'image/avif': 'avif',
+                          'image/jxl': 'jxl',
                           'image/svg+xml': 'svg',
                         };
                         const ext = extMap[convertFormat] || convertFormat.split('/')[1];
@@ -678,12 +732,15 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({
                   batchCount={batchItems.length}
                   onProcessBatch={async () => {
                     setBatchItems((prev) => prev.map((item) => ({ ...item, status: 'processing' })));
-                    await new Promise((r) => setTimeout(r, 50));
                     const newItems = [...batchItems];
                     for (let i = 0; i < newItems.length; i++) {
                       const item = newItems[i];
                       try {
-                        const blob = await processImage(item.file, { mimeType: convertFormat, quality: 0.95 });
+                        const blob = await processImage(item.file, {
+                          mimeType: convertFormat,
+                          quality: 0.95,
+                          svgMode,
+                        });
                         const url = URL.createObjectURL(blob);
                         const extMap: Record<string, string> = {
                           'image/x-icon': 'ico',
@@ -692,6 +749,7 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({
                           'image/gif': 'gif',
                           'image/bmp': 'bmp',
                           'image/avif': 'avif',
+                          'image/jxl': 'jxl',
                           'image/svg+xml': 'svg',
                         };
                         const ext = extMap[convertFormat] || convertFormat.split('/')[1];
@@ -704,7 +762,6 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({
                         newItems[i] = { ...item, status: 'error', errorMessage: err.message || 'Convert failed' };
                       }
                       setBatchItems([...newItems]);
-                      await new Promise((r) => setTimeout(r, 60));
                     }
                   }}
                   onReset={handleResetCurrent}
@@ -724,6 +781,8 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({
                   setMaintainRatio={setResizeMaintainRatio}
                   resizeMode={resizeMode}
                   setResizeMode={setResizeMode}
+                  resizeMethod={resizeMethod}
+                  setResizeMethod={setResizeMethod}
                   onApply={async () => {
                     if (currentItem?.file) {
                       try {
@@ -747,7 +806,8 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({
                             sourceBlob,
                             resizeWidth,
                             resizeHeight,
-                            currentItem.file.type || 'image/jpeg'
+                            currentItem.file.type || 'image/jpeg',
+                            resizeMethod
                           );
                         } else {
                           blob = await processImage(sourceBlob, {
@@ -756,6 +816,7 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({
                             width: resizeWidth,
                             height: resizeHeight,
                             maintainAspectRatio: false,
+                            resizeMethod,
                           });
                         }
                         const url = URL.createObjectURL(blob);

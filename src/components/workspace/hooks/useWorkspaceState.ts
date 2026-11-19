@@ -26,8 +26,10 @@ import { useDesign } from '../tools/design/useDesign';
 import { ColorBgEngine } from '../tools/colorBg/colorBgEngine';
 import { WatermarkEngine } from '../tools/watermark/watermarkEngine';
 import { BlurEngine } from '../tools/blur/blurEngine';
+import { BrushEngine } from '../tools/brush/brushEngine';
+import { GRADIENT_PRESETS } from '../tools/ColorBgControl';
 
-export function useWorkspaceState(initialTab: TabType = 'remove', keywordSlug?: string) {
+export function useWorkspaceState(initialTab: TabType = 'remove', keywordSlug?: string, rawInitialTab?: string) {
   // 1. Core Batch & File Management
   const core = useWorkspaceCore(initialTab);
   const {
@@ -54,18 +56,32 @@ export function useWorkspaceState(initialTab: TabType = 'remove', keywordSlug?: 
 
   // 2. Individual Tool State Hooks
   const initialColor =
-    initialTab === 'colorwhite'
+    rawInitialTab === 'colorwhite' || initialTab === 'colorwhite'
       ? '#FFFFFF'
       : keywordSlug && keywordSlug.toLowerCase().includes('biru')
       ? '#00529C'
       : '#DB1514';
 
+  const resolvedRaw = rawInitialTab || initialTab;
+  const initialTargetKB =
+    resolvedRaw === 'compress50kb'
+      ? 50
+      : resolvedRaw === 'compress100kb'
+      ? 100
+      : resolvedRaw === 'compress200kb'
+      ? 200
+      : null;
+
+  const initialBrushMode =
+    resolvedRaw === 'removeperson' || resolvedRaw === 'removelogo' ? 'inpaint' : 'restore';
+  const initialConvertFormat = resolvedRaw === 'convertwebp' ? 'image/webp' : 'image/jpeg';
+
   const removeBg = useRemoveBg('photo');
   const colorBg = useColorBg(initialColor);
-  const brush = useBrush('restore', 25);
+  const brush = useBrush(initialBrushMode, 25);
   const watermark = useWatermark();
-  const compress = useCompress(0.8);
-  const convert = useConvert('image/jpeg');
+  const compress = useCompress(0.8, initialTargetKB);
+  const convert = useConvert(initialConvertFormat);
   const resize = useResize();
   const crop = useCrop();
   const rotate = useRotate();
@@ -85,7 +101,18 @@ export function useWorkspaceState(initialTab: TabType = 'remove', keywordSlug?: 
   const effectSequenceRef = useRef(0);
   const debounceTimerRef = useRef<NodeJS.Timeout | null>(null);
 
-  // Sync keywordSlug to tool settings
+  // Sync keywordSlug & route slug presets to tool settings
+  useEffect(() => {
+    if (resolvedRaw === 'compress50kb') compress.setTargetKB(50);
+    else if (resolvedRaw === 'compress100kb') compress.setTargetKB(100);
+    else if (resolvedRaw === 'compress200kb') compress.setTargetKB(200);
+    else if (resolvedRaw === 'compress') compress.setTargetKB(null);
+
+    if (resolvedRaw === 'convertwebp') convert.setConvertFormat('image/webp');
+    if (resolvedRaw === 'removeperson' || resolvedRaw === 'removelogo') brush.setBrushMode('inpaint');
+    if (resolvedRaw === 'colorwhite') colorBg.setSelectedColor('#FFFFFF');
+  }, [resolvedRaw]);
+
   useEffect(() => {
     if (keywordSlug) {
       const lower = keywordSlug.toLowerCase();
@@ -230,6 +257,7 @@ export function useWorkspaceState(initialTab: TabType = 'remove', keywordSlug?: 
           customBgElement: colorBg.customBgImageElement,
           presetBgElement: colorBg.presetBgImageElement,
           blur: colorBg.bgBlur,
+          shadowEffect: colorBg.shadowEffect,
         });
       } else if (initialTab === 'watermark' || initialTab === 'watermarkbulk') {
         resultCanvas = WatermarkEngine.applyWatermark(img, {
@@ -269,6 +297,7 @@ export function useWorkspaceState(initialTab: TabType = 'remove', keywordSlug?: 
     colorBg.customBgImageElement,
     colorBg.presetBgImageElement,
     colorBg.bgBlur,
+    colorBg.shadowEffect,
     watermark.watermarkType,
     watermark.watermarkText,
     watermark.watermarkColor,
@@ -307,6 +336,7 @@ export function useWorkspaceState(initialTab: TabType = 'remove', keywordSlug?: 
     colorBg.customBgImageElement,
     colorBg.presetBgImageElement,
     colorBg.bgBlur,
+    colorBg.shadowEffect,
     watermark.watermarkText,
     watermark.watermarkColor,
     watermark.watermarkOpacity,
@@ -430,24 +460,11 @@ export function useWorkspaceState(initialTab: TabType = 'remove', keywordSlug?: 
 
     const start = lastPointRef.current || { x: currentX, y: currentY };
     const dist = Math.hypot(currentX - start.x, currentY - start.y);
-    const step = Math.max(1, canvasRadius * 0.25);
+    const step =
+      brush.brushMode === 'inpaint'
+        ? Math.max(2, canvasRadius * 0.6)
+        : Math.max(1, canvasRadius * 0.25);
     const steps = Math.ceil(dist / step);
-
-    const renderCircle = (cx: number, cy: number, img?: HTMLImageElement | null) => {
-      ctx.save();
-      ctx.beginPath();
-      ctx.arc(cx, cy, canvasRadius, 0, Math.PI * 2);
-
-      if (brush.brushMode === 'erase') {
-        ctx.globalCompositeOperation = 'destination-out';
-        ctx.fillStyle = 'rgba(0,0,0,1)';
-        ctx.fill();
-      } else if (img) {
-        ctx.clip();
-        ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
-      }
-      ctx.restore();
-    };
 
     const targetImg = restoreImageRef.current;
 
@@ -455,7 +472,14 @@ export function useWorkspaceState(initialTab: TabType = 'remove', keywordSlug?: 
       const t = steps === 0 ? 1 : i / steps;
       const px = start.x + (currentX - start.x) * t;
       const py = start.y + (currentY - start.y) * t;
-      renderCircle(px, py, targetImg);
+      BrushEngine.applyStroke({
+        ctx,
+        originalImg: targetImg,
+        x: px,
+        y: py,
+        radius: canvasRadius,
+        mode: brush.brushMode,
+      });
     }
 
     lastPointRef.current = { x: currentX, y: currentY };
@@ -504,6 +528,7 @@ export function useWorkspaceState(initialTab: TabType = 'remove', keywordSlug?: 
     img.src = currentItem.originalUrl;
     resize.setMaintainRatio(true);
     resize.setResizeMode('standard');
+    resize.setResizeMethod('lanczos3');
 
     rotate.setRotationDeg(0);
     rotate.setFlipH(false);
@@ -511,9 +536,10 @@ export function useWorkspaceState(initialTab: TabType = 'remove', keywordSlug?: 
 
     colorBg.setSelectedColor(initialColor);
     colorBg.setBgMode('color');
-    colorBg.setSelectedGradient(null);
-    colorBg.setCustomBgUrl(null);
+    colorBg.setSelectedGradient(GRADIENT_PRESETS[0].value);
+    colorBg.handleClearCustomBg();
     colorBg.setBgBlur(0);
+    colorBg.setShadowEffect('none');
 
     watermark.setWatermarkText('');
     watermark.setWatermarkImage(null);
@@ -559,6 +585,9 @@ export function useWorkspaceState(initialTab: TabType = 'remove', keywordSlug?: 
     imageType: removeBg.imageType,
     setImageType: removeBg.setImageType,
     imageTypeRef: removeBg.imageTypeRef,
+    modelTier: removeBg.modelTier,
+    setModelTier: removeBg.setModelTier,
+    modelTierRef: removeBg.modelTierRef,
     // Color Background
     initialColor,
     bgMode: colorBg.bgMode,
@@ -577,6 +606,8 @@ export function useWorkspaceState(initialTab: TabType = 'remove', keywordSlug?: 
     presetBgImageElement: colorBg.presetBgImageElement,
     bgBlur: colorBg.bgBlur,
     setBgBlur: colorBg.setBgBlur,
+    shadowEffect: colorBg.shadowEffect,
+    setShadowEffect: colorBg.setShadowEffect,
     // Brush
     brushMode: brush.brushMode,
     setBrushMode: brush.setBrushMode,
@@ -603,9 +634,15 @@ export function useWorkspaceState(initialTab: TabType = 'remove', keywordSlug?: 
     // Compress
     compressQuality: compress.compressQuality,
     setCompressQuality: compress.setCompressQuality,
+    compressMode: compress.compressMode,
+    setCompressMode: compress.setCompressMode,
+    targetKB: compress.targetKB,
+    setTargetKB: compress.setTargetKB,
     // Convert
     convertFormat: convert.convertFormat,
     setConvertFormat: convert.setConvertFormat,
+    svgMode: convert.svgMode,
+    setSvgMode: convert.setSvgMode,
     // Resize
     resizeWidth: resize.resizeWidth,
     setResizeWidth: resize.setResizeWidth,
@@ -615,6 +652,8 @@ export function useWorkspaceState(initialTab: TabType = 'remove', keywordSlug?: 
     setResizeMaintainRatio: resize.setResizeMaintainRatio,
     resizeMode: resize.resizeMode,
     setResizeMode: resize.setResizeMode,
+    resizeMethod: resize.resizeMethod,
+    setResizeMethod: resize.setResizeMethod,
     originalDimensions: resize.originalDimensions,
     setOriginalDimensions: resize.setOriginalDimensions,
     // Crop

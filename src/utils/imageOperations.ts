@@ -1,6 +1,23 @@
 // src/utils/imageOperations.ts
 // Pure client-side Canvas operations for compressing, converting, and resizing images
 
+import { decodeForeignImageToPngBlob, decodeAvifFallback, needsForeignDecode } from './wasmDecoder';
+import {
+  encodeMozJpeg,
+  encodePngWasm,
+  encodeWebpWasm,
+  encodeAvifWasm,
+  encodeJxlWasm,
+  resizeImageDataWasm,
+  vectorizeToSvgBlob,
+  getCanvasImageData,
+  type ResizeKernelMethod,
+  type SvgVectorMode,
+  type PngCompressMode,
+} from './wasmEncoder';
+
+export type { ResizeKernelMethod, SvgVectorMode, PngCompressMode };
+
 /**
  * Common config for operations
  */
@@ -10,10 +27,14 @@ export interface ImageOpConfig {
   width?: number;
   height?: number;
   maintainAspectRatio?: boolean;
+  resizeMethod?: ResizeKernelMethod;
+  svgMode?: SvgVectorMode;
+  pngMode?: PngCompressMode;
+  useWasm?: boolean; // default true
 }
 
 /**
- * Helper to safely load file or SVG into an Image object
+ * Helper to safely load any image file (including SVG, HEIC, RAW, PSD, TIFF, JXL, AVIF) into an HTMLImageElement
  */
 export async function loadImage(file: File | Blob): Promise<HTMLImageElement> {
   const isSvg =
@@ -87,133 +108,245 @@ export async function loadImage(file: File | Blob): Promise<HTMLImageElement> {
     }
   }
 
+  let sourceBlob: Blob = file;
+  if (needsForeignDecode(file)) {
+    const decoded = await decodeForeignImageToPngBlob(file);
+    sourceBlob = decoded.blob;
+  }
+
   return new Promise((resolve, reject) => {
-    const url = URL.createObjectURL(file);
+    const url = URL.createObjectURL(sourceBlob);
     const img = new Image();
     img.onload = () => {
       URL.revokeObjectURL(url);
       resolve(img);
     };
-    img.onerror = () => {
+    img.onerror = async () => {
       URL.revokeObjectURL(url);
+      // Try AVIF WASM fallback if native AVIF decode failed
+      const ext = file instanceof File ? file.name.split('.').pop()?.toLowerCase() : '';
+      if (sourceBlob.type === 'image/avif' || ext === 'avif') {
+        try {
+          const fallbackPng = await decodeAvifFallback(sourceBlob);
+          const fbUrl = URL.createObjectURL(fallbackPng);
+          const fbImg = new Image();
+          fbImg.onload = () => {
+            URL.revokeObjectURL(fbUrl);
+            resolve(fbImg);
+          };
+          fbImg.onerror = () => {
+            URL.revokeObjectURL(fbUrl);
+            reject(new Error('Gagal memuat gambar AVIF'));
+          };
+          fbImg.src = fbUrl;
+          return;
+        } catch {
+          // Fall through to reject
+        }
+      }
       reject(new Error('Gagal memuat gambar'));
     };
     img.src = url;
   });
 }
 
+function canvasToBlobFallback(canvas: HTMLCanvasElement, mimeType: string, quality: number): Promise<Blob> {
+  return new Promise((resolve, reject) => {
+    canvas.toBlob(
+      (blob) => {
+        if (blob) resolve(blob);
+        else reject(new Error('Gagal membuat blob gambar'));
+      },
+      mimeType,
+      quality
+    );
+  });
+}
+
 /**
- * Process image based on config
+ * Process image based on config using Rust/C++ WebAssembly codecs, resizers, and vector tracers
  */
 export async function processImage(file: Blob | File, config: ImageOpConfig): Promise<Blob> {
   const img = await loadImage(file);
-  
+
+  const srcW = img.naturalWidth || img.width || config.width || 800;
+  const srcH = img.naturalHeight || img.height || config.height || 800;
+
   // Hitung dimensi akhir
-  let finalWidth = img.naturalWidth || img.width;
-  let finalHeight = img.naturalHeight || img.height;
-  if (!finalWidth || !finalHeight) {
-    finalWidth = config.width || 800;
-    finalHeight = config.height || 800;
-  }
+  let finalWidth = srcW;
+  let finalHeight = srcH;
 
   if (config.width || config.height) {
     if (config.maintainAspectRatio) {
       if (config.width && !config.height) {
         finalWidth = config.width;
-        finalHeight = Math.round((img.height / img.width) * finalWidth);
+        finalHeight = Math.round((srcH / srcW) * finalWidth);
       } else if (config.height && !config.width) {
         finalHeight = config.height;
-        finalWidth = Math.round((img.width / img.height) * finalHeight);
+        finalWidth = Math.round((srcW / srcH) * finalHeight);
       } else if (config.width && config.height) {
         // Fit within bounding box while maintaining aspect ratio
-        const ratioX = config.width / img.width;
-        const ratioY = config.height / img.height;
+        const ratioX = config.width / srcW;
+        const ratioY = config.height / srcH;
         const ratio = Math.min(ratioX, ratioY);
-        finalWidth = Math.round(img.width * ratio);
-        finalHeight = Math.round(img.height * ratio);
+        finalWidth = Math.round(srcW * ratio);
+        finalHeight = Math.round(srcH * ratio);
       }
     } else {
-      finalWidth = config.width || img.width;
-      finalHeight = config.height || img.height;
+      finalWidth = config.width || srcW;
+      finalHeight = config.height || srcH;
     }
   }
 
-  // Buat canvas
-  const canvas = document.createElement('canvas');
-  canvas.width = finalWidth;
-  canvas.height = finalHeight;
-  const ctx = canvas.getContext('2d');
-  
-  if (!ctx) {
-    throw new Error('Gagal membuat canvas context');
+  finalWidth = Math.max(1, Math.round(finalWidth));
+  finalHeight = Math.max(1, Math.round(finalHeight));
+
+  // Render source pixels first
+  const srcCanvas = document.createElement('canvas');
+  srcCanvas.width = srcW;
+  srcCanvas.height = srcH;
+  const srcCtx = srcCanvas.getContext('2d');
+  if (!srcCtx) throw new Error('Gagal membuat canvas context');
+
+  const needsOpaqueWhite = config.mimeType === 'image/jpeg' || config.mimeType === 'image/bmp';
+  if (needsOpaqueWhite) {
+    srcCtx.fillStyle = '#FFFFFF';
+    srcCtx.fillRect(0, 0, srcW, srcH);
   }
+  srcCtx.drawImage(img, 0, 0, srcW, srcH);
 
-  // Jika convert ke JPEG/WebP dari PNG, kita beri background putih (untuk transparansi)
-  if (config.mimeType === 'image/jpeg') {
-    ctx.fillStyle = '#FFFFFF';
-    ctx.fillRect(0, 0, finalWidth, finalHeight);
-  }
+  // Target canvas at final dimensions
+  let canvas = srcCanvas;
+  const needsResize = finalWidth !== srcW || finalHeight !== srcH;
+  const useWasm = config.useWasm !== false;
 
-  // Draw scaled image
-  ctx.drawImage(img, 0, 0, finalWidth, finalHeight);
-
-  // Return blob
-  return new Promise((resolve, reject) => {
-    if (config.mimeType === 'image/svg+xml') {
-      const dataUrl = canvas.toDataURL('image/png');
-      const svgStr = `<svg xmlns="http://www.w3.org/2000/svg" width="${finalWidth}" height="${finalHeight}"><image href="${dataUrl}" width="${finalWidth}" height="${finalHeight}"/></svg>`;
-      const blob = new Blob([svgStr], { type: 'image/svg+xml' });
-      resolve(blob);
-      return;
-    }
-
-    if (config.mimeType === 'image/x-icon') {
-      canvas.toBlob((pngBlob) => {
-        if (!pngBlob) return reject(new Error('Gagal mengkonversi ke ICO'));
-        pngBlob.arrayBuffer().then(pngBuffer => {
-          const header = new Uint8Array(22);
-          const view = new DataView(header.buffer);
-          // ICO Header
-          view.setUint16(0, 0, true); // Reserved
-          view.setUint16(2, 1, true); // Type (1 = ICO)
-          view.setUint16(4, 1, true); // Number of images
-          
-          // Image Entry
-          const w = finalWidth >= 256 ? 0 : finalWidth;
-          const h = finalHeight >= 256 ? 0 : finalHeight;
-          header[6] = w;
-          header[7] = h;
-          header[8] = 0; // Color palette
-          header[9] = 0; // Reserved
-          view.setUint16(10, 1, true); // Color planes
-          view.setUint16(12, 32, true); // BPP
-          view.setUint32(14, pngBuffer.byteLength, true); // Size of PNG data
-          view.setUint32(18, 22, true); // Offset to PNG data
-          
-          const icoBlob = new Blob([header, pngBuffer], { type: 'image/x-icon' });
-          resolve(icoBlob);
-        });
-      }, 'image/png');
-      return;
-    }
-
-    canvas.toBlob(
-      (blob) => {
-        canvas.width = 0;
-        canvas.height = 0;
-        if (blob) {
-          if (config.mimeType !== 'image/png' && blob.type === 'image/png' && config.mimeType === 'image/avif') {
-            reject(new Error(`Format ${config.mimeType} belum didukung penuh oleh browser ini.`));
-            return;
-          }
-          resolve(blob);
+  if (needsResize) {
+    let resizedByWasm = false;
+    if (useWasm) {
+      try {
+        const srcImageData = srcCtx.getImageData(0, 0, srcW, srcH);
+        const resizedData = await resizeImageDataWasm(
+          srcImageData,
+          finalWidth,
+          finalHeight,
+          config.resizeMethod || 'lanczos3'
+        );
+        const dstCanvas = document.createElement('canvas');
+        dstCanvas.width = resizedData.width;
+        dstCanvas.height = resizedData.height;
+        const dstCtx = dstCanvas.getContext('2d');
+        if (dstCtx) {
+          dstCtx.putImageData(resizedData, 0, 0);
+          srcCanvas.width = 0;
+          srcCanvas.height = 0;
+          canvas = dstCanvas;
+          resizedByWasm = true;
         }
-        else reject(new Error('Gagal membuat blob gambar'));
-      },
-      config.mimeType,
-      config.quality
-    );
-  });
+      } catch (wasmResizeErr) {
+        console.warn('[HelpMyIMG] WASM resize fallback to Canvas:', wasmResizeErr);
+      }
+    }
+
+    if (!resizedByWasm) {
+      const dstCanvas = document.createElement('canvas');
+      dstCanvas.width = finalWidth;
+      dstCanvas.height = finalHeight;
+      const dstCtx = dstCanvas.getContext('2d');
+      if (!dstCtx) throw new Error('Gagal membuat target canvas context');
+      if (needsOpaqueWhite) {
+        dstCtx.fillStyle = '#FFFFFF';
+        dstCtx.fillRect(0, 0, finalWidth, finalHeight);
+      }
+      dstCtx.imageSmoothingEnabled = true;
+      dstCtx.imageSmoothingQuality = 'high';
+      dstCtx.drawImage(srcCanvas, 0, 0, finalWidth, finalHeight);
+      srcCanvas.width = 0;
+      srcCanvas.height = 0;
+      canvas = dstCanvas;
+    }
+  }
+
+  try {
+    // 1. True Vector SVG Tracing (Potrace Monochrome WASM or Full-Color Curve Tracer)
+    if (config.mimeType === 'image/svg+xml') {
+      return await vectorizeToSvgBlob(canvas, config.svgMode || 'color');
+    }
+
+    // 2. Multi-Header Windows ICO
+    if (config.mimeType === 'image/x-icon') {
+      const pngBlob = await canvasToBlobFallback(canvas, 'image/png', 1.0);
+      const pngBuffer = await pngBlob.arrayBuffer();
+      const header = new Uint8Array(22);
+      const view = new DataView(header.buffer);
+      view.setUint16(0, 0, true);
+      view.setUint16(2, 1, true);
+      view.setUint16(4, 1, true);
+      header[6] = canvas.width >= 256 ? 0 : canvas.width;
+      header[7] = canvas.height >= 256 ? 0 : canvas.height;
+      header[8] = 0;
+      header[9] = 0;
+      view.setUint16(10, 1, true);
+      view.setUint16(12, 32, true);
+      view.setUint32(14, pngBuffer.byteLength, true);
+      view.setUint32(18, 22, true);
+      return new Blob([header, pngBuffer], { type: 'image/x-icon' });
+    }
+
+    // 3. WASM Codecs (MozJPEG, OxiPNG/UPNG, LibWebP, LibAVIF, LibJXL)
+    if (useWasm) {
+      const imageData = getCanvasImageData(canvas);
+
+      if (config.mimeType === 'image/jxl') {
+        return await encodeJxlWasm(imageData, config.quality);
+      }
+
+      if (config.mimeType === 'image/avif') {
+        try {
+          return await encodeAvifWasm(imageData, config.quality);
+        } catch (avifErr) {
+          console.warn('[HelpMyIMG] WASM AVIF failed, attempting native canvas fallback:', avifErr);
+        }
+      }
+
+      if (config.mimeType === 'image/jpeg') {
+        try {
+          return await encodeMozJpeg(imageData, config.quality);
+        } catch (mozErr) {
+          console.warn('[HelpMyIMG] MozJPEG fallback to Canvas JPEG:', mozErr);
+        }
+      }
+
+      if (config.mimeType === 'image/png') {
+        try {
+          return await encodePngWasm(
+            imageData,
+            config.quality,
+            config.pngMode || (config.quality < 0.9 ? 'quant' : 'lossless')
+          );
+        } catch (pngErr) {
+          console.warn('[HelpMyIMG] OxiPNG/UPNG fallback to Canvas PNG:', pngErr);
+        }
+      }
+
+      if (config.mimeType === 'image/webp') {
+        try {
+          return await encodeWebpWasm(imageData, config.quality);
+        } catch (webpErr) {
+          console.warn('[HelpMyIMG] WebP WASM fallback to Canvas WebP:', webpErr);
+        }
+      }
+    }
+
+    // 4. Native Canvas fallback (BMP, GIF, or WASM fallback)
+    const blob = await canvasToBlobFallback(canvas, config.mimeType, config.quality);
+    if (config.mimeType !== 'image/png' && blob.type === 'image/png' && config.mimeType === 'image/avif') {
+      throw new Error(`Format ${config.mimeType} belum didukung penuh oleh browser ini.`);
+    }
+    return blob;
+  } finally {
+    canvas.width = 0;
+    canvas.height = 0;
+  }
 }
 
 /**
@@ -314,34 +447,100 @@ export async function rotateImage(
 
 import smartcrop from 'smartcrop';
 
-export async function smartCropImage(file: Blob | File, targetWidth: number, targetHeight: number, mimeType: string = 'image/jpeg'): Promise<Blob> {
+export async function smartCropImage(
+  file: Blob | File,
+  targetWidth: number,
+  targetHeight: number,
+  mimeType: string = 'image/jpeg',
+  resizeMethod: ResizeKernelMethod = 'lanczos3'
+): Promise<Blob> {
   const img = await loadImage(file);
-  
+
   // Smart crop algorithm calculates the best bounding box
   const result = await smartcrop.crop(img, { width: targetWidth, height: targetHeight });
   const crop = result.topCrop;
-  
-  const canvas = document.createElement('canvas');
-  canvas.width = targetWidth;
-  canvas.height = targetHeight;
-  const ctx = canvas.getContext('2d');
-  if (!ctx) throw new Error('Canvas 2D context not available');
 
-  // Draw the best region scaled to the target size
-  ctx.drawImage(
-    img, 
-    crop.x, crop.y, crop.width, crop.height,
-    0, 0, targetWidth, targetHeight
+  // Render exact crop region first, then apply Rust/WASM resampling
+  const cropCanvas = document.createElement('canvas');
+  cropCanvas.width = Math.max(1, Math.round(crop.width));
+  cropCanvas.height = Math.max(1, Math.round(crop.height));
+  const cropCtx = cropCanvas.getContext('2d');
+  if (!cropCtx) throw new Error('Canvas 2D context not available');
+
+  if (mimeType === 'image/jpeg') {
+    cropCtx.fillStyle = '#FFFFFF';
+    cropCtx.fillRect(0, 0, cropCanvas.width, cropCanvas.height);
+  }
+  cropCtx.drawImage(
+    img,
+    crop.x,
+    crop.y,
+    crop.width,
+    crop.height,
+    0,
+    0,
+    cropCanvas.width,
+    cropCanvas.height
   );
 
-  return new Promise((resolve, reject) => {
-    canvas.toBlob((blob) => {
-      canvas.width = 0;
-      canvas.height = 0;
-      if (blob) resolve(blob);
-      else reject(new Error('Gagal mengekspor smart cropped gambar'));
-    }, mimeType, 0.95);
-  });
+  let finalCanvas = cropCanvas;
+  const w = Math.max(1, Math.round(targetWidth));
+  const h = Math.max(1, Math.round(targetHeight));
+
+  try {
+    const srcImgData = cropCtx.getImageData(0, 0, cropCanvas.width, cropCanvas.height);
+    const resized = await resizeImageDataWasm(srcImgData, w, h, resizeMethod);
+    const outCanvas = document.createElement('canvas');
+    outCanvas.width = resized.width;
+    outCanvas.height = resized.height;
+    const outCtx = outCanvas.getContext('2d');
+    if (outCtx) {
+      outCtx.putImageData(resized, 0, 0);
+      cropCanvas.width = 0;
+      cropCanvas.height = 0;
+      finalCanvas = outCanvas;
+    }
+  } catch {
+    const outCanvas = document.createElement('canvas');
+    outCanvas.width = w;
+    outCanvas.height = h;
+    const outCtx = outCanvas.getContext('2d');
+    if (outCtx) {
+      outCtx.imageSmoothingEnabled = true;
+      outCtx.imageSmoothingQuality = 'high';
+      outCtx.drawImage(cropCanvas, 0, 0, w, h);
+      cropCanvas.width = 0;
+      cropCanvas.height = 0;
+      finalCanvas = outCanvas;
+    }
+  }
+
+  try {
+    const imageData = getCanvasImageData(finalCanvas);
+    if (mimeType === 'image/jpeg') {
+      try {
+        return await encodeMozJpeg(imageData, 0.94);
+      } catch {
+        // fallback below
+      }
+    } else if (mimeType === 'image/webp') {
+      try {
+        return await encodeWebpWasm(imageData, 0.94);
+      } catch {
+        // fallback below
+      }
+    } else if (mimeType === 'image/png') {
+      try {
+        return await encodePngWasm(imageData, 0.95, 'lossless');
+      } catch {
+        // fallback below
+      }
+    }
+    return await canvasToBlobFallback(finalCanvas, mimeType, 0.95);
+  } finally {
+    finalCanvas.width = 0;
+    finalCanvas.height = 0;
+  }
 }
 
 export type WatermarkPosition = 'center' | 'bottom-right' | 'bottom-left' | 'top-right' | 'top-left' | 'tiled';

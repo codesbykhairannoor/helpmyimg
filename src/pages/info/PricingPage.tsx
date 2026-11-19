@@ -106,19 +106,19 @@ export const PricingPage: React.FC = () => {
       pro: t('pricing.matrix.row1.pro', { defaultValue: 'Tanpa Batas foto / batch (100+)' }),
     },
     {
-      name: t('pricing.matrix.row2.name', { defaultValue: 'Resolusi Ekspor' }),
-      free: t('pricing.matrix.row2.free', { defaultValue: 'High-Definition Standar (1080p)' }),
-      pro: t('pricing.matrix.row2.pro', { defaultValue: 'Ultra-HD 4K & Lossless Asli' }),
+      name: t('pricing.matrix.row2.name', { defaultValue: 'Resolusi Ekspor & Upscale' }),
+      free: t('pricing.matrix.row2.free', { defaultValue: 'High-Definition (Rust Lanczos3 1080p)' }),
+      pro: t('pricing.matrix.row2.pro', { defaultValue: 'Swin2SR AI + MagicKernelSharp 4K Lossless' }),
     },
     {
       name: t('pricing.matrix.row3.name', { defaultValue: 'Model Pemrosesan AI' }),
-      free: t('pricing.matrix.row3.free', { defaultValue: 'Model Standar Seimbang' }),
-      pro: t('pricing.matrix.row3.pro', { defaultValue: 'Segmentasi Rambut Ultra-Presisi' }),
+      free: t('pricing.matrix.row3.free', { defaultValue: 'RMBG-1.4 Neural + Vector Mode' }),
+      pro: t('pricing.matrix.row3.pro', { defaultValue: 'BiRefNet Lite WebGPU (Rambut & Kaca)' }),
     },
     {
-      name: t('pricing.matrix.row4.name', { defaultValue: 'Prioritas CPU Worker' }),
-      free: t('pricing.matrix.row4.free', { defaultValue: 'Prioritas Standar' }),
-      pro: t('pricing.matrix.row4.pro', { defaultValue: 'Akselerasi Paralel Multi-Core' }),
+      name: t('pricing.matrix.row4.name', { defaultValue: 'Akselerasi Engine WASM & GPU' }),
+      free: t('pricing.matrix.row4.free', { defaultValue: 'MozJPEG, OxiPNG, HEIC/RAW/JXL Decode' }),
+      pro: t('pricing.matrix.row4.pro', { defaultValue: 'WebGPU Hardware GPU + Multi-Core Worker' }),
     },
     {
       name: t('pricing.matrix.row5.name', { defaultValue: 'Privasi Tanpa Upload Server' }),
@@ -334,7 +334,7 @@ export const PricingPage: React.FC = () => {
                   </li>
                   <li className="flex items-start gap-2.5 text-xs sm:text-sm text-slate-700 dark:text-slate-300">
                     <Check className="w-4 h-4 text-emerald-500 shrink-0 mt-0.5" />
-                    <span>{t('pricing.free.f5', { defaultValue: 'Unduhan format standar PNG & WebP' })}</span>
+                    <span>{t('pricing.free.f5', { defaultValue: 'WASM Decoder (HEIC, RAW, PSD, JXL) & Vector SVG' })}</span>
                   </li>
                   <li className="flex items-start gap-2.5 text-xs sm:text-sm text-slate-700 dark:text-slate-300">
                     <Check className="w-4 h-4 text-emerald-500 shrink-0 mt-0.5" />
@@ -433,7 +433,7 @@ export const PricingPage: React.FC = () => {
                   </li>
                   <li className="flex items-start gap-2.5 text-xs sm:text-sm text-slate-700 dark:text-slate-300">
                     <Check className="w-4 h-4 text-emerald-500 shrink-0 mt-0.5" />
-                    <span>{t('pricing.pro.f3', { defaultValue: 'Ekspor resolusi Ultra-HD 4K & Lossless asli' })}</span>
+                    <span>{t('pricing.pro.f3', { defaultValue: 'Ekspor Swin2SR AI + MagicKernelSharp 4K Lossless' })}</span>
                   </li>
                   <li className="flex items-start gap-2.5 text-xs sm:text-sm text-slate-700 dark:text-slate-300">
                     <Check className="w-4 h-4 text-emerald-500 shrink-0 mt-0.5" />
@@ -441,7 +441,7 @@ export const PricingPage: React.FC = () => {
                   </li>
                   <li className="flex items-start gap-2.5 text-xs sm:text-sm text-slate-700 dark:text-slate-300">
                     <Check className="w-4 h-4 text-emerald-500 shrink-0 mt-0.5" />
-                    <span>{t('pricing.pro.f4', { defaultValue: 'Model AI Ultra-Presisi untuk helai rambut halus' })}</span>
+                    <span>{t('pricing.pro.f4', { defaultValue: 'Model AI BiRefNet WebGPU untuk rambut & kaca presisi' })}</span>
                   </li>
                   <li className="flex items-start gap-2.5 text-xs sm:text-sm text-slate-700 dark:text-slate-300">
                     <Check className="w-4 h-4 text-emerald-500 shrink-0 mt-0.5" />
@@ -449,7 +449,7 @@ export const PricingPage: React.FC = () => {
                   </li>
                   <li className="flex items-start gap-2.5 text-xs sm:text-sm text-slate-700 dark:text-slate-300">
                     <Check className="w-4 h-4 text-emerald-500 shrink-0 mt-0.5" />
-                    <span>{t('pricing.pro.f5', { defaultValue: 'Akselerasi paralel multi-core Web Worker prioritas' })}</span>
+                    <span>{t('pricing.pro.f5', { defaultValue: 'Akselerasi WebGPU + MozJPEG / OxiPNG / Studio Shadow' })}</span>
                   </li>
                   <li className="flex items-start gap-2.5 text-xs sm:text-sm text-slate-700 dark:text-slate-300">
                     <Check className="w-4 h-4 text-emerald-500 shrink-0 mt-0.5" />

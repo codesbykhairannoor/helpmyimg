@@ -4,6 +4,7 @@
 import React, { useRef } from 'react';
 import { useTranslation } from '../../../context/LanguageContext';
 import { Palette, RefreshCw, Check, Upload, Image as ImageIcon, Sparkles, Sliders, X, RotateCcw, PaintBucket } from 'lucide-react';
+import type { StudioShadowEffect } from '../../../services/aiService';
 import type { CutoutMode } from '../types';
 
 export type BgMode = 'color' | 'gradient' | 'image' | 'preset';
@@ -79,6 +80,8 @@ interface ColorBgControlProps {
   setSelectedPreset: (presetId: string) => void;
   bgBlur: number;
   setBgBlur: (blur: number) => void;
+  shadowEffect?: StudioShadowEffect;
+  setShadowEffect?: (effect: StudioShadowEffect) => void;
   onReset: () => void;
   onUploadOther?: () => void;
   isProcessing: boolean;
@@ -104,6 +107,8 @@ export const ColorBgControl: React.FC<ColorBgControlProps> = ({
   setSelectedPreset,
   bgBlur,
   setBgBlur,
+  shadowEffect = 'none',
+  setShadowEffect,
   onReset,
   onUploadOther,
   isProcessing,
@@ -508,6 +513,41 @@ export const ColorBgControl: React.FC<ColorBgControlProps> = ({
               onChange={(e) => setBgBlur(Number(e.target.value))}
               className="w-full h-1.5 bg-dark-700 rounded-lg appearance-none cursor-pointer accent-neon-cyan"
             />
+          </div>
+        </div>
+      )}
+
+      {/* Studio Shadow & Reflection Effect (Single-Row Compact Selector) */}
+      {setShadowEffect && (
+        <div className="space-y-2 pt-2 border-t border-dark-700/60">
+          <div className="flex items-center justify-between text-xs">
+            <span className="font-semibold text-slate-300 flex items-center gap-1.5">
+              <Sparkles className="w-3.5 h-3.5 text-neon-cyan" />
+              <span>{t('color.shadowTitle', { defaultValue: 'Studio Effect' })}</span>
+            </span>
+          </div>
+          <div className="grid grid-cols-3 gap-1.5 bg-dark-900/70 p-1 rounded-xl border border-dark-700">
+            {(
+              [
+                { id: 'none', label: t('color.shadowNone', { defaultValue: 'None' }) },
+                { id: 'drop', label: t('color.shadowDrop', { defaultValue: 'Drop Shadow' }) },
+                { id: 'reflection', label: t('color.shadowReflection', { defaultValue: 'Reflection' }) },
+              ] as const
+            ).map((opt) => (
+              <button
+                key={opt.id}
+                type="button"
+                onClick={() => setShadowEffect(opt.id)}
+                disabled={isProcessing}
+                className={`py-1.5 px-2 rounded-lg text-[11px] font-bold transition-all cursor-pointer truncate ${
+                  shadowEffect === opt.id
+                    ? 'bg-neon-cyan/20 border border-neon-cyan/50 text-neon-cyan'
+                    : 'text-slate-400 hover:text-white border border-transparent'
+                }`}
+              >
+                {opt.label}
+              </button>
+            ))}
           </div>
         </div>
       )}

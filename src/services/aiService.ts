@@ -1,14 +1,17 @@
 import AIWorker from '../workers/aiWorker?worker';
+import type { AiModelTier } from '../workers/aiWorker';
+
+export type StudioShadowEffect = 'none' | 'drop' | 'reflection';
 
 class AIService {
   private worker: Worker | null = null;
   private messageIdCounter = 0;
   private pendingPromises = new Map<number, { resolve: (data: any) => void; reject: (error: any) => void }>();
-  private onProgressCallback: ((step: string, progress: number) => void) | null = null;
+  private progressCallbacks = new Map<number, (step: string, progress: number) => void>();
 
   constructor() {
     // Lazy worker initialization: do not instantiate worker or download model weights
-    // until user actively uploads an image or triggers background removal.
+    // until user actively processes or checks capabilities.
   }
 
   private initWorker() {
@@ -16,22 +19,54 @@ class AIService {
       this.worker = new AIWorker();
       this.worker.onmessage = (e: MessageEvent) => {
         const { type, payload, id } = e.data;
-        if (type === 'PROGRESS' && this.onProgressCallback) {
-          this.onProgressCallback(payload.status, payload.progress);
+        if (type === 'PROGRESS') {
+          const cb = this.progressCallbacks.get(id);
+          if (cb) cb(payload.status, payload.progress);
         } else if (type === 'RESULT' && this.pendingPromises.has(id)) {
           this.pendingPromises.get(id)!.resolve(payload);
           this.pendingPromises.delete(id);
+          this.progressCallbacks.delete(id);
         } else if (type === 'ERROR' && this.pendingPromises.has(id)) {
           this.pendingPromises.get(id)!.reject(new Error(payload));
           this.pendingPromises.delete(id);
+          this.progressCallbacks.delete(id);
         }
       };
     }
   }
 
+  public async checkCapabilities(): Promise<{ webgpu: boolean; device: 'webgpu' | 'wasm' }> {
+    try {
+      const gpu = (navigator as any).gpu;
+      if (gpu && typeof gpu.requestAdapter === 'function') {
+        const adapter = await gpu.requestAdapter();
+        if (adapter) return { webgpu: true, device: 'webgpu' };
+      }
+    } catch {
+      // ignore
+    }
+    return { webgpu: false, device: 'wasm' };
+  }
+
+  private runWorkerTask<T>(
+    type: string,
+    payload: Record<string, any>,
+    onProgress?: (step: string, percentage: number) => void
+  ): Promise<T> {
+    if (!this.worker) this.initWorker();
+    const id = this.messageIdCounter++;
+    if (onProgress) {
+      this.progressCallbacks.set(id, onProgress);
+    }
+
+    return new Promise<T>((resolve, reject) => {
+      this.pendingPromises.set(id, { resolve, reject });
+      this.worker!.postMessage({ type, id, payload });
+    });
+  }
+
   /**
-   * Menghapus background gambar secara asinkron menggunakan Web Worker atau Color-Key.
-   * Mendukung mode 'auto' adaptif yang mendeteksi jenis gambar secara instan (<3ms).
+   * Menghapus background gambar secara asinkron menggunakan Web Worker (Standard RMBG-1.4 atau PRO BiRefNet WebGPU) atau Color-Key.
    */
   public async removeBackgroundAsync(
     file: File | Blob,
@@ -39,7 +74,8 @@ class AIService {
     _blurRadius: number = 80,
     onProgress?: (step: string, percentage: number) => void,
     imageType: 'photo' | 'logo' = 'photo',
-    colorTolerance: number = 45
+    colorTolerance: number = 45,
+    modelTier: AiModelTier = 'standard'
   ): Promise<Blob> {
     try {
       // ===== LOGO / FLAT GRAPHIC: Gunakan Color-Key Vector Precision =====
@@ -51,27 +87,16 @@ class AIService {
       }
 
       // ===== NATURAL PHOTO / COMPLEX SCENE: Gunakan Neural AI Web Worker =====
-      if (!this.worker) this.initWorker();
-      this.onProgressCallback = onProgress || null;
-      
-      const id = this.messageIdCounter++;
       const objectUrl = URL.createObjectURL(file);
-
-      return new Promise<Blob>((resolve, reject) => {
-        this.pendingPromises.set(id, {
-          resolve: (blob) => {
-            URL.revokeObjectURL(objectUrl);
-            resolve(blob);
-          },
-          reject: (err) => {
-            URL.revokeObjectURL(objectUrl);
-            reject(err);
-          }
-        });
-        
-        this.worker!.postMessage({ type: 'REMOVE_BG', id, payload: { imageBlob: file, imageUrl: objectUrl } });
-      });
-      
+      try {
+        return await this.runWorkerTask<Blob>(
+          'REMOVE_BG',
+          { imageBlob: file, imageUrl: objectUrl, modelTier },
+          onProgress
+        );
+      } finally {
+        URL.revokeObjectURL(objectUrl);
+      }
     } catch (error: any) {
       console.error('[HelpMyIMG AI] Gagal mengeksekusi model Web Worker:', error);
       throw error;
@@ -79,9 +104,45 @@ class AIService {
   }
 
   /**
+   * Neural 2x Super-Resolution using Swin2SR via Web Worker (WebGPU/WASM)
+   */
+  public async upscaleAiAsync(
+    file: File | Blob,
+    onProgress?: (step: string, percentage: number) => void
+  ): Promise<Blob> {
+    const objectUrl = URL.createObjectURL(file);
+    try {
+      return await this.runWorkerTask<Blob>(
+        'UPSCALE_AI',
+        { imageBlob: file, imageUrl: objectUrl },
+        onProgress
+      );
+    } finally {
+      URL.revokeObjectURL(objectUrl);
+    }
+  }
+
+  /**
+   * Monocular Depth Map Estimation using Depth Anything V2 Small via Web Worker
+   */
+  public async estimateDepthAsync(
+    file: File | Blob,
+    onProgress?: (step: string, percentage: number) => void
+  ): Promise<Blob> {
+    const objectUrl = URL.createObjectURL(file);
+    try {
+      return await this.runWorkerTask<Blob>(
+        'DEPTH_ESTIMATE',
+        { imageBlob: file, imageUrl: objectUrl },
+        onProgress
+      );
+    } finally {
+      URL.revokeObjectURL(objectUrl);
+    }
+  }
+
+  /**
    * Hapus background dengan Color-Key Flood Fill (Magic Wand dari 8 arah & Global Color Key).
-   * Teknik ini 100% deterministik dan selalu berhasil untuk logo dengan latar solid maupun lubang internal.
-   * Toleransi: 0 = exact match, 100 = hapus semua warna mirip
    */
   public async removeBackgroundByColorKey(file: File | Blob, tolerance: number = 45): Promise<Blob> {
     return new Promise((resolve, reject) => {
@@ -116,7 +177,6 @@ class AIService {
           if (data[pi + 3] > 20) borderPixels.push({ r: data[pi], g: data[pi + 1], b: data[pi + 2] });
         }
 
-        // Cari median warna latar dari border
         let targetR = 255, targetG = 255, targetB = 255;
         if (borderPixels.length > 0) {
           borderPixels.sort((a, b) => (a.r + a.g + a.b) - (b.r + b.g + b.b));
@@ -141,7 +201,6 @@ class AIService {
         const tolSq = tolerance * tolerance * 3;
         const globalTolSq = (tolerance * 1.35) * (tolerance * 1.35) * 3;
 
-        // BFS Flood fill 8-connected dari titik awal ke area terhubung
         const floodFill = (startX: number, startY: number) => {
           const startIdx = startY * w + startX;
           if (visited[startIdx]) return;
@@ -183,7 +242,6 @@ class AIService {
           }
         };
 
-        // 1. Flood fill dari 4 sudut & 4 sisi
         floodFill(0, 0);
         floodFill(w - 1, 0);
         floodFill(0, h - 1);
@@ -193,7 +251,6 @@ class AIService {
         floodFill(0, Math.floor(h / 2));
         floodFill(w - 1, Math.floor(h / 2));
 
-        // 2. Global matching & anti-aliasing edge fade
         for (let i = 0; i < totalPixels; i++) {
           if (alphaMap[i] === 0) continue;
           const distSq = colorMatchDistSq(i, targetR, targetG, targetB);
@@ -208,7 +265,6 @@ class AIService {
           }
         }
 
-        // Terapkan alpha map ke image data
         for (let i = 0; i < totalPixels; i++) {
           data[i * 4 + 3] = Math.min(data[i * 4 + 3], alphaMap[i]);
         }
@@ -225,8 +281,69 @@ class AIService {
     });
   }
 
+  /**
+   * Draw foreground subject with optional Studio Drop Shadow or Mirror Floor Reflection
+   */
+  private drawForegroundWithEffect(
+    ctx: CanvasRenderingContext2D,
+    transparentImg: HTMLImageElement | ImageBitmap | HTMLCanvasElement,
+    width: number,
+    height: number,
+    shadowEffect: StudioShadowEffect = 'none'
+  ) {
+    if (shadowEffect === 'drop') {
+      ctx.save();
+      const baseBlur = Math.max(10, Math.round(Math.min(width, height) * 0.032));
+      const offsetY = Math.max(6, Math.round(height * 0.018));
+      ctx.shadowColor = 'rgba(0, 0, 0, 0.42)';
+      ctx.shadowBlur = baseBlur;
+      ctx.shadowOffsetX = 0;
+      ctx.shadowOffsetY = offsetY;
+      ctx.drawImage(transparentImg, 0, 0, width, height);
+      ctx.restore();
+      return;
+    }
+
+    if (shadowEffect === 'reflection') {
+      // 1. Subtle studio floor gradient contact shadow
+      ctx.save();
+      const floorGrad = ctx.createRadialGradient(
+        width / 2,
+        height * 0.92,
+        width * 0.05,
+        width / 2,
+        height * 0.92,
+        width * 0.42
+      );
+      floorGrad.addColorStop(0, 'rgba(0, 0, 0, 0.35)');
+      floorGrad.addColorStop(1, 'rgba(0, 0, 0, 0)');
+      ctx.fillStyle = floorGrad;
+      ctx.fillRect(0, height * 0.72, width, height * 0.28);
+      ctx.restore();
+
+      // 2. Inverted soft reflection
+      ctx.save();
+      ctx.globalAlpha = 0.24;
+      ctx.translate(0, height * 1.92);
+      ctx.scale(1, -0.35);
+      ctx.filter = `blur(${Math.max(2, Math.round(height * 0.004))}px)`;
+      ctx.drawImage(transparentImg, 0, 0, width, height);
+      ctx.restore();
+
+      // 3. Sharp main subject on top
+      ctx.drawImage(transparentImg, 0, 0, width, height);
+      return;
+    }
+
+    ctx.drawImage(transparentImg, 0, 0, width, height);
+  }
+
   // --- Fungsi Manipulasi Kanvas ---
-  public applyColorBackground(transparentImg: HTMLImageElement | ImageBitmap | HTMLCanvasElement, color: string): HTMLCanvasElement {
+  public applyColorBackground(
+    transparentImg: HTMLImageElement | ImageBitmap | HTMLCanvasElement,
+    color: string,
+    shadowEffect: StudioShadowEffect = 'none'
+  ): HTMLCanvasElement {
     const canvas = document.createElement('canvas');
     canvas.width = transparentImg.width;
     canvas.height = transparentImg.height;
@@ -234,9 +351,17 @@ class AIService {
 
     ctx.fillStyle = color;
     ctx.fillRect(0, 0, canvas.width, canvas.height);
-    ctx.drawImage(transparentImg, 0, 0);
+    this.drawForegroundWithEffect(ctx, transparentImg, canvas.width, canvas.height, shadowEffect);
 
     return canvas;
+  }
+
+  public applyGradientBackground(
+    transparentImg: HTMLImageElement | ImageBitmap | HTMLCanvasElement,
+    gradient: string,
+    shadowEffect: StudioShadowEffect = 'none'
+  ): HTMLCanvasElement {
+    return this.applyCustomBackground(transparentImg, 'gradient', gradient, null, 0, shadowEffect);
   }
 
   public applyCustomBackground(
@@ -244,7 +369,8 @@ class AIService {
     bgType: 'color' | 'gradient' | 'image' | 'preset',
     bgValue: string,
     bgImgElement?: HTMLImageElement | null,
-    bgBlur: number = 0
+    bgBlur: number = 0,
+    shadowEffect: StudioShadowEffect = 'none'
   ): HTMLCanvasElement {
     const canvas = document.createElement('canvas');
     canvas.width = transparentImg.width;
@@ -289,17 +415,14 @@ class AIService {
       ctx.fillStyle = grad;
       ctx.fillRect(0, 0, canvas.width, canvas.height);
     } else {
-      // Solid color
       ctx.fillStyle = bgValue || '#FFFFFF';
       ctx.fillRect(0, 0, canvas.width, canvas.height);
     }
 
-    // Draw the transparent foreground subject on top
-    ctx.drawImage(transparentImg, 0, 0);
+    this.drawForegroundWithEffect(ctx, transparentImg, canvas.width, canvas.height, shadowEffect);
 
     return canvas;
   }
-
 
   public applyWatermark(
     originalImg: HTMLImageElement | ImageBitmap | HTMLCanvasElement,
@@ -320,12 +443,12 @@ class AIService {
     ctx.drawImage(originalImg, 0, 0);
     ctx.globalAlpha = opacity;
     const isImage = type === 'image' && imageSrc;
-    
+
     const drawSingleWatermark = (x: number, y: number, watermarkImg?: HTMLImageElement) => {
       ctx.save();
       ctx.translate(x, y);
       ctx.rotate((rotation * Math.PI) / 180);
-      
+
       if (isImage && watermarkImg) {
         const w = watermarkImg.width * scale;
         const h = watermarkImg.height * scale;
@@ -336,10 +459,10 @@ class AIService {
         ctx.fillStyle = color;
         ctx.textAlign = 'center';
         ctx.textBaseline = 'middle';
-        
+
         ctx.shadowColor = color === '#ffffff' ? 'rgba(0,0,0,0.5)' : 'rgba(255,255,255,0.5)';
         ctx.shadowBlur = 4;
-        
+
         ctx.fillText(text, 0, 0);
       }
       ctx.restore();
@@ -351,12 +474,11 @@ class AIService {
       const padding = 40 * (canvas.width / 1000);
 
       if (position === 'tiled') {
-        // Denser tiling pattern with offset
         const stepX = canvas.width / 4;
         const stepY = canvas.height / 6;
         let row = 0;
         for (let j = -stepY * 2; j <= canvas.height + stepY * 2; j += stepY) {
-          const offsetX = (row % 2 === 1) ? stepX / 2 : 0;
+          const offsetX = row % 2 === 1 ? stepX / 2 : 0;
           for (let i = -stepX * 2; i <= canvas.width + stepX * 2; i += stepX) {
             drawSingleWatermark(i + offsetX, j, watermarkImg);
           }
@@ -364,17 +486,17 @@ class AIService {
         }
       } else {
         if (position === 'bottom-right') {
-           x = canvas.width - padding - (isImage && watermarkImg ? (watermarkImg.width * scale / 2) : 100 * scale);
-           y = canvas.height - padding - (isImage && watermarkImg ? (watermarkImg.height * scale / 2) : 24 * scale);
+          x = canvas.width - padding - (isImage && watermarkImg ? (watermarkImg.width * scale) / 2 : 100 * scale);
+          y = canvas.height - padding - (isImage && watermarkImg ? (watermarkImg.height * scale) / 2 : 24 * scale);
         } else if (position === 'bottom-left') {
-           x = padding + (isImage && watermarkImg ? (watermarkImg.width * scale / 2) : 100 * scale);
-           y = canvas.height - padding - (isImage && watermarkImg ? (watermarkImg.height * scale / 2) : 24 * scale);
+          x = padding + (isImage && watermarkImg ? (watermarkImg.width * scale) / 2 : 100 * scale);
+          y = canvas.height - padding - (isImage && watermarkImg ? (watermarkImg.height * scale) / 2 : 24 * scale);
         } else if (position === 'top-right') {
-           x = canvas.width - padding - (isImage && watermarkImg ? (watermarkImg.width * scale / 2) : 100 * scale);
-           y = padding + (isImage && watermarkImg ? (watermarkImg.height * scale / 2) : 24 * scale);
+          x = canvas.width - padding - (isImage && watermarkImg ? (watermarkImg.width * scale) / 2 : 100 * scale);
+          y = padding + (isImage && watermarkImg ? (watermarkImg.height * scale) / 2 : 24 * scale);
         } else if (position === 'top-left') {
-           x = padding + (isImage && watermarkImg ? (watermarkImg.width * scale / 2) : 100 * scale);
-           y = padding + (isImage && watermarkImg ? (watermarkImg.height * scale / 2) : 24 * scale);
+          x = padding + (isImage && watermarkImg ? (watermarkImg.width * scale) / 2 : 100 * scale);
+          y = padding + (isImage && watermarkImg ? (watermarkImg.height * scale) / 2 : 24 * scale);
         }
         drawSingleWatermark(x, y, watermarkImg);
       }

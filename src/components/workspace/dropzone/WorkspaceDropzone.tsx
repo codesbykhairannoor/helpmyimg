@@ -75,7 +75,7 @@ export const WorkspaceDropzone: React.FC<WorkspaceDropzoneProps> = ({
         )}
       </h3>
       <p className="text-xs md:text-sm text-slate-400 max-w-md mx-auto mb-6 px-4 leading-relaxed font-body">
-        {t('dropzone.subtitle', { defaultValue: 'Drag and drop images (PNG, JPG, WEBP) or click to browse' })}
+        {t('dropzone.subtitle', { defaultValue: 'Drag and drop images (PNG, JPG, WEBP, HEIC, RAW, PSD, JXL) or click to browse' })}
       </p>
 
       <div className="inline-flex items-center justify-center gap-2.5 px-8 py-3.5 sm:px-10 sm:py-4 rounded-2xl bg-gradient-to-r from-neon-cyan via-neon-emerald to-neon-indigo text-dark-900 font-extrabold shadow-glow-cyan transform group-hover:-translate-y-0.5 transition-all text-sm sm:text-base tracking-wide mb-6 md:mb-0 shadow-lg cursor-pointer">

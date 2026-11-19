@@ -40,7 +40,7 @@ export const ExportPanel: React.FC<ExportPanelProps> = ({
   showToast,
 }) => {
   const { t } = useTranslation();
-  const { user, isPro } = useAuth();
+  const { user, isPro, openAuthModal } = useAuth();
   const { openProGate, quotaState, consume4k } = useProGate();
   const [showExportOptions, setShowExportOptions] = useState(false);
   const [customZipName, setCustomZipName] = useState('');
@@ -116,7 +116,7 @@ export const ExportPanel: React.FC<ExportPanelProps> = ({
         setIsExporting4k(true);
         trackEvent('file_downloaded', { count: 1, type: 'single-4k', tool: initialTab });
 
-        const { url: finalUrl, width, height, revoked } = await exportTo4k(sourceUrl, 3840);
+        const { url: finalUrl, width, height, revoked } = await exportTo4k(sourceUrl, 3840, { useAiSr: isPro });
 
         const a = document.createElement('a');
         a.href = finalUrl;

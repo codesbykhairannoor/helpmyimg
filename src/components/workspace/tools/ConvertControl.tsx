@@ -1,10 +1,14 @@
 import React from 'react';
 import { useTranslation } from '../../../context/LanguageContext';
 import { Image as ImageIcon, RefreshCw, RotateCcw, Upload, ArrowRight } from 'lucide-react';
+import type { ImageMimeType } from './convert/convertEngine';
+import type { SvgVectorMode } from '../../utils/imageOperations';
 
 interface ConvertControlProps {
-  format: 'image/png' | 'image/jpeg' | 'image/webp' | 'image/gif' | 'image/bmp' | 'image/x-icon' | 'image/avif' | 'image/svg+xml';
-  setFormat: (f: 'image/png' | 'image/jpeg' | 'image/webp' | 'image/gif' | 'image/bmp' | 'image/x-icon' | 'image/avif' | 'image/svg+xml') => void;
+  format: ImageMimeType;
+  setFormat: (f: ImageMimeType) => void;
+  svgMode?: SvgVectorMode;
+  setSvgMode?: (m: SvgVectorMode) => void;
   sourceFormat?: string;
   onConvert?: () => void;
   onDownload?: () => void;
@@ -18,6 +22,8 @@ interface ConvertControlProps {
 export const ConvertControl: React.FC<ConvertControlProps> = ({
   format,
   setFormat,
+  svgMode = 'color',
+  setSvgMode,
   sourceFormat,
   onConvert,
   onDownload,
@@ -39,14 +45,15 @@ export const ConvertControl: React.FC<ConvertControlProps> = ({
   };
 
   const formats = [
-    { label: 'PNG', value: 'image/png', ext: 'PNG', badge: 'Lossless' },
-    { label: 'JPG / JPEG', value: 'image/jpeg', ext: 'JPG', badge: 'Standard' },
-    { label: 'WEBP', value: 'image/webp', ext: 'WEBP', badge: 'Web HD' },
-    { label: 'AVIF', value: 'image/avif', ext: 'AVIF', badge: 'Next-Gen' },
+    { label: 'PNG', value: 'image/png', ext: 'PNG', badge: 'OxiPNG' },
+    { label: 'JPG', value: 'image/jpeg', ext: 'JPG', badge: 'MozJPEG' },
+    { label: 'WEBP', value: 'image/webp', ext: 'WEBP', badge: 'LibWebP' },
+    { label: 'AVIF', value: 'image/avif', ext: 'AVIF', badge: 'LibAVIF' },
+    { label: 'JXL', value: 'image/jxl', ext: 'JXL', badge: 'JPEG XL' },
     { label: 'SVG', value: 'image/svg+xml', ext: 'SVG', badge: 'Vector' },
     { label: 'ICO', value: 'image/x-icon', ext: 'ICO', badge: 'Favicon' },
     { label: 'GIF', value: 'image/gif', ext: 'GIF', badge: 'Graphic' },
-    { label: 'BMP', value: 'image/bmp', ext: 'BMP', badge: 'Raw' },
+    { label: 'BMP', value: 'image/bmp', ext: 'BMP', badge: 'Bitmap' },
   ] as const;
 
   const currentFormatObj = formats.find((f) => f.value === format) || formats[0];
@@ -64,7 +71,7 @@ export const ConvertControl: React.FC<ConvertControlProps> = ({
             {currentFormatObj.badge}
           </span>
         </div>
-        <div className="grid grid-cols-4 gap-2">
+        <div className="grid grid-cols-3 gap-2">
           {formats.map((f) => (
             <button
               key={f.value}
@@ -81,6 +88,39 @@ export const ConvertControl: React.FC<ConvertControlProps> = ({
           ))}
         </div>
       </div>
+
+      {/* True Vector SVG Tracing Mode Selector (Visible only when SVG is selected) */}
+      {format === 'image/svg+xml' && setSvgMode && (
+        <div className="space-y-2">
+          <div className="text-xs font-semibold text-slate-300">
+            {t('convert.svgModeLabel', { defaultValue: 'SVG Vector Mode' })}
+          </div>
+          <div className="grid grid-cols-2 gap-1.5 bg-dark-900/70 p-1 rounded-xl border border-dark-700">
+            <button
+              type="button"
+              onClick={() => setSvgMode('color')}
+              className={`py-1.5 px-2.5 rounded-lg text-[11px] font-bold transition-all cursor-pointer truncate ${
+                svgMode === 'color'
+                  ? 'bg-neon-cyan/20 border border-neon-cyan/50 text-neon-cyan'
+                  : 'text-slate-400 hover:text-white border border-transparent'
+              }`}
+            >
+              {t('convert.svgColor', { defaultValue: 'Full-Color Curves' })}
+            </button>
+            <button
+              type="button"
+              onClick={() => setSvgMode('monochrome')}
+              className={`py-1.5 px-2.5 rounded-lg text-[11px] font-bold transition-all cursor-pointer truncate ${
+                svgMode === 'monochrome'
+                  ? 'bg-neon-cyan/20 border border-neon-cyan/50 text-neon-cyan'
+                  : 'text-slate-400 hover:text-white border border-transparent'
+              }`}
+            >
+              {t('convert.svgMono', { defaultValue: 'Monochrome Potrace' })}
+            </button>
+          </div>
+        </div>
+      )}
 
       {/* Conversion Path Info Card */}
       <div className="p-3.5 rounded-2xl bg-dark-800/80 border border-dark-600/70 flex items-center justify-between gap-3">

@@ -1,13 +1,14 @@
 // src/components/workspace/tools/BrushControl.tsx
-// Kontrol Kuas Manual (Restore / Erase) untuk merapikan tepi potret atau helai rambut
+// Kontrol Kuas Manual (Restore / Erase / Smart Heal Inpaint) untuk merapikan tepi atau menghapus objek
 
 import React from 'react';
 import { useTranslation } from '../../../context/LanguageContext';
-import { Brush, Eraser, RotateCcw, Upload } from 'lucide-react';
+import { Brush, Eraser, Wand2, RotateCcw, Upload } from 'lucide-react';
+import type { BrushMode } from './brush/brushEngine';
 
 interface BrushControlProps {
-  brushMode: 'restore' | 'erase';
-  setBrushMode: (mode: 'restore' | 'erase') => void;
+  brushMode: BrushMode;
+  setBrushMode: (mode: BrushMode) => void;
   brushSize: number;
   setBrushSize: (size: number) => void;
   onResetBrush: () => void;
@@ -30,38 +31,60 @@ export const BrushControl: React.FC<BrushControlProps> = ({
 }) => {
   const { t } = useTranslation();
 
+  const activeColor =
+    brushMode === 'restore' ? '#10b981' : brushMode === 'inpaint' ? '#f59e0b' : '#f43f5e';
+  const activeBg =
+    brushMode === 'restore'
+      ? 'rgba(16, 185, 129, 0.25)'
+      : brushMode === 'inpaint'
+      ? 'rgba(245, 158, 11, 0.25)'
+      : 'rgba(244, 63, 94, 0.25)';
+
   return (
     <div className="space-y-6">
-      {/* Toggle Restore / Erase */}
+      {/* Toggle Restore / Erase / Smart Heal */}
       <div className="space-y-2.5">
         <span className="text-xs font-semibold text-slate-400 uppercase tracking-wider">
           {t('brush.mode', { defaultValue: 'Mode Kuas Manual' })}
         </span>
-        <div className="grid grid-cols-2 gap-3">
+        <div className="grid grid-cols-3 gap-2">
           <button
             type="button"
             onClick={() => setBrushMode('restore')}
-            className={`py-3 px-3.5 rounded-xl text-xs font-bold border flex items-center justify-center gap-2 transition-all duration-200 cursor-pointer ${
+            className={`py-2.5 px-2 rounded-xl text-xs font-bold border flex items-center justify-center gap-1.5 transition-all duration-200 cursor-pointer truncate ${
               brushMode === 'restore'
                 ? 'bg-neon-emerald/20 border-neon-emerald text-neon-emerald shadow-[0_0_15px_hsla(150,80%,48%,0.3)]'
                 : 'bg-dark-800 border-dark-600 text-slate-300 hover:bg-dark-700'
             }`}
           >
-            <Brush className="w-4 h-4" />
-            <span>{t('brush.restore', { defaultValue: 'Pulihkan Objek' })}</span>
+            <Brush className="w-3.5 h-3.5 shrink-0" />
+            <span className="truncate">{t('brush.restore', { defaultValue: 'Restore' })}</span>
           </button>
 
           <button
             type="button"
             onClick={() => setBrushMode('erase')}
-            className={`py-3 px-3.5 rounded-xl text-xs font-bold border flex items-center justify-center gap-2 transition-all duration-200 cursor-pointer ${
+            className={`py-2.5 px-2 rounded-xl text-xs font-bold border flex items-center justify-center gap-1.5 transition-all duration-200 cursor-pointer truncate ${
               brushMode === 'erase'
                 ? 'bg-neon-pink/20 border-neon-pink text-neon-pink shadow-[0_0_15px_hsla(330,85%,60%,0.3)]'
                 : 'bg-dark-800 border-dark-600 text-slate-300 hover:bg-dark-700'
             }`}
           >
-            <Eraser className="w-4 h-4" />
-            <span>{t('brush.erase', { defaultValue: 'Hapus / Gosok' })}</span>
+            <Eraser className="w-3.5 h-3.5 shrink-0" />
+            <span className="truncate">{t('brush.erase', { defaultValue: 'Erase' })}</span>
+          </button>
+
+          <button
+            type="button"
+            onClick={() => setBrushMode('inpaint')}
+            className={`py-2.5 px-2 rounded-xl text-xs font-bold border flex items-center justify-center gap-1.5 transition-all duration-200 cursor-pointer truncate ${
+              brushMode === 'inpaint'
+                ? 'bg-amber-500/20 border-amber-400 text-amber-400 shadow-[0_0_15px_rgba(245,158,11,0.3)]'
+                : 'bg-dark-800 border-dark-600 text-slate-300 hover:bg-dark-700'
+            }`}
+          >
+            <Wand2 className="w-3.5 h-3.5 shrink-0" />
+            <span className="truncate">{t('brush.inpaint', { defaultValue: 'Smart Heal' })}</span>
           </button>
         </div>
       </div>
@@ -78,14 +101,18 @@ export const BrushControl: React.FC<BrushControlProps> = ({
               style={{
                 width: `${Math.min(22, Math.max(8, brushSize / 2.5))}px`,
                 height: `${Math.min(22, Math.max(8, brushSize / 2.5))}px`,
-                borderColor: brushMode === 'restore' ? '#10b981' : '#f43f5e',
-                backgroundColor: brushMode === 'restore' ? 'rgba(16, 185, 129, 0.25)' : 'rgba(244, 63, 94, 0.25)',
+                borderColor: activeColor,
+                backgroundColor: activeBg,
               }}
               title={`${brushSize}px preview`}
             />
             <span
               className={`font-mono font-bold bg-dark-900 px-2.5 py-0.5 rounded-lg border border-dark-600 ${
-                brushMode === 'restore' ? 'text-neon-emerald' : 'text-neon-pink'
+                brushMode === 'restore'
+                  ? 'text-neon-emerald'
+                  : brushMode === 'inpaint'
+                  ? 'text-amber-400'
+                  : 'text-neon-pink'
               }`}
             >
               {brushSize} px
@@ -99,7 +126,11 @@ export const BrushControl: React.FC<BrushControlProps> = ({
           value={brushSize}
           onChange={(e) => setBrushSize(Number(e.target.value))}
           className={`w-full h-2 bg-dark-900 rounded-lg appearance-none cursor-pointer ${
-            brushMode === 'restore' ? 'accent-neon-emerald' : 'accent-neon-pink'
+            brushMode === 'restore'
+              ? 'accent-neon-emerald'
+              : brushMode === 'inpaint'
+              ? 'accent-amber-400'
+              : 'accent-neon-pink'
           }`}
         />
       </div>

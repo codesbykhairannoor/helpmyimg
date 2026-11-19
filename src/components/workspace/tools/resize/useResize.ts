@@ -3,6 +3,7 @@
 
 import { useState, useCallback } from 'react';
 import { ResizeEngine } from './resizeEngine';
+import type { ResizeKernelMethod } from '../../../../utils/imageOperations';
 
 export interface UseResizeReturn {
   resizeWidth: number;
@@ -13,6 +14,8 @@ export interface UseResizeReturn {
   setResizeMaintainRatio: (maintain: boolean) => void;
   resizeMode: 'standard' | 'smart';
   setResizeMode: (mode: 'standard' | 'smart') => void;
+  resizeMethod: ResizeKernelMethod;
+  setResizeMethod: (method: ResizeKernelMethod) => void;
   originalDimensions: { width: number; height: number };
   setOriginalDimensions: (dim: { width: number; height: number }) => void;
   resizeFile: (file: File | Blob) => Promise<Blob>;
@@ -23,6 +26,7 @@ export function useResize(): UseResizeReturn {
   const [resizeHeight, setResizeHeight] = useState<number>(0);
   const [resizeMaintainRatio, setResizeMaintainRatio] = useState<boolean>(true);
   const [resizeMode, setResizeMode] = useState<'standard' | 'smart'>('standard');
+  const [resizeMethod, setResizeMethod] = useState<ResizeKernelMethod>('lanczos3');
   const [originalDimensions, setOriginalDimensions] = useState<{ width: number; height: number }>({
     width: 0,
     height: 0,
@@ -35,9 +39,10 @@ export function useResize(): UseResizeReturn {
         height: resizeHeight,
         maintainAspectRatio: resizeMaintainRatio,
         mode: resizeMode,
+        resizeMethod,
       });
     },
-    [resizeWidth, resizeHeight, resizeMaintainRatio, resizeMode]
+    [resizeWidth, resizeHeight, resizeMaintainRatio, resizeMode, resizeMethod]
   );
 
   return {
@@ -49,6 +54,8 @@ export function useResize(): UseResizeReturn {
     setResizeMaintainRatio,
     resizeMode,
     setResizeMode,
+    resizeMethod,
+    setResizeMethod,
     originalDimensions,
     setOriginalDimensions,
     resizeFile,

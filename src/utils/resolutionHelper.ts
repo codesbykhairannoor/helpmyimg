@@ -75,12 +75,11 @@ export async function getExportUrl(
       const targetW = Math.max(1, Math.round(width * ratio));
       const targetH = Math.max(1, Math.round(height * ratio));
 
-      const canvas = document.createElement('canvas');
-      canvas.width = targetW;
-      canvas.height = targetH;
-      const ctx = canvas.getContext('2d');
-
-      if (!ctx) {
+      const srcCanvas = document.createElement('canvas');
+      srcCanvas.width = width;
+      srcCanvas.height = height;
+      const srcCtx = srcCanvas.getContext('2d');
+      if (!srcCtx) {
         resolve({
           url: sourceUrl,
           revoked: false,
@@ -90,35 +89,83 @@ export async function getExportUrl(
         });
         return;
       }
+      srcCtx.drawImage(img, 0, 0, width, height);
 
-      ctx.imageSmoothingEnabled = true;
-      ctx.imageSmoothingQuality = 'high';
-      ctx.drawImage(img, 0, 0, targetW, targetH);
+      (async () => {
+        try {
+          const { resizeImageDataWasm } = await import('./wasmEncoder');
+          const srcData = srcCtx.getImageData(0, 0, width, height);
+          const resizedData = await resizeImageDataWasm(srcData, targetW, targetH, 'lanczos3');
+          srcCanvas.width = 0;
+          srcCanvas.height = 0;
 
-      canvas.toBlob(
-        (blob) => {
-          if (!blob) {
+          const outCanvas = document.createElement('canvas');
+          outCanvas.width = resizedData.width;
+          outCanvas.height = resizedData.height;
+          const outCtx = outCanvas.getContext('2d');
+          if (outCtx) {
+            outCtx.putImageData(resizedData, 0, 0);
+            outCanvas.toBlob(
+              (blob) => {
+                outCanvas.width = 0;
+                outCanvas.height = 0;
+                if (!blob) {
+                  resolve({ url: sourceUrl, revoked: false, wasDownscaled: false, originalWidth: width, originalHeight: height });
+                  return;
+                }
+                resolve({
+                  url: URL.createObjectURL(blob),
+                  revoked: true,
+                  wasDownscaled: true,
+                  originalWidth: width,
+                  originalHeight: height,
+                });
+              },
+              'image/png',
+              1.0
+            );
+            return;
+          }
+        } catch {
+          // Canvas fallback
+        }
+
+        const fallbackCanvas = document.createElement('canvas');
+        fallbackCanvas.width = targetW;
+        fallbackCanvas.height = targetH;
+        const fbCtx = fallbackCanvas.getContext('2d');
+        if (!fbCtx) {
+          srcCanvas.width = 0;
+          srcCanvas.height = 0;
+          resolve({ url: sourceUrl, revoked: false, wasDownscaled: false, originalWidth: width, originalHeight: height });
+          return;
+        }
+        fbCtx.imageSmoothingEnabled = true;
+        fbCtx.imageSmoothingQuality = 'high';
+        fbCtx.drawImage(srcCanvas, 0, 0, targetW, targetH);
+        srcCanvas.width = 0;
+        srcCanvas.height = 0;
+
+        fallbackCanvas.toBlob(
+          (blob) => {
+            fallbackCanvas.width = 0;
+            fallbackCanvas.height = 0;
+            if (!blob) {
+              resolve({ url: sourceUrl, revoked: false, wasDownscaled: false, originalWidth: width, originalHeight: height });
+              return;
+            }
             resolve({
-              url: sourceUrl,
-              revoked: false,
-              wasDownscaled: false,
+              url: URL.createObjectURL(blob),
+              revoked: true,
+              wasDownscaled: true,
               originalWidth: width,
               originalHeight: height,
             });
-            return;
-          }
-          const downscaledUrl = URL.createObjectURL(blob);
-          resolve({
-            url: downscaledUrl,
-            revoked: true,
-            wasDownscaled: true,
-            originalWidth: width,
-            originalHeight: height,
-          });
-        },
-        'image/png',
-        1.0
-      );
+          },
+          'image/png',
+          1.0
+        );
+      })();
     };
 
     img.onerror = () => {
