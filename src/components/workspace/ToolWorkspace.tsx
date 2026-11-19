@@ -550,6 +550,7 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({
                   targetKB={targetKB}
                   setTargetKB={setTargetKB}
                   hasCompressed={!!currentItem?.compressBlob}
+                  compressedSize={currentItem?.compressBlob?.size}
                   onProcess={async () => {
                     if (currentItem) {
                       setBatchItems((prev) =>

@@ -1,11 +1,10 @@
 // src/components/workspace/export/ExportPanel.tsx
 // Export & Download Options Panel (Single & Batch ZIP)
-// Enforces Tool-Aware UX:
-// - Compress Tools: Direct lossless download of the exact compressed blob with file size badge (NO 4K upscale, NO resolution downscale)
-// - Convert/Geometry Tools: Direct clean download of processed output
-// - Cutout/Background Upscale Tools: Dual resolution controls (Standard HD vs Ultra-HD 4K) with PRO perks
-// - Smart Disabled State: Abu-abu (disabled) when image is not yet compressed/processed
-// - Distinct PRO Badging: Abu-abu/sleek locked card with gold PRO badge when feature is locked for guests/free users
+// Enforces User's Directives:
+// 1. Single Photo Rename: UNLOCKED for all logged-in users (Free & Pro)! Guests prompted to Sign In (Free).
+// 2. Batch Photo Rename (one-by-one) & Custom ZIP: Exclusive PRO features.
+// 3. Opsi B for Compress: CompressControl owns the single morphing action button; ExportPanel avoids rendering duplicate download button on single compress.
+// 4. Clean Labels: Normal tools say "Download Photo" (NEVER "Download HD (Free)").
 
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
@@ -18,6 +17,7 @@ import {
   Crown,
   Lock,
   Sparkles,
+  LogIn,
 } from 'lucide-react';
 import { useTranslation } from '../../../context/LanguageContext';
 import { useAuth } from '../../../context/AuthContext';
@@ -69,37 +69,28 @@ export const ExportPanel: React.FC<ExportPanelProps> = ({
 
   // Readiness State Evaluation
   const singleItem = batchItems[0];
-  const isSingleCompressReady = isCompressTool && !!singleItem?.compressBlob && singleItem?.status === 'done';
   const isSingleConvertReady = isConvertTool && singleItem?.status === 'done';
   const isSingleStandardReady = !isCompressTool && !isConvertTool && (singleItem?.status === 'done' || !!singleItem?.processedUrl);
-  const isSingleReady = isCompressTool ? isSingleCompressReady : isConvertTool ? isSingleConvertReady : isSingleStandardReady;
+  const isSingleReady = isConvertTool ? isSingleConvertReady : isSingleStandardReady;
 
   const areAllCompressReady = isCompressTool && batchItems.every((i) => !!i.compressBlob && i.status === 'done');
   const areAllConvertReady = isConvertTool && batchItems.every((i) => i.status === 'done');
   const areAllStandardReady = !isCompressTool && !isConvertTool && batchItems.every((i) => i.status === 'done');
   const areAllReady = isCompressTool ? areAllCompressReady : isConvertTool ? areAllConvertReady : areAllStandardReady;
 
-  const handleToggleExportOptions = () => {
-    if (!isPro) {
-      openProGate({ feature: 'rename-zip' });
-      return;
-    }
-    setShowExportOptions(!showExportOptions);
-  };
-
-  // Unduh versi Standar (Lossless untuk kompres/convert/resize, HD 1080p limit untuk AI Cutout/Upscale)
+  // Unduh versi Standar
   const handleSingleDownloadStandard = async () => {
     const item = batchItems[0];
     if (!item || !item.name.trim() || item.name.startsWith('.')) {
       showToast(
         t('work.emptyFileNameAlert', {
-          defaultValue: 'Nama file tidak boleh kosong! / File name cannot be empty!',
+          defaultValue: 'File name cannot be empty!',
         })
       );
       return;
     }
 
-    // 1. TOOL KOMPRESI: Unduh Blob hasil kompresi ASLI langsung tanpa canvas re-encode / ukuran membengkak!
+    // 1. TOOL KOMPRESI: Unduh Blob hasil kompresi ASLI langsung
     if (isCompressTool || item.compressBlob) {
       const downloadUrl = item.compressUrl || item.processedUrl || item.originalUrl;
       if (!downloadUrl) return;
@@ -122,14 +113,14 @@ export const ExportPanel: React.FC<ExportPanelProps> = ({
         document.body.removeChild(a);
       } catch (err) {
         console.error('Download error:', err);
-        showToast(t('editor.downloadError', { defaultValue: 'Gagal mengunduh gambar.' }));
+        showToast(t('editor.downloadError', { defaultValue: 'Failed to download image.' }));
       } finally {
         setIsExportingSingle(false);
       }
       return;
     }
 
-    // 2. TOOL NON-UPSCALE (Convert, Resize, Crop, Rotate, Watermark, Blur, EXIF): Unduh langsung tanpa downscaler
+    // 2. TOOL NON-UPSCALE (Convert, Resize, Crop, Rotate, Watermark, Blur, EXIF)
     if (!isUpscaleTool) {
       const downloadUrl = item.processedUrl || item.originalUrl;
       if (!downloadUrl) return;
@@ -146,14 +137,14 @@ export const ExportPanel: React.FC<ExportPanelProps> = ({
         document.body.removeChild(a);
       } catch (err) {
         console.error('Download error:', err);
-        showToast(t('editor.downloadError', { defaultValue: 'Gagal mengunduh gambar.' }));
+        showToast(t('editor.downloadError', { defaultValue: 'Failed to download image.' }));
       } finally {
         setIsExportingSingle(false);
       }
       return;
     }
 
-    // 3. TOOL UPSCALE / AI CUTOUT: Terapkan limitasi HD 1080p untuk tier gratis/guest
+    // 3. TOOL UPSCALE / AI CUTOUT: HD 1080p limit untuk tier gratis/guest
     const sourceUrl = item.processedUrl || item.transparentUrl || item.originalUrl;
     if (!sourceUrl) return;
 
@@ -175,7 +166,7 @@ export const ExportPanel: React.FC<ExportPanelProps> = ({
       }
     } catch (err) {
       console.error('Download error:', err);
-      showToast(t('editor.downloadError', { defaultValue: 'Gagal mengunduh gambar.' }));
+      showToast(t('editor.downloadError', { defaultValue: 'Failed to download image.' }));
     } finally {
       setIsExportingSingle(false);
     }
@@ -187,7 +178,7 @@ export const ExportPanel: React.FC<ExportPanelProps> = ({
     if (!item || !item.name.trim() || item.name.startsWith('.')) {
       showToast(
         t('work.emptyFileNameAlert', {
-          defaultValue: 'Nama file tidak boleh kosong! / File name cannot be empty!',
+          defaultValue: 'File name cannot be empty!',
         })
       );
       return;
@@ -218,7 +209,7 @@ export const ExportPanel: React.FC<ExportPanelProps> = ({
         }
       } catch (err) {
         console.error('4K Export Error:', err);
-        showToast(t('editor.downloadError', { defaultValue: 'Gagal mengunduh gambar 4K.' }));
+        showToast(t('editor.downloadError', { defaultValue: 'Failed to download 4K image.' }));
       } finally {
         setIsExporting4k(false);
       }
@@ -235,7 +226,7 @@ export const ExportPanel: React.FC<ExportPanelProps> = ({
         showToast(
           t('gate.quotaSuccessToast', {
             remaining: quotaState.remaining4k - 1,
-            defaultValue: `Ekspor 4K Asli Berhasil! (Sisa kuota 4K hari ini: ${quotaState.remaining4k - 1})`,
+            defaultValue: `Real 4K Export Success! (${quotaState.remaining4k - 1} daily 4K quota left)`,
           })
         );
         await execute4k();
@@ -259,66 +250,121 @@ export const ExportPanel: React.FC<ExportPanelProps> = ({
   };
 
   return (
-    <div className="mt-6 pt-6 border-t border-dark-600/60 shrink-0 flex flex-col gap-4">
+    <div className="mt-4 pt-4 border-t border-dark-600/60 shrink-0 flex flex-col gap-3">
       {/* Header bar: Settings Trigger */}
       <div className="flex items-center justify-between">
         <div className="text-[10px] font-bold text-slate-500 uppercase tracking-wider">
-          {t('work.exportSettingsTitle', { defaultValue: 'Export & Download Options' })}
+          {t('work.exportSettingsTitle', { defaultValue: 'Export Options' })}
         </div>
         <button
           type="button"
-          onClick={handleToggleExportOptions}
+          onClick={() => setShowExportOptions(!showExportOptions)}
           className="text-xs flex items-center gap-1.5 text-neon-cyan hover:text-neon-cyan/80 font-medium transition-colors cursor-pointer group"
         >
           <Settings2 className="w-3.5 h-3.5" />
           <span>{t('work.settings', { defaultValue: 'Export Settings' })}</span>
-          {!isPro ? (
+          {batchItems.length > 1 && !isPro && (
             <span className="inline-flex items-center gap-0.5 px-1.5 py-0.5 rounded text-[9px] font-bold bg-amber-400/20 text-amber-300 border border-amber-400/30">
-              <Lock className="w-2.5 h-2.5" />
+              <Crown className="w-2.5 h-2.5" />
               PRO
             </span>
-          ) : (
-            <ChevronDown
-              className={`w-3.5 h-3.5 transition-transform ${showExportOptions ? 'rotate-180' : ''}`}
-            />
           )}
+          <ChevronDown
+            className={`w-3.5 h-3.5 transition-transform ${showExportOptions ? 'rotate-180' : ''}`}
+          />
         </button>
       </div>
 
-      {/* Export Options Accordion (PRO Only) */}
+      {/* Export Options Accordion: Single Rename (Logged-in) vs Batch Rename (PRO) */}
       {showExportOptions && (
         <motion.div
           initial={{ height: 0, opacity: 0 }}
           animate={{ height: 'auto', opacity: 1 }}
-          className="flex flex-col gap-5 overflow-hidden"
+          className="flex flex-col gap-3 overflow-hidden pt-1"
         >
-          {!isPro ? (
-            <div className="p-3.5 rounded-xl bg-dark-900/60 border border-amber-500/20 flex items-center justify-between gap-3 text-xs">
-              <div className="flex items-center gap-2 text-slate-300">
-                <Lock className="w-4 h-4 text-amber-400 shrink-0" />
-                <span>
-                  {t('work.renameLocked', {
-                    defaultValue: 'Ganti nama file & custom ZIP adalah fitur eksklusif PRO.',
-                  })}
-                </span>
+          {batchItems.length === 1 ? (
+            // ==================== SINGLE PHOTO RENAME ====================
+            user ? (
+              // User Logged In (Free or Pro): Bebas ganti nama 1 foto!
+              <div className="flex flex-col gap-1.5">
+                <div className="text-[10px] font-bold text-slate-400 uppercase tracking-wider">
+                  {t('work.renameFile', { defaultValue: 'Rename File' })}
+                </div>
+                {(() => {
+                  const nameParts = batchItems[0].name.split('.');
+                  const ext = nameParts.length > 1 ? `.${nameParts.pop()}` : '';
+                  const base = nameParts.length > 0 ? nameParts.join('.') : batchItems[0].name;
+                  return (
+                    <div className="flex items-center gap-2 bg-dark-800/60 p-2 rounded-lg border border-dark-600/60 focus-within:border-neon-cyan/60 transition-colors">
+                      <input
+                        type="text"
+                        value={base}
+                        onChange={(e) => {
+                          const newBase = e.target.value;
+                          setBatchItems((prev) =>
+                            prev.map((img, i) => (i === 0 ? { ...img, name: `${newBase}${ext}` } : img))
+                          );
+                        }}
+                        className="flex-1 bg-transparent text-xs text-white outline-none px-1 w-full min-w-0"
+                        placeholder={t('work.fileNamePlaceholder', { defaultValue: 'File name' })}
+                      />
+                      {ext && (
+                        <span className="text-xs font-mono text-neon-cyan font-bold pr-1 shrink-0">
+                          {ext}
+                        </span>
+                      )}
+                    </div>
+                  );
+                })()}
               </div>
-              <button
-                type="button"
-                onClick={openAuthModal}
-                className="px-2.5 py-1 rounded-lg bg-amber-400 hover:bg-amber-300 text-slate-950 font-bold text-[11px] shrink-0 cursor-pointer"
-              >
-                Upgrade PRO
-              </button>
-            </div>
+            ) : (
+              // Guest (Not Logged In): Ajak login gratis untuk rename
+              <div className="p-3 rounded-xl bg-dark-900/60 border border-cyan-500/20 flex items-center justify-between gap-3 text-xs">
+                <div className="flex items-center gap-2 text-slate-300">
+                  <Lock className="w-4 h-4 text-cyan-400 shrink-0" />
+                  <span>
+                    {t('work.loginToRename', { defaultValue: 'Sign in (Free) to rename file' })}
+                  </span>
+                </div>
+                <button
+                  type="button"
+                  onClick={openAuthModal}
+                  className="px-2.5 py-1 rounded-lg bg-neon-cyan/20 hover:bg-neon-cyan/30 text-neon-cyan border border-neon-cyan/40 font-bold text-[11px] shrink-0 cursor-pointer transition-colors flex items-center gap-1"
+                >
+                  <LogIn className="w-3 h-3" />
+                  <span>{t('nav.login', { defaultValue: 'Sign In' })}</span>
+                </button>
+              </div>
+            )
           ) : (
-            <>
-              {/* Batch Rename UI */}
-              {batchItems.length > 1 ? (
+            // ==================== BATCH PHOTOS RENAME (PRO ONLY) ====================
+            !isPro ? (
+              // Batch Rename PRO Lock
+              <div className="p-3.5 rounded-xl bg-dark-900/60 border border-amber-500/20 flex items-center justify-between gap-3 text-xs">
+                <div className="flex items-center gap-2 text-slate-300">
+                  <Lock className="w-4 h-4 text-amber-400 shrink-0" />
+                  <span>
+                    {t('work.batchRenameLocked', {
+                      defaultValue: 'Batch renaming multiple files is an exclusive PRO feature.',
+                    })}
+                  </span>
+                </div>
+                <button
+                  type="button"
+                  onClick={() => openProGate({ feature: 'rename-zip' })}
+                  className="px-2.5 py-1 rounded-lg bg-amber-400 hover:bg-amber-300 text-slate-950 font-bold text-[11px] shrink-0 cursor-pointer"
+                >
+                  Upgrade PRO
+                </button>
+              </div>
+            ) : (
+              // Batch Rename Unlocked for PRO
+              <>
                 <div className="flex flex-col gap-2.5">
                   <div className="text-[10px] font-bold text-slate-500 uppercase tracking-wider">
-                    {t('work.batchRename', { defaultValue: 'Rename Files (PRO)' })}
+                    {t('work.batchRename', { defaultValue: 'Batch Rename (PRO)' })}
                   </div>
-                  <div className="flex flex-col gap-2 max-h-[200px] overflow-y-auto custom-scrollbar pr-1">
+                  <div className="flex flex-col gap-2 max-h-[180px] overflow-y-auto custom-scrollbar pr-1">
                     {batchItems.map((item, idx) => {
                       const nameParts = item.name.split('.');
                       const ext = nameParts.length > 1 ? `.${nameParts.pop()}` : '';
@@ -328,7 +374,7 @@ export const ExportPanel: React.FC<ExportPanelProps> = ({
                           key={item.id}
                           className="flex items-center gap-2 bg-dark-800/50 p-1.5 rounded-lg border border-dark-600/50 focus-within:border-neon-cyan/50 transition-colors group"
                         >
-                          <div className="w-8 h-8 rounded shrink-0 overflow-hidden bg-dark-900 border border-dark-600 flex items-center justify-center">
+                          <div className="w-7 h-7 rounded shrink-0 overflow-hidden bg-dark-900 border border-dark-600 flex items-center justify-center">
                             <img src={item.originalUrl} alt="" className="max-w-full max-h-full object-cover" />
                           </div>
                           <input
@@ -349,44 +395,10 @@ export const ExportPanel: React.FC<ExportPanelProps> = ({
                     })}
                   </div>
                 </div>
-              ) : (
-                <div className="flex flex-col gap-2.5">
-                  <div className="text-[10px] font-bold text-slate-500 uppercase tracking-wider">
-                    {t('work.renameFile', { defaultValue: 'Rename File (PRO)' })}
-                  </div>
-                  {(() => {
-                    const nameParts = batchItems[0].name.split('.');
-                    const ext = nameParts.length > 1 ? `.${nameParts.pop()}` : '';
-                    const base = nameParts.length > 0 ? nameParts.join('.') : batchItems[0].name;
-                    return (
-                      <div className="flex items-center gap-2 bg-dark-800/50 p-2 rounded-lg border border-dark-600/50 focus-within:border-neon-cyan/50 transition-colors">
-                        <input
-                          type="text"
-                          value={base}
-                          onChange={(e) => {
-                            const newBase = e.target.value;
-                            setBatchItems((prev) =>
-                              prev.map((img, i) => (i === 0 ? { ...img, name: `${newBase}${ext}` } : img))
-                            );
-                          }}
-                          className="flex-1 bg-transparent text-xs text-white outline-none px-1 w-full min-w-0"
-                          placeholder="File name"
-                        />
-                        {ext && (
-                          <span className="text-xs font-mono text-neon-cyan font-bold pr-2 shrink-0">
-                            {ext}
-                          </span>
-                        )}
-                      </div>
-                    );
-                  })()}
-                </div>
-              )}
 
-              {/* ZIP Download Custom Name (PRO Only) */}
-              {batchItems.length > 1 && (
+                {/* Custom ZIP Filename (PRO) */}
                 <div>
-                  <div className="text-[10px] font-bold text-slate-500 uppercase tracking-wider mb-2">
+                  <div className="text-[10px] font-bold text-slate-500 uppercase tracking-wider mb-1.5">
                     {t('work.zipName', { defaultValue: 'Custom ZIP Filename (PRO)' })}
                   </div>
                   <input
@@ -394,18 +406,18 @@ export const ExportPanel: React.FC<ExportPanelProps> = ({
                     value={customZipName}
                     onChange={(e) => setCustomZipName(e.target.value)}
                     placeholder={t('work.zipNamePlaceholder', {
-                      defaultValue: 'Custom ZIP Name (e.g. Products_Catalog)',
+                      defaultValue: 'Custom ZIP Name (e.g. Photos_Export)',
                     })}
-                    className="w-full bg-dark-800/50 border border-dark-600/50 focus:border-neon-cyan text-white px-3 py-2.5 rounded-lg text-xs outline-none transition-all"
+                    className="w-full bg-dark-800/50 border border-dark-600/50 focus:border-neon-cyan text-white px-3 py-2 rounded-lg text-xs outline-none transition-all"
                   />
                 </div>
-              )}
-            </>
+              </>
+            )
           )}
         </motion.div>
       )}
 
-      {/* Resolution Indicator Pill: ONLY rendered for upscale tools where 4K vs HD exists */}
+      {/* Resolution Indicator Pill: ONLY rendered for AI upscale / cutout tools */}
       {isUpscaleTool && (
         <div className="flex items-center justify-between px-3.5 py-2.5 rounded-xl bg-dark-800/60 border border-dark-600/50 text-xs">
           <div className="flex items-center gap-2">
@@ -418,14 +430,14 @@ export const ExportPanel: React.FC<ExportPanelProps> = ({
             )}
             <span className="text-slate-300 font-medium">
               {isPro
-                ? t('work.resPro', { defaultValue: 'Kualitas: Ultra-HD 4K (Original Lossless)' })
+                ? t('work.resPro', { defaultValue: 'Quality: Ultra-HD 4K (Original Lossless)' })
                 : user
                   ? t('gate.quotaPill', {
                     remaining: quotaState.remaining4k,
                     max: quotaState.max4k,
-                    defaultValue: `Kuota 4K: ${quotaState.remaining4k}/${quotaState.max4k} tersisa hari ini`,
+                    defaultValue: `4K Quota: ${quotaState.remaining4k}/${quotaState.max4k} left today`,
                   })
-                  : t('work.resFree', { defaultValue: 'Kualitas: Standar HD (Maks. 1920px)' })}
+                  : t('work.resFree', { defaultValue: 'Quality: Standard HD (Max. 1920px)' })}
             </span>
           </div>
           {!isPro ? (
@@ -439,7 +451,7 @@ export const ExportPanel: React.FC<ExportPanelProps> = ({
               <span>
                 {user
                   ? t('work.unlockUnlimited', { defaultValue: 'Unlimited PRO' })
-                  : t('gate.claimFree4k', { defaultValue: 'Klaim 3x 4K Gratis' })}
+                  : t('gate.claimFree4k', { defaultValue: 'Claim 3x Free 4K' })}
               </span>
             </button>
           ) : (
@@ -455,9 +467,8 @@ export const ExportPanel: React.FC<ExportPanelProps> = ({
         {batchItems.length > 1 ? (
           // ==================== BATCH DOWNLOAD (ZIP) ====================
           !isUpscaleTool ? (
-            // Non-upscale tools (Compress, Convert, Resize, etc.): 1 Single Clean Batch ZIP button
+            // Non-upscale tools: 1 Single Clean Batch ZIP button
             !areAllReady ? (
-              // ABU-ABU DISABLED STATE (Belum diproses semua)
               <button
                 type="button"
                 disabled={true}
@@ -466,23 +477,22 @@ export const ExportPanel: React.FC<ExportPanelProps> = ({
                 <Archive className="w-4 h-4 text-slate-600" />
                 <span>
                   {batchItems.some((i) => i.status === 'processing')
-                    ? t('work.processingAll', { defaultValue: 'Sedang Memproses Semua Foto...' })
+                    ? t('work.processingAll', { defaultValue: 'Processing All Photos...' })
                     : isCompressTool
-                      ? t('compress.processAllFirst', { defaultValue: 'Kompres Semua Foto Terlebih Dahulu' })
+                      ? t('compress.processAllFirst', { defaultValue: 'Compress All Photos First' })
                       : isConvertTool
-                        ? t('convert.convertAllFirst', { defaultValue: 'Konversi Semua Foto Terlebih Dahulu' })
-                        : t('work.processAllFirst', { defaultValue: 'Proses Semua Foto Terlebih Dahulu' })}
+                        ? t('convert.convertAllFirst', { defaultValue: 'Convert All Photos First' })
+                        : t('work.processAllFirst', { defaultValue: 'Process All Photos First' })}
                 </span>
               </button>
             ) : (
-              // ACTIVE READY STATE
               <button
                 type="button"
                 onClick={() => {
                   if (batchItems.some((i) => !i.name.trim() || i.name.startsWith('.'))) {
                     showToast(
                       t('work.emptyFileNameAlert', {
-                        defaultValue: 'Nama file tidak boleh kosong! / File name cannot be empty!',
+                        defaultValue: 'File name cannot be empty!',
                       })
                     );
                     return;
@@ -501,7 +511,7 @@ export const ExportPanel: React.FC<ExportPanelProps> = ({
                 <span>
                   {t('work.downloadZipAll', {
                     count: String(batchItems.length),
-                    defaultValue: `Download Semua Foto (${batchItems.length}) [ZIP]`,
+                    defaultValue: `Download All Photos (${batchItems.length}) [ZIP]`,
                   })}
                 </span>
               </button>
@@ -509,14 +519,13 @@ export const ExportPanel: React.FC<ExportPanelProps> = ({
           ) : (
             // Upscale tools: Dual ZIP buttons (HD vs 4K)
             <div className="flex flex-col sm:flex-row gap-2.5">
-              {/* Batch Button 1: HD Standard */}
               <button
                 type="button"
                 onClick={() => {
                   if (batchItems.some((i) => !i.name.trim() || i.name.startsWith('.'))) {
                     showToast(
                       t('work.emptyFileNameAlert', {
-                        defaultValue: 'Nama file tidak boleh kosong! / File name cannot be empty!',
+                        defaultValue: 'File name cannot be empty!',
                       })
                     );
                     return;
@@ -535,17 +544,16 @@ export const ExportPanel: React.FC<ExportPanelProps> = ({
                 ) : (
                   <Archive className={`w-4 h-4 ${isPro ? 'text-slate-400' : 'text-slate-950 stroke-[2.5]'}`} />
                 )}
-                <span>{t('work.downloadZip', { defaultValue: 'Download ZIP (HD Standar)' })}</span>
+                <span>{t('work.downloadZip', { defaultValue: 'Download ZIP' })}</span>
               </button>
 
-              {/* Batch Button 2: Ultra-HD 4K (Smart Badge & State) */}
               <button
                 type="button"
                 onClick={() => {
                   if (batchItems.some((i) => !i.name.trim() || i.name.startsWith('.'))) {
                     showToast(
                       t('work.emptyFileNameAlert', {
-                        defaultValue: 'Nama file tidak boleh kosong! / File name cannot be empty!',
+                        defaultValue: 'File name cannot be empty!',
                       })
                     );
                     return;
@@ -559,7 +567,7 @@ export const ExportPanel: React.FC<ExportPanelProps> = ({
                     showToast(
                       t('gate.quotaSuccessToast', {
                         remaining: quotaState.remaining4k - 1,
-                        defaultValue: `Ekspor 4K Asli Berhasil! (Sisa kuota 4K hari ini: ${quotaState.remaining4k - 1})`,
+                        defaultValue: `Real 4K Export Success! (${quotaState.remaining4k - 1} daily 4K quota left)`,
                       })
                     );
                   }
@@ -603,10 +611,11 @@ export const ExportPanel: React.FC<ExportPanelProps> = ({
           )
         ) : (
           // ==================== SINGLE DOWNLOAD ====================
-          !isUpscaleTool ? (
-            // Non-upscale tools: ONE prominent, beautifully styled button
+          // PENTING: Untuk tool kompresi, tombol download SUDAH ditangani langsung oleh Opsi B di CompressControl!
+          // Jadi pada tool kompresi dengan 1 foto, ExportPanel TIDAK me-render tombol download duplikat!
+          isCompressTool ? null : !isUpscaleTool ? (
+            // Non-upscale tools (Crop, Resize, Rotate, Convert): 1 Clean Standard Button
             !isSingleReady ? (
-              // ABU-ABU DISABLED STATE (Belum diproses / Belum dikompres)
               <button
                 type="button"
                 disabled={true}
@@ -619,18 +628,13 @@ export const ExportPanel: React.FC<ExportPanelProps> = ({
                 )}
                 <span>
                   {singleItem?.status === 'processing'
-                    ? isCompressTool
-                      ? t('compress.processingBtn', { defaultValue: 'Sedang Mengompres Foto...' })
-                      : t('work.processingBtn', { defaultValue: 'Sedang Memproses Foto...' })
-                    : isCompressTool
-                      ? t('compress.processFirst', { defaultValue: 'Kompres Foto Terlebih Dahulu' })
-                      : isConvertTool
-                        ? t('convert.convertFirst', { defaultValue: 'Konversi Foto Terlebih Dahulu' })
-                        : t('work.processFirst', { defaultValue: 'Proses Foto Terlebih Dahulu' })}
+                    ? t('work.processingBtn', { defaultValue: 'Processing Photo...' })
+                    : isConvertTool
+                      ? t('convert.convertFirst', { defaultValue: 'Convert Photo First' })
+                      : t('work.processFirst', { defaultValue: 'Process Photo First' })}
                 </span>
               </button>
             ) : (
-              // ACTIVE READY STATE (Hasil kompresi / konversi sudah jadi!)
               <button
                 type="button"
                 onClick={handleSingleDownloadStandard}
@@ -643,12 +647,7 @@ export const ExportPanel: React.FC<ExportPanelProps> = ({
                   <Download className="w-4 h-4 text-slate-950 stroke-[2.5]" />
                 )}
                 <span>
-                  {isCompressTool && singleItem?.compressBlob
-                    ? t('compress.downloadExact', {
-                      size: formatSize(singleItem.compressBlob.size),
-                      defaultValue: `Download Foto (${formatSize(singleItem.compressBlob.size)})`,
-                    })
-                    : t('editor.download', { defaultValue: 'Download Foto' })}
+                  {t('editor.downloadPhoto', { defaultValue: 'Download Photo' })}
                 </span>
               </button>
             )
@@ -670,7 +669,7 @@ export const ExportPanel: React.FC<ExportPanelProps> = ({
                 ) : (
                   <Download className={`w-4 h-4 ${isPro ? 'text-slate-400' : 'text-slate-950 stroke-[2.5]'}`} />
                 )}
-                <span>{t('editor.download', { defaultValue: 'Download HD (Gratis)' })}</span>
+                <span>{t('editor.downloadPhoto', { defaultValue: 'Download Photo' })}</span>
               </button>
 
               {/* Button 2: Ultra-HD 4K (Real PRO Badging & Sleek Locked State) */}
