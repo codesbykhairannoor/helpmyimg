@@ -2491,5 +2491,17 @@
   "work.downloadZipPro": "⚡ Download ZIP (4K Ultra-HD)",
   "nav.pricing": "Pricing & Plans",
   "pricing.free.f8": "3x Free 4K Original Resolution exports per day (Free Login Member)",
-  "gate.quotaDailyRemaining": "Daily 4K Quota:"
+  "gate.quotaDailyRemaining": "Daily 4K Quota:",
+  "auth.wrongEmailCancel": "Wrong email address? Cancel and try again",
+  "auth.deleteAccount": "Delete Account",
+  "auth.deleteModalTitle": "Permanently Delete Account",
+  "auth.deleteModalSubtitle": "This action is permanent and cannot be undone.",
+  "auth.deleteWarning4WebsTitle": "Important Warning: Login for 4 Connected Websites Will Be Erased",
+  "auth.deleteWarning4WebsDesc": "Your account credentials are unified across 4 websites in our network. Deleting this account will permanently erase your login credentials on HelpMyIMG and all 3 other connected companion websites.",
+  "auth.deleteConsequences": "All saved preferences, active PRO subscriptions, and account data will be wiped immediately.",
+  "auth.deleteConfirmTypeLabel": "Type DELETE to confirm:",
+  "auth.deleteConfirmBtn": "Permanently Delete Account",
+  "auth.deleteCancelBtn": "Cancel",
+  "auth.deleteSuccess": "Account has been successfully deleted.",
+  "auth.deleteReauthRequired": "For security reasons, your login session has expired. Please sign out and sign in again before deleting your account."
 }

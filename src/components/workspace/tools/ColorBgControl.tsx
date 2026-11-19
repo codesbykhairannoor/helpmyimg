@@ -184,11 +184,10 @@ export const ColorBgControl: React.FC<ColorBgControlProps> = ({
         <button
           type="button"
           onClick={() => setBgMode('color')}
-          className={`py-2 px-1 text-xs font-bold rounded-lg flex flex-col sm:flex-row items-center justify-center gap-1 transition-all ${
-            bgMode === 'color'
+          className={`py-2 px-1 text-xs font-bold rounded-lg flex flex-col sm:flex-row items-center justify-center gap-1 transition-all ${bgMode === 'color'
               ? 'bg-neon-cyan/20 text-neon-cyan border border-neon-cyan/40 shadow-sm'
               : 'text-slate-400 hover:text-slate-200'
-          }`}
+            }`}
         >
           <Palette className="w-3.5 h-3.5" />
           <span className="truncate">{t('color.tab.solid', { defaultValue: 'Solid' })}</span>
@@ -197,11 +196,10 @@ export const ColorBgControl: React.FC<ColorBgControlProps> = ({
         <button
           type="button"
           onClick={() => setBgMode('gradient')}
-          className={`py-2 px-1 text-xs font-bold rounded-lg flex flex-col sm:flex-row items-center justify-center gap-1 transition-all ${
-            bgMode === 'gradient'
+          className={`py-2 px-1 text-xs font-bold rounded-lg flex flex-col sm:flex-row items-center justify-center gap-1 transition-all ${bgMode === 'gradient'
               ? 'bg-neon-cyan/20 text-neon-cyan border border-neon-cyan/40 shadow-sm'
               : 'text-slate-400 hover:text-slate-200'
-          }`}
+            }`}
         >
           <Sparkles className="w-3.5 h-3.5" />
           <span className="truncate">{t('color.tab.gradient', { defaultValue: 'Gradient' })}</span>
@@ -210,11 +208,10 @@ export const ColorBgControl: React.FC<ColorBgControlProps> = ({
         <button
           type="button"
           onClick={() => setBgMode('image')}
-          className={`py-2 px-1 text-xs font-bold rounded-lg flex flex-col sm:flex-row items-center justify-center gap-1 transition-all ${
-            bgMode === 'image'
+          className={`py-2 px-1 text-xs font-bold rounded-lg flex flex-col sm:flex-row items-center justify-center gap-1 transition-all ${bgMode === 'image'
               ? 'bg-neon-cyan/20 text-neon-cyan border border-neon-cyan/40 shadow-sm'
               : 'text-slate-400 hover:text-slate-200'
-          }`}
+            }`}
         >
           <Upload className="w-3.5 h-3.5" />
           <span className="truncate">{t('color.tab.upload', { defaultValue: 'Upload' })}</span>
@@ -223,11 +220,10 @@ export const ColorBgControl: React.FC<ColorBgControlProps> = ({
         <button
           type="button"
           onClick={() => setBgMode('preset')}
-          className={`py-2 px-1 text-xs font-bold rounded-lg flex flex-col sm:flex-row items-center justify-center gap-1 transition-all ${
-            bgMode === 'preset'
+          className={`py-2 px-1 text-xs font-bold rounded-lg flex flex-col sm:flex-row items-center justify-center gap-1 transition-all ${bgMode === 'preset'
               ? 'bg-neon-cyan/20 text-neon-cyan border border-neon-cyan/40 shadow-sm'
               : 'text-slate-400 hover:text-slate-200'
-          }`}
+            }`}
         >
           <ImageIcon className="w-3.5 h-3.5" />
           <span className="truncate">{t('color.tab.scenes', { defaultValue: 'Scene' })}</span>
@@ -249,11 +245,10 @@ export const ColorBgControl: React.FC<ColorBgControlProps> = ({
                   type="button"
                   onClick={() => setSelectedColor(col.hex)}
                   disabled={isProcessing}
-                  className={`flex items-center gap-2.5 p-2 rounded-xl border text-left transition-all ${
-                    selectedColor === col.hex
+                  className={`flex items-center gap-2.5 p-2 rounded-xl border text-left transition-all ${selectedColor === col.hex
                       ? 'border-neon-cyan bg-neon-cyan/10 text-white font-bold shadow-sm'
                       : 'border-dark-600 bg-dark-800/80 hover:bg-dark-700 text-slate-300'
-                  }`}
+                    }`}
                 >
                   <span
                     className="w-5 h-5 rounded-full border border-white/20 shrink-0 flex items-center justify-center shadow-inner"
@@ -308,11 +303,10 @@ export const ColorBgControl: React.FC<ColorBgControlProps> = ({
                   type="button"
                   onClick={() => setSelectedGradient(grad.value)}
                   disabled={isProcessing}
-                  className={`flex items-center gap-2.5 p-2 rounded-xl border text-left transition-all ${
-                    isSelected
+                  className={`flex items-center gap-2.5 p-2 rounded-xl border text-left transition-all ${isSelected
                       ? 'border-neon-cyan bg-neon-cyan/10 text-white font-bold shadow-sm'
                       : 'border-dark-600 bg-dark-800/80 hover:bg-dark-700 text-slate-300'
-                  }`}
+                    }`}
                 >
                   <span
                     className="w-6 h-6 rounded-lg border border-white/20 shrink-0 flex items-center justify-center shadow-inner"
@@ -420,11 +414,10 @@ export const ColorBgControl: React.FC<ColorBgControlProps> = ({
                   type="button"
                   onClick={() => setSelectedPreset(scene.id)}
                   disabled={isProcessing}
-                  className={`group relative aspect-video rounded-xl overflow-hidden border transition-all ${
-                    isSelected
+                  className={`group relative aspect-video rounded-xl overflow-hidden border transition-all ${isSelected
                       ? 'border-neon-cyan ring-2 ring-neon-cyan/40 scale-[1.02] shadow-glow-cyan'
                       : 'border-dark-600 hover:border-dark-400 opacity-80 hover:opacity-100'
-                  }`}
+                    }`}
                 >
                   <img
                     src={scene.dataUrl}
@@ -490,11 +483,10 @@ export const ColorBgControl: React.FC<ColorBgControlProps> = ({
                 type="button"
                 onClick={() => setShadowEffect(opt.id)}
                 disabled={isProcessing}
-                className={`py-1.5 px-2 rounded-lg text-[11px] font-bold transition-all cursor-pointer truncate ${
-                  shadowEffect === opt.id
+                className={`py-1.5 px-2 rounded-lg text-[11px] font-bold transition-all cursor-pointer truncate ${shadowEffect === opt.id
                     ? 'bg-neon-cyan/20 border border-neon-cyan/50 text-neon-cyan'
                     : 'text-slate-400 hover:text-white border border-transparent'
-                }`}
+                  }`}
               >
                 {opt.label}
               </button>

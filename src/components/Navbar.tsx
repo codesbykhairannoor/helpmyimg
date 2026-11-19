@@ -27,10 +27,12 @@ import {
   ExternalLink,
   ArrowRight,
   ArrowLeft,
-  Check
+  Check,
+  Trash2
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useAuth } from '../context/AuthContext';
+import { DeleteAccountModal } from './auth/DeleteAccountModal';
 import { getToolFromSlug, getLocalizedSlug } from '../utils/urlMapper';
 import { getInfoPageFromSlug, getLocalizedInfoSlug, type InfoPageType } from '../utils/infoUrlMapper';
 // Suppress unused InfoPageType import warning
@@ -126,6 +128,7 @@ export const Navbar: React.FC = () => {
 
   // User menu & Mobile states
   const [userMenuOpen, setUserMenuOpen] = useState(false);
+  const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [mobileSearch, setMobileSearch] = useState('');
   const [mobileLangOpen, setMobileLangOpen] = useState(false);
@@ -536,10 +539,21 @@ export const Navbar: React.FC = () => {
                               signOut();
                               setUserMenuOpen(false);
                             }}
-                            className="w-full flex items-center gap-2.5 px-3 py-2 text-xs font-medium rounded-xl text-rose-600 dark:text-rose-400 hover:bg-rose-50 dark:hover:bg-rose-950/30 transition-colors cursor-pointer"
+                            className="w-full flex items-center gap-2.5 px-3 py-2 text-xs font-medium rounded-xl text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700/40 transition-colors cursor-pointer"
                           >
-                            <LogOut className="w-4 h-4" />
+                            <LogOut className="w-4 h-4 text-slate-400" />
                             <span>{t('auth.signOut', { defaultValue: 'Keluar Akun' })}</span>
+                          </button>
+
+                          <button
+                            onClick={() => {
+                              setUserMenuOpen(false);
+                              setIsDeleteModalOpen(true);
+                            }}
+                            className="w-full flex items-center gap-2.5 px-3 py-2 text-xs font-medium rounded-xl text-rose-600 dark:text-rose-400 hover:bg-rose-50 dark:hover:bg-rose-950/30 transition-colors cursor-pointer mt-0.5"
+                          >
+                            <Trash2 className="w-4 h-4 text-rose-500" />
+                            <span>{t('auth.deleteAccount', { defaultValue: 'Hapus Akun' })}</span>
                           </button>
                         </div>
                       </motion.div>
@@ -997,10 +1011,20 @@ export const Navbar: React.FC = () => {
                       onClick={() => {
                         signOut();
                       }}
-                      className="p-1.5 text-slate-400 hover:text-rose-500 rounded-lg cursor-pointer"
-                      title="Keluar"
+                      className="p-1.5 text-slate-400 hover:text-slate-200 rounded-lg cursor-pointer"
+                      title={t('auth.signOut', { defaultValue: 'Keluar Akun' })}
                     >
                       <LogOut size={16} />
+                    </button>
+                    <button
+                      onClick={() => {
+                        setMobileMenuOpen(false);
+                        setIsDeleteModalOpen(true);
+                      }}
+                      className="p-1.5 text-rose-500 hover:text-rose-400 rounded-lg cursor-pointer"
+                      title={t('auth.deleteAccount', { defaultValue: 'Hapus Akun' })}
+                    >
+                      <Trash2 size={16} />
                     </button>
                   </div>
                 </div>
@@ -1243,6 +1267,12 @@ export const Navbar: React.FC = () => {
         </>,
         document.body
       )}
+
+      {/* Modal Hapus Akun Permanen (GDPR / Standar Global) */}
+      <DeleteAccountModal
+        isOpen={isDeleteModalOpen}
+        onClose={() => setIsDeleteModalOpen(false)}
+      />
     </>
   );
 };

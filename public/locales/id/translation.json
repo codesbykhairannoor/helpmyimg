@@ -2526,5 +2526,17 @@
   "work.downloadZipPro": "⚡ Download ZIP (4K Ultra-HD)",
   "nav.pricing": "Pricing & Plans",
   "pricing.free.f8": "3x Ekspor Resolusi Asli 4K gratis setiap hari (Member Login)",
-  "gate.quotaDailyRemaining": "Kuota 4K Hari Ini:"
+  "gate.quotaDailyRemaining": "Kuota 4K Hari Ini:",
+  "auth.wrongEmailCancel": "Salah alamat email? Batalkan dan coba lagi",
+  "auth.deleteAccount": "Hapus Akun",
+  "auth.deleteModalTitle": "Hapus Akun Permanen",
+  "auth.deleteModalSubtitle": "Tindakan ini permanen dan tidak dapat dibatalkan.",
+  "auth.deleteWarning4WebsTitle": "Peringatan Penting: Akses Login 4 Website Akan Terhapus",
+  "auth.deleteWarning4WebsDesc": "Akun Anda terhubung ke 4 website dalam jaringan kami. Menghapus akun ini akan menghapus akses login Anda di HelpMyIMG serta 3 website terkait lainnya secara permanen.",
+  "auth.deleteConsequences": "Semua preferensi tersimpan, langganan PRO aktif, dan data akun akan langsung dihapus bersih.",
+  "auth.deleteConfirmTypeLabel": "Ketik HAPUS untuk konfirmasi:",
+  "auth.deleteConfirmBtn": "Hapus Akun Sekarang",
+  "auth.deleteCancelBtn": "Batal",
+  "auth.deleteSuccess": "Akun berhasil dihapus.",
+  "auth.deleteReauthRequired": "Demi keamanan, sesi login Anda telah kedaluwarsa. Silakan keluar dan masuk kembali sebelum menghapus akun."
 }

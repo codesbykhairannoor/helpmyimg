@@ -31,6 +31,7 @@ export interface AuthContextType {
   sendEmailVerificationLink: () => Promise<void>;
   verifyEmailWithCode: (oobCode: string) => Promise<void>;
   reloadUser: () => Promise<boolean>;
+  deleteAccount: () => Promise<void>;
   sendPasswordReset: (email: string) => Promise<void>;
   confirmNewPassword: (oobCode: string, newPassword: string) => Promise<void>;
   signOut: () => Promise<void>;

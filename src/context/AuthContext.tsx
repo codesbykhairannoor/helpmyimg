@@ -12,11 +12,12 @@ import {
   confirmPasswordReset,
   sendEmailVerification,
   applyActionCode,
+  deleteUser,
   signOut as firebaseSignOut,
   onAuthStateChanged,
   type User,
 } from 'firebase/auth';
-import { doc, getDoc, setDoc, updateDoc } from 'firebase/firestore';
+import { doc, getDoc, setDoc, updateDoc, deleteDoc } from 'firebase/firestore';
 import { auth, db, googleProvider, isFirebaseConfigured } from '../config/firebase';
 import type { UserProfile, AuthContextType } from '../types/auth';
 
@@ -129,7 +130,11 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     const unsubscribe = onAuthStateChanged(auth, async (currentUser) => {
       setUser(currentUser);
       if (currentUser) {
-        setIsAuthModalOpen(false);
+        // Hanya tutup modal secara otomatis jika user sudah terverifikasi (misal login via Google)
+        // Jangan tutup modal jika belum terverifikasi agar tampilan instruksi verifikasi email tetap terlihat
+        if (currentUser.emailVerified) {
+          setIsAuthModalOpen(false);
+        }
         try {
           const userProfile = await fetchOrCreateProfile(currentUser);
           setProfile(userProfile);
@@ -216,6 +221,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
 
     const userProfile = await fetchOrCreateProfile(result.user);
     setProfile(userProfile);
+    setIsAuthModalOpen(true);
   };
 
   const sendEmailVerificationLink = async () => {
@@ -253,7 +259,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
         await updateDoc(userDocRef, {
           emailVerified: true,
           lastLoginAt: Date.now(),
-        }).catch(() => {});
+        }).catch(() => { });
       }
       const updatedProfile = await fetchOrCreateProfile(auth.currentUser);
       setProfile(updatedProfile);
@@ -270,7 +276,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
       await updateDoc(userDocRef, {
         emailVerified: true,
         lastLoginAt: Date.now(),
-      }).catch(() => {});
+      }).catch(() => { });
     }
     const updatedProfile = await fetchOrCreateProfile(auth.currentUser);
     setProfile(updatedProfile);
@@ -319,6 +325,37 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     await confirmPasswordReset(auth, oobCode, newPassword);
   };
 
+  const deleteAccount = async () => {
+    if (!isFirebaseConfigured || !auth || !auth.currentUser) {
+      throw new Error('No user is currently signed in.');
+    }
+    const currentUser = auth.currentUser;
+    const uid = currentUser.uid;
+
+    try {
+      // 1. Bersihkan dokumen profil pengguna di Firestore
+      if (db) {
+        try {
+          const userDocRef = doc(db, 'users', uid);
+          await deleteDoc(userDocRef);
+        } catch (firestoreErr) {
+          console.warn('Could not delete user Firestore document:', firestoreErr);
+        }
+      }
+
+      // 2. Hapus akun pengguna di Firebase Auth
+      await deleteUser(currentUser);
+      setUser(null);
+      setProfile(null);
+      setIsAuthModalOpen(false);
+    } catch (err: any) {
+      if (err?.code === 'auth/requires-recent-login') {
+        throw new Error('REQUIRES_RECENT_LOGIN');
+      }
+      throw err;
+    }
+  };
+
   const signOut = async () => {
     if (!auth) return;
     try {
@@ -352,6 +389,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
         sendEmailVerificationLink,
         verifyEmailWithCode,
         reloadUser,
+        deleteAccount,
         sendPasswordReset,
         confirmNewPassword,
         signOut,
