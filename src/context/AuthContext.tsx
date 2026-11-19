@@ -109,6 +109,22 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
   }, [user, fetchOrCreateProfile]);
 
   useEffect(() => {
+    // E2E QA Testing Hook: Allows injecting mock user sessions without external network dependencies
+    if (typeof window !== 'undefined') {
+      (window as any).__SET_TEST_AUTH__ = (mockUser: any, mockProfile: any) => {
+        setUser(mockUser);
+        setProfile(mockProfile);
+        setLoading(false);
+      };
+      if ((window as any).__TEST_AUTH_USER__) {
+        const testAuth = (window as any).__TEST_AUTH_USER__;
+        setUser(testAuth.user);
+        setProfile(testAuth.profile);
+        setLoading(false);
+        return;
+      }
+    }
+
     if (!auth || !isFirebaseConfigured) {
       setLoading(false);
       return;

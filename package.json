@@ -10,6 +10,7 @@
     "postbuild": "node scripts/submit-indexnow.mjs",
     "lint": "oxlint",
     "preview": "vite preview",
+    "test:e2e": "playwright test",
     "indexnow": "node scripts/submit-indexnow.mjs",
     "google-index": "node scripts/submit-google-indexing-api.mjs",
     "backlinks": "node scripts/generate-backlink-checklist.mjs"
@@ -58,6 +59,7 @@
     "utif": "^3.1.0"
   },
   "devDependencies": {
+    "@playwright/test": "^1.65.1",
     "@tailwindcss/postcss": "^4.3.2",
     "@types/canvas-confetti": "^1.9.0",
     "@types/node": "^24.13.2",
