@@ -2146,7 +2146,7 @@
   "pricing.pro.f5": "Accelerație WebGPU + MozJPEG / OxiPNG / Studio Shadow",
   "pricing.pro.f6": "Licență de utilizare a proiectelor comerciale și client",
   "pricing.pro.f7": "Spațiu de lucru 100% fără anunțuri, fără distracție",
-  "pricing.pro.f8": "Asistență pentru clienți prioritară și acces timpuriu la funcții",
+  "pricing.pro.f8": "Redenumire în bloc inteligentă și export personalizat ZIP cu 1 clic",
   "pricing.matrix.title": "Matrice detaliată de comparație a caracteristicilor",
   "pricing.matrix.subtitle": "O defalcare transparentă a caracteristicilor paralele între nivelurile Free Starter și PRO Studio.",
   "pricing.matrix.colFeature": "Caracteristică și capacitate",
@@ -2156,8 +2156,8 @@
   "pricing.matrix.row1.free": "Până la 10 fotografii/lot",
   "pricing.matrix.row1.pro": "Fotografii/lot nelimitat (100+)",
   "pricing.matrix.row2.name": "Rezoluție de export și upscale",
-  "pricing.matrix.row2.free": "Înaltă definiție (Rust Lanczos3 1080p)",
-  "pricing.matrix.row2.pro": "Swin2SR AI + MagicKernelSharp 4K Lossless",
+  "pricing.matrix.row2.free": "HD nelimitat 1080p + 3x gratuit 4K/zi",
+  "pricing.matrix.row2.pro": "Swin2SR AI + MagicKernelSharp 4K Lossless Nelimitat",
   "pricing.matrix.row3.name": "Model de procesare AI",
   "pricing.matrix.row3.free": "RMBG-1.4 Modul Neural + Vector",
   "pricing.matrix.row3.pro": "BiRefNet Lite WebGPU (păr și sticlă)",
@@ -2406,7 +2406,7 @@
   "gate.dismissHd": "Poate mai târziu (Descărcați Standard HD)",
   "gate.quotaPill": "Cotă 4K: {{remaining}}/{{max}} rămas astăzi",
   "gate.claimFree4k": "Revendicați 3x 4K gratuit",
-  "gate.quotaSuccessToast": "Original 4K exportat! ({{remaining}} 4K gratuit rămas astăzi)",
+  "gate.quotaSuccessToast": "Export 4K original cu succes! (Cota 4K rămasă astăzi: {{remaining}})",
   "work.unlockUnlimited": "PRO nelimitat",
   "gate.badgeProUpgrade": "👑 VIP PRO PASS",
   "gate.descProQuotaAvailable": "Mai aveți {{rămase}}/{{max}} exporturi gratuite 4K astăzi. Faceți upgrade la PRO pentru exporturi nelimitate 4K Ultra-HD pentru totdeauna, cu zero limite zilnice!",
@@ -2471,5 +2471,7 @@
   "work.badge.editexif": "EXIF manual",
   "convert.failed": "Gagal mengonversi foto.",
   "work.downloadZipPro": "⚡ Descărcați ZIP (4K Ultra-HD)",
-  "nav.pricing": "Prețuri și planuri"
+  "nav.pricing": "Prețuri și planuri",
+  "pricing.free.f8": "3x exporturi gratuite de rezoluție originală 4K pe zi (membru de conectare gratuită)",
+  "gate.quotaDailyRemaining": "Cotă zilnică 4K:"
 }

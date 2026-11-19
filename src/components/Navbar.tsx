@@ -38,6 +38,7 @@ const _unusedInfoPageType: InfoPageType = 'about';
 void _unusedInfoPageType;
 
 import { tools, categories } from '../config/tools';
+import { useProGate } from '../context/ProGateContext';
 
 const TOOL_COLORS: Record<string, string> = {
   remove: '#06b6d4',
@@ -60,6 +61,7 @@ export const Navbar: React.FC = () => {
   const { lang, setLang, t } = useTranslation();
   const { theme, toggleTheme } = useTheme();
   const { user, isPro, openAuthModal, signOut } = useAuth();
+  const { quotaState } = useProGate();
   const { navigatePath } = useRouter();
 
   // Desktop Language Dropdown & Launcher Drawer states
@@ -500,6 +502,17 @@ export const Navbar: React.FC = () => {
                               </span>
                             )}
                           </div>
+                          {!isPro && (
+                            <div className="mt-2 pt-2 border-t border-slate-100 dark:border-dark-700/60 flex items-center justify-between text-xs">
+                              <span className="text-slate-500 dark:text-slate-400 flex items-center gap-1">
+                                <Sparkles className="w-3 h-3 text-cyan-500" />
+                                <span>{t('gate.quotaDailyRemaining', { defaultValue: 'Kuota 4K Hari Ini:' })}</span>
+                              </span>
+                              <span className="font-bold text-cyan-600 dark:text-neon-cyan font-mono">
+                                {quotaState.remaining4k} / {quotaState.max4k}
+                              </span>
+                            </div>
+                          )}
                         </div>
 
                         <div className="pt-2 px-2">

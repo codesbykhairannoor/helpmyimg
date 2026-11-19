@@ -107,7 +107,7 @@ export const PricingPage: React.FC = () => {
     },
     {
       name: t('pricing.matrix.row2.name', { defaultValue: 'Resolusi Ekspor & Upscale' }),
-      free: t('pricing.matrix.row2.free', { defaultValue: 'High-Definition (Rust Lanczos3 1080p)' }),
+      free: t('pricing.matrix.row2.free', { defaultValue: 'HD 1080p Tanpa Batas + 3x 4K Gratis/Hari' }),
       pro: t('pricing.matrix.row2.pro', { defaultValue: 'Swin2SR AI + MagicKernelSharp 4K Lossless' }),
     },
     {
@@ -322,6 +322,10 @@ export const PricingPage: React.FC = () => {
                   </li>
                   <li className="flex items-start gap-2.5 text-xs sm:text-sm text-slate-700 dark:text-slate-300">
                     <Check className="w-4 h-4 text-emerald-500 shrink-0 mt-0.5" />
+                    <span>{t('pricing.free.f8', { defaultValue: '3x Ekspor Resolusi Asli 4K gratis setiap hari (Member Login)' })}</span>
+                  </li>
+                  <li className="flex items-start gap-2.5 text-xs sm:text-sm text-slate-700 dark:text-slate-300">
+                    <Check className="w-4 h-4 text-emerald-500 shrink-0 mt-0.5" />
                     <span>{t('pricing.free.f2', { defaultValue: 'Proses batch hingga 10 foto sekaligus' })}</span>
                   </li>
                   <li className="flex items-start gap-2.5 text-xs sm:text-sm text-slate-700 dark:text-slate-300">
@@ -433,7 +437,7 @@ export const PricingPage: React.FC = () => {
                   </li>
                   <li className="flex items-start gap-2.5 text-xs sm:text-sm text-slate-700 dark:text-slate-300">
                     <Check className="w-4 h-4 text-emerald-500 shrink-0 mt-0.5" />
-                    <span>{t('pricing.pro.f3', { defaultValue: 'Ekspor Swin2SR AI + MagicKernelSharp 4K Lossless' })}</span>
+                    <span>{t('pricing.pro.f3', { defaultValue: 'Ekspor Swin2SR AI + MagicKernelSharp 4K Lossless Tanpa Batas' })}</span>
                   </li>
                   <li className="flex items-start gap-2.5 text-xs sm:text-sm text-slate-700 dark:text-slate-300">
                     <Check className="w-4 h-4 text-emerald-500 shrink-0 mt-0.5" />
@@ -442,6 +446,10 @@ export const PricingPage: React.FC = () => {
                   <li className="flex items-start gap-2.5 text-xs sm:text-sm text-slate-700 dark:text-slate-300">
                     <Check className="w-4 h-4 text-emerald-500 shrink-0 mt-0.5" />
                     <span>{t('pricing.pro.f4', { defaultValue: 'Model AI BiRefNet WebGPU untuk rambut & kaca presisi' })}</span>
+                  </li>
+                  <li className="flex items-start gap-2.5 text-xs sm:text-sm text-slate-700 dark:text-slate-300">
+                    <Check className="w-4 h-4 text-emerald-500 shrink-0 mt-0.5" />
+                    <span>{t('pricing.pro.f8', { defaultValue: 'Smart Bulk Renaming & 1-Click ZIP Custom Export' })}</span>
                   </li>
                   <li className="flex items-start gap-2.5 text-xs sm:text-sm text-slate-700 dark:text-slate-300">
                     <Check className="w-4 h-4 text-emerald-500 shrink-0 mt-0.5" />

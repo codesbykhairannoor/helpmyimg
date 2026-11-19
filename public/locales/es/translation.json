@@ -2146,7 +2146,7 @@
   "pricing.pro.f5": "Aceleración WebGPU + MozJPEG / OxiPNG / Studio Shadow",
   "pricing.pro.f6": "Licencia de uso de proyectos comerciales y de clientes",
   "pricing.pro.f7": "Espacio de trabajo 100% libre de publicidad y sin distracciones",
-  "pricing.pro.f8": "Atención al cliente prioritaria y acceso temprano a funciones",
+  "pricing.pro.f8": "Cambio de nombre masivo inteligente y exportación personalizada ZIP con 1 clic",
   "pricing.matrix.title": "Matriz de comparación de características detallada",
   "pricing.matrix.subtitle": "Un desglose transparente de funciones en paralelo entre los niveles Free Starter y PRO Studio.",
   "pricing.matrix.colFeature": "Característica y capacidad",
@@ -2156,8 +2156,8 @@
   "pricing.matrix.row1.free": "Hasta 10 fotos/lote",
   "pricing.matrix.row1.pro": "Fotos ilimitadas/lote (más de 100)",
   "pricing.matrix.row2.name": "Resolución de exportación y escalamiento",
-  "pricing.matrix.row2.free": "Alta definición (Rust Lanczos3 1080p)",
-  "pricing.matrix.row2.pro": "Swin2SR AI + MagicKernelSharp 4K sin pérdidas",
+  "pricing.matrix.row2.free": "HD 1080p ilimitado + 3x 4K gratis/día",
+  "pricing.matrix.row2.pro": "Swin2SR AI + MagicKernelSharp 4K sin pérdidas ilimitado",
   "pricing.matrix.row3.name": "Modelo de procesamiento de IA",
   "pricing.matrix.row3.free": "RMBG-1.4 Modo neuronal + vectorial",
   "pricing.matrix.row3.pro": "BiRefNet Lite WebGPU (Cabello y Vidrio)",
@@ -2406,7 +2406,7 @@
   "gate.dismissHd": "Quizás más tarde (Descargar Estándar HD)",
   "gate.quotaPill": "Cuota de 4K: quedan {{remaining}}/{{max}} hoy",
   "gate.claimFree4k": "Reclama 3x 4K gratis",
-  "gate.quotaSuccessToast": "¡Exportado 4K original! (Hoy quedan {{remaining}} 4K gratis)",
+  "gate.quotaSuccessToast": "¡Exportación original 4K exitosa! (Cuota de 4K restante hoy: {{remaining}})",
   "work.unlockUnlimited": "PRO ilimitado",
   "gate.badgeProUpgrade": "👑 PASE VIP PRO",
   "gate.descProQuotaAvailable": "Todavía te quedan {{remaining}}/{{max}} exportaciones 4K gratuitas hoy. ¡Actualice a PRO para exportaciones ilimitadas de 4K Ultra-HD para siempre sin límites diarios!",
@@ -2471,5 +2471,7 @@
   "work.badge.editexif": "EXIF manual",
   "convert.failed": "Gagal mengonversi foto.",
   "work.downloadZipPro": "⚡ Descargar ZIP (4K Ultra-HD)",
-  "nav.pricing": "Precios y planes"
+  "nav.pricing": "Precios y planes",
+  "pricing.free.f8": "3 exportaciones gratuitas de resolución original 4K por día (miembro de inicio de sesión gratuito)",
+  "gate.quotaDailyRemaining": "Cuota diaria de 4K:"
 }

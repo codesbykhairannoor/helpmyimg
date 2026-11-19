@@ -2212,7 +2212,7 @@
   "pricing.pro.f5": "Akselerasi WebGPU + MozJPEG / OxiPNG / Studio Shadow",
   "pricing.pro.f6": "Lisensi komersial & penggunaan proyek klien",
   "pricing.pro.f7": "Ruang kerja studio 100% bebas iklan",
-  "pricing.pro.f8": "Dukungan pelanggan prioritas & akses fitur baru lebih awal",
+  "pricing.pro.f8": "Smart Bulk Renaming & 1-Click ZIP Custom Export",
   "pricing.matrix.title": "Tabel Perbandingan Fitur Rinci",
   "pricing.matrix.subtitle": "Bandingkan setiap kemampuan teknis antara Paket Gratis dan Paket PRO Studio secara transparan.",
   "pricing.matrix.colFeature": "Fitur & Kapabilitas",
@@ -2222,8 +2222,8 @@
   "pricing.matrix.row1.free": "Hingga 10 foto / batch",
   "pricing.matrix.row1.pro": "Tanpa Batas foto / batch (100+)",
   "pricing.matrix.row2.name": "Resolusi Ekspor & Upscale",
-  "pricing.matrix.row2.free": "High-Definition (Rust Lanczos3 1080p)",
-  "pricing.matrix.row2.pro": "Swin2SR AI + MagicKernelSharp 4K Lossless",
+  "pricing.matrix.row2.free": "HD 1080p Tanpa Batas + 3x 4K Gratis/Hari",
+  "pricing.matrix.row2.pro": "Swin2SR AI + MagicKernelSharp 4K Lossless Tanpa Batas",
   "pricing.matrix.row3.name": "Model Pemrosesan AI",
   "pricing.matrix.row3.free": "RMBG-1.4 Neural + Mode Vektor",
   "pricing.matrix.row3.pro": "BiRefNet Lite WebGPU (Rambut & Kaca)",
@@ -2506,5 +2506,7 @@
   "work.badge.editexif": "Manual EXIF",
   "convert.failed": "Gagal mengonversi foto.",
   "work.downloadZipPro": "⚡ Download ZIP (4K Ultra-HD)",
-  "nav.pricing": "Pricing & Plans"
+  "nav.pricing": "Pricing & Plans",
+  "pricing.free.f8": "3x Ekspor Resolusi Asli 4K gratis setiap hari (Member Login)",
+  "gate.quotaDailyRemaining": "Kuota 4K Hari Ini:"
 }
