@@ -376,7 +376,7 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({
             >
               {(initialTab === 'remove' || initialTab === 'removelogo' || initialTab === 'removeperson') && (
                 <RemoveBgControl
-                  currentTransparentUrl={currentItem?.processedUrl || null}
+                  currentTransparentUrl={currentItem?.transparentUrl || currentItem?.processedUrl || null}
                   currentFileName={currentItem?.name}
                   batchUrls={batchItems
                     .filter((i) => i.status === 'done' && i.transparentUrl)
@@ -398,6 +398,11 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({
                       processSingleItem(item);
                     });
                   }}
+                  onDownload={(is4k?: boolean) => {
+                    if (currentItem) {
+                      handleDownloadSingle(currentItem, is4k);
+                    }
+                  }}
                   batchCount={batchItems.length}
                   imageType={imageType}
                   setImageType={(newType) => {
@@ -416,7 +421,7 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({
                     }
                   }}
                   hasProcessedAi={Boolean(
-                    currentItem?.transparentUrl && currentItem?.transparentUrl !== currentItem?.originalUrl
+                    currentItem?.status === 'done' && currentItem?.transparentUrl && currentItem?.transparentUrl !== currentItem?.originalUrl
                   )}
                   onUploadOther={handleUploadOther}
                 />
@@ -452,8 +457,13 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({
                       processSingleItem(currentItem);
                     }
                   }}
+                  onDownload={(is4k?: boolean) => {
+                    if (currentItem) {
+                      handleDownloadSingle(currentItem, is4k);
+                    }
+                  }}
                   hasProcessedAi={Boolean(
-                    currentItem?.transparentUrl && currentItem?.transparentUrl !== currentItem?.originalUrl
+                    currentItem?.status === 'done' && currentItem?.processedUrl && currentItem?.processedUrl !== currentItem?.originalUrl
                   )}
                   batchCount={batchItems.length}
                   imageType={imageType}
@@ -766,6 +776,12 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({
                     }
                   }}
                   onReset={handleResetCurrent}
+                  status={currentItem?.status || 'idle'}
+                  onDownload={() => {
+                    if (currentItem) {
+                      handleDownloadSingle(currentItem);
+                    }
+                  }}
                   isProcessing={currentItem?.status === 'processing'}
                 />
               )}

@@ -1,6 +1,6 @@
 import React from 'react';
 import { useTranslation } from '../../../context/LanguageContext';
-import { Image as ImageIcon, RefreshCw, RotateCcw, Upload, ArrowRight } from 'lucide-react';
+import { Image as ImageIcon, RefreshCw, RotateCcw, Upload, ArrowRight, Download } from 'lucide-react';
 import type { ImageMimeType } from './convert/convertEngine';
 import type { SvgVectorMode } from '../../utils/imageOperations';
 
@@ -16,6 +16,7 @@ interface ConvertControlProps {
   onUploadOther?: () => void;
   onReset: () => void;
   isProcessing: boolean;
+  status?: 'idle' | 'queued' | 'processing' | 'done' | 'error';
   batchCount?: number;
 }
 
@@ -31,6 +32,7 @@ export const ConvertControl: React.FC<ConvertControlProps> = ({
   onUploadOther,
   onReset,
   isProcessing,
+  status = 'idle',
   batchCount = 1,
 }) => {
   const { t } = useTranslation();
@@ -140,7 +142,7 @@ export const ConvertControl: React.FC<ConvertControlProps> = ({
 
       {/* Action Buttons */}
       <div className="space-y-3 pt-1">
-        {/* Main Action Button: Convert Now / Convert All */}
+        {/* Main Action Button: Convert Now / Convert All / Morph to Download */}
         {batchCount > 1 ? (
           <button
             type="button"
@@ -155,6 +157,28 @@ export const ConvertControl: React.FC<ConvertControlProps> = ({
                 : t('convert.processAll', { count: String(batchCount), defaultValue: `Convert All (${batchCount})` })}
             </span>
           </button>
+        ) : status === 'done' && onDownload ? (
+          <div className="space-y-2">
+            <button
+              type="button"
+              onClick={onDownload}
+              className="w-full flex items-center justify-center gap-2 py-3.5 px-4 rounded-xl bg-gradient-to-r from-[#05DAED] via-cyan-400 to-[#12DA91] hover:from-cyan-400 hover:to-emerald-400 text-slate-950 font-black text-sm tracking-wide shadow-glow-cyan transition-all duration-200 hover:-translate-y-0.5 cursor-pointer"
+            >
+              <Download className="w-4 h-4 text-slate-950 stroke-[2.5]" />
+              <span>
+                {t('editor.downloadPhoto', { defaultValue: 'Download Foto' })} ({currentFormatObj.ext})
+              </span>
+            </button>
+            <button
+              type="button"
+              onClick={handleConvert}
+              disabled={isProcessing}
+              className="w-full py-1.5 text-xs text-slate-400 hover:text-white flex items-center justify-center gap-1.5 transition-colors cursor-pointer"
+            >
+              <RefreshCw className="w-3 h-3 text-neon-cyan" />
+              <span>{t('convert.reconvert', { defaultValue: '⚡ Konversi Ulang' })}</span>
+            </button>
+          </div>
         ) : (
           <button
             type="button"

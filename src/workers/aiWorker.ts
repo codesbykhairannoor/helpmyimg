@@ -32,6 +32,18 @@ async function detectComputeDevice(): Promise<'webgpu' | 'wasm'> {
     if (gpu && typeof gpu.requestAdapter === 'function') {
       const adapter = await gpu.requestAdapter();
       if (adapter) {
+        // Critical WebGPU Limit Check:
+        // ONNX Runtime WebGPU provider throws fatal abort during OrtRun():
+        // "numbers_storage_buffers_ <= limits_.maxStorageBuffersPerShaderStage was false. Too many storage buffers in shader. Current: 17, Max is 16"
+        // if adapter.limits.maxStorageBuffersPerShaderStage < 18 (standard on Intel UHD/Iris & mobile GPUs).
+        const maxStorageBuffers = adapter.limits?.maxStorageBuffersPerShaderStage ?? 0;
+        if (maxStorageBuffers < 18) {
+          console.warn(
+            `[aiWorker] WebGPU maxStorageBuffersPerShaderStage is ${maxStorageBuffers} (< 18). Falling back to WASM for safe execution.`
+          );
+          cachedDevice = 'wasm';
+          return 'wasm';
+        }
         cachedDevice = 'webgpu';
         return 'webgpu';
       }
@@ -411,11 +423,28 @@ async function runRmbgInference(
   image: RawImage,
   onProgress: (status: string, progress: number) => void
 ): Promise<Blob> {
-  const { model, processor } = await initStandardRmbg(onProgress);
+  let rmbgInstance = await initStandardRmbg(onProgress);
   onProgress('processing', 100);
 
-  const { pixel_values } = await processor(image);
-  const modelOutput = await model({ input: pixel_values });
+  const { pixel_values } = await rmbgInstance.processor(image);
+  let modelOutput: any;
+  try {
+    modelOutput = await rmbgInstance.model({ input: pixel_values });
+  } catch (inferenceErr: any) {
+    console.warn('[aiWorker] RMBG inference failed on primary compute device:', inferenceErr);
+    // If WebGPU failed, invalidate cache and fallback to WASM
+    if (cachedDevice === 'webgpu') {
+      console.warn('[aiWorker] Falling back RMBG inference to WASM device...');
+      cachedDevice = 'wasm';
+      rmbgModel = null;
+      rmbgInitPromise = null;
+      rmbgInstance = await initStandardRmbg(onProgress);
+      modelOutput = await rmbgInstance.model({ input: pixel_values });
+    } else {
+      throw inferenceErr;
+    }
+  }
+
   const rawTensor = modelOutput.output || modelOutput[0] || modelOutput;
   const tensor3D = rawTensor[0] || rawTensor;
 
@@ -495,6 +524,8 @@ self.onmessage = async (e: MessageEvent) => {
         return;
       } catch (birefnetErr) {
         console.warn('[aiWorker] BiRefNet unavailable or memory limit, using RMBG-1.4 fallback:', birefnetErr);
+        birefnetPipeline = null;
+        birefnetInitPromise = null;
       }
 
       // High-accuracy RMBG-1.4 fallback with matting refinement & despill

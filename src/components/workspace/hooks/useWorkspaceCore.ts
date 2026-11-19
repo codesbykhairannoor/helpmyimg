@@ -30,7 +30,7 @@ export interface UseWorkspaceCoreReturn {
   handleFiles: (files: FileList | File[]) => Promise<void>;
   handleReset: () => void;
   handleUploadOther: () => void;
-  handleDownloadSingle: (item: BatchItem) => void;
+  handleDownloadSingle: (item: BatchItem, force4k?: boolean) => Promise<void>;
   handleDownloadZip: (customZipName?: string) => Promise<void>;
   removeItem: (id: string) => void;
   clearAllItems: () => void;
@@ -139,11 +139,16 @@ export function useWorkspaceCore(initialTab: TabType = 'remove'): UseWorkspaceCo
             'compress100kb',
             'compress50kb',
             'compress200kb',
+            'remove',
+            'removelogo',
+            'removeperson',
+            'color',
+            'colorwhite',
           ].includes(initialTab)
         ) {
           return merged.map((i) =>
             newItems.some((n) => n.id === i.id)
-              ? { ...i, status: 'idle', transparentUrl: i.originalUrl, processedUrl: null, progress: 0 }
+              ? { ...i, status: 'idle', transparentUrl: null, processedUrl: null, progress: 0 }
               : i
           );
         }
@@ -231,7 +236,7 @@ export function useWorkspaceCore(initialTab: TabType = 'remove'): UseWorkspaceCo
 
   // Download single item with 4K vs HD 1080p resolution gate & daily trial quota
   const handleDownloadSingle = useCallback(
-    async (item: BatchItem) => {
+    async (item: BatchItem, force4k?: boolean) => {
       const isCompressTool = ['compress', 'compress50kb', 'compress100kb', 'compress200kb'].includes(initialTab || '');
       const isUpscaleTool = ['remove', 'removeperson', 'removelogo', 'color', 'colorwhite', 'design', 'brush'].includes(initialTab || '');
 
@@ -257,9 +262,6 @@ export function useWorkspaceCore(initialTab: TabType = 'remove'): UseWorkspaceCo
 
       const urlToDownload = item.processedUrl || item.transparentUrl || item.originalUrl;
       if (!urlToDownload) return;
-
-      const dims = await getImageDimensions(urlToDownload);
-      const isHighRes = dims.width > 1920 || dims.height > 1920;
 
       const performDownload = async (is4k: boolean = false) => {
         let finalUrl: string;
@@ -290,6 +292,41 @@ export function useWorkspaceCore(initialTab: TabType = 'remove'): UseWorkspaceCo
         }
       };
 
+      if (force4k === true) {
+        if (isPro) {
+          await performDownload(true);
+          return;
+        }
+        if (user && quotaState.remaining4k > 0) {
+          consume4k();
+          setToastMessage(
+            t('gate.quotaSuccessToast', {
+              remaining: quotaState.remaining4k - 1,
+              defaultValue: `Ekspor 4K Asli Berhasil! (Sisa kuota 4K hari ini: ${quotaState.remaining4k - 1})`,
+            })
+          );
+          await performDownload(true);
+        } else {
+          openProGate({
+            feature: 'export-4k',
+            onProceedFallback: () => performDownload(false),
+            onSuccess: () => {
+              consume4k();
+              performDownload(true);
+            },
+          });
+        }
+        return;
+      }
+
+      if (force4k === false) {
+        await performDownload(false);
+        return;
+      }
+
+      const dims = await getImageDimensions(urlToDownload);
+      const isHighRes = dims.width > 1920 || dims.height > 1920;
+
       if (isHighRes && !isPro) {
         if (user && quotaState.remaining4k > 0) {
           consume4k();
@@ -315,7 +352,7 @@ export function useWorkspaceCore(initialTab: TabType = 'remove'): UseWorkspaceCo
         await performDownload(isPro);
       }
     },
-    [isPro, user, quotaState, consume4k, openProGate, t]
+    [isPro, user, quotaState, consume4k, openProGate, t, initialTab]
   );
 
   // Download all as ZIP with intelligent format and resolution preservation

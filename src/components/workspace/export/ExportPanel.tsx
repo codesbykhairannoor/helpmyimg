@@ -66,11 +66,12 @@ export const ExportPanel: React.FC<ExportPanelProps> = ({
   const isCompressTool = ['compress', 'compress50kb', 'compress100kb', 'compress200kb'].includes(initialTab || '');
   const isConvertTool = ['convert', 'convertwebp'].includes(initialTab || '');
   const isUpscaleTool = ['remove', 'removeperson', 'removelogo', 'color', 'colorwhite', 'design', 'brush'].includes(initialTab || '');
+  const isToolWithOwnMorphingButton = ['compress', 'compress50kb', 'compress100kb', 'compress200kb', 'remove', 'removelogo', 'removeperson', 'color', 'colorwhite', 'convert', 'convertwebp'].includes(initialTab || '');
 
-  // Readiness State Evaluation
+  // Readiness State Evaluation - Strictly requires status === 'done'
   const singleItem = batchItems[0];
   const isSingleConvertReady = isConvertTool && singleItem?.status === 'done';
-  const isSingleStandardReady = !isCompressTool && !isConvertTool && (singleItem?.status === 'done' || !!singleItem?.processedUrl);
+  const isSingleStandardReady = !isCompressTool && !isConvertTool && singleItem?.status === 'done';
   const isSingleReady = isConvertTool ? isSingleConvertReady : isSingleStandardReady;
 
   const areAllCompressReady = isCompressTool && batchItems.every((i) => !!i.compressBlob && i.status === 'done');
@@ -611,9 +612,10 @@ export const ExportPanel: React.FC<ExportPanelProps> = ({
           )
         ) : (
           // ==================== SINGLE DOWNLOAD ====================
-          // PENTING: Untuk tool kompresi, tombol download SUDAH ditangani langsung oleh Opsi B di CompressControl!
-          // Jadi pada tool kompresi dengan 1 foto, ExportPanel TIDAK me-render tombol download duplikat!
-          isCompressTool ? null : !isUpscaleTool ? (
+          // PENTING: Untuk tools dengan morphing action button (Remove BG, Color BG, Compress, Convert),
+          // tombol download SUDAH ditangani langsung secara presisi di kontrol tool masing-masing!
+          // ExportPanel TIDAK me-render tombol download duplikat pada single photo!
+          isToolWithOwnMorphingButton ? null : !isUpscaleTool ? (
             // Non-upscale tools (Crop, Resize, Rotate, Convert): 1 Clean Standard Button
             !isSingleReady ? (
               <button
