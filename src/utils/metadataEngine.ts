@@ -290,7 +290,7 @@ export function stripJpegMetadataLossless(data: Uint8Array): Uint8Array {
         idx += 2;
       } else {
         const length = (data[idx + 2] << 8) | data[idx + 3];
-        const isMetadataMarker = 
+        const isMetadataMarker =
           marker === 0xe1 ||
           marker === 0xeb ||
           marker === 0xed ||
@@ -383,7 +383,7 @@ export async function analyzeImageMetadata(file: Blob): Promise<MetadataAnalysis
   else if (data[0] === 0x89 && data[1] === 0x50 && data[2] === 0x4e) format = 'PNG';
   else if (data[0] === 0x52 && data[1] === 0x49 && data[2] === 0x46 && data[3] === 0x46) format = 'WEBP';
   else if ((data[0] === 0x49 && data[1] === 0x49 && data[2] === 0x2a && data[3] === 0x00) ||
-           (data[0] === 0x4d && data[1] === 0x4d && data[2] === 0x00 && data[3] === 0x2a)) format = 'JPEG'; // TIFF
+    (data[0] === 0x4d && data[1] === 0x4d && data[2] === 0x00 && data[3] === 0x2a)) format = 'JPEG'; // TIFF
 
   // 2. Scan header slice for C2PA / JUMBF without decoding millions of pixels
   const headerSlice = data.subarray(0, Math.min(data.length, 512 * 1024));
@@ -440,13 +440,13 @@ export async function analyzeImageMetadata(file: Blob): Promise<MetadataAnalysis
     const tags = ExifReader.load(buffer);
     if (tags) {
       const getVal = (tagName: string): string | undefined => {
-        const tag = (tags as any)?.[tagName] || 
-                    (tags as any)?.exif?.[tagName] || 
-                    (tags as any)?.xmp?.[tagName] || 
-                    (tags as any)?.iptc?.[tagName] || 
-                    (tags as any)?.file?.[tagName] ||
-                    (tags as any)?.riff?.[tagName] ||
-                    (tags as any)?.png?.[tagName];
+        const tag = (tags as any)?.[tagName] ||
+          (tags as any)?.exif?.[tagName] ||
+          (tags as any)?.xmp?.[tagName] ||
+          (tags as any)?.iptc?.[tagName] ||
+          (tags as any)?.file?.[tagName] ||
+          (tags as any)?.riff?.[tagName] ||
+          (tags as any)?.png?.[tagName];
         if (!tag) return undefined;
         if (typeof tag.description === 'string' && tag.description.trim()) return tag.description.trim();
         if (tag.value !== undefined && tag.value !== null) {

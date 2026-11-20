@@ -1,7 +1,7 @@
 // src/components/workspace/viewport/WorkspaceViewport.tsx
 // Main Canvas & Image Viewport with AI Scanner and Interactive Overlays
 
-import React, { useState, useEffect, useRef, useCallback } from 'react';
+import React, { useState, useRef, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { AlertTriangle, RefreshCw, Upload } from 'lucide-react';
 import { useTranslation } from '../../../context/LanguageContext';
@@ -99,11 +99,10 @@ export const WorkspaceViewport: React.FC<WorkspaceViewportProps> = ({
     <div className="space-y-4 lg:static">
       <div
         ref={viewportContainerRef}
-        className={`w-full rounded-3xl border border-dark-500/80 bg-dark-900/90 shadow-glass overflow-hidden relative flex items-center justify-center checkerboard-bg transition-all duration-150 ${
-          initialTab === 'design'
+        className={`w-full rounded-3xl border border-dark-500/80 bg-dark-900/90 shadow-glass overflow-hidden relative flex items-center justify-center checkerboard-bg transition-all duration-150 ${initialTab === 'design'
             ? 'h-[75vh] md:h-auto md:aspect-[4/3]'
             : 'h-[380px] sm:h-[440px] md:h-[480px] lg:h-auto lg:aspect-[4/3] lg:max-h-[500px]'
-        }`}
+          }`}
       >
 
 
@@ -149,12 +148,12 @@ export const WorkspaceViewport: React.FC<WorkspaceViewportProps> = ({
             </div>
             <div className="space-y-1.5 max-w-sm">
               <h4 className="font-heading font-bold text-white text-base">
-                {t('work.failedProcessing', { defaultValue: 'Gagal Memproses Foto' })}
+                {t('work.failedProcessing', { defaultValue: 'Failed to process photo' })}
               </h4>
               <p className="text-xs text-slate-400 leading-relaxed">
                 {currentItem.errorMessage ||
                   t('work.errorHint', {
-                    defaultValue: 'Coba gunakan foto lain atau klik coba lagi di bawah.',
+                    defaultValue: 'Please try another photo or click retry below.',
                   })}
               </p>
             </div>
@@ -165,7 +164,7 @@ export const WorkspaceViewport: React.FC<WorkspaceViewportProps> = ({
                 className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-neon-cyan/20 hover:bg-neon-cyan/30 text-neon-cyan border border-neon-cyan/40 text-xs font-bold transition-all shadow-sm cursor-pointer"
               >
                 <RefreshCw className="w-3.5 h-3.5" />
-                <span>{t('work.action.retry', { defaultValue: 'Coba Lagi' })}</span>
+                <span>{t('work.action.retry', { defaultValue: 'Try Again' })}</span>
               </button>
               <button
                 type="button"
@@ -173,7 +172,7 @@ export const WorkspaceViewport: React.FC<WorkspaceViewportProps> = ({
                 className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-dark-700 hover:bg-dark-600 text-slate-300 border border-dark-500 text-xs font-semibold transition-all cursor-pointer"
               >
                 <Upload className="w-3.5 h-3.5 text-neon-emerald" />
-                <span>{t('editor.uploadOther', { defaultValue: 'Upload Lain' })}</span>
+                <span>{t('editor.uploadOther', { defaultValue: 'Replace Photo' })}</span>
               </button>
             </div>
           </div>
@@ -222,9 +221,8 @@ export const WorkspaceViewport: React.FC<WorkspaceViewportProps> = ({
                 onCanvasMouseUp();
               }}
               onMouseUp={onCanvasMouseUp}
-              className={`shadow-2xl rounded-lg block max-h-full max-w-full object-contain ${
-                initialTab === 'picker' ? 'cursor-picker' : 'cursor-none'
-              }`}
+              className={`shadow-2xl rounded-lg block max-h-full max-w-full object-contain ${initialTab === 'picker' ? 'cursor-picker' : 'cursor-none'
+                }`}
               style={{
                 width: 'auto',
                 height: 'auto',
@@ -247,20 +245,20 @@ export const WorkspaceViewport: React.FC<WorkspaceViewportProps> = ({
                     brushMode === 'restore'
                       ? '2.5px solid #10b981'
                       : brushMode === 'inpaint'
-                      ? '2.5px solid #f59e0b'
-                      : '2.5px solid #f43f5e',
+                        ? '2.5px solid #f59e0b'
+                        : '2.5px solid #f43f5e',
                   backgroundColor:
                     brushMode === 'restore'
                       ? 'rgba(16, 185, 129, 0.22)'
                       : brushMode === 'inpaint'
-                      ? 'rgba(245, 158, 11, 0.22)'
-                      : 'rgba(244, 63, 94, 0.22)',
+                        ? 'rgba(245, 158, 11, 0.22)'
+                        : 'rgba(244, 63, 94, 0.22)',
                   boxShadow:
                     brushMode === 'restore'
                       ? '0 0 14px rgba(16, 185, 129, 0.8), inset 0 0 6px rgba(16, 185, 129, 0.4)'
                       : brushMode === 'inpaint'
-                      ? '0 0 14px rgba(245, 158, 11, 0.8), inset 0 0 6px rgba(245, 158, 11, 0.4)'
-                      : '0 0 14px rgba(244, 63, 94, 0.8), inset 0 0 6px rgba(244, 63, 94, 0.4)',
+                        ? '0 0 14px rgba(245, 158, 11, 0.8), inset 0 0 6px rgba(245, 158, 11, 0.4)'
+                        : '0 0 14px rgba(244, 63, 94, 0.8), inset 0 0 6px rgba(244, 63, 94, 0.4)',
                 }}
               >
                 {/* Center crosshair pinpoint dot */}
@@ -304,9 +302,8 @@ export const WorkspaceViewport: React.FC<WorkspaceViewportProps> = ({
                     ref={setImageElement as React.Ref<HTMLImageElement>}
                     src={currentItem.transparentUrl || currentItem.originalUrl}
                     alt="Resize Live Preview"
-                    className={`w-full h-full rounded-lg shadow-2xl transition-all duration-150 ${
-                      resizeMode === 'smart' ? 'object-cover' : 'object-fill'
-                    }`}
+                    className={`w-full h-full rounded-lg shadow-2xl transition-all duration-150 ${resizeMode === 'smart' ? 'object-cover' : 'object-fill'
+                      }`}
                   />
                   {/* Floating Live Dimension HUD Badge */}
                   <div className="absolute top-5 left-5 px-3 py-1 rounded-full bg-dark-900/90 border border-neon-cyan/50 text-neon-cyan font-mono text-xs font-bold shadow-2xl backdrop-blur-md pointer-events-none flex items-center gap-1.5 whitespace-nowrap z-10 animate-in fade-in zoom-in-95 duration-100">
@@ -335,9 +332,9 @@ export const WorkspaceViewport: React.FC<WorkspaceViewportProps> = ({
                     opacity: 1,
                     scale:
                       initialTab === 'rotate' &&
-                      Math.abs(rotationDeg % 180) === 90 &&
-                      originalDimensions.width > originalDimensions.height &&
-                      originalDimensions.height > 0
+                        Math.abs(rotationDeg % 180) === 90 &&
+                        originalDimensions.width > originalDimensions.height &&
+                        originalDimensions.height > 0
                         ? Math.min(1, originalDimensions.height / originalDimensions.width)
                         : 1,
                     rotate: initialTab === 'rotate' ? rotationDeg : 0,

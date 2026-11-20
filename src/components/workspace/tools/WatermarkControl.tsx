@@ -68,7 +68,7 @@ export const WatermarkControl: React.FC<WatermarkControlProps> = ({
       const img = new Image();
       img.onload = () => {
         setWatermarkImage(img);
-        
+
       };
       img.src = url;
     }
@@ -85,7 +85,7 @@ export const WatermarkControl: React.FC<WatermarkControlProps> = ({
 
   return (
     <div className="space-y-6 overflow-y-visible">
-      
+
       {/* Type Selector */}
       <div className="flex bg-dark-800 p-1 rounded-xl">
         <button
@@ -168,7 +168,7 @@ export const WatermarkControl: React.FC<WatermarkControlProps> = ({
             </div>
           </div>
         )}
-        
+
         <div className="space-y-2.5">
           <label className="text-xs font-semibold text-slate-400 block">
             {t('watermark.opacity')} ({Math.round(watermarkOpacity * 100)}%)
@@ -232,11 +232,10 @@ export const WatermarkControl: React.FC<WatermarkControlProps> = ({
               onClick={() => {
                 setWatermarkPosition(p.val);
               }}
-              className={`py-2 px-2 rounded-xl text-xs font-bold border text-center transition-all duration-150 cursor-pointer ${
-                watermarkPosition === p.val
+              className={`py-2 px-2 rounded-xl text-xs font-bold border text-center transition-all duration-150 cursor-pointer ${watermarkPosition === p.val
                   ? 'bg-neon-cyan/20 border-neon-cyan text-neon-cyan shadow-glow-cyan'
                   : 'bg-dark-800 border-dark-600 text-slate-300 hover:bg-dark-700 hover:text-white hover:border-dark-500'
-              }`}
+                }`}
             >
               {p.label}
             </button>
@@ -266,12 +265,12 @@ export const WatermarkControl: React.FC<WatermarkControlProps> = ({
               {isProcessing ? (
                 <>
                   <Loader2 className="w-4 h-4 animate-spin text-dark-900" />
-                  <span>{t('btn.processing', { defaultValue: 'Memproses...' })}</span>
+                  <span>{t('btn.processing', { defaultValue: 'Processing...' })}</span>
                 </>
               ) : (
                 <>
                   <Sparkles className="w-4 h-4 text-dark-900 shrink-0" />
-                  <span>{t('watermark.apply', { defaultValue: 'Terapkan Watermark' })}</span>
+                  <span>{t('watermark.apply', { defaultValue: 'Apply Watermark' })}</span>
                 </>
               )}
             </button>

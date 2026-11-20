@@ -88,8 +88,8 @@ export const CompressControl: React.FC<CompressControlProps> = ({
                 onClick={() => setTargetKB(opt.id)}
                 disabled={isProcessing}
                 className={`py-1.5 px-2 rounded-lg text-[11px] font-bold transition-all cursor-pointer truncate ${targetKB === opt.id
-                    ? 'bg-neon-cyan/20 border border-neon-cyan/50 text-neon-cyan'
-                    : 'text-slate-400 hover:text-white border border-transparent'
+                  ? 'bg-neon-cyan/20 border border-neon-cyan/50 text-neon-cyan'
+                  : 'text-slate-400 hover:text-white border border-transparent'
                   }`}
               >
                 {opt.label}

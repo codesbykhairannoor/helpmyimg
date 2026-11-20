@@ -509,12 +509,12 @@ export const ColorBgControl: React.FC<ColorBgControlProps> = ({
               {isProcessing || status === 'processing' ? (
                 <>
                   <Loader2 className="w-4 h-4 text-dark-900 animate-spin shrink-0" />
-                  <span>{t('work.processing', { defaultValue: 'Memproses Potong & Ganti Background...' })}</span>
+                  <span>{t('work.processing', { defaultValue: 'Changing Background...' })}</span>
                 </>
               ) : (
                 <>
                   <Sparkles className="w-4 h-4 text-dark-900 shrink-0" />
-                  <span>{t('color.applyNow', { defaultValue: '⚡ Ganti Background Sekarang' })}</span>
+                  <span>{t('color.applyNow', { defaultValue: '⚡ Change Background Now' })}</span>
                 </>
               )}
             </button>

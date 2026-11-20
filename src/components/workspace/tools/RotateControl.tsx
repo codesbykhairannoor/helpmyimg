@@ -103,22 +103,20 @@ export const RotateControl: React.FC<RotateControlProps> = ({
           <div className="grid grid-cols-2 gap-3">
             <button
               onClick={() => setFlipH(!flipH)}
-              className={`flex items-center justify-center gap-2 p-3 rounded-xl border transition-all ${
-                flipH 
-                  ? 'bg-neon-orange/20 border-neon-orange text-neon-orange' 
+              className={`flex items-center justify-center gap-2 p-3 rounded-xl border transition-all ${flipH
+                  ? 'bg-neon-orange/20 border-neon-orange text-neon-orange'
                   : 'bg-dark-800 border-dark-600 text-slate-300 hover:border-neon-orange'
-              }`}
+                }`}
             >
               <FlipHorizontal className="w-5 h-5" />
               <span className="text-xs font-bold">{t('rotate.flipH')}</span>
             </button>
             <button
               onClick={() => setFlipV(!flipV)}
-              className={`flex items-center justify-center gap-2 p-3 rounded-xl border transition-all ${
-                flipV 
-                  ? 'bg-neon-orange/20 border-neon-orange text-neon-orange' 
+              className={`flex items-center justify-center gap-2 p-3 rounded-xl border transition-all ${flipV
+                  ? 'bg-neon-orange/20 border-neon-orange text-neon-orange'
                   : 'bg-dark-800 border-dark-600 text-slate-300 hover:border-neon-orange'
-              }`}
+                }`}
             >
               <FlipVertical className="w-5 h-5" />
               <span className="text-xs font-bold">{t('rotate.flipV')}</span>
@@ -156,12 +154,12 @@ export const RotateControl: React.FC<RotateControlProps> = ({
             {isProcessing ? (
               <>
                 <Loader2 className="w-4 h-4 animate-spin text-dark-900" />
-                <span>{t('btn.processing', { defaultValue: 'Memproses...' })}</span>
+                <span>{t('btn.processing', { defaultValue: 'Processing...' })}</span>
               </>
             ) : (
               <>
                 <CheckCircle2 className="w-5 h-5 text-dark-900 shrink-0" />
-                <span>{t('work.action.apply', { defaultValue: 'Terapkan Rotasi' })}</span>
+                <span>{t('work.action.apply', { defaultValue: 'Apply Rotation' })}</span>
               </>
             )}
           </button>

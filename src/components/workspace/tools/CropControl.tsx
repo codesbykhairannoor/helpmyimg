@@ -183,10 +183,10 @@ export const CropControl: React.FC<CropControlProps> = ({
             {isProcessing ? (
               <>
                 <Loader2 className="w-4 h-4 animate-spin text-dark-900" />
-                <span>{t('btn.processing', { defaultValue: 'Memproses...' })}</span>
+                <span>{t('btn.processing', { defaultValue: 'Processing...' })}</span>
               </>
             ) : (
-              <span>{t('work.action.apply', { defaultValue: 'Terapkan Potongan' })}</span>
+              <span>{t('work.action.apply', { defaultValue: 'Apply Crop' })}</span>
             )}
           </button>
         )}

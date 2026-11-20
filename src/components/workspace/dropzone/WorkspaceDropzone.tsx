@@ -48,12 +48,12 @@ export const WorkspaceDropzone: React.FC<WorkspaceDropzoneProps> = ({
         {currentItem?.status === 'error' ? (
           <div className="space-y-3">
             <span className="font-bold text-red-400 block mb-1">
-              ⚠️ {t('work.failedAi', { defaultValue: 'AI Processing Failed' })}
+              ⚠️ {t('work.failedProcessing', { defaultValue: 'Processing Failed' })}
             </span>
             <span className="text-xs md:text-sm text-slate-300 block font-normal max-w-sm mx-auto">
               {currentItem?.errorMessage ||
                 t('work.errorHint', {
-                  defaultValue: 'Tip: Try using a smaller resolution image, or click retry below.',
+                  defaultValue: 'Please try another photo or click retry below.',
                 })}
             </span>
             {onRetry && (
@@ -66,7 +66,7 @@ export const WorkspaceDropzone: React.FC<WorkspaceDropzoneProps> = ({
                 className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-neon-cyan/20 hover:bg-neon-cyan/30 text-neon-cyan border border-neon-cyan/40 text-xs font-bold transition-all shadow-sm cursor-pointer"
               >
                 <RefreshCw className="w-4 h-4" />
-                <span>{t('work.action.retry', { defaultValue: 'Retry Processing' })}</span>
+                <span>{t('work.action.retry', { defaultValue: 'Try Again' })}</span>
               </button>
             )}
           </div>

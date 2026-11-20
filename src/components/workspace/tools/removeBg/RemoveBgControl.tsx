@@ -126,12 +126,12 @@ export const RemoveBgControl: React.FC<RemoveBgControlProps> = ({
             {isProcessing || status === 'processing' ? (
               <>
                 <Loader2 className="w-4 h-4 text-dark-900 animate-spin shrink-0" />
-                <span>{t('work.processing', { defaultValue: 'Memproses Potong AI...' })}</span>
+                <span>{t('work.processing', { defaultValue: 'Processing Cutout...' })}</span>
               </>
             ) : (
               <>
                 <Sparkles className="w-4 h-4 text-dark-900 shrink-0" />
-                <span>{t('work.startAi', { defaultValue: 'Hapus Background Sekarang' })}</span>
+                <span>{t('work.startAi', { defaultValue: 'Remove Background Now' })}</span>
               </>
             )}
           </button>
