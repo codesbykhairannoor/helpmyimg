@@ -391,7 +391,8 @@ export function useWorkspaceState(initialTab: TabType = 'remove', keywordSlug?: 
       handleCanvasClick(e);
       return;
     }
-    if (initialTab !== 'brush' || !canvasRef.current || !currentItem?.processedUrl) return;
+    const imageSource = currentItem?.processedUrl || currentItem?.transparentUrl || currentItem?.originalUrl;
+    if (initialTab !== 'brush' || !canvasRef.current || !imageSource) return;
     isDrawingRef.current = true;
     lastPointRef.current = null;
     drawBrush(e);
@@ -433,7 +434,7 @@ export function useWorkspaceState(initialTab: TabType = 'remove', keywordSlug?: 
       if (blob) {
         const url = URL.createObjectURL(blob);
         setBatchItems((prev) =>
-          prev.map((i, idx) => (idx === selectedIndex ? { ...i, processedUrl: url } : i))
+          prev.map((i, idx) => (idx === selectedIndex ? { ...i, processedUrl: url, status: 'done' } : i))
         );
       }
     }, 'image/png');
@@ -499,15 +500,19 @@ export function useWorkspaceState(initialTab: TabType = 'remove', keywordSlug?: 
 
   // Render Canvas for Brush / Picker
   useEffect(() => {
-    const imageSource = currentItem?.processedUrl || currentItem?.originalUrl;
+    if (isDrawingRef.current) return;
+    const imageSource = currentItem?.processedUrl || currentItem?.transparentUrl || currentItem?.originalUrl;
     if ((initialTab === 'brush' || initialTab === 'picker') && imageSource && canvasRef.current) {
       const img = new Image();
+      img.crossOrigin = 'anonymous';
       img.src = imageSource;
       img.onload = () => {
-        const canvas = canvasRef.current!;
+        if (!canvasRef.current) return;
+        const canvas = canvasRef.current;
         canvas.width = img.width;
         canvas.height = img.height;
-        const ctx = canvas.getContext('2d')!;
+        const ctx = canvas.getContext('2d');
+        if (!ctx) return;
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         ctx.drawImage(img, 0, 0);
 
@@ -517,7 +522,7 @@ export function useWorkspaceState(initialTab: TabType = 'remove', keywordSlug?: 
         }
       };
     }
-  }, [initialTab, currentItem?.processedUrl, currentItem?.originalUrl]);
+  }, [initialTab, currentItem?.id, currentItem?.transparentUrl, currentItem?.originalUrl]);
 
   // Enhanced Reset handler that resets batchItem state AND tool parameters
   const handleEnhancedReset = useCallback(() => {

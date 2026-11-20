@@ -2532,5 +2532,6 @@
   "footer.faq1.a": "Có, bạn có thể sử dụng cấp miễn phí không có hình mờ của chúng tôi cho các dự án hàng ngày. Đối với quy trình làm việc kinh doanh khối lượng lớn và cấp phép studio đầy đủ, chúng tôi cũng cung cấp gói PRO giá cả phải chăng.",
   "about.sec1.desc": "Chúng tôi cảm thấy mệt mỏi với các công cụ AI buộc bạn phải tải ảnh cá nhân của mình lên các máy chủ không xác định, chỉ để tính phí đăng ký cắt cổ cho bạn. HelpMyIMG được xây dựng để cung cấp các công cụ miễn phí có thể truy cập và toàn bộ quyền riêng tư, chạy hoàn toàn trong trình duyệt của bạn.",
   "watermark.apply": "Áp dụng hình mờ",
-  "work.failedProcessing": "Không thể xử lý ảnh"
+  "work.failedProcessing": "Không thể xử lý ảnh",
+  "watermark.applied": "Hình mờ được áp dụng"
 }

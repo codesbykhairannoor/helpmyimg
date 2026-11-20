@@ -1,9 +1,9 @@
 // src/components/workspace/tools/BrushControl.tsx
-// Kontrol Kuas Manual (Restore / Erase / Smart Heal Inpaint) untuk merapikan tepi atau menghapus objek
+// Manual Brush Control (Restore / Erase / Smart Heal Inpaint) to refine edges or remove objects
 
 import React from 'react';
 import { useTranslation } from '../../../context/LanguageContext';
-import { Brush, Eraser, Wand2, RotateCcw, Upload } from 'lucide-react';
+import { Brush, Eraser, Wand2, RotateCcw, Upload, Download } from 'lucide-react';
 import type { BrushMode } from './brush/brushEngine';
 
 interface BrushControlProps {
@@ -14,6 +14,8 @@ interface BrushControlProps {
   onResetBrush: () => void;
   onReset: () => void;
   onUploadOther?: () => void;
+  onDownload?: () => void;
+  hasBrushed?: boolean;
   isProcessing: boolean;
   batchCount?: number;
 }
@@ -26,6 +28,8 @@ export const BrushControl: React.FC<BrushControlProps> = ({
   onResetBrush,
   onReset,
   onUploadOther,
+  onDownload,
+  hasBrushed = false,
   isProcessing,
   batchCount = 0,
 }) => {
@@ -45,7 +49,7 @@ export const BrushControl: React.FC<BrushControlProps> = ({
       {/* Toggle Restore / Erase / Smart Heal */}
       <div className="space-y-2.5">
         <span className="text-xs font-semibold text-slate-400 uppercase tracking-wider">
-          {t('brush.mode', { defaultValue: 'Mode Kuas Manual' })}
+          {t('brush.mode', { defaultValue: 'Manual Brush Mode' })}
         </span>
         <div className="grid grid-cols-3 gap-2">
           <button
@@ -89,11 +93,11 @@ export const BrushControl: React.FC<BrushControlProps> = ({
         </div>
       </div>
 
-      {/* Slider Ukuran Kuas */}
+      {/* Brush Size Slider */}
       <div className="space-y-3">
         <div className="flex justify-between items-center text-xs">
           <span className="font-semibold text-slate-300">
-            {t('brush.size', { defaultValue: 'Ukuran Diameter Kuas' })}
+            {t('brush.size', { defaultValue: 'Brush Diameter Size' })}
           </span>
           <div className="flex items-center gap-2">
             <span
@@ -135,7 +139,7 @@ export const BrushControl: React.FC<BrushControlProps> = ({
         />
       </div>
 
-      {/* Tombol Reset Kuas */}
+      {/* Reset Brush Strokes Button */}
       <button
         type="button"
         onClick={onResetBrush}
@@ -143,8 +147,21 @@ export const BrushControl: React.FC<BrushControlProps> = ({
         className="w-full py-3 px-4 rounded-xl bg-dark-800 hover:bg-dark-700 border border-dark-500 text-slate-200 hover:text-white text-xs font-bold flex items-center justify-center gap-2 transition-all duration-150 disabled:opacity-50 cursor-pointer shadow-sm active:scale-98"
       >
         <RotateCcw className="w-3.5 h-3.5 text-neon-pink" />
-        <span>{t('brush.resetMask', { defaultValue: 'Reset Goresan Kuas' })}</span>
+        <span>{t('brush.resetMask', { defaultValue: 'Reset Brush Strokes' })}</span>
       </button>
+
+      {/* Download Button (Morphs when strokes are applied) */}
+      {hasBrushed && onDownload && (
+        <button
+          type="button"
+          onClick={onDownload}
+          disabled={isProcessing}
+          className="w-full flex items-center justify-center gap-2.5 py-3.5 px-4 rounded-xl bg-gradient-to-r from-[#05DAED] via-cyan-400 to-[#12DA91] hover:from-cyan-400 hover:to-emerald-400 text-slate-950 font-semibold shadow-glow-cyan transition-all duration-200 transform hover:-translate-y-0.5 disabled:opacity-50 text-sm tracking-wide cursor-pointer"
+        >
+          <Download className="w-4 h-4 text-slate-950 stroke-[2]" />
+          <span>{t('editor.downloadPhoto', { defaultValue: 'Download Photo' })}</span>
+        </button>
+      )}
 
       {/* Standardized 2-Button Action Grid */}
       {batchCount >= 1 && (
@@ -153,22 +170,22 @@ export const BrushControl: React.FC<BrushControlProps> = ({
             type="button"
             onClick={onReset}
             disabled={isProcessing}
-            title={t('editor.resetDesc', { defaultValue: 'Kembalikan foto ini ke kondisi asli tanpa perubahan' })}
+            title={t('editor.resetDesc', { defaultValue: 'Reset photo to original condition without changes' })}
             className="flex items-center justify-center gap-1.5 py-3 px-2.5 rounded-xl bg-dark-800 hover:bg-dark-700 text-slate-300 hover:text-white font-bold text-xs transition-all border border-dark-600 cursor-pointer disabled:opacity-50"
           >
             <RotateCcw className="w-3.5 h-3.5 text-neon-cyan shrink-0" />
-            <span className="truncate">{t('editor.resetOriginal', { defaultValue: 'Reset ke Asli' })}</span>
+            <span className="truncate">{t('editor.resetOriginal', { defaultValue: 'Reset to Original' })}</span>
           </button>
 
           <button
             type="button"
             onClick={onUploadOther}
             disabled={isProcessing}
-            title={t('editor.replacePhotoDesc', { defaultValue: 'Ganti foto ini dengan foto baru dari perangkat' })}
+            title={t('editor.replacePhotoDesc', { defaultValue: 'Replace this photo with a new photo from your device' })}
             className="flex items-center justify-center gap-1.5 py-3 px-2.5 rounded-xl bg-dark-800 hover:bg-dark-700 text-slate-300 hover:text-white font-bold text-xs transition-all border border-dark-600 cursor-pointer disabled:opacity-50"
           >
             <Upload className="w-3.5 h-3.5 text-neon-emerald shrink-0" />
-            <span className="truncate">{t('editor.replacePhoto', { defaultValue: 'Ganti Foto' })}</span>
+            <span className="truncate">{t('editor.replacePhoto', { defaultValue: 'Replace Photo' })}</span>
           </button>
         </div>
       )}

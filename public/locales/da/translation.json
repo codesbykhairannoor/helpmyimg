@@ -2532,5 +2532,6 @@
   "footer.faq1.a": "Ja, du kan bruge vores gratis niveau med nul vandmærker til hverdagsprojekter. For store forretningsarbejdsgange og fuld studielicens tilbyder vi også en overkommelig PRO-plan.",
   "about.sec1.desc": "Vi var trætte af AI-værktøjer, der tvang dig til at uploade dine personlige billeder til ukendte servere, kun for at opkræve ublu abonnementer. HelpMyIMG blev bygget til at give tilgængelige gratis værktøjer og fuldstændigt privatliv, der kører udelukkende i din browser.",
   "watermark.apply": "Påfør vandmærke",
-  "work.failedProcessing": "Billedet kunne ikke behandles"
+  "work.failedProcessing": "Billedet kunne ikke behandles",
+  "watermark.applied": "Vandmærke påført"
 }

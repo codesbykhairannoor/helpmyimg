@@ -9,8 +9,9 @@ import { AiScanOverlay } from './AiScanOverlay';
 import { ImageCompareSlider } from '../tools/ImageCompareSlider';
 import { InteractiveCropOverlay } from '../tools/InteractiveCropOverlay';
 import { BlurBoxOverlay } from '../tools/BlurBoxOverlay';
+import { LiveWatermarkOverlay } from '../tools/watermark/LiveWatermarkOverlay';
 import { DesignEditorControl } from '../tools/DesignEditorControl';
-import type { BatchItem, BlurBox } from '../types';
+import type { BatchItem, BlurBox, WatermarkPosition } from '../types';
 import type { BrushMode } from '../tools/brush/brushEngine';
 
 interface WorkspaceViewportProps {
@@ -50,6 +51,15 @@ interface WorkspaceViewportProps {
   // Brush states for dynamic hover cursor
   brushSize?: number;
   brushMode?: BrushMode;
+  // Watermark real-time live preview states
+  watermarkType?: 'text' | 'image';
+  watermarkText?: string;
+  watermarkColor?: string;
+  watermarkOpacity?: number;
+  watermarkPosition?: WatermarkPosition;
+  watermarkImage?: HTMLImageElement | null;
+  watermarkScale?: number;
+  watermarkRotation?: number;
 }
 
 export const WorkspaceViewport: React.FC<WorkspaceViewportProps> = ({
@@ -82,6 +92,14 @@ export const WorkspaceViewport: React.FC<WorkspaceViewportProps> = ({
   resizeMode = 'standard',
   brushSize = 25,
   brushMode = 'restore',
+  watermarkType = 'text',
+  watermarkText = '',
+  watermarkColor = '#ffffff',
+  watermarkOpacity = 0.8,
+  watermarkPosition = 'center',
+  watermarkImage = null,
+  watermarkScale = 1,
+  watermarkRotation = 0,
 }) => {
   const { t } = useTranslation();
   const viewportContainerRef = useRef<HTMLDivElement>(null);
@@ -100,8 +118,8 @@ export const WorkspaceViewport: React.FC<WorkspaceViewportProps> = ({
       <div
         ref={viewportContainerRef}
         className={`w-full rounded-3xl border border-dark-500/80 bg-dark-900/90 shadow-glass overflow-hidden relative flex items-center justify-center checkerboard-bg transition-all duration-150 ${initialTab === 'design'
-            ? 'h-[75vh] md:h-auto md:aspect-[4/3]'
-            : 'h-[380px] sm:h-[440px] md:h-[480px] lg:h-auto lg:aspect-[4/3] lg:max-h-[500px]'
+          ? 'h-[75vh] md:h-auto md:aspect-[4/3]'
+          : 'h-[380px] sm:h-[440px] md:h-[480px] lg:h-auto lg:aspect-[4/3] lg:max-h-[500px]'
           }`}
       >
 
@@ -370,6 +388,19 @@ export const WorkspaceViewport: React.FC<WorkspaceViewportProps> = ({
                   boxes={blurBoxes}
                   setBoxes={setBlurBoxes}
                   blurIntensity={blurIntensity}
+                />
+              )}
+              {(initialTab === 'watermark' || initialTab === 'watermarkbulk') && currentItem?.status !== 'done' && (
+                <LiveWatermarkOverlay
+                  imageElement={imageElement}
+                  type={watermarkType}
+                  text={watermarkText}
+                  color={watermarkColor}
+                  opacity={watermarkOpacity}
+                  position={watermarkPosition}
+                  image={watermarkImage}
+                  scale={watermarkScale}
+                  rotation={watermarkRotation}
                 />
               )}
             </>

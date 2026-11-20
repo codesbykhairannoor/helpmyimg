@@ -2532,5 +2532,6 @@
   "footer.faq1.a": "Ja, u kunt onze gratis laag zonder watermerken gebruiken voor alledaagse projecten. Voor zakelijke workflows met grote volumes en volledige studiolicenties bieden we ook een betaalbaar PRO-abonnement.",
   "about.sec1.desc": "We waren de AI-tools beu die je dwongen je persoonlijke foto's naar onbekende servers te uploaden, om je vervolgens exorbitante abonnementen in rekening te brengen. HelpMyIMG is gebouwd om toegankelijke gratis tools en totale privacy te bieden, die volledig in uw browser worden uitgevoerd.",
   "watermark.apply": "Watermerk toepassen",
-  "work.failedProcessing": "Kan de foto niet verwerken"
+  "work.failedProcessing": "Kan de foto niet verwerken",
+  "watermark.applied": "Watermerk toegepast"
 }

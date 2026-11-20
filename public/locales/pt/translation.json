@@ -2532,5 +2532,6 @@
   "footer.faq1.a": "Sim, você pode usar nosso nível gratuito sem marcas d'água para projetos diários. Para fluxos de trabalho empresariais de alto volume e licenciamento completo de estúdio, também oferecemos um plano PRO acessível.",
   "about.sec1.desc": "Estávamos cansados ​​de ferramentas de IA que forçavam você a enviar suas fotos pessoais para servidores desconhecidos, apenas para cobrar assinaturas exorbitantes. HelpMyIMG foi desenvolvido para fornecer ferramentas gratuitas acessíveis e total privacidade, rodando inteiramente em seu navegador.",
   "watermark.apply": "Aplicar marca d’água",
-  "work.failedProcessing": "Falha ao processar a foto"
+  "work.failedProcessing": "Falha ao processar a foto",
+  "watermark.applied": "Marca d'água aplicada"
 }

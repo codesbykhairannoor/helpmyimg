@@ -2532,5 +2532,6 @@
   "footer.faq1.a": "Evet, günlük projeler için sıfır filigranlı ücretsiz kullanımımızı kullanabilirsiniz. Yüksek hacimli iş akışları ve tam stüdyo lisanslaması için uygun fiyatlı bir PRO planı da sunuyoruz.",
   "about.sec1.desc": "Sizi kişisel fotoğraflarınızı bilinmeyen sunuculara yüklemeye zorlayan, yalnızca fahiş abonelikler talep eden yapay zeka araçlarından bıktık. HelpMyIMG, tamamen tarayıcınızda çalışan, erişilebilir ücretsiz araçlar ve tam gizlilik sağlamak üzere oluşturulmuştur.",
   "watermark.apply": "Filigran Uygula",
-  "work.failedProcessing": "Fotoğraf işlenemedi"
+  "work.failedProcessing": "Fotoğraf işlenemedi",
+  "watermark.applied": "Filigran Uygulandı"
 }

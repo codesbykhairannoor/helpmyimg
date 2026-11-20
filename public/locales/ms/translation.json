@@ -2532,5 +2532,6 @@
   "footer.faq1.a": "Ya, anda boleh menggunakan peringkat percuma kami dengan sifar tera air untuk projek harian. Untuk aliran kerja perniagaan volum tinggi dan pelesenan studio penuh, kami juga menawarkan pelan PRO yang berpatutan.",
   "about.sec1.desc": "Kami bosan dengan alatan AI yang memaksa anda memuat naik foto peribadi anda ke pelayan yang tidak diketahui, hanya untuk mengecaj langganan yang terlalu tinggi kepada anda. HelpMyIMG telah dibina untuk menyediakan alatan percuma yang boleh diakses dan privasi penuh, berjalan sepenuhnya dalam penyemak imbas anda.",
   "watermark.apply": "Gunakan Tera Air",
-  "work.failedProcessing": "Gagal memproses foto"
+  "work.failedProcessing": "Gagal memproses foto",
+  "watermark.applied": "Tera Air Digunakan"
 }

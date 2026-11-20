@@ -88,6 +88,7 @@ export function getToolFromSlug(slug: string, _oldLang?: string): InternalTool {
   }
   
   // Fallback to check EN standard slugs
+  if (slug === 'magic-brush' || slug === 'manual-brush' || slug === 'kuas-ajaib' || slug === 'brush') return 'brush';
   if (slug === 'remove-background') return 'remove';
   if (slug === 'change-background') return 'color';
   if (slug === 'watermark-image') return 'watermark';

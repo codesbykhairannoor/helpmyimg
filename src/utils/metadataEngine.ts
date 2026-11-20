@@ -134,7 +134,15 @@ export function stripJpegC2PA(data: Uint8Array): { cleanData: Uint8Array; stripp
         break;
       }
       if (![0x00, 0x01, 0xd0, 0xd1, 0xd2, 0xd3, 0xd4, 0xd5, 0xd6, 0xd7, 0xd8].includes(marker)) {
+        if (idx + 3 >= data.length) {
+          chunks.push(data.subarray(idx));
+          break;
+        }
         const length = (data[idx + 2] << 8) | data[idx + 3];
+        if (isNaN(length) || length < 2 || idx + 2 + length > data.length) {
+          chunks.push(data.subarray(idx));
+          break;
+        }
         if (marker === 0xeb) {
           // APP11 C2PA / JUMBF
           stripped += 2 + length;
@@ -687,6 +695,62 @@ async function convertToJpegBlob(file: Blob): Promise<Blob> {
 }
 
 /**
+ * Robustly removes previous EXIF and inserts new EXIF into JPEG stream without throwing fatal errors.
+ */
+async function safeRemoveAndInsertExif(
+  exifBytes: string,
+  initialBinaryStr: string,
+  fallbackBlob: Blob
+): Promise<Blob> {
+  let targetBinaryStr = initialBinaryStr;
+  let cleanBaseStr = '';
+
+  // 1. Try direct remove
+  try {
+    cleanBaseStr = piexif.remove(targetBinaryStr);
+  } catch {
+    // If direct remove failed, try using targetBinaryStr as-is if it has JPEG SOI
+    if (targetBinaryStr.startsWith('\xff\xd8')) {
+      cleanBaseStr = targetBinaryStr;
+    }
+  }
+
+  // 2. Try direct insert
+  if (cleanBaseStr && cleanBaseStr.startsWith('\xff\xd8')) {
+    try {
+      const resultBinaryStr = piexif.insert(exifBytes, cleanBaseStr);
+      const outputBuffer = binaryStringToUint8Array(resultBinaryStr);
+      return new Blob([outputBuffer], { type: 'image/jpeg' });
+    } catch (insertErr) {
+      console.warn('Initial EXIF insert failed:', insertErr);
+    }
+  }
+
+  // 3. Fallback: convert fallbackBlob to clean canvas JPEG and insert
+  try {
+    const cleanBlob = await convertToJpegBlob(fallbackBlob);
+    const cleanBuf = await cleanBlob.arrayBuffer();
+    const canvasBinaryStr = uint8ArrayToBinaryString(new Uint8Array(cleanBuf));
+    let canvasCleanStr = '';
+    try {
+      canvasCleanStr = piexif.remove(canvasBinaryStr);
+    } catch {
+      canvasCleanStr = canvasBinaryStr.startsWith('\xff\xd8') ? canvasBinaryStr : '';
+    }
+
+    if (canvasCleanStr && canvasCleanStr.startsWith('\xff\xd8')) {
+      const resultBinaryStr = piexif.insert(exifBytes, canvasCleanStr);
+      const outputBuffer = binaryStringToUint8Array(resultBinaryStr);
+      return new Blob([outputBuffer], { type: 'image/jpeg' });
+    }
+    return cleanBlob;
+  } catch (err) {
+    console.warn('Fallback EXIF injection failed, returning clean base image:', err);
+    return fallbackBlob;
+  }
+}
+
+/**
  * Applies a Studio Camera Preset or Stealth Clean to the image completely client-side.
  */
 export async function applyStudioPreset(
@@ -881,24 +945,7 @@ export async function applyStudioPreset(
   }
 
   const exifBytes = piexif.dump(exifObj);
-  // Insert into JPEG binary
-  let cleanBaseStr = '';
-  try {
-    cleanBaseStr = piexif.remove(jpegBinaryStr);
-  } catch {
-    const cleanBlob = await convertToJpegBlob(baseBlob);
-    const cleanBuf = await cleanBlob.arrayBuffer();
-    cleanBaseStr = piexif.remove(uint8ArrayToBinaryString(new Uint8Array(cleanBuf)));
-  }
-
-  try {
-    const resultBinaryStr = piexif.insert(exifBytes, cleanBaseStr);
-    const outputBuffer = binaryStringToUint8Array(resultBinaryStr);
-    return new Blob([outputBuffer], { type: 'image/jpeg' });
-  } catch (err) {
-    console.warn('EXIF injection failed, falling back to base image:', err);
-    return baseBlob;
-  }
+  return safeRemoveAndInsertExif(exifBytes, jpegBinaryStr, baseBlob);
 }
 
 export interface ManualExifData {
@@ -1074,23 +1121,7 @@ export async function applyManualExif(file: Blob, exifData: ManualExifData): Pro
   }
 
   const exifBytes = piexif.dump(exifObj);
-  let cleanBaseStr = '';
-  try {
-    cleanBaseStr = piexif.remove(jpegBinaryStr);
-  } catch {
-    const cleanBlob = await convertToJpegBlob(baseBlob);
-    const cleanBuf = await cleanBlob.arrayBuffer();
-    cleanBaseStr = piexif.remove(uint8ArrayToBinaryString(new Uint8Array(cleanBuf)));
-  }
-
-  try {
-    const resultBinaryStr = piexif.insert(exifBytes, cleanBaseStr);
-    const outputBuffer = binaryStringToUint8Array(resultBinaryStr);
-    return new Blob([outputBuffer], { type: 'image/jpeg' });
-  } catch (err) {
-    console.warn('Manual EXIF insert failed, falling back to clean JPEG:', err);
-    return baseBlob;
-  }
+  return safeRemoveAndInsertExif(exifBytes, jpegBinaryStr, baseBlob);
 }
 
 /**

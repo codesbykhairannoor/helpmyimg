@@ -2532,5 +2532,6 @@
   "footer.faq1.a": "Ano, naši bezplatnou úroveň s nulovými vodoznaky můžete použít pro každodenní projekty. Pro velkoobjemové obchodní pracovní postupy a plné studiové licencování nabízíme také cenově dostupný plán PRO.",
   "about.sec1.desc": "Už nás unavovaly nástroje umělé inteligence, které vás nutily nahrávat vaše osobní fotografie na neznámé servery, jen aby vám účtovaly přemrštěné předplatné. HelpMyIMG byl vytvořen tak, aby poskytoval dostupné bezplatné nástroje a naprosté soukromí, které běží výhradně ve vašem prohlížeči.",
   "watermark.apply": "Použít vodoznak",
-  "work.failedProcessing": "Fotku se nepodařilo zpracovat"
+  "work.failedProcessing": "Fotku se nepodařilo zpracovat",
+  "watermark.applied": "Vodoznak použit"
 }

@@ -2532,5 +2532,6 @@
   "footer.faq1.a": "Igen, használhatja ingyenes szintünket nulla vízjellel a mindennapi projektekhez. A nagy volumenű üzleti munkafolyamatokhoz és a teljes stúdiólicenchez megfizethető PRO csomagot is kínálunk.",
   "about.sec1.desc": "Belefáradtunk a mesterséges intelligencia eszközökbe, amelyek arra kényszerítették, hogy feltöltsd a személyes fotóidat ismeretlen szerverekre, csak azért, hogy túlságosan magas előfizetéseket számoljanak fel. A HelpMyIMG-t úgy hozták létre, hogy elérhető ingyenes eszközöket és teljes adatvédelmet biztosítson, teljes mértékben az Ön böngészőjében futva.",
   "watermark.apply": "Vízjel alkalmazása",
-  "work.failedProcessing": "Nem sikerült feldolgozni a fényképet"
+  "work.failedProcessing": "Nem sikerült feldolgozni a fényképet",
+  "watermark.applied": "Vízjel alkalmazva"
 }

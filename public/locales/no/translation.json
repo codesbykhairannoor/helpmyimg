@@ -2532,5 +2532,6 @@
   "footer.faq1.a": "Ja, du kan bruke vår gratis tier med null vannmerker for hverdagsprosjekter. For store arbeidsflyter og full studiolisensiering tilbyr vi også en rimelig PRO-plan.",
   "about.sec1.desc": "Vi var lei av AI-verktøy som tvang deg til å laste opp dine personlige bilder til ukjente servere, bare for å belaste deg for ublu abonnementer. HelpMyIMG ble bygget for å tilby tilgjengelige gratisverktøy og fullstendig personvern, som kjører helt i nettleseren din.",
   "watermark.apply": "Påfør vannmerke",
-  "work.failedProcessing": "Kunne ikke behandle bildet"
+  "work.failedProcessing": "Kunne ikke behandle bildet",
+  "watermark.applied": "Vannmerke påført"
 }

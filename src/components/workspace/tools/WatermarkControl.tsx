@@ -233,8 +233,8 @@ export const WatermarkControl: React.FC<WatermarkControlProps> = ({
                 setWatermarkPosition(p.val);
               }}
               className={`py-2 px-2 rounded-xl text-xs font-bold border text-center transition-all duration-150 cursor-pointer ${watermarkPosition === p.val
-                  ? 'bg-neon-cyan/20 border-neon-cyan text-neon-cyan shadow-glow-cyan'
-                  : 'bg-dark-800 border-dark-600 text-slate-300 hover:bg-dark-700 hover:text-white hover:border-dark-500'
+                ? 'bg-neon-cyan/20 border-neon-cyan text-neon-cyan shadow-glow-cyan'
+                : 'bg-dark-800 border-dark-600 text-slate-300 hover:bg-dark-700 hover:text-white hover:border-dark-500'
                 }`}
             >
               {p.label}

@@ -104,8 +104,8 @@ export const RotateControl: React.FC<RotateControlProps> = ({
             <button
               onClick={() => setFlipH(!flipH)}
               className={`flex items-center justify-center gap-2 p-3 rounded-xl border transition-all ${flipH
-                  ? 'bg-neon-orange/20 border-neon-orange text-neon-orange'
-                  : 'bg-dark-800 border-dark-600 text-slate-300 hover:border-neon-orange'
+                ? 'bg-neon-orange/20 border-neon-orange text-neon-orange'
+                : 'bg-dark-800 border-dark-600 text-slate-300 hover:border-neon-orange'
                 }`}
             >
               <FlipHorizontal className="w-5 h-5" />
@@ -114,8 +114,8 @@ export const RotateControl: React.FC<RotateControlProps> = ({
             <button
               onClick={() => setFlipV(!flipV)}
               className={`flex items-center justify-center gap-2 p-3 rounded-xl border transition-all ${flipV
-                  ? 'bg-neon-orange/20 border-neon-orange text-neon-orange'
-                  : 'bg-dark-800 border-dark-600 text-slate-300 hover:border-neon-orange'
+                ? 'bg-neon-orange/20 border-neon-orange text-neon-orange'
+                : 'bg-dark-800 border-dark-600 text-slate-300 hover:border-neon-orange'
                 }`}
             >
               <FlipVertical className="w-5 h-5" />

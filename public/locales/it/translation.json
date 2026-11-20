@@ -2532,5 +2532,6 @@
   "footer.faq1.a": "Sì, puoi utilizzare il nostro livello gratuito con zero filigrane per i progetti di tutti i giorni. Per flussi di lavoro aziendali ad alto volume e licenze complete per lo studio, offriamo anche un piano PRO conveniente.",
   "about.sec1.desc": "Eravamo stanchi degli strumenti di intelligenza artificiale che ti costringevano a caricare le tue foto personali su server sconosciuti, solo per farti pagare abbonamenti esorbitanti. HelpMyIMG è stato creato per fornire strumenti gratuiti accessibili e privacy totale, funzionando interamente nel tuo browser.",
   "watermark.apply": "Applica filigrana",
-  "work.failedProcessing": "Impossibile elaborare la foto"
+  "work.failedProcessing": "Impossibile elaborare la foto",
+  "watermark.applied": "Filigrana applicata"
 }

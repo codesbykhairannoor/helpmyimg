@@ -144,7 +144,7 @@ export const CropControl: React.FC<CropControlProps> = ({
             />
           </div>
         </div>
-        
+
         {/* Border Radius (Lengkungan) */}
         <div className="space-y-2">
           <div className="flex justify-between items-center text-xs">

@@ -2531,5 +2531,6 @@
   "footer.faq1.a": "是的，您可以将我们的零水印免费套餐用于日常项目。 对于大批量业务工作流程和完整的工作室许可，我们还提供经济实惠的 PRO 计划。",
   "about.sec1.desc": "我们厌倦了人工智能工具，它们迫使你将个人照片上传到未知的服务器，结果却向你收取高昂的订阅费。 HelpMyIMG 旨在提供可访问的免费工具和完全隐私，完全在您的浏览器中运行。",
   "watermark.apply": "应用水印",
-  "work.failedProcessing": "处理照片失败"
+  "work.failedProcessing": "处理照片失败",
+  "watermark.applied": "已应用水印"
 }

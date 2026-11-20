@@ -30,7 +30,7 @@ import { EditExifControl } from './tools/EditExifControl';
 import { processImage, cropImage, rotateImage, smartCropImage, applyWatermark } from '../../utils/imageOperations';
 import { ACCEPTED_UPLOAD_TYPES } from '../../utils/wasmDecoder';
 import { CompressEngine } from './tools/compress/compressEngine';
-import { applyStudioPreset, applyManualExif, stripAllPhotoMetadata } from '../../utils/metadataEngine';
+import { applyManualExif, stripAllPhotoMetadata } from '../../utils/metadataEngine';
 import { hexToColorInfo } from '../../utils/colorUtils';
 import type { TabType, BatchItem, ColorInfo, WatermarkPosition, ToolWorkspaceProps } from './types';
 
@@ -268,7 +268,14 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({
               }}
               onClick={() => fileInputRef.current?.click()}
               currentItem={currentItem}
-              onRetry={() => currentItem && processSingleItem(currentItem)}
+              onRetry={() => {
+                if (!currentItem) return;
+                if (initialTab === 'removebg' || initialTab === 'removebgbulk') {
+                  processSingleItem(currentItem);
+                } else {
+                  handleResetCurrent();
+                }
+              }}
             />
           ) : (
             <div className="space-y-4 lg:static">
@@ -276,7 +283,14 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({
                 initialTab={initialTab}
                 currentItem={currentItem}
                 isApplyingEffect={isApplyingEffect}
-                onRetry={() => currentItem && processSingleItem(currentItem)}
+                onRetry={() => {
+                  if (!currentItem) return;
+                  if (initialTab === 'removebg' || initialTab === 'removebgbulk') {
+                    processSingleItem(currentItem);
+                  } else {
+                    handleResetCurrent();
+                  }
+                }}
                 onUploadOther={handleUploadOther}
                 canvasRef={canvasRef}
                 onCanvasMouseDown={handleCanvasMouseDown}
@@ -307,6 +321,14 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({
                 resizeMode={resizeMode}
                 brushSize={brushSize}
                 brushMode={brushMode}
+                watermarkType={watermarkType}
+                watermarkText={watermarkText}
+                watermarkColor={watermarkColor}
+                watermarkOpacity={watermarkOpacity}
+                watermarkPosition={watermarkPosition}
+                watermarkImage={watermarkImage}
+                watermarkScale={watermarkScale}
+                watermarkRotation={watermarkRotation}
               />
 
               <BatchThumbnails
@@ -499,6 +521,10 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({
                   onUploadOther={handleUploadOther}
                   isProcessing={currentItem?.status === 'processing'}
                   batchCount={batchItems.length}
+                  hasBrushed={Boolean(currentItem?.processedUrl && currentItem?.status === 'done')}
+                  onDownload={() => {
+                    if (currentItem) handleDownloadSingle(currentItem);
+                  }}
                 />
               )}
 

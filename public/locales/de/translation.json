@@ -2532,5 +2532,6 @@
   "footer.faq1.a": "Ja, Sie können unser kostenloses Kontingent ohne Wasserzeichen für alltägliche Projekte nutzen. Für hochvolumige Geschäftsworkflows und vollständige Studiolizenzierung bieten wir auch einen erschwinglichen PRO-Plan an.",
   "about.sec1.desc": "Wir hatten genug von KI-Tools, die Sie dazu zwangen, Ihre persönlichen Fotos auf unbekannte Server hochzuladen, nur um Ihnen dann exorbitante Abonnements in Rechnung zu stellen. HelpMyIMG wurde entwickelt, um zugängliche kostenlose Tools und absoluten Datenschutz bereitzustellen und läuft vollständig in Ihrem Browser.",
   "watermark.apply": "Wasserzeichen anwenden",
-  "work.failedProcessing": "Foto konnte nicht verarbeitet werden"
+  "work.failedProcessing": "Foto konnte nicht verarbeitet werden",
+  "watermark.applied": "Wasserzeichen angewendet"
 }

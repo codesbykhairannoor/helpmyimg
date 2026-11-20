@@ -109,8 +109,8 @@ export const ResizeControl: React.FC<ResizeControlProps> = ({
                     setMaintainRatio(false);
                   }}
                   className={`py-1.5 px-2 rounded-lg border text-xs font-bold transition-all cursor-pointer text-center ${isActive
-                      ? 'bg-neon-cyan/20 border-neon-cyan text-neon-cyan shadow-glow-cyan'
-                      : 'bg-dark-800 border-dark-600 hover:border-slate-400 text-slate-300 hover:text-white'
+                    ? 'bg-neon-cyan/20 border-neon-cyan text-neon-cyan shadow-glow-cyan'
+                    : 'bg-dark-800 border-dark-600 hover:border-slate-400 text-slate-300 hover:text-white'
                     }`}
                 >
                   {preset.label}

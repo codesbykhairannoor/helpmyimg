@@ -2532,5 +2532,6 @@
   "footer.faq1.a": "Da, puteți folosi nivelul nostru gratuit cu zero filigrane pentru proiectele de zi cu zi. Pentru fluxuri de lucru de afaceri cu volum mare și licențiere completă pentru studio, oferim și un plan PRO accesibil.",
   "about.sec1.desc": "Ne-am săturat de instrumentele AI care te obligau să-ți încarci fotografiile personale pe servere necunoscute, doar pentru a-ți percepe abonamente exorbitante. HelpMyIMG a fost creat pentru a oferi instrumente gratuite accesibile și confidențialitate totală, rulând în întregime în browserul dvs.",
   "watermark.apply": "Aplicați filigran",
-  "work.failedProcessing": "Nu s-a procesat fotografia"
+  "work.failedProcessing": "Nu s-a procesat fotografia",
+  "watermark.applied": "Filigran aplicat"
 }

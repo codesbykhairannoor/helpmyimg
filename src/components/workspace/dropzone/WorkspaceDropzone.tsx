@@ -34,11 +34,10 @@ export const WorkspaceDropzone: React.FC<WorkspaceDropzoneProps> = ({
       onDragLeave={onDragLeave}
       onDrop={onDrop}
       onClick={onClick}
-      className={`w-full min-h-[320px] sm:min-h-[380px] md:min-h-0 md:aspect-[4/3] rounded-3xl border-2 border-dashed transition-all duration-300 flex flex-col items-center justify-center p-6 sm:p-10 text-center cursor-pointer relative overflow-hidden group ${
-        isDragging
+      className={`w-full min-h-[320px] sm:min-h-[380px] md:min-h-0 md:aspect-[4/3] rounded-3xl border-2 border-dashed transition-all duration-300 flex flex-col items-center justify-center p-6 sm:p-10 text-center cursor-pointer relative overflow-hidden group ${isDragging
           ? 'border-neon-cyan bg-neon-cyan/10 shadow-glow-cyan scale-[0.99]'
           : 'border-dark-500/80 bg-dark-800/40 hover:border-neon-cyan/60 hover:bg-dark-800/70'
-      }`}
+        }`}
     >
       <div className="w-14 h-14 md:w-20 md:h-20 rounded-2xl bg-gradient-to-tr from-neon-cyan/20 to-neon-indigo/20 border border-neon-cyan/40 flex items-center justify-center mb-3 md:mb-6 shadow-lg group-hover:scale-110 transition-transform duration-300">
         <Upload className="w-7 h-7 md:w-10 md:h-10 text-neon-cyan animate-bounce" />

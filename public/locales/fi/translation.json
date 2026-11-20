@@ -2532,5 +2532,6 @@
   "footer.faq1.a": "Kyllä, voit käyttää ilmaista tasoamme ilman vesileimoja jokapäiväisiin projekteihin. Suuren volyymin liiketoiminnan työnkulkuja ja täydellistä studiolisensointia varten tarjoamme myös edullisen PRO-suunnitelman.",
   "about.sec1.desc": "Olimme kyllästyneet tekoälytyökaluihin, jotka pakottivat sinut lataamaan henkilökohtaiset valokuvasi tuntemattomille palvelimille vain veloittaakseen sinulta kohtuuttomia tilauksia. HelpMyIMG luotiin tarjoamaan käytettävissä olevia ilmaisia ​​työkaluja ja täydellistä yksityisyyttä, jotka toimivat kokonaan selaimessasi.",
   "watermark.apply": "Käytä vesileimaa",
-  "work.failedProcessing": "Kuvan käsittely epäonnistui"
+  "work.failedProcessing": "Kuvan käsittely epäonnistui",
+  "watermark.applied": "Vesileima käytetty"
 }

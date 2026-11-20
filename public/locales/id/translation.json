@@ -2573,5 +2573,6 @@
   "auth.signingOut": "Sedang keluar...",
   "about.sec1.desc": "Kami lelah dengan alat AI yang memaksa Anda mengunggah foto pribadi ke server luar, hanya untuk menagih biaya langganan mahal. HelpMyIMG dibuat untuk menghadirkan alat gratis yang mudah diakses dan privasi total, berjalan seutuhnya di browser Anda.",
   "watermark.apply": "Terapkan Watermark",
-  "work.failedProcessing": "Gagal memproses foto"
+  "work.failedProcessing": "Gagal memproses foto",
+  "watermark.applied": "Tanda Air Diterapkan"
 }

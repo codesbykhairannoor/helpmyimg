@@ -16,7 +16,6 @@ import {
   Tag, 
   Shield, 
   FileText,
-  Trash2,
   Check,
   Download
 } from 'lucide-react';
@@ -165,7 +164,7 @@ export const EditExifControl: React.FC<EditExifControlProps> = ({
       });
   }, [currentItem?.id, currentItem?.file, currentItem?.initialFile]);
 
-  const handlePopulateFromAnalysis = () => {
+  const _handlePopulateFromAnalysis = () => {
     if (analysis) {
       if (analysis.cameraMake) setCameraMake(analysis.cameraMake);
       if (analysis.cameraModel) setCameraModel(analysis.cameraModel);

@@ -2532,5 +2532,6 @@
   "footer.faq1.a": "Oo, maaari mong gamitin ang aming libreng tier na walang mga watermark para sa pang-araw-araw na proyekto. Para sa mga high-volume na daloy ng trabaho sa negosyo at buong paglilisensya sa studio, nag-aalok din kami ng abot-kayang PRO plan.",
   "about.sec1.desc": "Pagod na kami sa mga tool ng AI na pinilit kang i-upload ang iyong mga personal na larawan sa hindi kilalang mga server, para lang singilin ka ng labis na mga subscription. Ang HelpMyIMG ay binuo upang magbigay ng mga naa-access na libreng tool at kabuuang privacy, na ganap na tumatakbo sa iyong browser.",
   "watermark.apply": "Ilapat ang Watermark",
-  "work.failedProcessing": "Nabigong iproseso ang larawan"
+  "work.failedProcessing": "Nabigong iproseso ang larawan",
+  "watermark.applied": "Inilapat ang Watermark"
 }

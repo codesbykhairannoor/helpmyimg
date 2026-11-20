@@ -3,19 +3,19 @@ const path = require('path');
 const translate = require('google-translate-api-x');
 
 const newTranslations = {
-  "work.failedAi": "AI Processing Failed",
-  "work.errorHint": "Tip: Try using a smaller resolution image, or click retry below.",
-  "work.action.retry": "Retry AI Processing",
-  "work.waiting": "Waiting in queue...",
-  "work.queued": "Queued",
-  "work.exportSettingsTitle": "Export & Download Options",
-  "work.settings": "Export Settings",
-  "work.batchRename": "Rename Files",
-  "work.renameFile": "Custom File Name",
-  "work.zipName": "ZIP Archive Name",
-  "work.zipNamePlaceholder": "Enter ZIP filename...",
-  "editor.reset": "Reset / Upload",
-  "editor.resetAll": "Upload Other Photos"
+  "work.failedAi": "Processing Failed",
+  "work.failedProcessing": "Processing Failed",
+  "work.errorHint": "Please try another photo or click try again below.",
+  "work.action.retry": "Try Again",
+  "work.waiting": "Ready to process",
+  "brush.mode": "Manual Brush Mode",
+  "brush.restore": "Restore",
+  "brush.erase": "Erase",
+  "brush.inpaint": "Smart Heal",
+  "brush.size": "Brush Diameter Size",
+  "brush.resetMask": "Reset Brush Strokes",
+  "watermark.apply": "Apply Watermark",
+  "watermark.applied": "Watermark Applied"
 };
 
 const localesDir = path.join(__dirname, '../public/locales');
@@ -45,14 +45,15 @@ async function run() {
 
     for (let i = 0; i < keys.length; i++) {
       const k = keys[i];
-      if (!langData[k]) {
+      // Re-translate if missing or if still contains old "AI" strings
+      const currentVal = langData[k];
+      if (!currentVal || (typeof currentVal === 'string' && (currentVal.includes('AI Processing') || currentVal.includes('diproses AI')))) {
         toTranslateKeys.push(k);
         toTranslateValues.push(values[i]);
       }
     }
 
     if (toTranslateKeys.length === 0) {
-      console.log(`[${lang}] All keys already present.`);
       continue;
     }
 
@@ -66,7 +67,7 @@ async function run() {
       }
 
       fs.writeFileSync(langPath, JSON.stringify(langData, null, 2), 'utf8');
-      console.log(`✅ [${lang}] Translated and saved ${toTranslateKeys.length} keys.`);
+      console.log(`✅ [${lang}] Updated ${toTranslateKeys.length} keys.`);
     } catch (err) {
       console.error(`❌ [${lang}] Translation failed, using English fallback:`, err.message);
       for (let i = 0; i < toTranslateKeys.length; i++) {
@@ -76,7 +77,7 @@ async function run() {
     }
   }
 
-  console.log('🎉 All 30 language files successfully updated!');
+  console.log('🎉 All language files successfully updated!');
 }
 
 run();

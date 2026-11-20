@@ -2532,5 +2532,6 @@
   "footer.faq1.a": "Ja, du kan använda vår gratisnivå med noll vattenstämplar för vardagliga projekt. För affärsarbetsflöden med stora volymer och fullständig studiolicens erbjuder vi också en prisvärd PRO-plan.",
   "about.sec1.desc": "Vi var trötta på AI-verktyg som tvingade dig att ladda upp dina personliga bilder till okända servrar, bara för att debitera dig orimliga prenumerationer. HelpMyIMG byggdes för att tillhandahålla tillgängliga gratisverktyg och total integritet, som körs helt i din webbläsare.",
   "watermark.apply": "Applicera vattenstämpel",
-  "work.failedProcessing": "Det gick inte att bearbeta fotot"
+  "work.failedProcessing": "Det gick inte att bearbeta fotot",
+  "watermark.applied": "Vattenstämpel tillämpad"
 }

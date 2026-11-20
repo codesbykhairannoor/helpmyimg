@@ -2535,5 +2535,6 @@
   "auth.signingOut": "Wylogowywanie się...",
   "about.sec1.desc": "Byliśmy zmęczeni narzędziami AI, które zmuszały Cię do przesyłania osobistych zdjęć na nieznane serwery, tylko po to, aby pobierać wygórowane abonamenty. HelpMyIMG został stworzony, aby zapewnić dostępne bezpłatne narzędzia i całkowitą prywatność, działając całkowicie w przeglądarce.",
   "watermark.apply": "Zastosuj znak wodny",
-  "work.failedProcessing": "Nie udało się przetworzyć zdjęcia"
+  "work.failedProcessing": "Nie udało się przetworzyć zdjęcia",
+  "watermark.applied": "Zastosowano znak wodny"
 }
