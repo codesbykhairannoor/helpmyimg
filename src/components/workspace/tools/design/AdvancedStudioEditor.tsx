@@ -134,7 +134,7 @@ export const AdvancedStudioEditor: React.FC<AdvancedStudioEditorProps> = ({
   }
 
   return (
-    <div className="w-full h-screen max-h-[92vh] sm:max-h-[94vh] flex flex-col bg-[#090d16] rounded-2xl border border-slate-800/90 shadow-2xl overflow-hidden relative">
+    <div className="w-full h-[100dvh] md:h-screen md:max-h-[94vh] flex flex-col bg-[#090d16] rounded-none sm:rounded-2xl border-0 sm:border border-slate-800/90 shadow-2xl overflow-hidden relative">
       {/* 1. Header Toolbar */}
       <StudioTopBar
         fileName={fileName}

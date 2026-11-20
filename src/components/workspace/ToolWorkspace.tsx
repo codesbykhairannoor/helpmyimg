@@ -235,23 +235,58 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({
   })();
 
   // Mode Studio Khusus: Advanced Studio Editor (Menggantikan Filerobot dengan WebGL GPU Shader 60 FPS)
-  if (initialTab === 'design' && batchItems.length > 0 && currentItem) {
+  if (initialTab === 'design') {
+    if (batchItems.length > 0 && currentItem) {
+      return (
+        <section id="workspace" className="max-w-[1720px] mx-auto px-1 sm:px-4 lg:px-6 py-1 sm:py-2 md:py-4">
+          <AdvancedStudioEditor
+            imageUrl={currentItem.processedUrl || currentItem.originalUrl}
+            fileName={currentItem.name}
+            onClose={() => {
+              setBatchItems([]);
+              setSelectedIndex(0);
+            }}
+            onSave={(dataUrl) => {
+              setBatchItems((prev) =>
+                prev.map((item, idx) =>
+                  idx === selectedIndex ? { ...item, processedUrl: dataUrl, status: 'done' } : item
+                )
+              );
+            }}
+          />
+        </section>
+      );
+    }
+
+    // Tampilan Dropzone Bersih & Full-Width untuk Design Editor (Tanpa sidebar dummy)
     return (
-      <section id="workspace" className="max-w-[1720px] mx-auto px-2 sm:px-4 lg:px-6 py-2 md:py-4">
-        <AdvancedStudioEditor
-          imageUrl={currentItem.processedUrl || currentItem.originalUrl}
-          fileName={currentItem.name}
-          onClose={() => {
-            setBatchItems([]);
-            setSelectedIndex(0);
+      <section id="workspace" className="max-w-4xl mx-auto px-4 sm:px-6 py-4 md:py-8">
+        <input
+          ref={fileInputRef}
+          type="file"
+          accept={ACCEPTED_UPLOAD_TYPES}
+          onChange={(e) => {
+            if (e.target.files && e.target.files.length > 0) {
+              handleFiles(e.target.files);
+              e.target.value = '';
+            }
           }}
-          onSave={(dataUrl) => {
-            setBatchItems((prev) =>
-              prev.map((item, idx) =>
-                idx === selectedIndex ? { ...item, processedUrl: dataUrl, status: 'done' } : item
-              )
-            );
+          className="hidden"
+        />
+        <WorkspaceDropzone
+          isDragging={isDragging}
+          onDragOver={(e) => {
+            e.preventDefault();
+            setIsDragging(true);
           }}
+          onDragLeave={() => setIsDragging(false)}
+          onDrop={(e) => {
+            e.preventDefault();
+            setIsDragging(false);
+            if (e.dataTransfer.files) handleFiles(e.dataTransfer.files);
+          }}
+          onClick={() => fileInputRef.current?.click()}
+          currentItem={null}
         />
       </section>
     );
@@ -1195,39 +1230,6 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({
                   batchCount={batchItems.length}
                   isProcessing={currentItem?.status === 'processing'}
                 />
-              )}
-
-              {initialTab === 'design' && (
-                <div className="flex flex-col bg-dark-900 rounded-2xl border border-dark-600 overflow-hidden shrink-0">
-                  <div className="p-4 border-b border-dark-600 bg-dark-800">
-                    <h3 className="text-base font-heading font-bold text-white mb-0.5">{t('design.settings')}</h3>
-                    <p className="text-[10px] text-slate-400 font-medium">{t('design.desc')}</p>
-                  </div>
-                  <div className="p-4 flex flex-col gap-4">
-                    <div className="bg-dark-800/50 p-4 rounded-xl border border-dark-600/30 flex flex-col gap-3 text-center">
-                      <p className="text-xs text-slate-300">{t('design.info1')}</p>
-                      <button
-                        type="button"
-                        onClick={() => {
-                          const saveBtn = document.querySelector(
-                            '[data-element="SaveButton"], [class*="FIE_topbar-save-btn"], [class*="save-btn"]'
-                          ) as HTMLElement;
-                          if (saveBtn) {
-                            saveBtn.click();
-                          } else {
-                            const allBtns = Array.from(document.querySelectorAll('button'));
-                            const saveTxtBtn = allBtns.find((b) => b.textContent?.toLowerCase().includes('save'));
-                            if (saveTxtBtn) saveTxtBtn.click();
-                          }
-                        }}
-                        className="w-full py-3 bg-gradient-to-r from-neon-indigo to-neon-cyan text-white rounded-lg text-xs font-bold flex items-center justify-center gap-2 hover:shadow-glow-cyan transition-all tracking-wide cursor-pointer"
-                      >
-                        <Download className="w-4 h-4" />
-                        {t('design.saveBtn')}
-                      </button>
-                    </div>
-                  </div>
-                </div>
               )}
 
               {currentTab === 'metadata' && (

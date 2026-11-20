@@ -225,12 +225,68 @@ export const StudioCanvas: React.FC<StudioCanvasProps> = ({
     currentStrokePoints.current = [];
   };
 
+  // Touch Handlers untuk Menggambar Kuas di Layar Sentuh Mobile
+  const handleBrushTouchStart = (e: React.TouchEvent<HTMLCanvasElement>) => {
+    if (activeTab !== 'brush') return;
+    const canvas = brushCanvasRef.current;
+    if (!canvas || e.touches.length === 0) return;
+    const touch = e.touches[0];
+    const rect = canvas.getBoundingClientRect();
+    const x = (touch.clientX - rect.left) / rect.width;
+    const y = (touch.clientY - rect.top) / rect.height;
+
+    setIsDrawing(true);
+    currentStrokePoints.current = [{ x, y }];
+  };
+
+  const handleBrushTouchMove = (e: React.TouchEvent<HTMLCanvasElement>) => {
+    if (!isDrawing || activeTab !== 'brush') return;
+    const canvas = brushCanvasRef.current;
+    if (!canvas || e.touches.length === 0) return;
+    const touch = e.touches[0];
+    const rect = canvas.getBoundingClientRect();
+    const x = (touch.clientX - rect.left) / rect.width;
+    const y = (touch.clientY - rect.top) / rect.height;
+
+    currentStrokePoints.current.push({ x, y });
+
+    const ctx = canvas.getContext('2d');
+    if (ctx && currentStrokePoints.current.length >= 2) {
+      const len = currentStrokePoints.current.length;
+      const p1 = currentStrokePoints.current[len - 2];
+      const p2 = currentStrokePoints.current[len - 1];
+
+      ctx.beginPath();
+      ctx.strokeStyle = brushColor;
+      ctx.lineWidth = Math.max(1, (brushSize / 1000) * canvas.width);
+      ctx.lineCap = 'round';
+      ctx.lineJoin = 'round';
+      ctx.globalAlpha = brushOpacity;
+      ctx.moveTo(p1.x * canvas.width, p1.y * canvas.height);
+      ctx.lineTo(p2.x * canvas.width, p2.y * canvas.height);
+      ctx.stroke();
+    }
+  };
+
+  const handleBrushTouchEnd = () => {
+    handleBrushMouseUp();
+  };
+
   // Dragging Layer Teks
   const handleTextMouseDown = (id: string, e: React.MouseEvent) => {
     e.stopPropagation();
     onSelectTextId(id);
     setDraggingTextId(id);
     setDragStart({ x: e.clientX, y: e.clientY });
+  };
+
+  const handleTextTouchStart = (id: string, e: React.TouchEvent) => {
+    e.stopPropagation();
+    onSelectTextId(id);
+    setDraggingTextId(id);
+    if (e.touches.length > 0) {
+      setDragStart({ x: e.touches[0].clientX, y: e.touches[0].clientY });
+    }
   };
 
   const handleContainerMouseMove = (e: React.MouseEvent) => {
@@ -257,9 +313,32 @@ export const StudioCanvas: React.FC<StudioCanvasProps> = ({
     }
   };
 
+  const handleContainerTouchMove = (e: React.TouchEvent) => {
+    if (draggingTextId && e.touches.length > 0) {
+      const touch = e.touches[0];
+      const layer = textLayers.find((l) => l.id === draggingTextId);
+      const canvas = glCanvasRef.current;
+      if (layer && canvas) {
+        const rect = canvas.getBoundingClientRect();
+        const deltaX = ((touch.clientX - dragStart.x) / rect.width) * 100;
+        const deltaY = ((touch.clientY - dragStart.y) / rect.height) * 100;
+
+        onUpdateTextLayer(draggingTextId, {
+          x: Math.max(0, Math.min(100, +(layer.x + deltaX).toFixed(1))),
+          y: Math.max(0, Math.min(100, +(layer.y + deltaY).toFixed(1))),
+        });
+        setDragStart({ x: touch.clientX, y: touch.clientY });
+      }
+    }
+  };
+
   const handleContainerMouseUp = () => {
     setDraggingTextId(null);
     setIsPanning(false);
+  };
+
+  const handleContainerTouchEnd = () => {
+    setDraggingTextId(null);
   };
 
   const handleContainerMouseDown = (e: React.MouseEvent) => {
@@ -283,7 +362,9 @@ export const StudioCanvas: React.FC<StudioCanvasProps> = ({
       onMouseDown={handleContainerMouseDown}
       onMouseMove={handleContainerMouseMove}
       onMouseUp={handleContainerMouseUp}
-      className="relative flex-1 w-full h-[60vh] sm:h-[70vh] md:h-full bg-[#090d16] overflow-hidden flex items-center justify-center p-4 sm:p-6 select-none cursor-default"
+      onTouchMove={handleContainerTouchMove}
+      onTouchEnd={handleContainerTouchEnd}
+      className="relative flex-1 w-full h-[40vh] sm:h-[48vh] md:h-full bg-[#090d16] overflow-hidden flex items-center justify-center p-2 sm:p-4 md:p-6 select-none cursor-default shrink-0 md:shrink"
       style={{
         backgroundImage:
           'radial-gradient(#1e293b 1px, transparent 1px), radial-gradient(#1e293b 1px, #090d16 1px)',
@@ -303,7 +384,7 @@ export const StudioCanvas: React.FC<StudioCanvasProps> = ({
         {/* Kanvas WebGL Hardware-Accelerated */}
         <canvas
           ref={glCanvasRef}
-          className="block max-w-full max-h-[75vh] object-contain"
+          className="block max-w-full max-h-[38vh] sm:max-h-[46vh] md:max-h-[75vh] object-contain"
         />
 
         {/* Kanvas Overlay Kuas */}
@@ -312,8 +393,11 @@ export const StudioCanvas: React.FC<StudioCanvasProps> = ({
           onMouseDown={handleBrushMouseDown}
           onMouseMove={handleBrushMouseMove}
           onMouseUp={handleBrushMouseUp}
+          onTouchStart={handleBrushTouchStart}
+          onTouchMove={handleBrushTouchMove}
+          onTouchEnd={handleBrushTouchEnd}
           className={`absolute inset-0 w-full h-full ${
-            activeTab === 'brush' ? 'cursor-crosshair pointer-events-auto' : 'pointer-events-none'
+            activeTab === 'brush' ? 'cursor-crosshair pointer-events-auto touch-none' : 'pointer-events-none'
           }`}
         />
 
@@ -324,6 +408,7 @@ export const StudioCanvas: React.FC<StudioCanvasProps> = ({
             <div
               key={layer.id}
               onMouseDown={(e) => handleTextMouseDown(layer.id, e)}
+              onTouchStart={(e) => handleTextTouchStart(layer.id, e)}
               className={`absolute transform -translate-x-1/2 -translate-y-1/2 cursor-move select-none whitespace-pre transition-shadow ${
                 isSelected
                   ? 'ring-2 ring-cyan-400 ring-offset-2 ring-offset-black/50 rounded'

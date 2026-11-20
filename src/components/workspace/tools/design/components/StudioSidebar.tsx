@@ -142,9 +142,9 @@ export const StudioSidebar: React.FC<StudioSidebarProps> = ({
   const selectedTextLayer = textLayers.find((l) => l.id === selectedTextId) || null;
 
   return (
-    <aside className="w-full md:w-80 lg:w-88 bg-[#0f172a]/95 backdrop-blur-md border-t md:border-t-0 md:border-l border-slate-800/80 flex flex-col h-auto md:h-full select-none z-20 shrink-0">
+    <aside className="w-full md:w-80 lg:w-88 bg-[#0f172a]/95 backdrop-blur-md border-t md:border-t-0 md:border-l border-slate-800/80 flex flex-col flex-1 min-h-0 md:h-full select-none z-20 shrink-0">
       {/* Tab Navigation Bar */}
-      <div className="flex items-center justify-between p-2 border-b border-slate-800/80 bg-slate-900/60 overflow-x-auto no-scrollbar shrink-0">
+      <div className="flex items-center justify-between p-1.5 sm:p-2 border-b border-slate-800/80 bg-slate-900/60 overflow-x-auto no-scrollbar shrink-0">
         {tabs.map((tab) => {
           const Icon = tab.icon;
           const isActive = activeTab === tab.id;
@@ -153,14 +153,14 @@ export const StudioSidebar: React.FC<StudioSidebarProps> = ({
               key={tab.id}
               type="button"
               onClick={() => onSelectTab(tab.id)}
-              className={`flex-1 min-w-[52px] py-2 px-1 rounded-xl flex flex-col items-center justify-center gap-1 transition-all cursor-pointer ${
+              className={`flex-1 min-w-[50px] py-1.5 sm:py-2 px-1 rounded-xl flex flex-col items-center justify-center gap-1 transition-all cursor-pointer ${
                 isActive
                   ? 'bg-cyan-500/15 text-cyan-400 font-bold border border-cyan-500/30 shadow-sm'
                   : 'text-slate-400 hover:text-slate-200 hover:bg-slate-800/50 font-medium'
               }`}
             >
-              <Icon className="w-4 h-4" />
-              <span className="text-[11px] truncate max-w-full">
+              <Icon className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
+              <span className="text-[10px] sm:text-[11px] truncate max-w-full">
                 {t(tab.labelKey, { defaultValue: tab.defaultLabel })}
               </span>
             </button>
@@ -169,7 +169,7 @@ export const StudioSidebar: React.FC<StudioSidebarProps> = ({
       </div>
 
       {/* Konten Tab Inspector */}
-      <div className="flex-1 overflow-y-auto p-4 space-y-5 text-slate-200">
+      <div className="flex-1 overflow-y-auto p-3 sm:p-4 space-y-4 sm:space-y-5 text-slate-200 overscroll-contain pb-8 md:pb-4">
         {/* TAB 1: ADJUST (PENYESUAIAN WARNA) */}
         {activeTab === 'adjust' && (
           <div className="space-y-4">
