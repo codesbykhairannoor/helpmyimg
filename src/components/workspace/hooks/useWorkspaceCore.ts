@@ -59,6 +59,19 @@ export function useWorkspaceCore(initialTab: TabType = 'remove'): UseWorkspaceCo
     }
   }, [toastMessage]);
 
+  // Clean up blob URLs on unmount when user switches tools or navigates pages
+  const batchItemsRef = useRef(batchItems);
+  batchItemsRef.current = batchItems;
+  useEffect(() => {
+    return () => {
+      batchItemsRef.current.forEach((i) => {
+        if (i.originalUrl) URL.revokeObjectURL(i.originalUrl);
+        if (i.transparentUrl && i.transparentUrl !== i.originalUrl) URL.revokeObjectURL(i.transparentUrl);
+        if (i.processedUrl && i.processedUrl !== i.originalUrl) URL.revokeObjectURL(i.processedUrl);
+      });
+    };
+  }, []);
+
   const isReplacingRef = useRef(false);
 
   // Handle file uploads across all tools (including HEIC, RAW, PSD, TIFF, JXL via WASM decoder)

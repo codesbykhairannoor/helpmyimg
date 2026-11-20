@@ -1,7 +1,7 @@
 // src/components/workspace/tools/ResizeControl.tsx
 import React from 'react';
 import { useTranslation } from '../../../context/LanguageContext';
-import { RotateCcw, Upload, Link as LinkIcon, Unlink, Download, RefreshCw } from 'lucide-react';
+import { RotateCcw, Upload, Link as LinkIcon, Unlink, Download, Loader2 } from 'lucide-react';
 import type { ResizeKernelMethod } from '../../utils/imageOperations';
 
 interface ResizeControlProps {
@@ -212,9 +212,9 @@ export const ResizeControl: React.FC<ResizeControlProps> = ({
           <button
             type="button"
             onClick={onDownload}
-            className="w-full flex items-center justify-center gap-2 py-3.5 px-4 rounded-xl bg-gradient-to-r from-[#05DAED] via-cyan-400 to-[#12DA91] hover:from-cyan-400 hover:to-emerald-400 text-slate-950 font-black shadow-glow-cyan transition-all duration-200 transform hover:-translate-y-0.5 text-sm tracking-wide cursor-pointer"
+            className="w-full flex items-center justify-center gap-2 py-3.5 px-4 rounded-xl bg-gradient-to-r from-[#05DAED] via-cyan-400 to-[#12DA91] hover:from-cyan-400 hover:to-emerald-400 text-slate-950 font-semibold shadow-glow-cyan transition-all duration-200 transform hover:-translate-y-0.5 text-sm tracking-wide cursor-pointer"
           >
-            <Download className="w-4 h-4 text-slate-950 stroke-[2.5]" />
+            <Download className="w-4 h-4 text-slate-950 stroke-[2]" />
             <span>{t('editor.downloadPhoto', { defaultValue: 'Download Foto' })}</span>
           </button>
         </div>
@@ -224,11 +224,11 @@ export const ResizeControl: React.FC<ResizeControlProps> = ({
             type="button"
             onClick={onApply}
             disabled={isProcessing || resizeWidth <= 0 || resizeHeight <= 0}
-            className="w-full flex items-center justify-center gap-2.5 py-3.5 px-4 rounded-xl bg-gradient-to-r from-neon-cyan via-neon-emerald to-neon-indigo hover:opacity-95 text-dark-900 font-extrabold shadow-glow-cyan transition-all duration-200 transform hover:-translate-y-0.5 disabled:opacity-50 text-sm tracking-wide cursor-pointer"
+            className="w-full flex items-center justify-center gap-2.5 py-3.5 px-4 rounded-xl bg-gradient-to-r from-neon-cyan via-neon-emerald to-neon-indigo hover:opacity-95 text-dark-900 font-semibold shadow-glow-cyan transition-all duration-200 transform hover:-translate-y-0.5 disabled:opacity-50 text-sm tracking-wide cursor-pointer"
           >
             {isProcessing ? (
               <>
-                <RefreshCw className="w-4 h-4 animate-spin text-dark-900" />
+                <Loader2 className="w-4 h-4 animate-spin text-dark-900" />
                 <span>{t('btn.processing', { defaultValue: 'Memproses...' })}</span>
               </>
             ) : (

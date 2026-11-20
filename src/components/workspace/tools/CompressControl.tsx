@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useTranslation } from '../../../context/LanguageContext';
-import { FileArchive, RefreshCw, RotateCcw, Upload, Download } from 'lucide-react';
+import { FileArchive, Loader2, RotateCcw, Upload, Download } from 'lucide-react';
 import type { CompressEngineMode } from './compress/compressEngine';
 
 interface CompressControlProps {
@@ -173,9 +173,9 @@ export const CompressControl: React.FC<CompressControlProps> = ({
             type="button"
             onClick={onDownload}
             disabled={isProcessing}
-            className="w-full flex items-center justify-center gap-2.5 py-3.5 px-4 rounded-xl bg-gradient-to-r from-[#05DAED] via-cyan-400 to-[#12DA91] hover:from-cyan-400 hover:to-emerald-400 text-slate-950 font-black shadow-glow-cyan transition-all duration-200 transform hover:-translate-y-0.5 disabled:opacity-50 text-sm tracking-wide cursor-pointer"
+            className="w-full flex items-center justify-center gap-2.5 py-3.5 px-4 rounded-xl bg-gradient-to-r from-[#05DAED] via-cyan-400 to-[#12DA91] hover:from-cyan-400 hover:to-emerald-400 text-slate-950 font-semibold shadow-glow-cyan transition-all duration-200 transform hover:-translate-y-0.5 disabled:opacity-50 text-sm tracking-wide cursor-pointer"
           >
-            <Download className="w-4 h-4 text-slate-950 stroke-[2.5]" />
+            <Download className="w-4 h-4 text-slate-950 stroke-[2]" />
             <span>
               {compressedSize
                 ? t('compress.downloadExact', {
@@ -191,9 +191,9 @@ export const CompressControl: React.FC<CompressControlProps> = ({
             type="button"
             onClick={handleProcess}
             disabled={isProcessing}
-            className="w-full flex items-center justify-center gap-2.5 py-3.5 px-4 rounded-xl bg-gradient-to-r from-neon-cyan via-neon-emerald to-neon-indigo hover:opacity-95 text-dark-900 font-extrabold shadow-glow-cyan transition-all duration-200 transform hover:-translate-y-0.5 disabled:opacity-50 text-sm tracking-wide cursor-pointer"
+            className="w-full flex items-center justify-center gap-2.5 py-3.5 px-4 rounded-xl bg-gradient-to-r from-neon-cyan via-neon-emerald to-neon-indigo hover:opacity-95 text-dark-900 font-semibold shadow-glow-cyan transition-all duration-200 transform hover:-translate-y-0.5 disabled:opacity-50 text-sm tracking-wide cursor-pointer"
           >
-            <RefreshCw className={`w-4 h-4 shrink-0 ${isProcessing ? 'animate-spin' : ''}`} />
+            <Loader2 className={`w-4 h-4 shrink-0 ${isProcessing ? 'animate-spin' : ''}`} />
             <span>
               {isProcessing
                 ? t('btn.processing', { defaultValue: 'Compressing...' })
@@ -206,9 +206,9 @@ export const CompressControl: React.FC<CompressControlProps> = ({
             type="button"
             onClick={handleProcess}
             disabled={isProcessing || batchCount === 0}
-            className="w-full flex items-center justify-center gap-2.5 py-3.5 px-4 rounded-xl bg-gradient-to-r from-neon-cyan via-neon-emerald to-neon-indigo hover:opacity-95 text-dark-900 font-extrabold shadow-glow-cyan transition-all duration-200 transform hover:-translate-y-0.5 disabled:opacity-50 text-sm tracking-wide cursor-pointer"
+            className="w-full flex items-center justify-center gap-2.5 py-3.5 px-4 rounded-xl bg-gradient-to-r from-neon-cyan via-neon-emerald to-neon-indigo hover:opacity-95 text-dark-900 font-semibold shadow-glow-cyan transition-all duration-200 transform hover:-translate-y-0.5 disabled:opacity-50 text-sm tracking-wide cursor-pointer"
           >
-            <RefreshCw className={`w-4 h-4 shrink-0 ${isProcessing ? 'animate-spin' : ''}`} />
+            <Loader2 className={`w-4 h-4 shrink-0 ${isProcessing ? 'animate-spin' : ''}`} />
             <span>
               {isProcessing
                 ? t('btn.processing', { defaultValue: 'Compressing...' })
@@ -223,9 +223,9 @@ export const CompressControl: React.FC<CompressControlProps> = ({
             type="button"
             onClick={handleProcessBatch}
             disabled={isProcessing || batchCount === 0}
-            className="w-full flex items-center justify-center gap-2 py-3.5 px-4 rounded-xl bg-dark-700 hover:bg-dark-600 border border-neon-cyan/50 text-white font-extrabold text-sm tracking-wide transition-all duration-200 disabled:opacity-50 cursor-pointer"
+            className="w-full flex items-center justify-center gap-2 py-3.5 px-4 rounded-xl bg-dark-700 hover:bg-dark-600 border border-neon-cyan/50 text-white font-semibold text-sm tracking-wide transition-all duration-200 disabled:opacity-50 cursor-pointer"
           >
-            <RefreshCw className={`w-4 h-4 shrink-0 ${isProcessing ? 'animate-spin' : ''}`} />
+            <Loader2 className={`w-4 h-4 shrink-0 ${isProcessing ? 'animate-spin' : ''}`} />
             <span>
               {t('compress.processAll', { count: String(batchCount), defaultValue: `Compress All (${batchCount})` })}
             </span>

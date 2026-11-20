@@ -3,7 +3,7 @@
 
 import React, { useRef } from 'react';
 import { useTranslation } from '../../../context/LanguageContext';
-import { Palette, RefreshCw, Check, Upload, Image as ImageIcon, Sparkles, Sliders, X, RotateCcw, PaintBucket, Download, Crown } from 'lucide-react';
+import { Palette, Loader2, Check, Upload, Image as ImageIcon, Sparkles, Sliders, X, RotateCcw, PaintBucket, Download, Crown } from 'lucide-react';
 import type { StudioShadowEffect } from '../../../services/aiService';
 import type { CutoutMode } from '../types';
 
@@ -480,9 +480,9 @@ export const ColorBgControl: React.FC<ColorBgControlProps> = ({
                 type="button"
                 onClick={() => onDownload?.(false)}
                 disabled={isProcessing}
-                className="flex-1 flex items-center justify-center gap-2 py-3.5 px-4 rounded-xl bg-gradient-to-r from-[#05DAED] via-cyan-400 to-[#12DA91] hover:from-cyan-400 hover:to-emerald-400 text-slate-950 font-black shadow-glow-cyan transition-all duration-200 transform hover:-translate-y-0.5 disabled:opacity-50 text-xs sm:text-sm tracking-wide cursor-pointer"
+                className="flex-1 flex items-center justify-center gap-2 py-3.5 px-4 rounded-xl bg-gradient-to-r from-[#05DAED] via-cyan-400 to-[#12DA91] hover:from-cyan-400 hover:to-emerald-400 text-slate-950 font-semibold shadow-glow-cyan transition-all duration-200 transform hover:-translate-y-0.5 disabled:opacity-50 text-xs sm:text-sm tracking-wide cursor-pointer"
               >
-                <Download className="w-4 h-4 text-slate-950 stroke-[2.5]" />
+                <Download className="w-4 h-4 text-slate-950 stroke-[2]" />
                 <span>{t('editor.downloadPhoto', { defaultValue: 'Download Foto' })}</span>
               </button>
 
@@ -490,7 +490,7 @@ export const ColorBgControl: React.FC<ColorBgControlProps> = ({
                 type="button"
                 onClick={() => onDownload?.(true)}
                 disabled={isProcessing}
-                className="flex-1 flex items-center justify-center gap-1.5 py-3.5 px-3 rounded-xl bg-dark-800 hover:bg-dark-750 text-slate-200 border border-amber-500/40 hover:border-amber-400 font-bold text-xs sm:text-sm transition-all cursor-pointer group"
+                className="flex-1 flex items-center justify-center gap-1.5 py-3.5 px-3 rounded-xl bg-dark-800 hover:bg-dark-750 text-slate-200 border border-amber-500/40 hover:border-amber-400 font-semibold text-xs sm:text-sm transition-all cursor-pointer group"
               >
                 <Crown className="w-3.5 h-3.5 text-amber-400 group-hover:scale-110 transition-transform" />
                 <span className="truncate">{t('editor.downloadPro', { defaultValue: 'Download 4K Ultra-HD' })}</span>
@@ -504,12 +504,12 @@ export const ColorBgControl: React.FC<ColorBgControlProps> = ({
               type="button"
               onClick={onProcessNow}
               disabled={isProcessing || status === 'processing' || batchCount === 0}
-              className="w-full flex items-center justify-center gap-2.5 py-3.5 px-4 rounded-xl bg-gradient-to-r from-neon-cyan via-neon-emerald to-neon-indigo hover:opacity-95 text-dark-900 font-extrabold shadow-glow-cyan transition-all duration-200 transform hover:-translate-y-0.5 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none disabled:shadow-none text-sm tracking-wide cursor-pointer"
+              className="w-full flex items-center justify-center gap-2.5 py-3.5 px-4 rounded-xl bg-gradient-to-r from-neon-cyan via-neon-emerald to-neon-indigo hover:opacity-95 text-dark-900 font-semibold shadow-glow-cyan transition-all duration-200 transform hover:-translate-y-0.5 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none disabled:shadow-none text-sm tracking-wide cursor-pointer"
             >
               {isProcessing || status === 'processing' ? (
                 <>
-                  <RefreshCw className="w-4 h-4 text-dark-900 animate-spin shrink-0" />
-                  <span>{t('work.processing', { defaultValue: 'Memproses Potong AI...' })}</span>
+                  <Loader2 className="w-4 h-4 text-dark-900 animate-spin shrink-0" />
+                  <span>{t('work.processing', { defaultValue: 'Memproses Potong & Ganti Background...' })}</span>
                 </>
               ) : (
                 <>

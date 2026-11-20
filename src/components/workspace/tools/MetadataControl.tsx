@@ -294,9 +294,9 @@ export const MetadataControl: React.FC<MetadataControlProps> = ({
           <button
             type="button"
             onClick={onDownload}
-            className="w-full flex items-center justify-center gap-2 py-3.5 px-4 rounded-xl bg-gradient-to-r from-[#05DAED] via-cyan-400 to-[#12DA91] hover:from-cyan-400 hover:to-emerald-400 text-slate-950 font-black shadow-glow-cyan transition-all duration-200 transform hover:-translate-y-0.5 text-sm tracking-wide cursor-pointer"
+            className="w-full flex items-center justify-center gap-2 py-3.5 px-4 rounded-xl bg-gradient-to-r from-[#05DAED] via-cyan-400 to-[#12DA91] hover:from-cyan-400 hover:to-emerald-400 text-slate-950 font-semibold shadow-glow-cyan transition-all duration-200 transform hover:-translate-y-0.5 text-sm tracking-wide cursor-pointer"
           >
-            <Download className="w-4 h-4 text-slate-950 stroke-[2.5]" />
+            <Download className="w-4 h-4 text-slate-950 stroke-[2]" />
             <span>{t('editor.downloadPhoto', { defaultValue: 'Download Foto' })}</span>
           </button>
         ) : (
@@ -304,7 +304,7 @@ export const MetadataControl: React.FC<MetadataControlProps> = ({
             type="button"
             onClick={onStripMetadata}
             disabled={isProcessing || !currentItem}
-            className="w-full flex items-center justify-center gap-2.5 py-3.5 px-4 rounded-xl bg-gradient-to-r from-rose-500 via-rose-600 to-rose-700 hover:opacity-95 text-white font-extrabold shadow-lg shadow-rose-500/25 transition-all duration-200 transform hover:-translate-y-0.5 disabled:opacity-50 text-sm tracking-wide cursor-pointer disabled:cursor-not-allowed"
+            className="w-full flex items-center justify-center gap-2.5 py-3.5 px-4 rounded-xl bg-gradient-to-r from-rose-500 via-rose-600 to-rose-700 hover:opacity-95 text-white font-semibold shadow-lg shadow-rose-500/25 transition-all duration-200 transform hover:-translate-y-0.5 disabled:opacity-50 text-sm tracking-wide cursor-pointer disabled:cursor-not-allowed"
           >
             {isProcessing ? (
               <>

@@ -385,7 +385,8 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({
                   isProcessing={
                     currentItem?.status === 'processing' ||
                     currentItem?.status === 'queued' ||
-                    batchItems.some((i) => i.status === 'processing' || i.status === 'queued')
+                    batchItems.some((i) => i.status === 'processing' || i.status === 'queued') ||
+                    isApplyingEffect
                   }
                   status={currentItem?.status || 'idle'}
                   onProcessNow={() => {
@@ -449,7 +450,8 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({
                   isProcessing={
                     currentItem?.status === 'processing' ||
                     currentItem?.status === 'queued' ||
-                    batchItems.some((i) => i.status === 'processing' || i.status === 'queued')
+                    batchItems.some((i) => i.status === 'processing' || i.status === 'queued') ||
+                    isApplyingEffect
                   }
                   status={currentItem?.status || 'idle'}
                   onProcessNow={() => {

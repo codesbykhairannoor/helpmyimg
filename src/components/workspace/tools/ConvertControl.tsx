@@ -1,6 +1,6 @@
 import React from 'react';
 import { useTranslation } from '../../../context/LanguageContext';
-import { Image as ImageIcon, RefreshCw, RotateCcw, Upload, ArrowRight, Download } from 'lucide-react';
+import { Image as ImageIcon, Loader2, RotateCcw, Upload, ArrowRight, Download } from 'lucide-react';
 import type { ImageMimeType } from './convert/convertEngine';
 import type { SvgVectorMode } from '../../utils/imageOperations';
 
@@ -145,9 +145,9 @@ export const ConvertControl: React.FC<ConvertControlProps> = ({
             type="button"
             onClick={handleProcessBatch}
             disabled={isProcessing || batchCount === 0}
-            className="w-full flex items-center justify-center gap-2 py-3.5 px-4 rounded-xl bg-gradient-to-r from-neon-cyan via-neon-emerald to-neon-indigo text-dark-900 font-extrabold text-sm tracking-wide shadow-glow-cyan transition-all duration-200 hover:-translate-y-0.5 disabled:opacity-50 disabled:transform-none cursor-pointer"
+            className="w-full flex items-center justify-center gap-2 py-3.5 px-4 rounded-xl bg-gradient-to-r from-neon-cyan via-neon-emerald to-neon-indigo text-dark-900 font-semibold text-sm tracking-wide shadow-glow-cyan transition-all duration-200 hover:-translate-y-0.5 disabled:opacity-50 disabled:transform-none cursor-pointer"
           >
-            <RefreshCw className={`w-4 h-4 shrink-0 ${isProcessing ? 'animate-spin' : ''}`} />
+            <Loader2 className={`w-4 h-4 shrink-0 ${isProcessing ? 'animate-spin' : ''}`} />
             <span>
               {isProcessing
                 ? t('work.processing', { defaultValue: 'Converting...' })
@@ -158,9 +158,9 @@ export const ConvertControl: React.FC<ConvertControlProps> = ({
           <button
             type="button"
             onClick={onDownload}
-            className="w-full flex items-center justify-center gap-2 py-3.5 px-4 rounded-xl bg-gradient-to-r from-[#05DAED] via-cyan-400 to-[#12DA91] hover:from-cyan-400 hover:to-emerald-400 text-slate-950 font-black text-sm tracking-wide shadow-glow-cyan transition-all duration-200 hover:-translate-y-0.5 cursor-pointer"
+            className="w-full flex items-center justify-center gap-2 py-3.5 px-4 rounded-xl bg-gradient-to-r from-[#05DAED] via-cyan-400 to-[#12DA91] hover:from-cyan-400 hover:to-emerald-400 text-slate-950 font-semibold text-sm tracking-wide shadow-glow-cyan transition-all duration-200 hover:-translate-y-0.5 cursor-pointer"
           >
-            <Download className="w-4 h-4 text-slate-950 stroke-[2.5]" />
+            <Download className="w-4 h-4 text-slate-950 stroke-[2]" />
             <span>
               {t('editor.downloadPhoto', { defaultValue: 'Download Foto' })} ({currentFormatObj.ext})
             </span>
@@ -170,9 +170,9 @@ export const ConvertControl: React.FC<ConvertControlProps> = ({
             type="button"
             onClick={handleConvert}
             disabled={isProcessing || batchCount === 0}
-            className="w-full flex items-center justify-center gap-2 py-3.5 px-4 rounded-xl bg-gradient-to-r from-neon-cyan via-neon-emerald to-neon-indigo text-dark-900 font-extrabold text-sm tracking-wide shadow-glow-cyan transition-all duration-200 hover:-translate-y-0.5 disabled:opacity-50 disabled:transform-none cursor-pointer"
+            className="w-full flex items-center justify-center gap-2 py-3.5 px-4 rounded-xl bg-gradient-to-r from-neon-cyan via-neon-emerald to-neon-indigo text-dark-900 font-semibold text-sm tracking-wide shadow-glow-cyan transition-all duration-200 hover:-translate-y-0.5 disabled:opacity-50 disabled:transform-none cursor-pointer"
           >
-            <RefreshCw className={`w-4 h-4 shrink-0 ${isProcessing ? 'animate-spin' : ''}`} />
+            <Loader2 className={`w-4 h-4 shrink-0 ${isProcessing ? 'animate-spin' : ''}`} />
             <span>
               {isProcessing
                 ? t('work.processing', { defaultValue: 'Converting...' })

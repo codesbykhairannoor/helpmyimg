@@ -754,9 +754,9 @@ export const EditExifControl: React.FC<EditExifControlProps> = ({
           <button
             type="button"
             onClick={onDownload}
-            className="w-full flex items-center justify-center gap-2 py-3.5 px-4 rounded-xl bg-gradient-to-r from-[#05DAED] via-cyan-400 to-[#12DA91] hover:from-cyan-400 hover:to-emerald-400 text-slate-950 font-black shadow-glow-cyan transition-all duration-200 transform hover:-translate-y-0.5 text-sm tracking-wide cursor-pointer"
+            className="w-full flex items-center justify-center gap-2 py-3.5 px-4 rounded-xl bg-gradient-to-r from-[#05DAED] via-cyan-400 to-[#12DA91] hover:from-cyan-400 hover:to-emerald-400 text-slate-950 font-semibold shadow-glow-cyan transition-all duration-200 transform hover:-translate-y-0.5 text-sm tracking-wide cursor-pointer"
           >
-            <Download className="w-4 h-4 text-slate-950 stroke-[2.5]" />
+            <Download className="w-4 h-4 text-slate-950 stroke-[2]" />
             <span>{t('editor.downloadPhoto', { defaultValue: 'Download Foto' })}</span>
           </button>
         ) : (
@@ -764,7 +764,7 @@ export const EditExifControl: React.FC<EditExifControlProps> = ({
             type="button"
             onClick={handleApply}
             disabled={isProcessing || !currentItem}
-            className="w-full flex items-center justify-center gap-2.5 py-3.5 px-4 rounded-xl bg-gradient-to-r from-neon-cyan via-neon-emerald to-neon-indigo hover:opacity-95 text-dark-900 font-extrabold shadow-glow-cyan transition-all duration-200 transform hover:-translate-y-0.5 disabled:opacity-50 text-sm tracking-wide cursor-pointer disabled:cursor-not-allowed"
+            className="w-full flex items-center justify-center gap-2.5 py-3.5 px-4 rounded-xl bg-gradient-to-r from-neon-cyan via-neon-emerald to-neon-indigo hover:opacity-95 text-dark-900 font-semibold shadow-glow-cyan transition-all duration-200 transform hover:-translate-y-0.5 disabled:opacity-50 text-sm tracking-wide cursor-pointer disabled:cursor-not-allowed"
           >
             {isProcessing ? (
               <>

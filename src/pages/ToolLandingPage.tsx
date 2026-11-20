@@ -167,6 +167,7 @@ export const ToolLandingPage: React.FC = () => {
           <ToolGrid />
         ) : (
           <ToolWorkspace 
+            key={`${internalTool}-${keywordSlug || ''}`}
             initialTab={displayConfig.tool as any} 
             onActiveChange={setHasActiveFiles}
           />

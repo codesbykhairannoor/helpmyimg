@@ -321,7 +321,7 @@ export const WorkspaceViewport: React.FC<WorkspaceViewportProps> = ({
                 </div>
               ) : (
                 <motion.img
-                  key={currentItem.id}
+                  key={`${currentItem.id}_${currentItem.processedUrl || ''}_${currentItem.transparentUrl || ''}`}
                   id="workspace-preview-image"
                   crossOrigin="anonymous"
                   ref={(el) => {
