@@ -53,7 +53,7 @@ export const AboutPage: React.FC = () => {
             {t('about.subtitle')}
           </p>
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-neon-emerald/10 border border-neon-emerald/20 text-neon-emerald text-sm md:text-base font-bold max-w-2xl mx-auto text-center">
-            {t('info.freePromo', { defaultValue: '100% Private Client-Side AI • Free Forever Tier Available' })}
+            {t('info.freePromo', { defaultValue: '100% Private Client-Side AI • Free Tier & Studio PRO' })}
           </div>
         </motion.div>
 

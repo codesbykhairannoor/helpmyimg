@@ -53,7 +53,7 @@ export function synthesizeDynamicPSeo(
     },
     {
       question: `Can I really process ${targetSize || 'high-resolution images'} without quality loss or watermarks?`,
-      answer: `Yes! Our precision algorithms optimize compression and conversion while preserving high visual fidelity and sharpness. All downloaded results are 100% free with no watermarks forever.`
+      answer: `Yes! Our precision algorithms optimize compression and conversion while preserving high visual fidelity and sharpness. All downloaded results are watermark-free with full client-side privacy.`
     }
   ];
 
@@ -91,7 +91,7 @@ export function synthesizeDynamicPSeo(
     } else if (internalTool === 'convert') {
       title = `Konversi Format ${batchCount ? `${batchCount} Foto` : 'Gambar'} (PNG, JPG, WEBP) Massal Gratis`;
       h1 = `Konversi ${batchCount ? `${batchCount} Foto Sekaligus` : 'Format Gambar'} Tanpa Hilang Kualitas`;
-      description = `Ubah format foto PNG ke JPG, WEBP, atau sebaliknya ${batchCount ? `untuk ${batchCount} gambar sekaligus` : 'secara massal'} langsung di browser. Gratis selamanya, privasi lokal 100%, dan unduh ZIP super cepat.`;
+      description = `Ubah format foto PNG ke JPG, WEBP, atau sebaliknya ${batchCount ? `untuk ${batchCount} gambar sekaligus` : 'secara massal'} langsung di browser. Tersedia paket gratis, privasi lokal 100%, dan unduh ZIP super cepat.`;
       
       citationFirst = `Bagaimana cara mengonversi format foto ${batchCount ? `hingga ${batchCount} berkas sekaligus` : 'secara cepat dan praktis'}? HelpMyIMG menyediakan alat konversi format serbaguna (PNG, JPG, WEBP) berbasis Client-Side Engine. Berbeda dengan konverter online konvensional yang mewajibkan Anda mengunggah file satu per satu, HelpMyIMG mengeksekusi konversi langsung di dalam prosesor HP atau Laptop Anda seketika itu juga.`;
       

@@ -142,7 +142,7 @@ export const PricingPage: React.FC = () => {
     },
     {
       name: t('pricing.matrix.row9.name', { defaultValue: 'Skema Biaya & Tagihan' }),
-      free: t('pricing.matrix.row9.free', { defaultValue: 'Gratis Selamanya' }),
+      free: t('pricing.matrix.row9.free', { defaultValue: 'Termasuk Paket Gratis' }),
       pro: t('pricing.matrix.row9.pro', { defaultValue: 'Bulanan, Tahunan, atau Sekali Bayar Selamanya' }),
     },
     {
@@ -284,7 +284,7 @@ export const PricingPage: React.FC = () => {
           <div className="rounded-3xl p-7 sm:p-8 bg-white dark:bg-dark-800 border border-slate-200 dark:border-dark-700 shadow-sm flex flex-col justify-between">
             <div>
               <span className="inline-block px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-slate-100 dark:bg-dark-700 text-slate-600 dark:text-slate-300">
-                {t('pricing.free.badge', { defaultValue: 'GRATIS SELAMANYA' })}
+                {t('pricing.free.badge', { defaultValue: 'PAKET GRATIS' })}
               </span>
 
               <h3 className="text-2xl font-black text-slate-900 dark:text-white mt-4 mb-2">

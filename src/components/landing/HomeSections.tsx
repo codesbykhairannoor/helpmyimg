@@ -88,13 +88,13 @@ export const HomeSections: React.FC = () => {
               <DollarSign className="w-6 h-6 sm:w-7 sm:h-7 stroke-[2.5]" />
             </div>
             <h3 className="text-lg sm:text-xl font-heading font-bold text-white mb-2 sm:mb-3">
-              {t('home.why.c3.t', { defaultValue: 'Forever Free & Unlimited' })}
+              {t('home.why.c3.t', { defaultValue: 'Generous Free Tier & PRO Power' })}
             </h3>
             <p className="text-slate-400 text-sm leading-relaxed">
-              {t('home.why.c3.d', { defaultValue: 'No subscriptions, no watermarks, no credit packs, and no hidden fees. High-definition photo editing made accessible for all.' })}
+              {t('home.why.c3.d', { defaultValue: 'Core tools are free to use without mandatory sign-up or watermarks. Upgrade to PRO whenever you need heavy batch processing and 4K exports.' })}
             </p>
             <div className="mt-4 sm:mt-6 flex items-center gap-2 text-xs font-mono text-[#05DAED] font-bold">
-              <span>{t('home.why.c3.b', { defaultValue: '$0 / Lifetime' })}</span>
+              <span>{t('home.why.c3.b', { defaultValue: 'Free & PRO Plans' })}</span>
             </div>
           </div>
 
@@ -440,7 +440,7 @@ export const HomeSections: React.FC = () => {
             let defA = '';
             if (num === 1) {
               defQ = 'Is HelpMyIMG completely free to use?';
-              defA = 'Yes, it is 100% free with no hidden fees, subscriptions, or credit systems. We provide unlimited access to all tools.';
+              defA = 'Yes, HelpMyIMG offers a generous free tier for core tools with no mandatory registration, credit systems, or watermarks. For heavy batch processing and uncompressed 4K exports, we also provide an optional PRO upgrade.';
             } else if (num === 2) {
               defQ = 'Why does HelpMyIMG process images faster than traditional online photo editors?';
               defA = 'Traditional online editors force you to upload large image files over the internet to their remote servers, wait in processing queues, and download the results back. HelpMyIMG eliminates this entire bottleneck by running the computational engine locally inside your browser memory. Processing begins the exact millisecond you select your photos.';

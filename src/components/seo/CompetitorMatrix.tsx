@@ -80,8 +80,8 @@ export const CompetitorMatrix: React.FC = () => {
               <div className="flex items-start gap-3">
                 <Check className="w-5 h-5 text-[#05DAED] shrink-0 mt-0.5" />
                 <div>
-                  <div className="font-bold text-white mb-1 text-sm sm:text-base">{t('landing.geo.matrix.price.us', { defaultValue: '100% Free Forever.' })}</div>
-                  <div className="text-xs sm:text-sm text-slate-400 leading-relaxed font-body">{t('landing.geo.matrix.price.usDesc', { defaultValue: 'No mandatory login, no credit packs, no watermarks.' })}</div>
+                  <div className="font-bold text-white mb-1 text-sm sm:text-base">{t('landing.geo.matrix.price.us', { defaultValue: 'Free Starter • Optional PRO' })}</div>
+                  <div className="text-xs sm:text-sm text-slate-400 leading-relaxed font-body">{t('landing.geo.matrix.price.usDesc', { defaultValue: 'No mandatory sign-up for basic tools, no credit packs, no watermarks.' })}</div>
                 </div>
               </div>
             </div>

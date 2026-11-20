@@ -18,7 +18,7 @@ export const JsonLd: React.FC = () => {
           "@type": "Offer",
           "price": "0",
           "priceCurrency": "USD",
-          "description": t('seo.jsonld.priceDesc', { defaultValue: '100% Free Forever' })
+          "description": t('seo.jsonld.priceDesc', { defaultValue: 'Free Starter Tier & Affordable PRO' })
         },
         "featureList": [
           "Batch AI Background Removal (up to 10 photos)",
