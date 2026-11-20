@@ -364,17 +364,11 @@ export const StudioCanvas: React.FC<StudioCanvasProps> = ({
       onMouseUp={handleContainerMouseUp}
       onTouchMove={handleContainerTouchMove}
       onTouchEnd={handleContainerTouchEnd}
-      className="relative flex-1 w-full h-[40vh] sm:h-[48vh] md:h-full bg-[#090d16] overflow-hidden flex items-center justify-center p-2 sm:p-4 md:p-6 select-none cursor-default shrink-0 md:shrink"
-      style={{
-        backgroundImage:
-          'radial-gradient(#1e293b 1px, transparent 1px), radial-gradient(#1e293b 1px, #090d16 1px)',
-        backgroundSize: '24px 24px',
-        backgroundPosition: '0 0, 12px 12px',
-      }}
+      className="relative flex-1 w-full h-[40vh] sm:h-[48vh] md:h-full bg-slate-100 dark:bg-[#090d16] bg-[radial-gradient(#cbd5e1_1px,transparent_1px)] dark:bg-[radial-gradient(#1e293b_1px,transparent_1px)] [background-size:24px_24px] overflow-hidden flex items-center justify-center p-2 sm:p-4 md:p-6 select-none cursor-default shrink-0 md:shrink"
     >
       {/* Container Kanvas yang bisa di-Zoom & Pan */}
       <div
-        className="relative transition-transform duration-75 origin-center shadow-2xl rounded-lg overflow-hidden border border-slate-800/80"
+        className="relative transition-transform duration-75 origin-center shadow-2xl rounded-lg overflow-hidden border border-slate-300/80 dark:border-slate-800/80"
         style={{
           transform: `translate(${pan.x}px, ${pan.y}px) scale(${zoom}) rotate(${transform.rotation}deg) scaleX(${
             transform.flipH ? -1 : 1

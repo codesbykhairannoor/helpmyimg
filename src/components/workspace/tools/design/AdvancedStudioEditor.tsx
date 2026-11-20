@@ -124,9 +124,9 @@ export const AdvancedStudioEditor: React.FC<AdvancedStudioEditorProps> = ({
 
   if (isLoadingImage) {
     return (
-      <div className="w-full h-[70vh] flex flex-col items-center justify-center gap-3 bg-[#090d16] rounded-2xl border border-slate-800">
-        <Loader2 className="w-8 h-8 text-cyan-400 animate-spin" />
-        <span className="text-xs font-semibold text-slate-400">
+      <div className="w-full h-[70vh] flex flex-col items-center justify-center gap-3 bg-white dark:bg-dark-900 rounded-2xl border border-slate-200 dark:border-slate-800">
+        <Loader2 className="w-8 h-8 text-cyan-500 dark:text-cyan-400 animate-spin" />
+        <span className="text-xs font-semibold text-slate-600 dark:text-slate-400">
           {t('studio.loading', { defaultValue: 'Mempersiapkan Studio WebGL 60 FPS...' })}
         </span>
       </div>
@@ -134,7 +134,7 @@ export const AdvancedStudioEditor: React.FC<AdvancedStudioEditorProps> = ({
   }
 
   return (
-    <div className="w-full h-[100dvh] md:h-screen md:max-h-[94vh] flex flex-col bg-[#090d16] rounded-none sm:rounded-2xl border-0 sm:border border-slate-800/90 shadow-2xl overflow-hidden relative">
+    <div className="w-full h-[100dvh] md:h-screen md:max-h-[94vh] flex flex-col bg-white dark:bg-dark-900 rounded-none sm:rounded-2xl border-0 sm:border border-slate-200 dark:border-slate-800/90 shadow-2xl overflow-hidden relative text-slate-800 dark:text-slate-200">
       {/* 1. Header Toolbar */}
       <StudioTopBar
         fileName={fileName}

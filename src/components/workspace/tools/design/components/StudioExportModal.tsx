@@ -45,19 +45,19 @@ export const StudioExportModal: React.FC<StudioExportModalProps> = ({
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm animate-fadeIn">
-      <div className="w-full max-w-md bg-[#0f172a] border border-slate-800 rounded-2xl shadow-2xl p-5 sm:p-6 space-y-5 select-none text-slate-200">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 dark:bg-black/80 backdrop-blur-sm animate-fadeIn">
+      <div className="w-full max-w-md bg-white dark:bg-dark-900 border border-slate-200 dark:border-slate-800 rounded-2xl shadow-2xl p-5 sm:p-6 space-y-5 select-none text-slate-800 dark:text-slate-200">
         {/* Header Modal */}
-        <div className="flex items-center justify-between border-b border-slate-800 pb-3">
+        <div className="flex items-center justify-between border-b border-slate-200 dark:border-slate-800 pb-3">
           <div className="flex items-center gap-2">
-            <div className="w-8 h-8 rounded-xl bg-cyan-500/15 border border-cyan-500/30 flex items-center justify-center text-cyan-400">
+            <div className="w-8 h-8 rounded-xl bg-cyan-500/10 dark:bg-cyan-500/15 border border-cyan-500/30 flex items-center justify-center text-cyan-600 dark:text-cyan-400">
               <Sparkles className="w-4 h-4" />
             </div>
             <div>
-              <h3 className="text-base font-bold text-white">
+              <h3 className="text-base font-bold text-slate-900 dark:text-white">
                 {t('studio.export.title', { defaultValue: 'Ekspor Hasil Editan' })}
               </h3>
-              <p className="text-xs text-slate-400">
+              <p className="text-xs text-slate-500 dark:text-slate-400">
                 {t('studio.export.subtitle', { defaultValue: 'Pilih format dan resolusi penyimpanan' })}
               </p>
             </div>
@@ -66,7 +66,7 @@ export const StudioExportModal: React.FC<StudioExportModalProps> = ({
             type="button"
             onClick={onClose}
             disabled={isExporting}
-            className="w-8 h-8 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800 flex items-center justify-center transition-colors cursor-pointer"
+            className="w-8 h-8 rounded-lg text-slate-400 hover:text-slate-700 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800 flex items-center justify-center transition-colors cursor-pointer"
           >
             <X className="w-4 h-4" />
           </button>
@@ -74,7 +74,7 @@ export const StudioExportModal: React.FC<StudioExportModalProps> = ({
 
         {/* Pilihan Format */}
         <div className="space-y-2">
-          <label className="text-xs font-semibold text-slate-300">
+          <label className="text-xs font-semibold text-slate-700 dark:text-slate-300">
             {t('studio.export.format', { defaultValue: 'Format Gambar' })}
           </label>
           <div className="grid grid-cols-3 gap-2">
@@ -91,8 +91,8 @@ export const StudioExportModal: React.FC<StudioExportModalProps> = ({
                 onClick={() => setFormat(item.id)}
                 className={`py-2.5 px-3 rounded-xl border text-center transition-all cursor-pointer ${
                   format === item.id
-                    ? 'bg-cyan-500/20 border-cyan-400 text-cyan-300 font-bold shadow-sm'
-                    : 'bg-slate-900 border-slate-800 text-slate-400 hover:text-slate-200 hover:border-slate-700'
+                    ? 'bg-cyan-500/15 border-cyan-500 dark:border-cyan-400 text-cyan-700 dark:text-cyan-300 font-bold shadow-xs'
+                    : 'bg-slate-50 dark:bg-slate-900 border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200 hover:border-slate-300 dark:hover:border-slate-700'
                 }`}
               >
                 <div className="text-xs">{item.label}</div>
@@ -106,10 +106,10 @@ export const StudioExportModal: React.FC<StudioExportModalProps> = ({
         {format !== 'png' && (
           <div className="space-y-1.5">
             <div className="flex items-center justify-between text-xs">
-              <span className="text-slate-300 font-medium">
+              <span className="text-slate-700 dark:text-slate-300 font-medium">
                 {t('studio.export.quality', { defaultValue: 'Kualitas Kompresi' })}
               </span>
-              <span className="font-mono text-cyan-400 font-bold">{Math.round(quality * 100)}%</span>
+              <span className="font-mono text-cyan-600 dark:text-cyan-400 font-bold">{Math.round(quality * 100)}%</span>
             </div>
             <input
               type="range"
@@ -118,14 +118,14 @@ export const StudioExportModal: React.FC<StudioExportModalProps> = ({
               step="0.02"
               value={quality}
               onChange={(e) => setQuality(Number(e.target.value))}
-              className="w-full h-1.5 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-cyan-400"
+              className="w-full h-1.5 bg-slate-200 dark:bg-slate-800 rounded-lg appearance-none cursor-pointer accent-cyan-600 dark:accent-cyan-400"
             />
           </div>
         )}
 
         {/* Pilihan Resolusi */}
         <div className="space-y-2">
-          <label className="text-xs font-semibold text-slate-300">
+          <label className="text-xs font-semibold text-slate-700 dark:text-slate-300">
             {t('studio.export.resolution', { defaultValue: 'Resolusi Output' })}
           </label>
           <div className="space-y-1.5">
@@ -134,19 +134,19 @@ export const StudioExportModal: React.FC<StudioExportModalProps> = ({
               onClick={() => setResolutionMode('original')}
               className={`w-full p-2.5 rounded-xl border text-left flex items-center justify-between transition-all cursor-pointer ${
                 resolutionMode === 'original'
-                  ? 'bg-cyan-500/15 border-cyan-400 text-white font-medium'
-                  : 'bg-slate-900/60 border-slate-800 text-slate-400 hover:bg-slate-800/60'
+                  ? 'bg-cyan-500/10 dark:bg-cyan-500/15 border-cyan-500 dark:border-cyan-400 text-slate-900 dark:text-white font-medium'
+                  : 'bg-slate-50 dark:bg-slate-900/60 border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800/60'
               }`}
             >
               <div>
-                <div className="text-xs font-bold text-slate-200">
+                <div className="text-xs font-bold text-slate-800 dark:text-slate-200">
                   {t('studio.export.resOriginal', { defaultValue: 'Resolusi Asli (Kualitas Penuh)' })}
                 </div>
-                <div className="text-[11px] text-slate-400 font-mono">
+                <div className="text-[11px] text-slate-500 dark:text-slate-400 font-mono">
                   {originalDimensions.width} × {originalDimensions.height} px
                 </div>
               </div>
-              <span className="text-[10px] font-bold px-2 py-0.5 rounded bg-amber-500/15 text-amber-400 border border-amber-500/30">
+              <span className="text-[10px] font-bold px-2 py-0.5 rounded bg-amber-500/15 text-amber-600 dark:text-amber-400 border border-amber-500/30">
                 PRO • HD
               </span>
             </button>
@@ -156,15 +156,15 @@ export const StudioExportModal: React.FC<StudioExportModalProps> = ({
               onClick={() => setResolutionMode('fhd')}
               className={`w-full p-2.5 rounded-xl border text-left flex items-center justify-between transition-all cursor-pointer ${
                 resolutionMode === 'fhd'
-                  ? 'bg-cyan-500/15 border-cyan-400 text-white font-medium'
-                  : 'bg-slate-900/60 border-slate-800 text-slate-400 hover:bg-slate-800/60'
+                  ? 'bg-cyan-500/10 dark:bg-cyan-500/15 border-cyan-500 dark:border-cyan-400 text-slate-900 dark:text-white font-medium'
+                  : 'bg-slate-50 dark:bg-slate-900/60 border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800/60'
               }`}
             >
               <div>
-                <div className="text-xs font-bold text-slate-200">Full HD (1080p)</div>
-                <div className="text-[11px] text-slate-400">Ideal untuk Instagram, WhatsApp & Web</div>
+                <div className="text-xs font-bold text-slate-800 dark:text-slate-200">Full HD (1080p)</div>
+                <div className="text-[11px] text-slate-500 dark:text-slate-400">Ideal untuk Instagram, WhatsApp & Web</div>
               </div>
-              <span className="text-[10px] font-bold px-2 py-0.5 rounded bg-cyan-500/15 text-cyan-400 border border-cyan-500/30">
+              <span className="text-[10px] font-bold px-2 py-0.5 rounded bg-cyan-500/15 text-cyan-600 dark:text-cyan-400 border border-cyan-500/30">
                 FAVORIT
               </span>
             </button>
@@ -177,7 +177,7 @@ export const StudioExportModal: React.FC<StudioExportModalProps> = ({
             type="button"
             onClick={onClose}
             disabled={isExporting}
-            className="flex-1 h-11 rounded-xl border border-slate-800 bg-slate-900 hover:bg-slate-800 text-slate-300 text-xs font-semibold transition-colors cursor-pointer"
+            className="flex-1 h-11 rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-100 dark:bg-slate-900 hover:bg-slate-200 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-300 text-xs font-semibold transition-colors cursor-pointer"
           >
             {t('common.cancel', { defaultValue: 'Batal' })}
           </button>

@@ -114,11 +114,11 @@ export const StudioSidebar: React.FC<StudioSidebarProps> = ({
     return (
       <div className="space-y-1.5 py-1">
         <div className="flex items-center justify-between text-xs">
-          <span className="text-slate-300 font-medium">{t(labelKey, { defaultValue: defaultLabel })}</span>
+          <span className="text-slate-700 dark:text-slate-300 font-medium">{t(labelKey, { defaultValue: defaultLabel })}</span>
           <button
             type="button"
             onClick={() => onUpdateAdjustment(key, 0)}
-            className="font-mono text-slate-400 hover:text-cyan-400 transition-colors text-[11px] cursor-pointer"
+            className="font-mono text-slate-500 dark:text-slate-400 hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors text-[11px] cursor-pointer"
             title="Klik untuk reset ke 0"
           >
             {val > 0 ? `+${val}` : val}
@@ -132,7 +132,7 @@ export const StudioSidebar: React.FC<StudioSidebarProps> = ({
             step={step}
             value={val}
             onChange={(e) => onUpdateAdjustment(key, Number(e.target.value))}
-            className="w-full h-1.5 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-cyan-400 focus:outline-none"
+            className="w-full h-1.5 bg-slate-200 dark:bg-slate-800 rounded-lg appearance-none cursor-pointer accent-cyan-600 dark:accent-cyan-400 focus:outline-none"
           />
         </div>
       </div>
@@ -142,9 +142,9 @@ export const StudioSidebar: React.FC<StudioSidebarProps> = ({
   const selectedTextLayer = textLayers.find((l) => l.id === selectedTextId) || null;
 
   return (
-    <aside className="w-full md:w-80 lg:w-88 bg-[#0f172a]/95 backdrop-blur-md border-t md:border-t-0 md:border-l border-slate-800/80 flex flex-col flex-1 min-h-0 md:h-full select-none z-20 shrink-0">
+    <aside className="w-full md:w-80 lg:w-88 bg-white/95 dark:bg-dark-900/95 backdrop-blur-md border-t md:border-t-0 md:border-l border-slate-200 dark:border-slate-800/80 flex flex-col flex-1 min-h-0 md:h-full select-none z-20 shrink-0">
       {/* Tab Navigation Bar */}
-      <div className="flex items-center justify-between p-1.5 sm:p-2 border-b border-slate-800/80 bg-slate-900/60 overflow-x-auto no-scrollbar shrink-0">
+      <div className="flex items-center justify-between p-1.5 sm:p-2 border-b border-slate-200 dark:border-slate-800/80 bg-slate-50/80 dark:bg-slate-900/60 overflow-x-auto no-scrollbar shrink-0">
         {tabs.map((tab) => {
           const Icon = tab.icon;
           const isActive = activeTab === tab.id;
@@ -155,8 +155,8 @@ export const StudioSidebar: React.FC<StudioSidebarProps> = ({
               onClick={() => onSelectTab(tab.id)}
               className={`flex-1 min-w-[50px] py-1.5 sm:py-2 px-1 rounded-xl flex flex-col items-center justify-center gap-1 transition-all cursor-pointer ${
                 isActive
-                  ? 'bg-cyan-500/15 text-cyan-400 font-bold border border-cyan-500/30 shadow-sm'
-                  : 'text-slate-400 hover:text-slate-200 hover:bg-slate-800/50 font-medium'
+                  ? 'bg-cyan-500/15 text-cyan-600 dark:text-cyan-400 font-bold border border-cyan-500/30 shadow-xs'
+                  : 'text-slate-500 dark:text-slate-400 hover:text-slate-800 dark:hover:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800/50 font-medium'
               }`}
             >
               <Icon className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
@@ -169,13 +169,13 @@ export const StudioSidebar: React.FC<StudioSidebarProps> = ({
       </div>
 
       {/* Konten Tab Inspector */}
-      <div className="flex-1 overflow-y-auto p-3 sm:p-4 space-y-4 sm:space-y-5 text-slate-200 overscroll-contain pb-8 md:pb-4">
+      <div className="flex-1 overflow-y-auto p-3 sm:p-4 space-y-4 sm:space-y-5 text-slate-800 dark:text-slate-200 overscroll-contain pb-8 md:pb-4">
         {/* TAB 1: ADJUST (PENYESUAIAN WARNA) */}
         {activeTab === 'adjust' && (
           <div className="space-y-4">
-            <div className="border-b border-slate-800 pb-2">
-              <h4 className="text-xs font-bold uppercase tracking-wider text-slate-400 flex items-center gap-1.5">
-                <Sun className="w-3.5 h-3.5 text-cyan-400" />
+            <div className="border-b border-slate-200 dark:border-slate-800 pb-2">
+              <h4 className="text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400 flex items-center gap-1.5">
+                <Sun className="w-3.5 h-3.5 text-cyan-500 dark:text-cyan-400" />
                 <span>{t('studio.section.light', { defaultValue: 'Pencahayaan & Eksposur' })}</span>
               </h4>
             </div>
@@ -187,9 +187,9 @@ export const StudioSidebar: React.FC<StudioSidebarProps> = ({
               {renderSlider('shadows', 'studio.slider.shadows', 'Shadows', -100, 100)}
             </div>
 
-            <div className="border-b border-slate-800 pb-2 pt-2">
-              <h4 className="text-xs font-bold uppercase tracking-wider text-slate-400 flex items-center gap-1.5">
-                <Thermometer className="w-3.5 h-3.5 text-amber-400" />
+            <div className="border-b border-slate-200 dark:border-slate-800 pb-2 pt-2">
+              <h4 className="text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400 flex items-center gap-1.5">
+                <Thermometer className="w-3.5 h-3.5 text-amber-500 dark:text-amber-400" />
                 <span>{t('studio.section.color', { defaultValue: 'Warna & Temperatur' })}</span>
               </h4>
             </div>
@@ -205,9 +205,9 @@ export const StudioSidebar: React.FC<StudioSidebarProps> = ({
         {/* TAB 2: PRESETS (FILTER FILM) */}
         {activeTab === 'presets' && (
           <div className="space-y-3">
-            <div className="border-b border-slate-800 pb-2">
-              <h4 className="text-xs font-bold uppercase tracking-wider text-slate-400 flex items-center gap-1.5">
-                <Sparkles className="w-3.5 h-3.5 text-cyan-400" />
+            <div className="border-b border-slate-200 dark:border-slate-800 pb-2">
+              <h4 className="text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400 flex items-center gap-1.5">
+                <Sparkles className="w-3.5 h-3.5 text-cyan-500 dark:text-cyan-400" />
                 <span>{t('studio.section.presets', { defaultValue: 'Preset Color Grading' })}</span>
               </h4>
             </div>
@@ -222,26 +222,26 @@ export const StudioSidebar: React.FC<StudioSidebarProps> = ({
                     onClick={() => onApplyPreset(preset.id)}
                     className={`p-3 rounded-xl border text-left flex flex-col justify-between gap-2 transition-all cursor-pointer ${
                       isSelected
-                        ? 'bg-cyan-500/15 border-cyan-400 shadow-md shadow-cyan-500/10'
-                        : 'bg-slate-900/60 border-slate-800/90 hover:border-slate-700 hover:bg-slate-800/60'
+                        ? 'bg-cyan-500/15 border-cyan-500 dark:border-cyan-400 shadow-md shadow-cyan-500/10'
+                        : 'bg-slate-50 dark:bg-slate-900/60 border-slate-200 dark:border-slate-800/90 hover:border-slate-300 dark:hover:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-800/60'
                     }`}
                   >
                     <div className="flex items-center justify-between w-full">
                       <div
-                        className="w-7 h-7 rounded-lg shadow-inner border border-white/20 shrink-0"
+                        className="w-7 h-7 rounded-lg shadow-inner border border-black/10 dark:border-white/20 shrink-0"
                         style={{ background: preset.colorPreview }}
                       />
                       {preset.badge && (
-                        <span className="text-[9px] font-extrabold px-1.5 py-0.5 rounded bg-cyan-500/20 text-cyan-300 font-mono">
+                        <span className="text-[9px] font-extrabold px-1.5 py-0.5 rounded bg-cyan-500/15 dark:bg-cyan-500/20 text-cyan-700 dark:text-cyan-300 font-mono">
                           {preset.badge}
                         </span>
                       )}
                     </div>
                     <div>
-                      <div className="text-xs font-bold text-white truncate">
+                      <div className="text-xs font-bold text-slate-800 dark:text-white truncate">
                         {t(preset.titleKey, { defaultValue: preset.defaultTitle })}
                       </div>
-                      <div className="text-[10px] text-slate-400 line-clamp-1">
+                      <div className="text-[10px] text-slate-500 dark:text-slate-400 line-clamp-1">
                         {t(preset.descriptionKey, { defaultValue: preset.defaultDesc })}
                       </div>
                     </div>
@@ -255,9 +255,9 @@ export const StudioSidebar: React.FC<StudioSidebarProps> = ({
         {/* TAB 3: ENHANCE (DETAIL & KETAJAMAN) */}
         {activeTab === 'enhance' && (
           <div className="space-y-4">
-            <div className="border-b border-slate-800 pb-2">
-              <h4 className="text-xs font-bold uppercase tracking-wider text-slate-400 flex items-center gap-1.5">
-                <Zap className="w-3.5 h-3.5 text-cyan-400" />
+            <div className="border-b border-slate-200 dark:border-slate-800 pb-2">
+              <h4 className="text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400 flex items-center gap-1.5">
+                <Zap className="w-3.5 h-3.5 text-cyan-500 dark:text-cyan-400" />
                 <span>{t('studio.section.enhance', { defaultValue: 'Detail & Efek Khusus' })}</span>
               </h4>
             </div>
@@ -272,9 +272,9 @@ export const StudioSidebar: React.FC<StudioSidebarProps> = ({
         {/* TAB 4: TRANSFORM (ROTASI & POTONG) */}
         {activeTab === 'transform' && (
           <div className="space-y-4">
-            <div className="border-b border-slate-800 pb-2">
-              <h4 className="text-xs font-bold uppercase tracking-wider text-slate-400 flex items-center gap-1.5">
-                <RotateCw className="w-3.5 h-3.5 text-cyan-400" />
+            <div className="border-b border-slate-200 dark:border-slate-800 pb-2">
+              <h4 className="text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400 flex items-center gap-1.5">
+                <RotateCw className="w-3.5 h-3.5 text-cyan-500 dark:text-cyan-400" />
                 <span>{t('studio.section.orient', { defaultValue: 'Rotasi & Cermin' })}</span>
               </h4>
             </div>
@@ -283,17 +283,17 @@ export const StudioSidebar: React.FC<StudioSidebarProps> = ({
               <button
                 type="button"
                 onClick={onRotateCCW}
-                className="h-10 px-3 bg-slate-900 border border-slate-800 hover:border-slate-700 hover:bg-slate-800 rounded-xl text-xs font-semibold flex items-center justify-center gap-2 text-slate-200 transition-colors cursor-pointer"
+                className="h-10 px-3 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-slate-300 dark:hover:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-xl text-xs font-semibold flex items-center justify-center gap-2 text-slate-700 dark:text-slate-200 transition-colors cursor-pointer"
               >
-                <RotateCcw className="w-4 h-4 text-cyan-400" />
+                <RotateCcw className="w-4 h-4 text-cyan-500 dark:text-cyan-400" />
                 <span>-90°</span>
               </button>
               <button
                 type="button"
                 onClick={onRotateCW}
-                className="h-10 px-3 bg-slate-900 border border-slate-800 hover:border-slate-700 hover:bg-slate-800 rounded-xl text-xs font-semibold flex items-center justify-center gap-2 text-slate-200 transition-colors cursor-pointer"
+                className="h-10 px-3 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-slate-300 dark:hover:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-xl text-xs font-semibold flex items-center justify-center gap-2 text-slate-700 dark:text-slate-200 transition-colors cursor-pointer"
               >
-                <RotateCw className="w-4 h-4 text-cyan-400" />
+                <RotateCw className="w-4 h-4 text-cyan-500 dark:text-cyan-400" />
                 <span>+90°</span>
               </button>
               <button
@@ -301,11 +301,11 @@ export const StudioSidebar: React.FC<StudioSidebarProps> = ({
                 onClick={onToggleFlipH}
                 className={`h-10 px-3 border rounded-xl text-xs font-semibold flex items-center justify-center gap-2 transition-colors cursor-pointer ${
                   transform.flipH
-                    ? 'bg-cyan-500/20 border-cyan-400 text-cyan-300'
-                    : 'bg-slate-900 border-slate-800 hover:border-slate-700 hover:bg-slate-800 text-slate-200'
+                    ? 'bg-cyan-500/20 border-cyan-500 dark:border-cyan-400 text-cyan-700 dark:text-cyan-300'
+                    : 'bg-slate-50 dark:bg-slate-900 border-slate-200 dark:border-slate-800 hover:border-slate-300 dark:hover:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-200'
                 }`}
               >
-                <FlipHorizontal className="w-4 h-4 text-cyan-400" />
+                <FlipHorizontal className="w-4 h-4 text-cyan-500 dark:text-cyan-400" />
                 <span>Flip H</span>
               </button>
               <button
@@ -313,18 +313,18 @@ export const StudioSidebar: React.FC<StudioSidebarProps> = ({
                 onClick={onToggleFlipV}
                 className={`h-10 px-3 border rounded-xl text-xs font-semibold flex items-center justify-center gap-2 transition-colors cursor-pointer ${
                   transform.flipV
-                    ? 'bg-cyan-500/20 border-cyan-400 text-cyan-300'
-                    : 'bg-slate-900 border-slate-800 hover:border-slate-700 hover:bg-slate-800 text-slate-200'
+                    ? 'bg-cyan-500/20 border-cyan-400 text-cyan-700 dark:text-cyan-300'
+                    : 'bg-slate-50 dark:bg-slate-900 border-slate-200 dark:border-slate-800 hover:border-slate-300 dark:hover:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-200'
                 }`}
               >
-                <FlipVertical className="w-4 h-4 text-cyan-400" />
+                <FlipVertical className="w-4 h-4 text-cyan-500 dark:text-cyan-400" />
                 <span>Flip V</span>
               </button>
             </div>
 
-            <div className="border-b border-slate-800 pb-2 pt-2">
-              <h4 className="text-xs font-bold uppercase tracking-wider text-slate-400 flex items-center gap-1.5">
-                <Crop className="w-3.5 h-3.5 text-cyan-400" />
+            <div className="border-b border-slate-200 dark:border-slate-800 pb-2 pt-2">
+              <h4 className="text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400 flex items-center gap-1.5">
+                <Crop className="w-3.5 h-3.5 text-cyan-500 dark:text-cyan-400" />
                 <span>{t('studio.section.crop', { defaultValue: 'Rasio Aspek Crop' })}</span>
               </h4>
             </div>
@@ -337,8 +337,8 @@ export const StudioSidebar: React.FC<StudioSidebarProps> = ({
                   onClick={() => onSetCropAspect(aspect)}
                   className={`py-2 px-2 text-xs font-semibold rounded-lg border transition-all cursor-pointer text-center ${
                     transform.cropAspect === aspect
-                      ? 'bg-cyan-500/20 border-cyan-400 text-cyan-300'
-                      : 'bg-slate-900/60 border-slate-800 text-slate-300 hover:bg-slate-800'
+                      ? 'bg-cyan-500/20 border-cyan-500 dark:border-cyan-400 text-cyan-700 dark:text-cyan-300'
+                      : 'bg-slate-50 dark:bg-slate-900/60 border-slate-200 dark:border-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800'
                   }`}
                 >
                   {aspect === 'free' ? t('studio.crop.free', { defaultValue: 'Bebas' }) : aspect}
@@ -350,7 +350,7 @@ export const StudioSidebar: React.FC<StudioSidebarProps> = ({
               <button
                 type="button"
                 onClick={onResetCrop}
-                className="w-full py-2 px-3 rounded-lg border border-rose-500/30 text-rose-300 hover:bg-rose-500/10 text-xs font-semibold transition-colors cursor-pointer"
+                className="w-full py-2 px-3 rounded-lg border border-rose-500/30 text-rose-600 dark:text-rose-300 hover:bg-rose-500/10 text-xs font-semibold transition-colors cursor-pointer"
               >
                 {t('studio.crop.reset', { defaultValue: 'Batalkan Potongan' })}
               </button>
@@ -364,7 +364,7 @@ export const StudioSidebar: React.FC<StudioSidebarProps> = ({
             <button
               type="button"
               onClick={onAddTextLayer}
-              className="w-full h-10 px-4 bg-cyan-500/15 hover:bg-cyan-500/25 border border-cyan-500/40 text-cyan-300 rounded-xl text-xs font-bold flex items-center justify-center gap-2 transition-all cursor-pointer"
+              className="w-full h-10 px-4 bg-cyan-500/10 dark:bg-cyan-500/15 hover:bg-cyan-500/20 dark:hover:bg-cyan-500/25 border border-cyan-500/40 text-cyan-700 dark:text-cyan-300 rounded-xl text-xs font-bold flex items-center justify-center gap-2 transition-all cursor-pointer"
             >
               <Plus className="w-4 h-4" />
               <span>{t('studio.text.add', { defaultValue: 'Tambah Teks Baru' })}</span>
@@ -380,18 +380,18 @@ export const StudioSidebar: React.FC<StudioSidebarProps> = ({
                     onClick={() => onSelectTextId(layer.id)}
                     className={`p-2.5 rounded-xl border flex items-center justify-between gap-2 transition-all cursor-pointer ${
                       isSelected
-                        ? 'bg-slate-800/90 border-cyan-400 shadow-sm'
-                        : 'bg-slate-900/60 border-slate-800 hover:border-slate-700'
+                        ? 'bg-slate-100 dark:bg-slate-800/90 border-cyan-500 dark:border-cyan-400 shadow-sm'
+                        : 'bg-slate-50 dark:bg-slate-900/60 border-slate-200 dark:border-slate-800 hover:border-slate-300 dark:hover:border-slate-700'
                     }`}
                   >
-                    <span className="text-xs font-medium text-slate-200 truncate">{layer.text || '(Kosong)'}</span>
+                    <span className="text-xs font-medium text-slate-800 dark:text-slate-200 truncate">{layer.text || '(Kosong)'}</span>
                     <button
                       type="button"
                       onClick={(e) => {
                         e.stopPropagation();
                         onRemoveTextLayer(layer.id);
                       }}
-                      className="p-1 rounded text-slate-500 hover:text-rose-400 transition-colors"
+                      className="p-1 rounded text-slate-400 hover:text-rose-600 dark:hover:text-rose-400 transition-colors"
                     >
                       <Trash2 className="w-3.5 h-3.5" />
                     </button>
@@ -402,20 +402,20 @@ export const StudioSidebar: React.FC<StudioSidebarProps> = ({
 
             {/* Editor Teks yang Sedang Dipilih */}
             {selectedTextLayer && (
-              <div className="p-3 bg-slate-900/90 rounded-xl border border-slate-800 space-y-3">
+              <div className="p-3 bg-slate-50 dark:bg-slate-900/90 rounded-xl border border-slate-200 dark:border-slate-800 space-y-3">
                 <input
                   type="text"
                   value={selectedTextLayer.text}
                   onChange={(e) => onUpdateTextLayer(selectedTextLayer.id, { text: e.target.value })}
                   placeholder="Ketik teks di sini..."
-                  className="w-full h-9 px-3 bg-slate-950 border border-slate-700 rounded-lg text-xs text-white focus:border-cyan-400 focus:outline-none"
+                  className="w-full h-9 px-3 bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-700 rounded-lg text-xs text-slate-900 dark:text-white focus:border-cyan-500 dark:focus:border-cyan-400 focus:outline-none"
                 />
 
                 <div className="flex items-center gap-2">
                   <select
                     value={selectedTextLayer.fontFamily}
                     onChange={(e) => onUpdateTextLayer(selectedTextLayer.id, { fontFamily: e.target.value })}
-                    className="flex-1 h-8 px-2 bg-slate-950 border border-slate-700 rounded-lg text-xs text-slate-200 focus:outline-none"
+                    className="flex-1 h-8 px-2 bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-700 rounded-lg text-xs text-slate-800 dark:text-slate-200 focus:outline-none"
                   >
                     <option value="Inter, sans-serif">Inter Modern</option>
                     <option value="'Playfair Display', serif">Playfair Serif</option>
@@ -428,7 +428,7 @@ export const StudioSidebar: React.FC<StudioSidebarProps> = ({
                       type="button"
                       onClick={() => onUpdateTextLayer(selectedTextLayer.id, { bold: !selectedTextLayer.bold })}
                       className={`w-8 h-8 rounded-lg flex items-center justify-center border ${
-                        selectedTextLayer.bold ? 'bg-cyan-500/20 border-cyan-400 text-cyan-300' : 'bg-slate-950 border-slate-700 text-slate-400'
+                        selectedTextLayer.bold ? 'bg-cyan-500/20 border-cyan-500 dark:border-cyan-400 text-cyan-700 dark:text-cyan-300' : 'bg-white dark:bg-slate-950 border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-400'
                       }`}
                     >
                       <Bold className="w-3.5 h-3.5" />
@@ -437,7 +437,7 @@ export const StudioSidebar: React.FC<StudioSidebarProps> = ({
                       type="button"
                       onClick={() => onUpdateTextLayer(selectedTextLayer.id, { italic: !selectedTextLayer.italic })}
                       className={`w-8 h-8 rounded-lg flex items-center justify-center border ${
-                        selectedTextLayer.italic ? 'bg-cyan-500/20 border-cyan-400 text-cyan-300' : 'bg-slate-950 border-slate-700 text-slate-400'
+                        selectedTextLayer.italic ? 'bg-cyan-500/20 border-cyan-500 dark:border-cyan-400 text-cyan-700 dark:text-cyan-300' : 'bg-white dark:bg-slate-950 border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-400'
                       }`}
                     >
                       <Italic className="w-3.5 h-3.5" />
@@ -446,7 +446,7 @@ export const StudioSidebar: React.FC<StudioSidebarProps> = ({
                 </div>
 
                 <div className="space-y-1">
-                  <div className="flex items-center justify-between text-xs text-slate-400">
+                  <div className="flex items-center justify-between text-xs text-slate-600 dark:text-slate-400">
                     <span>{t('studio.text.size', { defaultValue: 'Ukuran Font' })}</span>
                     <span className="font-mono">{selectedTextLayer.fontSize}px</span>
                   </div>
@@ -456,17 +456,17 @@ export const StudioSidebar: React.FC<StudioSidebarProps> = ({
                     max="120"
                     value={selectedTextLayer.fontSize}
                     onChange={(e) => onUpdateTextLayer(selectedTextLayer.id, { fontSize: Number(e.target.value) })}
-                    className="w-full h-1.5 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-cyan-400"
+                    className="w-full h-1.5 bg-slate-200 dark:bg-slate-800 rounded-lg appearance-none cursor-pointer accent-cyan-600 dark:accent-cyan-400"
                   />
                 </div>
 
                 <div className="flex items-center justify-between pt-1 text-xs">
-                  <span className="text-slate-400">{t('studio.text.color', { defaultValue: 'Warna Teks' })}</span>
+                  <span className="text-slate-600 dark:text-slate-400">{t('studio.text.color', { defaultValue: 'Warna Teks' })}</span>
                   <input
                     type="color"
                     value={selectedTextLayer.color}
                     onChange={(e) => onUpdateTextLayer(selectedTextLayer.id, { color: e.target.value })}
-                    className="w-8 h-7 bg-transparent rounded cursor-pointer border border-slate-700"
+                    className="w-8 h-7 bg-transparent rounded cursor-pointer border border-slate-300 dark:border-slate-700"
                   />
                 </div>
               </div>
@@ -477,18 +477,18 @@ export const StudioSidebar: React.FC<StudioSidebarProps> = ({
         {/* TAB 6: BRUSH (MENGGAMBAR BEBAS) */}
         {activeTab === 'brush' && (
           <div className="space-y-4">
-            <div className="border-b border-slate-800 pb-2">
-              <h4 className="text-xs font-bold uppercase tracking-wider text-slate-400 flex items-center gap-1.5">
-                <Paintbrush className="w-3.5 h-3.5 text-cyan-400" />
+            <div className="border-b border-slate-200 dark:border-slate-800 pb-2">
+              <h4 className="text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400 flex items-center gap-1.5">
+                <Paintbrush className="w-3.5 h-3.5 text-cyan-500 dark:text-cyan-400" />
                 <span>{t('studio.section.brush', { defaultValue: 'Coretan Kuas Bebas' })}</span>
               </h4>
             </div>
 
             <div className="space-y-3">
               <div className="space-y-1.5">
-                <div className="flex items-center justify-between text-xs text-slate-300 font-medium">
+                <div className="flex items-center justify-between text-xs text-slate-700 dark:text-slate-300 font-medium">
                   <span>{t('studio.brush.size', { defaultValue: 'Ukuran Kuas' })}</span>
-                  <span className="font-mono text-cyan-400 text-[11px]">{brushSize}px</span>
+                  <span className="font-mono text-cyan-600 dark:text-cyan-400 text-[11px]">{brushSize}px</span>
                 </div>
                 <input
                   type="range"
@@ -496,14 +496,14 @@ export const StudioSidebar: React.FC<StudioSidebarProps> = ({
                   max="60"
                   value={brushSize}
                   onChange={(e) => onSetBrushSize(Number(e.target.value))}
-                  className="w-full h-1.5 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-cyan-400"
+                  className="w-full h-1.5 bg-slate-200 dark:bg-slate-800 rounded-lg appearance-none cursor-pointer accent-cyan-600 dark:accent-cyan-400"
                 />
               </div>
 
               <div className="space-y-1.5">
-                <div className="flex items-center justify-between text-xs text-slate-300 font-medium">
+                <div className="flex items-center justify-between text-xs text-slate-700 dark:text-slate-300 font-medium">
                   <span>{t('studio.brush.opacity', { defaultValue: 'Opasitas' })}</span>
-                  <span className="font-mono text-cyan-400 text-[11px]">{Math.round(brushOpacity * 100)}%</span>
+                  <span className="font-mono text-cyan-600 dark:text-cyan-400 text-[11px]">{Math.round(brushOpacity * 100)}%</span>
                 </div>
                 <input
                   type="range"
@@ -512,12 +512,12 @@ export const StudioSidebar: React.FC<StudioSidebarProps> = ({
                   step="0.05"
                   value={brushOpacity}
                   onChange={(e) => onSetBrushOpacity(Number(e.target.value))}
-                  className="w-full h-1.5 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-cyan-400"
+                  className="w-full h-1.5 bg-slate-200 dark:bg-slate-800 rounded-lg appearance-none cursor-pointer accent-cyan-600 dark:accent-cyan-400"
                 />
               </div>
 
               <div className="space-y-1.5">
-                <span className="text-xs text-slate-300 font-medium">{t('studio.brush.color', { defaultValue: 'Pilihan Warna' })}</span>
+                <span className="text-xs text-slate-700 dark:text-slate-300 font-medium">{t('studio.brush.color', { defaultValue: 'Pilihan Warna' })}</span>
                 <div className="flex items-center gap-2">
                   {['#ffffff', '#38bdf8', '#facc15', '#f43f5e', '#4ade80', '#09090b'].map((color) => (
                     <button
@@ -525,7 +525,7 @@ export const StudioSidebar: React.FC<StudioSidebarProps> = ({
                       type="button"
                       onClick={() => onSetBrushColor(color)}
                       className={`w-7 h-7 rounded-lg border transition-transform cursor-pointer ${
-                        brushColor === color ? 'scale-110 border-white shadow-md' : 'border-slate-700 hover:scale-105'
+                        brushColor === color ? 'scale-110 border-slate-900 dark:border-white shadow-md' : 'border-slate-300 dark:border-slate-700 hover:scale-105'
                       }`}
                       style={{ backgroundColor: color }}
                     />
@@ -534,7 +534,7 @@ export const StudioSidebar: React.FC<StudioSidebarProps> = ({
                     type="color"
                     value={brushColor}
                     onChange={(e) => onSetBrushColor(e.target.value)}
-                    className="w-7 h-7 rounded-lg bg-transparent cursor-pointer border border-slate-700"
+                    className="w-7 h-7 rounded-lg bg-transparent cursor-pointer border border-slate-300 dark:border-slate-700"
                     title="Pilih warna bebas"
                   />
                 </div>
@@ -543,7 +543,7 @@ export const StudioSidebar: React.FC<StudioSidebarProps> = ({
               <button
                 type="button"
                 onClick={onClearBrushStrokes}
-                className="w-full py-2.5 px-3 rounded-xl border border-rose-500/30 text-rose-300 hover:bg-rose-500/10 text-xs font-semibold flex items-center justify-center gap-2 transition-colors cursor-pointer pt-2"
+                className="w-full py-2.5 px-3 rounded-xl border border-rose-500/30 text-rose-600 dark:text-rose-300 hover:bg-rose-500/10 text-xs font-semibold flex items-center justify-center gap-2 transition-colors cursor-pointer pt-2"
               >
                 <Trash2 className="w-3.5 h-3.5" />
                 <span>{t('studio.brush.clear', { defaultValue: 'Hapus Semua Coretan' })}</span>
