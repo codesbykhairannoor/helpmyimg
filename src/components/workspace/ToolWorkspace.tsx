@@ -26,6 +26,7 @@ import { BlurFaceControl } from './tools/BlurFaceControl';
 import { BlurEngine } from './tools/blur/blurEngine';
 import { MetadataControl } from './tools/MetadataControl';
 import { EditExifControl } from './tools/EditExifControl';
+import { AdvancedStudioEditor } from './tools/design/AdvancedStudioEditor';
 
 import { processImage, cropImage, rotateImage, smartCropImage, applyWatermark } from '../../utils/imageOperations';
 import { ACCEPTED_UPLOAD_TYPES } from '../../utils/wasmDecoder';
@@ -232,6 +233,29 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({
     }
     return 'ORIGINAL';
   })();
+
+  // Mode Studio Khusus: Advanced Studio Editor (Menggantikan Filerobot dengan WebGL GPU Shader 60 FPS)
+  if (initialTab === 'design' && batchItems.length > 0 && currentItem) {
+    return (
+      <section id="workspace" className="max-w-[1720px] mx-auto px-2 sm:px-4 lg:px-6 py-2 md:py-4">
+        <AdvancedStudioEditor
+          imageUrl={currentItem.processedUrl || currentItem.originalUrl}
+          fileName={currentItem.name}
+          onClose={() => {
+            setBatchItems([]);
+            setSelectedIndex(0);
+          }}
+          onSave={(dataUrl) => {
+            setBatchItems((prev) =>
+              prev.map((item, idx) =>
+                idx === selectedIndex ? { ...item, processedUrl: dataUrl, status: 'done' } : item
+              )
+            );
+          }}
+        />
+      </section>
+    );
+  }
 
   return (
     <section id="workspace" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 md:py-8">

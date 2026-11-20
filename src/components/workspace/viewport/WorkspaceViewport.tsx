@@ -407,10 +407,11 @@ export const WorkspaceViewport: React.FC<WorkspaceViewportProps> = ({
           )
         )}
 
-        {/* Design Editor (Filerobot Integration) */}
+        {/* Design Editor (Studio Integration) */}
         {initialTab === 'design' && currentItem?.originalUrl && (
           <DesignEditorControl
             imageUrl={currentItem.processedUrl || currentItem.originalUrl}
+            fileName={currentItem.name}
             onDownload={(dataUrl) => {
               const a = document.createElement('a');
               a.href = dataUrl;
