@@ -87,6 +87,7 @@ interface ColorBgControlProps {
   isProcessing: boolean;
   batchCount?: number;
   status?: 'idle' | 'queued' | 'processing' | 'done' | 'error';
+  currentTransparentUrl?: string | null;
   onProcessNow?: () => void;
   onDownload?: (is4k?: boolean) => void;
   hasProcessedAi?: boolean;
@@ -115,6 +116,7 @@ export const ColorBgControl: React.FC<ColorBgControlProps> = ({
   isProcessing,
   batchCount = 0,
   status = 'idle',
+  currentTransparentUrl,
   onProcessNow,
   onDownload,
   hasProcessedAi = true,
@@ -124,7 +126,7 @@ export const ColorBgControl: React.FC<ColorBgControlProps> = ({
   const { t } = useTranslation();
   const fileInputRef = useRef<HTMLInputElement>(null);
 
-  const isCutoutDone = status === 'done' && hasProcessedAi;
+  const isCutoutDone = status === 'done' && Boolean(currentTransparentUrl);
 
   const officialColors = [
     { label: t('color.off.red', { defaultValue: 'Merah Paspor' }), hex: '#DB1514' },
@@ -139,73 +141,6 @@ export const ColorBgControl: React.FC<ColorBgControlProps> = ({
 
   return (
     <div className="space-y-5">
-      {/* Tombol Utama: Ganti / Hapus Background Sekarang - Single Morphing Action Button */}
-      {onProcessNow && (
-        <div className="space-y-2.5">
-          {isCutoutDone ? (
-            <div className="space-y-2">
-              <div className="flex flex-col sm:flex-row gap-2">
-                <button
-                  type="button"
-                  onClick={() => onDownload?.(false)}
-                  disabled={isProcessing}
-                  className="flex-1 flex items-center justify-center gap-2 py-3.5 px-4 rounded-xl bg-gradient-to-r from-[#05DAED] via-cyan-400 to-[#12DA91] hover:from-cyan-400 hover:to-emerald-400 text-slate-950 font-black shadow-glow-cyan transition-all duration-200 transform hover:-translate-y-0.5 disabled:opacity-50 text-xs sm:text-sm tracking-wide cursor-pointer"
-                >
-                  <Download className="w-4 h-4 text-slate-950 stroke-[2.5]" />
-                  <span>{t('editor.downloadPhoto', { defaultValue: 'Download Foto' })}</span>
-                </button>
-
-                <button
-                  type="button"
-                  onClick={() => onDownload?.(true)}
-                  disabled={isProcessing}
-                  className="flex-1 flex items-center justify-center gap-1.5 py-3.5 px-3 rounded-xl bg-dark-800 hover:bg-dark-750 text-slate-200 border border-amber-500/40 hover:border-amber-400 font-bold text-xs sm:text-sm transition-all cursor-pointer group"
-                >
-                  <Crown className="w-3.5 h-3.5 text-amber-400 group-hover:scale-110 transition-transform" />
-                  <span className="truncate">{t('editor.downloadPro', { defaultValue: 'Download 4K Ultra-HD' })}</span>
-                  <span className="px-1.5 py-0.5 rounded text-[9px] font-mono font-bold bg-amber-400/20 text-amber-300 border border-amber-400/30">
-                    PRO
-                  </span>
-                </button>
-              </div>
-
-              {/* Secondary Re-apply action */}
-              <button
-                type="button"
-                onClick={onProcessNow}
-                disabled={isProcessing}
-                className="w-full py-1.5 text-xs text-slate-400 hover:text-white flex items-center justify-center gap-1.5 transition-colors cursor-pointer"
-              >
-                <RefreshCw className="w-3 h-3 text-neon-cyan" />
-                <span>{t('work.reprocessAi', { defaultValue: '⚡ Terapkan Perubahan Background' })}</span>
-              </button>
-            </div>
-          ) : (
-            <button
-              type="button"
-              onClick={onProcessNow}
-              disabled={isProcessing || status === 'processing' || batchCount === 0}
-              className="w-full flex items-center justify-center gap-2.5 py-3.5 px-4 rounded-xl bg-gradient-to-r from-neon-cyan via-neon-emerald to-neon-indigo hover:opacity-95 text-dark-900 font-extrabold shadow-glow-cyan transition-all duration-200 transform hover:-translate-y-0.5 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none disabled:shadow-none text-sm tracking-wide cursor-pointer"
-            >
-              {isProcessing || status === 'processing' ? (
-                <>
-                  <RefreshCw className="w-4 h-4 text-dark-900 animate-spin shrink-0" />
-                  <span>{t('work.processing', { defaultValue: 'Memproses Potong AI...' })}</span>
-                </>
-              ) : (
-                <>
-                  <Sparkles className="w-4 h-4 text-dark-900 shrink-0" />
-                  <span>
-                    {!hasProcessedAi || status === 'idle'
-                      ? t('color.applyNow', { defaultValue: '⚡ Ganti Background Sekarang' })
-                      : t('work.reprocessAi', { defaultValue: '⚡ Re-run AI Cutout' })}
-                  </span>
-                </>
-              )}
-            </button>
-          )}
-        </div>
-      )}
       {/* Hidden File Input for Custom Background Image */}
       <input
         ref={fileInputRef}
@@ -533,6 +468,57 @@ export const ColorBgControl: React.FC<ColorBgControlProps> = ({
               </button>
             ))}
           </div>
+        </div>
+      )}
+
+      {/* Main Action Button (Bottom of settings): Change Background Now -> Morph to Download */}
+      {onProcessNow && (
+        <div className="space-y-2.5 pt-2">
+          {isCutoutDone ? (
+            <div className="flex flex-col sm:flex-row gap-2">
+              <button
+                type="button"
+                onClick={() => onDownload?.(false)}
+                disabled={isProcessing}
+                className="flex-1 flex items-center justify-center gap-2 py-3.5 px-4 rounded-xl bg-gradient-to-r from-[#05DAED] via-cyan-400 to-[#12DA91] hover:from-cyan-400 hover:to-emerald-400 text-slate-950 font-black shadow-glow-cyan transition-all duration-200 transform hover:-translate-y-0.5 disabled:opacity-50 text-xs sm:text-sm tracking-wide cursor-pointer"
+              >
+                <Download className="w-4 h-4 text-slate-950 stroke-[2.5]" />
+                <span>{t('editor.downloadPhoto', { defaultValue: 'Download Foto' })}</span>
+              </button>
+
+              <button
+                type="button"
+                onClick={() => onDownload?.(true)}
+                disabled={isProcessing}
+                className="flex-1 flex items-center justify-center gap-1.5 py-3.5 px-3 rounded-xl bg-dark-800 hover:bg-dark-750 text-slate-200 border border-amber-500/40 hover:border-amber-400 font-bold text-xs sm:text-sm transition-all cursor-pointer group"
+              >
+                <Crown className="w-3.5 h-3.5 text-amber-400 group-hover:scale-110 transition-transform" />
+                <span className="truncate">{t('editor.downloadPro', { defaultValue: 'Download 4K Ultra-HD' })}</span>
+                <span className="px-1.5 py-0.5 rounded text-[9px] font-mono font-bold bg-amber-400/20 text-amber-300 border border-amber-400/30">
+                  PRO
+                </span>
+              </button>
+            </div>
+          ) : (
+            <button
+              type="button"
+              onClick={onProcessNow}
+              disabled={isProcessing || status === 'processing' || batchCount === 0}
+              className="w-full flex items-center justify-center gap-2.5 py-3.5 px-4 rounded-xl bg-gradient-to-r from-neon-cyan via-neon-emerald to-neon-indigo hover:opacity-95 text-dark-900 font-extrabold shadow-glow-cyan transition-all duration-200 transform hover:-translate-y-0.5 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none disabled:shadow-none text-sm tracking-wide cursor-pointer"
+            >
+              {isProcessing || status === 'processing' ? (
+                <>
+                  <RefreshCw className="w-4 h-4 text-dark-900 animate-spin shrink-0" />
+                  <span>{t('work.processing', { defaultValue: 'Memproses Potong AI...' })}</span>
+                </>
+              ) : (
+                <>
+                  <Sparkles className="w-4 h-4 text-dark-900 shrink-0" />
+                  <span>{t('color.applyNow', { defaultValue: '⚡ Ganti Background Sekarang' })}</span>
+                </>
+              )}
+            </button>
+          )}
         </div>
       )}
 

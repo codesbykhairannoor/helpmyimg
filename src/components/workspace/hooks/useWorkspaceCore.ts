@@ -131,53 +131,12 @@ export function useWorkspaceCore(initialTab: TabType = 'remove'): UseWorkspaceCo
       setBatchItems((prev) => {
         const baseList = isReplacing ? [] : prev;
         const merged = [...baseList, ...newItems];
-        if (
-          [
-            'convert',
-            'convertwebp',
-            'compress',
-            'compress100kb',
-            'compress50kb',
-            'compress200kb',
-            'remove',
-            'removelogo',
-            'removeperson',
-            'color',
-            'colorwhite',
-          ].includes(initialTab)
-        ) {
-          return merged.map((i) =>
-            newItems.some((n) => n.id === i.id)
-              ? { ...i, status: 'idle', transparentUrl: null, processedUrl: null, progress: 0 }
-              : i
-          );
-        }
-
-        // For non-cutout utility tabs, instantly mark as ready/done for direct preview
-        if (
-          [
-            'watermark',
-            'watermarkbulk',
-            'resize',
-            'resizeig',
-            'resizepassport',
-            'crop',
-            'rotate',
-            'picker',
-            'blurface',
-            'blurplate',
-            'design',
-            'metadata',
-            'editexif',
-          ].includes(initialTab)
-        ) {
-          return merged.map((i) =>
-            newItems.some((n) => n.id === i.id)
-              ? { ...i, status: 'done', transparentUrl: i.originalUrl, processedUrl: i.originalUrl, progress: 100 }
-              : i
-          );
-        }
-        return merged;
+        // All tools initialize in 'idle' state with processedUrl: null so action buttons (Apply/Process) are shown first
+        return merged.map((i) =>
+          newItems.some((n) => n.id === i.id)
+            ? { ...i, status: 'idle', transparentUrl: null, processedUrl: null, progress: 0 }
+            : i
+        );
       });
 
       if (isReplacing || batchItems.length === 0) setSelectedIndex(0);
@@ -188,23 +147,22 @@ export function useWorkspaceCore(initialTab: TabType = 'remove'): UseWorkspaceCo
   // Reset current item back to original unedited state (Keep file in workspace)
   const handleReset = useCallback(() => {
     if (!currentItem) return;
-    const isRemoveTab = initialTab === 'remove';
     setBatchItems((prev) =>
       prev.map((i) =>
         i.id === currentItem.id
           ? {
             ...i,
-            processedUrl: i.originalUrl,
-            transparentUrl: isRemoveTab ? null : i.originalUrl,
-            status: isRemoveTab ? 'idle' : 'done',
-            progress: isRemoveTab ? 0 : 100,
+            processedUrl: null,
+            transparentUrl: null,
+            status: 'idle',
+            progress: 0,
             progressStep: t('work.waiting', { defaultValue: 'Ready to process' }),
           }
           : i
       )
     );
     setToastMessage(t('editor.resetSuccess', { defaultValue: 'Gambar dikembalikan ke kondisi awal.' }));
-  }, [currentItem, initialTab, t]);
+  }, [currentItem, t]);
 
   // Upload other image (Replaces current active photo cleanly)
   const handleUploadOther = useCallback(() => {

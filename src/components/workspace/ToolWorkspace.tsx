@@ -463,8 +463,9 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({
                     }
                   }}
                   hasProcessedAi={Boolean(
-                    currentItem?.status === 'done' && currentItem?.processedUrl && currentItem?.processedUrl !== currentItem?.originalUrl
+                    currentItem?.status === 'done' && currentItem?.transparentUrl
                   )}
+                  currentTransparentUrl={currentItem?.transparentUrl}
                   batchCount={batchItems.length}
                   imageType={imageType}
                   setImageType={setImageType}
@@ -518,6 +519,54 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({
                   watermarkRotation={watermarkRotation}
                   setWatermarkRotation={setWatermarkRotation}
                   batchCount={batchItems.length}
+                  status={currentItem?.status || 'idle'}
+                  onDownload={() => {
+                    if (currentItem) handleDownloadSingle(currentItem);
+                  }}
+                  onApply={async () => {
+                    if (currentItem?.file) {
+                      setBatchItems((prev) =>
+                        prev.map((i) => (i.id === currentItem.id ? { ...i, status: 'processing' } : i))
+                      );
+                      try {
+                        let sourceBlob: Blob = currentItem.file;
+                        if (currentItem.transparentUrl && currentItem.transparentUrl !== currentItem.originalUrl) {
+                          const res = await fetch(currentItem.transparentUrl);
+                          sourceBlob = await res.blob();
+                        } else if (currentItem.processedUrl && currentItem.processedUrl !== currentItem.originalUrl) {
+                          const res = await fetch(currentItem.processedUrl);
+                          sourceBlob = await res.blob();
+                        }
+                        const blob = await applyWatermark(sourceBlob, {
+                          type: watermarkType,
+                          text: watermarkText,
+                          image: watermarkImage,
+                          color: watermarkColor,
+                          opacity: watermarkOpacity,
+                          position: watermarkPosition,
+                          scale: watermarkScale,
+                          rotation: watermarkRotation,
+                        });
+                        const url = URL.createObjectURL(blob);
+                        const newFile = new File([blob], currentItem.name, { type: blob.type || 'image/png' });
+                        setBatchItems((prev) =>
+                          prev.map((i) =>
+                            i.id === currentItem.id
+                              ? { ...i, file: newFile, processedUrl: url, status: 'done' }
+                              : i
+                          )
+                        );
+                        showToast(t('watermark.appliedSuccess', { defaultValue: 'Watermark berhasil diterapkan!' }));
+                      } catch (err: any) {
+                        console.error('Watermark apply failed', err);
+                        setBatchItems((prev) =>
+                          prev.map((i) =>
+                            i.id === currentItem.id ? { ...i, status: 'error', errorMessage: 'Watermark failed' } : i
+                          )
+                        );
+                      }
+                    }
+                  }}
                   onProcessBatch={async () => {
                     setBatchItems((prev) => prev.map((item) => ({ ...item, status: 'processing' })));
                     const newItems = [...batchItems];
@@ -685,7 +734,7 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({
                     setConvertFormat(newF);
                     if (currentItem && currentItem.status === 'done') {
                       setBatchItems((prev) =>
-                        prev.map((it) => (it.id === currentItem.id ? { ...it, status: 'idle' } : it))
+                        prev.map((it) => (it.id === currentItem.id ? { ...it, status: 'idle', processedUrl: null } : it))
                       );
                     }
                   }}
@@ -867,6 +916,10 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({
                   onUploadOther={handleUploadOther}
                   batchCount={batchItems.length}
                   isProcessing={currentItem?.status === 'processing'}
+                  status={currentItem?.status || 'idle'}
+                  onDownload={() => {
+                    if (currentItem) handleDownloadSingle(currentItem);
+                  }}
                 />
               )}
 
@@ -884,6 +937,10 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({
                   setCropHeight={setCropHeight}
                   cropRadius={cropRadius}
                   setCropRadius={setCropRadius}
+                  status={currentItem?.status || 'idle'}
+                  onDownload={() => {
+                    if (currentItem) handleDownloadSingle(currentItem);
+                  }}
                   onApply={async () => {
                     if (currentItem?.file) {
                       try {
@@ -954,6 +1011,10 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({
                   setFlipH={setFlipH}
                   flipV={flipV}
                   setFlipV={setFlipV}
+                  status={currentItem?.status || 'idle'}
+                  onDownload={() => {
+                    if (currentItem) handleDownloadSingle(currentItem);
+                  }}
                   onApply={async () => {
                     if (currentItem?.file) {
                       try {
@@ -1024,6 +1085,10 @@ export const ToolWorkspace: React.FC<ToolWorkspaceProps> = ({
                   setBoxes={setBlurBoxes}
                   blurIntensity={blurIntensity}
                   setBlurIntensity={setBlurIntensity}
+                  status={currentItem?.status || 'idle'}
+                  onDownload={() => {
+                    if (currentItem) handleDownloadSingle(currentItem);
+                  }}
                   onApply={async () => {
                     if (!currentItem) return;
                     try {

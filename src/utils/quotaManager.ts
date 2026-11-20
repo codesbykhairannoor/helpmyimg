@@ -13,6 +13,22 @@ export const QUOTA_CONFIG = {
 
 const KEY_PREFIX = 'hmi_daily_quota_v1_';
 
+const inMemoryQuotaStore = new Map<string, number>();
+
+// Clean up any historical quota keys in localStorage to ensure zero persistent storage
+if (typeof window !== 'undefined') {
+  try {
+    for (let i = localStorage.length - 1; i >= 0; i--) {
+      const k = localStorage.key(i);
+      if (k && k.startsWith('hmi_daily_quota')) {
+        localStorage.removeItem(k);
+      }
+    }
+  } catch {
+    // Ignore storage cleanup errors
+  }
+}
+
 function getTodayString(): string {
   const d = new Date();
   const yyyy = d.getFullYear();
@@ -55,13 +71,7 @@ export function get4kQuotaInfo(userId?: string | null, isPro?: boolean): QuotaSt
 
   const today = getTodayString();
   const storageKey = `${KEY_PREFIX}4k_${userId}_${today}`;
-  let used = 0;
-  try {
-    const raw = typeof window !== 'undefined' ? localStorage.getItem(storageKey) : null;
-    if (raw) used = parseInt(raw, 10) || 0;
-  } catch (e) {
-    used = 0;
-  }
+  const used = inMemoryQuotaStore.get(storageKey) || 0;
 
   const max = QUOTA_CONFIG.MEMBER_DAILY_4K;
   const remaining = Math.max(0, max - used);
@@ -76,7 +86,7 @@ export function get4kQuotaInfo(userId?: string | null, isPro?: boolean): QuotaSt
 }
 
 /**
- * Mengurangi 1 kuota ekspor 4K harian
+ * Mengurangi 1 kuota ekspor 4K harian (100% in-memory)
  */
 export function consume4kQuota(userId?: string | null, isPro?: boolean): boolean {
   if (isPro) return true;
@@ -84,26 +94,16 @@ export function consume4kQuota(userId?: string | null, isPro?: boolean): boolean
 
   const today = getTodayString();
   const storageKey = `${KEY_PREFIX}4k_${userId}_${today}`;
-  let used = 0;
-  try {
-    const raw = typeof window !== 'undefined' ? localStorage.getItem(storageKey) : null;
-    if (raw) used = parseInt(raw, 10) || 0;
-  } catch (e) {
-    used = 0;
-  }
+  const used = inMemoryQuotaStore.get(storageKey) || 0;
 
   if (used >= QUOTA_CONFIG.MEMBER_DAILY_4K) {
     return false;
   }
 
-  try {
-    if (typeof window !== 'undefined') {
-      localStorage.setItem(storageKey, String(used + 1));
-      // Dispatch storage event untuk sinkronisasi instan di UI
-      window.dispatchEvent(new Event('hmi-quota-updated'));
-    }
-  } catch (e) {
-    console.warn('Failed to update 4k quota in localStorage:', e);
+  inMemoryQuotaStore.set(storageKey, used + 1);
+  if (typeof window !== 'undefined') {
+    // Dispatch storage event untuk sinkronisasi instan di UI
+    window.dispatchEvent(new Event('hmi-quota-updated'));
   }
 
   return true;

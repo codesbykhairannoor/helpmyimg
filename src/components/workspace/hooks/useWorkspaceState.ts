@@ -229,7 +229,19 @@ export function useWorkspaceState(initialTab: TabType = 'remove', keywordSlug?: 
       return;
     }
 
-    const baseSrc = currentItem.transparentUrl || currentItem.originalUrl;
+    // Only live-composite background color if the image has already been cut out (transparentUrl exists)
+    if (initialTab === 'color' || initialTab === 'colorwhite') {
+      if (!currentItem.transparentUrl) {
+        return;
+      }
+    }
+
+    // Watermark preview should only be rendered on demand, not auto-setting status: 'done' on mount
+    if (initialTab === 'watermark' || initialTab === 'watermarkbulk') {
+      return;
+    }
+
+    const baseSrc = currentItem.transparentUrl;
     if (!baseSrc) return;
 
     const currentSeq = ++effectSequenceRef.current;

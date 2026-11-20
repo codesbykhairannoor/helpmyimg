@@ -94,19 +94,6 @@ export const RemoveBgControl: React.FC<RemoveBgControlProps> = ({
                 </span>
               </button>
             </div>
-
-            {/* Secondary Re-run Action */}
-            {onProcessNow && (
-              <button
-                type="button"
-                onClick={onProcessNow}
-                disabled={isProcessing}
-                className="w-full py-1.5 text-xs text-slate-400 hover:text-white flex items-center justify-center gap-1.5 transition-colors cursor-pointer"
-              >
-                <RefreshCw className="w-3 h-3 text-neon-cyan" />
-                <span>{t('work.reprocessAi', { defaultValue: '⚡ Proses Ulang Potongan' })}</span>
-              </button>
-            )}
           </div>
         ) : (
           // STATE 1 & 2: Belum Diproses / Sedang Proses -> Tombol Hapus Background Sekarang

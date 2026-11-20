@@ -155,27 +155,16 @@ export const ConvertControl: React.FC<ConvertControlProps> = ({
             </span>
           </button>
         ) : status === 'done' && onDownload ? (
-          <div className="space-y-2">
-            <button
-              type="button"
-              onClick={onDownload}
-              className="w-full flex items-center justify-center gap-2 py-3.5 px-4 rounded-xl bg-gradient-to-r from-[#05DAED] via-cyan-400 to-[#12DA91] hover:from-cyan-400 hover:to-emerald-400 text-slate-950 font-black text-sm tracking-wide shadow-glow-cyan transition-all duration-200 hover:-translate-y-0.5 cursor-pointer"
-            >
-              <Download className="w-4 h-4 text-slate-950 stroke-[2.5]" />
-              <span>
-                {t('editor.downloadPhoto', { defaultValue: 'Download Foto' })} ({currentFormatObj.ext})
-              </span>
-            </button>
-            <button
-              type="button"
-              onClick={handleConvert}
-              disabled={isProcessing}
-              className="w-full py-1.5 text-xs text-slate-400 hover:text-white flex items-center justify-center gap-1.5 transition-colors cursor-pointer"
-            >
-              <RefreshCw className="w-3 h-3 text-neon-cyan" />
-              <span>{t('convert.reconvert', { defaultValue: '⚡ Konversi Ulang' })}</span>
-            </button>
-          </div>
+          <button
+            type="button"
+            onClick={onDownload}
+            className="w-full flex items-center justify-center gap-2 py-3.5 px-4 rounded-xl bg-gradient-to-r from-[#05DAED] via-cyan-400 to-[#12DA91] hover:from-cyan-400 hover:to-emerald-400 text-slate-950 font-black text-sm tracking-wide shadow-glow-cyan transition-all duration-200 hover:-translate-y-0.5 cursor-pointer"
+          >
+            <Download className="w-4 h-4 text-slate-950 stroke-[2.5]" />
+            <span>
+              {t('editor.downloadPhoto', { defaultValue: 'Download Foto' })} ({currentFormatObj.ext})
+            </span>
+          </button>
         ) : (
           <button
             type="button"

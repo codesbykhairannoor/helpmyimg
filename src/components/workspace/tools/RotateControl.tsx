@@ -1,6 +1,6 @@
 import React from 'react';
 import { useTranslation } from '../../../context/LanguageContext';
-import { RotateCw, RotateCcw, FlipHorizontal, FlipVertical, RefreshCw, CheckCircle2, Upload } from 'lucide-react';
+import { RotateCw, RotateCcw, FlipHorizontal, FlipVertical, RefreshCw, CheckCircle2, Upload, Download } from 'lucide-react';
 
 interface RotateControlProps {
   rotation: number;
@@ -10,9 +10,11 @@ interface RotateControlProps {
   flipV: boolean;
   setFlipV: (f: boolean) => void;
   onApply?: () => void;
+  onDownload?: () => void;
   onUploadOther?: () => void;
   onReset: () => void;
   isProcessing: boolean;
+  status?: 'idle' | 'queued' | 'processing' | 'done' | 'error';
   batchCount?: number;
 }
 
@@ -24,9 +26,11 @@ export const RotateControl: React.FC<RotateControlProps> = ({
   flipV,
   setFlipV,
   onApply,
+  onDownload,
   onUploadOther,
   onReset,
   isProcessing,
+  status = 'idle',
   batchCount = 1,
 }) => {
   const { t } = useTranslation();
@@ -133,16 +137,35 @@ export const RotateControl: React.FC<RotateControlProps> = ({
       </div>
 
       <div className="space-y-3 pt-2">
-        {onApply && (
+        {status === 'done' && onDownload ? (
           <button
+            type="button"
+            onClick={onDownload}
+            className="w-full flex items-center justify-center gap-2 py-3.5 px-4 rounded-xl bg-gradient-to-r from-[#05DAED] via-cyan-400 to-[#12DA91] hover:from-cyan-400 hover:to-emerald-400 text-slate-950 font-black shadow-glow-cyan transition-all duration-200 transform hover:-translate-y-0.5 text-sm tracking-wide cursor-pointer"
+          >
+            <Download className="w-4 h-4 text-slate-950 stroke-[2.5]" />
+            <span>{t('editor.downloadPhoto', { defaultValue: 'Download Foto' })}</span>
+          </button>
+        ) : onApply ? (
+          <button
+            type="button"
             onClick={onApply}
             disabled={isProcessing}
-            className="w-full flex items-center justify-center gap-2.5 py-3.5 px-4 rounded-xl bg-gradient-to-r from-neon-cyan via-neon-emerald to-neon-indigo hover:opacity-95 text-dark-900 font-extrabold shadow-glow-cyan transition-all duration-200 transform hover:-translate-y-0.5 disabled:opacity-50 text-sm tracking-wide"
+            className="w-full flex items-center justify-center gap-2.5 py-3.5 px-4 rounded-xl bg-gradient-to-r from-neon-cyan via-neon-emerald to-neon-indigo hover:opacity-95 text-dark-900 font-extrabold shadow-glow-cyan transition-all duration-200 transform hover:-translate-y-0.5 disabled:opacity-50 text-sm tracking-wide cursor-pointer"
           >
-            <CheckCircle2 className="w-5 h-5 text-dark-900 shrink-0" />
-            <span>{t('work.action.apply')}</span>
+            {isProcessing ? (
+              <>
+                <RefreshCw className="w-4 h-4 animate-spin text-dark-900" />
+                <span>{t('btn.processing', { defaultValue: 'Memproses...' })}</span>
+              </>
+            ) : (
+              <>
+                <CheckCircle2 className="w-5 h-5 text-dark-900 shrink-0" />
+                <span>{t('work.action.apply', { defaultValue: 'Terapkan Rotasi' })}</span>
+              </>
+            )}
           </button>
-        )}
+        ) : null}
 
         {/* Standardized 2-Button Action Grid */}
         {batchCount >= 1 && (

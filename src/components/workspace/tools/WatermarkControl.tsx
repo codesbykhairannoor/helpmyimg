@@ -1,7 +1,7 @@
 // src/components/workspace/tools/WatermarkControl.tsx
 import React, { useRef } from 'react';
 import { useTranslation } from '../../../context/LanguageContext';
-import { Type, RefreshCw, Layers, Image as ImageIcon, Upload, RotateCcw } from 'lucide-react';
+import { Type, RefreshCw, Layers, Image as ImageIcon, Upload, RotateCcw, Download } from 'lucide-react';
 
 export type WatermarkPosition = 'center' | 'bottom-right' | 'bottom-left' | 'top-right' | 'top-left' | 'tiled';
 
@@ -22,10 +22,13 @@ interface WatermarkControlProps {
   setWatermarkScale: (val: number) => void;
   watermarkRotation: number;
   setWatermarkRotation: (val: number) => void;
+  onApply?: () => void;
+  onDownload?: () => void;
   onProcessBatch?: () => void;
   onReset: () => void;
   onUploadOther?: () => void;
   isProcessing: boolean;
+  status?: 'idle' | 'queued' | 'processing' | 'done' | 'error';
   batchCount?: number;
 }
 
@@ -46,10 +49,13 @@ export const WatermarkControl: React.FC<WatermarkControlProps> = ({
   setWatermarkScale,
   watermarkRotation,
   setWatermarkRotation,
+  onApply,
+  onDownload,
   onProcessBatch,
   onReset,
   onUploadOther,
   isProcessing,
+  status = 'idle',
   batchCount = 0,
 }) => {
   const { t } = useTranslation();
@@ -239,17 +245,48 @@ export const WatermarkControl: React.FC<WatermarkControlProps> = ({
       </div>
 
       <div className="space-y-3 pt-4 border-t border-dark-600/50">
-
-          {onProcessBatch && batchCount > 1 && (
+        {/* Single Photo Morphing Button */}
+        {batchCount <= 1 && (
+          status === 'done' && onDownload ? (
             <button
-              onClick={() => onProcessBatch()}
-              disabled={isProcessing || (watermarkType === 'text' ? !watermarkText.trim() : !watermarkImage)}
-              className="flex-1 flex flex-col items-center justify-center gap-1 py-3 px-2 rounded-xl bg-neon-cyan/20 hover:bg-neon-cyan/30 text-neon-cyan font-extrabold shadow-sm transition-all duration-200 disabled:opacity-50 border border-neon-cyan/50"
+              type="button"
+              onClick={onDownload}
+              className="w-full flex items-center justify-center gap-2 py-3.5 px-4 rounded-xl bg-gradient-to-r from-[#05DAED] via-cyan-400 to-[#12DA91] hover:from-cyan-400 hover:to-emerald-400 text-slate-950 font-black shadow-glow-cyan transition-all duration-200 transform hover:-translate-y-0.5 text-sm tracking-wide cursor-pointer"
             >
-              <RefreshCw className={`w-4 h-4 ${isProcessing ? 'animate-spin' : ''}`} />
-              <span className="text-xs">{t('watermark.processAll', { count: String(batchCount) }) === 'watermark.processAll' ? `Watermark All (${batchCount})` : t('watermark.processAll', { count: String(batchCount) })}</span>
+              <Download className="w-4 h-4 text-slate-950 stroke-[2.5]" />
+              <span>{t('editor.downloadPhoto', { defaultValue: 'Download Foto' })}</span>
             </button>
-          )}
+          ) : onApply ? (
+            <button
+              type="button"
+              onClick={onApply}
+              disabled={isProcessing || (watermarkType === 'text' ? !watermarkText.trim() : !watermarkImage)}
+              className="w-full flex items-center justify-center gap-2.5 py-3.5 px-4 rounded-xl bg-gradient-to-r from-neon-cyan via-neon-emerald to-neon-indigo hover:opacity-95 text-dark-900 font-extrabold shadow-glow-cyan transition-all duration-200 transform hover:-translate-y-0.5 disabled:opacity-50 text-sm tracking-wide cursor-pointer"
+            >
+              {isProcessing ? (
+                <>
+                  <RefreshCw className="w-4 h-4 animate-spin text-dark-900" />
+                  <span>{t('btn.processing', { defaultValue: 'Memproses...' })}</span>
+                </>
+              ) : (
+                <span>{t('watermark.apply', { defaultValue: 'Terapkan Watermark' })}</span>
+              )}
+            </button>
+          ) : null
+        )}
+
+        {/* Batch Watermark Button */}
+        {onProcessBatch && batchCount > 1 && (
+          <button
+            type="button"
+            onClick={() => onProcessBatch()}
+            disabled={isProcessing || (watermarkType === 'text' ? !watermarkText.trim() : !watermarkImage)}
+            className="w-full flex items-center justify-center gap-2 py-3.5 px-4 rounded-xl bg-gradient-to-r from-neon-cyan via-neon-emerald to-neon-indigo hover:opacity-95 text-dark-900 font-extrabold shadow-glow-cyan transition-all duration-200 transform hover:-translate-y-0.5 disabled:opacity-50 text-sm tracking-wide cursor-pointer"
+          >
+            <RefreshCw className={`w-4 h-4 text-dark-900 ${isProcessing ? 'animate-spin' : ''}`} />
+            <span>{t('watermark.processAll', { count: String(batchCount), defaultValue: `Watermark All (${batchCount})` })}</span>
+          </button>
+        )}
 
         {/* Standardized 2-Button Action Grid */}
         {batchCount >= 1 && (

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ScanFace, Trash2, Droplets, RotateCcw, Upload, Plus, ShieldCheck, Grid } from 'lucide-react';
+import { ScanFace, Trash2, Droplets, RotateCcw, Upload, Plus, ShieldCheck, Grid, Download, RefreshCw } from 'lucide-react';
 import { useTranslation } from '../../../context/LanguageContext';
 
 export interface BlurBox {
@@ -20,9 +20,11 @@ export interface BlurFaceControlProps {
   blurIntensity: number;
   setBlurIntensity: (val: number) => void;
   onApply: () => void;
+  onDownload?: () => void;
   onUploadOther?: () => void;
   onReset: () => void;
   isProcessing: boolean;
+  status?: 'idle' | 'queued' | 'processing' | 'done' | 'error';
   batchCount?: number;
 }
 
@@ -35,9 +37,11 @@ export const BlurFaceControl: React.FC<BlurFaceControlProps> = ({
   blurIntensity,
   setBlurIntensity,
   onApply,
+  onDownload,
   onUploadOther,
   onReset,
   isProcessing,
+  status = 'idle',
   batchCount = 1,
 }) => {
   const { t } = useTranslation();
@@ -213,15 +217,35 @@ export const BlurFaceControl: React.FC<BlurFaceControlProps> = ({
 
       {/* Action Area */}
       <div className="space-y-3 pt-1">
-        <button
-          type="button"
-          onClick={onApply}
-          disabled={isProcessing || boxes.length === 0}
-          className="w-full flex items-center justify-center gap-2 py-3.5 px-4 rounded-xl bg-gradient-to-r from-neon-cyan via-neon-emerald to-neon-indigo hover:opacity-95 text-dark-900 font-extrabold shadow-glow-cyan transition-all duration-200 transform hover:-translate-y-0.5 disabled:opacity-50 text-xs tracking-wide cursor-pointer"
-        >
-          <ShieldCheck className="w-4 h-4" />
-          <span>{isProcessing ? t('btn.processing') : t('blur.applyNow', { defaultValue: 'Terapkan Sensor Permanen' })}</span>
-        </button>
+        {status === 'done' && onDownload ? (
+          <button
+            type="button"
+            onClick={onDownload}
+            className="w-full flex items-center justify-center gap-2 py-3.5 px-4 rounded-xl bg-gradient-to-r from-[#05DAED] via-cyan-400 to-[#12DA91] hover:from-cyan-400 hover:to-emerald-400 text-slate-950 font-black shadow-glow-cyan transition-all duration-200 transform hover:-translate-y-0.5 text-xs tracking-wide cursor-pointer"
+          >
+            <Download className="w-4 h-4 text-slate-950 stroke-[2.5]" />
+            <span>{t('editor.downloadPhoto', { defaultValue: 'Download Foto' })}</span>
+          </button>
+        ) : (
+          <button
+            type="button"
+            onClick={onApply}
+            disabled={isProcessing || boxes.length === 0}
+            className="w-full flex items-center justify-center gap-2 py-3.5 px-4 rounded-xl bg-gradient-to-r from-neon-cyan via-neon-emerald to-neon-indigo hover:opacity-95 text-dark-900 font-extrabold shadow-glow-cyan transition-all duration-200 transform hover:-translate-y-0.5 disabled:opacity-50 text-xs tracking-wide cursor-pointer"
+          >
+            {isProcessing ? (
+              <>
+                <RefreshCw className="w-4 h-4 animate-spin text-dark-900" />
+                <span>{t('btn.processing', { defaultValue: 'Memproses...' })}</span>
+              </>
+            ) : (
+              <>
+                <ShieldCheck className="w-4 h-4" />
+                <span>{t('blur.applyNow', { defaultValue: 'Terapkan Sensor Permanen' })}</span>
+              </>
+            )}
+          </button>
+        )}
 
         {/* Standardized 2-Button Action Grid */}
         {batchCount >= 1 && (

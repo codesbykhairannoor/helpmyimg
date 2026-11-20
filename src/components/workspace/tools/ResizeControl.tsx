@@ -1,7 +1,7 @@
 // src/components/workspace/tools/ResizeControl.tsx
 import React from 'react';
 import { useTranslation } from '../../../context/LanguageContext';
-import { RotateCcw, Upload, Link as LinkIcon, Unlink } from 'lucide-react';
+import { RotateCcw, Upload, Link as LinkIcon, Unlink, Download, RefreshCw } from 'lucide-react';
 import type { ResizeKernelMethod } from '../../utils/imageOperations';
 
 interface ResizeControlProps {
@@ -18,9 +18,11 @@ interface ResizeControlProps {
   resizeMethod?: ResizeKernelMethod;
   setResizeMethod?: (m: ResizeKernelMethod) => void;
   onApply?: () => void;
+  onDownload?: () => void;
   onUploadOther?: () => void;
   onReset: () => void;
   isProcessing: boolean;
+  status?: 'idle' | 'queued' | 'processing' | 'done' | 'error';
   batchCount?: number;
 }
 
@@ -38,9 +40,11 @@ export const ResizeControl: React.FC<ResizeControlProps> = ({
   resizeMethod = 'lanczos3',
   setResizeMethod,
   onApply,
+  onDownload,
   onUploadOther,
   onReset,
   isProcessing,
+  status = 'idle',
   batchCount = 1,
 }) => {
   const { t } = useTranslation();
@@ -202,8 +206,19 @@ export const ResizeControl: React.FC<ResizeControlProps> = ({
         </div>
       )}
 
-      {/* Action Button */}
-      {onApply && (
+      {/* Morphing Action Button: Apply New Size -> Morph to Download */}
+      {status === 'done' && onDownload ? (
+        <div className="space-y-3 pt-2">
+          <button
+            type="button"
+            onClick={onDownload}
+            className="w-full flex items-center justify-center gap-2 py-3.5 px-4 rounded-xl bg-gradient-to-r from-[#05DAED] via-cyan-400 to-[#12DA91] hover:from-cyan-400 hover:to-emerald-400 text-slate-950 font-black shadow-glow-cyan transition-all duration-200 transform hover:-translate-y-0.5 text-sm tracking-wide cursor-pointer"
+          >
+            <Download className="w-4 h-4 text-slate-950 stroke-[2.5]" />
+            <span>{t('editor.downloadPhoto', { defaultValue: 'Download Foto' })}</span>
+          </button>
+        </div>
+      ) : onApply ? (
         <div className="space-y-3 pt-2">
           <button
             type="button"
@@ -211,10 +226,17 @@ export const ResizeControl: React.FC<ResizeControlProps> = ({
             disabled={isProcessing || resizeWidth <= 0 || resizeHeight <= 0}
             className="w-full flex items-center justify-center gap-2.5 py-3.5 px-4 rounded-xl bg-gradient-to-r from-neon-cyan via-neon-emerald to-neon-indigo hover:opacity-95 text-dark-900 font-extrabold shadow-glow-cyan transition-all duration-200 transform hover:-translate-y-0.5 disabled:opacity-50 text-sm tracking-wide cursor-pointer"
           >
-            <span>{isProcessing ? t('btn.processing') : t('resize.apply', { defaultValue: 'Terapkan Ukuran Baru' })}</span>
+            {isProcessing ? (
+              <>
+                <RefreshCw className="w-4 h-4 animate-spin text-dark-900" />
+                <span>{t('btn.processing', { defaultValue: 'Memproses...' })}</span>
+              </>
+            ) : (
+              <span>{t('resize.apply', { defaultValue: 'Terapkan Ukuran Baru' })}</span>
+            )}
           </button>
         </div>
-      )}
+      ) : null}
 
       {/* Standardized 2-Button Action Grid */}
       {batchCount >= 1 && (
