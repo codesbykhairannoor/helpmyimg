@@ -1,7 +1,7 @@
 // src/components/workspace/tools/WatermarkControl.tsx
 import React, { useRef } from 'react';
 import { useTranslation } from '../../../context/LanguageContext';
-import { Type, Loader2, Layers, Image as ImageIcon, Upload, RotateCcw, Download } from 'lucide-react';
+import { Type, Loader2, Layers, Image as ImageIcon, Upload, RotateCcw, Download, Sparkles } from 'lucide-react';
 
 export type WatermarkPosition = 'center' | 'bottom-right' | 'bottom-left' | 'top-right' | 'top-left' | 'tiled';
 
@@ -269,7 +269,10 @@ export const WatermarkControl: React.FC<WatermarkControlProps> = ({
                   <span>{t('btn.processing', { defaultValue: 'Memproses...' })}</span>
                 </>
               ) : (
-                <span>{t('watermark.apply', { defaultValue: 'Terapkan Watermark' })}</span>
+                <>
+                  <Sparkles className="w-4 h-4 text-dark-900 shrink-0" />
+                  <span>{t('watermark.apply', { defaultValue: 'Terapkan Watermark' })}</span>
+                </>
               )}
             </button>
           ) : null
@@ -283,7 +286,11 @@ export const WatermarkControl: React.FC<WatermarkControlProps> = ({
             disabled={isProcessing || (watermarkType === 'text' ? !watermarkText.trim() : !watermarkImage)}
             className="w-full flex items-center justify-center gap-2 py-3.5 px-4 rounded-xl bg-gradient-to-r from-neon-cyan via-neon-emerald to-neon-indigo hover:opacity-95 text-dark-900 font-semibold shadow-glow-cyan transition-all duration-200 transform hover:-translate-y-0.5 disabled:opacity-50 text-sm tracking-wide cursor-pointer"
           >
-            <Loader2 className={`w-4 h-4 text-dark-900 ${isProcessing ? 'animate-spin' : ''}`} />
+            {isProcessing ? (
+              <Loader2 className="w-4 h-4 text-dark-900 animate-spin shrink-0" />
+            ) : (
+              <Sparkles className="w-4 h-4 text-dark-900 shrink-0" />
+            )}
             <span>{t('watermark.processAll', { count: String(batchCount), defaultValue: `Watermark All (${batchCount})` })}</span>
           </button>
         )}

@@ -1,6 +1,6 @@
 import React from 'react';
 import { useTranslation } from '../../../context/LanguageContext';
-import { RotateCw, RotateCcw, FlipHorizontal, FlipVertical, Loader2, CheckCircle2, Upload, Download } from 'lucide-react';
+import { RotateCw, RotateCcw, FlipHorizontal, FlipVertical, Loader2, CheckCircle2, Upload, Download, RefreshCw } from 'lucide-react';
 
 interface RotateControlProps {
   rotation: number;

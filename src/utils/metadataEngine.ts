@@ -696,25 +696,25 @@ export async function applyStudioPreset(
 ): Promise<Blob> {
   // Step 1: Ensure image is JPEG for EXIF injection, or handle PNG/WEBP
   let baseBlob = file;
-  const isJpeg = file.type === 'image/jpeg' || file.type === 'image/jpg';
+  let arrayBuffer = await baseBlob.arrayBuffer();
+  let rawBytes = new Uint8Array(arrayBuffer);
+
+  const isJpeg = rawBytes.length >= 2 && rawBytes[0] === 0xff && rawBytes[1] === 0xd8;
 
   if (!isJpeg && presetKey !== 'stealth') {
     // Convert to JPEG with max quality for DSLR preset injection
     baseBlob = await convertToJpegBlob(file);
+    arrayBuffer = await baseBlob.arrayBuffer();
+    rawBytes = new Uint8Array(arrayBuffer);
   }
 
-  const arrayBuffer = await baseBlob.arrayBuffer();
-  let rawBytes = new Uint8Array(arrayBuffer);
-
   // Step 2: Losslessly strip C2PA
-  if (isJpeg || !isJpeg) {
-    if (rawBytes[0] === 0xff && rawBytes[1] === 0xd8) {
-      const stripped = stripJpegC2PA(rawBytes);
-      rawBytes = stripped.cleanData;
-    } else if (rawBytes[0] === 0x89 && rawBytes[1] === 0x50) {
-      const stripped = stripPngC2PA(rawBytes);
-      rawBytes = stripped.cleanData;
-    }
+  if (rawBytes[0] === 0xff && rawBytes[1] === 0xd8) {
+    const stripped = stripJpegC2PA(rawBytes);
+    rawBytes = stripped.cleanData;
+  } else if (rawBytes[0] === 0x89 && rawBytes[1] === 0x50) {
+    const stripped = stripPngC2PA(rawBytes);
+    rawBytes = stripped.cleanData;
   }
 
   // If Stealth Clean, return directly with no EXIF
@@ -882,10 +882,23 @@ export async function applyStudioPreset(
 
   const exifBytes = piexif.dump(exifObj);
   // Insert into JPEG binary
-  const cleanBaseStr = piexif.remove(jpegBinaryStr);
-  const resultBinaryStr = piexif.insert(exifBytes, cleanBaseStr);
-  const outputBuffer = binaryStringToUint8Array(resultBinaryStr);
-  return new Blob([outputBuffer], { type: 'image/jpeg' });
+  let cleanBaseStr = '';
+  try {
+    cleanBaseStr = piexif.remove(jpegBinaryStr);
+  } catch {
+    const cleanBlob = await convertToJpegBlob(baseBlob);
+    const cleanBuf = await cleanBlob.arrayBuffer();
+    cleanBaseStr = piexif.remove(uint8ArrayToBinaryString(new Uint8Array(cleanBuf)));
+  }
+
+  try {
+    const resultBinaryStr = piexif.insert(exifBytes, cleanBaseStr);
+    const outputBuffer = binaryStringToUint8Array(resultBinaryStr);
+    return new Blob([outputBuffer], { type: 'image/jpeg' });
+  } catch (err) {
+    console.warn('EXIF injection failed, falling back to base image:', err);
+    return baseBlob;
+  }
 }
 
 export interface ManualExifData {
@@ -965,13 +978,15 @@ function parseFlash(fl?: string): number | undefined {
  */
 export async function applyManualExif(file: Blob, exifData: ManualExifData): Promise<Blob> {
   let baseBlob = file;
-  const isJpeg = file.type === 'image/jpeg' || file.type === 'image/jpg';
+  let arrayBuffer = await baseBlob.arrayBuffer();
+  let rawBytes = new Uint8Array(arrayBuffer);
+
+  const isJpeg = rawBytes.length >= 2 && rawBytes[0] === 0xff && rawBytes[1] === 0xd8;
   if (!isJpeg) {
     baseBlob = await convertToJpegBlob(file);
+    arrayBuffer = await baseBlob.arrayBuffer();
+    rawBytes = new Uint8Array(arrayBuffer);
   }
-
-  const arrayBuffer = await baseBlob.arrayBuffer();
-  let rawBytes = new Uint8Array(arrayBuffer);
 
   // Strip C2PA
   if (rawBytes[0] === 0xff && rawBytes[1] === 0xd8) {
@@ -1059,11 +1074,23 @@ export async function applyManualExif(file: Blob, exifData: ManualExifData): Pro
   }
 
   const exifBytes = piexif.dump(exifObj);
-  const cleanBaseStr = piexif.remove(jpegBinaryStr);
-  const resultBinaryStr = piexif.insert(exifBytes, cleanBaseStr);
-  const outputBuffer = binaryStringToUint8Array(resultBinaryStr);
+  let cleanBaseStr = '';
+  try {
+    cleanBaseStr = piexif.remove(jpegBinaryStr);
+  } catch {
+    const cleanBlob = await convertToJpegBlob(baseBlob);
+    const cleanBuf = await cleanBlob.arrayBuffer();
+    cleanBaseStr = piexif.remove(uint8ArrayToBinaryString(new Uint8Array(cleanBuf)));
+  }
 
-  return new Blob([outputBuffer], { type: 'image/jpeg' });
+  try {
+    const resultBinaryStr = piexif.insert(exifBytes, cleanBaseStr);
+    const outputBuffer = binaryStringToUint8Array(resultBinaryStr);
+    return new Blob([outputBuffer], { type: 'image/jpeg' });
+  } catch (err) {
+    console.warn('Manual EXIF insert failed, falling back to clean JPEG:', err);
+    return baseBlob;
+  }
 }
 
 /**

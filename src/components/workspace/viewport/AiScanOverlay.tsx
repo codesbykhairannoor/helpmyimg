@@ -16,17 +16,17 @@ export const AiScanOverlay: React.FC<AiScanOverlayProps> = ({ currentItem }) => 
   const getLocalizedStep = () => {
     const rawStep = currentItem.progressStep || '';
     if (!rawStep || rawStep === 'init' || rawStep.includes('Initializing') || rawStep.includes('Inisialisasi')) {
-      return t('work.step.init', { defaultValue: 'Inisialisasi AI & Model...' });
+      return t('work.step.init', { defaultValue: 'Menyiapkan pemrosesan...' });
     }
     if (rawStep.startsWith('downloading:') || rawStep.includes('Mengunduh') || rawStep.includes('Downloading')) {
       const pctMatch = rawStep.match(/\d+/);
       const pct = pctMatch ? `${pctMatch[0]}%` : `${currentItem.progress || 0}%`;
-      return t('work.step.downloading', { pct, defaultValue: `Mengunduh Memori AI (${pct})...` });
+      return t('work.step.downloading', { pct, defaultValue: `Memuat komponen (${pct})...` });
     }
     if (rawStep === 'vector' || rawStep.includes('vektor') || rawStep.includes('Vector') || rawStep.includes('logo')) {
-      return t('work.step.vector', { defaultValue: 'Memproses Presisi Vektor Logo...' });
+      return t('work.step.vector', { defaultValue: 'Memproses presisi vektor...' });
     }
-    return t('work.processing', { defaultValue: 'Memproses gambar dengan AI...' });
+    return t('work.processing', { defaultValue: 'Memproses foto...' });
   };
 
   return (

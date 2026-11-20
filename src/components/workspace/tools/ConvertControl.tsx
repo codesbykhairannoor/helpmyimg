@@ -1,6 +1,6 @@
 import React from 'react';
 import { useTranslation } from '../../../context/LanguageContext';
-import { Image as ImageIcon, Loader2, RotateCcw, Upload, ArrowRight, Download } from 'lucide-react';
+import { Image as ImageIcon, Loader2, RotateCcw, Upload, ArrowRight, Download, Sparkles } from 'lucide-react';
 import type { ImageMimeType } from './convert/convertEngine';
 import type { SvgVectorMode } from '../../utils/imageOperations';
 
@@ -147,7 +147,11 @@ export const ConvertControl: React.FC<ConvertControlProps> = ({
             disabled={isProcessing || batchCount === 0}
             className="w-full flex items-center justify-center gap-2 py-3.5 px-4 rounded-xl bg-gradient-to-r from-neon-cyan via-neon-emerald to-neon-indigo text-dark-900 font-semibold text-sm tracking-wide shadow-glow-cyan transition-all duration-200 hover:-translate-y-0.5 disabled:opacity-50 disabled:transform-none cursor-pointer"
           >
-            <Loader2 className={`w-4 h-4 shrink-0 ${isProcessing ? 'animate-spin' : ''}`} />
+            {isProcessing ? (
+              <Loader2 className="w-4 h-4 text-dark-900 animate-spin shrink-0" />
+            ) : (
+              <Sparkles className="w-4 h-4 text-dark-900 shrink-0" />
+            )}
             <span>
               {isProcessing
                 ? t('work.processing', { defaultValue: 'Converting...' })
@@ -172,7 +176,11 @@ export const ConvertControl: React.FC<ConvertControlProps> = ({
             disabled={isProcessing || batchCount === 0}
             className="w-full flex items-center justify-center gap-2 py-3.5 px-4 rounded-xl bg-gradient-to-r from-neon-cyan via-neon-emerald to-neon-indigo text-dark-900 font-semibold text-sm tracking-wide shadow-glow-cyan transition-all duration-200 hover:-translate-y-0.5 disabled:opacity-50 disabled:transform-none cursor-pointer"
           >
-            <Loader2 className={`w-4 h-4 shrink-0 ${isProcessing ? 'animate-spin' : ''}`} />
+            {isProcessing ? (
+              <Loader2 className="w-4 h-4 text-dark-900 animate-spin shrink-0" />
+            ) : (
+              <ArrowRight className="w-4 h-4 text-dark-900 shrink-0" />
+            )}
             <span>
               {isProcessing
                 ? t('work.processing', { defaultValue: 'Converting...' })

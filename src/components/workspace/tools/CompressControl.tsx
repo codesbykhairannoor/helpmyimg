@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useTranslation } from '../../../context/LanguageContext';
-import { FileArchive, Loader2, RotateCcw, Upload, Download } from 'lucide-react';
+import { FileArchive, Loader2, RotateCcw, Upload, Download, Sparkles } from 'lucide-react';
 import type { CompressEngineMode } from './compress/compressEngine';
 
 interface CompressControlProps {
@@ -33,7 +33,7 @@ export const CompressControl: React.FC<CompressControlProps> = ({
   quality,
   setQuality,
   compressMode = 'auto',
-  setCompressMode,
+  setCompressMode: _setCompressMode,
   targetKB = null,
   setTargetKB,
   hasCompressed = false,
@@ -132,36 +132,6 @@ export const CompressControl: React.FC<CompressControlProps> = ({
               </span>
             </div>
           </div>
-
-          {setCompressMode && (
-            <div className="space-y-2">
-              <div className="text-xs font-semibold text-slate-300">
-                {t('compress.engineTitle', { defaultValue: 'WASM Encoder' })}
-              </div>
-              <div className="grid grid-cols-3 gap-1.5 bg-dark-900/70 p-1 rounded-xl border border-dark-700">
-                {(
-                  [
-                    { id: 'auto', label: t('compress.modeAuto', { defaultValue: 'Auto' }) },
-                    { id: 'quant', label: t('compress.modeQuant', { defaultValue: 'PNG Quant' }) },
-                    { id: 'lossless', label: t('compress.modeLossless', { defaultValue: 'OxiPNG' }) },
-                  ] as const
-                ).map((opt) => (
-                  <button
-                    key={opt.id}
-                    type="button"
-                    onClick={() => setCompressMode(opt.id)}
-                    disabled={isProcessing}
-                    className={`py-1.5 px-2 rounded-lg text-[11px] font-bold transition-all cursor-pointer truncate ${compressMode === opt.id
-                        ? 'bg-neon-cyan/20 border border-neon-cyan/50 text-neon-cyan'
-                        : 'text-slate-400 hover:text-white border border-transparent'
-                      }`}
-                  >
-                    {opt.label}
-                  </button>
-                ))}
-              </div>
-            </div>
-          )}
         </>
       )}
 
@@ -193,7 +163,11 @@ export const CompressControl: React.FC<CompressControlProps> = ({
             disabled={isProcessing}
             className="w-full flex items-center justify-center gap-2.5 py-3.5 px-4 rounded-xl bg-gradient-to-r from-neon-cyan via-neon-emerald to-neon-indigo hover:opacity-95 text-dark-900 font-semibold shadow-glow-cyan transition-all duration-200 transform hover:-translate-y-0.5 disabled:opacity-50 text-sm tracking-wide cursor-pointer"
           >
-            <Loader2 className={`w-4 h-4 shrink-0 ${isProcessing ? 'animate-spin' : ''}`} />
+            {isProcessing ? (
+              <Loader2 className="w-4 h-4 text-dark-900 animate-spin shrink-0" />
+            ) : (
+              <Sparkles className="w-4 h-4 text-dark-900 shrink-0" />
+            )}
             <span>
               {isProcessing
                 ? t('btn.processing', { defaultValue: 'Compressing...' })
@@ -208,7 +182,11 @@ export const CompressControl: React.FC<CompressControlProps> = ({
             disabled={isProcessing || batchCount === 0}
             className="w-full flex items-center justify-center gap-2.5 py-3.5 px-4 rounded-xl bg-gradient-to-r from-neon-cyan via-neon-emerald to-neon-indigo hover:opacity-95 text-dark-900 font-semibold shadow-glow-cyan transition-all duration-200 transform hover:-translate-y-0.5 disabled:opacity-50 text-sm tracking-wide cursor-pointer"
           >
-            <Loader2 className={`w-4 h-4 shrink-0 ${isProcessing ? 'animate-spin' : ''}`} />
+            {isProcessing ? (
+              <Loader2 className="w-4 h-4 text-dark-900 animate-spin shrink-0" />
+            ) : (
+              <Sparkles className="w-4 h-4 text-dark-900 shrink-0" />
+            )}
             <span>
               {isProcessing
                 ? t('btn.processing', { defaultValue: 'Compressing...' })
@@ -225,7 +203,11 @@ export const CompressControl: React.FC<CompressControlProps> = ({
             disabled={isProcessing || batchCount === 0}
             className="w-full flex items-center justify-center gap-2 py-3.5 px-4 rounded-xl bg-dark-700 hover:bg-dark-600 border border-neon-cyan/50 text-white font-semibold text-sm tracking-wide transition-all duration-200 disabled:opacity-50 cursor-pointer"
           >
-            <Loader2 className={`w-4 h-4 shrink-0 ${isProcessing ? 'animate-spin' : ''}`} />
+            {isProcessing ? (
+              <Loader2 className="w-4 h-4 text-white animate-spin shrink-0" />
+            ) : (
+              <Sparkles className="w-4 h-4 text-white shrink-0" />
+            )}
             <span>
               {t('compress.processAll', { count: String(batchCount), defaultValue: `Compress All (${batchCount})` })}
             </span>

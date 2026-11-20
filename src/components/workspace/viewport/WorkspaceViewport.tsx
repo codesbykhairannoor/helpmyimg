@@ -149,12 +149,12 @@ export const WorkspaceViewport: React.FC<WorkspaceViewportProps> = ({
             </div>
             <div className="space-y-1.5 max-w-sm">
               <h4 className="font-heading font-bold text-white text-base">
-                {t('work.failedAi', { defaultValue: 'AI Processing Failed' })}
+                {t('work.failedProcessing', { defaultValue: 'Gagal Memproses Foto' })}
               </h4>
               <p className="text-xs text-slate-400 leading-relaxed">
                 {currentItem.errorMessage ||
                   t('work.errorHint', {
-                    defaultValue: 'Tip: Try using a smaller resolution image, or click retry below.',
+                    defaultValue: 'Coba gunakan foto lain atau klik coba lagi di bawah.',
                   })}
               </p>
             </div>
@@ -165,7 +165,7 @@ export const WorkspaceViewport: React.FC<WorkspaceViewportProps> = ({
                 className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-neon-cyan/20 hover:bg-neon-cyan/30 text-neon-cyan border border-neon-cyan/40 text-xs font-bold transition-all shadow-sm cursor-pointer"
               >
                 <RefreshCw className="w-3.5 h-3.5" />
-                <span>{t('work.action.retry', { defaultValue: 'Retry Processing' })}</span>
+                <span>{t('work.action.retry', { defaultValue: 'Coba Lagi' })}</span>
               </button>
               <button
                 type="button"

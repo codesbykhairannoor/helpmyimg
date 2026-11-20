@@ -37,8 +37,8 @@ export const ResizeControl: React.FC<ResizeControlProps> = ({
   setMaintainRatio,
   resizeMode,
   setResizeMode,
-  resizeMethod = 'lanczos3',
-  setResizeMethod,
+  resizeMethod: _resizeMethod = 'lanczos3',
+  setResizeMethod: _setResizeMethod,
   onApply,
   onDownload,
   onUploadOther,
@@ -173,38 +173,6 @@ export const ResizeControl: React.FC<ResizeControlProps> = ({
             </div>
           </div>
       </div>
-
-      {/* Rust WASM Resampling Kernel Selector */}
-      {setResizeMethod && (
-        <div className="space-y-2">
-          <div className="text-xs font-semibold text-slate-300">
-            {t('resize.kernelTitle', { defaultValue: 'WASM Resampling Kernel' })}
-          </div>
-          <div className="grid grid-cols-3 gap-1.5 bg-dark-900/70 p-1 rounded-xl border border-dark-700">
-            {(
-              [
-                { id: 'lanczos3', label: 'Lanczos3' },
-                { id: 'magicKernelSharp2021', label: 'MagicKernel 4K' },
-                { id: 'hqx', label: 'HQX Edge' },
-              ] as const
-            ).map((opt) => (
-              <button
-                key={opt.id}
-                type="button"
-                onClick={() => setResizeMethod(opt.id)}
-                disabled={isProcessing}
-                className={`py-1.5 px-2 rounded-lg text-[11px] font-bold transition-all cursor-pointer truncate ${
-                  resizeMethod === opt.id
-                    ? 'bg-neon-cyan/20 border border-neon-cyan/50 text-neon-cyan'
-                    : 'text-slate-400 hover:text-white border border-transparent'
-                }`}
-              >
-                {opt.label}
-              </button>
-            ))}
-          </div>
-        </div>
-      )}
 
       {/* Morphing Action Button: Apply New Size -> Morph to Download */}
       {status === 'done' && onDownload ? (
