@@ -115,7 +115,7 @@ export function useWorkspaceCore(initialTab: TabType = 'remove'): UseWorkspaceCo
             file: f,
             originalUrl: url,
             transparentUrl: null,
-            processedUrl: url,
+            processedUrl: null,
             initialFile: f,
             initialOriginalUrl: url,
             modelType: 'rmbg' as const,

@@ -23,6 +23,7 @@ import {
 import { doc, getDoc, setDoc, updateDoc, deleteDoc } from 'firebase/firestore';
 import { auth, db, googleProvider, isFirebaseConfigured } from '../config/firebase';
 import type { UserProfile, AuthContextType } from '../types/auth';
+import { getTodayString } from '../utils/quotaManager';
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
@@ -36,6 +37,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
   >(null);
 
   const fetchOrCreateProfile = useCallback(async (firebaseUser: User): Promise<UserProfile> => {
+    const today = getTodayString();
     const fallbackProfile: UserProfile = {
       uid: firebaseUser.uid,
       email: firebaseUser.email,
@@ -47,6 +49,11 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
       lastLoginAt: Date.now(),
       emailVerified: Boolean(firebaseUser.emailVerified),
       app: 'helpmyimg',
+      hmi_daily4kQuota: {
+        date: today,
+        used: 0,
+        lastUpdatedAt: Date.now(),
+      },
     };
 
     if (!db) {
@@ -62,23 +69,37 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
         let currentPlan = data.plan;
         let currentStatus = data.subscriptionStatus;
 
+        // Validasi & inisialisasi kuota harian 4K di Firestore (hmi_daily4kQuota)
+        let dailyQuota = data.hmi_daily4kQuota;
+        let quotaNeedsUpdate = false;
+        if (!dailyQuota || dailyQuota.date !== today) {
+          dailyQuota = {
+            date: today,
+            used: 0,
+            lastUpdatedAt: Date.now(),
+          };
+          quotaNeedsUpdate = true;
+        }
+
+        const updatePayload: Record<string, any> = {
+          lastLoginAt: Date.now(),
+          emailVerified: Boolean(firebaseUser.emailVerified),
+          displayName: firebaseUser.displayName || data.displayName,
+          photoURL: firebaseUser.photoURL || data.photoURL,
+        };
+
         if (data.plan === 'pro' && data.expiresAt && Date.now() > data.expiresAt) {
           currentPlan = 'free';
           currentStatus = 'inactive';
-          await updateDoc(userDocRef, {
-            plan: 'free',
-            subscriptionStatus: 'inactive',
-            lastLoginAt: Date.now(),
-            emailVerified: Boolean(firebaseUser.emailVerified),
-          });
-        } else {
-          await updateDoc(userDocRef, {
-            lastLoginAt: Date.now(),
-            emailVerified: Boolean(firebaseUser.emailVerified),
-            displayName: firebaseUser.displayName || data.displayName,
-            photoURL: firebaseUser.photoURL || data.photoURL,
-          });
+          updatePayload.plan = 'free';
+          updatePayload.subscriptionStatus = 'inactive';
         }
+
+        if (quotaNeedsUpdate) {
+          updatePayload.hmi_daily4kQuota = dailyQuota;
+        }
+
+        await updateDoc(userDocRef, updatePayload);
 
         return {
           ...data,
@@ -87,9 +108,10 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
           lastLoginAt: Date.now(),
           emailVerified: Boolean(firebaseUser.emailVerified),
           app: 'helpmyimg',
+          hmi_daily4kQuota: dailyQuota,
         };
       } else {
-        await setDoc(userDocRef, fallbackProfile);
+        await setDoc(userDocRef, fallbackProfile, { merge: true });
         return fallbackProfile;
       }
     } catch (firestoreError) {

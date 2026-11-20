@@ -4,6 +4,12 @@
 export type SubscriptionPlan = 'free' | 'pro';
 export type SubscriptionStatus = 'active' | 'inactive' | 'trial' | 'past_due' | 'cancelled';
 
+export interface DailyQuotaRecord {
+  date: string; // Format 'YYYY-MM-DD'
+  used: number; // Jumlah pemakaian 4K hari ini (maks 3 untuk free member)
+  lastUpdatedAt?: number;
+}
+
 export interface UserProfile {
   uid: string;
   email: string | null;
@@ -18,6 +24,7 @@ export interface UserProfile {
   lastLoginAt: number;
   emailVerified?: boolean;
   app?: string;
+  hmi_daily4kQuota?: DailyQuotaRecord;
 }
 
 export interface AuthContextType {

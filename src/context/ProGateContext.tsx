@@ -26,14 +26,14 @@ interface ProGateContextType {
 const ProGateContext = createContext<ProGateContextType | undefined>(undefined);
 
 export const ProGateProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const { user, isPro } = useAuth();
+  const { user, isPro, profile } = useAuth();
   const [isOpen, setIsOpen] = useState(false);
   const [gateOptions, setGateOptions] = useState<ProGateOptions>({ feature: 'export-4k' });
-  const [quotaState, setQuotaState] = useState<QuotaState>(() => get4kQuotaInfo(user?.uid, isPro));
+  const [quotaState, setQuotaState] = useState<QuotaState>(() => get4kQuotaInfo(user?.uid, isPro, profile));
 
   const refreshQuota = useCallback(() => {
-    setQuotaState(get4kQuotaInfo(user?.uid, isPro));
-  }, [user?.uid, isPro]);
+    setQuotaState(get4kQuotaInfo(user?.uid, isPro, profile));
+  }, [user?.uid, isPro, profile]);
 
   useEffect(() => {
     refreshQuota();
@@ -60,12 +60,12 @@ export const ProGateProvider: React.FC<{ children: React.ReactNode }> = ({ child
   }, []);
 
   const consume4k = useCallback(() => {
-    const success = consume4kQuota(user?.uid, isPro);
+    const success = consume4kQuota(user?.uid, isPro, profile);
     if (success) {
       refreshQuota();
     }
     return success;
-  }, [user?.uid, isPro, refreshQuota]);
+  }, [user?.uid, isPro, profile, refreshQuota]);
 
   return (
     <ProGateContext.Provider
