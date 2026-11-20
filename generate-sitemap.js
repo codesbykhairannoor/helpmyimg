@@ -161,7 +161,7 @@ fs.writeFileSync(masterSitemapPath, sitemapIndex, 'utf8');
 let rssXml = `<?xml version="1.0" encoding="UTF-8"?>\n<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">\n  <channel>\n`;
 rssXml += `    <title>HelpMyIMG — In-Browser AI Photo Editor Suite</title>\n`;
 rssXml += `    <link>${DOMAIN}/</link>\n`;
-rssXml += `    <description>100% Free, Private, In-Browser AI Image Editing Suite via WebAssembly. Remove backgrounds, compress, resize, and convert images.</description>\n`;
+rssXml += `    <description>Free & 100% Private, In-Browser AI Image Editing Suite via WebAssembly. Remove backgrounds, compress, resize, and convert images.</description>\n`;
 rssXml += `    <language>en</language>\n`;
 rssXml += `    <lastBuildDate>${new Date().toUTCString()}</lastBuildDate>\n`;
 rssXml += `    <atom:link href="${DOMAIN}/feed.xml" rel="self" type="application/rss+xml" />\n`;

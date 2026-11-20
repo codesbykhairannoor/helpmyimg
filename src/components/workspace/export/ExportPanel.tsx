@@ -656,7 +656,7 @@ export const ExportPanel: React.FC<ExportPanelProps> = ({
           ) : (
             // Upscale tools: Dual resolution buttons (HD Free vs 4K Ultra-HD)
             <div className="flex flex-col sm:flex-row gap-2.5">
-              {/* Button 1: Download HD (100% Free Forever) */}
+              {/* Button 1: Download HD (Free Starter) */}
               <button
                 type="button"
                 onClick={handleSingleDownloadStandard}

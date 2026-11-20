@@ -843,10 +843,10 @@ function sanitizeDescription(desc, lang = 'en') {
   if (text.length < 95) {
     const valuePropMap = {
       en: ' 100% private, runs directly in your browser via WebAssembly with zero server uploads.',
-      id: ' 100% gratis, berjalan langsung di browser via WebAssembly tanpa upload ke server.',
-      zh: ' 纯前端 WebAssembly 驱动，100% 本地浏览器安全运行，零服务器上传，保护隐私，无文件大小限制，支持批量快速转换与高清免费下载。',
-      ja: ' 純粋な WebAssembly 駆動により 100% ブラウザ内ローカル処理で完全プライベート。サーバー送信なし、個人情報を完全保護、無制限高品質ダウンロード。',
-      ko: ' WebAssembly 기반 100% 브라우저 로컬 처리로 완벽한 개인정보 보호. 서버 파일 업로드 없음, 무제한 배치 처리 및 고화질 무료 다운로드.',
+      id: ' 100% privat, berjalan langsung di browser via WebAssembly tanpa upload ke server.',
+      zh: ' 纯前端 WebAssembly 驱动，100% 本地浏览器安全运行，零服务器上传，保护隐私，支持批量快速转换与高清免费下载。',
+      ja: ' 純粋な WebAssembly 駆動により 100% ブラウザ内ローカル処理で完全プライベート。サーバー送信なし、個人情報を完全保護、高速高品質ダウンロード。',
+      ko: ' WebAssembly 기반 100% 브라우저 로컬 처리로 완벽한 개인정보 보호. 서버 파일 업로드 없음, 고속 배치 처리 및 고화질 다운로드.',
       ar: ' معالجة محلية 100% في المتصفح عبر WebAssembly مع خصوصية تامة وبدون خوادم سحابية.',
       es: ' 100% privado, se ejecuta directamente en su navegador mediante WebAssembly sin servidor.',
       fr: ' 100% privé, fonctionne directement dans votre navigateur via WebAssembly sans serveur.',
@@ -999,7 +999,7 @@ function generateSemanticHtml(lang, urlPath, title, desc, tool, infoPage, transl
               </span>
             </div>
             <p class="text-[13px] text-slate-400 leading-relaxed font-body font-medium max-w-sm">
-              ${translations['hero.subtitle.short'] || '100% Free, Private, Zero-Cloud AI Image Editing. All machine learning models run securely inside your browser using WebAssembly.'}
+              ${translations['hero.subtitle.short'] || 'Free & 100% Private, Zero-Cloud AI Image Editing. All machine learning models run securely inside your browser using WebAssembly.'}
             </p>
             <div class="inline-flex items-center gap-2 text-xs text-[#05DAED]">
               <span class="w-2 h-2 rounded-full bg-[#05DAED] animate-pulse"></span>
@@ -1096,8 +1096,8 @@ function generateSemanticHtml(lang, urlPath, title, desc, tool, infoPage, transl
               <p class="text-sm text-slate-400">${translations['about.feature.fast.desc'] || '0ms network latency after initial model load.'}</p>
             </div>
             <div class="p-6 rounded-2xl bg-slate-900/60 border border-slate-800 flex flex-col gap-2">
-              <h3 class="text-lg font-bold text-white">${translations['about.feature.free'] || 'Always Free'}</h3>
-              <p class="text-sm text-slate-400">${translations['about.feature.free.desc'] || 'No server bills means no subscription fees for you.'}</p>
+              <h3 class="text-lg font-bold text-white">${translations['about.feature.free'] || 'Generous Free Tier'}</h3>
+              <p class="text-sm text-slate-400">${translations['about.feature.free.desc'] || 'Because computing runs locally on your device, we offer essential editing tools for free.'}</p>
             </div>
             <div class="p-6 rounded-2xl bg-slate-900/60 border border-slate-800 flex flex-col gap-2">
               <h3 class="text-lg font-bold text-white">${translations['about.feature.local'] || 'Local Execution'}</h3>
@@ -1277,7 +1277,7 @@ function generateSemanticHtml(lang, urlPath, title, desc, tool, infoPage, transl
             <h1 class="text-3xl md:text-5xl font-extrabold text-white tracking-tight leading-tight">${translations['pricing.title'] || h1}</h1>
             <p class="text-lg text-slate-300 leading-relaxed max-w-3xl mx-auto">${translations['pricing.subtitle'] || overviewText}</p>
             <div class="inline-flex items-center justify-center gap-2 px-6 py-2 rounded-xl bg-neon-emerald/10 border border-neon-emerald/30 text-neon-emerald text-sm font-bold mx-auto">
-              ${translations['info.freePromo'] || '100% Free Forever • Zero Subscriptions • No Credit Card'}
+              ${translations['info.freePromo'] || '100% Private Client-Side AI • Free Tier & Studio PRO'}
             </div>
           </section>
 
@@ -1297,7 +1297,7 @@ function generateSemanticHtml(lang, urlPath, title, desc, tool, infoPage, transl
               <h2 class="text-xl font-bold text-white font-heading">${translations['pricing.s3.title'] || 'Cost Comparison'}</h2>
               <p class="text-sm text-slate-300 leading-relaxed">${translations['pricing.s3.c1.name'] || 'Cloud Services'}: $30 - $120 / month</p>
               <p class="text-sm text-slate-300 leading-relaxed">${translations['pricing.s3.c2.name'] || 'Traditional Software'}: $240 / year</p>
-              <p class="text-sm text-[#12DA91] font-bold leading-relaxed">${translations['pricing.s3.c3.name'] || 'HelpMyIMG'}: $0 Free Forever</p>
+              <p class="text-sm text-[#12DA91] font-bold leading-relaxed">${translations['pricing.s3.c3.name'] || 'HelpMyIMG'}: Free Starter & $9.99/mo PRO</p>
             </div>
             <div class="p-6 rounded-2xl bg-slate-900/50 border border-slate-800 flex flex-col gap-2">
               <h2 class="text-xl font-bold text-white font-heading">${translations['pricing.s4.title'] || 'Why Is It Free?'}</h2>
@@ -1723,7 +1723,7 @@ function generateSemanticHtml(lang, urlPath, title, desc, tool, infoPage, transl
                       ${translations['home.why.title'] || 'Why HelpMyIMG is the Smartest Choice for Creators & Businesses'}
                     </h2>
                     <p class="text-slate-400 mt-6 max-w-2xl mx-auto text-base sm:text-lg leading-relaxed">
-                      ${translations['home.why.desc'] || 'Designed from the ground up for maximum privacy, blazing speed, and zero cost. Here is why thousands trust HelpMyIMG every day.'}
+                      ${translations['home.why.desc'] || 'Designed from the ground up for maximum privacy, blazing speed, and accessible tools. Here is why thousands trust HelpMyIMG every day.'}
                     </p>
                   </div>
 
@@ -1754,10 +1754,10 @@ function generateSemanticHtml(lang, urlPath, title, desc, tool, infoPage, transl
                       <div class="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-[#05DAED]/10 flex items-center justify-center text-[#05DAED] mb-4 sm:mb-6 border border-[#05DAED]/30">
                         <svg class="w-6 h-6 sm:w-7 sm:h-7 stroke-[2.5]" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><line x1="12" x2="12" y1="2" y2="22"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
                       </div>
-                      <h3 class="text-lg sm:text-xl font-heading font-bold text-white mb-2 sm:mb-3">${translations['home.why.c3.t'] || 'Forever Free & Unlimited'}</h3>
-                      <p class="text-slate-400 text-sm leading-relaxed">${translations['home.why.c3.d'] || 'No subscriptions, no watermarks, no credit packs, and no hidden fees. High-definition photo editing made accessible for all.'}</p>
+                      <h3 class="text-lg sm:text-xl font-heading font-bold text-white mb-2 sm:mb-3">${translations['home.why.c3.t'] || 'Generous Free Tier & PRO Power'}</h3>
+                      <p class="text-slate-400 text-sm leading-relaxed">${translations['home.why.c3.d'] || 'Core tools are free to use without mandatory sign-up or watermarks. Upgrade to PRO whenever you need heavy batch processing and 4K exports.'}</p>
                       <div class="mt-4 sm:mt-6 flex items-center gap-2 text-xs font-mono text-[#05DAED] font-bold">
-                        <span>${translations['home.why.c3.b'] || '$0 / Lifetime'}</span>
+                        <span>${translations['home.why.c3.b'] || 'Free & PRO Plans'}</span>
                       </div>
                     </div>
 

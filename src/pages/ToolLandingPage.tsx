@@ -101,7 +101,7 @@ export const ToolLandingPage: React.FC = () => {
     : t('landing.default.title.remove'));
 
   const defaultDesc = isPseoTool && config ? t(`seo.desc.${internalTool}`, { defaultValue: config.description || '' }) : (!tool
-    ? t('landing.default.desc.home', { defaultValue: "Your local AI photo editor is here and forever free! 100% private, runs directly in your browser." })
+    ? t('landing.default.desc.home', { defaultValue: "Your local AI photo editor: bulk background removal, resize, compress, and edit photos directly in your browser." })
     : internalTool === 'color' 
     ? t('landing.default.desc.color') 
     : internalTool === 'watermark'

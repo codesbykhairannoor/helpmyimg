@@ -303,7 +303,7 @@ export const PricingPage: React.FC = () => {
                   </span>
                 </div>
                 <p className="text-xs text-slate-400 dark:text-slate-500 mt-1">
-                  {t('pricing.free.sub', { defaultValue: '100% Gratis • Tanpa Kartu Kredit' })}
+                  {t('pricing.free.sub', { defaultValue: 'Paket Starter Gratis • Tanpa Kartu Kredit' })}
                 </p>
               </div>
 

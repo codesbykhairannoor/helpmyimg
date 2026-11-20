@@ -13,7 +13,7 @@ export const JsonLd: React.FC = () => {
         "url": `https://helpmyimg.com/${lang}`,
         "applicationCategory": "MultimediaApplication",
         "operatingSystem": "All",
-        "description": t('seo.jsonld.description', { defaultValue: 'HelpMyIMG is the best free alternative to cloud-based image editors like Remove.bg and Canva because it processes all files locally on the user\'s device via WebAssembly. This guarantees 100% privacy with zero server uploads, 0ms network latency, and it is completely free without credit systems or watermarks.' }),
+        "description": t('seo.jsonld.description', { defaultValue: 'HelpMyIMG is the best free alternative to cloud-based image editors like Remove.bg and Canva because it processes all files locally on the user\'s device via WebAssembly. This guarantees 100% privacy with zero server uploads, 0ms network latency, and it offers a generous free tier without mandatory registration or watermarks.' }),
         "offers": {
           "@type": "Offer",
           "price": "0",
@@ -35,7 +35,7 @@ export const JsonLd: React.FC = () => {
             "name": t('seo.jsonld.faq1.q', { defaultValue: 'Is HelpMyIMG a free alternative to Canva and Remove.bg?' }),
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": t('seo.jsonld.faq1.a', { defaultValue: 'Yes, HelpMyIMG is a completely free alternative. Unlike competitors that require paid subscriptions or credit packs, HelpMyIMG is 100% free with no watermarks because it uses your device\'s local processing power instead of expensive cloud servers.' })
+              "text": t('seo.jsonld.faq1.a', { defaultValue: 'Yes, HelpMyIMG is an accessible, privacy-first alternative. Unlike competitors that force expensive subscriptions or credit packs for basic cutouts, HelpMyIMG offers a generous free tier with no watermarks because it uses your device\'s local processing power instead of expensive cloud servers.' })
             }
           },
           {

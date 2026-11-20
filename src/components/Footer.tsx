@@ -39,7 +39,7 @@ export const Footer: React.FC = () => {
               </span>
             </div>
             <p className="text-[13px] text-slate-400 leading-relaxed font-body font-medium max-w-sm">
-              100% Free, Private, Zero-Cloud AI Image Editing. All machine learning models run securely inside your browser using WebAssembly.
+              Free & 100% Private, Zero-Cloud AI Image Editing. All machine learning models run securely inside your browser using WebAssembly.
             </p>
           </div>
 

@@ -88,7 +88,7 @@ export const ComparePage: React.FC = () => {
                 { label: 'Latency / Speed', ours: '0ms (Instant)', theirs1: '500ms+', theirs2: '800ms+' },
                 { label: 'Privacy', ours: '100% Local (Zero-Trust)', theirs1: 'Data Uploaded', theirs2: 'Data Stored' },
                 { label: 'Offline Mode', ours: 'Fully Supported', theirs1: 'Fails completely', theirs2: 'Fails completely' },
-                { label: 'Pricing', ours: '0 IDR / Forever Free', theirs1: 'Pay per API call', theirs2: 'Monthly Subs' },
+                { label: 'Pricing', ours: 'Free Starter / $9.99 PRO', theirs1: 'Pay per API call', theirs2: 'Monthly Subs' },
                 { label: 'Batch Processing', ours: 'Up to 10 parallel', theirs1: 'Queue based', theirs2: '1 by 1 limit' },
               ].map((row, i) => (
                 <div key={i} className="grid grid-cols-4 gap-4 items-center">

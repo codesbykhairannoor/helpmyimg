@@ -1,6 +1,6 @@
 // src/components/landing/HomeSections.tsx
 // Bagian Khusus Beranda (Homepage / Root Language Landing) untuk Dominasi SEO & GEO di 30 Bahasa
-// Dirancang Khusus untuk Memperkuat Brand HelpMyIMG (100% Gratis, Privasi Mutlak, Kecepatan Lokal, Tanpa Biaya Cloud/AI yang Mahal)
+// Dirancang Khusus untuk Memperkuat Brand HelpMyIMG (Free Starter & PRO Power, Privasi Mutlak, Kecepatan Lokal, Tanpa Biaya Cloud/AI yang Mahal)
 
 import React from 'react';
 import { useTranslation } from '../../context/LanguageContext';
@@ -439,7 +439,7 @@ export const HomeSections: React.FC = () => {
             let defQ = '';
             let defA = '';
             if (num === 1) {
-              defQ = 'Is HelpMyIMG completely free to use?';
+              defQ = 'Is HelpMyIMG free to use?';
               defA = 'Yes, HelpMyIMG offers a generous free tier for core tools with no mandatory registration, credit systems, or watermarks. For heavy batch processing and uncompressed 4K exports, we also provide an optional PRO upgrade.';
             } else if (num === 2) {
               defQ = 'Why does HelpMyIMG process images faster than traditional online photo editors?';

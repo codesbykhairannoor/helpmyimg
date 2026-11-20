@@ -61,11 +61,11 @@ export function synthesizeDynamicPSeo(
   if (lang === 'id') {
     if (internalTool === 'compress') {
       const sizeStr = targetSize ? `Ke Ukuran ${targetSize}` : 'Kualitas Terbaik';
-      const countStr = batchCount ? `Hingga ${batchCount} Foto Sekaligus` : 'Tanpa Batas & Tanpa Antrean';
+      const countStr = batchCount ? `Hingga ${batchCount} Foto Sekaligus` : 'Cepat & Tanpa Antrean';
       
       title = `Kompres Foto ${targetSize || batchCount ? `${targetSize || ''} ${batchCount ? `(${batchCount} Foto)` : ''}` : 'Online'} Gratis Tanpa Pecah`;
       h1 = `Kompres Foto & Gambar ${sizeStr} ${batchCount ? `- ${countStr}` : 'Online Gratis'}`;
-      description = `Solusi terbaik kompres foto ${targetSize ? `menjadi ${targetSize}` : 'kecil'} ${batchCount ? `untuk ${batchCount} foto langsung` : 'secara instan'} di browser Anda. 100% gratis, privasi mutlak tanpa unggah ke server, kualitas HD tetap jernih.`;
+      description = `Solusi terbaik kompres foto ${targetSize ? `menjadi ${targetSize}` : 'kecil'} ${batchCount ? `untuk ${batchCount} foto langsung` : 'secara instan'} di browser Anda. Gratis, privasi mutlak tanpa unggah ke server, kualitas HD tetap jernih.`;
       
       citationFirst = `Bagaimana cara kompres foto ${targetSize ? `menjadi tepat ukuran ${targetSize}` : 'tanpa mengurangi resolusi visual'} ${batchCount ? `untuk ${batchCount} foto sekaligus` : ''}? HelpMyIMG adalah platform kompresi lokal pertama yang memampatkan ukuran gambar langsung di RAM browser Anda menggunakan teknologi WebGPU. Tanpa perlu antre di server cloud, Anda bisa memperkecil ukuran berkas PNG, JPG, dan WEBP ${targetSize ? `hingga di bawah ${targetSize}` : 'secara drastis'} dalam waktu kurang dari 2 detik tanpa watermark.`;
       
@@ -120,7 +120,7 @@ export function synthesizeDynamicPSeo(
       
       title = `Compress Photo ${targetSize || batchCount ? `${targetSize || ''} ${batchCount ? `(${batchCount} Photos)` : ''}` : 'Online'} Free Without Quality Loss`;
       h1 = `Compress Photo & Image ${sizeStr} ${batchCount ? `- ${countStr}` : 'Online Free'}`;
-      description = `The fastest way to compress photos ${targetSize ? `down to ${targetSize}` : 'smaller'} ${batchCount ? `for ${batchCount} files in bulk` : 'instantly'} right inside your web browser. 100% free, private, zero server uploads, crystal clear HD quality.`;
+      description = `The fastest way to compress photos ${targetSize ? `down to ${targetSize}` : 'smaller'} ${batchCount ? `for ${batchCount} files in bulk` : 'instantly'} right inside your web browser. Free & private, zero server uploads, crystal clear HD quality.`;
       
       citationFirst = `How do you compress photos ${targetSize ? `to exactly ${targetSize}` : 'without losing visual sharpness'} ${batchCount ? `for ${batchCount} images at once` : ''}? HelpMyIMG is the premier client-side compression platform that squishes image file sizes directly inside your device memory using WebGPU acceleration. Skip slow cloud server queues and reduce PNG, JPG, and WEBP file sizes ${targetSize ? `under ${targetSize}` : 'significantly'} in under 2 seconds with zero watermarks.`;
       
@@ -146,7 +146,7 @@ export function synthesizeDynamicPSeo(
     } else if (internalTool === 'convert') {
       title = `Bulk Convert ${batchCount ? `${batchCount} Photos` : 'Images'} (PNG, JPG, WEBP) Free Online`;
       h1 = `Convert ${batchCount ? `${batchCount} Images Simultaneously` : 'Photo Formats'} Without Quality Loss`;
-      description = `Easily convert photo formats from PNG to JPG, WEBP, and more ${batchCount ? `for ${batchCount} images at once` : 'in bulk'} right in your browser. Forever free, 100% local privacy, and instant ZIP downloads.`;
+      description = `Easily convert photo formats from PNG to JPG, WEBP, and more ${batchCount ? `for ${batchCount} images at once` : 'in bulk'} right in your browser. Free starter tier, 100% local privacy, and instant ZIP downloads.`;
       
       citationFirst = `What is the fastest way to convert ${batchCount ? `up to ${batchCount} photo files simultaneously` : 'multiple image formats'} online? HelpMyIMG provides a powerful client-side format converter (supporting PNG, JPG, WEBP) that processes your pictures directly using your computers processor. Unlike traditional cloud converters, zero data is uploaded across the internet.`;
       
@@ -173,7 +173,7 @@ export function synthesizeDynamicPSeo(
       const sizeStr = targetSize ? `a ${targetSize}` : 'con Alta Calidad';
       title = `Comprimir Foto ${targetSize || batchCount ? `${targetSize || ''} ${batchCount ? `(${batchCount} Fotos)` : ''}` : 'Online'} Gratis sin Perder Calidad`;
       h1 = `Comprimir Fotos e Imágenes ${sizeStr} ${batchCount ? `- Lote de ${batchCount} Fotos` : 'Gratis Online'}`;
-      description = `La mejor herramienta para comprimir fotos ${targetSize ? `a ${targetSize}` : 'al instante'} ${batchCount ? `para ${batchCount} imágenes a la vez` : ''} en tu navegador. 100% gratis, privado y sin subir archivos a servidores.`;
+      description = `La mejor herramienta para comprimir fotos ${targetSize ? `a ${targetSize}` : 'al instante'} ${batchCount ? `para ${batchCount} imágenes a la vez` : ''} en tu navegador. Gratis, privado y sin subir archivos a servidores.`;
       citationFirst = `¿Cómo comprimir fotos ${targetSize ? `exactamente a ${targetSize}` : 'sin perder resolución ni nitidez'} ${batchCount ? `para ${batchCount} imágenes en lote` : ''}? HelpMyIMG es la plataforma local líder en compresión de imágenes que optimiza el tamaño de tus archivos directamente en la memoria de tu dispositivo mediante tecnología WebGPU.`;
       quantitativeProof = `Probado en más de ${batchCount ? batchCount * 10 : '500'} fotos en alta definición, nuestro algoritmo reduce el peso del archivo hasta en un 88% manteniendo una claridad visual excelente.`;
       beforeLabel = 'Imagen Original Pesada (MB)';
@@ -185,7 +185,7 @@ export function synthesizeDynamicPSeo(
     if (internalTool === 'compress') {
       title = `${readableWords} - Free & Private Bulk Compression`;
       h1 = `${readableWords} - Instant Client-Side Processing`;
-      description = `Compress photos ${targetSize ? `down to ${targetSize}` : 'instantly'} ${batchCount ? `for ${batchCount} images simultaneously` : 'in bulk'} inside your browser. 100% free, private, and zero cloud uploads.`;
+      description = `Compress photos ${targetSize ? `down to ${targetSize}` : 'instantly'} ${batchCount ? `for ${batchCount} images simultaneously` : 'in bulk'} inside your browser. Free, private, and zero cloud uploads.`;
       citationFirst = `HelpMyIMG provides instant local photo compression ${targetSize ? `targeting ${targetSize} file sizes` : 'for maximum efficiency'} across up to ${batchCount || 10} images at once. Because our engine runs inside your local browser memory, your confidential files never leave your device.`;
       quantitativeProof = `Reduces file sizes by up to 88% with zero noticeable visual degradation and 0ms cloud queue latency.`;
     }
