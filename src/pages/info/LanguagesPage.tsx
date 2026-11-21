@@ -21,15 +21,26 @@ export const LanguagesPage: React.FC = () => {
   const solidPart = titleWords.slice(splitIndex).join(' ');
 
   const localizedSlug = getLocalizedInfoSlug('languages', lang);
+  const pageLabel = t('footer.languages', { defaultValue: 'Supported Languages' });
+  const seoTitle = rawTitle && rawTitle.toLowerCase() !== pageLabel.toLowerCase() && pageLabel.length < 22
+    ? `${pageLabel} — ${rawTitle} - HelpMyIMG`
+    : `${pageLabel} - HelpMyIMG`;
+  const languageFaqs = [1, 2, 3]
+    .map((idx) => ({
+      question: t(`languages.faq${idx}.q`, { defaultValue: '' }),
+      answer: t(`languages.faq${idx}.a`, { defaultValue: '' }),
+    }))
+    .filter((f) => f.question && f.answer);
 
   return (
     <>
       <SeoHead
-        title={`${t('footer.languages', { defaultValue: 'Supported Languages' })} - HelpMyIMG`}
+        title={seoTitle}
         description={t('languages.subtitle', { defaultValue: 'HelpMyIMG is natively translated and available in 30 global languages.' })}
         canonicalPath={lang === 'en' ? `/${localizedSlug}/` : `/${lang}/${localizedSlug}/`}
         lang={lang}
         infoPage="languages"
+        faqs={languageFaqs}
       />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 md:pt-12 pb-16">
@@ -37,7 +48,7 @@ export const LanguagesPage: React.FC = () => {
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="text-center mb-12 relative"
+          className="text-center mb-12 relative overflow-hidden"
         >
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-neon-indigo/20 blur-[150px] rounded-full pointer-events-none -z-10" />
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-neon-indigo/10 border border-neon-indigo/20 text-neon-indigo text-sm font-mono font-bold mb-8">
@@ -76,7 +87,7 @@ export const LanguagesPage: React.FC = () => {
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4">
             {SUPPORTED_LANGUAGES.map((l) => {
               const targetSlug = getLocalizedInfoSlug('languages', l.code);
-              const targetHref = l.code === 'en' ? `/${targetSlug}` : `/${l.code}/${targetSlug}`;
+              const targetHref = l.code === 'en' ? `/${targetSlug}/` : `/${l.code}/${targetSlug}/`;
               return (
                 <a
                   key={l.code}

@@ -1103,19 +1103,19 @@ function generateSemanticHtml(lang, urlPath, title, desc, tool, infoPage, transl
 
           <section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             <div class="p-6 rounded-2xl bg-slate-900/60 border border-slate-800 flex flex-col gap-2">
-              <h3 class="text-lg font-bold text-white">${translations['about.feature.fast'] || 'Lightning Fast'}</h3>
+              <h2 class="text-lg font-bold text-white">${translations['about.feature.fast'] || 'Lightning Fast'}</h2>
               <p class="text-sm text-slate-400">${translations['about.feature.fast.desc'] || '0ms network latency after initial model load.'}</p>
             </div>
             <div class="p-6 rounded-2xl bg-slate-900/60 border border-slate-800 flex flex-col gap-2">
-              <h3 class="text-lg font-bold text-white">${translations['about.feature.free'] || 'Generous Free Tier'}</h3>
+              <h2 class="text-lg font-bold text-white">${translations['about.feature.free'] || 'Generous Free Tier'}</h2>
               <p class="text-sm text-slate-400">${translations['about.feature.free.desc'] || 'Because computing runs locally on your device, we offer essential editing tools for free.'}</p>
             </div>
             <div class="p-6 rounded-2xl bg-slate-900/60 border border-slate-800 flex flex-col gap-2">
-              <h3 class="text-lg font-bold text-white">${translations['about.feature.local'] || 'Local Execution'}</h3>
+              <h2 class="text-lg font-bold text-white">${translations['about.feature.local'] || 'Local Execution'}</h2>
               <p class="text-sm text-slate-400">${translations['about.feature.local.desc'] || 'Your GPU/CPU does the work. No cloud queue bottlenecks.'}</p>
             </div>
             <div class="p-6 rounded-2xl bg-slate-900/60 border border-slate-800 flex flex-col gap-2">
-              <h3 class="text-lg font-bold text-white">${translations['about.feature.privacy'] || 'Zero Tracking'}</h3>
+              <h2 class="text-lg font-bold text-white">${translations['about.feature.privacy'] || 'Zero Tracking'}</h2>
               <p class="text-sm text-slate-400">${translations['about.feature.privacy.desc'] || 'Photos never leave your hard drive or browser memory.'}</p>
             </div>
           </section>
@@ -1971,9 +1971,9 @@ function generateSemanticHtml(lang, urlPath, title, desc, tool, infoPage, transl
             <div class="w-14 h-14 md:w-20 md:h-20 rounded-2xl bg-gradient-to-tr from-neon-cyan/20 to-neon-indigo/20 border border-neon-cyan/40 flex items-center justify-center mb-3 md:mb-6 shadow-lg group-hover:scale-110 transition-transform duration-300">
               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-7 h-7 md:w-10 md:h-10 text-neon-cyan animate-bounce"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" x2="12" y1="3" y2="15"/></svg>
             </div>
-            <h3 class="text-lg md:text-2xl font-heading font-extrabold text-white mb-2 px-2 tracking-tight">
+            <h2 class="text-lg md:text-2xl font-heading font-extrabold text-white mb-2 px-2 tracking-tight">
               ${dropzoneTitleClean}
-            </h3>
+            </h2>
             <p class="text-xs md:text-sm text-slate-400 max-w-md mx-auto mb-6 px-4 leading-relaxed font-body">
               ${dropzoneSubtitle}
             </p>

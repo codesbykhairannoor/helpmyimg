@@ -148,10 +148,92 @@ for (const route of ROUTES) {
       expect(types).toContain('FAQPage');
     }
 
-    // 7. Visible H1 present and CLS low
-    const h1Text = await page.locator('h1').first().textContent();
-    expect((h1Text || '').trim().length).toBeGreaterThan(5);
-    const cls = await page.evaluate(() => (window as any).__clsValue || 0);
-    expect(cls).toBeLessThan(0.1);
+    // 7. Visible H1 present, sequential headings, zero horizontal overflow, and CLS low
+    const layoutMetrics = await page.evaluate(() => {
+      const headings = Array.from(document.querySelectorAll('h1, h2, h3, h4, h5, h6'))
+        .map((h) => ({ level: Number(h.tagName[1]), text: (h.textContent || '').trim() }))
+        .filter((h) => h.text.length > 0);
+      const skips: string[] = [];
+      for (let i = 1; i < headings.length; i++) {
+        if (headings[i].level > headings[i - 1].level + 1) {
+          skips.push(`h${headings[i - 1].level}->h${headings[i].level}`);
+        }
+      }
+      return {
+        h1Text: (document.querySelector('h1')?.textContent || '').trim(),
+        cls: (window as any).__clsValue || 0,
+        overflowPx: Math.max(0, document.documentElement.scrollWidth - window.innerWidth),
+        headingSkips: skips,
+      };
+    });
+
+    expect(layoutMetrics.h1Text.length).toBeGreaterThan(5);
+    expect(layoutMetrics.headingSkips, `Heading skips on ${route.path}`).toEqual([]);
+    expect(layoutMetrics.overflowPx, `Horizontal overflow on ${route.path}`).toBe(0);
+    expect(layoutMetrics.cls, `Desktop CLS on ${route.path}`).toBeLessThan(0.1);
+  });
+}
+
+const MOBILE_ROUTES = [
+  { path: '/', expectedLang: 'en' },
+  { path: '/compress-image/', expectedLang: 'en' },
+  { path: '/security/', expectedLang: 'en' },
+  { path: '/languages/', expectedLang: 'en' },
+  { path: '/compare/', expectedLang: 'en' },
+  { path: '/pricing/', expectedLang: 'en' },
+  { path: '/privacy/', expectedLang: 'en' },
+  { path: '/ar/', expectedLang: 'ar', expectedDir: 'rtl' as const },
+];
+
+for (const mRoute of MOBILE_ROUTES) {
+  test(`Mobile (390x844) CWV, Overflow & Heading audit: ${mRoute.path}`, async ({ browser }) => {
+    const context = await browser.newContext({
+      viewport: { width: 390, height: 844 },
+      hasTouch: true,
+      isMobile: true,
+    });
+    const page = await context.newPage();
+
+    await page.addInitScript(() => {
+      (window as any).__clsValue = 0;
+      new PerformanceObserver((list) => {
+        for (const entry of list.getEntries() as any[]) {
+          if (!entry.hadRecentInput) {
+            (window as any).__clsValue += entry.value;
+          }
+        }
+      }).observe({ type: 'layout-shift', buffered: true });
+    });
+
+    await page.goto(mRoute.path, { waitUntil: 'networkidle' });
+    await page.waitForSelector('h1', { timeout: 10000 });
+    await page.waitForTimeout(500);
+
+    const metrics = await page.evaluate(() => {
+      const headings = Array.from(document.querySelectorAll('h1, h2, h3, h4, h5, h6'))
+        .map((h) => ({ level: Number(h.tagName[1]), text: (h.textContent || '').trim() }))
+        .filter((h) => h.text.length > 0);
+      const skips: string[] = [];
+      for (let i = 1; i < headings.length; i++) {
+        if (headings[i].level > headings[i - 1].level + 1) {
+          skips.push(`h${headings[i - 1].level}->h${headings[i].level}`);
+        }
+      }
+      return {
+        cls: (window as any).__clsValue || 0,
+        overflowPx: Math.max(0, document.documentElement.scrollWidth - window.innerWidth),
+        headingSkips: skips,
+        titleLen: document.title.length,
+        hasJsonLd: document.querySelectorAll('head > script[type="application/ld+json"]').length === 1,
+      };
+    });
+
+    await context.close();
+
+    expect(metrics.overflowPx, `Mobile horizontal overflow on ${mRoute.path}`).toBe(0);
+    expect(metrics.cls, `Mobile CLS on ${mRoute.path}`).toBeLessThan(0.1);
+    expect(metrics.headingSkips, `Mobile heading skips on ${mRoute.path}`).toEqual([]);
+    expect(metrics.titleLen).toBeGreaterThanOrEqual(20);
+    expect(metrics.hasJsonLd).toBe(true);
   });
 }

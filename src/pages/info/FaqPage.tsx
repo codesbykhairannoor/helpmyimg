@@ -176,16 +176,16 @@ export const FaqPage: React.FC = () => {
                 <Sparkles className="w-7 h-7" />
               </div>
               <div>
-                <h4 className="text-xl font-bold text-white font-heading">
+                <h2 className="text-xl font-bold text-white font-heading">
                   {t('faq.proBox.title', { defaultValue: 'Ready to Process 100+ Photos in 4K?' })}
-                </h4>
+                </h2>
                 <p className="text-slate-400 text-sm mt-1">
                   {t('faq.proBox.desc', { defaultValue: 'Explore the full power of HelpMyIMG PRO with uncompressed exports, smart renaming, and priority multi-core speed.' })}
                 </p>
               </div>
             </div>
             <a
-              href={`/${lang}/pricing`}
+              href={lang === 'en' ? `/${getLocalizedInfoSlug('pricing', lang)}/` : `/${lang}/${getLocalizedInfoSlug('pricing', lang)}/`}
               className="inline-flex items-center justify-center px-6 py-3 rounded-xl bg-neon-cyan text-dark-900 font-bold hover:bg-white hover:scale-105 transition-all text-sm shrink-0 whitespace-nowrap shadow-[0_0_20px_rgba(34,211,238,0.3)]"
             >
               {t('nav.pricing', { defaultValue: 'Pricing & Plans' })}
@@ -203,7 +203,7 @@ export const FaqPage: React.FC = () => {
         >
           <div className="absolute top-0 right-0 w-64 h-64 bg-neon-purple/10 blur-[80px] rounded-full pointer-events-none" />
           <Settings className="w-16 h-16 text-slate-500 mx-auto mb-8 opacity-50" />
-          <h3 className="text-3xl font-black text-white mb-4 font-heading">{t('faq.more.title')}</h3>
+          <h2 className="text-3xl font-black text-white mb-4 font-heading">{t('faq.more.title')}</h2>
           <p className="text-slate-400 text-lg mb-10 max-w-xl mx-auto">{t('faq.more.desc')}</p>
           
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
@@ -214,7 +214,7 @@ export const FaqPage: React.FC = () => {
               Contact Support
             </a>
             <a 
-              href={`/${lang}/about`} 
+              href={lang === 'en' ? `/${getLocalizedInfoSlug('about', lang)}/` : `/${lang}/${getLocalizedInfoSlug('about', lang)}/`}
               className="inline-flex items-center justify-center px-8 py-4 rounded-2xl bg-dark-700 text-white font-bold border border-dark-600 hover:bg-dark-600 hover:border-dark-500 transition-all text-lg w-full sm:w-auto"
             >
               About HelpMyIMG

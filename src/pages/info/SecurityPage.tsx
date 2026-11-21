@@ -20,15 +20,26 @@ export const SecurityPage: React.FC = () => {
   const solidPart = titleWords.slice(splitIndex).join(' ');
 
   const localizedSlug = getLocalizedInfoSlug('security', lang);
+  const pageLabel = t('footer.security', { defaultValue: 'Security & Trust' });
+  const seoTitle = rawTitle && rawTitle.toLowerCase() !== pageLabel.toLowerCase() && pageLabel.length < 22
+    ? `${pageLabel} — ${rawTitle} - HelpMyIMG`
+    : `${pageLabel} - HelpMyIMG`;
+  const securityFaqs = [1, 2, 3]
+    .map((idx) => ({
+      question: t(`security.faq${idx}.q`, { defaultValue: '' }),
+      answer: t(`security.faq${idx}.a`, { defaultValue: '' }),
+    }))
+    .filter((f) => f.question && f.answer);
 
   return (
     <>
       <SeoHead
-        title={`${t('footer.security', { defaultValue: 'Security & Trust' })} - HelpMyIMG`}
+        title={seoTitle}
         description={t('security.subtitle', { defaultValue: 'Learn how our Zero-Cloud architecture and local WebAssembly protect your image data.' })}
         canonicalPath={lang === 'en' ? `/${localizedSlug}/` : `/${lang}/${localizedSlug}/`}
         lang={lang}
         infoPage="security"
+        faqs={securityFaqs}
       />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 md:pt-12 pb-16">
@@ -36,7 +47,7 @@ export const SecurityPage: React.FC = () => {
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="text-center mb-12 relative"
+          className="text-center mb-12 relative overflow-hidden"
         >
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-neon-emerald/20 blur-[120px] rounded-full pointer-events-none -z-10" />
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-neon-emerald/10 border border-neon-emerald/20 text-neon-emerald text-sm font-mono font-bold mb-8">

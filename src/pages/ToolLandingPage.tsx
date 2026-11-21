@@ -3,7 +3,6 @@ import { useRouter } from '../context/RouterContext';
 import { SeoHead } from '../components/seo/SeoHead';
 import { Hero } from '../components/Hero';
 import { LandingSections } from '../components/landing/LandingSections';
-import { ToolFaqSection } from '../components/landing/ToolFaqSection';
 import { ToolGrid } from '../components/ToolGrid';
 import { useTranslation } from '../context/LanguageContext';
 import { type Language } from '../i18n/translations';
@@ -11,6 +10,7 @@ import { getLocalizedSlug } from '../utils/urlMapper';
 
 const ToolWorkspace = lazy(() => import('../components/workspace/ToolWorkspace').then(m => ({ default: m.ToolWorkspace })));
 const HomeSections = lazy(() => import('../components/landing/HomeSections').then(m => ({ default: m.HomeSections })));
+const ToolFaqSection = lazy(() => import('../components/landing/ToolFaqSection').then(m => ({ default: m.ToolFaqSection })));
 
 export const ToolLandingPage: React.FC = () => {
   const { setLang, lang: currentLang, t } = useTranslation();
@@ -105,7 +105,7 @@ export const ToolLandingPage: React.FC = () => {
       {/* SECTIONS & FAQ: Hidden in Workspace/Edit Mode for clean distraction-free workspace */}
       {!hasActiveFiles && (
         <div className="mt-32 sm:mt-40">
-          <Suspense fallback={null}>
+          <Suspense fallback={<div className="min-h-[800px]" />}>
             {!tool ? (
               <HomeSections />
             ) : (

@@ -15,11 +15,15 @@ export const PrivacyPage: React.FC = () => {
   const solidPart = titleWords.slice(splitIndex).join(' ');
 
   const localizedSlug = getLocalizedInfoSlug('privacy', lang);
+  const pageLabel = t('footer.privacy', { defaultValue: 'Privacy Policy' });
+  const seoTitle = rawTitle && rawTitle.toLowerCase() !== pageLabel.toLowerCase() && pageLabel.length < 22
+    ? `${pageLabel} — ${rawTitle} - HelpMyIMG`
+    : `${pageLabel} - HelpMyIMG`;
 
   return (
     <>
       <SeoHead
-        title={`${t('footer.privacy', { defaultValue: 'Privacy Policy' })} - HelpMyIMG`}
+        title={seoTitle}
         description={t('privacy.intro', { defaultValue: 'HelpMyIMG privacy policy: 100% in-browser processing with zero server uploads.' })}
         canonicalPath={lang === 'en' ? `/${localizedSlug}/` : `/${lang}/${localizedSlug}/`}
         lang={lang}
@@ -174,9 +178,9 @@ export const PrivacyPage: React.FC = () => {
                     <CheckSquare className="w-5 h-5" />
                   </div>
                   <div>
-                    <h4 className="text-white font-bold text-base font-heading">
+                    <h3 className="text-white font-bold text-base font-heading">
                       {t('privacy.s6.boxTitle', { defaultValue: 'Encrypted Credential Isolation' })}
-                    </h4>
+                    </h3>
                     <p className="text-slate-400 text-sm mt-1 leading-relaxed">
                       {t('privacy.s6.boxDesc', { defaultValue: 'Authentication tokens are managed through Firebase Auth using industry-standard TLS encryption. Session tokens never have access to your local image buffers or offline WebAssembly workspaces.' })}
                     </p>

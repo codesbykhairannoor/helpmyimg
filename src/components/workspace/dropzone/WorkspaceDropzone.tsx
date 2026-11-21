@@ -43,7 +43,7 @@ export const WorkspaceDropzone: React.FC<WorkspaceDropzoneProps> = ({
         <Upload className="w-7 h-7 md:w-10 md:h-10 text-neon-cyan animate-bounce" />
       </div>
 
-      <h3 className="text-lg md:text-2xl font-heading font-extrabold text-white mb-2 px-2 tracking-tight">
+      <h2 className="text-lg md:text-2xl font-heading font-extrabold text-white mb-2 px-2 tracking-tight">
         {currentItem?.status === 'error' ? (
           <div className="space-y-3">
             <span className="font-bold text-red-400 block mb-1">
@@ -72,7 +72,7 @@ export const WorkspaceDropzone: React.FC<WorkspaceDropzoneProps> = ({
         ) : (
           t('dropzone.title', { defaultValue: 'Upload Photos Here' }).replace(/^[⚡✨🔄\s]+/u, '')
         )}
-      </h3>
+      </h2>
       <p className="text-xs md:text-sm text-slate-400 max-w-md mx-auto mb-6 px-4 leading-relaxed font-body">
         {t('dropzone.subtitle', { defaultValue: 'Drag and drop images (PNG, JPG, WEBP, HEIC, RAW, PSD, JXL) or click to browse' })}
       </p>

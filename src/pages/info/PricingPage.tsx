@@ -204,16 +204,23 @@ export const PricingPage: React.FC = () => {
     },
   ];
 
+  const pricingLabel = t('footer.pricing', { defaultValue: 'Pricing Plans' });
+  const pricingHeadline = t('pricing.title', { defaultValue: 'Transparent & Simple Pricing' });
+  const seoTitle = pricingHeadline && pricingHeadline.toLowerCase() !== pricingLabel.toLowerCase() && pricingLabel.length < 22
+    ? `${pricingLabel} — ${pricingHeadline} - HelpMyIMG`
+    : `${pricingHeadline} - HelpMyIMG`;
+
   return (
     <>
       <SeoHead
-        title={`${t('pricing.title', { defaultValue: 'Pilihan Harga' })} - HelpMyIMG`}
+        title={seoTitle}
         description={t('pricing.subtitle', {
-          defaultValue: 'Mulai gratis dengan alat AI lokal lengkap atau upgrade ke PRO untuk produktivitas studio tanpa batas.',
+          defaultValue: 'Start free with local client-side AI image tools or upgrade to Studio PRO for unlimited 4K workflows.',
         })}
         canonicalPath={lang === 'en' ? `/${localizedSlug}/` : `/${lang}/${localizedSlug}/`}
         lang={lang}
         infoPage="pricing"
+        faqs={faqs.map((f) => ({ question: f.q, answer: f.a }))}
       />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 md:pt-14 pb-20">
@@ -287,9 +294,9 @@ export const PricingPage: React.FC = () => {
                 {t('pricing.free.badge', { defaultValue: 'PAKET GRATIS' })}
               </span>
 
-              <h3 className="text-2xl font-black text-slate-900 dark:text-white mt-4 mb-2">
+              <h2 className="text-2xl font-black text-slate-900 dark:text-white mt-4 mb-2">
                 {t('pricing.free.name', { defaultValue: 'Paket Gratis' })}
-              </h3>
+              </h2>
 
               <p className="text-sm text-slate-500 dark:text-slate-400 min-h-[44px] leading-relaxed">
                 {t('pricing.free.desc', { defaultValue: 'Alat AI foto penting untuk kebutuhan harian dan pengeditan cepat.' })}
@@ -393,11 +400,11 @@ export const PricingPage: React.FC = () => {
                 </span>
               </div>
 
-              <h3 className="text-2xl font-black text-slate-900 dark:text-white mt-2 mb-2">
+              <h2 className="text-2xl font-black text-slate-900 dark:text-white mt-2 mb-2">
                 {isYearly
                   ? t('pricing.pro.yearlyName', { defaultValue: 'Paket Tahunan' })
                   : t('pricing.pro.monthlyName', { defaultValue: 'Paket Bulanan' })}
-              </h3>
+              </h2>
 
               <p className="text-sm text-slate-500 dark:text-slate-400 min-h-[44px] leading-relaxed">
                 {isYearly
@@ -488,9 +495,9 @@ export const PricingPage: React.FC = () => {
                 {t('pricing.founder.badge', { defaultValue: 'VIP FOUNDER SPECIAL' })}
               </span>
 
-              <h3 className="text-2xl font-black text-slate-900 dark:text-white mt-4 mb-2">
+              <h2 className="text-2xl font-black text-slate-900 dark:text-white mt-4 mb-2">
                 {t('pricing.founder.name', { defaultValue: 'Founder Lifetime Pass' })}
-              </h3>
+              </h2>
 
               <p className="text-sm text-slate-500 dark:text-slate-400 min-h-[44px] leading-relaxed">
                 {t('pricing.founder.desc', { defaultValue: 'Sekali bayar, miliki selamanya di seluruh platform dan aplikasi web.' })}
@@ -561,10 +568,10 @@ export const PricingPage: React.FC = () => {
           <div className="p-8 sm:p-10 rounded-3xl bg-slate-50 dark:bg-dark-800/60 border border-slate-200 dark:border-dark-700">
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-6">
               <div>
-                <h3 className="text-xl font-heading font-black text-slate-900 dark:text-white flex items-center gap-2.5">
+                <h2 className="text-xl font-heading font-black text-slate-900 dark:text-white flex items-center gap-2.5">
                   <Layers className="w-5 h-5 text-cyan-600 dark:text-neon-cyan" />
                   <span>{t('pricing.suite.title', { defaultValue: '1 Akun Membuka Seluruh 4-in-1 Privacy Suite' })}</span>
-                </h3>
+                </h2>
                 <p className="text-sm text-slate-500 dark:text-slate-400 mt-1">
                   {t('pricing.suite.subtitle', { defaultValue: 'Akses penuh ke seluruh produk privasi tanpa batas.' })}
                 </p>
@@ -584,10 +591,10 @@ export const PricingPage: React.FC = () => {
                     <span className="text-2xl p-2 rounded-xl bg-slate-100 dark:bg-dark-700 inline-block mb-3 leading-none">
                       {app.icon}
                     </span>
-                    <h4 className="text-base font-bold text-slate-900 dark:text-white flex items-center gap-1.5 mb-1">
+                    <h3 className="text-base font-bold text-slate-900 dark:text-white flex items-center gap-1.5 mb-1">
                       <span>{app.name}</span>
                       <span className="w-2 h-2 rounded-full bg-emerald-500 shrink-0"></span>
-                    </h4>
+                    </h3>
                     <p className="text-xs text-cyan-600 dark:text-cyan-400 font-bold mb-1.5">{app.role}</p>
                     <p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">{app.desc}</p>
                   </div>
@@ -651,9 +658,9 @@ export const PricingPage: React.FC = () => {
             <div className="w-12 h-12 rounded-2xl bg-cyan-500/10 text-cyan-600 dark:text-[#05DAED] flex items-center justify-center mb-5">
               <Cpu className="w-6 h-6" />
             </div>
-            <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">
+            <h2 className="text-lg font-bold text-slate-900 dark:text-white mb-2">
               {t('pricing.value.c1Title', { defaultValue: 'Komputasi Lokal di Browser' })}
-            </h3>
+            </h2>
             <p className="text-sm text-slate-500 dark:text-slate-400 leading-relaxed">
               {t('pricing.value.c1Desc', { defaultValue: 'Karena AI berjalan langsung di memori perangkat Anda via WebAssembly, tidak ada tagihan server GPU mahal yang kami bebankan kepada Anda.' })}
             </p>
@@ -663,9 +670,9 @@ export const PricingPage: React.FC = () => {
             <div className="w-12 h-12 rounded-2xl bg-emerald-500/10 text-emerald-500 flex items-center justify-center mb-5">
               <Shield className="w-6 h-6" />
             </div>
-            <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">
+            <h2 className="text-lg font-bold text-slate-900 dark:text-white mb-2">
               {t('pricing.value.c2Title', { defaultValue: '100% Privasi & Tanpa Risiko' })}
-            </h3>
+            </h2>
             <p className="text-sm text-slate-500 dark:text-slate-400 leading-relaxed">
               {t('pricing.value.c2Desc', { defaultValue: 'Foto keluarga, berkas identitas paspor, maupun portofolio klien Anda tidak pernah di-upload ke server cloud manapun.' })}
             </p>
@@ -675,9 +682,9 @@ export const PricingPage: React.FC = () => {
             <div className="w-12 h-12 rounded-2xl bg-indigo-500/10 text-indigo-500 flex items-center justify-center mb-5">
               <Clock className="w-6 h-6" />
             </div>
-            <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">
+            <h2 className="text-lg font-bold text-slate-900 dark:text-white mb-2">
               {t('pricing.value.c3Title', { defaultValue: 'Batal Kapan Saja & Bebas Risiko' })}
-            </h3>
+            </h2>
             <p className="text-sm text-slate-500 dark:text-slate-400 leading-relaxed">
               {t('pricing.value.c3Desc', { defaultValue: 'Tanpa kontrak mengikat. Anda dapat membatalkan langganan PRO sewaktu-waktu dengan 1 klik mudah di pengaturan akun Anda.' })}
             </p>
@@ -762,9 +769,9 @@ export const PricingPage: React.FC = () => {
         {/* SECTION 8: GUARANTEE BANNER */}
         <div className="max-w-4xl mx-auto p-8 rounded-3xl bg-slate-100 dark:bg-dark-800/80 border border-slate-200 dark:border-dark-600 text-center">
           <ShieldCheck className="w-10 h-10 text-cyan-500 dark:text-[#05DAED] mx-auto mb-3" />
-          <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">
+          <h2 className="text-lg font-bold text-slate-900 dark:text-white mb-2">
             {t('pricing.guarantee.title', { defaultValue: 'Jaminan Langganan 100% Bebas Risiko' })}
-          </h3>
+          </h2>
           <p className="text-sm text-slate-600 dark:text-slate-300 max-w-xl mx-auto leading-relaxed">
             {t('pricing.guarantee.desc', {
               defaultValue:

@@ -15,11 +15,15 @@ export const AboutPage: React.FC = () => {
   const solidPart = titleWords.slice(splitIndex).join(' ');
 
   const localizedSlug = getLocalizedInfoSlug('about', lang);
+  const pageLabel = t('footer.about', { defaultValue: 'About Us' });
+  const seoTitle = rawTitle && rawTitle.toLowerCase() !== pageLabel.toLowerCase() && pageLabel.length < 22
+    ? `${pageLabel} — ${rawTitle} - HelpMyIMG`
+    : `${pageLabel} - HelpMyIMG`;
 
   return (
     <>
       <SeoHead
-        title={`${t('footer.about', { defaultValue: 'About Us' })} - HelpMyIMG`}
+        title={seoTitle}
         description={t('about.subtitle', { defaultValue: 'Learn about HelpMyIMG, the 100% private, client-side AI image editor.' })}
         canonicalPath={lang === 'en' ? `/${localizedSlug}/` : `/${lang}/${localizedSlug}/`}
         lang={lang}
@@ -31,7 +35,7 @@ export const AboutPage: React.FC = () => {
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="text-center mb-12 relative"
+          className="text-center mb-12 relative overflow-hidden"
         >
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-neon-cyan/20 blur-[120px] rounded-full pointer-events-none -z-10" />
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-neon-cyan/10 border border-neon-cyan/20 text-neon-cyan text-sm font-mono font-bold mb-8">

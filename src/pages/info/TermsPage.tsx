@@ -49,10 +49,15 @@ export const TermsPage: React.FC = () => {
     { id: 12, icon: Mail, title: t('terms.s12.title', { defaultValue: '12. Governing Law, Dispute Resolution & Legal Notice' }) },
   ];
 
+  const pageLabel = t('footer.terms', { defaultValue: 'Terms of Service' });
+  const seoTitle = rawTitle && rawTitle.toLowerCase() !== pageLabel.toLowerCase() && pageLabel.length < 22
+    ? `${pageLabel} — ${rawTitle} - HelpMyIMG`
+    : `${pageLabel} - HelpMyIMG`;
+
   return (
     <>
       <SeoHead
-        title={`${t('footer.terms', { defaultValue: 'Terms of Service' })} - HelpMyIMG`}
+        title={seoTitle}
         description={t('terms.intro', {
           defaultValue:
             'HelpMyIMG terms of service, founder lifetime licensing conditions, client-side zero-upload guarantees, and privacy-first digital usage agreements.',

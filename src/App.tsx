@@ -66,7 +66,7 @@ const MainContent = () => {
 
   return (
     <main className={`flex-1 w-full flex flex-col min-h-screen ${hasActiveFiles ? 'gap-0 pt-0 pb-4' : 'gap-8 md:gap-16 pt-12 pb-16'}`}>
-      <div className="relative">
+      <div className="relative overflow-x-clip">
         <div className="fixed top-1/2 left-0 w-[500px] h-[500px] -translate-x-1/2 -translate-y-1/2 bg-[radial-gradient(circle_at_center,rgba(5,218,237,0.12)_0%,transparent_60%)] rounded-full pointer-events-none -z-10" />
         <div className="fixed top-1/3 right-0 w-[600px] h-[600px] translate-x-1/3 -translate-y-1/2 bg-[radial-gradient(circle_at_center,rgba(79,70,229,0.1)_0%,transparent_60%)] rounded-full pointer-events-none -z-10" />
         <Suspense fallback={<div className="min-h-[85vh] flex items-center justify-center"><div className="w-8 h-8 border-2 border-cyan-500 border-t-transparent rounded-full animate-spin" /></div>}>
@@ -81,7 +81,7 @@ const AppLayout = () => {
   const { hasActiveFiles } = useRouter();
 
   return (
-    <div className="min-h-screen bg-dark-900 text-slate-900 dark:text-slate-100 font-body flex flex-col selection:bg-[#05DAED]/30 selection:text-[#05DAED]">
+    <div className="min-h-screen overflow-x-clip bg-dark-900 text-slate-900 dark:text-slate-100 font-body flex flex-col selection:bg-[#05DAED]/30 selection:text-[#05DAED]">
       <Navbar />
       <MainContent />
       {!hasActiveFiles && <Footer />}

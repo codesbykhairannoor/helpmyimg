@@ -20,15 +20,26 @@ export const ComparePage: React.FC = () => {
   const solidPart = titleWords.slice(splitIndex).join(' ');
 
   const localizedSlug = getLocalizedInfoSlug('compare', lang);
+  const pageLabel = t('footer.compare', { defaultValue: 'Compare' });
+  const seoTitle = rawTitle && rawTitle.toLowerCase() !== pageLabel.toLowerCase() && pageLabel.length < 22
+    ? `${pageLabel} — ${rawTitle} - HelpMyIMG`
+    : `${pageLabel} - HelpMyIMG`;
+  const compareFaqs = [1, 2, 3]
+    .map((idx) => ({
+      question: t(`compare.faq${idx}.q`, { defaultValue: '' }),
+      answer: t(`compare.faq${idx}.a`, { defaultValue: '' }),
+    }))
+    .filter((f) => f.question && f.answer);
 
   return (
     <>
       <SeoHead
-        title={`${t('footer.compare', { defaultValue: 'Compare' })} - HelpMyIMG`}
+        title={seoTitle}
         description={t('compare.subtitle', { defaultValue: 'Compare HelpMyIMG vs cloud-based alternatives like Remove.bg, Canva, and TinyPNG.' })}
         canonicalPath={lang === 'en' ? `/${localizedSlug}/` : `/${lang}/${localizedSlug}/`}
         lang={lang}
         infoPage="compare"
+        faqs={compareFaqs}
       />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 md:pt-12 pb-16">
@@ -36,7 +47,7 @@ export const ComparePage: React.FC = () => {
         <motion.div 
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          className="text-center mb-12 relative"
+          className="text-center mb-12 relative overflow-hidden"
         >
           <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-3xl h-[400px] bg-neon-purple/20 blur-[150px] rounded-full pointer-events-none -z-10" />
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-neon-purple/10 border border-neon-purple/20 text-neon-purple text-sm font-mono font-bold mb-8">
@@ -69,15 +80,15 @@ export const ComparePage: React.FC = () => {
             <div className="grid grid-cols-4 gap-4 mb-6">
               <div className="col-span-1"></div>
               <div className="col-span-1 bg-neon-purple/20 border-2 border-neon-purple text-white p-6 rounded-t-3xl text-center">
-                <h3 className="text-2xl font-black font-heading mb-2">HelpMyIMG</h3>
+                <h2 className="text-2xl font-black font-heading mb-2">HelpMyIMG</h2>
                 <div className="text-neon-purple font-mono text-sm tracking-widest uppercase">Local WASM</div>
               </div>
               <div className="col-span-1 bg-dark-800 border border-dark-600 text-slate-300 p-6 rounded-t-3xl text-center opacity-70">
-                <h3 className="text-xl font-bold mb-2">Cloud APIs</h3>
+                <h2 className="text-xl font-bold mb-2">Cloud APIs</h2>
                 <div className="text-slate-500 font-mono text-sm uppercase">AWS / GCP</div>
               </div>
               <div className="col-span-1 bg-dark-800 border border-dark-600 text-slate-300 p-6 rounded-t-3xl text-center opacity-70">
-                <h3 className="text-xl font-bold mb-2">SaaS Editors</h3>
+                <h2 className="text-xl font-bold mb-2">SaaS Editors</h2>
                 <div className="text-slate-500 font-mono text-sm uppercase">Subscription</div>
               </div>
             </div>
