@@ -50,8 +50,10 @@ export const TermsPage: React.FC = () => {
   ];
 
   const pageLabel = t('footer.terms', { defaultValue: 'Terms of Service' });
-  const seoTitle = rawTitle && rawTitle.toLowerCase() !== pageLabel.toLowerCase() && pageLabel.length < 22
-    ? `${pageLabel} — ${rawTitle} - HelpMyIMG`
+  const seoTitle = rawTitle && rawTitle.toLowerCase() !== pageLabel.toLowerCase()
+    ? (pageLabel.length + rawTitle.length <= 45
+        ? `${pageLabel} — ${rawTitle} - HelpMyIMG`
+        : (rawTitle.length <= 48 && rawTitle.length >= 16 ? `${rawTitle} - HelpMyIMG` : `${pageLabel} - HelpMyIMG`))
     : `${pageLabel} - HelpMyIMG`;
 
   return (
@@ -127,9 +129,9 @@ export const TermsPage: React.FC = () => {
           >
             <div className="flex items-center gap-2 mb-6 pb-3 border-b border-slate-200 dark:border-dark-600">
               <Scale className="w-4 h-4 text-cyan-500" />
-              <h3 className="text-xs font-bold text-slate-900 dark:text-white uppercase tracking-widest font-mono">
+              <h2 className="text-xs font-bold text-slate-900 dark:text-white uppercase tracking-widest font-mono">
                 {t('terms.sidebarTitle', { defaultValue: 'Table of Contents' })}
-              </h3>
+              </h2>
             </div>
             <nav className="space-y-2 text-xs">
               {sections.map((sec) => {
@@ -363,9 +365,9 @@ export const TermsPage: React.FC = () => {
 
                 <div className="bg-slate-50 dark:bg-dark-900/60 border border-slate-200 dark:border-dark-700 p-6 rounded-2xl flex flex-col sm:flex-row gap-4 items-center justify-between">
                   <div>
-                    <h4 className="text-slate-900 dark:text-white font-bold font-heading mb-1 text-sm sm:text-base">
+                    <h3 className="text-slate-900 dark:text-white font-bold font-heading mb-1 text-sm sm:text-base">
                       {t('terms.contactTitle', { defaultValue: 'Legal & Compliance Inquiries' })}
-                    </h4>
+                    </h3>
                     <p className="text-slate-500 dark:text-slate-400 text-xs sm:text-sm m-0">
                       {t('terms.contactSubtitle', { defaultValue: 'Official response time within 48 business hours.' })}
                     </p>

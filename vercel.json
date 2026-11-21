@@ -4571,6 +4571,106 @@
       "permanent": true
     },
     {
+      "source": "/color-picker/",
+      "destination": "https://helpmyimg.com/image-color-picker/",
+      "permanent": true
+    },
+    {
+      "source": "/color-picker",
+      "destination": "https://helpmyimg.com/image-color-picker/",
+      "permanent": true
+    },
+    {
+      "source": "/png-to-jpg/",
+      "destination": "https://helpmyimg.com/convert-image/",
+      "permanent": true
+    },
+    {
+      "source": "/png-to-jpg",
+      "destination": "https://helpmyimg.com/convert-image/",
+      "permanent": true
+    },
+    {
+      "source": "/jpg-to-png/",
+      "destination": "https://helpmyimg.com/convert-image/",
+      "permanent": true
+    },
+    {
+      "source": "/jpg-to-png",
+      "destination": "https://helpmyimg.com/convert-image/",
+      "permanent": true
+    },
+    {
+      "source": "/webp-to-jpg/",
+      "destination": "https://helpmyimg.com/convert-image/",
+      "permanent": true
+    },
+    {
+      "source": "/webp-to-jpg",
+      "destination": "https://helpmyimg.com/convert-image/",
+      "permanent": true
+    },
+    {
+      "source": "/heic-to-jpg/",
+      "destination": "https://helpmyimg.com/convert-image/",
+      "permanent": true
+    },
+    {
+      "source": "/heic-to-jpg",
+      "destination": "https://helpmyimg.com/convert-image/",
+      "permanent": true
+    },
+    {
+      "source": "/id/jpg-ke-png/",
+      "destination": "https://helpmyimg.com/id/ubah-format-gambar/",
+      "permanent": true
+    },
+    {
+      "source": "/id/jpg-ke-png",
+      "destination": "https://helpmyimg.com/id/ubah-format-gambar/",
+      "permanent": true
+    },
+    {
+      "source": "/id/png-ke-jpg/",
+      "destination": "https://helpmyimg.com/id/ubah-format-gambar/",
+      "permanent": true
+    },
+    {
+      "source": "/id/png-ke-jpg",
+      "destination": "https://helpmyimg.com/id/ubah-format-gambar/",
+      "permanent": true
+    },
+    {
+      "source": "/id/kompres-gambar-100kb/",
+      "destination": "https://helpmyimg.com/id/kompres-gambar/",
+      "permanent": true
+    },
+    {
+      "source": "/id/kompres-gambar-100kb",
+      "destination": "https://helpmyimg.com/id/kompres-gambar/",
+      "permanent": true
+    },
+    {
+      "source": "/id/kompres-gambar-50kb/",
+      "destination": "https://helpmyimg.com/id/kompres-gambar/",
+      "permanent": true
+    },
+    {
+      "source": "/id/kompres-gambar-50kb",
+      "destination": "https://helpmyimg.com/id/kompres-gambar/",
+      "permanent": true
+    },
+    {
+      "source": "/ja/gazou-asshuku-100kb/",
+      "destination": "https://helpmyimg.com/ja/gazo-asshuku/",
+      "permanent": true
+    },
+    {
+      "source": "/ja/gazou-asshuku-100kb",
+      "destination": "https://helpmyimg.com/ja/gazo-asshuku/",
+      "permanent": true
+    },
+    {
       "source": "/:lang(ar|cs|da|de|el|es|fi|fr|he|hi|hu|id|it|ja|ko|ms|nl|no|pl|pt|ro|ru|sv|th|tl|tr|uk|vi|zh)/:tool/:slug((?!.*\\.).+)",
       "destination": "https://helpmyimg.com/:lang/:tool/",
       "permanent": true

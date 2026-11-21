@@ -1065,7 +1065,7 @@
   "landing.default.title.design": "Libreng Online Photo Editor",
   "landing.default.desc.blurface": "Protektahan ang privacy sa pamamagitan ng pag-blur o pag-pixel ng mga mukha at mga plaka ng sasakyan.",
   "landing.default.desc.design": "Mag-edit ng mga larawan online gamit ang mga advanced na filter, anotasyon, at mga tool sa graphic na disenyo.",
-  "blur.options": "Blur Face & Privacy Areas",
+  "blur.options": "I-blur ang Mukha at Mga Lugar sa Privacy",
   "blur.auto": "Awtomatikong",
   "blur.manual": "Naka-customize",
   "blur.manualDesc": "I-click at i-drag ang larawan para gumuhit ng mga custom na blur na lugar.",
@@ -2695,5 +2695,13 @@
   "tab.removeperson": "Alisin ang Tao sa Larawan",
   "tab.convertwebp": "I-convert ang WEBP sa JPG",
   "tab.watermarkbulk": "Mga Batch Watermark na Larawan",
-  "tab.blurplate": "Palabuin ang License Plate"
+  "tab.blurplate": "Palabuin ang License Plate",
+  "editor.downloadPhoto": "I-download ang Larawan",
+  "work.loginToRename": "Mag-sign in (Libre) para palitan ang pangalan ng file",
+  "work.batchRenameLocked": "Ang batch na pagpapalit ng pangalan ng maramihang mga file ay isang eksklusibong tampok na PRO.",
+  "compress.downloadSize": "I-download ang Larawan ({{size}})",
+  "compress.recompress": "I-compress muli ang Larawan",
+  "remove.engineTitle": "Auto AI Cutout",
+  "remove.engineSubtitle": "Subpixel edge matting at zero color fringing",
+  "remove.readyBadge": "handa na"
 }

@@ -1405,7 +1405,7 @@
   "landing.rotate.faq4.a": "No, nuestra herramienta de rotación se puede usar de forma gratuita directamente en su navegador sin marcas de agua.",
   "landing.picker.faq3.q": "¿Puedo generar paletas automáticamente?",
   "landing.picker.faq3.a": "Yes! The tool can automatically generate a beautiful color palette from your uploaded image very Rápido.",
-  "landing.picker.faq4.q": "Is the palette generator Gratis?",
+  "landing.picker.faq4.q": "¿El generador de paletas es gratuito?",
   "landing.picker.faq4.a": "Sí, todas las funciones del selector de color, incluida la generación de paletas, son de uso gratuito sin marcas de agua.",
   "landing.watermark.faq3.q": "¿Puedo usar mi propio logotipo?",
   "landing.watermark.faq3.a": "Absolutamente. Puedes subir logotipos PNG personalizados.",
@@ -2469,7 +2469,7 @@
   "pseo.tryNow": "pseo.tryNow",
   "work.badge.metadata": "Limpiar IA y EXIF",
   "work.badge.editexif": "EXIF manual",
-  "convert.failed": "Gagal mengonversi foto.",
+  "convert.failed": "Foto de Gagal mengonversi.",
   "work.downloadZipPro": "⚡ Descargar ZIP (4K Ultra-HD)",
   "nav.pricing": "Precios y Planes",
   "pricing.free.f8": "3 exportaciones gratuitas de resolución original 4K por día (miembro de inicio de sesión gratuito)",
@@ -2695,5 +2695,13 @@
   "tab.removeperson": "Eliminar persona de la foto",
   "tab.convertwebp": "Convertir WEBP a JPG",
   "tab.watermarkbulk": "Fotos de marcas de agua por lotes",
-  "tab.blurplate": "Matrícula difuminada"
+  "tab.blurplate": "Matrícula difuminada",
+  "editor.downloadPhoto": "Descargar foto",
+  "work.loginToRename": "Inicia sesión (gratis) para cambiar el nombre del archivo",
+  "work.batchRenameLocked": "Cambiar el nombre de varios archivos por lotes es una característica PRO exclusiva.",
+  "compress.downloadSize": "Descargar foto ({{size}})",
+  "compress.recompress": "Volver a comprimir la foto",
+  "remove.engineTitle": "Recorte automático de IA",
+  "remove.engineSubtitle": "Borde mate de subpíxeles y franjas de color cero",
+  "remove.readyBadge": "Listo"
 }

@@ -2698,5 +2698,13 @@
   "tab.removeperson": "Usuń osobę ze zdjęcia",
   "tab.convertwebp": "Konwertuj WEBP na JPG",
   "tab.watermarkbulk": "Zdjęcia wsadowe ze znakiem wodnym",
-  "tab.blurplate": "Zamazana tablica rejestracyjna"
+  "tab.blurplate": "Zamazana tablica rejestracyjna",
+  "editor.downloadPhoto": "Pobierz zdjęcie",
+  "work.loginToRename": "Zaloguj się (bezpłatnie), aby zmienić nazwę pliku",
+  "work.batchRenameLocked": "Zbiorcza zmiana nazw wielu plików to ekskluzywna funkcja PRO.",
+  "compress.downloadSize": "Pobierz zdjęcie ({{size}})",
+  "compress.recompress": "Ponownie skompresuj zdjęcie",
+  "remove.engineTitle": "Automatyczne wyłączanie AI",
+  "remove.engineSubtitle": "Matowanie krawędzi subpikselowych i frędzle o zerowym kolorze",
+  "remove.readyBadge": "Gotowy"
 }

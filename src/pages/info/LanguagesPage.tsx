@@ -22,8 +22,10 @@ export const LanguagesPage: React.FC = () => {
 
   const localizedSlug = getLocalizedInfoSlug('languages', lang);
   const pageLabel = t('footer.languages', { defaultValue: 'Supported Languages' });
-  const seoTitle = rawTitle && rawTitle.toLowerCase() !== pageLabel.toLowerCase() && pageLabel.length < 22
-    ? `${pageLabel} — ${rawTitle} - HelpMyIMG`
+  const seoTitle = rawTitle && rawTitle.toLowerCase() !== pageLabel.toLowerCase()
+    ? (pageLabel.length + rawTitle.length <= 45
+        ? `${pageLabel} — ${rawTitle} - HelpMyIMG`
+        : (rawTitle.length <= 48 && rawTitle.length >= 16 ? `${rawTitle} - HelpMyIMG` : `${pageLabel} - HelpMyIMG`))
     : `${pageLabel} - HelpMyIMG`;
   const languageFaqs = [1, 2, 3]
     .map((idx) => ({

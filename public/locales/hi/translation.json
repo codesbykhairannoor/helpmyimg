@@ -2695,5 +2695,13 @@
   "tab.removeperson": "फ़ोटो से व्यक्ति हटाएँ",
   "tab.convertwebp": "WEBP को JPG में बदलें",
   "tab.watermarkbulk": "बैच वॉटरमार्क तस्वीरें",
-  "tab.blurplate": "लाइसेंस प्लेट को धुंधला करें"
+  "tab.blurplate": "लाइसेंस प्लेट को धुंधला करें",
+  "editor.downloadPhoto": "फोटो डाउनलोड करें",
+  "work.loginToRename": "फ़ाइल का नाम बदलने के लिए साइन इन करें (निःशुल्क)।",
+  "work.batchRenameLocked": "एकाधिक फ़ाइलों का बैच नाम बदलना एक विशेष PRO सुविधा है।",
+  "compress.downloadSize": "फ़ोटो डाउनलोड करें ({{size}})",
+  "compress.recompress": "फ़ोटो को पुनः संपीड़ित करें",
+  "remove.engineTitle": "ऑटो एआई कटआउट",
+  "remove.engineSubtitle": "सबपिक्सेल एज मैटिंग और शून्य रंग फ्रिंजिंग",
+  "remove.readyBadge": "तैयार"
 }

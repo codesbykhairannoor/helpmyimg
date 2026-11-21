@@ -1405,7 +1405,7 @@
   "landing.rotate.faq4.a": "Nej, vores rotationsværktøj er gratis at bruge direkte i din browser med nul vandmærker.",
   "landing.picker.faq3.q": "Kan jeg generere paletter automatisk?",
   "landing.picker.faq3.a": "Yes! The tool can automatically generate a beautiful color palette from your uploaded image very Hurtig.",
-  "landing.picker.faq4.q": "Is the palette generator Gratis?",
+  "landing.picker.faq4.q": "Er paletgeneratoren gratis?",
   "landing.picker.faq4.a": "Ja, alle funktioner i farvevælgeren, inklusive paletgenerering, er gratis at bruge med nul vandmærker.",
   "landing.watermark.faq3.q": "Kan jeg bruge mit eget logo?",
   "landing.watermark.faq3.a": "Absolut. Du kan uploade brugerdefinerede PNG-logoer.",
@@ -2695,5 +2695,13 @@
   "tab.removeperson": "Fjern person fra billede",
   "tab.convertwebp": "Konverter WEBP til JPG",
   "tab.watermarkbulk": "Batch vandmærkebilleder",
-  "tab.blurplate": "Sløring af nummerplade"
+  "tab.blurplate": "Sløring af nummerplade",
+  "editor.downloadPhoto": "Download foto",
+  "work.loginToRename": "Log ind (gratis) for at omdøbe filen",
+  "work.batchRenameLocked": "Batch-omdøbning af flere filer er en eksklusiv PRO-funktion.",
+  "compress.downloadSize": "Download billede ({{size}})",
+  "compress.recompress": "Komprimer foto igen",
+  "remove.engineTitle": "Automatisk AI-udskæring",
+  "remove.engineSubtitle": "Subpixel kantmatting og nul farvekanter",
+  "remove.readyBadge": "Parat"
 }

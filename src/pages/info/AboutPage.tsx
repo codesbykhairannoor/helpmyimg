@@ -16,8 +16,10 @@ export const AboutPage: React.FC = () => {
 
   const localizedSlug = getLocalizedInfoSlug('about', lang);
   const pageLabel = t('footer.about', { defaultValue: 'About Us' });
-  const seoTitle = rawTitle && rawTitle.toLowerCase() !== pageLabel.toLowerCase() && pageLabel.length < 22
-    ? `${pageLabel} — ${rawTitle} - HelpMyIMG`
+  const seoTitle = rawTitle && rawTitle.toLowerCase() !== pageLabel.toLowerCase()
+    ? (pageLabel.length + rawTitle.length <= 45
+        ? `${pageLabel} — ${rawTitle} - HelpMyIMG`
+        : (rawTitle.length <= 48 && rawTitle.length >= 16 ? `${rawTitle} - HelpMyIMG` : `${pageLabel} - HelpMyIMG`))
     : `${pageLabel} - HelpMyIMG`;
 
   return (

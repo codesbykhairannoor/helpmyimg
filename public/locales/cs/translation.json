@@ -2695,5 +2695,13 @@
   "tab.removeperson": "Odebrat osobu z fotografie",
   "tab.convertwebp": "Převést WEBP na JPG",
   "tab.watermarkbulk": "Dávkové fotografie vodoznaku",
-  "tab.blurplate": "Rozmazání SPZ"
+  "tab.blurplate": "Rozmazání SPZ",
+  "editor.downloadPhoto": "Stáhněte si fotografii",
+  "work.loginToRename": "Chcete-li soubor přejmenovat, přihlaste se (zdarma).",
+  "work.batchRenameLocked": "Dávkové přejmenování více souborů je exkluzivní funkcí PRO.",
+  "compress.downloadSize": "Stáhnout fotku ({{size}})",
+  "compress.recompress": "Znovu zkomprimujte fotografii",
+  "remove.engineTitle": "Auto AI Cutout",
+  "remove.engineSubtitle": "Subpixelové matování okrajů a nulové barevné lemování",
+  "remove.readyBadge": "Připraveno"
 }

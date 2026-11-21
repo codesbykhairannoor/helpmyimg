@@ -2695,5 +2695,13 @@
   "tab.removeperson": "Xóa người khỏi ảnh",
   "tab.convertwebp": "Chuyển đổi WEBP sang JPG",
   "tab.watermarkbulk": "Hình ảnh hình mờ hàng loạt",
-  "tab.blurplate": "Biển số xe mờ"
+  "tab.blurplate": "Biển số xe mờ",
+  "editor.downloadPhoto": "Tải ảnh xuống",
+  "work.loginToRename": "Đăng nhập (Miễn phí) để đổi tên file",
+  "work.batchRenameLocked": "Đổi tên hàng loạt nhiều tệp là một tính năng PRO độc quyền.",
+  "compress.downloadSize": "Tải ảnh xuống ({{size}})",
+  "compress.recompress": "Nén lại ảnh",
+  "remove.engineTitle": "Tự động cắt AI",
+  "remove.engineSubtitle": "Làm mờ cạnh Subpixel & viền không màu",
+  "remove.readyBadge": "Sẵn sàng"
 }

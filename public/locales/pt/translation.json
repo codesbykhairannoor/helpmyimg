@@ -2695,5 +2695,13 @@
   "tab.removeperson": "Remover pessoa da foto",
   "tab.convertwebp": "Converter WEBP em JPG",
   "tab.watermarkbulk": "Fotos de marca d'água em lote",
-  "tab.blurplate": "Desfocar placa de carro"
+  "tab.blurplate": "Desfocar placa de carro",
+  "editor.downloadPhoto": "Baixar foto",
+  "work.loginToRename": "Faça login (grátis) para renomear o arquivo",
+  "work.batchRenameLocked": "A renomeação em lote de vários arquivos é um recurso exclusivo do PRO.",
+  "compress.downloadSize": "Baixar foto ({{size}})",
+  "compress.recompress": "Recompactar foto",
+  "remove.engineTitle": "Recorte automático de IA",
+  "remove.engineSubtitle": "Fosque de borda subpixel e franjas de cor zero",
+  "remove.readyBadge": "Preparar"
 }

@@ -2695,5 +2695,13 @@
   "tab.removeperson": "הסר אדם מהתמונה",
   "tab.convertwebp": "המרת WEBP ל-JPG",
   "tab.watermarkbulk": "אצווה תמונות סימן מים",
-  "tab.blurplate": "טשטוש לוחית רישוי"
+  "tab.blurplate": "טשטוש לוחית רישוי",
+  "editor.downloadPhoto": "הורד תמונה",
+  "work.loginToRename": "היכנס (חינם) כדי לשנות את שם הקובץ",
+  "work.batchRenameLocked": "שינוי שמות של קבצים מרובים הוא תכונת PRO בלעדית.",
+  "compress.downloadSize": "הורד תמונה ({{size}})",
+  "compress.recompress": "דחס מחדש את התמונה",
+  "remove.engineTitle": "חיתוך AI אוטומטי",
+  "remove.engineSubtitle": "מחצלת קצוות תת-פיקסל ואפס צבע שוליים",
+  "remove.readyBadge": "מוּכָן"
 }

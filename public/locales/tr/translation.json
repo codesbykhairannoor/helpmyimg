@@ -2695,5 +2695,13 @@
   "tab.removeperson": "Kişiyi Fotoğraftan Kaldır",
   "tab.convertwebp": "WEBP'yi JPG'ye dönüştür",
   "tab.watermarkbulk": "Toplu Filigran Fotoğrafları",
-  "tab.blurplate": "Bulanık Plaka"
+  "tab.blurplate": "Bulanık Plaka",
+  "editor.downloadPhoto": "Fotoğrafı İndir",
+  "work.loginToRename": "Dosyayı yeniden adlandırmak için oturum açın (Ücretsiz)",
+  "work.batchRenameLocked": "Birden fazla dosyayı toplu olarak yeniden adlandırmak özel bir PRO özelliğidir.",
+  "compress.downloadSize": "Fotoğrafı İndir ({{size}})",
+  "compress.recompress": "Fotoğrafı Yeniden Sıkıştır",
+  "remove.engineTitle": "Otomatik Yapay Zeka Kesimi",
+  "remove.engineSubtitle": "Alt piksel kenar matlaştırması ve sıfır renkli saçaklama",
+  "remove.readyBadge": "Hazır"
 }

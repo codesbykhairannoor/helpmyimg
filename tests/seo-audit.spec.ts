@@ -11,9 +11,16 @@ const ROUTES: SeoRouteCase[] = [
   { path: '/', expectedLang: 'en', expectFaqSchema: true },
   { path: '/remove-background/', expectedLang: 'en' },
   { path: '/compress-image/', expectedLang: 'en', expectFaqSchema: true },
+  { path: '/resize-image/', expectedLang: 'en', expectFaqSchema: true },
+  { path: '/image-color-picker/', expectedLang: 'en', expectFaqSchema: true },
   { path: '/ai-metadata-cleaner/', expectedLang: 'en' },
   { path: '/faq/', expectedLang: 'en', expectFaqSchema: true },
-  { path: '/pricing/', expectedLang: 'en' },
+  { path: '/pricing/', expectedLang: 'en', expectFaqSchema: true },
+  { path: '/security/', expectedLang: 'en', expectFaqSchema: true },
+  { path: '/languages/', expectedLang: 'en', expectFaqSchema: true },
+  { path: '/compare/', expectedLang: 'en', expectFaqSchema: true },
+  { path: '/terms/', expectedLang: 'en' },
+  { path: '/privacy/', expectedLang: 'en' },
   { path: '/about/', expectedLang: 'en' },
   { path: '/id/', expectedLang: 'id', expectFaqSchema: true },
   { path: '/id/kompres-gambar/', expectedLang: 'id', expectFaqSchema: true },
@@ -22,6 +29,8 @@ const ROUTES: SeoRouteCase[] = [
   { path: '/ar/', expectedLang: 'ar', expectedDir: 'rtl', expectFaqSchema: true },
   { path: '/ar/asilah-shaeia/', expectedLang: 'ar', expectedDir: 'rtl', expectFaqSchema: true },
   { path: '/de/bild-komprimieren/', expectedLang: 'de' },
+  { path: '/it/pulitore-metadati-ia/', expectedLang: 'it' },
+  { path: '/nl/ai-metadata-verwijderen/', expectedLang: 'nl' },
 ];
 
 for (const route of ROUTES) {

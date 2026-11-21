@@ -2695,5 +2695,13 @@
   "tab.removeperson": "사진에서 사람 제거",
   "tab.convertwebp": "WEBP를 JPG로 변환",
   "tab.watermarkbulk": "일괄 워터마크 사진",
-  "tab.blurplate": "번호판 흐리게 처리"
+  "tab.blurplate": "번호판 흐리게 처리",
+  "editor.downloadPhoto": "사진 다운로드",
+  "work.loginToRename": "파일 이름을 바꾸려면 로그인(무료)하세요",
+  "work.batchRenameLocked": "여러 파일의 이름을 일괄적으로 바꾸는 것은 독점적인 PRO 기능입니다.",
+  "compress.downloadSize": "사진 다운로드({{size}})",
+  "compress.recompress": "사진 다시 압축",
+  "remove.engineTitle": "자동 AI 컷아웃",
+  "remove.engineSubtitle": "하위 픽셀 가장자리 매트 및 제로 컬러 프린지",
+  "remove.readyBadge": "준비가 된"
 }

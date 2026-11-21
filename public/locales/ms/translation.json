@@ -2695,5 +2695,13 @@
   "tab.removeperson": "Alih keluar Orang daripada Foto",
   "tab.convertwebp": "Tukar WEBP kepada JPG",
   "tab.watermarkbulk": "Foto Tera Air Berkelompok",
-  "tab.blurplate": "Kaburkan Plat Lesen"
+  "tab.blurplate": "Kaburkan Plat Lesen",
+  "editor.downloadPhoto": "Muat turun Foto",
+  "work.loginToRename": "Log masuk (Percuma) untuk menamakan semula fail",
+  "work.batchRenameLocked": "Menamakan semula kumpulan berbilang fail ialah ciri PRO eksklusif.",
+  "compress.downloadSize": "Muat Turun Foto ({{size}})",
+  "compress.recompress": "Mampatkan semula Foto",
+  "remove.engineTitle": "Potongan AI Auto",
+  "remove.engineSubtitle": "Tilam tepi subpiksel & pinggiran warna sifar",
+  "remove.readyBadge": "sedia"
 }

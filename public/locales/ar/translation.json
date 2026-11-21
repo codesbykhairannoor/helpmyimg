@@ -2708,5 +2708,13 @@
   "tab.removeperson": "إزالة الشخص من الصورة",
   "tab.convertwebp": "تحويل WEBP إلى JPG",
   "tab.watermarkbulk": "دفعة صور العلامة المائية",
-  "tab.blurplate": "طمس لوحة الترخيص"
+  "tab.blurplate": "طمس لوحة الترخيص",
+  "editor.downloadPhoto": "تحميل الصورة",
+  "work.loginToRename": "قم بتسجيل الدخول (مجاني) لإعادة تسمية الملف",
+  "work.batchRenameLocked": "تعد إعادة تسمية ملفات متعددة دفعة واحدة ميزة PRO حصرية.",
+  "compress.downloadSize": "تنزيل الصورة ({{size}})",
+  "compress.recompress": "إعادة ضغط الصورة",
+  "remove.engineTitle": "انقطاع تلقائي للذكاء الاصطناعي",
+  "remove.engineSubtitle": "تلميع حافة البكسل الفرعي وتهديب اللون صفر",
+  "remove.readyBadge": "مستعد"
 }

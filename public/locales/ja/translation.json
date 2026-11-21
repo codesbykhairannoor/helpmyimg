@@ -1971,7 +1971,7 @@
   "editexif.lblCameraModel": "カメラのモデル",
   "editexif.lblLensModel": "レンズの仕様とモデル",
   "editexif.lblShutter": "シャッタースピード (秒)",
-  "editexif.lblAperture": "Aperture (f-stop)",
+  "editexif.lblAperture": "絞り（F値）",
   "editexif.lblIso": "ISO感度",
   "editexif.lblFocal": "焦点距離 (mm)",
   "editexif.lblFlash": "フラッシュストロボモード",
@@ -2695,5 +2695,13 @@
   "tab.removeperson": "写真から人物を削除",
   "tab.convertwebp": "WEBPをJPGに変換",
   "tab.watermarkbulk": "バッチ透かし写真",
-  "tab.blurplate": "ぼかしナンバープレート"
+  "tab.blurplate": "ぼかしナンバープレート",
+  "editor.downloadPhoto": "写真をダウンロード",
+  "work.loginToRename": "ファイル名を変更するにはサインイン（無料）してください",
+  "work.batchRenameLocked": "複数のファイルの名前を一括変更するのは PRO 独自の機能です。",
+  "compress.downloadSize": "写真をダウンロード ({{size}})",
+  "compress.recompress": "写真を再圧縮する",
+  "remove.engineTitle": "自動 AI カットアウト",
+  "remove.engineSubtitle": "サブピクセルエッジマット&ゼロカラーフリンジ",
+  "remove.readyBadge": "準備ができて"
 }

@@ -20,7 +20,7 @@
   "tab.blur": "💧 Estompare Bokeh Studio",
   "tab.color": "🎨 Pașaport & Culori",
   "tab.brush": "Pensulă Manuală",
-  "tab.widget": "🔌 Generator Widget",
+  "tab.widget": "🔌 Generator de widgeturi",
   "dropzone.title": "Încărcați fotografiile aici (Suportă lot de până la 10)",
   "dropzone.subtitle": "Trageți și plasați fotografii (PNG, JPG, WEBP, HEIC, RAW, PSD, JXL) sau faceți clic pentru a răsfoi",
   "dropzone.btn": "⚡ Selectează Poze",
@@ -1743,7 +1743,7 @@
   "work.action.batch": "✨ Procesează totul",
   "work.action.photos": "Fotografii",
   "color.applyNow": "⚡ Schimbați fundalul acum",
-  "remove.modeAutoActive": "Adaptive Auto",
+  "remove.modeAutoActive": "Auto adaptiv",
   "remove.modeLogoActive": "Modul Vector",
   "remove.modeAiActive": "Modul Neural AI",
   "remove.modeAuto": "✨ Auto",
@@ -2695,5 +2695,13 @@
   "tab.removeperson": "Eliminați persoana din fotografie",
   "tab.convertwebp": "Convertiți WEBP în JPG",
   "tab.watermarkbulk": "Loturi de fotografii cu filigran",
-  "tab.blurplate": "Încețoșează plăcuța de înmatriculare"
+  "tab.blurplate": "Încețoșează plăcuța de înmatriculare",
+  "editor.downloadPhoto": "Descărcați Fotografie",
+  "work.loginToRename": "Conectați-vă (gratuit) pentru a redenumi fișierul",
+  "work.batchRenameLocked": "Redenumirea în serie a mai multor fișiere este o caracteristică PRO exclusivă.",
+  "compress.downloadSize": "Descărcați fotografia ({{size}})",
+  "compress.recompress": "Recomprimați fotografia",
+  "remove.engineTitle": "Decupare automată AI",
+  "remove.engineSubtitle": "Subpixel margini mat și zero culoare franjuri",
+  "remove.readyBadge": "Gata"
 }

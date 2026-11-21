@@ -21,9 +21,11 @@ export const ComparePage: React.FC = () => {
 
   const localizedSlug = getLocalizedInfoSlug('compare', lang);
   const pageLabel = t('footer.compare', { defaultValue: 'Compare' });
-  const seoTitle = rawTitle && rawTitle.toLowerCase() !== pageLabel.toLowerCase() && pageLabel.length < 22
-    ? `${pageLabel} — ${rawTitle} - HelpMyIMG`
-    : `${pageLabel} - HelpMyIMG`;
+  const seoTitle = rawTitle && rawTitle.toLowerCase() !== pageLabel.toLowerCase()
+    ? (pageLabel.length + rawTitle.length <= 45
+        ? `${pageLabel} — ${rawTitle}`
+        : (rawTitle.length <= 48 && rawTitle.length >= 16 ? rawTitle : pageLabel))
+    : pageLabel;
   const compareFaqs = [1, 2, 3]
     .map((idx) => ({
       question: t(`compare.faq${idx}.q`, { defaultValue: '' }),

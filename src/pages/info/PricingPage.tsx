@@ -206,8 +206,10 @@ export const PricingPage: React.FC = () => {
 
   const pricingLabel = t('footer.pricing', { defaultValue: 'Pricing Plans' });
   const pricingHeadline = t('pricing.title', { defaultValue: 'Transparent & Simple Pricing' });
-  const seoTitle = pricingHeadline && pricingHeadline.toLowerCase() !== pricingLabel.toLowerCase() && pricingLabel.length < 22
-    ? `${pricingLabel} — ${pricingHeadline} - HelpMyIMG`
+  const seoTitle = pricingHeadline && pricingHeadline.toLowerCase() !== pricingLabel.toLowerCase()
+    ? (pricingLabel.length + pricingHeadline.length <= 45
+        ? `${pricingLabel} — ${pricingHeadline} - HelpMyIMG`
+        : (pricingHeadline.length <= 48 && pricingHeadline.length >= 16 ? `${pricingHeadline} - HelpMyIMG` : `${pricingLabel} - HelpMyIMG`))
     : `${pricingHeadline} - HelpMyIMG`;
 
   return (

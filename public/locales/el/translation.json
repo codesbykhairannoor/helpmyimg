@@ -2009,7 +2009,7 @@
   "landing.metadata.redesign.feat2Badge": "ΔΑΚΤΥΛΙΚΟ ΑΠΟΤΥΠΩΜΑ ΣΥΣΚΕΥΗΣ",
   "landing.metadata.redesign.feat2Title": "Σκουπίστε το EXIF ​​υλικού",
   "landing.metadata.redesign.feat2Desc": "Διαγράψτε τους σειριακούς αριθμούς κάμερας, τα αναγνωριστικά φακών, τις ενεργοποιήσεις κλείστρου και τις ετικέτες εσωτερικού υλικού που θα μπορούσαν να προσδιορίσουν μοναδικά τον προσωπικό σας εξοπλισμό.",
-  "landing.metadata.redesign.feat3Badge": "100% IN-BROWSER",
+  "landing.metadata.redesign.feat3Badge": "100% IN-Browser",
   "landing.metadata.redesign.feat3Title": "Μηδενικές μεταφορτώσεις διακομιστή",
   "landing.metadata.redesign.feat3Desc": "Όλοι οι χειρισμοί byte εκτελούνται τοπικά στη μνήμη της συσκευής σας. Τα ιδιωτικά πορτρέτα και οι ευαίσθητες φωτογραφίες σας δεν φεύγουν ποτέ από τη συσκευή σας ούτε αγγίζουν έναν απομακρυσμένο διακομιστή.",
   "landing.metadata.redesign.whoTag": "ΓΙΑ ΠΟΙΟΥΣ ΕΙΝΑΙ",
@@ -2695,5 +2695,13 @@
   "tab.removeperson": "Αφαίρεση ατόμου από τη φωτογραφία",
   "tab.convertwebp": "Μετατροπή WEBP σε JPG",
   "tab.watermarkbulk": "Μαζικές φωτογραφίες υδατογραφήματος",
-  "tab.blurplate": "Θαμπάδα πινακίδας κυκλοφορίας"
+  "tab.blurplate": "Θαμπάδα πινακίδας κυκλοφορίας",
+  "editor.downloadPhoto": "Λήψη φωτογραφίας",
+  "work.loginToRename": "Συνδεθείτε (Δωρεάν) για να μετονομάσετε το αρχείο",
+  "work.batchRenameLocked": "Η μαζική μετονομασία πολλών αρχείων είναι μια αποκλειστική δυνατότητα PRO.",
+  "compress.downloadSize": "Λήψη φωτογραφίας ({{size}})",
+  "compress.recompress": "Συμπιέστε ξανά τη φωτογραφία",
+  "remove.engineTitle": "Αυτόματη αποκοπή AI",
+  "remove.engineSubtitle": "Υποπίξελ ματ άκρων και κρόσσια μηδενικού χρώματος",
+  "remove.readyBadge": "Ετοιμος"
 }

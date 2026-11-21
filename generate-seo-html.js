@@ -1515,8 +1515,9 @@ function generateSemanticHtml(lang, urlPath, title, desc, tool, infoPage, transl
       for (const l of LANGS) {
         const nativeName = translations[`lang.${l}`] || l.toUpperCase();
         const slug = getLocalizedInfoSlug('languages', l);
+        const langHref = l === 'en' ? `/${slug}/` : `/${l}/${slug}/`;
         langLinksHtml += `
-          <a href="/${l}/${slug}/" class="p-3 rounded-xl bg-dark-800/80 border border-dark-600 hover:border-[#05DAED]/50 transition-colors flex items-center justify-between text-xs font-bold text-slate-200">
+          <a href="${langHref}" class="p-3 rounded-xl bg-dark-800/80 border border-dark-600 hover:border-[#05DAED]/50 transition-colors flex items-center justify-between text-xs font-bold text-slate-200">
             <span>${nativeName}</span>
             <span class="text-[10px] font-mono text-[#05DAED] uppercase">${l}</span>
           </a>
@@ -2266,8 +2267,9 @@ const generateHtml = (lang, urlPath, rawTitle, rawDesc, tool = null, translation
         });
       }
     }
-  } else if (infoPage === 'pricing' || infoPage === 'compare' || infoPage === 'security') {
-    for (let i = 1; i <= 4; i++) {
+  } else if (infoPage === 'pricing' || infoPage === 'compare' || infoPage === 'security' || infoPage === 'languages') {
+    const maxInfoFaq = infoPage === 'pricing' ? 7 : 4;
+    for (let i = 1; i <= maxInfoFaq; i++) {
       const q = translations[`${infoPage}.faq${i}.q`];
       const a = translations[`${infoPage}.faq${i}.a`];
       if (q && a) {
@@ -2377,8 +2379,12 @@ for (const lang of LANGS) {
     if (page === 'faq') pageTitleKey = 'nav.faq';
     let pageTitle = translations[pageTitleKey] || page;
     const richInfoHeading = (translations[`${page}.title`] || '').replace(/[\r\n\t]+/g, ' ').trim();
-    if (richInfoHeading && richInfoHeading.toLowerCase() !== pageTitle.toLowerCase() && pageTitle.length < 22) {
-      pageTitle = `${pageTitle} — ${richInfoHeading}`;
+    if (richInfoHeading && richInfoHeading.toLowerCase() !== pageTitle.toLowerCase()) {
+      if (pageTitle.length + richInfoHeading.length <= 45) {
+        pageTitle = `${pageTitle} — ${richInfoHeading}`;
+      } else if (richInfoHeading.length <= 48 && richInfoHeading.length >= 16) {
+        pageTitle = richInfoHeading;
+      }
     }
     let pageDesc = translations[`${page}.subtitle`] || translations[`${page}.intro`] || homeDesc;
 

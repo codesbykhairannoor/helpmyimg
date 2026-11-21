@@ -2695,5 +2695,13 @@
   "tab.removeperson": "Supprimer une personne de la photo",
   "tab.convertwebp": "Convertir WEBP en JPG",
   "tab.watermarkbulk": "Photos en filigrane par lots",
-  "tab.blurplate": "Plaque d'immatriculation floue"
+  "tab.blurplate": "Plaque d'immatriculation floue",
+  "editor.downloadPhoto": "Télécharger la photo",
+  "work.loginToRename": "Connectez-vous (gratuit) pour renommer le fichier",
+  "work.batchRenameLocked": "Le renommage par lots de plusieurs fichiers est une fonctionnalité exclusive de PRO.",
+  "compress.downloadSize": "Télécharger la photo ({{size}})",
+  "compress.recompress": "Recompresser la photo",
+  "remove.engineTitle": "Découpe automatique de l'IA",
+  "remove.engineSubtitle": "Tapis de bord sous-pixel et franges de couleur nulle",
+  "remove.readyBadge": "Prêt"
 }

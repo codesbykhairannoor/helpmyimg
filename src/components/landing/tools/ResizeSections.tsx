@@ -123,17 +123,17 @@ export const ResizeSections: React.FC = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <div className="bg-dark-900 rounded-3xl p-8 border border-dark-700 hover:border-[#05DAED]/50 transition-colors text-center">
               <MonitorSmartphone className="w-10 h-10 text-pink-500 mx-auto mb-4" />
-              <h4 className="font-heading text-white font-bold mb-2">Instagram</h4>
+              <h3 className="font-heading text-white font-bold mb-2">Instagram</h3>
               <p className="font-body text-sm  text-[#05DAED]">1080 x 1080 px</p>
             </div>
             <div className="bg-dark-900 rounded-3xl p-8 border border-dark-700 hover:border-[#05DAED]/50 transition-colors text-center">
               <Share2 className="w-10 h-10 text-blue-400 mx-auto mb-4" />
-              <h4 className="font-heading text-white font-bold mb-2">Twitter</h4>
+              <h3 className="font-heading text-white font-bold mb-2">Twitter</h3>
               <p className="font-body text-sm  text-[#05DAED]">1200 x 675 px</p>
             </div>
             <div className="bg-dark-900 rounded-3xl p-8 border border-dark-700 hover:border-[#05DAED]/50 transition-colors text-center">
               <Globe className="w-10 h-10 text-blue-600 mx-auto mb-4" />
-              <h4 className="font-heading text-white font-bold mb-2">Facebook</h4>
+              <h3 className="font-heading text-white font-bold mb-2">Facebook</h3>
               <p className="font-body text-sm  text-[#05DAED]">1200 x 630 px</p>
             </div>
           </div>

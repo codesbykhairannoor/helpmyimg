@@ -1982,10 +1982,10 @@
   "editexif.lblDescription": "Kép címe / leírása",
   "editexif.lblDpi": "Felbontás / DPI (nyomtatási szabvány)",
   "editexif.dpiPassport": "Hivatalos útlevél és kiváló minőségű nyomat",
-  "editexif.dpiWeb": "Web & Screen Standard",
-  "editexif.dpiMedium": "Medium Resolution Print",
+  "editexif.dpiWeb": "Web és képernyő szabvány",
+  "editexif.dpiMedium": "Közepes felbontású nyomtatás",
   "editexif.dpiUltra": "Ultra High Definition archívum",
-  "editexif.btnApplyManual": "Apply & Save Custom EXIF",
+  "editexif.btnApplyManual": "Egyéni EXIF ​​alkalmazása és mentése",
   "metadata.auditTitle": "METAADATOK ADATVÉDELMI AUDIT",
   "metadata.noExifFound": "Nincsenek fényképezőgép hardver metaadatai",
   "metadata.noArtist": "Nincs beágyazva az alkotó neve",
@@ -2695,5 +2695,13 @@
   "tab.removeperson": "Személy eltávolítása a fényképről",
   "tab.convertwebp": "Konvertálja a WEBP-t JPG-be",
   "tab.watermarkbulk": "Batch Watermark Photos",
-  "tab.blurplate": "Elmosódott rendszám"
+  "tab.blurplate": "Elmosódott rendszám",
+  "editor.downloadPhoto": "Fotó letöltése",
+  "work.loginToRename": "Jelentkezzen be (ingyenes) a fájl átnevezéséhez",
+  "work.batchRenameLocked": "A több fájl kötegelt átnevezése egy exkluzív PRO funkció.",
+  "compress.downloadSize": "Fotó letöltése ({{size}})",
+  "compress.recompress": "Tömörítse újra a fényképet",
+  "remove.engineTitle": "Automatikus mesterséges intelligencia kivágás",
+  "remove.engineSubtitle": "Szubpixeles szélek mattítása és nulla színű rojtozás",
+  "remove.readyBadge": "Kész"
 }
