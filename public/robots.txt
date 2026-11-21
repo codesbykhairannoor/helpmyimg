@@ -33,7 +33,6 @@ Disallow: /api/
 Disallow: /admin/
 Disallow: /*.json$
 Allow: /locales/*.json$
-Allow: /matrix.json$
 
 # ------------------------------------------------------------------------------
 # 2. MAJOR SEARCH ENGINE CRAWLERS (Traditional & Mobile Search)

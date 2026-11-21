@@ -830,19 +830,39 @@ function sanitizeDescription(desc, lang = 'en') {
     text = 'Free local AI photo editor. Remove background, compress, convert, and resize images directly in your browser with 100% privacy and zero server uploads.';
   }
 
-  // Expand short descriptions (< 95 chars) across all languages
-  if (text.length < 95) {
+  // Expand short descriptions (< 110 chars) across all 30 languages without English fallback leakage
+  if (text.length < 110) {
     const valuePropMap = {
-      en: ' 100% private, runs directly in your browser via WebAssembly with zero server uploads.',
-      id: ' 100% privat, berjalan langsung di browser via WebAssembly tanpa upload ke server.',
-      zh: ' 纯前端 WebAssembly 驱动，100% 本地浏览器安全运行，零服务器上传，保护隐私，支持批量快速转换与高清免费下载。',
-      ja: ' 純粋な WebAssembly 駆動により 100% ブラウザ内ローカル処理で完全プライベート。サーバー送信なし、個人情報を完全保護、高速高品質ダウンロード。',
-      ko: ' WebAssembly 기반 100% 브라우저 로컬 처리로 완벽한 개인정보 보호. 서버 파일 업로드 없음, 고속 배치 처리 및 고화질 다운로드.',
+      en: ' 100% private, runs locally via WebAssembly with zero server uploads.',
+      id: ' 100% privat, berjalan lokal di browser via WebAssembly tanpa upload ke server.',
+      zh: ' 纯前端 WebAssembly 驱动，100% 本地浏览器安全运行，零服务器上传。',
+      ja: ' WebAssembly 駆動で 100% ブラウザ内ローカル処理、サーバー送信なし。',
+      ko: ' WebAssembly 기반 100% 브라우저 로컬 처리, 서버 파일 업로드 없음.',
       ar: ' معالجة محلية 100% في المتصفح عبر WebAssembly مع خصوصية تامة وبدون خوادم سحابية.',
-      es: ' 100% privado, se ejecuta directamente en su navegador mediante WebAssembly sin servidor.',
-      fr: ' 100% privé, fonctionne directement dans votre navigateur via WebAssembly sans serveur.',
-      de: ' 100% privat, läuft direkt im Browser über WebAssembly ohne Server-Uploads.',
-      it: ' 100% privato, funziona direttamente nel browser tramite WebAssembly senza upload.'
+      es: ' 100% privado, se ejecuta localmente mediante WebAssembly sin subir archivos al servidor.',
+      fr: ' 100% privé, s’exécute localement via WebAssembly sans envoi vers un serveur.',
+      de: ' 100% privat, läuft lokal im Browser über WebAssembly ohne Server-Uploads.',
+      it: ' 100% privato, eseguito localmente nel browser tramite WebAssembly senza upload sul server.',
+      pt: ' 100% privado, executado localmente no navegador via WebAssembly sem envio ao servidor.',
+      ru: ' 100% приватно: локальная обработка в браузере через WebAssembly без загрузки на сервер.',
+      uk: ' 100% приватно: локальна обробка в браузері через WebAssembly без завантаження на сервер.',
+      tr: ' %100 gizli, sunucuya yükleme olmadan tarayıcıda WebAssembly ile yerel olarak çalışır.',
+      vi: ' Riêng tư 100%, chạy cục bộ trên trình duyệt qua WebAssembly, không tải lên máy chủ.',
+      th: ' เป็นส่วนตัว 100% ประมวลผลในเบราว์เซอร์ผ่าน WebAssembly โดยไม่อัปโหลดไปยังเซิร์ฟเวอร์',
+      hi: ' 100% निजी, बिना सर्वर अपलोड के WebAssembly द्वारा सीधे ब्राउज़र में चलता है।',
+      nl: ' 100% privé, draait lokaal in uw browser via WebAssembly zonder server-uploads.',
+      pl: ' 100% prywatności, działa lokalnie w przeglądarce przez WebAssembly bez wysyłania na serwer.',
+      sv: ' 100% privat, körs lokalt i webbläsaren via WebAssembly utan serveruppladdningar.',
+      no: ' 100% privat, kjører lokalt i nettleseren via WebAssembly uten serveropplastinger.',
+      da: ' 100% privat, kører lokalt i browseren via WebAssembly uden serveruploads.',
+      fi: ' 100% yksityinen, toimii paikallisesti selaimessa WebAssemblyn avulla ilman palvelinlatauksia.',
+      el: ' 100% ιδιωτικό, εκτελείται τοπικά στον browser μέσω WebAssembly χωρίς μεταφορτώσεις.',
+      he: ' פרטי ב-100%, פועל מקומית בדפדפן באמצעות WebAssembly ללא העלאה לשרת.',
+      cs: ' 100% soukromé, běží lokálně v prohlížeči přes WebAssembly bez nahrávání na server.',
+      hu: ' 100% privát, helyben fut a böngészőben WebAssembly segítségével, szerverfeltöltés nélkül.',
+      ro: ' 100% privat, rulează local în browser prin WebAssembly fără încărcări pe server.',
+      ms: ' 100% peribadi, berjalan secara tempatan dalam pelayar melalui WebAssembly tanpa muat naik pelayan.',
+      tl: ' 100% pribado, lokal na gumagana sa browser gamit ang WebAssembly nang walang server upload.'
     };
     const prop = valuePropMap[lang] || valuePropMap['en'];
     text = `${text}${prop}`;
@@ -2057,8 +2077,9 @@ const generateHtml = (lang, urlPath, rawTitle, rawDesc, tool = null, translation
   html = html.replace(/<meta name="description"[^>]*>\n?\s*/gi, '');
   html = html.replace(/<title>.*?<\/title>/i, '');
 
-  // 1. Replace <html lang="..."> (Theme is handled instantly by inline head script without flash)
-  html = html.replace(/<html[^>]*>/i, `<html lang="${lang}">`);
+  // 1. Replace <html lang="..." dir="..."> (Theme & direction match React state at 0ms without RTL reflow)
+  const dir = ['ar', 'he'].includes(lang) ? 'rtl' : 'ltr';
+  html = html.replace(/<html[^>]*>/i, `<html lang="${lang}" dir="${dir}">`);
 
   // 2. Generate and inject dynamic hreflangs for THIS specific route
   let dynamicHreflangs = `    <!-- Dynamic Localized Hreflang Tags for 30 Languages -->\n`;
@@ -2355,6 +2376,10 @@ for (const lang of LANGS) {
     let pageTitleKey = `footer.${page}`;
     if (page === 'faq') pageTitleKey = 'nav.faq';
     let pageTitle = translations[pageTitleKey] || page;
+    const richInfoHeading = (translations[`${page}.title`] || '').replace(/[\r\n\t]+/g, ' ').trim();
+    if (richInfoHeading && richInfoHeading.toLowerCase() !== pageTitle.toLowerCase() && pageTitle.length < 22) {
+      pageTitle = `${pageTitle} — ${richInfoHeading}`;
+    }
     let pageDesc = translations[`${page}.subtitle`] || translations[`${page}.intro`] || homeDesc;
 
     if (lang === 'en') {

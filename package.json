@@ -11,6 +11,7 @@
     "lint": "oxlint",
     "preview": "vite preview",
     "test:e2e": "playwright test",
+    "test:seo": "playwright test --config=playwright.seo.config.ts",
     "indexnow": "node scripts/submit-indexnow.mjs",
     "google-index": "node scripts/submit-google-indexing-api.mjs",
     "backlinks": "node scripts/generate-backlink-checklist.mjs"
@@ -72,6 +73,7 @@
     "eslint-plugin-i18next": "^6.1.5",
     "oxlint": "^1.71.0",
     "postcss": "^8.5.16",
+    "schema-dts": "^2.1.0",
     "tailwindcss": "^3.4.19",
     "translate-google": "^1.5.0",
     "tsx": "^4.23.0",

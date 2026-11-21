@@ -87,8 +87,10 @@ export const ToolLandingPage: React.FC = () => {
           <ToolGrid />
         ) : (
           <Suspense fallback={
-            <div className="w-full max-w-4xl mx-auto px-4 py-12 flex items-center justify-center">
-              <div className="w-8 h-8 border-2 border-cyan-500 border-t-transparent rounded-full animate-spin" />
+            <div className="w-full max-w-4xl mx-auto relative z-10 px-4">
+              <div className="w-full min-h-[320px] sm:min-h-[380px] md:min-h-0 md:aspect-[4/3] rounded-3xl border-2 border-dashed border-dark-500/80 bg-dark-800/40 flex items-center justify-center p-6 sm:p-10">
+                <div className="w-8 h-8 border-2 border-cyan-500 border-t-transparent rounded-full animate-spin" />
+              </div>
             </div>
           }>
             <ToolWorkspace
