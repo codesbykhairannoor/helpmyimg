@@ -157,45 +157,7 @@ Allow: /
 User-agent: Diffbot
 Allow: /
 
-# ------------------------------------------------------------------------------
-# 4. LLM & AI AGENT KNOWLEDGE BASE DISCOVERY (llms.txt Standard)
-# Structured markdown documentation specifically formatted for LLM context windows
-# ------------------------------------------------------------------------------
-User-agent: *
-Allow: /llms.txt
-Allow: /llms-full.txt
-Allow: /ai.txt
-Allow: /llm.txt
-Allow: /llm-ar.txt
-Allow: /llm-cs.txt
-Allow: /llm-da.txt
-Allow: /llm-de.txt
-Allow: /llm-el.txt
-Allow: /llm-en.txt
-Allow: /llm-es.txt
-Allow: /llm-fi.txt
-Allow: /llm-fr.txt
-Allow: /llm-he.txt
-Allow: /llm-hi.txt
-Allow: /llm-hu.txt
-Allow: /llm-id.txt
-Allow: /llm-it.txt
-Allow: /llm-ja.txt
-Allow: /llm-ko.txt
-Allow: /llm-ms.txt
-Allow: /llm-nl.txt
-Allow: /llm-no.txt
-Allow: /llm-pl.txt
-Allow: /llm-pt.txt
-Allow: /llm-ro.txt
-Allow: /llm-ru.txt
-Allow: /llm-sv.txt
-Allow: /llm-th.txt
-Allow: /llm-tl.txt
-Allow: /llm-tr.txt
-Allow: /llm-uk.txt
-Allow: /llm-vi.txt
-Allow: /llm-zh.txt
+# (Section 4 LLM/AI rules are declared directly inside Section 1 global User-agent: * above for strict RFC 9309 single-group compliance)
 
 # ------------------------------------------------------------------------------
 # 5. SEO AUDIT & DIAGNOSTIC TOOLS (Allowed for Quality Assurance)
