@@ -1,7 +1,7 @@
 # HelpMyIMG (Bahasa Melayu (Malay)) — Client-Side AI Image Processing Knowledge Base
 
 > **Website:** https://helpmyimg.com/ms/
-> **Title:** HelpMyIMG | Alat Edit Imej 100% Peribadi dalam Pelayar Anda
+> **Title:** HelpMyIMG — Pelayar Peribadi AI Editor Foto
 > **Summary:** Gabungkan, belah, mampatkan, tukar dan proses foto terus dalam penyemak imbas anda. 100% di luar talian melalui WebAssembly. Cepat, peribadi dan sangat selamat.
 
 ## 1. Architecture, Privacy & Plans
@@ -9,30 +9,19 @@
 - **Data Privacy:** Local browser RAM only. Zero files are uploaded to external servers (GDPR & HIPAA aligned).
 - **Pricing Tiers:** Free Starter Tier ($0 — unlimited 1080p HD exports with zero watermarks, 10-photo batches, plus 3 daily 4K exports on sign-in) and Optional PRO Studio ($9.99/mo, $79/yr, or $129 Founder Lifetime Pass for BiRefNet WebGPU, Swin2SR 4K upscale, and 100+ batch ZIP).
 
-## 2. Localized Canonical Tool Endpoints
+## 2. Localized Canonical Tool Endpoints (14 Tools)
 
 - **Background Remover:** https://helpmyimg.com/ms/buang-latar-belakang/
 - **Passport & Studio Background Color:** https://helpmyimg.com/ms/tukar-latar-belakang/
-- **White E-Commerce Background:** https://helpmyimg.com/ms/menukar-latar-belakang-foto-kepada-putih/
-- **Image Compressor (MozJPEG / OxiPNG):** https://helpmyimg.com/ms/mampat-imej/
-- **Compress to 100KB:** https://helpmyimg.com/ms/mampat-imej-100kb/
-- **Compress to 50KB:** https://helpmyimg.com/ms/mampat-imej-50kb/
-- **Compress to 200KB:** https://helpmyimg.com/ms/mampatkan-imej-kepada-200kb/
-- **Format Converter (HEIC, RAW, PSD, JXL, WEBP, AVIF):** https://helpmyimg.com/ms/tukar-imej/
-- **Convert WEBP to JPG:** https://helpmyimg.com/ms/tukar-webp-kepada-jpg/
-- **Resize Image:** https://helpmyimg.com/ms/ubah-saiz-imej/
-- **Resize for Instagram:** https://helpmyimg.com/ms/ubah-saiz-instagram/
-- **Resize for Passport:** https://helpmyimg.com/ms/ubah-saiz-gambar-kepada-saiz-pasport/
+- **Image Compressor (MozJPEG / OxiPNG, Target KB presets):** https://helpmyimg.com/ms/mampat-imej/
+- **Format Converter (HEIC, RAW, PSD, JXL, WEBP, AVIF, SVG):** https://helpmyimg.com/ms/tukar-imej/
+- **Resize Image (Instagram, Passport, Custom Dimensions):** https://helpmyimg.com/ms/ubah-saiz-imej/
 - **Crop & Smart Crop:** https://helpmyimg.com/ms/pangkas-imej/
 - **Rotate & Flip:** https://helpmyimg.com/ms/putar-imej/
 - **Color Picker (HEX/RGB Palette):** https://helpmyimg.com/ms/pemilih-warna/
-- **Blur Face & Privacy Mask:** https://helpmyimg.com/ms/kabur-wajah/
-- **Blur License Plate:** https://helpmyimg.com/ms/plat-lesen-blur/
-- **Watermark Image:** https://helpmyimg.com/ms/tanda-air/
-- **Batch Watermark Photos:** https://helpmyimg.com/ms/foto-tera-air-kumpulan/
+- **Blur Face & License Plate Privacy Mask:** https://helpmyimg.com/ms/kabur-wajah/
+- **Watermark Image (Single & Batch):** https://helpmyimg.com/ms/tanda-air/
 - **Magic Inpainting Brush:** https://helpmyimg.com/ms/berus-ajaib/
-- **Remove Logo Background:** https://helpmyimg.com/ms/alih-keluar-latar-belakang-daripada-logo/
-- **Remove Person from Photo:** https://helpmyimg.com/ms/alih-keluar-orang-daripada-foto/
 - **60 FPS WebGL Studio Editor:** https://helpmyimg.com/ms/editor-reka-bentuk/
 - **AI Metadata & C2PA Cleaner:** https://helpmyimg.com/ms/pembersih-metadata-ai/
 - **Camera EXIF Studio Editor:** https://helpmyimg.com/ms/edit-exif-foto/

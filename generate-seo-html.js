@@ -56,32 +56,13 @@ const getLocalizedSlug = (tool, lang) => {
     blurface: 'blur-face',
     design: 'advanced-editor',
     brush: 'magic-brush',
-    compress100kb: 'compress-image-to-100kb',
-    compress50kb: 'compress-image-to-50kb',
-    compress200kb: 'compress-image-to-200kb',
-    resizeig: 'resize-instagram',
-    resizepassport: 'resize-passport',
-    removelogo: 'remove-logo',
-    colorwhite: 'change-background-white',
-    removeperson: 'remove-person-from-photo',
-    convertwebp: 'convert-to-webp',
-    watermarkbulk: 'bulk-watermark',
-    blurplate: 'blur-license-plate',
     metadata: 'ai-metadata-cleaner',
     editexif: 'edit-exif'
   };
   return fallbacks[tool] || tool;
 };
 
-// 3. Load Matrix JSON
-let matrixData = [];
-try {
-  matrixData = JSON.parse(fs.readFileSync(path.join(publicDir, 'matrix.json'), 'utf8'));
-} catch (e) {
-  console.warn('Warning: Could not read public/matrix.json. Long-tail FAQs may be missing.');
-}
-
-// 4. Parse Info URL Mapper
+// 3. Parse Info URL Mapper
 let infoSlugMap = {};
 try {
   const infoUrlMapperContent = fs.readFileSync(path.join(__dirname, 'src', 'utils', 'infoUrlMapper.ts'), 'utf8');
@@ -99,15 +80,13 @@ const getLocalizedInfoSlug = (page, lang) => {
   return page;
 };
 
-// Tool identifiers (All 23 tools)
+// 14 canonical core tool identifiers (localized across 30 languages)
 const TOOLS = [
   'remove', 'color', 'watermark', 'compress', 'convert', 'resize', 'crop', 'rotate',
-  'picker', 'blurface', 'design', 'brush', 'compress100kb', 'compress50kb', 'resizeig',
-  'removelogo', 'colorwhite', 'compress200kb', 'resizepassport', 'removeperson',
-  'convertwebp', 'watermarkbulk', 'blurplate', 'metadata', 'editexif'
+  'picker', 'blurface', 'design', 'brush', 'metadata', 'editexif'
 ];
 
-// Tool base mapping for shared feature/FAQ/step translation lookup
+// Tool base mapping for translation lookup
 const TOOL_BASE_MAP = {
   remove: 'remove',
   color: 'color',
@@ -120,18 +99,7 @@ const TOOL_BASE_MAP = {
   picker: 'picker',
   blurface: 'blurface',
   design: 'design',
-  brush: 'remove',
-  compress100kb: 'compress',
-  compress50kb: 'compress',
-  compress200kb: 'compress',
-  resizeig: 'resize',
-  resizepassport: 'resize',
-  removelogo: 'remove',
-  removeperson: 'remove',
-  colorwhite: 'color',
-  convertwebp: 'convert',
-  watermarkbulk: 'watermark',
-  blurplate: 'blurface',
+  brush: 'brush',
   metadata: 'metadata',
   editexif: 'editexif'
 };
@@ -1871,45 +1839,17 @@ function generateSemanticHtml(lang, urlPath, title, desc, tool, infoPage, transl
   // =========================================================================
   // CASE C: TOOL PAGES (/${lang}/${slug}/)
   // =========================================================================
-  const baseTool = TOOL_BASE_MAP[tool] || 'remove';
-  const currentToolSlug = getLocalizedSlug(tool, lang);
-  const matrixItem =
-    matrixData.find(m => m.tool === tool && (m.lang === lang || m.lang === (lang === 'zh-CN' ? 'zh' : lang)) && m.slug === currentToolSlug) ||
-    matrixData.find(m => m.tool === tool && (m.lang === lang || m.lang === (lang === 'zh-CN' ? 'zh' : lang))) ||
-    null;
-  const isPseoVariant = tool !== baseTool;
+  const baseTool = TOOL_BASE_MAP[tool] || tool || 'remove';
 
-  // 1. Tool Specific H1 & Hero matching Hero.tsx (with unique matrix copy for pSEO subpages)
-  const heroBadge = (isPseoVariant && translations[`tab.${tool}`]) || translations[`landing.${baseTool}.redesign.heroBadge`] || translations[`tab.${baseTool}`] || 'AI TOOL';
-  const rawHeroTitle = isPseoVariant
-    ? (matrixItem?.h1 || translations[`landing.default.title.${tool}`] || translations[`seo.title.${tool}`] || h1)
-    : (translations[`landing.${baseTool}.redesign.heroTitle`] || matrixItem?.h1 || translations[`landing.default.title.${tool}`] || h1);
-  const heroDesc = isPseoVariant
-    ? (matrixItem?.description || translations[`landing.default.desc.${tool}`] || translations[`seo.desc.${tool}`] || overviewText)
-    : (translations[`landing.${baseTool}.redesign.heroDesc`] || matrixItem?.description || translations[`landing.default.desc.${tool}`] || overviewText);
+  // 1. Tool Specific H1 & Hero matching Hero.tsx
+  const heroBadge = translations[`landing.${baseTool}.redesign.heroBadge`] || translations[`tab.${baseTool}`] || 'AI TOOL';
+  const rawHeroTitle = translations[`landing.${baseTool}.redesign.heroTitle`] || translations[`landing.default.title.${tool}`] || h1;
+  const heroDesc = translations[`landing.${baseTool}.redesign.heroDesc`] || translations[`landing.default.desc.${tool}`] || overviewText;
 
   const cleanHeroTitle = rawHeroTitle.split(' - ')[0].trim();
   const words = cleanHeroTitle.split(' ');
   const solidPart = words.slice(0, 1).join(' ');
   const gradientPart = words.slice(1).join(' ');
-
-  let pseoGeoInsightsHtml = '';
-  if (matrixItem && (matrixItem.citationFirst || matrixItem.quantitativeProof)) {
-    const compareBlock = (matrixItem.beforeImageLabel || matrixItem.afterImageLabel)
-      ? `<div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
-          ${matrixItem.beforeImageLabel ? `<div class="p-4 rounded-xl bg-dark-900/60 border border-dark-600/60 text-xs text-slate-300"><strong class="text-slate-400 uppercase block mb-1">Before</strong>${matrixItem.beforeImageLabel}</div>` : ''}
-          ${matrixItem.afterImageLabel ? `<div class="p-4 rounded-xl bg-dark-900/60 border border-[#05DAED]/30 text-xs text-slate-200"><strong class="text-[#05DAED] uppercase block mb-1">After</strong>${matrixItem.afterImageLabel}</div>` : ''}
-        </div>`
-      : '';
-    pseoGeoInsightsHtml = `
-      <section class="p-6 md:p-8 rounded-3xl bg-dark-800/50 border border-[#05DAED]/25 flex flex-col gap-4">
-        <div class="text-xs font-mono font-bold uppercase tracking-wider text-[#05DAED]">${heroBadge}</div>
-        ${matrixItem.citationFirst ? `<p class="text-sm md:text-base text-slate-200 leading-relaxed">${matrixItem.citationFirst}</p>` : ''}
-        ${matrixItem.quantitativeProof ? `<div class="p-4 rounded-2xl bg-[#12DA91]/10 border border-[#12DA91]/25 text-xs md:text-sm text-[#12DA91] font-medium leading-relaxed">${matrixItem.quantitativeProof}</div>` : ''}
-        ${compareBlock}
-      </section>
-    `;
-  }
 
   // Dropzone matching WorkspaceDropzone.tsx
   const dropzoneTitleClean = (translations['dropzone.title'] || sec.dropzoneTitle).replace(/^[⚡✨🔄\s]+/u, '');
@@ -1973,28 +1913,16 @@ function generateSemanticHtml(lang, urlPath, title, desc, tool, infoPage, transl
   // 5. Frequently Asked Questions (FAQ)
   const faqTitle = translations[`landing.${baseTool}.faqTitle`] || translations['landing.faqTitle'] || sec.faq;
   let faqListHtml = '';
-
-  if (matrixItem && matrixItem.faqs && matrixItem.faqs.length > 0) {
-    for (const item of matrixItem.faqs) {
+  for (let i = 1; i <= 6; i++) {
+    const q = translations[`landing.${baseTool}.faq${i}.q`] || translations[`landing.remove.faq${i}.q`];
+    const a = translations[`landing.${baseTool}.faq${i}.a`] || translations[`landing.remove.faq${i}.a`];
+    if (q && a) {
       faqListHtml += `
         <div class="p-6 sm:p-8 rounded-3xl bg-dark-800/40 border border-dark-500/60 flex flex-col gap-2">
-          <h3 class="text-base font-bold text-white font-heading">${item.question}</h3>
-          <p class="text-sm text-slate-400 leading-relaxed">${item.answer}</p>
+          <h3 class="text-base font-bold text-white font-heading">${q}</h3>
+          <p class="text-sm text-slate-400 leading-relaxed">${a}</p>
         </div>
       `;
-    }
-  } else {
-    for (let i = 1; i <= 6; i++) {
-      const q = translations[`landing.${baseTool}.faq${i}.q`] || translations[`landing.remove.faq${i}.q`];
-      const a = translations[`landing.${baseTool}.faq${i}.a`] || translations[`landing.remove.faq${i}.a`];
-      if (q && a) {
-        faqListHtml += `
-          <div class="p-6 sm:p-8 rounded-3xl bg-dark-800/40 border border-dark-500/60 flex flex-col gap-2">
-            <h3 class="text-base font-bold text-white font-heading">${q}</h3>
-            <p class="text-sm text-slate-400 leading-relaxed">${a}</p>
-          </div>
-        `;
-      }
     }
   }
 
@@ -2040,7 +1968,6 @@ function generateSemanticHtml(lang, urlPath, title, desc, tool, infoPage, transl
         </div>
 
         <div class="mt-20 max-w-5xl mx-auto px-4 w-full flex flex-col gap-16">
-          ${pseoGeoInsightsHtml}
           <!-- Key Features Section -->
           <section class="flex flex-col gap-6">
             <div class="flex flex-col gap-2">
@@ -2156,13 +2083,23 @@ const generateHtml = (lang, urlPath, rawTitle, rawDesc, tool = null, translation
   const escapeAttr = (str) => String(str || '').replace(/&/g, '&amp;').replace(/"/g, '&quot;');
   const safeTitle = escapeAttr(seoTitle);
   const safeDesc = escapeAttr(seoDesc);
+  const OG_LOCALE_MAP = {
+    en: 'en_US', id: 'id_ID', es: 'es_ES', fr: 'fr_FR', de: 'de_DE',
+    ja: 'ja_JP', ar: 'ar_SA', ru: 'ru_RU', pt: 'pt_BR', zh: 'zh_CN',
+    ko: 'ko_KR', it: 'it_IT', tr: 'tr_TR', vi: 'vi_VN', th: 'th_TH',
+    hi: 'hi_IN', nl: 'nl_NL', pl: 'pl_PL', sv: 'sv_SE', no: 'nb_NO',
+    da: 'da_DK', fi: 'fi_FI', el: 'el_GR', he: 'he_IL', cs: 'cs_CZ',
+    hu: 'hu_HU', ro: 'ro_RO', uk: 'uk_UA', ms: 'ms_MY', tl: 'tl_PH',
+  };
+  const ogLocale = OG_LOCALE_MAP[lang] || lang;
 
-  // 3. Complete Open Graph & Twitter Meta Tags (marked data-rh="true" so Helmet replaces cleanly with 0 duplicates)
-  const metaTags = `    <title data-rh="true">${seoTitle}</title>
+  // 3. Primary SEO Meta Tags (injected right after viewport for capo.js <head> priority)
+  const primaryMetaTags = `    <title data-rh="true">${seoTitle}</title>
     <meta data-rh="true" name="description" content="${safeDesc}" />
-    <link data-rh="true" rel="canonical" href="${canonicalUrl}" />
-    
-    <!-- Open Graph / Facebook Meta Tags -->
+    <link data-rh="true" rel="canonical" href="${canonicalUrl}" />`;
+
+  // Social / Open Graph & Twitter Meta Tags (marked data-rh="true" so Helmet replaces cleanly)
+  const metaTags = `    <!-- Open Graph / Facebook Meta Tags -->
     <meta data-rh="true" property="og:title" content="${safeTitle}" />
     <meta data-rh="true" property="og:description" content="${safeDesc}" />
     <meta data-rh="true" property="og:url" content="${canonicalUrl}" />
@@ -2173,7 +2110,7 @@ const generateHtml = (lang, urlPath, rawTitle, rawDesc, tool = null, translation
     <meta data-rh="true" property="og:image:height" content="630" />
     <meta data-rh="true" property="og:image:alt" content="${safeTitle}" />
     <meta data-rh="true" property="og:site_name" content="HelpMyIMG" />
-    <meta data-rh="true" property="og:locale" content="${lang}" />
+    <meta data-rh="true" property="og:locale" content="${ogLocale}" />
 
     <!-- Twitter (X) Meta Tags -->
     <meta data-rh="true" name="twitter:card" content="summary_large_image" />
@@ -2282,32 +2219,18 @@ const generateHtml = (lang, urlPath, rawTitle, rawDesc, tool = null, translation
   }
 
   const faqEntities = [];
-  const baseTool = tool ? (TOOL_BASE_MAP[tool] || 'remove') : null;
+  const baseTool = tool ? (TOOL_BASE_MAP[tool] || tool || 'remove') : null;
 
   if (tool) {
-    const slugForTool = getLocalizedSlug(tool, lang);
-    const matrixItem =
-      matrixData.find(m => m.tool === tool && (m.lang === lang || m.lang === (lang === 'zh-CN' ? 'zh' : lang)) && m.slug === slugForTool) ||
-      matrixData.find(m => m.tool === tool && (m.lang === lang || m.lang === (lang === 'zh-CN' ? 'zh' : lang)));
-    if (matrixItem && matrixItem.faqs && matrixItem.faqs.length > 0) {
-      for (const faq of matrixItem.faqs) {
+    for (let i = 1; i <= 6; i++) {
+      const q = translations[`landing.${baseTool}.faq${i}.q`] || translations[`landing.remove.faq${i}.q`];
+      const a = translations[`landing.${baseTool}.faq${i}.a`] || translations[`landing.remove.faq${i}.a`];
+      if (q && a) {
         faqEntities.push({
           "@type": "Question",
-          "name": faq.question,
-          "acceptedAnswer": { "@type": "Answer", "text": faq.answer }
+          "name": q,
+          "acceptedAnswer": { "@type": "Answer", "text": a }
         });
-      }
-    } else {
-      for (let i = 1; i <= 6; i++) {
-        const q = translations[`landing.${baseTool}.faq${i}.q`] || translations[`landing.remove.faq${i}.q`];
-        const a = translations[`landing.${baseTool}.faq${i}.a`] || translations[`landing.remove.faq${i}.a`];
-        if (q && a) {
-          faqEntities.push({
-            "@type": "Question",
-            "name": q,
-            "acceptedAnswer": { "@type": "Answer", "text": a }
-          });
-        }
       }
     }
   } else if (infoPage === 'faq') {
@@ -2357,6 +2280,11 @@ const generateHtml = (lang, urlPath, rawTitle, rawDesc, tool = null, translation
 
   const jsonLdScript = `    <script data-rh="true" type="application/ld+json">\n${JSON.stringify(jsonLd)}\n    </script>\n`;
 
+  if (/<meta name="viewport"[^>]*>/i.test(html)) {
+    html = html.replace(/(<meta name="viewport"[^>]*>)/i, `$1\n${primaryMetaTags}`);
+  } else {
+    html = html.replace(/(<head[^>]*>)/i, `$1\n${primaryMetaTags}`);
+  }
   html = html.replace(/(<\/head>)/i, `${metaTags}${dynamicHreflangs}${jsonLdScript}  $1`);
 
   // 5. Inject Rich, 100% VISIBLE Semantic HTML into <div id="root">
@@ -2396,20 +2324,11 @@ for (const lang of LANGS) {
     generatedCount++;
   }
 
-  // 2. Generate Tool Pages
+  // 2. Generate Tool Pages (14 canonical core tools)
   for (const tool of TOOLS) {
     const slug = getLocalizedSlug(tool, lang);
-    const isVariantTool = tool !== (TOOL_BASE_MAP[tool] || 'remove');
-    const toolMatrixItem =
-      matrixData.find(m => m.tool === tool && (m.lang === lang || m.lang === (lang === 'zh-CN' ? 'zh' : lang)) && m.slug === slug) ||
-      matrixData.find(m => m.tool === tool && (m.lang === lang || m.lang === (lang === 'zh-CN' ? 'zh' : lang))) ||
-      null;
-    let toolTitle = isVariantTool
-      ? (translations[`seo.title.${tool}`] || toolMatrixItem?.title || translations[`landing.default.title.${tool}`] || translations[`tab.${tool}`] || tool)
-      : (translations[`landing.default.title.${tool}`] || translations[`seo.title.${tool}`] || translations[`seo.jsonld.name.${tool}`] || translations[`tab.${tool}`] || translations[`tool.${tool}`] || translations['hero.title'] || tool);
-    let toolDesc = isVariantTool
-      ? (translations[`seo.desc.${tool}`] || toolMatrixItem?.description || translations[`landing.default.desc.${tool}`] || homeDesc)
-      : (translations[`landing.default.desc.${tool}`] || translations[`seo.desc.${tool}`] || toolMatrixItem?.description || translations[`seo.jsonld.desc.${tool}`] || homeDesc);
+    let toolTitle = translations[`landing.default.title.${tool}`] || translations[`seo.title.${tool}`] || translations[`seo.jsonld.name.${tool}`] || translations[`tab.${tool}`] || translations[`tool.${tool}`] || translations['hero.title'] || tool;
+    let toolDesc = translations[`landing.default.desc.${tool}`] || translations[`seo.desc.${tool}`] || translations[`seo.jsonld.desc.${tool}`] || homeDesc;
 
     if (lang === 'en') {
       // English tools are at root: https://helpmyimg.com/${slug}/

@@ -1,7 +1,7 @@
 # HelpMyIMG (हिन्दी (Hindi)) — Client-Side AI Image Processing Knowledge Base
 
 > **Website:** https://helpmyimg.com/hi/
-> **Title:** HelpMyIMG | 100% निजी फ़ोटो और छवि उपकरण आपके ब्राउज़र में
+> **Title:** हेल्पमायआईएमजी - निजी ब्राउज़र एआई फोटो संपादक
 > **Summary:** फ़ोटो को सीधे अपने ब्राउज़र में संयोजित करें, विभाजित करें, संपीड़ित करें, रूपांतरित करें और संसाधित करें। WebAssembly के माध्यम से 100% ऑफ़लाइन। तेज़, निजी और अत्यधिक सुरक्षित।
 
 ## 1. Architecture, Privacy & Plans
@@ -9,30 +9,19 @@
 - **Data Privacy:** Local browser RAM only. Zero files are uploaded to external servers (GDPR & HIPAA aligned).
 - **Pricing Tiers:** Free Starter Tier ($0 — unlimited 1080p HD exports with zero watermarks, 10-photo batches, plus 3 daily 4K exports on sign-in) and Optional PRO Studio ($9.99/mo, $79/yr, or $129 Founder Lifetime Pass for BiRefNet WebGPU, Swin2SR 4K upscale, and 100+ batch ZIP).
 
-## 2. Localized Canonical Tool Endpoints
+## 2. Localized Canonical Tool Endpoints (14 Tools)
 
 - **Background Remover:** https://helpmyimg.com/hi/background-hatao/
 - **Passport & Studio Background Color:** https://helpmyimg.com/hi/background-badlo/
-- **White E-Commerce Background:** https://helpmyimg.com/hi/photo-background-safed-kare/
-- **Image Compressor (MozJPEG / OxiPNG):** https://helpmyimg.com/hi/image-compress/
-- **Compress to 100KB:** https://helpmyimg.com/hi/image-compress-100kb/
-- **Compress to 50KB:** https://helpmyimg.com/hi/image-compress-50kb/
-- **Compress to 200KB:** https://helpmyimg.com/hi/image-compress-200kb/
-- **Format Converter (HEIC, RAW, PSD, JXL, WEBP, AVIF):** https://helpmyimg.com/hi/image-convert/
-- **Convert WEBP to JPG:** https://helpmyimg.com/hi/webp-ko-jpg-mein-badle/
-- **Resize Image:** https://helpmyimg.com/hi/image-resize/
-- **Resize for Instagram:** https://helpmyimg.com/hi/instagram-image-resize/
-- **Resize for Passport:** https://helpmyimg.com/hi/passport-size-photo-resize/
+- **Image Compressor (MozJPEG / OxiPNG, Target KB presets):** https://helpmyimg.com/hi/image-compress/
+- **Format Converter (HEIC, RAW, PSD, JXL, WEBP, AVIF, SVG):** https://helpmyimg.com/hi/image-convert/
+- **Resize Image (Instagram, Passport, Custom Dimensions):** https://helpmyimg.com/hi/image-resize/
 - **Crop & Smart Crop:** https://helpmyimg.com/hi/image-crop/
 - **Rotate & Flip:** https://helpmyimg.com/hi/image-rotate/
 - **Color Picker (HEX/RGB Palette):** https://helpmyimg.com/hi/rang-chunen/
-- **Blur Face & Privacy Mask:** https://helpmyimg.com/hi/chehra-dhundhla-kare/
-- **Blur License Plate:** https://helpmyimg.com/hi/number-plate-blur-kare/
-- **Watermark Image:** https://helpmyimg.com/hi/watermark-lagao/
-- **Batch Watermark Photos:** https://helpmyimg.com/hi/bulk-watermark-photo/
+- **Blur Face & License Plate Privacy Mask:** https://helpmyimg.com/hi/chehra-dhundhla-kare/
+- **Watermark Image (Single & Batch):** https://helpmyimg.com/hi/watermark-lagao/
 - **Magic Inpainting Brush:** https://helpmyimg.com/hi/magic-brush/
-- **Remove Logo Background:** https://helpmyimg.com/hi/logo-ka-background-hataye/
-- **Remove Person from Photo:** https://helpmyimg.com/hi/photo-se-vyakti-hataye/
 - **60 FPS WebGL Studio Editor:** https://helpmyimg.com/hi/design-editor/
 - **AI Metadata & C2PA Cleaner:** https://helpmyimg.com/hi/ai-metadata-safai/
 - **Camera EXIF Studio Editor:** https://helpmyimg.com/hi/exif-sampadan/

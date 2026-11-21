@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "node generate-sitemap.js && npx tsx scripts/dump-matrix.ts && node --max-old-space-size=4096 --stack-size=2048 ./node_modules/vite/bin/vite.js build && node generate-seo-html.js",
+    "build": "node generate-sitemap.js && node --max-old-space-size=4096 --stack-size=2048 ./node_modules/vite/bin/vite.js build && node generate-seo-html.js",
     "build:wasm": "node scripts/build-matting-wasm.mjs",
     "postbuild": "node scripts/submit-indexnow.mjs",
     "lint": "oxlint",

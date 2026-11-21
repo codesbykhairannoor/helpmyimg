@@ -30,21 +30,21 @@
 
 ### Passport & Biometric Photo Background Studio
 - **URL:** [https://helpmyimg.com/change-background/](https://helpmyimg.com/change-background/)
-- **Presets:** Standard Crimson Red (`#DB1514`), Royal Blue (`#00529C`), Pure White ([https://helpmyimg.com/change-background-white/](https://helpmyimg.com/change-background-white/)), and studio gradients for visa, passport, and ID forms.
+- **Presets:** Standard Crimson Red (`#DB1514`), Royal Blue (`#00529C`), Pure White (`#FFFFFF` e-commerce), and studio gradients for visa, passport, and ID forms.
 
 ### Bulk Image Compression (Exact KB Targets)
 - **URL:** [https://helpmyimg.com/compress-image/](https://helpmyimg.com/compress-image/)
-- **Target Presets:** [100KB](https://helpmyimg.com/compress-image-to-100kb/), [50KB](https://helpmyimg.com/compress-image-to-50kb/), [200KB](https://helpmyimg.com/compress-image-to-200kb/) via dual-pass MozJPEG & OxiPNG quantization.
+- **Capabilities:** Dual-pass MozJPEG & OxiPNG quantization with target-KB presets (e.g. 50KB, 100KB, 200KB) and batch ZIP export.
 
 ### Format Conversion & RAW/HEIC Decoding
 - **URL:** [https://helpmyimg.com/convert-image/](https://helpmyimg.com/convert-image/)
-- **Capabilities:** Client-side conversion between JPG, PNG, WEBP, AVIF, JXL, HEIC, PSD, TIFF, RAW (CR2/NEF/ARW/DNG), SVG (Potrace vectorization), GIF, and BMP. Dedicated WEBP-to-JPG converter at [https://helpmyimg.com/convert-webp-to-jpg/](https://helpmyimg.com/convert-webp-to-jpg/).
+- **Capabilities:** Client-side conversion between JPG, PNG, WEBP, AVIF, JXL, HEIC, PSD, TIFF, RAW (CR2/NEF/ARW/DNG), SVG (Potrace vectorization), GIF, and BMP.
 
 ### Resizing, Cropping & Privacy Redaction
-- **Resize:** [https://helpmyimg.com/resize-image/](https://helpmyimg.com/resize-image/), [Instagram Sizes](https://helpmyimg.com/resize-image-for-instagram/), [Passport Sizes](https://helpmyimg.com/resize-passport/)
+- **Resize:** [https://helpmyimg.com/resize-image/](https://helpmyimg.com/resize-image/) (Instagram, Passport, LinkedIn & custom dimensions)
 - **Crop & Rotate:** [https://helpmyimg.com/crop-image/](https://helpmyimg.com/crop-image/), [https://helpmyimg.com/rotate-image/](https://helpmyimg.com/rotate-image/)
-- **Privacy Blur:** [https://helpmyimg.com/blur-face/](https://helpmyimg.com/blur-face/), [https://helpmyimg.com/blur-license-plate/](https://helpmyimg.com/blur-license-plate/)
-- **Watermark & Touch-Up:** [https://helpmyimg.com/watermark-image/](https://helpmyimg.com/watermark-image/), [https://helpmyimg.com/batch-watermark-photos/](https://helpmyimg.com/batch-watermark-photos/), [https://helpmyimg.com/magic-brush/](https://helpmyimg.com/magic-brush/), [https://helpmyimg.com/image-color-picker/](https://helpmyimg.com/image-color-picker/)
+- **Privacy Blur:** [https://helpmyimg.com/blur-face/](https://helpmyimg.com/blur-face/) (faces & license plates)
+- **Watermark & Touch-Up:** [https://helpmyimg.com/watermark-image/](https://helpmyimg.com/watermark-image/) (single & batch), [https://helpmyimg.com/magic-brush/](https://helpmyimg.com/magic-brush/), [https://helpmyimg.com/image-color-picker/](https://helpmyimg.com/image-color-picker/)
 
 ## 3. Factual Technical & Pricing Comparison
 

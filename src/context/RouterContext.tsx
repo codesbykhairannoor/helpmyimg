@@ -58,10 +58,10 @@ export const RouterProvider: React.FC<{ children: React.ReactNode }> = ({ childr
   const [route, setRoute] = useState<RouteState>(parseUrl());
 
   useEffect(() => {
-    // If user lands on a legacy 3-segment pSEO URL, immediately normalize the URL in the address bar
+    // If user lands on a legacy 3-segment URL, normalize to the canonical core tool path
     if (route.keywordSlug && route.tool) {
       const cleanSlug = getLocalizedSlug(route.tool as any, route.lang);
-      const cleanPath = `/${route.lang}/${cleanSlug}/`;
+      const cleanPath = route.lang === 'en' ? `/${cleanSlug}/` : `/${route.lang}/${cleanSlug}/`;
       if (window.location.pathname !== cleanPath) {
         window.history.replaceState(null, '', cleanPath);
       }

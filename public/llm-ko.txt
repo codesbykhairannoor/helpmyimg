@@ -1,7 +1,7 @@
 # HelpMyIMG (한국어 (Korean)) — Client-Side AI Image Processing Knowledge Base
 
 > **Website:** https://helpmyimg.com/ko/
-> **Title:** HelpMyIMG | 100% 프라이빗 로컬 이미지 편집 도구
+> **Title:** HelpMyIMG — 브라우저 AI 누끼 따기·사진 편집
 > **Summary:** 브라우저에서 직접 사진을 결합, 분할, 압축, 변환 및 처리합니다. WebAssembly를 통해 100% 오프라인. 빠르고, 비공개이며, 보안이 뛰어납니다.
 
 ## 1. Architecture, Privacy & Plans
@@ -9,30 +9,19 @@
 - **Data Privacy:** Local browser RAM only. Zero files are uploaded to external servers (GDPR & HIPAA aligned).
 - **Pricing Tiers:** Free Starter Tier ($0 — unlimited 1080p HD exports with zero watermarks, 10-photo batches, plus 3 daily 4K exports on sign-in) and Optional PRO Studio ($9.99/mo, $79/yr, or $129 Founder Lifetime Pass for BiRefNet WebGPU, Swin2SR 4K upscale, and 100+ batch ZIP).
 
-## 2. Localized Canonical Tool Endpoints
+## 2. Localized Canonical Tool Endpoints (14 Tools)
 
 - **Background Remover:** https://helpmyimg.com/ko/baegyeong-jegeo/
 - **Passport & Studio Background Color:** https://helpmyimg.com/ko/baegyeong-byeongyeong/
-- **White E-Commerce Background:** https://helpmyimg.com/ko/sajin-baegyeong-hayan-saek/
-- **Image Compressor (MozJPEG / OxiPNG):** https://helpmyimg.com/ko/imiji-abchuk/
-- **Compress to 100KB:** https://helpmyimg.com/ko/imiji-abchuk-100kb/
-- **Compress to 50KB:** https://helpmyimg.com/ko/imiji-abchuk-50kb/
-- **Compress to 200KB:** https://helpmyimg.com/ko/imiji-abchuk-200kb/
-- **Format Converter (HEIC, RAW, PSD, JXL, WEBP, AVIF):** https://helpmyimg.com/ko/imiji-byeonhwan/
-- **Convert WEBP to JPG:** https://helpmyimg.com/ko/webp-jpg-byeonhwan/
-- **Resize Image:** https://helpmyimg.com/ko/imiji-keugi-jojeong/
-- **Resize for Instagram:** https://helpmyimg.com/ko/inseuta-imiji-keugi/
-- **Resize for Passport:** https://helpmyimg.com/ko/yeogwon-sajin-keugi/
+- **Image Compressor (MozJPEG / OxiPNG, Target KB presets):** https://helpmyimg.com/ko/imiji-abchuk/
+- **Format Converter (HEIC, RAW, PSD, JXL, WEBP, AVIF, SVG):** https://helpmyimg.com/ko/imiji-byeonhwan/
+- **Resize Image (Instagram, Passport, Custom Dimensions):** https://helpmyimg.com/ko/imiji-keugi-jojeong/
 - **Crop & Smart Crop:** https://helpmyimg.com/ko/imiji-jareugi/
 - **Rotate & Flip:** https://helpmyimg.com/ko/imiji-hoejeon/
 - **Color Picker (HEX/RGB Palette):** https://helpmyimg.com/ko/saek-chuchul/
-- **Blur Face & Privacy Mask:** https://helpmyimg.com/ko/eolgul-beulleo/
-- **Blur License Plate:** https://helpmyimg.com/ko/beonhopan-beulleo/
-- **Watermark Image:** https://helpmyimg.com/ko/woteomakeu/
-- **Batch Watermark Photos:** https://helpmyimg.com/ko/ilgwal-woteomakeu/
+- **Blur Face & License Plate Privacy Mask:** https://helpmyimg.com/ko/eolgul-beulleo/
+- **Watermark Image (Single & Batch):** https://helpmyimg.com/ko/woteomakeu/
 - **Magic Inpainting Brush:** https://helpmyimg.com/ko/maejik-beureosi/
-- **Remove Logo Background:** https://helpmyimg.com/ko/rogo-baegyeong-jegeo/
-- **Remove Person from Photo:** https://helpmyimg.com/ko/sajin-saram-jegeo/
 - **60 FPS WebGL Studio Editor:** https://helpmyimg.com/ko/dijain-editeo/
 - **AI Metadata & C2PA Cleaner:** https://helpmyimg.com/ko/ai-metadeiteo-jegeo/
 - **Camera EXIF Studio Editor:** https://helpmyimg.com/ko/exif-pyeonjib/

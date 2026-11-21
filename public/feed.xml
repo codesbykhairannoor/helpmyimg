@@ -5,182 +5,105 @@
     <link>https://helpmyimg.com/</link>
     <description>Privacy-first, in-browser AI image editing suite powered by WebAssembly and WebGPU. Remove backgrounds, clean C2PA/EXIF metadata, compress, resize, and convert images locally with zero server uploads.</description>
     <language>en</language>
-    <lastBuildDate>Fri, 20 Nov 2026 11:31:47 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 21 Nov 2026 04:23:44 GMT</lastBuildDate>
     <atom:link href="https://helpmyimg.com/feed.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Remove Background — Client-Side AI Tool</title>
       <link>https://helpmyimg.com/remove-background/</link>
       <guid isPermaLink="true">https://helpmyimg.com/remove-background/</guid>
       <description>Remove Background running 100% locally inside your browser via WebAssembly & WebGPU with zero server uploads.</description>
-      <pubDate>Fri, 20 Nov 2026 11:31:47 GMT</pubDate>
+      <pubDate>Sat, 21 Nov 2026 04:23:44 GMT</pubDate>
     </item>
     <item>
       <title>Change Background — Client-Side AI Tool</title>
       <link>https://helpmyimg.com/change-background/</link>
       <guid isPermaLink="true">https://helpmyimg.com/change-background/</guid>
       <description>Change Background running 100% locally inside your browser via WebAssembly & WebGPU with zero server uploads.</description>
-      <pubDate>Fri, 20 Nov 2026 11:31:47 GMT</pubDate>
+      <pubDate>Sat, 21 Nov 2026 04:23:44 GMT</pubDate>
     </item>
     <item>
       <title>Watermark Image — Client-Side AI Tool</title>
       <link>https://helpmyimg.com/watermark-image/</link>
       <guid isPermaLink="true">https://helpmyimg.com/watermark-image/</guid>
       <description>Watermark Image running 100% locally inside your browser via WebAssembly & WebGPU with zero server uploads.</description>
-      <pubDate>Fri, 20 Nov 2026 11:31:47 GMT</pubDate>
+      <pubDate>Sat, 21 Nov 2026 04:23:44 GMT</pubDate>
     </item>
     <item>
       <title>Compress Image — Client-Side AI Tool</title>
       <link>https://helpmyimg.com/compress-image/</link>
       <guid isPermaLink="true">https://helpmyimg.com/compress-image/</guid>
       <description>Compress Image running 100% locally inside your browser via WebAssembly & WebGPU with zero server uploads.</description>
-      <pubDate>Fri, 20 Nov 2026 11:31:47 GMT</pubDate>
+      <pubDate>Sat, 21 Nov 2026 04:23:44 GMT</pubDate>
     </item>
     <item>
       <title>Convert Image — Client-Side AI Tool</title>
       <link>https://helpmyimg.com/convert-image/</link>
       <guid isPermaLink="true">https://helpmyimg.com/convert-image/</guid>
       <description>Convert Image running 100% locally inside your browser via WebAssembly & WebGPU with zero server uploads.</description>
-      <pubDate>Fri, 20 Nov 2026 11:31:47 GMT</pubDate>
+      <pubDate>Sat, 21 Nov 2026 04:23:44 GMT</pubDate>
     </item>
     <item>
       <title>Resize Image — Client-Side AI Tool</title>
       <link>https://helpmyimg.com/resize-image/</link>
       <guid isPermaLink="true">https://helpmyimg.com/resize-image/</guid>
       <description>Resize Image running 100% locally inside your browser via WebAssembly & WebGPU with zero server uploads.</description>
-      <pubDate>Fri, 20 Nov 2026 11:31:47 GMT</pubDate>
+      <pubDate>Sat, 21 Nov 2026 04:23:44 GMT</pubDate>
     </item>
     <item>
       <title>Crop Image — Client-Side AI Tool</title>
       <link>https://helpmyimg.com/crop-image/</link>
       <guid isPermaLink="true">https://helpmyimg.com/crop-image/</guid>
       <description>Crop Image running 100% locally inside your browser via WebAssembly & WebGPU with zero server uploads.</description>
-      <pubDate>Fri, 20 Nov 2026 11:31:47 GMT</pubDate>
+      <pubDate>Sat, 21 Nov 2026 04:23:44 GMT</pubDate>
     </item>
     <item>
       <title>Rotate Image — Client-Side AI Tool</title>
       <link>https://helpmyimg.com/rotate-image/</link>
       <guid isPermaLink="true">https://helpmyimg.com/rotate-image/</guid>
       <description>Rotate Image running 100% locally inside your browser via WebAssembly & WebGPU with zero server uploads.</description>
-      <pubDate>Fri, 20 Nov 2026 11:31:47 GMT</pubDate>
+      <pubDate>Sat, 21 Nov 2026 04:23:44 GMT</pubDate>
     </item>
     <item>
       <title>Image Color Picker — Client-Side AI Tool</title>
       <link>https://helpmyimg.com/image-color-picker/</link>
       <guid isPermaLink="true">https://helpmyimg.com/image-color-picker/</guid>
       <description>Image Color Picker running 100% locally inside your browser via WebAssembly & WebGPU with zero server uploads.</description>
-      <pubDate>Fri, 20 Nov 2026 11:31:47 GMT</pubDate>
+      <pubDate>Sat, 21 Nov 2026 04:23:44 GMT</pubDate>
     </item>
     <item>
       <title>Blur Face — Client-Side AI Tool</title>
       <link>https://helpmyimg.com/blur-face/</link>
       <guid isPermaLink="true">https://helpmyimg.com/blur-face/</guid>
       <description>Blur Face running 100% locally inside your browser via WebAssembly & WebGPU with zero server uploads.</description>
-      <pubDate>Fri, 20 Nov 2026 11:31:47 GMT</pubDate>
+      <pubDate>Sat, 21 Nov 2026 04:23:44 GMT</pubDate>
     </item>
     <item>
       <title>Advanced Editor — Client-Side AI Tool</title>
       <link>https://helpmyimg.com/advanced-editor/</link>
       <guid isPermaLink="true">https://helpmyimg.com/advanced-editor/</guid>
       <description>Advanced Editor running 100% locally inside your browser via WebAssembly & WebGPU with zero server uploads.</description>
-      <pubDate>Fri, 20 Nov 2026 11:31:47 GMT</pubDate>
+      <pubDate>Sat, 21 Nov 2026 04:23:44 GMT</pubDate>
     </item>
     <item>
       <title>Magic Brush — Client-Side AI Tool</title>
       <link>https://helpmyimg.com/magic-brush/</link>
       <guid isPermaLink="true">https://helpmyimg.com/magic-brush/</guid>
       <description>Magic Brush running 100% locally inside your browser via WebAssembly & WebGPU with zero server uploads.</description>
-      <pubDate>Fri, 20 Nov 2026 11:31:47 GMT</pubDate>
-    </item>
-    <item>
-      <title>Compress Image To 100kb — Client-Side AI Tool</title>
-      <link>https://helpmyimg.com/compress-image-to-100kb/</link>
-      <guid isPermaLink="true">https://helpmyimg.com/compress-image-to-100kb/</guid>
-      <description>Compress Image To 100kb running 100% locally inside your browser via WebAssembly & WebGPU with zero server uploads.</description>
-      <pubDate>Fri, 20 Nov 2026 11:31:47 GMT</pubDate>
-    </item>
-    <item>
-      <title>Compress Image To 50kb — Client-Side AI Tool</title>
-      <link>https://helpmyimg.com/compress-image-to-50kb/</link>
-      <guid isPermaLink="true">https://helpmyimg.com/compress-image-to-50kb/</guid>
-      <description>Compress Image To 50kb running 100% locally inside your browser via WebAssembly & WebGPU with zero server uploads.</description>
-      <pubDate>Fri, 20 Nov 2026 11:31:47 GMT</pubDate>
-    </item>
-    <item>
-      <title>Resize Image For Instagram — Client-Side AI Tool</title>
-      <link>https://helpmyimg.com/resize-image-for-instagram/</link>
-      <guid isPermaLink="true">https://helpmyimg.com/resize-image-for-instagram/</guid>
-      <description>Resize Image For Instagram running 100% locally inside your browser via WebAssembly & WebGPU with zero server uploads.</description>
-      <pubDate>Fri, 20 Nov 2026 11:31:47 GMT</pubDate>
-    </item>
-    <item>
-      <title>Remove Logo — Client-Side AI Tool</title>
-      <link>https://helpmyimg.com/remove-logo/</link>
-      <guid isPermaLink="true">https://helpmyimg.com/remove-logo/</guid>
-      <description>Remove Logo running 100% locally inside your browser via WebAssembly & WebGPU with zero server uploads.</description>
-      <pubDate>Fri, 20 Nov 2026 11:31:47 GMT</pubDate>
-    </item>
-    <item>
-      <title>Change Background White — Client-Side AI Tool</title>
-      <link>https://helpmyimg.com/change-background-white/</link>
-      <guid isPermaLink="true">https://helpmyimg.com/change-background-white/</guid>
-      <description>Change Background White running 100% locally inside your browser via WebAssembly & WebGPU with zero server uploads.</description>
-      <pubDate>Fri, 20 Nov 2026 11:31:47 GMT</pubDate>
-    </item>
-    <item>
-      <title>Compress Image To 200kb — Client-Side AI Tool</title>
-      <link>https://helpmyimg.com/compress-image-to-200kb/</link>
-      <guid isPermaLink="true">https://helpmyimg.com/compress-image-to-200kb/</guid>
-      <description>Compress Image To 200kb running 100% locally inside your browser via WebAssembly & WebGPU with zero server uploads.</description>
-      <pubDate>Fri, 20 Nov 2026 11:31:47 GMT</pubDate>
-    </item>
-    <item>
-      <title>Resize Passport — Client-Side AI Tool</title>
-      <link>https://helpmyimg.com/resize-passport/</link>
-      <guid isPermaLink="true">https://helpmyimg.com/resize-passport/</guid>
-      <description>Resize Passport running 100% locally inside your browser via WebAssembly & WebGPU with zero server uploads.</description>
-      <pubDate>Fri, 20 Nov 2026 11:31:47 GMT</pubDate>
-    </item>
-    <item>
-      <title>Remove Person From Photo — Client-Side AI Tool</title>
-      <link>https://helpmyimg.com/remove-person-from-photo/</link>
-      <guid isPermaLink="true">https://helpmyimg.com/remove-person-from-photo/</guid>
-      <description>Remove Person From Photo running 100% locally inside your browser via WebAssembly & WebGPU with zero server uploads.</description>
-      <pubDate>Fri, 20 Nov 2026 11:31:47 GMT</pubDate>
-    </item>
-    <item>
-      <title>Convert Webp To Jpg — Client-Side AI Tool</title>
-      <link>https://helpmyimg.com/convert-webp-to-jpg/</link>
-      <guid isPermaLink="true">https://helpmyimg.com/convert-webp-to-jpg/</guid>
-      <description>Convert Webp To Jpg running 100% locally inside your browser via WebAssembly & WebGPU with zero server uploads.</description>
-      <pubDate>Fri, 20 Nov 2026 11:31:47 GMT</pubDate>
-    </item>
-    <item>
-      <title>Batch Watermark Photos — Client-Side AI Tool</title>
-      <link>https://helpmyimg.com/batch-watermark-photos/</link>
-      <guid isPermaLink="true">https://helpmyimg.com/batch-watermark-photos/</guid>
-      <description>Batch Watermark Photos running 100% locally inside your browser via WebAssembly & WebGPU with zero server uploads.</description>
-      <pubDate>Fri, 20 Nov 2026 11:31:47 GMT</pubDate>
-    </item>
-    <item>
-      <title>Blur License Plate — Client-Side AI Tool</title>
-      <link>https://helpmyimg.com/blur-license-plate/</link>
-      <guid isPermaLink="true">https://helpmyimg.com/blur-license-plate/</guid>
-      <description>Blur License Plate running 100% locally inside your browser via WebAssembly & WebGPU with zero server uploads.</description>
-      <pubDate>Fri, 20 Nov 2026 11:31:47 GMT</pubDate>
+      <pubDate>Sat, 21 Nov 2026 04:23:44 GMT</pubDate>
     </item>
     <item>
       <title>Ai Metadata Cleaner — Client-Side AI Tool</title>
       <link>https://helpmyimg.com/ai-metadata-cleaner/</link>
       <guid isPermaLink="true">https://helpmyimg.com/ai-metadata-cleaner/</guid>
       <description>Ai Metadata Cleaner running 100% locally inside your browser via WebAssembly & WebGPU with zero server uploads.</description>
-      <pubDate>Fri, 20 Nov 2026 11:31:47 GMT</pubDate>
+      <pubDate>Sat, 21 Nov 2026 04:23:44 GMT</pubDate>
     </item>
     <item>
       <title>Edit Exif — Client-Side AI Tool</title>
       <link>https://helpmyimg.com/edit-exif/</link>
       <guid isPermaLink="true">https://helpmyimg.com/edit-exif/</guid>
       <description>Edit Exif running 100% locally inside your browser via WebAssembly & WebGPU with zero server uploads.</description>
-      <pubDate>Fri, 20 Nov 2026 11:31:47 GMT</pubDate>
+      <pubDate>Sat, 21 Nov 2026 04:23:44 GMT</pubDate>
     </item>
   </channel>
 </rss>

@@ -52,9 +52,6 @@ const FALLBACK_SLUGS = {
   watermark: 'watermark-image',
   brush: 'magic-brush',
   compress: 'compress-image',
-  compress100kb: 'compress-image-to-100kb',
-  compress50kb: 'compress-image-to-50kb',
-  resizeig: 'resize-image-for-instagram',
   convert: 'convert-image',
   resize: 'resize-image',
   crop: 'crop-image',
@@ -62,14 +59,6 @@ const FALLBACK_SLUGS = {
   picker: 'image-color-picker',
   blurface: 'blur-face',
   design: 'advanced-editor',
-  removelogo: 'remove-logo',
-  colorwhite: 'change-background-white',
-  compress200kb: 'compress-image-to-200kb',
-  resizepassport: 'resize-passport',
-  removeperson: 'remove-person-from-photo',
-  convertwebp: 'convert-webp-to-jpg',
-  watermarkbulk: 'batch-watermark-photos',
-  blurplate: 'blur-license-plate',
   metadata: 'ai-metadata-cleaner',
   editexif: 'edit-exif',
 };
@@ -108,8 +97,6 @@ const sitemapsDir = path.join(publicDir, 'sitemaps');
 if (!fs.existsSync(publicDir)) fs.mkdirSync(publicDir, { recursive: true });
 if (!fs.existsSync(sitemapsDir)) fs.mkdirSync(sitemapsDir, { recursive: true });
 
-const coreTools = new Set(['remove', 'color', 'watermark', 'compress', 'convert', 'resize', 'crop', 'rotate', 'picker', 'blurface', 'design', 'brush', 'metadata', 'editexif']);
-
 // Helper to write XML sitemap shard
 const writeSitemapShard = (filename, entries, lang) => {
   let xml = '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n';
@@ -125,9 +112,7 @@ const writeSitemapShard = (filename, entries, lang) => {
 
 const baseTools = [
   'remove', 'color', 'watermark', 'compress', 'convert', 'resize', 'crop', 'rotate',
-  'picker', 'blurface', 'design', 'brush', 'compress100kb', 'compress50kb', 'resizeig',
-  'removelogo', 'colorwhite', 'compress200kb', 'resizepassport', 'removeperson',
-  'convertwebp', 'watermarkbulk', 'blurplate', 'metadata', 'editexif'
+  'picker', 'blurface', 'design', 'brush', 'metadata', 'editexif'
 ];
 const infoPages = ['about', 'privacy', 'terms', 'faq', 'security', 'pricing', 'compare', 'languages'];
 
@@ -142,7 +127,6 @@ for (const oldFile of ['sitemap-bg.xml', 'sitemap-core.xml']) {
 
 const allUrls = [];
 const shardMeta = [];
-const matrixLastmod = getAccurateLastmod(['src/data/pseoKeywords.ts']);
 const studioLastmod = getAccurateLastmod(['src/components/workspace/tools/design/AdvancedStudioEditor.tsx']);
 
 for (const lang of LANGS) {
@@ -153,17 +137,15 @@ for (const lang of LANGS) {
   const homeUrl = lang === 'en' ? `${DOMAIN}/` : `${DOMAIN}/${lang}/`;
   langEntries.push({ url: homeUrl, priority: '1.0', changefreq: 'weekly', lastmod: localeLastmod });
 
-  // Tool pages
+  // Tool pages (14 canonical core tools)
   for (const tool of baseTools) {
     const slug = getLocalizedSlug(tool, lang);
     const url = lang === 'en' ? `${DOMAIN}/${slug}/` : `${DOMAIN}/${lang}/${slug}/`;
-    const isCore = coreTools.has(tool);
-    const lastmod = tool === 'design' ? (studioLastmod > localeLastmod ? studioLastmod : localeLastmod)
-      : (!isCore && matrixLastmod > localeLastmod ? matrixLastmod : localeLastmod);
+    const lastmod = tool === 'design' && studioLastmod > localeLastmod ? studioLastmod : localeLastmod;
     langEntries.push({
       url,
-      priority: isCore ? '0.9' : '0.7',
-      changefreq: isCore ? 'weekly' : 'monthly',
+      priority: '0.9',
+      changefreq: 'weekly',
       lastmod
     });
   }

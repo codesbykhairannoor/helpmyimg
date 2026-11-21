@@ -1,7 +1,7 @@
 # HelpMyIMG (Suomi (Finnish)) — Client-Side AI Image Processing Knowledge Base
 
 > **Website:** https://helpmyimg.com/fi/
-> **Title:** HelpMyIMG | 100% Yksityiset Kuvatyökalut suoraan selaimessasi
+> **Title:** HelpMyIMG — Yksityisen selaimen AI-valokuvaeditori
 > **Summary:** Yhdistä, jaa, pakkaa, muunna ja käsittele valokuvia suoraan selaimessasi. 100 % offline-tilassa WebAssemblyn kautta. Nopea, yksityinen ja erittäin turvallinen.
 
 ## 1. Architecture, Privacy & Plans
@@ -9,30 +9,19 @@
 - **Data Privacy:** Local browser RAM only. Zero files are uploaded to external servers (GDPR & HIPAA aligned).
 - **Pricing Tiers:** Free Starter Tier ($0 — unlimited 1080p HD exports with zero watermarks, 10-photo batches, plus 3 daily 4K exports on sign-in) and Optional PRO Studio ($9.99/mo, $79/yr, or $129 Founder Lifetime Pass for BiRefNet WebGPU, Swin2SR 4K upscale, and 100+ batch ZIP).
 
-## 2. Localized Canonical Tool Endpoints
+## 2. Localized Canonical Tool Endpoints (14 Tools)
 
 - **Background Remover:** https://helpmyimg.com/fi/poista-tausta/
 - **Passport & Studio Background Color:** https://helpmyimg.com/fi/vaihda-tausta/
-- **White E-Commerce Background:** https://helpmyimg.com/fi/muuta-valokuvan-tausta-valkoiseksi/
-- **Image Compressor (MozJPEG / OxiPNG):** https://helpmyimg.com/fi/pakkaa-kuva/
-- **Compress to 100KB:** https://helpmyimg.com/fi/pakkaa-100kb/
-- **Compress to 50KB:** https://helpmyimg.com/fi/pakkaa-50kb/
-- **Compress to 200KB:** https://helpmyimg.com/fi/pakkaa-kuvan-kokoon-200-kb/
-- **Format Converter (HEIC, RAW, PSD, JXL, WEBP, AVIF):** https://helpmyimg.com/fi/muunna-kuva/
-- **Convert WEBP to JPG:** https://helpmyimg.com/fi/muunna-webp-jpg-muotoon/
-- **Resize Image:** https://helpmyimg.com/fi/muuta-kokoa/
-- **Resize for Instagram:** https://helpmyimg.com/fi/muuta-kokoa-instagram/
-- **Resize for Passport:** https://helpmyimg.com/fi/muuta-valokuvan-kokoa-passin-kokoon/
+- **Image Compressor (MozJPEG / OxiPNG, Target KB presets):** https://helpmyimg.com/fi/pakkaa-kuva/
+- **Format Converter (HEIC, RAW, PSD, JXL, WEBP, AVIF, SVG):** https://helpmyimg.com/fi/muunna-kuva/
+- **Resize Image (Instagram, Passport, Custom Dimensions):** https://helpmyimg.com/fi/muuta-kokoa/
 - **Crop & Smart Crop:** https://helpmyimg.com/fi/rajaa-kuva/
 - **Rotate & Flip:** https://helpmyimg.com/fi/kierita-kuva/
 - **Color Picker (HEX/RGB Palette):** https://helpmyimg.com/fi/varipaletti/
-- **Blur Face & Privacy Mask:** https://helpmyimg.com/fi/sumentaa-kasvot/
-- **Blur License Plate:** https://helpmyimg.com/fi/sumenna-rekisterikilpi/
-- **Watermark Image:** https://helpmyimg.com/fi/vesileima/
-- **Batch Watermark Photos:** https://helpmyimg.com/fi/era-vesileimaa-kuvat/
+- **Blur Face & License Plate Privacy Mask:** https://helpmyimg.com/fi/sumentaa-kasvot/
+- **Watermark Image (Single & Batch):** https://helpmyimg.com/fi/vesileima/
 - **Magic Inpainting Brush:** https://helpmyimg.com/fi/taikasivellin/
-- **Remove Logo Background:** https://helpmyimg.com/fi/poista-tausta-logosta/
-- **Remove Person from Photo:** https://helpmyimg.com/fi/poista-henkilo-valokuvasta/
 - **60 FPS WebGL Studio Editor:** https://helpmyimg.com/fi/kehittynyt-editori/
 - **AI Metadata & C2PA Cleaner:** https://helpmyimg.com/fi/poista-tekoaly-metadata/
 - **Camera EXIF Studio Editor:** https://helpmyimg.com/fi/muokkaa-exif/

@@ -9,30 +9,19 @@
 - **Data Privacy:** Local browser RAM only. Zero files are uploaded to external servers (GDPR & HIPAA aligned).
 - **Pricing Tiers:** Free Starter Tier ($0 — unlimited 1080p HD exports with zero watermarks, 10-photo batches, plus 3 daily 4K exports on sign-in) and Optional PRO Studio ($9.99/mo, $79/yr, or $129 Founder Lifetime Pass for BiRefNet WebGPU, Swin2SR 4K upscale, and 100+ batch ZIP).
 
-## 2. Localized Canonical Tool Endpoints
+## 2. Localized Canonical Tool Endpoints (14 Tools)
 
 - **Background Remover:** https://helpmyimg.com/he/hasarat-reka/
 - **Passport & Studio Background Color:** https://helpmyimg.com/he/shinui-reka/
-- **White E-Commerce Background:** https://helpmyimg.com/he/shinui-reka-le-lavan/
-- **Image Compressor (MozJPEG / OxiPNG):** https://helpmyimg.com/he/dchisat-tmuna/
-- **Compress to 100KB:** https://helpmyimg.com/he/dchisat-tmuna-100kb/
-- **Compress to 50KB:** https://helpmyimg.com/he/dchisat-tmuna-50kb/
-- **Compress to 200KB:** https://helpmyimg.com/he/dchisat-tmuna-200kb/
-- **Format Converter (HEIC, RAW, PSD, JXL, WEBP, AVIF):** https://helpmyimg.com/he/hamarat-tmuna/
-- **Convert WEBP to JPG:** https://helpmyimg.com/he/hamarat-webp-le-jpg/
-- **Resize Image:** https://helpmyimg.com/he/shinui-godel/
-- **Resize for Instagram:** https://helpmyimg.com/he/shinui-godel-instagram/
-- **Resize for Passport:** https://helpmyimg.com/he/shinui-godel-tmuna-darkon/
+- **Image Compressor (MozJPEG / OxiPNG, Target KB presets):** https://helpmyimg.com/he/dchisat-tmuna/
+- **Format Converter (HEIC, RAW, PSD, JXL, WEBP, AVIF, SVG):** https://helpmyimg.com/he/hamarat-tmuna/
+- **Resize Image (Instagram, Passport, Custom Dimensions):** https://helpmyimg.com/he/shinui-godel/
 - **Crop & Smart Crop:** https://helpmyimg.com/he/chitucha-tmuna/
 - **Rotate & Flip:** https://helpmyimg.com/he/sivuv-tmuna/
 - **Color Picker (HEX/RGB Palette):** https://helpmyimg.com/he/bocher-tseva/
-- **Blur Face & Privacy Mask:** https://helpmyimg.com/he/tistush-panim/
-- **Blur License Plate:** https://helpmyimg.com/he/tistush-luchit-rishui/
-- **Watermark Image:** https://helpmyimg.com/he/siman-maim/
-- **Batch Watermark Photos:** https://helpmyimg.com/he/siman-maim-bekavutzot/
+- **Blur Face & License Plate Privacy Mask:** https://helpmyimg.com/he/tistush-panim/
+- **Watermark Image (Single & Batch):** https://helpmyimg.com/he/siman-maim/
 - **Magic Inpainting Brush:** https://helpmyimg.com/he/mivreshet-kesem/
-- **Remove Logo Background:** https://helpmyimg.com/he/hasarat-reka-me-logo/
-- **Remove Person from Photo:** https://helpmyimg.com/he/hasarat-adam-me-tmuna/
 - **60 FPS WebGL Studio Editor:** https://helpmyimg.com/he/orech-itzuv/
 - **AI Metadata & C2PA Cleaner:** https://helpmyimg.com/he/nikui-metadata-ai/
 - **Camera EXIF Studio Editor:** https://helpmyimg.com/he/arichat-exif/

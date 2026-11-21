@@ -1,7 +1,7 @@
 # HelpMyIMG (Bahasa Indonesia (Indonesian)) — Client-Side AI Image Processing Knowledge Base
 
 > **Website:** https://helpmyimg.com/id/
-> **Title:** HelpMyIMG | Alat Edit Foto 100% Privat di Browser Anda
+> **Title:** HelpMyIMG — Edit Foto AI Privat di Browser
 > **Summary:** Gabungkan, pisahkan, kompres, konversi, dan proses foto langsung di browser Anda. 100% offline melalui WebAssembly. Cepat, privat, dan sangat aman.
 
 ## 1. Architecture, Privacy & Plans
@@ -9,30 +9,19 @@
 - **Data Privacy:** Local browser RAM only. Zero files are uploaded to external servers (GDPR & HIPAA aligned).
 - **Pricing Tiers:** Free Starter Tier ($0 — unlimited 1080p HD exports with zero watermarks, 10-photo batches, plus 3 daily 4K exports on sign-in) and Optional PRO Studio ($9.99/mo, $79/yr, or $129 Founder Lifetime Pass for BiRefNet WebGPU, Swin2SR 4K upscale, and 100+ batch ZIP).
 
-## 2. Localized Canonical Tool Endpoints
+## 2. Localized Canonical Tool Endpoints (14 Tools)
 
 - **Background Remover:** https://helpmyimg.com/id/hapus-latar-belakang/
 - **Passport & Studio Background Color:** https://helpmyimg.com/id/ganti-background/
-- **White E-Commerce Background:** https://helpmyimg.com/id/ubah-background-foto-menjadi-putih/
-- **Image Compressor (MozJPEG / OxiPNG):** https://helpmyimg.com/id/kompres-gambar/
-- **Compress to 100KB:** https://helpmyimg.com/id/kompres-foto-100kb/
-- **Compress to 50KB:** https://helpmyimg.com/id/kompres-foto-50kb/
-- **Compress to 200KB:** https://helpmyimg.com/id/kompres-gambar-menjadi-200kb/
-- **Format Converter (HEIC, RAW, PSD, JXL, WEBP, AVIF):** https://helpmyimg.com/id/ubah-format-gambar/
-- **Convert WEBP to JPG:** https://helpmyimg.com/id/mengonversi-webp-ke-jpg/
-- **Resize Image:** https://helpmyimg.com/id/ubah-ukuran-gambar/
-- **Resize for Instagram:** https://helpmyimg.com/id/ubah-ukuran-instagram/
-- **Resize for Passport:** https://helpmyimg.com/id/mengubah-ukuran-foto-menjadi-ukuran-paspor/
+- **Image Compressor (MozJPEG / OxiPNG, Target KB presets):** https://helpmyimg.com/id/kompres-gambar/
+- **Format Converter (HEIC, RAW, PSD, JXL, WEBP, AVIF, SVG):** https://helpmyimg.com/id/ubah-format-gambar/
+- **Resize Image (Instagram, Passport, Custom Dimensions):** https://helpmyimg.com/id/ubah-ukuran-gambar/
 - **Crop & Smart Crop:** https://helpmyimg.com/id/potong-gambar/
 - **Rotate & Flip:** https://helpmyimg.com/id/putar-gambar/
 - **Color Picker (HEX/RGB Palette):** https://helpmyimg.com/id/ambil-warna-gambar/
-- **Blur Face & Privacy Mask:** https://helpmyimg.com/id/sensor-wajah/
-- **Blur License Plate:** https://helpmyimg.com/id/mengaburkan-pelat-nomor/
-- **Watermark Image:** https://helpmyimg.com/id/buat-watermark/
-- **Batch Watermark Photos:** https://helpmyimg.com/id/kumpulan-foto-tanda-air/
+- **Blur Face & License Plate Privacy Mask:** https://helpmyimg.com/id/sensor-wajah/
+- **Watermark Image (Single & Batch):** https://helpmyimg.com/id/buat-watermark/
 - **Magic Inpainting Brush:** https://helpmyimg.com/id/kuas-ajaib/
-- **Remove Logo Background:** https://helpmyimg.com/id/hapus-latar-belakang-dari-logo/
-- **Remove Person from Photo:** https://helpmyimg.com/id/hapus-orang-dari-foto/
 - **60 FPS WebGL Studio Editor:** https://helpmyimg.com/id/editor-desain/
 - **AI Metadata & C2PA Cleaner:** https://helpmyimg.com/id/pembersih-metadata-ai/
 - **Camera EXIF Studio Editor:** https://helpmyimg.com/id/edit-exif-foto/

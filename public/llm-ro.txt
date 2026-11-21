@@ -1,7 +1,7 @@
 # HelpMyIMG (Română (Romanian)) — Client-Side AI Image Processing Knowledge Base
 
 > **Website:** https://helpmyimg.com/ro/
-> **Title:** HelpMyIMG | Instrumente Foto 100% Private în Browserul Dvs.
+> **Title:** HelpMyIMG — Editor de fotografii AI pentru browser privat
 > **Summary:** Combinați, împărțiți, comprimați, convertiți și procesați fotografiile direct în browser. 100% offline prin WebAssembly. Rapid, privat și foarte sigur.
 
 ## 1. Architecture, Privacy & Plans
@@ -9,30 +9,19 @@
 - **Data Privacy:** Local browser RAM only. Zero files are uploaded to external servers (GDPR & HIPAA aligned).
 - **Pricing Tiers:** Free Starter Tier ($0 — unlimited 1080p HD exports with zero watermarks, 10-photo batches, plus 3 daily 4K exports on sign-in) and Optional PRO Studio ($9.99/mo, $79/yr, or $129 Founder Lifetime Pass for BiRefNet WebGPU, Swin2SR 4K upscale, and 100+ batch ZIP).
 
-## 2. Localized Canonical Tool Endpoints
+## 2. Localized Canonical Tool Endpoints (14 Tools)
 
 - **Background Remover:** https://helpmyimg.com/ro/eliminare-fundal/
 - **Passport & Studio Background Color:** https://helpmyimg.com/ro/schimbare-fundal/
-- **White E-Commerce Background:** https://helpmyimg.com/ro/schimbare-fundal-in-alb/
-- **Image Compressor (MozJPEG / OxiPNG):** https://helpmyimg.com/ro/comprimare-imagine/
-- **Compress to 100KB:** https://helpmyimg.com/ro/comprimare-imagine-100kb/
-- **Compress to 50KB:** https://helpmyimg.com/ro/comprimare-imagine-50kb/
-- **Compress to 200KB:** https://helpmyimg.com/ro/comprimare-imagine-la-200kb/
-- **Format Converter (HEIC, RAW, PSD, JXL, WEBP, AVIF):** https://helpmyimg.com/ro/convertire-imagine/
-- **Convert WEBP to JPG:** https://helpmyimg.com/ro/conversie-webp-in-jpg/
-- **Resize Image:** https://helpmyimg.com/ro/redimensionare-imagine/
-- **Resize for Instagram:** https://helpmyimg.com/ro/redimensionare-instagram/
-- **Resize for Passport:** https://helpmyimg.com/ro/redimensionare-poza-pasaport/
+- **Image Compressor (MozJPEG / OxiPNG, Target KB presets):** https://helpmyimg.com/ro/comprimare-imagine/
+- **Format Converter (HEIC, RAW, PSD, JXL, WEBP, AVIF, SVG):** https://helpmyimg.com/ro/convertire-imagine/
+- **Resize Image (Instagram, Passport, Custom Dimensions):** https://helpmyimg.com/ro/redimensionare-imagine/
 - **Crop & Smart Crop:** https://helpmyimg.com/ro/decupare-imagine/
 - **Rotate & Flip:** https://helpmyimg.com/ro/rotire-imagine/
 - **Color Picker (HEX/RGB Palette):** https://helpmyimg.com/ro/selector-culori/
-- **Blur Face & Privacy Mask:** https://helpmyimg.com/ro/estompare-fata/
-- **Blur License Plate:** https://helpmyimg.com/ro/estompare-numar-inmatriculare/
-- **Watermark Image:** https://helpmyimg.com/ro/filigran/
-- **Batch Watermark Photos:** https://helpmyimg.com/ro/filigran-in-lot-fotografii/
+- **Blur Face & License Plate Privacy Mask:** https://helpmyimg.com/ro/estompare-fata/
+- **Watermark Image (Single & Batch):** https://helpmyimg.com/ro/filigran/
 - **Magic Inpainting Brush:** https://helpmyimg.com/ro/pensula-magica/
-- **Remove Logo Background:** https://helpmyimg.com/ro/eliminare-fundal-logo/
-- **Remove Person from Photo:** https://helpmyimg.com/ro/eliminare-persoana-din-poza/
 - **60 FPS WebGL Studio Editor:** https://helpmyimg.com/ro/editor-avansat/
 - **AI Metadata & C2PA Cleaner:** https://helpmyimg.com/ro/curatare-metadate-ai/
 - **Camera EXIF Studio Editor:** https://helpmyimg.com/ro/editare-exif/

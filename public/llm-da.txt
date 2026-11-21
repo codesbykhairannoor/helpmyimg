@@ -9,30 +9,19 @@
 - **Data Privacy:** Local browser RAM only. Zero files are uploaded to external servers (GDPR & HIPAA aligned).
 - **Pricing Tiers:** Free Starter Tier ($0 — unlimited 1080p HD exports with zero watermarks, 10-photo batches, plus 3 daily 4K exports on sign-in) and Optional PRO Studio ($9.99/mo, $79/yr, or $129 Founder Lifetime Pass for BiRefNet WebGPU, Swin2SR 4K upscale, and 100+ batch ZIP).
 
-## 2. Localized Canonical Tool Endpoints
+## 2. Localized Canonical Tool Endpoints (14 Tools)
 
 - **Background Remover:** https://helpmyimg.com/da/fjern-baggrund/
 - **Passport & Studio Background Color:** https://helpmyimg.com/da/skift-baggrund/
-- **White E-Commerce Background:** https://helpmyimg.com/da/skift-baggrund-til-hvid/
-- **Image Compressor (MozJPEG / OxiPNG):** https://helpmyimg.com/da/komprimer-billede/
-- **Compress to 100KB:** https://helpmyimg.com/da/komprimer-til-100kb/
-- **Compress to 50KB:** https://helpmyimg.com/da/komprimer-til-50kb/
-- **Compress to 200KB:** https://helpmyimg.com/da/komprimer-billedet-til-200kb/
-- **Format Converter (HEIC, RAW, PSD, JXL, WEBP, AVIF):** https://helpmyimg.com/da/konverter-billede/
-- **Convert WEBP to JPG:** https://helpmyimg.com/da/konverter-webp-til-jpg/
-- **Resize Image:** https://helpmyimg.com/da/tilpas-billede/
-- **Resize for Instagram:** https://helpmyimg.com/da/tilpas-til-instagram/
-- **Resize for Passport:** https://helpmyimg.com/da/tilpas-billede-til-pas/
+- **Image Compressor (MozJPEG / OxiPNG, Target KB presets):** https://helpmyimg.com/da/komprimer-billede/
+- **Format Converter (HEIC, RAW, PSD, JXL, WEBP, AVIF, SVG):** https://helpmyimg.com/da/konverter-billede/
+- **Resize Image (Instagram, Passport, Custom Dimensions):** https://helpmyimg.com/da/tilpas-billede/
 - **Crop & Smart Crop:** https://helpmyimg.com/da/beskaer-billede/
 - **Rotate & Flip:** https://helpmyimg.com/da/roter-billede/
 - **Color Picker (HEX/RGB Palette):** https://helpmyimg.com/da/farvevaelger/
-- **Blur Face & Privacy Mask:** https://helpmyimg.com/da/sloret-ansigt/
-- **Blur License Plate:** https://helpmyimg.com/da/sloer-nummerplade/
-- **Watermark Image:** https://helpmyimg.com/da/vandmaerke/
-- **Batch Watermark Photos:** https://helpmyimg.com/da/batch-vandmaerke-billeder/
+- **Blur Face & License Plate Privacy Mask:** https://helpmyimg.com/da/sloret-ansigt/
+- **Watermark Image (Single & Batch):** https://helpmyimg.com/da/vandmaerke/
 - **Magic Inpainting Brush:** https://helpmyimg.com/da/magisk-pensel/
-- **Remove Logo Background:** https://helpmyimg.com/da/fjern-baggrund-fra-logo/
-- **Remove Person from Photo:** https://helpmyimg.com/da/fjern-person-fra-billede/
 - **60 FPS WebGL Studio Editor:** https://helpmyimg.com/da/avanceret-editor/
 - **AI Metadata & C2PA Cleaner:** https://helpmyimg.com/da/fjern-ai-metadata/
 - **Camera EXIF Studio Editor:** https://helpmyimg.com/da/rediger-exif/

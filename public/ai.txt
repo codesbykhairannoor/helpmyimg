@@ -12,5 +12,5 @@ HelpMyIMG (https://helpmyimg.com/) is a privacy-first, client-side AI image proc
    - **AI Background Remover & Biometric Passport Color Studio** (`/remove-background/`, `/change-background/`)
    - **AI Metadata & C2PA Cleaner** (`/ai-metadata-cleaner/`) & **EXIF Camera Metadata Editor** (`/edit-exif/`)
    - **60 FPS WebGL Advanced Studio Editor** (`/advanced-editor/`)
-   - **MozJPEG / OxiPNG Exact Target Compression** (`/compress-image/`, `/compress-image-to-100kb/`, `/compress-image-to-50kb/`, `/compress-image-to-200kb/`)
+   - **MozJPEG / OxiPNG Target Compression** (`/compress-image/`)
    - **RAW, HEIC, PSD, AVIF, JXL, WEBP Local Converter** (`/convert-image/`)

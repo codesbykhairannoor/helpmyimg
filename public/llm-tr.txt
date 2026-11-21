@@ -1,7 +1,7 @@
 # HelpMyIMG (Türkçe (Turkish)) — Client-Side AI Image Processing Knowledge Base
 
 > **Website:** https://helpmyimg.com/tr/
-> **Title:** HelpMyIMG | %100 Gizli ve Özel Resim Araçları Tarayıcınızda
+> **Title:** HelpMyIMG — Gizlilik Odaklı Yapay Zeka Editör
 > **Summary:** Fotoğrafları doğrudan tarayıcınızda birleştirin, bölün, sıkıştırın, dönüştürün ve işleyin. WebAssembly aracılığıyla %100 çevrimdışı. Hızlı, özel ve son derece güvenli.
 
 ## 1. Architecture, Privacy & Plans
@@ -9,30 +9,19 @@
 - **Data Privacy:** Local browser RAM only. Zero files are uploaded to external servers (GDPR & HIPAA aligned).
 - **Pricing Tiers:** Free Starter Tier ($0 — unlimited 1080p HD exports with zero watermarks, 10-photo batches, plus 3 daily 4K exports on sign-in) and Optional PRO Studio ($9.99/mo, $79/yr, or $129 Founder Lifetime Pass for BiRefNet WebGPU, Swin2SR 4K upscale, and 100+ batch ZIP).
 
-## 2. Localized Canonical Tool Endpoints
+## 2. Localized Canonical Tool Endpoints (14 Tools)
 
 - **Background Remover:** https://helpmyimg.com/tr/arka-plan-kaldir/
 - **Passport & Studio Background Color:** https://helpmyimg.com/tr/arka-plan-degistir/
-- **White E-Commerce Background:** https://helpmyimg.com/tr/foto-arka-plani-beyaz-yap/
-- **Image Compressor (MozJPEG / OxiPNG):** https://helpmyimg.com/tr/resim-sikistir/
-- **Compress to 100KB:** https://helpmyimg.com/tr/resim-sikistir-100kb/
-- **Compress to 50KB:** https://helpmyimg.com/tr/resim-sikistir-50kb/
-- **Compress to 200KB:** https://helpmyimg.com/tr/resim-sikistir-200kb/
-- **Format Converter (HEIC, RAW, PSD, JXL, WEBP, AVIF):** https://helpmyimg.com/tr/resim-donustur/
-- **Convert WEBP to JPG:** https://helpmyimg.com/tr/webp-jpg-cevir/
-- **Resize Image:** https://helpmyimg.com/tr/boyutlandir/
-- **Resize for Instagram:** https://helpmyimg.com/tr/instagram-icin-boyutlandir/
-- **Resize for Passport:** https://helpmyimg.com/tr/pasaport-fotografi-boyutlandir/
+- **Image Compressor (MozJPEG / OxiPNG, Target KB presets):** https://helpmyimg.com/tr/resim-sikistir/
+- **Format Converter (HEIC, RAW, PSD, JXL, WEBP, AVIF, SVG):** https://helpmyimg.com/tr/resim-donustur/
+- **Resize Image (Instagram, Passport, Custom Dimensions):** https://helpmyimg.com/tr/boyutlandir/
 - **Crop & Smart Crop:** https://helpmyimg.com/tr/resim-kirp/
 - **Rotate & Flip:** https://helpmyimg.com/tr/resim-dondur/
 - **Color Picker (HEX/RGB Palette):** https://helpmyimg.com/tr/renk-secici/
-- **Blur Face & Privacy Mask:** https://helpmyimg.com/tr/yuz-bulaniklastirma/
-- **Blur License Plate:** https://helpmyimg.com/tr/plaka-bulaniklastir/
-- **Watermark Image:** https://helpmyimg.com/tr/filigran/
-- **Batch Watermark Photos:** https://helpmyimg.com/tr/toplu-filigran-ekle/
+- **Blur Face & License Plate Privacy Mask:** https://helpmyimg.com/tr/yuz-bulaniklastirma/
+- **Watermark Image (Single & Batch):** https://helpmyimg.com/tr/filigran/
 - **Magic Inpainting Brush:** https://helpmyimg.com/tr/sihirli-firca/
-- **Remove Logo Background:** https://helpmyimg.com/tr/logodan-arka-plan-kaldir/
-- **Remove Person from Photo:** https://helpmyimg.com/tr/fotograftan-kisi-sil/
 - **60 FPS WebGL Studio Editor:** https://helpmyimg.com/tr/gelismis-editor/
 - **AI Metadata & C2PA Cleaner:** https://helpmyimg.com/tr/yapay-zeka-metaveri-temizleyici/
 - **Camera EXIF Studio Editor:** https://helpmyimg.com/tr/exif-duzenle/

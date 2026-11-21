@@ -10,15 +10,21 @@ interface SeoHeadProps {
   canonicalPath?: string;
   lang?: string;
   faqs?: { question: string; answer: string }[];
-  citationFirst?: string;
-  quantitativeProof?: string;
   internalTool?: string;
   infoPage?: InfoPageType;
-  keywordSlug?: string;
 }
 
 const SUPPORTED_LANGS = SUPPORTED_LANGUAGES.map((l) => l.code);
 const DOMAIN = 'https://helpmyimg.com';
+
+const OG_LOCALE_MAP: Record<string, string> = {
+  en: 'en_US', id: 'id_ID', es: 'es_ES', fr: 'fr_FR', de: 'de_DE',
+  ja: 'ja_JP', ar: 'ar_SA', ru: 'ru_RU', pt: 'pt_BR', zh: 'zh_CN',
+  ko: 'ko_KR', it: 'it_IT', tr: 'tr_TR', vi: 'vi_VN', th: 'th_TH',
+  hi: 'hi_IN', nl: 'nl_NL', pl: 'pl_PL', sv: 'sv_SE', no: 'nb_NO',
+  da: 'da_DK', fi: 'fi_FI', el: 'el_GR', he: 'he_IL', cs: 'cs_CZ',
+  hu: 'hu_HU', ro: 'ro_RO', uk: 'uk_UA', ms: 'ms_MY', tl: 'tl_PH',
+};
 
 export const SeoHead: React.FC<SeoHeadProps> = ({
   title,
@@ -26,21 +32,19 @@ export const SeoHead: React.FC<SeoHeadProps> = ({
   canonicalPath = '',
   lang = 'en',
   faqs = [],
-  citationFirst = '',
-  quantitativeProof = '',
   internalTool,
   infoPage,
-  keywordSlug
 }) => {
   const rawPath = canonicalPath.startsWith('/') ? canonicalPath : '/' + canonicalPath;
   const cleanPath = rawPath === '/' ? '/' : (rawPath.endsWith('/') ? rawPath : `${rawPath}/`);
   const fullUrl = `${DOMAIN}${cleanPath}`;
+  const ogLocale = OG_LOCALE_MAP[lang] || lang;
 
   let defaultUrl = `${DOMAIN}/`;
   if (infoPage) {
     defaultUrl = `${DOMAIN}/${getLocalizedInfoSlug(infoPage, 'en')}/`;
   } else if (internalTool) {
-    defaultUrl = `${DOMAIN}/${getLocalizedSlug(internalTool as InternalTool, 'en')}/${keywordSlug ? `${keywordSlug}/` : ''}`;
+    defaultUrl = `${DOMAIN}/${getLocalizedSlug(internalTool as InternalTool, 'en')}/`;
   }
 
   const graph: Record<string, unknown>[] = [
@@ -125,23 +129,6 @@ export const SeoHead: React.FC<SeoHeadProps> = ({
     });
   }
 
-  if (citationFirst || quantitativeProof) {
-    graph.push({
-      "@type": "Article",
-      "headline": title,
-      "description": citationFirst || description,
-      "inLanguage": lang,
-      "author": {
-        "@type": "Organization",
-        "name": "HelpMyIMG Engineering"
-      },
-      "publisher": {
-        "@id": `${DOMAIN}/#organization`
-      },
-      "mainEntityOfPage": fullUrl
-    });
-  }
-
   const schemaGraph = {
     "@context": "https://schema.org",
     "@graph": graph
@@ -167,7 +154,7 @@ export const SeoHead: React.FC<SeoHeadProps> = ({
       <meta property="og:image:height" content="630" />
       <meta property="og:image:alt" content={title} />
       <meta property="og:site_name" content="HelpMyIMG" />
-      <meta property="og:locale" content={lang} />
+      <meta property="og:locale" content={ogLocale} />
 
       {/* Twitter (X) Meta Tags */}
       <meta name="twitter:card" content="summary_large_image" />
@@ -183,7 +170,7 @@ export const SeoHead: React.FC<SeoHeadProps> = ({
           lPath = l === 'en' ? `/${getLocalizedInfoSlug(infoPage, 'en')}/` : `/${l}/${getLocalizedInfoSlug(infoPage, l)}/`;
         } else if (internalTool) {
           const pathSlug = getLocalizedSlug(internalTool as InternalTool, l);
-          lPath = l === 'en' ? `/${pathSlug}/${keywordSlug ? `${keywordSlug}/` : ''}` : `/${l}/${pathSlug}/${keywordSlug ? `${keywordSlug}/` : ''}`;
+          lPath = l === 'en' ? `/${pathSlug}/` : `/${l}/${pathSlug}/`;
         }
         return (
           <link

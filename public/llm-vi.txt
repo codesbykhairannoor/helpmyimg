@@ -1,7 +1,7 @@
 # HelpMyIMG (Tiếng Việt (Vietnamese)) — Client-Side AI Image Processing Knowledge Base
 
 > **Website:** https://helpmyimg.com/vi/
-> **Title:** HelpMyIMG | Công Cụ Chỉnh Sửa Ảnh 100% Riêng Tư trong Trình Duyệt
+> **Title:** HelpMyIMG — Trình Chỉnh Sửa Ảnh AI Riêng Tư
 > **Summary:** Kết hợp, tách, nén, chuyển đổi và xử lý ảnh trực tiếp trong trình duyệt của bạn. Ngoại tuyến 100% qua WebAssugging. Nhanh chóng, riêng tư và bảo mật cao.
 
 ## 1. Architecture, Privacy & Plans
@@ -9,30 +9,19 @@
 - **Data Privacy:** Local browser RAM only. Zero files are uploaded to external servers (GDPR & HIPAA aligned).
 - **Pricing Tiers:** Free Starter Tier ($0 — unlimited 1080p HD exports with zero watermarks, 10-photo batches, plus 3 daily 4K exports on sign-in) and Optional PRO Studio ($9.99/mo, $79/yr, or $129 Founder Lifetime Pass for BiRefNet WebGPU, Swin2SR 4K upscale, and 100+ batch ZIP).
 
-## 2. Localized Canonical Tool Endpoints
+## 2. Localized Canonical Tool Endpoints (14 Tools)
 
 - **Background Remover:** https://helpmyimg.com/vi/xoa-nen/
 - **Passport & Studio Background Color:** https://helpmyimg.com/vi/doi-nen/
-- **White E-Commerce Background:** https://helpmyimg.com/vi/doi-nen-anh-mau-trang/
-- **Image Compressor (MozJPEG / OxiPNG):** https://helpmyimg.com/vi/nen-anh/
-- **Compress to 100KB:** https://helpmyimg.com/vi/nen-anh-100kb/
-- **Compress to 50KB:** https://helpmyimg.com/vi/nen-anh-50kb/
-- **Compress to 200KB:** https://helpmyimg.com/vi/nen-anh-200kb/
-- **Format Converter (HEIC, RAW, PSD, JXL, WEBP, AVIF):** https://helpmyimg.com/vi/chuyen-doi-anh/
-- **Convert WEBP to JPG:** https://helpmyimg.com/vi/chuyen-webp-sang-jpg/
-- **Resize Image:** https://helpmyimg.com/vi/doi-kich-thuoc/
-- **Resize for Instagram:** https://helpmyimg.com/vi/doi-kich-thuoc-instagram/
-- **Resize for Passport:** https://helpmyimg.com/vi/doi-kich-thuoc-anh-ho-chieu/
+- **Image Compressor (MozJPEG / OxiPNG, Target KB presets):** https://helpmyimg.com/vi/nen-anh/
+- **Format Converter (HEIC, RAW, PSD, JXL, WEBP, AVIF, SVG):** https://helpmyimg.com/vi/chuyen-doi-anh/
+- **Resize Image (Instagram, Passport, Custom Dimensions):** https://helpmyimg.com/vi/doi-kich-thuoc/
 - **Crop & Smart Crop:** https://helpmyimg.com/vi/cat-anh/
 - **Rotate & Flip:** https://helpmyimg.com/vi/xoay-anh/
 - **Color Picker (HEX/RGB Palette):** https://helpmyimg.com/vi/chon-mau/
-- **Blur Face & Privacy Mask:** https://helpmyimg.com/vi/lam-mo-khuon-mat/
-- **Blur License Plate:** https://helpmyimg.com/vi/lam-mo-bien-so-xe/
-- **Watermark Image:** https://helpmyimg.com/vi/dong-dau-anh/
-- **Batch Watermark Photos:** https://helpmyimg.com/vi/dong-dau-anh-hang-loat/
+- **Blur Face & License Plate Privacy Mask:** https://helpmyimg.com/vi/lam-mo-khuon-mat/
+- **Watermark Image (Single & Batch):** https://helpmyimg.com/vi/dong-dau-anh/
 - **Magic Inpainting Brush:** https://helpmyimg.com/vi/co-ma-thuat/
-- **Remove Logo Background:** https://helpmyimg.com/vi/xoa-nen-khoi-logo/
-- **Remove Person from Photo:** https://helpmyimg.com/vi/xoa-nguoi-khoi-anh/
 - **60 FPS WebGL Studio Editor:** https://helpmyimg.com/vi/trinh-chinh-sua/
 - **AI Metadata & C2PA Cleaner:** https://helpmyimg.com/vi/xoa-metadata-ai/
 - **Camera EXIF Studio Editor:** https://helpmyimg.com/vi/chinh-sua-exif/

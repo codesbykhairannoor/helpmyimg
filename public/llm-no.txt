@@ -9,30 +9,19 @@
 - **Data Privacy:** Local browser RAM only. Zero files are uploaded to external servers (GDPR & HIPAA aligned).
 - **Pricing Tiers:** Free Starter Tier ($0 — unlimited 1080p HD exports with zero watermarks, 10-photo batches, plus 3 daily 4K exports on sign-in) and Optional PRO Studio ($9.99/mo, $79/yr, or $129 Founder Lifetime Pass for BiRefNet WebGPU, Swin2SR 4K upscale, and 100+ batch ZIP).
 
-## 2. Localized Canonical Tool Endpoints
+## 2. Localized Canonical Tool Endpoints (14 Tools)
 
 - **Background Remover:** https://helpmyimg.com/no/fjern-bakgrunn/
 - **Passport & Studio Background Color:** https://helpmyimg.com/no/endre-bakgrunn/
-- **White E-Commerce Background:** https://helpmyimg.com/no/endre-bildebakgrunnen-til-hvit/
-- **Image Compressor (MozJPEG / OxiPNG):** https://helpmyimg.com/no/komprimer-bilde/
-- **Compress to 100KB:** https://helpmyimg.com/no/komprimer-til-100kb/
-- **Compress to 50KB:** https://helpmyimg.com/no/komprimer-til-50kb/
-- **Compress to 200KB:** https://helpmyimg.com/no/komprimere-bildet-til-200kb/
-- **Format Converter (HEIC, RAW, PSD, JXL, WEBP, AVIF):** https://helpmyimg.com/no/konverter-bilde/
-- **Convert WEBP to JPG:** https://helpmyimg.com/no/konverter-webp-til-jpg/
-- **Resize Image:** https://helpmyimg.com/no/endre-bildestorrelse/
-- **Resize for Instagram:** https://helpmyimg.com/no/endre-storrelse-instagram/
-- **Resize for Passport:** https://helpmyimg.com/no/endre-bilde-til-pass/
+- **Image Compressor (MozJPEG / OxiPNG, Target KB presets):** https://helpmyimg.com/no/komprimer-bilde/
+- **Format Converter (HEIC, RAW, PSD, JXL, WEBP, AVIF, SVG):** https://helpmyimg.com/no/konverter-bilde/
+- **Resize Image (Instagram, Passport, Custom Dimensions):** https://helpmyimg.com/no/endre-bildestorrelse/
 - **Crop & Smart Crop:** https://helpmyimg.com/no/beskjaer-bilde/
 - **Rotate & Flip:** https://helpmyimg.com/no/roter-bilde/
 - **Color Picker (HEX/RGB Palette):** https://helpmyimg.com/no/fargevelger/
-- **Blur Face & Privacy Mask:** https://helpmyimg.com/no/sladd-ansikt/
-- **Blur License Plate:** https://helpmyimg.com/no/uskarp-bilskilt/
-- **Watermark Image:** https://helpmyimg.com/no/vannmerke/
-- **Batch Watermark Photos:** https://helpmyimg.com/no/batch-vannmerkebilder/
+- **Blur Face & License Plate Privacy Mask:** https://helpmyimg.com/no/sladd-ansikt/
+- **Watermark Image (Single & Batch):** https://helpmyimg.com/no/vannmerke/
 - **Magic Inpainting Brush:** https://helpmyimg.com/no/magisk-pensel/
-- **Remove Logo Background:** https://helpmyimg.com/no/fjern-bakgrunn-fra-logoen/
-- **Remove Person from Photo:** https://helpmyimg.com/no/fjern-person-fra-bildet/
 - **60 FPS WebGL Studio Editor:** https://helpmyimg.com/no/avansert-editor/
 - **AI Metadata & C2PA Cleaner:** https://helpmyimg.com/no/fjern-ai-metadata/
 - **Camera EXIF Studio Editor:** https://helpmyimg.com/no/rediger-exif/

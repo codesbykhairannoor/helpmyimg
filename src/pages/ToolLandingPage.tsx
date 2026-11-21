@@ -7,17 +7,15 @@ import { ToolFaqSection } from '../components/landing/ToolFaqSection';
 import { ToolGrid } from '../components/ToolGrid';
 import { useTranslation } from '../context/LanguageContext';
 import { type Language } from '../i18n/translations';
-import { usePSeoData } from '../hooks/usePSeoData';
 import { getLocalizedSlug } from '../utils/urlMapper';
 
 const ToolWorkspace = lazy(() => import('../components/workspace/ToolWorkspace').then(m => ({ default: m.ToolWorkspace })));
 const HomeSections = lazy(() => import('../components/landing/HomeSections').then(m => ({ default: m.HomeSections })));
-const DynamicPSeoSections = lazy(() => import('../components/seo/DynamicPSeoSections').then(m => ({ default: m.DynamicPSeoSections })));
 
 export const ToolLandingPage: React.FC = () => {
   const { setLang, lang: currentLang, t } = useTranslation();
   const { route, hasActiveFiles, setHasActiveFiles } = useRouter();
-  const { lang, tool, keywordSlug } = route;
+  const { lang, tool } = route;
 
   useEffect(() => {
     if (lang && lang !== currentLang) {
@@ -25,29 +23,19 @@ export const ToolLandingPage: React.FC = () => {
     }
   }, [lang, currentLang, setLang]);
 
-  const { data: dynamicJsonData } = usePSeoData(keywordSlug || undefined, lang as string);
-
   const internalTool = tool || 'remove';
 
-  const isPseoTool = ['compress100kb', 'compress50kb', 'compress200kb', 'resizeig', 'resizepassport', 'removelogo', 'colorwhite', 'removeperson', 'convertwebp', 'watermarkbulk', 'blurplate'].includes(internalTool);
+  const defaultTitle = !tool
+    ? t('home.tab.title', { defaultValue: 'HelpMyIMG — Private Browser AI Photo Editor' })
+    : t(`landing.default.title.${internalTool}`, { defaultValue: t('landing.default.title.remove') });
 
-  const defaultTitle = isPseoTool
-    ? t(`seo.title.${internalTool}`, { defaultValue: t(`landing.default.title.${internalTool}`, { defaultValue: 'HelpMyIMG' }) })
-    : (!tool
-      ? t('home.tab.title', { defaultValue: 'HelpMyIMG | 100% Private Image Tools in Your Browser' })
-      : t(`landing.default.title.${internalTool}`, { defaultValue: t('landing.default.title.remove') }));
+  const defaultH1 = !tool
+    ? t('landing.default.title.home', { defaultValue: 'Every AI tool you need to edit images in bulk' })
+    : t(`landing.default.title.${internalTool}`, { defaultValue: t('landing.default.title.remove') });
 
-  const defaultH1 = isPseoTool
-    ? t(`seo.h1.${internalTool}`, { defaultValue: t(`landing.default.title.${internalTool}`, { defaultValue: defaultTitle }) })
-    : (!tool
-      ? t('landing.default.title.home', { defaultValue: 'Every AI tool you need to edit images in bulk' })
-      : t(`landing.default.title.${internalTool}`, { defaultValue: t('landing.default.title.remove') }));
-
-  const defaultDesc = isPseoTool
-    ? t(`seo.desc.${internalTool}`, { defaultValue: t(`landing.default.desc.${internalTool}`, { defaultValue: t('landing.default.desc.home') }) })
-    : (!tool
-      ? t('hero.subtitle.short', { defaultValue: 'Free local AI photo editor. Remove backgrounds, compress, resize, and convert images directly in your browser.' })
-      : t(`landing.default.desc.${internalTool}`, { defaultValue: t('landing.default.desc.remove') }));
+  const defaultDesc = !tool
+    ? t('hero.subtitle.short', { defaultValue: 'Free local AI photo editor. Remove backgrounds, compress, resize, and convert images directly in your browser.' })
+    : t(`landing.default.desc.${internalTool}`, { defaultValue: t('landing.default.desc.remove') });
 
   useEffect(() => {
     setHasActiveFiles(false);
@@ -64,7 +52,7 @@ export const ToolLandingPage: React.FC = () => {
       }
     }
   } else {
-    for (let i = 1; i <= 4; i++) {
+    for (let i = 1; i <= 6; i++) {
       const q = t(`landing.${internalTool}.faq${i}.q`, { defaultValue: '' });
       const a = t(`landing.${internalTool}.faq${i}.a`, { defaultValue: '' });
       if (q && a && q !== `landing.${internalTool}.faq${i}.q`) {
@@ -77,8 +65,8 @@ export const ToolLandingPage: React.FC = () => {
     <div className="min-h-screen bg-dark-900 text-slate-900 dark:text-slate-100 transition-colors duration-300">
       <SeoHead
         key={`${lang}-${tool || 'home'}`}
-        title={dynamicJsonData ? dynamicJsonData.title : defaultTitle}
-        description={dynamicJsonData ? dynamicJsonData.description : defaultDesc}
+        title={defaultTitle}
+        description={defaultDesc}
         canonicalPath={lang === 'en' ? (!tool ? '/' : `/${getLocalizedSlug(internalTool as any, 'en')}/`) : (!tool ? `/${lang}/` : `/${lang}/${getLocalizedSlug(internalTool as any, lang as any)}/`)}
         lang={lang}
         internalTool={tool ? internalTool : undefined}
@@ -88,8 +76,8 @@ export const ToolLandingPage: React.FC = () => {
       {/* Hero Section - Hidden in Workspace/Edit Mode to maximize vertical screen space */}
       {!hasActiveFiles && (
         <Hero
-          title={dynamicJsonData ? dynamicJsonData.h1 : (!tool ? undefined : defaultH1)}
-          description={dynamicJsonData ? dynamicJsonData.description : (!tool ? undefined : defaultDesc)}
+          title={!tool ? undefined : defaultH1}
+          description={!tool ? undefined : defaultDesc}
         />
       )}
 
@@ -104,7 +92,7 @@ export const ToolLandingPage: React.FC = () => {
             </div>
           }>
             <ToolWorkspace
-              key={`${internalTool}-${keywordSlug || ''}`}
+              key={internalTool}
               initialTab={internalTool as any}
               onActiveChange={setHasActiveFiles}
             />
@@ -118,8 +106,6 @@ export const ToolLandingPage: React.FC = () => {
           <Suspense fallback={null}>
             {!tool ? (
               <HomeSections />
-            ) : dynamicJsonData ? (
-              <DynamicPSeoSections data={dynamicJsonData} />
             ) : (
               <>
                 <LandingSections tool={internalTool as any} />

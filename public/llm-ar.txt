@@ -1,7 +1,7 @@
 # HelpMyIMG (العربية (Arabic)) — Client-Side AI Image Processing Knowledge Base
 
 > **Website:** https://helpmyimg.com/ar/
-> **Title:** HelpMyIMG | أدوات صور خاصة 100% في متصفحك
+> **Title:** HelpMyIMG — محرر صور ذكي خاص 100% في المتصفح
 > **Summary:** قم بدمج الصور وتقسيمها وضغطها وتحويلها ومعالجتها مباشرة في متصفحك. غير متصل بالإنترنت بنسبة 100% عبر WebAssembly. سريع، خاص، وآمن للغاية.
 
 ## 1. Architecture, Privacy & Plans
@@ -9,30 +9,19 @@
 - **Data Privacy:** Local browser RAM only. Zero files are uploaded to external servers (GDPR & HIPAA aligned).
 - **Pricing Tiers:** Free Starter Tier ($0 — unlimited 1080p HD exports with zero watermarks, 10-photo batches, plus 3 daily 4K exports on sign-in) and Optional PRO Studio ($9.99/mo, $79/yr, or $129 Founder Lifetime Pass for BiRefNet WebGPU, Swin2SR 4K upscale, and 100+ batch ZIP).
 
-## 2. Localized Canonical Tool Endpoints
+## 2. Localized Canonical Tool Endpoints (14 Tools)
 
 - **Background Remover:** https://helpmyimg.com/ar/izalat-khalfia/
 - **Passport & Studio Background Color:** https://helpmyimg.com/ar/taghyir-khalfia/
-- **White E-Commerce Background:** https://helpmyimg.com/ar/taghyir-khalfia-abyad/
-- **Image Compressor (MozJPEG / OxiPNG):** https://helpmyimg.com/ar/daght-sura/
-- **Compress to 100KB:** https://helpmyimg.com/ar/daght-sura-100kb/
-- **Compress to 50KB:** https://helpmyimg.com/ar/daght-sura-50kb/
-- **Compress to 200KB:** https://helpmyimg.com/ar/daght-sura-200kb/
-- **Format Converter (HEIC, RAW, PSD, JXL, WEBP, AVIF):** https://helpmyimg.com/ar/tahwil-sura/
-- **Convert WEBP to JPG:** https://helpmyimg.com/ar/tahwil-webp-ila-jpg/
-- **Resize Image:** https://helpmyimg.com/ar/taghyir-hajm/
-- **Resize for Instagram:** https://helpmyimg.com/ar/taghyir-hajm-instagram/
-- **Resize for Passport:** https://helpmyimg.com/ar/taghyir-hajm-jawaz-safar/
+- **Image Compressor (MozJPEG / OxiPNG, Target KB presets):** https://helpmyimg.com/ar/daght-sura/
+- **Format Converter (HEIC, RAW, PSD, JXL, WEBP, AVIF, SVG):** https://helpmyimg.com/ar/tahwil-sura/
+- **Resize Image (Instagram, Passport, Custom Dimensions):** https://helpmyimg.com/ar/taghyir-hajm/
 - **Crop & Smart Crop:** https://helpmyimg.com/ar/qass-sura/
 - **Rotate & Flip:** https://helpmyimg.com/ar/tadwir-sura/
 - **Color Picker (HEX/RGB Palette):** https://helpmyimg.com/ar/istikhraja-alwan/
-- **Blur Face & Privacy Mask:** https://helpmyimg.com/ar/tamwih-al-wajh/
-- **Blur License Plate:** https://helpmyimg.com/ar/tamwih-lawhat-sayara/
-- **Watermark Image:** https://helpmyimg.com/ar/alama-maiya/
-- **Batch Watermark Photos:** https://helpmyimg.com/ar/alama-maiya-mutaadida/
+- **Blur Face & License Plate Privacy Mask:** https://helpmyimg.com/ar/tamwih-al-wajh/
+- **Watermark Image (Single & Batch):** https://helpmyimg.com/ar/alama-maiya/
 - **Magic Inpainting Brush:** https://helpmyimg.com/ar/furshat-sihriya/
-- **Remove Logo Background:** https://helpmyimg.com/ar/izalat-khalfia-shiar/
-- **Remove Person from Photo:** https://helpmyimg.com/ar/izalat-shakhs-min-sura/
 - **60 FPS WebGL Studio Editor:** https://helpmyimg.com/ar/muharrir-tasamim/
 - **AI Metadata & C2PA Cleaner:** https://helpmyimg.com/ar/tandhif-bayanat-wasf-ai/
 - **Camera EXIF Studio Editor:** https://helpmyimg.com/ar/tadil-bayanat-exif/

@@ -1,7 +1,7 @@
 # HelpMyIMG (ไทย (Thai)) — Client-Side AI Image Processing Knowledge Base
 
 > **Website:** https://helpmyimg.com/th/
-> **Title:** HelpMyIMG | เครื่องมือแต่งรูปส่วนตัว 100% ในเบราว์เซอร์ของคุณ
+> **Title:** HelpMyIMG — โปรแกรมแก้ไขรูปภาพ AI เบราว์เซอร์ส่วนตัว
 > **Summary:** รวม แยก บีบอัด แปลง และประมวลผลรูปภาพได้โดยตรงในเบราว์เซอร์ของคุณ ออฟไลน์ 100% ผ่าน WebAssembly รวดเร็ว เป็นส่วนตัว และมีความปลอดภัยสูง
 
 ## 1. Architecture, Privacy & Plans
@@ -9,30 +9,19 @@
 - **Data Privacy:** Local browser RAM only. Zero files are uploaded to external servers (GDPR & HIPAA aligned).
 - **Pricing Tiers:** Free Starter Tier ($0 — unlimited 1080p HD exports with zero watermarks, 10-photo batches, plus 3 daily 4K exports on sign-in) and Optional PRO Studio ($9.99/mo, $79/yr, or $129 Founder Lifetime Pass for BiRefNet WebGPU, Swin2SR 4K upscale, and 100+ batch ZIP).
 
-## 2. Localized Canonical Tool Endpoints
+## 2. Localized Canonical Tool Endpoints (14 Tools)
 
 - **Background Remover:** https://helpmyimg.com/th/lop-phun-lang/
 - **Passport & Studio Background Color:** https://helpmyimg.com/th/plian-phun-lang/
-- **White E-Commerce Background:** https://helpmyimg.com/th/plian-phun-lang-si-khao/
-- **Image Compressor (MozJPEG / OxiPNG):** https://helpmyimg.com/th/bip-ad-rup-phap/
-- **Compress to 100KB:** https://helpmyimg.com/th/bip-ad-rup-phap-100kb/
-- **Compress to 50KB:** https://helpmyimg.com/th/bip-ad-rup-phap-50kb/
-- **Compress to 200KB:** https://helpmyimg.com/th/bip-ad-rup-phap-200kb/
-- **Format Converter (HEIC, RAW, PSD, JXL, WEBP, AVIF):** https://helpmyimg.com/th/plaeng-rup-phap/
-- **Convert WEBP to JPG:** https://helpmyimg.com/th/plaeng-webp-pen-jpg/
-- **Resize Image:** https://helpmyimg.com/th/plian-kha-nad-rup/
-- **Resize for Instagram:** https://helpmyimg.com/th/plian-kha-nad-ig/
-- **Resize for Passport:** https://helpmyimg.com/th/plian-kha-nad-passport/
+- **Image Compressor (MozJPEG / OxiPNG, Target KB presets):** https://helpmyimg.com/th/bip-ad-rup-phap/
+- **Format Converter (HEIC, RAW, PSD, JXL, WEBP, AVIF, SVG):** https://helpmyimg.com/th/plaeng-rup-phap/
+- **Resize Image (Instagram, Passport, Custom Dimensions):** https://helpmyimg.com/th/plian-kha-nad-rup/
 - **Crop & Smart Crop:** https://helpmyimg.com/th/tat-rup-phap/
 - **Rotate & Flip:** https://helpmyimg.com/th/mun-rup-phap/
 - **Color Picker (HEX/RGB Palette):** https://helpmyimg.com/th/luk-si/
-- **Blur Face & Privacy Mask:** https://helpmyimg.com/th/blae-na/
-- **Blur License Plate:** https://helpmyimg.com/th/blae-paai-thabian/
-- **Watermark Image:** https://helpmyimg.com/th/lai-nam/
-- **Batch Watermark Photos:** https://helpmyimg.com/th/lai-nam-lai-rup/
+- **Blur Face & License Plate Privacy Mask:** https://helpmyimg.com/th/blae-na/
+- **Watermark Image (Single & Batch):** https://helpmyimg.com/th/lai-nam/
 - **Magic Inpainting Brush:** https://helpmyimg.com/th/paeng-wises/
-- **Remove Logo Background:** https://helpmyimg.com/th/lop-phun-lang-logo/
-- **Remove Person from Photo:** https://helpmyimg.com/th/lop-khon-oak-jak-rup/
 - **60 FPS WebGL Studio Editor:** https://helpmyimg.com/th/khrueang-mue-ook-baeb/
 - **AI Metadata & C2PA Cleaner:** https://helpmyimg.com/th/lop-khomun-metadeta-ai/
 - **Camera EXIF Studio Editor:** https://helpmyimg.com/th/kae-khai-exif/

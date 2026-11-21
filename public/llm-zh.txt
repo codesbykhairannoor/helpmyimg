@@ -1,7 +1,7 @@
 # HelpMyIMG (简体中文 (Chinese)) — Client-Side AI Image Processing Knowledge Base
 
 > **Website:** https://helpmyimg.com/zh/
-> **Title:** HelpMyIMG | 100% 本地隐私图片工具 - 浏览器端直接处理
+> **Title:** HelpMyIMG — 本地隐私 AI 图片编辑工具
 > **Summary:** 直接在浏览器中组合、分割、压缩、转换和处理照片。 通过 WebAssembly 100% 离线。 快速、私密且高度安全。
 
 ## 1. Architecture, Privacy & Plans
@@ -9,30 +9,19 @@
 - **Data Privacy:** Local browser RAM only. Zero files are uploaded to external servers (GDPR & HIPAA aligned).
 - **Pricing Tiers:** Free Starter Tier ($0 — unlimited 1080p HD exports with zero watermarks, 10-photo batches, plus 3 daily 4K exports on sign-in) and Optional PRO Studio ($9.99/mo, $79/yr, or $129 Founder Lifetime Pass for BiRefNet WebGPU, Swin2SR 4K upscale, and 100+ batch ZIP).
 
-## 2. Localized Canonical Tool Endpoints
+## 2. Localized Canonical Tool Endpoints (14 Tools)
 
 - **Background Remover:** https://helpmyimg.com/zh/quchu-beijing/
 - **Passport & Studio Background Color:** https://helpmyimg.com/zh/genghuan-beijing/
-- **White E-Commerce Background:** https://helpmyimg.com/zh/genghuan-baise-beijing/
-- **Image Compressor (MozJPEG / OxiPNG):** https://helpmyimg.com/zh/yasuo-tupian/
-- **Compress to 100KB:** https://helpmyimg.com/zh/yasuo-tupian-100kb/
-- **Compress to 50KB:** https://helpmyimg.com/zh/yasuo-tupian-50kb/
-- **Compress to 200KB:** https://helpmyimg.com/zh/yasuo-tupian-200kb/
-- **Format Converter (HEIC, RAW, PSD, JXL, WEBP, AVIF):** https://helpmyimg.com/zh/zhuanhuan-tupian/
-- **Convert WEBP to JPG:** https://helpmyimg.com/zh/webp-zhuan-jpg/
-- **Resize Image:** https://helpmyimg.com/zh/tiaozheng-daxiao/
-- **Resize for Instagram:** https://helpmyimg.com/zh/tiaozheng-ins-chicun/
-- **Resize for Passport:** https://helpmyimg.com/zh/huzhao-zhaopian-chicun/
+- **Image Compressor (MozJPEG / OxiPNG, Target KB presets):** https://helpmyimg.com/zh/yasuo-tupian/
+- **Format Converter (HEIC, RAW, PSD, JXL, WEBP, AVIF, SVG):** https://helpmyimg.com/zh/zhuanhuan-tupian/
+- **Resize Image (Instagram, Passport, Custom Dimensions):** https://helpmyimg.com/zh/tiaozheng-daxiao/
 - **Crop & Smart Crop:** https://helpmyimg.com/zh/caijian-tupian/
 - **Rotate & Flip:** https://helpmyimg.com/zh/xuanzhuan-tupian/
 - **Color Picker (HEX/RGB Palette):** https://helpmyimg.com/zh/yanse-xuanze/
-- **Blur Face & Privacy Mask:** https://helpmyimg.com/zh/mohu-renlian/
-- **Blur License Plate:** https://helpmyimg.com/zh/mohu-chepai/
-- **Watermark Image:** https://helpmyimg.com/zh/shuiyin/
-- **Batch Watermark Photos:** https://helpmyimg.com/zh/piliang-shuiyin-tupian/
+- **Blur Face & License Plate Privacy Mask:** https://helpmyimg.com/zh/mohu-renlian/
+- **Watermark Image (Single & Batch):** https://helpmyimg.com/zh/shuiyin/
 - **Magic Inpainting Brush:** https://helpmyimg.com/zh/moshu-huabi/
-- **Remove Logo Background:** https://helpmyimg.com/zh/quchu-logo-beijing/
-- **Remove Person from Photo:** https://helpmyimg.com/zh/yichu-zhaopian-renwu/
 - **60 FPS WebGL Studio Editor:** https://helpmyimg.com/zh/gaoji-bianjiqi/
 - **AI Metadata & C2PA Cleaner:** https://helpmyimg.com/zh/ai-yuanshuju-qingli/
 - **Camera EXIF Studio Editor:** https://helpmyimg.com/zh/bianji-exif-yuanshuju/

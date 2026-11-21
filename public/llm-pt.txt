@@ -1,7 +1,7 @@
 # HelpMyIMG (Português (Portuguese)) — Client-Side AI Image Processing Knowledge Base
 
 > **Website:** https://helpmyimg.com/pt/
-> **Title:** HelpMyIMG | Ferramentas de Imagem 100% Privadas no seu Navegador
+> **Title:** HelpMyIMG — Editor de Fotos IA Privado
 > **Summary:** Combine, divida, compacte, converta e processe fotos diretamente no seu navegador. 100% off-line via WebAssembly. Rápido, privado e altamente seguro.
 
 ## 1. Architecture, Privacy & Plans
@@ -9,30 +9,19 @@
 - **Data Privacy:** Local browser RAM only. Zero files are uploaded to external servers (GDPR & HIPAA aligned).
 - **Pricing Tiers:** Free Starter Tier ($0 — unlimited 1080p HD exports with zero watermarks, 10-photo batches, plus 3 daily 4K exports on sign-in) and Optional PRO Studio ($9.99/mo, $79/yr, or $129 Founder Lifetime Pass for BiRefNet WebGPU, Swin2SR 4K upscale, and 100+ batch ZIP).
 
-## 2. Localized Canonical Tool Endpoints
+## 2. Localized Canonical Tool Endpoints (14 Tools)
 
 - **Background Remover:** https://helpmyimg.com/pt/remover-fundo/
 - **Passport & Studio Background Color:** https://helpmyimg.com/pt/mudar-fundo/
-- **White E-Commerce Background:** https://helpmyimg.com/pt/mudar-o-fundo-da-foto-para-branco/
-- **Image Compressor (MozJPEG / OxiPNG):** https://helpmyimg.com/pt/comprimir-imagem/
-- **Compress to 100KB:** https://helpmyimg.com/pt/comprimir-imagem-100kb/
-- **Compress to 50KB:** https://helpmyimg.com/pt/comprimir-imagem-50kb/
-- **Compress to 200KB:** https://helpmyimg.com/pt/comprimir-imagem-para-200kb/
-- **Format Converter (HEIC, RAW, PSD, JXL, WEBP, AVIF):** https://helpmyimg.com/pt/converter-imagem/
-- **Convert WEBP to JPG:** https://helpmyimg.com/pt/converter-webp-para-jpg/
-- **Resize Image:** https://helpmyimg.com/pt/redimensionar-imagem/
-- **Resize for Instagram:** https://helpmyimg.com/pt/redimensionar-para-instagram/
-- **Resize for Passport:** https://helpmyimg.com/pt/redimensionar-foto-para-tamanho-de-passaporte/
+- **Image Compressor (MozJPEG / OxiPNG, Target KB presets):** https://helpmyimg.com/pt/comprimir-imagem/
+- **Format Converter (HEIC, RAW, PSD, JXL, WEBP, AVIF, SVG):** https://helpmyimg.com/pt/converter-imagem/
+- **Resize Image (Instagram, Passport, Custom Dimensions):** https://helpmyimg.com/pt/redimensionar-imagem/
 - **Crop & Smart Crop:** https://helpmyimg.com/pt/cortar-imagem/
 - **Rotate & Flip:** https://helpmyimg.com/pt/girar-imagem/
 - **Color Picker (HEX/RGB Palette):** https://helpmyimg.com/pt/seletor-de-cores/
-- **Blur Face & Privacy Mask:** https://helpmyimg.com/pt/desfocar-rosto/
-- **Blur License Plate:** https://helpmyimg.com/pt/desfocar-placa-de-carro/
-- **Watermark Image:** https://helpmyimg.com/pt/marca-dagua/
-- **Batch Watermark Photos:** https://helpmyimg.com/pt/marca-dagua-em-lote/
+- **Blur Face & License Plate Privacy Mask:** https://helpmyimg.com/pt/desfocar-rosto/
+- **Watermark Image (Single & Batch):** https://helpmyimg.com/pt/marca-dagua/
 - **Magic Inpainting Brush:** https://helpmyimg.com/pt/pincel-magico/
-- **Remove Logo Background:** https://helpmyimg.com/pt/remover-fundo-do-logotipo/
-- **Remove Person from Photo:** https://helpmyimg.com/pt/remover-pessoa-da-foto/
 - **60 FPS WebGL Studio Editor:** https://helpmyimg.com/pt/editor-de-design/
 - **AI Metadata & C2PA Cleaner:** https://helpmyimg.com/pt/limpador-metadados-ia/
 - **Camera EXIF Studio Editor:** https://helpmyimg.com/pt/editar-exif-foto/

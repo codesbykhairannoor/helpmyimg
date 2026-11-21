@@ -387,617 +387,617 @@
     },
     {
       "source": "/removelogo/",
-      "destination": "https://helpmyimg.com/remove-logo/",
+      "destination": "https://helpmyimg.com/remove-background/",
       "permanent": true
     },
     {
       "source": "/colorwhite/",
-      "destination": "https://helpmyimg.com/change-background-white/",
+      "destination": "https://helpmyimg.com/change-background/",
       "permanent": true
     },
     {
       "source": "/compress200kb/",
-      "destination": "https://helpmyimg.com/compress-image-to-200kb/",
+      "destination": "https://helpmyimg.com/compress-image/",
       "permanent": true
     },
     {
       "source": "/resizepassport/",
-      "destination": "https://helpmyimg.com/resize-passport/",
+      "destination": "https://helpmyimg.com/resize-image/",
       "permanent": true
     },
     {
       "source": "/ar/remove-background-from-logo/",
-      "destination": "https://helpmyimg.com/ar/izalat-khalfia-shiar/",
+      "destination": "https://helpmyimg.com/ar/izalat-khalfia/",
       "permanent": true
     },
     {
       "source": "/ar/change-photo-background-to-white/",
-      "destination": "https://helpmyimg.com/ar/taghyir-khalfia-abyad/",
+      "destination": "https://helpmyimg.com/ar/taghyir-khalfia/",
       "permanent": true
     },
     {
       "source": "/ar/200/",
-      "destination": "https://helpmyimg.com/ar/daght-sura-200kb/",
+      "destination": "https://helpmyimg.com/ar/daght-sura/",
       "permanent": true
     },
     {
       "source": "/ar/resize-photo-to-passport-size/",
-      "destination": "https://helpmyimg.com/ar/taghyir-hajm-jawaz-safar/",
+      "destination": "https://helpmyimg.com/ar/taghyir-hajm/",
       "permanent": true
     },
     {
       "source": "/ar/remove-person-from-photo/",
-      "destination": "https://helpmyimg.com/ar/izalat-shakhs-min-sura/",
+      "destination": "https://helpmyimg.com/ar/izalat-khalfia/",
       "permanent": true
     },
     {
       "source": "/ar/jpg/",
-      "destination": "https://helpmyimg.com/ar/tahwil-webp-ila-jpg/",
+      "destination": "https://helpmyimg.com/ar/tahwil-sura/",
       "permanent": true
     },
     {
       "source": "/ar/batch-watermark-photos/",
-      "destination": "https://helpmyimg.com/ar/alama-maiya-mutaadida/",
+      "destination": "https://helpmyimg.com/ar/alama-maiya/",
       "permanent": true
     },
     {
       "source": "/ar/blur-license-plate/",
-      "destination": "https://helpmyimg.com/ar/tamwih-lawhat-sayara/",
+      "destination": "https://helpmyimg.com/ar/tamwih-al-wajh/",
       "permanent": true
     },
     {
       "source": "/cs/odstranit-pozad-z-loga/",
-      "destination": "https://helpmyimg.com/cs/odstranit-pozadi-z-loga/",
+      "destination": "https://helpmyimg.com/cs/odstraneni-pozadi/",
       "permanent": true
     },
     {
       "source": "/cs/zmnit-pozad-fotografie-na-bl/",
-      "destination": "https://helpmyimg.com/cs/zmenit-pozadi-na-bile/",
+      "destination": "https://helpmyimg.com/cs/zmena-pozadi/",
       "permanent": true
     },
     {
       "source": "/cs/komprimovat-obrzek-na-200-kb/",
-      "destination": "https://helpmyimg.com/cs/komprese-obrazku-na-200kb/",
+      "destination": "https://helpmyimg.com/cs/komprese-obrazku/",
       "permanent": true
     },
     {
       "source": "/cs/zmnit-velikost-fotografie-na-velikost-pasu/",
-      "destination": "https://helpmyimg.com/cs/velikost-fotografie-na-pas/",
+      "destination": "https://helpmyimg.com/cs/zmena-velikosti/",
       "permanent": true
     },
     {
       "source": "/cs/odstranit-osobu-z-fotografie/",
-      "destination": "https://helpmyimg.com/cs/odstranit-osobu-z-fotky/",
+      "destination": "https://helpmyimg.com/cs/odstraneni-pozadi/",
       "permanent": true
     },
     {
       "source": "/cs/pevst-webp-do-jpg/",
-      "destination": "https://helpmyimg.com/cs/prevod-webp-do-jpg/",
+      "destination": "https://helpmyimg.com/cs/prevod-obrazku/",
       "permanent": true
     },
     {
       "source": "/cs/dvkov-fotografie-vodoznaku/",
-      "destination": "https://helpmyimg.com/cs/hromadny-vodoznak-fotek/",
+      "destination": "https://helpmyimg.com/cs/vodoznak/",
       "permanent": true
     },
     {
       "source": "/cs/rozmazn-spz/",
-      "destination": "https://helpmyimg.com/cs/rozmazani-spz/",
+      "destination": "https://helpmyimg.com/cs/rozmazat-oblicej/",
       "permanent": true
     },
     {
       "source": "/da/ndre-fotobaggrund-til-hvid/",
-      "destination": "https://helpmyimg.com/da/skift-baggrund-til-hvid/",
+      "destination": "https://helpmyimg.com/da/skift-baggrund/",
       "permanent": true
     },
     {
       "source": "/da/ndre-strrelsen-p-billedet-til-passtrrelsen/",
-      "destination": "https://helpmyimg.com/da/tilpas-billede-til-pas/",
+      "destination": "https://helpmyimg.com/da/tilpas-billede/",
       "permanent": true
     },
     {
       "source": "/da/batch-vandmrkebilleder/",
-      "destination": "https://helpmyimg.com/da/batch-vandmaerke-billeder/",
+      "destination": "https://helpmyimg.com/da/vandmaerke/",
       "permanent": true
     },
     {
       "source": "/da/slre-nummerplade/",
-      "destination": "https://helpmyimg.com/da/sloer-nummerplade/",
+      "destination": "https://helpmyimg.com/da/sloret-ansigt/",
       "permanent": true
     },
     {
       "source": "/de/ndern-sie-den-fotohintergrund-in-wei/",
-      "destination": "https://helpmyimg.com/de/fotohintergrund-in-weiss-aendern/",
+      "destination": "https://helpmyimg.com/de/hintergrund-aendern/",
       "permanent": true
     },
     {
       "source": "/de/ndern-sie-die-gre-des-fotos-auf-passgre/",
-      "destination": "https://helpmyimg.com/de/foto-auf-passbildgroesse-aendern/",
+      "destination": "https://helpmyimg.com/de/bild-skalieren/",
       "permanent": true
     },
     {
       "source": "/de/bild-auf-200-kb-komprimieren/",
-      "destination": "https://helpmyimg.com/de/bild-auf-200kb-komprimieren/",
+      "destination": "https://helpmyimg.com/de/bild-komprimieren/",
       "permanent": true
     },
     {
       "source": "/de/konvertieren-sie-webp-in-jpg/",
-      "destination": "https://helpmyimg.com/de/webp-in-jpg-konvertieren/",
+      "destination": "https://helpmyimg.com/de/bild-konvertieren/",
       "permanent": true
     },
     {
       "source": "/de/batchwasserzeichenfotos/",
-      "destination": "https://helpmyimg.com/de/batch-wasserzeichen-fotos/",
+      "destination": "https://helpmyimg.com/de/wasserzeichen/",
       "permanent": true
     },
     {
       "source": "/el/remove-background-from-logo/",
-      "destination": "https://helpmyimg.com/el/afairesi-fontou-apo-logo/",
+      "destination": "https://helpmyimg.com/el/afairesi-fontou/",
       "permanent": true
     },
     {
       "source": "/el/change-photo-background-to-white/",
-      "destination": "https://helpmyimg.com/el/allagi-fontou-se-lefko/",
+      "destination": "https://helpmyimg.com/el/allagi-fontou/",
       "permanent": true
     },
     {
       "source": "/el/200-kb/",
-      "destination": "https://helpmyimg.com/el/sympiesi-eikonas-200kb/",
+      "destination": "https://helpmyimg.com/el/sympiesi-eikonas/",
       "permanent": true
     },
     {
       "source": "/el/resize-photo-to-passport-size/",
-      "destination": "https://helpmyimg.com/el/megethos-fotografias-diavatiriou/",
+      "destination": "https://helpmyimg.com/el/allagi-megethous/",
       "permanent": true
     },
     {
       "source": "/el/remove-person-from-photo/",
-      "destination": "https://helpmyimg.com/el/afairesi-atomou-apo-fotografia/",
+      "destination": "https://helpmyimg.com/el/afairesi-fontou/",
       "permanent": true
     },
     {
       "source": "/el/webp-jpg/",
-      "destination": "https://helpmyimg.com/el/metatropi-webp-se-jpg/",
+      "destination": "https://helpmyimg.com/el/metatropi-eikonas/",
       "permanent": true
     },
     {
       "source": "/el/batch-watermark-photos/",
-      "destination": "https://helpmyimg.com/el/maziko-ydatografima-fotografion/",
+      "destination": "https://helpmyimg.com/el/ydatografima/",
       "permanent": true
     },
     {
       "source": "/el/blur-license-plate/",
-      "destination": "https://helpmyimg.com/el/tholoma-pinakidas/",
+      "destination": "https://helpmyimg.com/el/tholo-prosopo/",
       "permanent": true
     },
     {
       "source": "/es/cambiar-el-tamao-de-la-foto-al-tamao-pasaporte/",
-      "destination": "https://helpmyimg.com/es/tamano-foto-pasaporte/",
+      "destination": "https://helpmyimg.com/es/redimensionar-imagen/",
       "permanent": true
     },
     {
       "source": "/es/matrcula-borrosa/",
-      "destination": "https://helpmyimg.com/es/difuminar-matricula/",
+      "destination": "https://helpmyimg.com/es/difuminar-rostro/",
       "permanent": true
     },
     {
       "source": "/fi/poista-henkil-valokuvasta/",
-      "destination": "https://helpmyimg.com/fi/poista-henkilo-valokuvasta/",
+      "destination": "https://helpmyimg.com/fi/poista-tausta/",
       "permanent": true
     },
     {
       "source": "/fi/muuntaa-webp-jpgksi/",
-      "destination": "https://helpmyimg.com/fi/muunna-webp-jpg-muotoon/",
+      "destination": "https://helpmyimg.com/fi/muunna-kuva/",
       "permanent": true
     },
     {
       "source": "/fi/ern-vesileimakuvia/",
-      "destination": "https://helpmyimg.com/fi/era-vesileimaa-kuvat/",
+      "destination": "https://helpmyimg.com/fi/vesileima/",
       "permanent": true
     },
     {
       "source": "/fi/hmrt-rekisterikilpi/",
-      "destination": "https://helpmyimg.com/fi/sumenna-rekisterikilpi/",
+      "destination": "https://helpmyimg.com/fi/sumentaa-kasvot/",
       "permanent": true
     },
     {
       "source": "/fr/supprimer-larrireplan-du-logo/",
-      "destination": "https://helpmyimg.com/fr/supprimer-fond-logo/",
+      "destination": "https://helpmyimg.com/fr/supprimer-fond/",
       "permanent": true
     },
     {
       "source": "/fr/compresser-limage-200-ko/",
-      "destination": "https://helpmyimg.com/fr/compresser-image-200ko/",
+      "destination": "https://helpmyimg.com/fr/compresser-image/",
       "permanent": true
     },
     {
       "source": "/he/remove-background-from-logo/",
-      "destination": "https://helpmyimg.com/he/hasarat-reka-me-logo/",
+      "destination": "https://helpmyimg.com/he/hasarat-reka/",
       "permanent": true
     },
     {
       "source": "/he/change-photo-background-to-white/",
-      "destination": "https://helpmyimg.com/he/shinui-reka-le-lavan/",
+      "destination": "https://helpmyimg.com/he/shinui-reka/",
       "permanent": true
     },
     {
       "source": "/he/200kb/",
-      "destination": "https://helpmyimg.com/he/dchisat-tmuna-200kb/",
+      "destination": "https://helpmyimg.com/he/dchisat-tmuna/",
       "permanent": true
     },
     {
       "source": "/he/resize-photo-to-passport-size/",
-      "destination": "https://helpmyimg.com/he/shinui-godel-tmuna-darkon/",
+      "destination": "https://helpmyimg.com/he/shinui-godel/",
       "permanent": true
     },
     {
       "source": "/he/remove-person-from-photo/",
-      "destination": "https://helpmyimg.com/he/hasarat-adam-me-tmuna/",
+      "destination": "https://helpmyimg.com/he/hasarat-reka/",
       "permanent": true
     },
     {
       "source": "/he/webp-jpg/",
-      "destination": "https://helpmyimg.com/he/hamarat-webp-le-jpg/",
+      "destination": "https://helpmyimg.com/he/hamarat-tmuna/",
       "permanent": true
     },
     {
       "source": "/he/batch-watermark-photos/",
-      "destination": "https://helpmyimg.com/he/siman-maim-bekavutzot/",
+      "destination": "https://helpmyimg.com/he/siman-maim/",
       "permanent": true
     },
     {
       "source": "/he/blur-license-plate/",
-      "destination": "https://helpmyimg.com/he/tistush-luchit-rishui/",
+      "destination": "https://helpmyimg.com/he/tistush-panim/",
       "permanent": true
     },
     {
       "source": "/hi/remove-background-from-logo/",
-      "destination": "https://helpmyimg.com/hi/logo-ka-background-hataye/",
+      "destination": "https://helpmyimg.com/hi/background-hatao/",
       "permanent": true
     },
     {
       "source": "/hi/change-photo-background-to-white/",
-      "destination": "https://helpmyimg.com/hi/photo-background-safed-kare/",
+      "destination": "https://helpmyimg.com/hi/background-badlo/",
       "permanent": true
     },
     {
       "source": "/hi/200kb/",
-      "destination": "https://helpmyimg.com/hi/image-compress-200kb/",
+      "destination": "https://helpmyimg.com/hi/image-compress/",
       "permanent": true
     },
     {
       "source": "/hi/resize-photo-to-passport-size/",
-      "destination": "https://helpmyimg.com/hi/passport-size-photo-resize/",
+      "destination": "https://helpmyimg.com/hi/image-resize/",
       "permanent": true
     },
     {
       "source": "/hi/remove-person-from-photo/",
-      "destination": "https://helpmyimg.com/hi/photo-se-vyakti-hataye/",
+      "destination": "https://helpmyimg.com/hi/background-hatao/",
       "permanent": true
     },
     {
       "source": "/hi/convert-webp-to-jpg/",
-      "destination": "https://helpmyimg.com/hi/webp-ko-jpg-mein-badle/",
+      "destination": "https://helpmyimg.com/hi/image-convert/",
       "permanent": true
     },
     {
       "source": "/hi/batch-watermark-photos/",
-      "destination": "https://helpmyimg.com/hi/bulk-watermark-photo/",
+      "destination": "https://helpmyimg.com/hi/watermark-lagao/",
       "permanent": true
     },
     {
       "source": "/hi/blur-license-plate/",
-      "destination": "https://helpmyimg.com/hi/number-plate-blur-kare/",
+      "destination": "https://helpmyimg.com/hi/chehra-dhundhla-kare/",
       "permanent": true
     },
     {
       "source": "/hu/tvoltsa-el-a-htteret-a-logrl/",
-      "destination": "https://helpmyimg.com/hu/hatter-eltavolitas-logobol/",
+      "destination": "https://helpmyimg.com/hu/hatter-eltavolitas/",
       "permanent": true
     },
     {
       "source": "/hu/mdostsa-a-fnykp-httert-fehrre/",
-      "destination": "https://helpmyimg.com/hu/foto-hatter-feherre-modositasa/",
+      "destination": "https://helpmyimg.com/hu/hatter-modositas/",
       "permanent": true
     },
     {
       "source": "/hu/tmrtse-a-kpet-200-kbra/",
-      "destination": "https://helpmyimg.com/hu/kep-tomorites-200kb/",
+      "destination": "https://helpmyimg.com/hu/kep-tomorites/",
       "permanent": true
     },
     {
       "source": "/hu/a-fnykp-tmretezse-az-tlevl-mretre/",
-      "destination": "https://helpmyimg.com/hu/utlevelfoto-atmeretezes/",
+      "destination": "https://helpmyimg.com/hu/kep-atmeretezes/",
       "permanent": true
     },
     {
       "source": "/hu/szemly-eltvoltsa-a-fnykprl/",
-      "destination": "https://helpmyimg.com/hu/szemely-eltavolitasa-fotorol/",
+      "destination": "https://helpmyimg.com/hu/hatter-eltavolitas/",
       "permanent": true
     },
     {
       "source": "/hu/konvertlja-a-webpt-jpgbe/",
-      "destination": "https://helpmyimg.com/hu/webp-konvertalas-jpg-be/",
+      "destination": "https://helpmyimg.com/hu/kep-konvertalas/",
       "permanent": true
     },
     {
       "source": "/hu/ktegelt-vzjel-fotk/",
-      "destination": "https://helpmyimg.com/hu/tomeges-vizjel-fotok/",
+      "destination": "https://helpmyimg.com/hu/vizjel/",
       "permanent": true
     },
     {
       "source": "/hu/elmosdott-rendszm/",
-      "destination": "https://helpmyimg.com/hu/rendszam-elmosasa/",
+      "destination": "https://helpmyimg.com/hu/arc-elmosasa/",
       "permanent": true
     },
     {
       "source": "/it/comprimere-limmagine-a-200kb/",
-      "destination": "https://helpmyimg.com/it/comprimi-immagine-a-200kb/",
+      "destination": "https://helpmyimg.com/it/comprimi-immagine/",
       "permanent": true
     },
     {
       "source": "/ja/remove-background-from-logo/",
-      "destination": "https://helpmyimg.com/ja/rogo-haikei-sakuzyo/",
+      "destination": "https://helpmyimg.com/ja/haikei-sakuzyo/",
       "permanent": true
     },
     {
       "source": "/ja/change-photo-background-to-white/",
-      "destination": "https://helpmyimg.com/ja/haikei-shiro-henko/",
+      "destination": "https://helpmyimg.com/ja/haikei-henko/",
       "permanent": true
     },
     {
       "source": "/ja/200kb/",
-      "destination": "https://helpmyimg.com/ja/gazo-asshuku-200kb/",
+      "destination": "https://helpmyimg.com/ja/gazo-asshuku/",
       "permanent": true
     },
     {
       "source": "/ja/resize-photo-to-passport-size/",
-      "destination": "https://helpmyimg.com/ja/pasupoto-shashin-saizu/",
+      "destination": "https://helpmyimg.com/ja/gazo-ri-saizu/",
       "permanent": true
     },
     {
       "source": "/ja/remove-person-from-photo/",
-      "destination": "https://helpmyimg.com/ja/jinbutsu-sakuzyo/",
+      "destination": "https://helpmyimg.com/ja/haikei-sakuzyo/",
       "permanent": true
     },
     {
       "source": "/ja/webpjpg/",
-      "destination": "https://helpmyimg.com/ja/webp-jpg-henkan/",
+      "destination": "https://helpmyimg.com/ja/gazo-henkan/",
       "permanent": true
     },
     {
       "source": "/ja/batch-watermark-photos/",
-      "destination": "https://helpmyimg.com/ja/ikkatsu-sukashi-gazo/",
+      "destination": "https://helpmyimg.com/ja/sukashi/",
       "permanent": true
     },
     {
       "source": "/ja/blur-license-plate/",
-      "destination": "https://helpmyimg.com/ja/nanbapureto-bokashi/",
+      "destination": "https://helpmyimg.com/ja/kao-bokashi/",
       "permanent": true
     },
     {
       "source": "/ko/remove-background-from-logo/",
-      "destination": "https://helpmyimg.com/ko/rogo-baegyeong-jegeo/",
+      "destination": "https://helpmyimg.com/ko/baegyeong-jegeo/",
       "permanent": true
     },
     {
       "source": "/ko/change-photo-background-to-white/",
-      "destination": "https://helpmyimg.com/ko/sajin-baegyeong-hayan-saek/",
+      "destination": "https://helpmyimg.com/ko/baegyeong-byeongyeong/",
       "permanent": true
     },
     {
       "source": "/ko/200kb/",
-      "destination": "https://helpmyimg.com/ko/imiji-abchuk-200kb/",
+      "destination": "https://helpmyimg.com/ko/imiji-abchuk/",
       "permanent": true
     },
     {
       "source": "/ko/resize-photo-to-passport-size/",
-      "destination": "https://helpmyimg.com/ko/yeogwon-sajin-keugi/",
+      "destination": "https://helpmyimg.com/ko/imiji-keugi-jojeong/",
       "permanent": true
     },
     {
       "source": "/ko/remove-person-from-photo/",
-      "destination": "https://helpmyimg.com/ko/sajin-saram-jegeo/",
+      "destination": "https://helpmyimg.com/ko/baegyeong-jegeo/",
       "permanent": true
     },
     {
       "source": "/ko/webp-jpg/",
-      "destination": "https://helpmyimg.com/ko/webp-jpg-byeonhwan/",
+      "destination": "https://helpmyimg.com/ko/imiji-byeonhwan/",
       "permanent": true
     },
     {
       "source": "/ko/batch-watermark-photos/",
-      "destination": "https://helpmyimg.com/ko/ilgwal-woteomakeu/",
+      "destination": "https://helpmyimg.com/ko/woteomakeu/",
       "permanent": true
     },
     {
       "source": "/ko/blur-license-plate/",
-      "destination": "https://helpmyimg.com/ko/beonhopan-beulleo/",
+      "destination": "https://helpmyimg.com/ko/eolgul-beulleo/",
       "permanent": true
     },
     {
       "source": "/nl/comprimeer-de-afbeelding-tot-200-kb/",
-      "destination": "https://helpmyimg.com/nl/afbeelding-comprimeren-200kb/",
+      "destination": "https://helpmyimg.com/nl/afbeelding-comprimeren/",
       "permanent": true
     },
     {
       "source": "/nl/batch-watermerkfotos/",
-      "destination": "https://helpmyimg.com/nl/batch-watermerk-fotos/",
+      "destination": "https://helpmyimg.com/nl/watermerk/",
       "permanent": true
     },
     {
       "source": "/no/endre-strrelsen-p-bildet-til-passstrrelsen/",
-      "destination": "https://helpmyimg.com/no/endre-bilde-til-pass/",
+      "destination": "https://helpmyimg.com/no/endre-bildestorrelse/",
       "permanent": true
     },
     {
       "source": "/pl/usu-to-z-logo/",
-      "destination": "https://helpmyimg.com/pl/usun-tlo-z-logo/",
+      "destination": "https://helpmyimg.com/pl/usun-tlo/",
       "permanent": true
     },
     {
       "source": "/pl/zmie-to-zdjcia-na-biae/",
-      "destination": "https://helpmyimg.com/pl/zmien-tlo-zdjecia-na-biale/",
+      "destination": "https://helpmyimg.com/pl/zmien-tlo/",
       "permanent": true
     },
     {
       "source": "/pl/zmie-rozmiar-zdjcia-na-rozmiar-paszportowy/",
-      "destination": "https://helpmyimg.com/pl/zmien-rozmiar-zdjecia-do-paszportu/",
+      "destination": "https://helpmyimg.com/pl/zmiana-rozmiaru/",
       "permanent": true
     },
     {
       "source": "/pl/usu-osob-ze-zdjcia/",
-      "destination": "https://helpmyimg.com/pl/usun-osobe-ze-zdjecia/",
+      "destination": "https://helpmyimg.com/pl/usun-tlo/",
       "permanent": true
     },
     {
       "source": "/pt/fotos-de-marca-dgua-em-lote/",
-      "destination": "https://helpmyimg.com/pt/marca-dagua-em-lote/",
+      "destination": "https://helpmyimg.com/pt/marca-dagua/",
       "permanent": true
     },
     {
       "source": "/ro/eliminai-fundalul-din-logo/",
-      "destination": "https://helpmyimg.com/ro/eliminare-fundal-logo/",
+      "destination": "https://helpmyimg.com/ro/eliminare-fundal/",
       "permanent": true
     },
     {
       "source": "/ro/schimba-fundalul-fotografiei-n-alb/",
-      "destination": "https://helpmyimg.com/ro/schimbare-fundal-in-alb/",
+      "destination": "https://helpmyimg.com/ro/schimbare-fundal/",
       "permanent": true
     },
     {
       "source": "/ro/comprimai-imaginea-la-200-kb/",
-      "destination": "https://helpmyimg.com/ro/comprimare-imagine-la-200kb/",
+      "destination": "https://helpmyimg.com/ro/comprimare-imagine/",
       "permanent": true
     },
     {
       "source": "/ro/redimensionai-fotografia-la-dimensiunea-paaportului/",
-      "destination": "https://helpmyimg.com/ro/redimensionare-poza-pasaport/",
+      "destination": "https://helpmyimg.com/ro/redimensionare-imagine/",
       "permanent": true
     },
     {
       "source": "/ro/eliminai-persoana-din-fotografie/",
-      "destination": "https://helpmyimg.com/ro/eliminare-persoana-din-poza/",
+      "destination": "https://helpmyimg.com/ro/eliminare-fundal/",
       "permanent": true
     },
     {
       "source": "/ro/converti-webp-n-jpg/",
-      "destination": "https://helpmyimg.com/ro/conversie-webp-in-jpg/",
+      "destination": "https://helpmyimg.com/ro/convertire-imagine/",
       "permanent": true
     },
     {
       "source": "/ro/fotografii-cu-filigran-n-lot/",
-      "destination": "https://helpmyimg.com/ro/filigran-in-lot-fotografii/",
+      "destination": "https://helpmyimg.com/ro/filigran/",
       "permanent": true
     },
     {
       "source": "/ro/estomparea-plcuei-de-nmatriculare/",
-      "destination": "https://helpmyimg.com/ro/estompare-numar-inmatriculare/",
+      "destination": "https://helpmyimg.com/ro/estompare-fata/",
       "permanent": true
     },
     {
       "source": "/ru/remove-background-from-logo/",
-      "destination": "https://helpmyimg.com/ru/udalit-fon-logotipa/",
+      "destination": "https://helpmyimg.com/ru/udalit-fon/",
       "permanent": true
     },
     {
       "source": "/ru/change-photo-background-to-white/",
-      "destination": "https://helpmyimg.com/ru/sdelat-belyy-fon-foto/",
+      "destination": "https://helpmyimg.com/ru/izmenit-fon/",
       "permanent": true
     },
     {
       "source": "/ru/200/",
-      "destination": "https://helpmyimg.com/ru/szhat-izobrazhenie-200kb/",
+      "destination": "https://helpmyimg.com/ru/szhat-izobrazhenie/",
       "permanent": true
     },
     {
       "source": "/ru/resize-photo-to-passport-size/",
-      "destination": "https://helpmyimg.com/ru/razmer-foto-na-pasport/",
+      "destination": "https://helpmyimg.com/ru/izmenit-razmer/",
       "permanent": true
     },
     {
       "source": "/ru/remove-person-from-photo/",
-      "destination": "https://helpmyimg.com/ru/udalit-cheloveka-s-foto/",
+      "destination": "https://helpmyimg.com/ru/udalit-fon/",
       "permanent": true
     },
     {
       "source": "/ru/jpg/",
-      "destination": "https://helpmyimg.com/ru/konvertirovat-webp-v-jpg/",
+      "destination": "https://helpmyimg.com/ru/konvertirovat-izobrazhenie/",
       "permanent": true
     },
     {
       "source": "/ru/batch-watermark-photos/",
-      "destination": "https://helpmyimg.com/ru/paketnyy-vodyanoy-znak/",
+      "destination": "https://helpmyimg.com/ru/vodyanoy-znak/",
       "permanent": true
     },
     {
       "source": "/ru/blur-license-plate/",
-      "destination": "https://helpmyimg.com/ru/razmyt-nomer-avto/",
+      "destination": "https://helpmyimg.com/ru/razmyt-litso/",
       "permanent": true
     },
     {
       "source": "/sv/ta-bort-bakgrund-frn-logotypen/",
-      "destination": "https://helpmyimg.com/sv/ta-bort-bakgrund-fran-logotyp/",
+      "destination": "https://helpmyimg.com/sv/ta-bort-bakgrund/",
       "permanent": true
     },
     {
       "source": "/sv/ndra-fotobakgrunden-till-vit/",
-      "destination": "https://helpmyimg.com/sv/andra-bakgrund-till-vit/",
+      "destination": "https://helpmyimg.com/sv/andra-bakgrund/",
       "permanent": true
     },
     {
       "source": "/sv/ndra-storlek-p-foto-till-passstorlek/",
-      "destination": "https://helpmyimg.com/sv/andra-bild-till-passfoto/",
+      "destination": "https://helpmyimg.com/sv/andra-storlek/",
       "permanent": true
     },
     {
       "source": "/sv/ta-bort-personen-frn-fotot/",
-      "destination": "https://helpmyimg.com/sv/ta-bort-person-fran-foto/",
+      "destination": "https://helpmyimg.com/sv/ta-bort-bakgrund/",
       "permanent": true
     },
     {
       "source": "/sv/batch-vattenstmpel-bilder/",
-      "destination": "https://helpmyimg.com/sv/batch-vattenstampel-bilder/",
+      "destination": "https://helpmyimg.com/sv/vattenstampel/",
       "permanent": true
     },
     {
       "source": "/th/remove-background-from-logo/",
-      "destination": "https://helpmyimg.com/th/lop-phun-lang-logo/",
+      "destination": "https://helpmyimg.com/th/lop-phun-lang/",
       "permanent": true
     },
     {
       "source": "/th/change-photo-background-to-white/",
-      "destination": "https://helpmyimg.com/th/plian-phun-lang-si-khao/",
+      "destination": "https://helpmyimg.com/th/plian-phun-lang/",
       "permanent": true
     },
     {
       "source": "/th/200kb/",
-      "destination": "https://helpmyimg.com/th/bip-ad-rup-phap-200kb/",
+      "destination": "https://helpmyimg.com/th/bip-ad-rup-phap/",
       "permanent": true
     },
     {
       "source": "/th/resize-photo-to-passport-size/",
-      "destination": "https://helpmyimg.com/th/plian-kha-nad-passport/",
+      "destination": "https://helpmyimg.com/th/plian-kha-nad-rup/",
       "permanent": true
     },
     {
       "source": "/th/remove-person-from-photo/",
-      "destination": "https://helpmyimg.com/th/lop-khon-oak-jak-rup/",
+      "destination": "https://helpmyimg.com/th/lop-phun-lang/",
       "permanent": true
     },
     {
       "source": "/th/webp-jpg/",
-      "destination": "https://helpmyimg.com/th/plaeng-webp-pen-jpg/",
+      "destination": "https://helpmyimg.com/th/plaeng-rup-phap/",
       "permanent": true
     },
     {
       "source": "/th/batch-watermark-photos/",
-      "destination": "https://helpmyimg.com/th/lai-nam-lai-rup/",
+      "destination": "https://helpmyimg.com/th/lai-nam/",
       "permanent": true
     },
     {
       "source": "/th/blur-license-plate/",
-      "destination": "https://helpmyimg.com/th/blae-paai-thabian/",
+      "destination": "https://helpmyimg.com/th/blae-na/",
       "permanent": true
     },
     {
@@ -1007,132 +1007,132 @@
     },
     {
       "source": "/tl/compress-image-to-50kb/",
-      "destination": "https://helpmyimg.com/tl/i-compress-larawan-50kb/",
+      "destination": "https://helpmyimg.com/tl/i-compress-larawan/",
       "permanent": true
     },
     {
       "source": "/tl/resize-image-for-instagram/",
-      "destination": "https://helpmyimg.com/tl/baguhin-sukat-instagram/",
+      "destination": "https://helpmyimg.com/tl/baguhin-sukat/",
       "permanent": true
     },
     {
       "source": "/tr/logodan-arka-plan-kaldr/",
-      "destination": "https://helpmyimg.com/tr/logodan-arka-plan-kaldir/",
+      "destination": "https://helpmyimg.com/tr/arka-plan-kaldir/",
       "permanent": true
     },
     {
       "source": "/tr/fotoraf-arka-plann-beyaza-evir/",
-      "destination": "https://helpmyimg.com/tr/foto-arka-plani-beyaz-yap/",
+      "destination": "https://helpmyimg.com/tr/arka-plan-degistir/",
       "permanent": true
     },
     {
       "source": "/tr/grnty-200kbye-sktr/",
-      "destination": "https://helpmyimg.com/tr/resim-sikistir-200kb/",
+      "destination": "https://helpmyimg.com/tr/resim-sikistir/",
       "permanent": true
     },
     {
       "source": "/tr/fotoraf-pasaport-boyutuna-gre-yeniden-boyutlandr/",
-      "destination": "https://helpmyimg.com/tr/pasaport-fotografi-boyutlandir/",
+      "destination": "https://helpmyimg.com/tr/boyutlandir/",
       "permanent": true
     },
     {
       "source": "/tr/kiiyi-fotoraftan-kaldr/",
-      "destination": "https://helpmyimg.com/tr/fotograftan-kisi-sil/",
+      "destination": "https://helpmyimg.com/tr/arka-plan-kaldir/",
       "permanent": true
     },
     {
       "source": "/tr/webpyi-jpgye-dntr/",
-      "destination": "https://helpmyimg.com/tr/webp-jpg-cevir/",
+      "destination": "https://helpmyimg.com/tr/resim-donustur/",
       "permanent": true
     },
     {
       "source": "/tr/toplu-filigran-fotoraflar/",
-      "destination": "https://helpmyimg.com/tr/toplu-filigran-ekle/",
+      "destination": "https://helpmyimg.com/tr/filigran/",
       "permanent": true
     },
     {
       "source": "/tr/plaka-bulankl/",
-      "destination": "https://helpmyimg.com/tr/plaka-bulaniklastir/",
+      "destination": "https://helpmyimg.com/tr/yuz-bulaniklastirma/",
       "permanent": true
     },
     {
       "source": "/uk/remove-background-from-logo/",
-      "destination": "https://helpmyimg.com/uk/vydalyty-tlo-z-lohotypu/",
+      "destination": "https://helpmyimg.com/uk/vydalyty-tlo/",
       "permanent": true
     },
     {
       "source": "/uk/change-photo-background-to-white/",
-      "destination": "https://helpmyimg.com/uk/zminyty-tlo-na-bile/",
+      "destination": "https://helpmyimg.com/uk/zminyty-tlo/",
       "permanent": true
     },
     {
       "source": "/uk/200/",
-      "destination": "https://helpmyimg.com/uk/stysnuty-do-200kb/",
+      "destination": "https://helpmyimg.com/uk/stysnuty-zobrazhennya/",
       "permanent": true
     },
     {
       "source": "/uk/resize-photo-to-passport-size/",
-      "destination": "https://helpmyimg.com/uk/rozmir-foto-na-pasport/",
+      "destination": "https://helpmyimg.com/uk/zminyty-rozmir/",
       "permanent": true
     },
     {
       "source": "/uk/remove-person-from-photo/",
-      "destination": "https://helpmyimg.com/uk/vydalyty-lyudynu-z-foto/",
+      "destination": "https://helpmyimg.com/uk/vydalyty-tlo/",
       "permanent": true
     },
     {
       "source": "/uk/webp-jpg/",
-      "destination": "https://helpmyimg.com/uk/konvertuvaty-webp-u-jpg/",
+      "destination": "https://helpmyimg.com/uk/konvertuvaty-zobrazhennya/",
       "permanent": true
     },
     {
       "source": "/uk/batch-watermark-photos/",
-      "destination": "https://helpmyimg.com/uk/paketnyy-vodyanyy-znak/",
+      "destination": "https://helpmyimg.com/uk/vodyanyy-znak/",
       "permanent": true
     },
     {
       "source": "/uk/blur-license-plate/",
-      "destination": "https://helpmyimg.com/uk/rozmyty-nomer-avto/",
+      "destination": "https://helpmyimg.com/uk/rozmyty-oblychchya/",
       "permanent": true
     },
     {
       "source": "/vi/xa-nn-khi-logo/",
-      "destination": "https://helpmyimg.com/vi/xoa-nen-khoi-logo/",
+      "destination": "https://helpmyimg.com/vi/xoa-nen/",
       "permanent": true
     },
     {
       "source": "/vi/i-nn-nh-sang-mu-trng/",
-      "destination": "https://helpmyimg.com/vi/doi-nen-anh-mau-trang/",
+      "destination": "https://helpmyimg.com/vi/doi-nen/",
       "permanent": true
     },
     {
       "source": "/vi/nn-nh-xung-200kb/",
-      "destination": "https://helpmyimg.com/vi/nen-anh-200kb/",
+      "destination": "https://helpmyimg.com/vi/nen-anh/",
       "permanent": true
     },
     {
       "source": "/vi/thay-i-kch-thc-nh-thnh-kch-thc-h-chiu/",
-      "destination": "https://helpmyimg.com/vi/doi-kich-thuoc-anh-ho-chieu/",
+      "destination": "https://helpmyimg.com/vi/doi-kich-thuoc/",
       "permanent": true
     },
     {
       "source": "/vi/xa-ngi-khi-nh/",
-      "destination": "https://helpmyimg.com/vi/xoa-nguoi-khoi-anh/",
+      "destination": "https://helpmyimg.com/vi/xoa-nen/",
       "permanent": true
     },
     {
       "source": "/vi/chuyn-webp-sang-jpg/",
-      "destination": "https://helpmyimg.com/vi/chuyen-webp-sang-jpg/",
+      "destination": "https://helpmyimg.com/vi/chuyen-doi-anh/",
       "permanent": true
     },
     {
       "source": "/vi/hnh-nh-hnh-m-hng-lot/",
-      "destination": "https://helpmyimg.com/vi/dong-dau-anh-hang-loat/",
+      "destination": "https://helpmyimg.com/vi/dong-dau-anh/",
       "permanent": true
     },
     {
       "source": "/vi/bin-s-xe-m/",
-      "destination": "https://helpmyimg.com/vi/lam-mo-bien-so-xe/",
+      "destination": "https://helpmyimg.com/vi/lam-mo-khuon-mat/",
       "permanent": true
     },
     {
@@ -1268,6 +1268,3306 @@
     {
       "source": "/zh/magic-brush/",
       "destination": "https://helpmyimg.com/zh/moshu-huabi/",
+      "permanent": true
+    },
+    {
+      "source": "/ar/daght-sura-100kb/",
+      "destination": "https://helpmyimg.com/ar/daght-sura/",
+      "permanent": true
+    },
+    {
+      "source": "/ar/daght-sura-100kb",
+      "destination": "https://helpmyimg.com/ar/daght-sura/",
+      "permanent": true
+    },
+    {
+      "source": "/ar/daght-sura-50kb/",
+      "destination": "https://helpmyimg.com/ar/daght-sura/",
+      "permanent": true
+    },
+    {
+      "source": "/ar/daght-sura-50kb",
+      "destination": "https://helpmyimg.com/ar/daght-sura/",
+      "permanent": true
+    },
+    {
+      "source": "/ar/daght-sura-200kb/",
+      "destination": "https://helpmyimg.com/ar/daght-sura/",
+      "permanent": true
+    },
+    {
+      "source": "/ar/daght-sura-200kb",
+      "destination": "https://helpmyimg.com/ar/daght-sura/",
+      "permanent": true
+    },
+    {
+      "source": "/ar/taghyir-hajm-instagram/",
+      "destination": "https://helpmyimg.com/ar/taghyir-hajm/",
+      "permanent": true
+    },
+    {
+      "source": "/ar/taghyir-hajm-instagram",
+      "destination": "https://helpmyimg.com/ar/taghyir-hajm/",
+      "permanent": true
+    },
+    {
+      "source": "/ar/taghyir-hajm-jawaz-safar/",
+      "destination": "https://helpmyimg.com/ar/taghyir-hajm/",
+      "permanent": true
+    },
+    {
+      "source": "/ar/taghyir-hajm-jawaz-safar",
+      "destination": "https://helpmyimg.com/ar/taghyir-hajm/",
+      "permanent": true
+    },
+    {
+      "source": "/ar/izalat-khalfia-shiar/",
+      "destination": "https://helpmyimg.com/ar/izalat-khalfia/",
+      "permanent": true
+    },
+    {
+      "source": "/ar/izalat-khalfia-shiar",
+      "destination": "https://helpmyimg.com/ar/izalat-khalfia/",
+      "permanent": true
+    },
+    {
+      "source": "/ar/izalat-shakhs-min-sura/",
+      "destination": "https://helpmyimg.com/ar/izalat-khalfia/",
+      "permanent": true
+    },
+    {
+      "source": "/ar/izalat-shakhs-min-sura",
+      "destination": "https://helpmyimg.com/ar/izalat-khalfia/",
+      "permanent": true
+    },
+    {
+      "source": "/ar/taghyir-khalfia-abyad/",
+      "destination": "https://helpmyimg.com/ar/taghyir-khalfia/",
+      "permanent": true
+    },
+    {
+      "source": "/ar/taghyir-khalfia-abyad",
+      "destination": "https://helpmyimg.com/ar/taghyir-khalfia/",
+      "permanent": true
+    },
+    {
+      "source": "/ar/tahwil-webp-ila-jpg/",
+      "destination": "https://helpmyimg.com/ar/tahwil-sura/",
+      "permanent": true
+    },
+    {
+      "source": "/ar/tahwil-webp-ila-jpg",
+      "destination": "https://helpmyimg.com/ar/tahwil-sura/",
+      "permanent": true
+    },
+    {
+      "source": "/ar/alama-maiya-mutaadida/",
+      "destination": "https://helpmyimg.com/ar/alama-maiya/",
+      "permanent": true
+    },
+    {
+      "source": "/ar/alama-maiya-mutaadida",
+      "destination": "https://helpmyimg.com/ar/alama-maiya/",
+      "permanent": true
+    },
+    {
+      "source": "/ar/tamwih-lawhat-sayara/",
+      "destination": "https://helpmyimg.com/ar/tamwih-al-wajh/",
+      "permanent": true
+    },
+    {
+      "source": "/ar/tamwih-lawhat-sayara",
+      "destination": "https://helpmyimg.com/ar/tamwih-al-wajh/",
+      "permanent": true
+    },
+    {
+      "source": "/cs/komprese-na-100kb/",
+      "destination": "https://helpmyimg.com/cs/komprese-obrazku/",
+      "permanent": true
+    },
+    {
+      "source": "/cs/komprese-na-100kb",
+      "destination": "https://helpmyimg.com/cs/komprese-obrazku/",
+      "permanent": true
+    },
+    {
+      "source": "/cs/komprese-na-50kb/",
+      "destination": "https://helpmyimg.com/cs/komprese-obrazku/",
+      "permanent": true
+    },
+    {
+      "source": "/cs/komprese-na-50kb",
+      "destination": "https://helpmyimg.com/cs/komprese-obrazku/",
+      "permanent": true
+    },
+    {
+      "source": "/cs/komprese-obrazku-na-200kb/",
+      "destination": "https://helpmyimg.com/cs/komprese-obrazku/",
+      "permanent": true
+    },
+    {
+      "source": "/cs/komprese-obrazku-na-200kb",
+      "destination": "https://helpmyimg.com/cs/komprese-obrazku/",
+      "permanent": true
+    },
+    {
+      "source": "/cs/zmena-velikosti-instagram/",
+      "destination": "https://helpmyimg.com/cs/zmena-velikosti/",
+      "permanent": true
+    },
+    {
+      "source": "/cs/zmena-velikosti-instagram",
+      "destination": "https://helpmyimg.com/cs/zmena-velikosti/",
+      "permanent": true
+    },
+    {
+      "source": "/cs/velikost-fotografie-na-pas/",
+      "destination": "https://helpmyimg.com/cs/zmena-velikosti/",
+      "permanent": true
+    },
+    {
+      "source": "/cs/velikost-fotografie-na-pas",
+      "destination": "https://helpmyimg.com/cs/zmena-velikosti/",
+      "permanent": true
+    },
+    {
+      "source": "/cs/odstranit-pozadi-z-loga/",
+      "destination": "https://helpmyimg.com/cs/odstraneni-pozadi/",
+      "permanent": true
+    },
+    {
+      "source": "/cs/odstranit-pozadi-z-loga",
+      "destination": "https://helpmyimg.com/cs/odstraneni-pozadi/",
+      "permanent": true
+    },
+    {
+      "source": "/cs/odstranit-osobu-z-fotky/",
+      "destination": "https://helpmyimg.com/cs/odstraneni-pozadi/",
+      "permanent": true
+    },
+    {
+      "source": "/cs/odstranit-osobu-z-fotky",
+      "destination": "https://helpmyimg.com/cs/odstraneni-pozadi/",
+      "permanent": true
+    },
+    {
+      "source": "/cs/zmenit-pozadi-na-bile/",
+      "destination": "https://helpmyimg.com/cs/zmena-pozadi/",
+      "permanent": true
+    },
+    {
+      "source": "/cs/zmenit-pozadi-na-bile",
+      "destination": "https://helpmyimg.com/cs/zmena-pozadi/",
+      "permanent": true
+    },
+    {
+      "source": "/cs/prevod-webp-do-jpg/",
+      "destination": "https://helpmyimg.com/cs/prevod-obrazku/",
+      "permanent": true
+    },
+    {
+      "source": "/cs/prevod-webp-do-jpg",
+      "destination": "https://helpmyimg.com/cs/prevod-obrazku/",
+      "permanent": true
+    },
+    {
+      "source": "/cs/hromadny-vodoznak-fotek/",
+      "destination": "https://helpmyimg.com/cs/vodoznak/",
+      "permanent": true
+    },
+    {
+      "source": "/cs/hromadny-vodoznak-fotek",
+      "destination": "https://helpmyimg.com/cs/vodoznak/",
+      "permanent": true
+    },
+    {
+      "source": "/cs/rozmazani-spz/",
+      "destination": "https://helpmyimg.com/cs/rozmazat-oblicej/",
+      "permanent": true
+    },
+    {
+      "source": "/cs/rozmazani-spz",
+      "destination": "https://helpmyimg.com/cs/rozmazat-oblicej/",
+      "permanent": true
+    },
+    {
+      "source": "/da/komprimer-til-100kb/",
+      "destination": "https://helpmyimg.com/da/komprimer-billede/",
+      "permanent": true
+    },
+    {
+      "source": "/da/komprimer-til-100kb",
+      "destination": "https://helpmyimg.com/da/komprimer-billede/",
+      "permanent": true
+    },
+    {
+      "source": "/da/komprimer-til-50kb/",
+      "destination": "https://helpmyimg.com/da/komprimer-billede/",
+      "permanent": true
+    },
+    {
+      "source": "/da/komprimer-til-50kb",
+      "destination": "https://helpmyimg.com/da/komprimer-billede/",
+      "permanent": true
+    },
+    {
+      "source": "/da/komprimer-billedet-til-200kb/",
+      "destination": "https://helpmyimg.com/da/komprimer-billede/",
+      "permanent": true
+    },
+    {
+      "source": "/da/komprimer-billedet-til-200kb",
+      "destination": "https://helpmyimg.com/da/komprimer-billede/",
+      "permanent": true
+    },
+    {
+      "source": "/da/tilpas-til-instagram/",
+      "destination": "https://helpmyimg.com/da/tilpas-billede/",
+      "permanent": true
+    },
+    {
+      "source": "/da/tilpas-til-instagram",
+      "destination": "https://helpmyimg.com/da/tilpas-billede/",
+      "permanent": true
+    },
+    {
+      "source": "/da/tilpas-billede-til-pas/",
+      "destination": "https://helpmyimg.com/da/tilpas-billede/",
+      "permanent": true
+    },
+    {
+      "source": "/da/tilpas-billede-til-pas",
+      "destination": "https://helpmyimg.com/da/tilpas-billede/",
+      "permanent": true
+    },
+    {
+      "source": "/da/fjern-baggrund-fra-logo/",
+      "destination": "https://helpmyimg.com/da/fjern-baggrund/",
+      "permanent": true
+    },
+    {
+      "source": "/da/fjern-baggrund-fra-logo",
+      "destination": "https://helpmyimg.com/da/fjern-baggrund/",
+      "permanent": true
+    },
+    {
+      "source": "/da/fjern-person-fra-billede/",
+      "destination": "https://helpmyimg.com/da/fjern-baggrund/",
+      "permanent": true
+    },
+    {
+      "source": "/da/fjern-person-fra-billede",
+      "destination": "https://helpmyimg.com/da/fjern-baggrund/",
+      "permanent": true
+    },
+    {
+      "source": "/da/skift-baggrund-til-hvid/",
+      "destination": "https://helpmyimg.com/da/skift-baggrund/",
+      "permanent": true
+    },
+    {
+      "source": "/da/skift-baggrund-til-hvid",
+      "destination": "https://helpmyimg.com/da/skift-baggrund/",
+      "permanent": true
+    },
+    {
+      "source": "/da/konverter-webp-til-jpg/",
+      "destination": "https://helpmyimg.com/da/konverter-billede/",
+      "permanent": true
+    },
+    {
+      "source": "/da/konverter-webp-til-jpg",
+      "destination": "https://helpmyimg.com/da/konverter-billede/",
+      "permanent": true
+    },
+    {
+      "source": "/da/batch-vandmaerke-billeder/",
+      "destination": "https://helpmyimg.com/da/vandmaerke/",
+      "permanent": true
+    },
+    {
+      "source": "/da/batch-vandmaerke-billeder",
+      "destination": "https://helpmyimg.com/da/vandmaerke/",
+      "permanent": true
+    },
+    {
+      "source": "/da/sloer-nummerplade/",
+      "destination": "https://helpmyimg.com/da/sloret-ansigt/",
+      "permanent": true
+    },
+    {
+      "source": "/da/sloer-nummerplade",
+      "destination": "https://helpmyimg.com/da/sloret-ansigt/",
+      "permanent": true
+    },
+    {
+      "source": "/de/bild-auf-100kb-komprimieren/",
+      "destination": "https://helpmyimg.com/de/bild-komprimieren/",
+      "permanent": true
+    },
+    {
+      "source": "/de/bild-auf-100kb-komprimieren",
+      "destination": "https://helpmyimg.com/de/bild-komprimieren/",
+      "permanent": true
+    },
+    {
+      "source": "/de/bild-auf-50kb-komprimieren/",
+      "destination": "https://helpmyimg.com/de/bild-komprimieren/",
+      "permanent": true
+    },
+    {
+      "source": "/de/bild-auf-50kb-komprimieren",
+      "destination": "https://helpmyimg.com/de/bild-komprimieren/",
+      "permanent": true
+    },
+    {
+      "source": "/de/bild-auf-200kb-komprimieren/",
+      "destination": "https://helpmyimg.com/de/bild-komprimieren/",
+      "permanent": true
+    },
+    {
+      "source": "/de/bild-auf-200kb-komprimieren",
+      "destination": "https://helpmyimg.com/de/bild-komprimieren/",
+      "permanent": true
+    },
+    {
+      "source": "/de/bild-fuer-instagram-skalieren/",
+      "destination": "https://helpmyimg.com/de/bild-skalieren/",
+      "permanent": true
+    },
+    {
+      "source": "/de/bild-fuer-instagram-skalieren",
+      "destination": "https://helpmyimg.com/de/bild-skalieren/",
+      "permanent": true
+    },
+    {
+      "source": "/de/foto-auf-passbildgroesse-aendern/",
+      "destination": "https://helpmyimg.com/de/bild-skalieren/",
+      "permanent": true
+    },
+    {
+      "source": "/de/foto-auf-passbildgroesse-aendern",
+      "destination": "https://helpmyimg.com/de/bild-skalieren/",
+      "permanent": true
+    },
+    {
+      "source": "/de/hintergrund-vom-logo-entfernen/",
+      "destination": "https://helpmyimg.com/de/hintergrund-entfernen/",
+      "permanent": true
+    },
+    {
+      "source": "/de/hintergrund-vom-logo-entfernen",
+      "destination": "https://helpmyimg.com/de/hintergrund-entfernen/",
+      "permanent": true
+    },
+    {
+      "source": "/de/person-aus-foto-entfernen/",
+      "destination": "https://helpmyimg.com/de/hintergrund-entfernen/",
+      "permanent": true
+    },
+    {
+      "source": "/de/person-aus-foto-entfernen",
+      "destination": "https://helpmyimg.com/de/hintergrund-entfernen/",
+      "permanent": true
+    },
+    {
+      "source": "/de/fotohintergrund-in-weiss-aendern/",
+      "destination": "https://helpmyimg.com/de/hintergrund-aendern/",
+      "permanent": true
+    },
+    {
+      "source": "/de/fotohintergrund-in-weiss-aendern",
+      "destination": "https://helpmyimg.com/de/hintergrund-aendern/",
+      "permanent": true
+    },
+    {
+      "source": "/de/webp-in-jpg-konvertieren/",
+      "destination": "https://helpmyimg.com/de/bild-konvertieren/",
+      "permanent": true
+    },
+    {
+      "source": "/de/webp-in-jpg-konvertieren",
+      "destination": "https://helpmyimg.com/de/bild-konvertieren/",
+      "permanent": true
+    },
+    {
+      "source": "/de/batch-wasserzeichen-fotos/",
+      "destination": "https://helpmyimg.com/de/wasserzeichen/",
+      "permanent": true
+    },
+    {
+      "source": "/de/batch-wasserzeichen-fotos",
+      "destination": "https://helpmyimg.com/de/wasserzeichen/",
+      "permanent": true
+    },
+    {
+      "source": "/de/nummernschild-verwischen/",
+      "destination": "https://helpmyimg.com/de/gesicht-verwischen/",
+      "permanent": true
+    },
+    {
+      "source": "/de/nummernschild-verwischen",
+      "destination": "https://helpmyimg.com/de/gesicht-verwischen/",
+      "permanent": true
+    },
+    {
+      "source": "/el/sympiesi-se-100kb/",
+      "destination": "https://helpmyimg.com/el/sympiesi-eikonas/",
+      "permanent": true
+    },
+    {
+      "source": "/el/sympiesi-se-100kb",
+      "destination": "https://helpmyimg.com/el/sympiesi-eikonas/",
+      "permanent": true
+    },
+    {
+      "source": "/el/sympiesi-se-50kb/",
+      "destination": "https://helpmyimg.com/el/sympiesi-eikonas/",
+      "permanent": true
+    },
+    {
+      "source": "/el/sympiesi-se-50kb",
+      "destination": "https://helpmyimg.com/el/sympiesi-eikonas/",
+      "permanent": true
+    },
+    {
+      "source": "/el/sympiesi-eikonas-200kb/",
+      "destination": "https://helpmyimg.com/el/sympiesi-eikonas/",
+      "permanent": true
+    },
+    {
+      "source": "/el/sympiesi-eikonas-200kb",
+      "destination": "https://helpmyimg.com/el/sympiesi-eikonas/",
+      "permanent": true
+    },
+    {
+      "source": "/el/allagi-megethous-instagram/",
+      "destination": "https://helpmyimg.com/el/allagi-megethous/",
+      "permanent": true
+    },
+    {
+      "source": "/el/allagi-megethous-instagram",
+      "destination": "https://helpmyimg.com/el/allagi-megethous/",
+      "permanent": true
+    },
+    {
+      "source": "/el/megethos-fotografias-diavatiriou/",
+      "destination": "https://helpmyimg.com/el/allagi-megethous/",
+      "permanent": true
+    },
+    {
+      "source": "/el/megethos-fotografias-diavatiriou",
+      "destination": "https://helpmyimg.com/el/allagi-megethous/",
+      "permanent": true
+    },
+    {
+      "source": "/el/afairesi-fontou-apo-logo/",
+      "destination": "https://helpmyimg.com/el/afairesi-fontou/",
+      "permanent": true
+    },
+    {
+      "source": "/el/afairesi-fontou-apo-logo",
+      "destination": "https://helpmyimg.com/el/afairesi-fontou/",
+      "permanent": true
+    },
+    {
+      "source": "/el/afairesi-atomou-apo-fotografia/",
+      "destination": "https://helpmyimg.com/el/afairesi-fontou/",
+      "permanent": true
+    },
+    {
+      "source": "/el/afairesi-atomou-apo-fotografia",
+      "destination": "https://helpmyimg.com/el/afairesi-fontou/",
+      "permanent": true
+    },
+    {
+      "source": "/el/allagi-fontou-se-lefko/",
+      "destination": "https://helpmyimg.com/el/allagi-fontou/",
+      "permanent": true
+    },
+    {
+      "source": "/el/allagi-fontou-se-lefko",
+      "destination": "https://helpmyimg.com/el/allagi-fontou/",
+      "permanent": true
+    },
+    {
+      "source": "/el/metatropi-webp-se-jpg/",
+      "destination": "https://helpmyimg.com/el/metatropi-eikonas/",
+      "permanent": true
+    },
+    {
+      "source": "/el/metatropi-webp-se-jpg",
+      "destination": "https://helpmyimg.com/el/metatropi-eikonas/",
+      "permanent": true
+    },
+    {
+      "source": "/el/maziko-ydatografima-fotografion/",
+      "destination": "https://helpmyimg.com/el/ydatografima/",
+      "permanent": true
+    },
+    {
+      "source": "/el/maziko-ydatografima-fotografion",
+      "destination": "https://helpmyimg.com/el/ydatografima/",
+      "permanent": true
+    },
+    {
+      "source": "/el/tholoma-pinakidas/",
+      "destination": "https://helpmyimg.com/el/tholo-prosopo/",
+      "permanent": true
+    },
+    {
+      "source": "/el/tholoma-pinakidas",
+      "destination": "https://helpmyimg.com/el/tholo-prosopo/",
+      "permanent": true
+    },
+    {
+      "source": "/compress-image-to-100kb/",
+      "destination": "https://helpmyimg.com/compress-image/",
+      "permanent": true
+    },
+    {
+      "source": "/compress-image-to-100kb",
+      "destination": "https://helpmyimg.com/compress-image/",
+      "permanent": true
+    },
+    {
+      "source": "/compress-image-to-50kb/",
+      "destination": "https://helpmyimg.com/compress-image/",
+      "permanent": true
+    },
+    {
+      "source": "/compress-image-to-50kb",
+      "destination": "https://helpmyimg.com/compress-image/",
+      "permanent": true
+    },
+    {
+      "source": "/compress-image-to-200kb/",
+      "destination": "https://helpmyimg.com/compress-image/",
+      "permanent": true
+    },
+    {
+      "source": "/compress-image-to-200kb",
+      "destination": "https://helpmyimg.com/compress-image/",
+      "permanent": true
+    },
+    {
+      "source": "/resize-image-for-instagram/",
+      "destination": "https://helpmyimg.com/resize-image/",
+      "permanent": true
+    },
+    {
+      "source": "/resize-image-for-instagram",
+      "destination": "https://helpmyimg.com/resize-image/",
+      "permanent": true
+    },
+    {
+      "source": "/resize-passport/",
+      "destination": "https://helpmyimg.com/resize-image/",
+      "permanent": true
+    },
+    {
+      "source": "/resize-passport",
+      "destination": "https://helpmyimg.com/resize-image/",
+      "permanent": true
+    },
+    {
+      "source": "/remove-logo/",
+      "destination": "https://helpmyimg.com/remove-background/",
+      "permanent": true
+    },
+    {
+      "source": "/remove-logo",
+      "destination": "https://helpmyimg.com/remove-background/",
+      "permanent": true
+    },
+    {
+      "source": "/remove-person-from-photo/",
+      "destination": "https://helpmyimg.com/remove-background/",
+      "permanent": true
+    },
+    {
+      "source": "/remove-person-from-photo",
+      "destination": "https://helpmyimg.com/remove-background/",
+      "permanent": true
+    },
+    {
+      "source": "/change-background-white/",
+      "destination": "https://helpmyimg.com/change-background/",
+      "permanent": true
+    },
+    {
+      "source": "/change-background-white",
+      "destination": "https://helpmyimg.com/change-background/",
+      "permanent": true
+    },
+    {
+      "source": "/convert-webp-to-jpg/",
+      "destination": "https://helpmyimg.com/convert-image/",
+      "permanent": true
+    },
+    {
+      "source": "/convert-webp-to-jpg",
+      "destination": "https://helpmyimg.com/convert-image/",
+      "permanent": true
+    },
+    {
+      "source": "/batch-watermark-photos/",
+      "destination": "https://helpmyimg.com/watermark-image/",
+      "permanent": true
+    },
+    {
+      "source": "/batch-watermark-photos",
+      "destination": "https://helpmyimg.com/watermark-image/",
+      "permanent": true
+    },
+    {
+      "source": "/blur-license-plate/",
+      "destination": "https://helpmyimg.com/blur-face/",
+      "permanent": true
+    },
+    {
+      "source": "/blur-license-plate",
+      "destination": "https://helpmyimg.com/blur-face/",
+      "permanent": true
+    },
+    {
+      "source": "/es/comprimir-imagen-a-100kb/",
+      "destination": "https://helpmyimg.com/es/comprimir-imagen/",
+      "permanent": true
+    },
+    {
+      "source": "/es/comprimir-imagen-a-100kb",
+      "destination": "https://helpmyimg.com/es/comprimir-imagen/",
+      "permanent": true
+    },
+    {
+      "source": "/es/comprimir-imagen-a-50kb/",
+      "destination": "https://helpmyimg.com/es/comprimir-imagen/",
+      "permanent": true
+    },
+    {
+      "source": "/es/comprimir-imagen-a-50kb",
+      "destination": "https://helpmyimg.com/es/comprimir-imagen/",
+      "permanent": true
+    },
+    {
+      "source": "/es/comprimir-imagen-a-200kb/",
+      "destination": "https://helpmyimg.com/es/comprimir-imagen/",
+      "permanent": true
+    },
+    {
+      "source": "/es/comprimir-imagen-a-200kb",
+      "destination": "https://helpmyimg.com/es/comprimir-imagen/",
+      "permanent": true
+    },
+    {
+      "source": "/es/redimensionar-para-instagram/",
+      "destination": "https://helpmyimg.com/es/redimensionar-imagen/",
+      "permanent": true
+    },
+    {
+      "source": "/es/redimensionar-para-instagram",
+      "destination": "https://helpmyimg.com/es/redimensionar-imagen/",
+      "permanent": true
+    },
+    {
+      "source": "/es/tamano-foto-pasaporte/",
+      "destination": "https://helpmyimg.com/es/redimensionar-imagen/",
+      "permanent": true
+    },
+    {
+      "source": "/es/tamano-foto-pasaporte",
+      "destination": "https://helpmyimg.com/es/redimensionar-imagen/",
+      "permanent": true
+    },
+    {
+      "source": "/es/eliminar-el-fondo-del-logo/",
+      "destination": "https://helpmyimg.com/es/quitar-fondo/",
+      "permanent": true
+    },
+    {
+      "source": "/es/eliminar-el-fondo-del-logo",
+      "destination": "https://helpmyimg.com/es/quitar-fondo/",
+      "permanent": true
+    },
+    {
+      "source": "/es/eliminar-persona-de-la-foto/",
+      "destination": "https://helpmyimg.com/es/quitar-fondo/",
+      "permanent": true
+    },
+    {
+      "source": "/es/eliminar-persona-de-la-foto",
+      "destination": "https://helpmyimg.com/es/quitar-fondo/",
+      "permanent": true
+    },
+    {
+      "source": "/es/cambiar-el-fondo-de-la-foto-a-blanco/",
+      "destination": "https://helpmyimg.com/es/cambiar-fondo/",
+      "permanent": true
+    },
+    {
+      "source": "/es/cambiar-el-fondo-de-la-foto-a-blanco",
+      "destination": "https://helpmyimg.com/es/cambiar-fondo/",
+      "permanent": true
+    },
+    {
+      "source": "/es/convertir-webp-a-jpg/",
+      "destination": "https://helpmyimg.com/es/convertir-imagen/",
+      "permanent": true
+    },
+    {
+      "source": "/es/convertir-webp-a-jpg",
+      "destination": "https://helpmyimg.com/es/convertir-imagen/",
+      "permanent": true
+    },
+    {
+      "source": "/es/fotos-de-marca-de-agua-por-lotes/",
+      "destination": "https://helpmyimg.com/es/marca-de-agua/",
+      "permanent": true
+    },
+    {
+      "source": "/es/fotos-de-marca-de-agua-por-lotes",
+      "destination": "https://helpmyimg.com/es/marca-de-agua/",
+      "permanent": true
+    },
+    {
+      "source": "/es/difuminar-matricula/",
+      "destination": "https://helpmyimg.com/es/difuminar-rostro/",
+      "permanent": true
+    },
+    {
+      "source": "/es/difuminar-matricula",
+      "destination": "https://helpmyimg.com/es/difuminar-rostro/",
+      "permanent": true
+    },
+    {
+      "source": "/fi/pakkaa-100kb/",
+      "destination": "https://helpmyimg.com/fi/pakkaa-kuva/",
+      "permanent": true
+    },
+    {
+      "source": "/fi/pakkaa-100kb",
+      "destination": "https://helpmyimg.com/fi/pakkaa-kuva/",
+      "permanent": true
+    },
+    {
+      "source": "/fi/pakkaa-50kb/",
+      "destination": "https://helpmyimg.com/fi/pakkaa-kuva/",
+      "permanent": true
+    },
+    {
+      "source": "/fi/pakkaa-50kb",
+      "destination": "https://helpmyimg.com/fi/pakkaa-kuva/",
+      "permanent": true
+    },
+    {
+      "source": "/fi/pakkaa-kuvan-kokoon-200-kb/",
+      "destination": "https://helpmyimg.com/fi/pakkaa-kuva/",
+      "permanent": true
+    },
+    {
+      "source": "/fi/pakkaa-kuvan-kokoon-200-kb",
+      "destination": "https://helpmyimg.com/fi/pakkaa-kuva/",
+      "permanent": true
+    },
+    {
+      "source": "/fi/muuta-kokoa-instagram/",
+      "destination": "https://helpmyimg.com/fi/muuta-kokoa/",
+      "permanent": true
+    },
+    {
+      "source": "/fi/muuta-kokoa-instagram",
+      "destination": "https://helpmyimg.com/fi/muuta-kokoa/",
+      "permanent": true
+    },
+    {
+      "source": "/fi/muuta-valokuvan-kokoa-passin-kokoon/",
+      "destination": "https://helpmyimg.com/fi/muuta-kokoa/",
+      "permanent": true
+    },
+    {
+      "source": "/fi/muuta-valokuvan-kokoa-passin-kokoon",
+      "destination": "https://helpmyimg.com/fi/muuta-kokoa/",
+      "permanent": true
+    },
+    {
+      "source": "/fi/poista-tausta-logosta/",
+      "destination": "https://helpmyimg.com/fi/poista-tausta/",
+      "permanent": true
+    },
+    {
+      "source": "/fi/poista-tausta-logosta",
+      "destination": "https://helpmyimg.com/fi/poista-tausta/",
+      "permanent": true
+    },
+    {
+      "source": "/fi/poista-henkilo-valokuvasta/",
+      "destination": "https://helpmyimg.com/fi/poista-tausta/",
+      "permanent": true
+    },
+    {
+      "source": "/fi/poista-henkilo-valokuvasta",
+      "destination": "https://helpmyimg.com/fi/poista-tausta/",
+      "permanent": true
+    },
+    {
+      "source": "/fi/muuta-valokuvan-tausta-valkoiseksi/",
+      "destination": "https://helpmyimg.com/fi/vaihda-tausta/",
+      "permanent": true
+    },
+    {
+      "source": "/fi/muuta-valokuvan-tausta-valkoiseksi",
+      "destination": "https://helpmyimg.com/fi/vaihda-tausta/",
+      "permanent": true
+    },
+    {
+      "source": "/fi/muunna-webp-jpg-muotoon/",
+      "destination": "https://helpmyimg.com/fi/muunna-kuva/",
+      "permanent": true
+    },
+    {
+      "source": "/fi/muunna-webp-jpg-muotoon",
+      "destination": "https://helpmyimg.com/fi/muunna-kuva/",
+      "permanent": true
+    },
+    {
+      "source": "/fi/era-vesileimaa-kuvat/",
+      "destination": "https://helpmyimg.com/fi/vesileima/",
+      "permanent": true
+    },
+    {
+      "source": "/fi/era-vesileimaa-kuvat",
+      "destination": "https://helpmyimg.com/fi/vesileima/",
+      "permanent": true
+    },
+    {
+      "source": "/fi/sumenna-rekisterikilpi/",
+      "destination": "https://helpmyimg.com/fi/sumentaa-kasvot/",
+      "permanent": true
+    },
+    {
+      "source": "/fi/sumenna-rekisterikilpi",
+      "destination": "https://helpmyimg.com/fi/sumentaa-kasvot/",
+      "permanent": true
+    },
+    {
+      "source": "/fr/compresser-image-100ko/",
+      "destination": "https://helpmyimg.com/fr/compresser-image/",
+      "permanent": true
+    },
+    {
+      "source": "/fr/compresser-image-100ko",
+      "destination": "https://helpmyimg.com/fr/compresser-image/",
+      "permanent": true
+    },
+    {
+      "source": "/fr/compresser-image-50ko/",
+      "destination": "https://helpmyimg.com/fr/compresser-image/",
+      "permanent": true
+    },
+    {
+      "source": "/fr/compresser-image-50ko",
+      "destination": "https://helpmyimg.com/fr/compresser-image/",
+      "permanent": true
+    },
+    {
+      "source": "/fr/compresser-image-200ko/",
+      "destination": "https://helpmyimg.com/fr/compresser-image/",
+      "permanent": true
+    },
+    {
+      "source": "/fr/compresser-image-200ko",
+      "destination": "https://helpmyimg.com/fr/compresser-image/",
+      "permanent": true
+    },
+    {
+      "source": "/fr/redimensionner-pour-instagram/",
+      "destination": "https://helpmyimg.com/fr/redimensionner-image/",
+      "permanent": true
+    },
+    {
+      "source": "/fr/redimensionner-pour-instagram",
+      "destination": "https://helpmyimg.com/fr/redimensionner-image/",
+      "permanent": true
+    },
+    {
+      "source": "/fr/redimensionner-la-photo-au-format-passeport/",
+      "destination": "https://helpmyimg.com/fr/redimensionner-image/",
+      "permanent": true
+    },
+    {
+      "source": "/fr/redimensionner-la-photo-au-format-passeport",
+      "destination": "https://helpmyimg.com/fr/redimensionner-image/",
+      "permanent": true
+    },
+    {
+      "source": "/fr/supprimer-fond-logo/",
+      "destination": "https://helpmyimg.com/fr/supprimer-fond/",
+      "permanent": true
+    },
+    {
+      "source": "/fr/supprimer-fond-logo",
+      "destination": "https://helpmyimg.com/fr/supprimer-fond/",
+      "permanent": true
+    },
+    {
+      "source": "/fr/supprimer-une-personne-de-la-photo/",
+      "destination": "https://helpmyimg.com/fr/supprimer-fond/",
+      "permanent": true
+    },
+    {
+      "source": "/fr/supprimer-une-personne-de-la-photo",
+      "destination": "https://helpmyimg.com/fr/supprimer-fond/",
+      "permanent": true
+    },
+    {
+      "source": "/fr/changer-le-fond-de-la-photo-en-blanc/",
+      "destination": "https://helpmyimg.com/fr/changer-fond/",
+      "permanent": true
+    },
+    {
+      "source": "/fr/changer-le-fond-de-la-photo-en-blanc",
+      "destination": "https://helpmyimg.com/fr/changer-fond/",
+      "permanent": true
+    },
+    {
+      "source": "/fr/convertir-webp-en-jpg/",
+      "destination": "https://helpmyimg.com/fr/convertir-image/",
+      "permanent": true
+    },
+    {
+      "source": "/fr/convertir-webp-en-jpg",
+      "destination": "https://helpmyimg.com/fr/convertir-image/",
+      "permanent": true
+    },
+    {
+      "source": "/fr/photos-en-filigrane-par-lots/",
+      "destination": "https://helpmyimg.com/fr/filigrane/",
+      "permanent": true
+    },
+    {
+      "source": "/fr/photos-en-filigrane-par-lots",
+      "destination": "https://helpmyimg.com/fr/filigrane/",
+      "permanent": true
+    },
+    {
+      "source": "/fr/flouter-la-plaque-dimmatriculation/",
+      "destination": "https://helpmyimg.com/fr/flouter-visage/",
+      "permanent": true
+    },
+    {
+      "source": "/fr/flouter-la-plaque-dimmatriculation",
+      "destination": "https://helpmyimg.com/fr/flouter-visage/",
+      "permanent": true
+    },
+    {
+      "source": "/he/dchisat-tmuna-100kb/",
+      "destination": "https://helpmyimg.com/he/dchisat-tmuna/",
+      "permanent": true
+    },
+    {
+      "source": "/he/dchisat-tmuna-100kb",
+      "destination": "https://helpmyimg.com/he/dchisat-tmuna/",
+      "permanent": true
+    },
+    {
+      "source": "/he/dchisat-tmuna-50kb/",
+      "destination": "https://helpmyimg.com/he/dchisat-tmuna/",
+      "permanent": true
+    },
+    {
+      "source": "/he/dchisat-tmuna-50kb",
+      "destination": "https://helpmyimg.com/he/dchisat-tmuna/",
+      "permanent": true
+    },
+    {
+      "source": "/he/dchisat-tmuna-200kb/",
+      "destination": "https://helpmyimg.com/he/dchisat-tmuna/",
+      "permanent": true
+    },
+    {
+      "source": "/he/dchisat-tmuna-200kb",
+      "destination": "https://helpmyimg.com/he/dchisat-tmuna/",
+      "permanent": true
+    },
+    {
+      "source": "/he/shinui-godel-instagram/",
+      "destination": "https://helpmyimg.com/he/shinui-godel/",
+      "permanent": true
+    },
+    {
+      "source": "/he/shinui-godel-instagram",
+      "destination": "https://helpmyimg.com/he/shinui-godel/",
+      "permanent": true
+    },
+    {
+      "source": "/he/shinui-godel-tmuna-darkon/",
+      "destination": "https://helpmyimg.com/he/shinui-godel/",
+      "permanent": true
+    },
+    {
+      "source": "/he/shinui-godel-tmuna-darkon",
+      "destination": "https://helpmyimg.com/he/shinui-godel/",
+      "permanent": true
+    },
+    {
+      "source": "/he/hasarat-reka-me-logo/",
+      "destination": "https://helpmyimg.com/he/hasarat-reka/",
+      "permanent": true
+    },
+    {
+      "source": "/he/hasarat-reka-me-logo",
+      "destination": "https://helpmyimg.com/he/hasarat-reka/",
+      "permanent": true
+    },
+    {
+      "source": "/he/hasarat-adam-me-tmuna/",
+      "destination": "https://helpmyimg.com/he/hasarat-reka/",
+      "permanent": true
+    },
+    {
+      "source": "/he/hasarat-adam-me-tmuna",
+      "destination": "https://helpmyimg.com/he/hasarat-reka/",
+      "permanent": true
+    },
+    {
+      "source": "/he/shinui-reka-le-lavan/",
+      "destination": "https://helpmyimg.com/he/shinui-reka/",
+      "permanent": true
+    },
+    {
+      "source": "/he/shinui-reka-le-lavan",
+      "destination": "https://helpmyimg.com/he/shinui-reka/",
+      "permanent": true
+    },
+    {
+      "source": "/he/hamarat-webp-le-jpg/",
+      "destination": "https://helpmyimg.com/he/hamarat-tmuna/",
+      "permanent": true
+    },
+    {
+      "source": "/he/hamarat-webp-le-jpg",
+      "destination": "https://helpmyimg.com/he/hamarat-tmuna/",
+      "permanent": true
+    },
+    {
+      "source": "/he/siman-maim-bekavutzot/",
+      "destination": "https://helpmyimg.com/he/siman-maim/",
+      "permanent": true
+    },
+    {
+      "source": "/he/siman-maim-bekavutzot",
+      "destination": "https://helpmyimg.com/he/siman-maim/",
+      "permanent": true
+    },
+    {
+      "source": "/he/tistush-luchit-rishui/",
+      "destination": "https://helpmyimg.com/he/tistush-panim/",
+      "permanent": true
+    },
+    {
+      "source": "/he/tistush-luchit-rishui",
+      "destination": "https://helpmyimg.com/he/tistush-panim/",
+      "permanent": true
+    },
+    {
+      "source": "/hi/image-compress-100kb/",
+      "destination": "https://helpmyimg.com/hi/image-compress/",
+      "permanent": true
+    },
+    {
+      "source": "/hi/image-compress-100kb",
+      "destination": "https://helpmyimg.com/hi/image-compress/",
+      "permanent": true
+    },
+    {
+      "source": "/hi/image-compress-50kb/",
+      "destination": "https://helpmyimg.com/hi/image-compress/",
+      "permanent": true
+    },
+    {
+      "source": "/hi/image-compress-50kb",
+      "destination": "https://helpmyimg.com/hi/image-compress/",
+      "permanent": true
+    },
+    {
+      "source": "/hi/image-compress-200kb/",
+      "destination": "https://helpmyimg.com/hi/image-compress/",
+      "permanent": true
+    },
+    {
+      "source": "/hi/image-compress-200kb",
+      "destination": "https://helpmyimg.com/hi/image-compress/",
+      "permanent": true
+    },
+    {
+      "source": "/hi/instagram-image-resize/",
+      "destination": "https://helpmyimg.com/hi/image-resize/",
+      "permanent": true
+    },
+    {
+      "source": "/hi/instagram-image-resize",
+      "destination": "https://helpmyimg.com/hi/image-resize/",
+      "permanent": true
+    },
+    {
+      "source": "/hi/passport-size-photo-resize/",
+      "destination": "https://helpmyimg.com/hi/image-resize/",
+      "permanent": true
+    },
+    {
+      "source": "/hi/passport-size-photo-resize",
+      "destination": "https://helpmyimg.com/hi/image-resize/",
+      "permanent": true
+    },
+    {
+      "source": "/hi/logo-ka-background-hataye/",
+      "destination": "https://helpmyimg.com/hi/background-hatao/",
+      "permanent": true
+    },
+    {
+      "source": "/hi/logo-ka-background-hataye",
+      "destination": "https://helpmyimg.com/hi/background-hatao/",
+      "permanent": true
+    },
+    {
+      "source": "/hi/photo-se-vyakti-hataye/",
+      "destination": "https://helpmyimg.com/hi/background-hatao/",
+      "permanent": true
+    },
+    {
+      "source": "/hi/photo-se-vyakti-hataye",
+      "destination": "https://helpmyimg.com/hi/background-hatao/",
+      "permanent": true
+    },
+    {
+      "source": "/hi/photo-background-safed-kare/",
+      "destination": "https://helpmyimg.com/hi/background-badlo/",
+      "permanent": true
+    },
+    {
+      "source": "/hi/photo-background-safed-kare",
+      "destination": "https://helpmyimg.com/hi/background-badlo/",
+      "permanent": true
+    },
+    {
+      "source": "/hi/webp-ko-jpg-mein-badle/",
+      "destination": "https://helpmyimg.com/hi/image-convert/",
+      "permanent": true
+    },
+    {
+      "source": "/hi/webp-ko-jpg-mein-badle",
+      "destination": "https://helpmyimg.com/hi/image-convert/",
+      "permanent": true
+    },
+    {
+      "source": "/hi/bulk-watermark-photo/",
+      "destination": "https://helpmyimg.com/hi/watermark-lagao/",
+      "permanent": true
+    },
+    {
+      "source": "/hi/bulk-watermark-photo",
+      "destination": "https://helpmyimg.com/hi/watermark-lagao/",
+      "permanent": true
+    },
+    {
+      "source": "/hi/number-plate-blur-kare/",
+      "destination": "https://helpmyimg.com/hi/chehra-dhundhla-kare/",
+      "permanent": true
+    },
+    {
+      "source": "/hi/number-plate-blur-kare",
+      "destination": "https://helpmyimg.com/hi/chehra-dhundhla-kare/",
+      "permanent": true
+    },
+    {
+      "source": "/hu/kep-tomorites-100kb/",
+      "destination": "https://helpmyimg.com/hu/kep-tomorites/",
+      "permanent": true
+    },
+    {
+      "source": "/hu/kep-tomorites-100kb",
+      "destination": "https://helpmyimg.com/hu/kep-tomorites/",
+      "permanent": true
+    },
+    {
+      "source": "/hu/kep-tomorites-50kb/",
+      "destination": "https://helpmyimg.com/hu/kep-tomorites/",
+      "permanent": true
+    },
+    {
+      "source": "/hu/kep-tomorites-50kb",
+      "destination": "https://helpmyimg.com/hu/kep-tomorites/",
+      "permanent": true
+    },
+    {
+      "source": "/hu/kep-tomorites-200kb/",
+      "destination": "https://helpmyimg.com/hu/kep-tomorites/",
+      "permanent": true
+    },
+    {
+      "source": "/hu/kep-tomorites-200kb",
+      "destination": "https://helpmyimg.com/hu/kep-tomorites/",
+      "permanent": true
+    },
+    {
+      "source": "/hu/instagram-atmeretezes/",
+      "destination": "https://helpmyimg.com/hu/kep-atmeretezes/",
+      "permanent": true
+    },
+    {
+      "source": "/hu/instagram-atmeretezes",
+      "destination": "https://helpmyimg.com/hu/kep-atmeretezes/",
+      "permanent": true
+    },
+    {
+      "source": "/hu/utlevelfoto-atmeretezes/",
+      "destination": "https://helpmyimg.com/hu/kep-atmeretezes/",
+      "permanent": true
+    },
+    {
+      "source": "/hu/utlevelfoto-atmeretezes",
+      "destination": "https://helpmyimg.com/hu/kep-atmeretezes/",
+      "permanent": true
+    },
+    {
+      "source": "/hu/hatter-eltavolitas-logobol/",
+      "destination": "https://helpmyimg.com/hu/hatter-eltavolitas/",
+      "permanent": true
+    },
+    {
+      "source": "/hu/hatter-eltavolitas-logobol",
+      "destination": "https://helpmyimg.com/hu/hatter-eltavolitas/",
+      "permanent": true
+    },
+    {
+      "source": "/hu/szemely-eltavolitasa-fotorol/",
+      "destination": "https://helpmyimg.com/hu/hatter-eltavolitas/",
+      "permanent": true
+    },
+    {
+      "source": "/hu/szemely-eltavolitasa-fotorol",
+      "destination": "https://helpmyimg.com/hu/hatter-eltavolitas/",
+      "permanent": true
+    },
+    {
+      "source": "/hu/foto-hatter-feherre-modositasa/",
+      "destination": "https://helpmyimg.com/hu/hatter-modositas/",
+      "permanent": true
+    },
+    {
+      "source": "/hu/foto-hatter-feherre-modositasa",
+      "destination": "https://helpmyimg.com/hu/hatter-modositas/",
+      "permanent": true
+    },
+    {
+      "source": "/hu/webp-konvertalas-jpg-be/",
+      "destination": "https://helpmyimg.com/hu/kep-konvertalas/",
+      "permanent": true
+    },
+    {
+      "source": "/hu/webp-konvertalas-jpg-be",
+      "destination": "https://helpmyimg.com/hu/kep-konvertalas/",
+      "permanent": true
+    },
+    {
+      "source": "/hu/tomeges-vizjel-fotok/",
+      "destination": "https://helpmyimg.com/hu/vizjel/",
+      "permanent": true
+    },
+    {
+      "source": "/hu/tomeges-vizjel-fotok",
+      "destination": "https://helpmyimg.com/hu/vizjel/",
+      "permanent": true
+    },
+    {
+      "source": "/hu/rendszam-elmosasa/",
+      "destination": "https://helpmyimg.com/hu/arc-elmosasa/",
+      "permanent": true
+    },
+    {
+      "source": "/hu/rendszam-elmosasa",
+      "destination": "https://helpmyimg.com/hu/arc-elmosasa/",
+      "permanent": true
+    },
+    {
+      "source": "/id/kompres-foto-100kb/",
+      "destination": "https://helpmyimg.com/id/kompres-gambar/",
+      "permanent": true
+    },
+    {
+      "source": "/id/kompres-foto-100kb",
+      "destination": "https://helpmyimg.com/id/kompres-gambar/",
+      "permanent": true
+    },
+    {
+      "source": "/id/kompres-foto-50kb/",
+      "destination": "https://helpmyimg.com/id/kompres-gambar/",
+      "permanent": true
+    },
+    {
+      "source": "/id/kompres-foto-50kb",
+      "destination": "https://helpmyimg.com/id/kompres-gambar/",
+      "permanent": true
+    },
+    {
+      "source": "/id/kompres-gambar-menjadi-200kb/",
+      "destination": "https://helpmyimg.com/id/kompres-gambar/",
+      "permanent": true
+    },
+    {
+      "source": "/id/kompres-gambar-menjadi-200kb",
+      "destination": "https://helpmyimg.com/id/kompres-gambar/",
+      "permanent": true
+    },
+    {
+      "source": "/id/ubah-ukuran-instagram/",
+      "destination": "https://helpmyimg.com/id/ubah-ukuran-gambar/",
+      "permanent": true
+    },
+    {
+      "source": "/id/ubah-ukuran-instagram",
+      "destination": "https://helpmyimg.com/id/ubah-ukuran-gambar/",
+      "permanent": true
+    },
+    {
+      "source": "/id/mengubah-ukuran-foto-menjadi-ukuran-paspor/",
+      "destination": "https://helpmyimg.com/id/ubah-ukuran-gambar/",
+      "permanent": true
+    },
+    {
+      "source": "/id/mengubah-ukuran-foto-menjadi-ukuran-paspor",
+      "destination": "https://helpmyimg.com/id/ubah-ukuran-gambar/",
+      "permanent": true
+    },
+    {
+      "source": "/id/hapus-latar-belakang-dari-logo/",
+      "destination": "https://helpmyimg.com/id/hapus-latar-belakang/",
+      "permanent": true
+    },
+    {
+      "source": "/id/hapus-latar-belakang-dari-logo",
+      "destination": "https://helpmyimg.com/id/hapus-latar-belakang/",
+      "permanent": true
+    },
+    {
+      "source": "/id/hapus-orang-dari-foto/",
+      "destination": "https://helpmyimg.com/id/hapus-latar-belakang/",
+      "permanent": true
+    },
+    {
+      "source": "/id/hapus-orang-dari-foto",
+      "destination": "https://helpmyimg.com/id/hapus-latar-belakang/",
+      "permanent": true
+    },
+    {
+      "source": "/id/ubah-background-foto-menjadi-putih/",
+      "destination": "https://helpmyimg.com/id/ganti-background/",
+      "permanent": true
+    },
+    {
+      "source": "/id/ubah-background-foto-menjadi-putih",
+      "destination": "https://helpmyimg.com/id/ganti-background/",
+      "permanent": true
+    },
+    {
+      "source": "/id/mengonversi-webp-ke-jpg/",
+      "destination": "https://helpmyimg.com/id/ubah-format-gambar/",
+      "permanent": true
+    },
+    {
+      "source": "/id/mengonversi-webp-ke-jpg",
+      "destination": "https://helpmyimg.com/id/ubah-format-gambar/",
+      "permanent": true
+    },
+    {
+      "source": "/id/kumpulan-foto-tanda-air/",
+      "destination": "https://helpmyimg.com/id/buat-watermark/",
+      "permanent": true
+    },
+    {
+      "source": "/id/kumpulan-foto-tanda-air",
+      "destination": "https://helpmyimg.com/id/buat-watermark/",
+      "permanent": true
+    },
+    {
+      "source": "/id/mengaburkan-pelat-nomor/",
+      "destination": "https://helpmyimg.com/id/sensor-wajah/",
+      "permanent": true
+    },
+    {
+      "source": "/id/mengaburkan-pelat-nomor",
+      "destination": "https://helpmyimg.com/id/sensor-wajah/",
+      "permanent": true
+    },
+    {
+      "source": "/it/comprimi-immagine-100kb/",
+      "destination": "https://helpmyimg.com/it/comprimi-immagine/",
+      "permanent": true
+    },
+    {
+      "source": "/it/comprimi-immagine-100kb",
+      "destination": "https://helpmyimg.com/it/comprimi-immagine/",
+      "permanent": true
+    },
+    {
+      "source": "/it/comprimi-immagine-50kb/",
+      "destination": "https://helpmyimg.com/it/comprimi-immagine/",
+      "permanent": true
+    },
+    {
+      "source": "/it/comprimi-immagine-50kb",
+      "destination": "https://helpmyimg.com/it/comprimi-immagine/",
+      "permanent": true
+    },
+    {
+      "source": "/it/comprimi-immagine-a-200kb/",
+      "destination": "https://helpmyimg.com/it/comprimi-immagine/",
+      "permanent": true
+    },
+    {
+      "source": "/it/comprimi-immagine-a-200kb",
+      "destination": "https://helpmyimg.com/it/comprimi-immagine/",
+      "permanent": true
+    },
+    {
+      "source": "/it/ridimensiona-per-instagram/",
+      "destination": "https://helpmyimg.com/it/ridimensiona-immagine/",
+      "permanent": true
+    },
+    {
+      "source": "/it/ridimensiona-per-instagram",
+      "destination": "https://helpmyimg.com/it/ridimensiona-immagine/",
+      "permanent": true
+    },
+    {
+      "source": "/it/ridimensionare-la-foto-in-formato-tessera/",
+      "destination": "https://helpmyimg.com/it/ridimensiona-immagine/",
+      "permanent": true
+    },
+    {
+      "source": "/it/ridimensionare-la-foto-in-formato-tessera",
+      "destination": "https://helpmyimg.com/it/ridimensiona-immagine/",
+      "permanent": true
+    },
+    {
+      "source": "/it/rimuovere-lo-sfondo-dal-logo/",
+      "destination": "https://helpmyimg.com/it/rimuovi-sfondo/",
+      "permanent": true
+    },
+    {
+      "source": "/it/rimuovere-lo-sfondo-dal-logo",
+      "destination": "https://helpmyimg.com/it/rimuovi-sfondo/",
+      "permanent": true
+    },
+    {
+      "source": "/it/rimuovere-la-persona-dalla-foto/",
+      "destination": "https://helpmyimg.com/it/rimuovi-sfondo/",
+      "permanent": true
+    },
+    {
+      "source": "/it/rimuovere-la-persona-dalla-foto",
+      "destination": "https://helpmyimg.com/it/rimuovi-sfondo/",
+      "permanent": true
+    },
+    {
+      "source": "/it/cambia-lo-sfondo-della-foto-in-bianco/",
+      "destination": "https://helpmyimg.com/it/cambia-sfondo/",
+      "permanent": true
+    },
+    {
+      "source": "/it/cambia-lo-sfondo-della-foto-in-bianco",
+      "destination": "https://helpmyimg.com/it/cambia-sfondo/",
+      "permanent": true
+    },
+    {
+      "source": "/it/convertire-webp-in-jpg/",
+      "destination": "https://helpmyimg.com/it/converti-immagine/",
+      "permanent": true
+    },
+    {
+      "source": "/it/convertire-webp-in-jpg",
+      "destination": "https://helpmyimg.com/it/converti-immagine/",
+      "permanent": true
+    },
+    {
+      "source": "/it/foto-con-filigrana-in-batch/",
+      "destination": "https://helpmyimg.com/it/filigrana/",
+      "permanent": true
+    },
+    {
+      "source": "/it/foto-con-filigrana-in-batch",
+      "destination": "https://helpmyimg.com/it/filigrana/",
+      "permanent": true
+    },
+    {
+      "source": "/it/targa-sfocata/",
+      "destination": "https://helpmyimg.com/it/sfoca-viso/",
+      "permanent": true
+    },
+    {
+      "source": "/it/targa-sfocata",
+      "destination": "https://helpmyimg.com/it/sfoca-viso/",
+      "permanent": true
+    },
+    {
+      "source": "/ja/gazo-asshuku-100kb/",
+      "destination": "https://helpmyimg.com/ja/gazo-asshuku/",
+      "permanent": true
+    },
+    {
+      "source": "/ja/gazo-asshuku-100kb",
+      "destination": "https://helpmyimg.com/ja/gazo-asshuku/",
+      "permanent": true
+    },
+    {
+      "source": "/ja/gazo-asshuku-50kb/",
+      "destination": "https://helpmyimg.com/ja/gazo-asshuku/",
+      "permanent": true
+    },
+    {
+      "source": "/ja/gazo-asshuku-50kb",
+      "destination": "https://helpmyimg.com/ja/gazo-asshuku/",
+      "permanent": true
+    },
+    {
+      "source": "/ja/gazo-asshuku-200kb/",
+      "destination": "https://helpmyimg.com/ja/gazo-asshuku/",
+      "permanent": true
+    },
+    {
+      "source": "/ja/gazo-asshuku-200kb",
+      "destination": "https://helpmyimg.com/ja/gazo-asshuku/",
+      "permanent": true
+    },
+    {
+      "source": "/ja/insutaguramu-ri-saizu/",
+      "destination": "https://helpmyimg.com/ja/gazo-ri-saizu/",
+      "permanent": true
+    },
+    {
+      "source": "/ja/insutaguramu-ri-saizu",
+      "destination": "https://helpmyimg.com/ja/gazo-ri-saizu/",
+      "permanent": true
+    },
+    {
+      "source": "/ja/pasupoto-shashin-saizu/",
+      "destination": "https://helpmyimg.com/ja/gazo-ri-saizu/",
+      "permanent": true
+    },
+    {
+      "source": "/ja/pasupoto-shashin-saizu",
+      "destination": "https://helpmyimg.com/ja/gazo-ri-saizu/",
+      "permanent": true
+    },
+    {
+      "source": "/ja/rogo-haikei-sakuzyo/",
+      "destination": "https://helpmyimg.com/ja/haikei-sakuzyo/",
+      "permanent": true
+    },
+    {
+      "source": "/ja/rogo-haikei-sakuzyo",
+      "destination": "https://helpmyimg.com/ja/haikei-sakuzyo/",
+      "permanent": true
+    },
+    {
+      "source": "/ja/jinbutsu-sakuzyo/",
+      "destination": "https://helpmyimg.com/ja/haikei-sakuzyo/",
+      "permanent": true
+    },
+    {
+      "source": "/ja/jinbutsu-sakuzyo",
+      "destination": "https://helpmyimg.com/ja/haikei-sakuzyo/",
+      "permanent": true
+    },
+    {
+      "source": "/ja/haikei-shiro-henko/",
+      "destination": "https://helpmyimg.com/ja/haikei-henko/",
+      "permanent": true
+    },
+    {
+      "source": "/ja/haikei-shiro-henko",
+      "destination": "https://helpmyimg.com/ja/haikei-henko/",
+      "permanent": true
+    },
+    {
+      "source": "/ja/webp-jpg-henkan/",
+      "destination": "https://helpmyimg.com/ja/gazo-henkan/",
+      "permanent": true
+    },
+    {
+      "source": "/ja/webp-jpg-henkan",
+      "destination": "https://helpmyimg.com/ja/gazo-henkan/",
+      "permanent": true
+    },
+    {
+      "source": "/ja/ikkatsu-sukashi-gazo/",
+      "destination": "https://helpmyimg.com/ja/sukashi/",
+      "permanent": true
+    },
+    {
+      "source": "/ja/ikkatsu-sukashi-gazo",
+      "destination": "https://helpmyimg.com/ja/sukashi/",
+      "permanent": true
+    },
+    {
+      "source": "/ja/nanbapureto-bokashi/",
+      "destination": "https://helpmyimg.com/ja/kao-bokashi/",
+      "permanent": true
+    },
+    {
+      "source": "/ja/nanbapureto-bokashi",
+      "destination": "https://helpmyimg.com/ja/kao-bokashi/",
+      "permanent": true
+    },
+    {
+      "source": "/ko/imiji-abchuk-100kb/",
+      "destination": "https://helpmyimg.com/ko/imiji-abchuk/",
+      "permanent": true
+    },
+    {
+      "source": "/ko/imiji-abchuk-100kb",
+      "destination": "https://helpmyimg.com/ko/imiji-abchuk/",
+      "permanent": true
+    },
+    {
+      "source": "/ko/imiji-abchuk-50kb/",
+      "destination": "https://helpmyimg.com/ko/imiji-abchuk/",
+      "permanent": true
+    },
+    {
+      "source": "/ko/imiji-abchuk-50kb",
+      "destination": "https://helpmyimg.com/ko/imiji-abchuk/",
+      "permanent": true
+    },
+    {
+      "source": "/ko/imiji-abchuk-200kb/",
+      "destination": "https://helpmyimg.com/ko/imiji-abchuk/",
+      "permanent": true
+    },
+    {
+      "source": "/ko/imiji-abchuk-200kb",
+      "destination": "https://helpmyimg.com/ko/imiji-abchuk/",
+      "permanent": true
+    },
+    {
+      "source": "/ko/inseuta-imiji-keugi/",
+      "destination": "https://helpmyimg.com/ko/imiji-keugi-jojeong/",
+      "permanent": true
+    },
+    {
+      "source": "/ko/inseuta-imiji-keugi",
+      "destination": "https://helpmyimg.com/ko/imiji-keugi-jojeong/",
+      "permanent": true
+    },
+    {
+      "source": "/ko/yeogwon-sajin-keugi/",
+      "destination": "https://helpmyimg.com/ko/imiji-keugi-jojeong/",
+      "permanent": true
+    },
+    {
+      "source": "/ko/yeogwon-sajin-keugi",
+      "destination": "https://helpmyimg.com/ko/imiji-keugi-jojeong/",
+      "permanent": true
+    },
+    {
+      "source": "/ko/rogo-baegyeong-jegeo/",
+      "destination": "https://helpmyimg.com/ko/baegyeong-jegeo/",
+      "permanent": true
+    },
+    {
+      "source": "/ko/rogo-baegyeong-jegeo",
+      "destination": "https://helpmyimg.com/ko/baegyeong-jegeo/",
+      "permanent": true
+    },
+    {
+      "source": "/ko/sajin-saram-jegeo/",
+      "destination": "https://helpmyimg.com/ko/baegyeong-jegeo/",
+      "permanent": true
+    },
+    {
+      "source": "/ko/sajin-saram-jegeo",
+      "destination": "https://helpmyimg.com/ko/baegyeong-jegeo/",
+      "permanent": true
+    },
+    {
+      "source": "/ko/sajin-baegyeong-hayan-saek/",
+      "destination": "https://helpmyimg.com/ko/baegyeong-byeongyeong/",
+      "permanent": true
+    },
+    {
+      "source": "/ko/sajin-baegyeong-hayan-saek",
+      "destination": "https://helpmyimg.com/ko/baegyeong-byeongyeong/",
+      "permanent": true
+    },
+    {
+      "source": "/ko/webp-jpg-byeonhwan/",
+      "destination": "https://helpmyimg.com/ko/imiji-byeonhwan/",
+      "permanent": true
+    },
+    {
+      "source": "/ko/webp-jpg-byeonhwan",
+      "destination": "https://helpmyimg.com/ko/imiji-byeonhwan/",
+      "permanent": true
+    },
+    {
+      "source": "/ko/ilgwal-woteomakeu/",
+      "destination": "https://helpmyimg.com/ko/woteomakeu/",
+      "permanent": true
+    },
+    {
+      "source": "/ko/ilgwal-woteomakeu",
+      "destination": "https://helpmyimg.com/ko/woteomakeu/",
+      "permanent": true
+    },
+    {
+      "source": "/ko/beonhopan-beulleo/",
+      "destination": "https://helpmyimg.com/ko/eolgul-beulleo/",
+      "permanent": true
+    },
+    {
+      "source": "/ko/beonhopan-beulleo",
+      "destination": "https://helpmyimg.com/ko/eolgul-beulleo/",
+      "permanent": true
+    },
+    {
+      "source": "/ms/mampat-imej-100kb/",
+      "destination": "https://helpmyimg.com/ms/mampat-imej/",
+      "permanent": true
+    },
+    {
+      "source": "/ms/mampat-imej-100kb",
+      "destination": "https://helpmyimg.com/ms/mampat-imej/",
+      "permanent": true
+    },
+    {
+      "source": "/ms/mampat-imej-50kb/",
+      "destination": "https://helpmyimg.com/ms/mampat-imej/",
+      "permanent": true
+    },
+    {
+      "source": "/ms/mampat-imej-50kb",
+      "destination": "https://helpmyimg.com/ms/mampat-imej/",
+      "permanent": true
+    },
+    {
+      "source": "/ms/mampatkan-imej-kepada-200kb/",
+      "destination": "https://helpmyimg.com/ms/mampat-imej/",
+      "permanent": true
+    },
+    {
+      "source": "/ms/mampatkan-imej-kepada-200kb",
+      "destination": "https://helpmyimg.com/ms/mampat-imej/",
+      "permanent": true
+    },
+    {
+      "source": "/ms/ubah-saiz-instagram/",
+      "destination": "https://helpmyimg.com/ms/ubah-saiz-imej/",
+      "permanent": true
+    },
+    {
+      "source": "/ms/ubah-saiz-instagram",
+      "destination": "https://helpmyimg.com/ms/ubah-saiz-imej/",
+      "permanent": true
+    },
+    {
+      "source": "/ms/ubah-saiz-gambar-kepada-saiz-pasport/",
+      "destination": "https://helpmyimg.com/ms/ubah-saiz-imej/",
+      "permanent": true
+    },
+    {
+      "source": "/ms/ubah-saiz-gambar-kepada-saiz-pasport",
+      "destination": "https://helpmyimg.com/ms/ubah-saiz-imej/",
+      "permanent": true
+    },
+    {
+      "source": "/ms/alih-keluar-latar-belakang-daripada-logo/",
+      "destination": "https://helpmyimg.com/ms/buang-latar-belakang/",
+      "permanent": true
+    },
+    {
+      "source": "/ms/alih-keluar-latar-belakang-daripada-logo",
+      "destination": "https://helpmyimg.com/ms/buang-latar-belakang/",
+      "permanent": true
+    },
+    {
+      "source": "/ms/alih-keluar-orang-daripada-foto/",
+      "destination": "https://helpmyimg.com/ms/buang-latar-belakang/",
+      "permanent": true
+    },
+    {
+      "source": "/ms/alih-keluar-orang-daripada-foto",
+      "destination": "https://helpmyimg.com/ms/buang-latar-belakang/",
+      "permanent": true
+    },
+    {
+      "source": "/ms/menukar-latar-belakang-foto-kepada-putih/",
+      "destination": "https://helpmyimg.com/ms/tukar-latar-belakang/",
+      "permanent": true
+    },
+    {
+      "source": "/ms/menukar-latar-belakang-foto-kepada-putih",
+      "destination": "https://helpmyimg.com/ms/tukar-latar-belakang/",
+      "permanent": true
+    },
+    {
+      "source": "/ms/tukar-webp-kepada-jpg/",
+      "destination": "https://helpmyimg.com/ms/tukar-imej/",
+      "permanent": true
+    },
+    {
+      "source": "/ms/tukar-webp-kepada-jpg",
+      "destination": "https://helpmyimg.com/ms/tukar-imej/",
+      "permanent": true
+    },
+    {
+      "source": "/ms/foto-tera-air-kumpulan/",
+      "destination": "https://helpmyimg.com/ms/tanda-air/",
+      "permanent": true
+    },
+    {
+      "source": "/ms/foto-tera-air-kumpulan",
+      "destination": "https://helpmyimg.com/ms/tanda-air/",
+      "permanent": true
+    },
+    {
+      "source": "/ms/plat-lesen-blur/",
+      "destination": "https://helpmyimg.com/ms/kabur-wajah/",
+      "permanent": true
+    },
+    {
+      "source": "/ms/plat-lesen-blur",
+      "destination": "https://helpmyimg.com/ms/kabur-wajah/",
+      "permanent": true
+    },
+    {
+      "source": "/nl/afbeelding-comprimeren-100kb/",
+      "destination": "https://helpmyimg.com/nl/afbeelding-comprimeren/",
+      "permanent": true
+    },
+    {
+      "source": "/nl/afbeelding-comprimeren-100kb",
+      "destination": "https://helpmyimg.com/nl/afbeelding-comprimeren/",
+      "permanent": true
+    },
+    {
+      "source": "/nl/afbeelding-comprimeren-50kb/",
+      "destination": "https://helpmyimg.com/nl/afbeelding-comprimeren/",
+      "permanent": true
+    },
+    {
+      "source": "/nl/afbeelding-comprimeren-50kb",
+      "destination": "https://helpmyimg.com/nl/afbeelding-comprimeren/",
+      "permanent": true
+    },
+    {
+      "source": "/nl/afbeelding-comprimeren-200kb/",
+      "destination": "https://helpmyimg.com/nl/afbeelding-comprimeren/",
+      "permanent": true
+    },
+    {
+      "source": "/nl/afbeelding-comprimeren-200kb",
+      "destination": "https://helpmyimg.com/nl/afbeelding-comprimeren/",
+      "permanent": true
+    },
+    {
+      "source": "/nl/verkleinen-voor-instagram/",
+      "destination": "https://helpmyimg.com/nl/afbeelding-verkleinen/",
+      "permanent": true
+    },
+    {
+      "source": "/nl/verkleinen-voor-instagram",
+      "destination": "https://helpmyimg.com/nl/afbeelding-verkleinen/",
+      "permanent": true
+    },
+    {
+      "source": "/nl/formaat-van-foto-wijzigen-naar-paspoortformaat/",
+      "destination": "https://helpmyimg.com/nl/afbeelding-verkleinen/",
+      "permanent": true
+    },
+    {
+      "source": "/nl/formaat-van-foto-wijzigen-naar-paspoortformaat",
+      "destination": "https://helpmyimg.com/nl/afbeelding-verkleinen/",
+      "permanent": true
+    },
+    {
+      "source": "/nl/achtergrond-uit-logo-verwijderen/",
+      "destination": "https://helpmyimg.com/nl/achtergrond-verwijderen/",
+      "permanent": true
+    },
+    {
+      "source": "/nl/achtergrond-uit-logo-verwijderen",
+      "destination": "https://helpmyimg.com/nl/achtergrond-verwijderen/",
+      "permanent": true
+    },
+    {
+      "source": "/nl/verwijder-persoon-van-foto/",
+      "destination": "https://helpmyimg.com/nl/achtergrond-verwijderen/",
+      "permanent": true
+    },
+    {
+      "source": "/nl/verwijder-persoon-van-foto",
+      "destination": "https://helpmyimg.com/nl/achtergrond-verwijderen/",
+      "permanent": true
+    },
+    {
+      "source": "/nl/verander-de-fotoachtergrond-naar-wit/",
+      "destination": "https://helpmyimg.com/nl/achtergrond-wijzigen/",
+      "permanent": true
+    },
+    {
+      "source": "/nl/verander-de-fotoachtergrond-naar-wit",
+      "destination": "https://helpmyimg.com/nl/achtergrond-wijzigen/",
+      "permanent": true
+    },
+    {
+      "source": "/nl/converteer-webp-naar-jpg/",
+      "destination": "https://helpmyimg.com/nl/afbeelding-converteren/",
+      "permanent": true
+    },
+    {
+      "source": "/nl/converteer-webp-naar-jpg",
+      "destination": "https://helpmyimg.com/nl/afbeelding-converteren/",
+      "permanent": true
+    },
+    {
+      "source": "/nl/batch-watermerk-fotos/",
+      "destination": "https://helpmyimg.com/nl/watermerk/",
+      "permanent": true
+    },
+    {
+      "source": "/nl/batch-watermerk-fotos",
+      "destination": "https://helpmyimg.com/nl/watermerk/",
+      "permanent": true
+    },
+    {
+      "source": "/nl/kentekenplaat-vervagen/",
+      "destination": "https://helpmyimg.com/nl/gezicht-vervagen/",
+      "permanent": true
+    },
+    {
+      "source": "/nl/kentekenplaat-vervagen",
+      "destination": "https://helpmyimg.com/nl/gezicht-vervagen/",
+      "permanent": true
+    },
+    {
+      "source": "/no/komprimer-til-100kb/",
+      "destination": "https://helpmyimg.com/no/komprimer-bilde/",
+      "permanent": true
+    },
+    {
+      "source": "/no/komprimer-til-100kb",
+      "destination": "https://helpmyimg.com/no/komprimer-bilde/",
+      "permanent": true
+    },
+    {
+      "source": "/no/komprimer-til-50kb/",
+      "destination": "https://helpmyimg.com/no/komprimer-bilde/",
+      "permanent": true
+    },
+    {
+      "source": "/no/komprimer-til-50kb",
+      "destination": "https://helpmyimg.com/no/komprimer-bilde/",
+      "permanent": true
+    },
+    {
+      "source": "/no/komprimere-bildet-til-200kb/",
+      "destination": "https://helpmyimg.com/no/komprimer-bilde/",
+      "permanent": true
+    },
+    {
+      "source": "/no/komprimere-bildet-til-200kb",
+      "destination": "https://helpmyimg.com/no/komprimer-bilde/",
+      "permanent": true
+    },
+    {
+      "source": "/no/endre-storrelse-instagram/",
+      "destination": "https://helpmyimg.com/no/endre-bildestorrelse/",
+      "permanent": true
+    },
+    {
+      "source": "/no/endre-storrelse-instagram",
+      "destination": "https://helpmyimg.com/no/endre-bildestorrelse/",
+      "permanent": true
+    },
+    {
+      "source": "/no/endre-bilde-til-pass/",
+      "destination": "https://helpmyimg.com/no/endre-bildestorrelse/",
+      "permanent": true
+    },
+    {
+      "source": "/no/endre-bilde-til-pass",
+      "destination": "https://helpmyimg.com/no/endre-bildestorrelse/",
+      "permanent": true
+    },
+    {
+      "source": "/no/fjern-bakgrunn-fra-logoen/",
+      "destination": "https://helpmyimg.com/no/fjern-bakgrunn/",
+      "permanent": true
+    },
+    {
+      "source": "/no/fjern-bakgrunn-fra-logoen",
+      "destination": "https://helpmyimg.com/no/fjern-bakgrunn/",
+      "permanent": true
+    },
+    {
+      "source": "/no/fjern-person-fra-bildet/",
+      "destination": "https://helpmyimg.com/no/fjern-bakgrunn/",
+      "permanent": true
+    },
+    {
+      "source": "/no/fjern-person-fra-bildet",
+      "destination": "https://helpmyimg.com/no/fjern-bakgrunn/",
+      "permanent": true
+    },
+    {
+      "source": "/no/endre-bildebakgrunnen-til-hvit/",
+      "destination": "https://helpmyimg.com/no/endre-bakgrunn/",
+      "permanent": true
+    },
+    {
+      "source": "/no/endre-bildebakgrunnen-til-hvit",
+      "destination": "https://helpmyimg.com/no/endre-bakgrunn/",
+      "permanent": true
+    },
+    {
+      "source": "/no/konverter-webp-til-jpg/",
+      "destination": "https://helpmyimg.com/no/konverter-bilde/",
+      "permanent": true
+    },
+    {
+      "source": "/no/konverter-webp-til-jpg",
+      "destination": "https://helpmyimg.com/no/konverter-bilde/",
+      "permanent": true
+    },
+    {
+      "source": "/no/batch-vannmerkebilder/",
+      "destination": "https://helpmyimg.com/no/vannmerke/",
+      "permanent": true
+    },
+    {
+      "source": "/no/batch-vannmerkebilder",
+      "destination": "https://helpmyimg.com/no/vannmerke/",
+      "permanent": true
+    },
+    {
+      "source": "/no/uskarp-bilskilt/",
+      "destination": "https://helpmyimg.com/no/sladd-ansikt/",
+      "permanent": true
+    },
+    {
+      "source": "/no/uskarp-bilskilt",
+      "destination": "https://helpmyimg.com/no/sladd-ansikt/",
+      "permanent": true
+    },
+    {
+      "source": "/pl/kompresja-obrazu-100kb/",
+      "destination": "https://helpmyimg.com/pl/kompresja-obrazu/",
+      "permanent": true
+    },
+    {
+      "source": "/pl/kompresja-obrazu-100kb",
+      "destination": "https://helpmyimg.com/pl/kompresja-obrazu/",
+      "permanent": true
+    },
+    {
+      "source": "/pl/kompresja-obrazu-50kb/",
+      "destination": "https://helpmyimg.com/pl/kompresja-obrazu/",
+      "permanent": true
+    },
+    {
+      "source": "/pl/kompresja-obrazu-50kb",
+      "destination": "https://helpmyimg.com/pl/kompresja-obrazu/",
+      "permanent": true
+    },
+    {
+      "source": "/pl/skompresuj-obraz-do-200kb/",
+      "destination": "https://helpmyimg.com/pl/kompresja-obrazu/",
+      "permanent": true
+    },
+    {
+      "source": "/pl/skompresuj-obraz-do-200kb",
+      "destination": "https://helpmyimg.com/pl/kompresja-obrazu/",
+      "permanent": true
+    },
+    {
+      "source": "/pl/zmiana-rozmiaru-instagram/",
+      "destination": "https://helpmyimg.com/pl/zmiana-rozmiaru/",
+      "permanent": true
+    },
+    {
+      "source": "/pl/zmiana-rozmiaru-instagram",
+      "destination": "https://helpmyimg.com/pl/zmiana-rozmiaru/",
+      "permanent": true
+    },
+    {
+      "source": "/pl/zmien-rozmiar-zdjecia-do-paszportu/",
+      "destination": "https://helpmyimg.com/pl/zmiana-rozmiaru/",
+      "permanent": true
+    },
+    {
+      "source": "/pl/zmien-rozmiar-zdjecia-do-paszportu",
+      "destination": "https://helpmyimg.com/pl/zmiana-rozmiaru/",
+      "permanent": true
+    },
+    {
+      "source": "/pl/usun-tlo-z-logo/",
+      "destination": "https://helpmyimg.com/pl/usun-tlo/",
+      "permanent": true
+    },
+    {
+      "source": "/pl/usun-tlo-z-logo",
+      "destination": "https://helpmyimg.com/pl/usun-tlo/",
+      "permanent": true
+    },
+    {
+      "source": "/pl/usun-osobe-ze-zdjecia/",
+      "destination": "https://helpmyimg.com/pl/usun-tlo/",
+      "permanent": true
+    },
+    {
+      "source": "/pl/usun-osobe-ze-zdjecia",
+      "destination": "https://helpmyimg.com/pl/usun-tlo/",
+      "permanent": true
+    },
+    {
+      "source": "/pl/zmien-tlo-zdjecia-na-biale/",
+      "destination": "https://helpmyimg.com/pl/zmien-tlo/",
+      "permanent": true
+    },
+    {
+      "source": "/pl/zmien-tlo-zdjecia-na-biale",
+      "destination": "https://helpmyimg.com/pl/zmien-tlo/",
+      "permanent": true
+    },
+    {
+      "source": "/pl/przekonwertuj-webp-na-jpg/",
+      "destination": "https://helpmyimg.com/pl/konwersja-obrazu/",
+      "permanent": true
+    },
+    {
+      "source": "/pl/przekonwertuj-webp-na-jpg",
+      "destination": "https://helpmyimg.com/pl/konwersja-obrazu/",
+      "permanent": true
+    },
+    {
+      "source": "/pl/wsadowe-zdjcia-ze-znakiem-wodnym/",
+      "destination": "https://helpmyimg.com/pl/znak-wodny/",
+      "permanent": true
+    },
+    {
+      "source": "/pl/wsadowe-zdjcia-ze-znakiem-wodnym",
+      "destination": "https://helpmyimg.com/pl/znak-wodny/",
+      "permanent": true
+    },
+    {
+      "source": "/pl/zamazana-tablica-rejestracyjna/",
+      "destination": "https://helpmyimg.com/pl/rozmycie-twarzy/",
+      "permanent": true
+    },
+    {
+      "source": "/pl/zamazana-tablica-rejestracyjna",
+      "destination": "https://helpmyimg.com/pl/rozmycie-twarzy/",
+      "permanent": true
+    },
+    {
+      "source": "/pt/comprimir-imagem-100kb/",
+      "destination": "https://helpmyimg.com/pt/comprimir-imagem/",
+      "permanent": true
+    },
+    {
+      "source": "/pt/comprimir-imagem-100kb",
+      "destination": "https://helpmyimg.com/pt/comprimir-imagem/",
+      "permanent": true
+    },
+    {
+      "source": "/pt/comprimir-imagem-50kb/",
+      "destination": "https://helpmyimg.com/pt/comprimir-imagem/",
+      "permanent": true
+    },
+    {
+      "source": "/pt/comprimir-imagem-50kb",
+      "destination": "https://helpmyimg.com/pt/comprimir-imagem/",
+      "permanent": true
+    },
+    {
+      "source": "/pt/comprimir-imagem-para-200kb/",
+      "destination": "https://helpmyimg.com/pt/comprimir-imagem/",
+      "permanent": true
+    },
+    {
+      "source": "/pt/comprimir-imagem-para-200kb",
+      "destination": "https://helpmyimg.com/pt/comprimir-imagem/",
+      "permanent": true
+    },
+    {
+      "source": "/pt/redimensionar-para-instagram/",
+      "destination": "https://helpmyimg.com/pt/redimensionar-imagem/",
+      "permanent": true
+    },
+    {
+      "source": "/pt/redimensionar-para-instagram",
+      "destination": "https://helpmyimg.com/pt/redimensionar-imagem/",
+      "permanent": true
+    },
+    {
+      "source": "/pt/redimensionar-foto-para-tamanho-de-passaporte/",
+      "destination": "https://helpmyimg.com/pt/redimensionar-imagem/",
+      "permanent": true
+    },
+    {
+      "source": "/pt/redimensionar-foto-para-tamanho-de-passaporte",
+      "destination": "https://helpmyimg.com/pt/redimensionar-imagem/",
+      "permanent": true
+    },
+    {
+      "source": "/pt/remover-fundo-do-logotipo/",
+      "destination": "https://helpmyimg.com/pt/remover-fundo/",
+      "permanent": true
+    },
+    {
+      "source": "/pt/remover-fundo-do-logotipo",
+      "destination": "https://helpmyimg.com/pt/remover-fundo/",
+      "permanent": true
+    },
+    {
+      "source": "/pt/remover-pessoa-da-foto/",
+      "destination": "https://helpmyimg.com/pt/remover-fundo/",
+      "permanent": true
+    },
+    {
+      "source": "/pt/remover-pessoa-da-foto",
+      "destination": "https://helpmyimg.com/pt/remover-fundo/",
+      "permanent": true
+    },
+    {
+      "source": "/pt/mudar-o-fundo-da-foto-para-branco/",
+      "destination": "https://helpmyimg.com/pt/mudar-fundo/",
+      "permanent": true
+    },
+    {
+      "source": "/pt/mudar-o-fundo-da-foto-para-branco",
+      "destination": "https://helpmyimg.com/pt/mudar-fundo/",
+      "permanent": true
+    },
+    {
+      "source": "/pt/converter-webp-para-jpg/",
+      "destination": "https://helpmyimg.com/pt/converter-imagem/",
+      "permanent": true
+    },
+    {
+      "source": "/pt/converter-webp-para-jpg",
+      "destination": "https://helpmyimg.com/pt/converter-imagem/",
+      "permanent": true
+    },
+    {
+      "source": "/pt/marca-dagua-em-lote/",
+      "destination": "https://helpmyimg.com/pt/marca-dagua/",
+      "permanent": true
+    },
+    {
+      "source": "/pt/marca-dagua-em-lote",
+      "destination": "https://helpmyimg.com/pt/marca-dagua/",
+      "permanent": true
+    },
+    {
+      "source": "/pt/desfocar-placa-de-carro/",
+      "destination": "https://helpmyimg.com/pt/desfocar-rosto/",
+      "permanent": true
+    },
+    {
+      "source": "/pt/desfocar-placa-de-carro",
+      "destination": "https://helpmyimg.com/pt/desfocar-rosto/",
+      "permanent": true
+    },
+    {
+      "source": "/ro/comprimare-imagine-100kb/",
+      "destination": "https://helpmyimg.com/ro/comprimare-imagine/",
+      "permanent": true
+    },
+    {
+      "source": "/ro/comprimare-imagine-100kb",
+      "destination": "https://helpmyimg.com/ro/comprimare-imagine/",
+      "permanent": true
+    },
+    {
+      "source": "/ro/comprimare-imagine-50kb/",
+      "destination": "https://helpmyimg.com/ro/comprimare-imagine/",
+      "permanent": true
+    },
+    {
+      "source": "/ro/comprimare-imagine-50kb",
+      "destination": "https://helpmyimg.com/ro/comprimare-imagine/",
+      "permanent": true
+    },
+    {
+      "source": "/ro/comprimare-imagine-la-200kb/",
+      "destination": "https://helpmyimg.com/ro/comprimare-imagine/",
+      "permanent": true
+    },
+    {
+      "source": "/ro/comprimare-imagine-la-200kb",
+      "destination": "https://helpmyimg.com/ro/comprimare-imagine/",
+      "permanent": true
+    },
+    {
+      "source": "/ro/redimensionare-instagram/",
+      "destination": "https://helpmyimg.com/ro/redimensionare-imagine/",
+      "permanent": true
+    },
+    {
+      "source": "/ro/redimensionare-instagram",
+      "destination": "https://helpmyimg.com/ro/redimensionare-imagine/",
+      "permanent": true
+    },
+    {
+      "source": "/ro/redimensionare-poza-pasaport/",
+      "destination": "https://helpmyimg.com/ro/redimensionare-imagine/",
+      "permanent": true
+    },
+    {
+      "source": "/ro/redimensionare-poza-pasaport",
+      "destination": "https://helpmyimg.com/ro/redimensionare-imagine/",
+      "permanent": true
+    },
+    {
+      "source": "/ro/eliminare-fundal-logo/",
+      "destination": "https://helpmyimg.com/ro/eliminare-fundal/",
+      "permanent": true
+    },
+    {
+      "source": "/ro/eliminare-fundal-logo",
+      "destination": "https://helpmyimg.com/ro/eliminare-fundal/",
+      "permanent": true
+    },
+    {
+      "source": "/ro/eliminare-persoana-din-poza/",
+      "destination": "https://helpmyimg.com/ro/eliminare-fundal/",
+      "permanent": true
+    },
+    {
+      "source": "/ro/eliminare-persoana-din-poza",
+      "destination": "https://helpmyimg.com/ro/eliminare-fundal/",
+      "permanent": true
+    },
+    {
+      "source": "/ro/schimbare-fundal-in-alb/",
+      "destination": "https://helpmyimg.com/ro/schimbare-fundal/",
+      "permanent": true
+    },
+    {
+      "source": "/ro/schimbare-fundal-in-alb",
+      "destination": "https://helpmyimg.com/ro/schimbare-fundal/",
+      "permanent": true
+    },
+    {
+      "source": "/ro/conversie-webp-in-jpg/",
+      "destination": "https://helpmyimg.com/ro/convertire-imagine/",
+      "permanent": true
+    },
+    {
+      "source": "/ro/conversie-webp-in-jpg",
+      "destination": "https://helpmyimg.com/ro/convertire-imagine/",
+      "permanent": true
+    },
+    {
+      "source": "/ro/filigran-in-lot-fotografii/",
+      "destination": "https://helpmyimg.com/ro/filigran/",
+      "permanent": true
+    },
+    {
+      "source": "/ro/filigran-in-lot-fotografii",
+      "destination": "https://helpmyimg.com/ro/filigran/",
+      "permanent": true
+    },
+    {
+      "source": "/ro/estompare-numar-inmatriculare/",
+      "destination": "https://helpmyimg.com/ro/estompare-fata/",
+      "permanent": true
+    },
+    {
+      "source": "/ro/estompare-numar-inmatriculare",
+      "destination": "https://helpmyimg.com/ro/estompare-fata/",
+      "permanent": true
+    },
+    {
+      "source": "/ru/szhat-izobrazhenie-100kb/",
+      "destination": "https://helpmyimg.com/ru/szhat-izobrazhenie/",
+      "permanent": true
+    },
+    {
+      "source": "/ru/szhat-izobrazhenie-100kb",
+      "destination": "https://helpmyimg.com/ru/szhat-izobrazhenie/",
+      "permanent": true
+    },
+    {
+      "source": "/ru/szhat-izobrazhenie-50kb/",
+      "destination": "https://helpmyimg.com/ru/szhat-izobrazhenie/",
+      "permanent": true
+    },
+    {
+      "source": "/ru/szhat-izobrazhenie-50kb",
+      "destination": "https://helpmyimg.com/ru/szhat-izobrazhenie/",
+      "permanent": true
+    },
+    {
+      "source": "/ru/szhat-izobrazhenie-200kb/",
+      "destination": "https://helpmyimg.com/ru/szhat-izobrazhenie/",
+      "permanent": true
+    },
+    {
+      "source": "/ru/szhat-izobrazhenie-200kb",
+      "destination": "https://helpmyimg.com/ru/szhat-izobrazhenie/",
+      "permanent": true
+    },
+    {
+      "source": "/ru/izmenit-razmer-dlya-instagram/",
+      "destination": "https://helpmyimg.com/ru/izmenit-razmer/",
+      "permanent": true
+    },
+    {
+      "source": "/ru/izmenit-razmer-dlya-instagram",
+      "destination": "https://helpmyimg.com/ru/izmenit-razmer/",
+      "permanent": true
+    },
+    {
+      "source": "/ru/razmer-foto-na-pasport/",
+      "destination": "https://helpmyimg.com/ru/izmenit-razmer/",
+      "permanent": true
+    },
+    {
+      "source": "/ru/razmer-foto-na-pasport",
+      "destination": "https://helpmyimg.com/ru/izmenit-razmer/",
+      "permanent": true
+    },
+    {
+      "source": "/ru/udalit-fon-logotipa/",
+      "destination": "https://helpmyimg.com/ru/udalit-fon/",
+      "permanent": true
+    },
+    {
+      "source": "/ru/udalit-fon-logotipa",
+      "destination": "https://helpmyimg.com/ru/udalit-fon/",
+      "permanent": true
+    },
+    {
+      "source": "/ru/udalit-cheloveka-s-foto/",
+      "destination": "https://helpmyimg.com/ru/udalit-fon/",
+      "permanent": true
+    },
+    {
+      "source": "/ru/udalit-cheloveka-s-foto",
+      "destination": "https://helpmyimg.com/ru/udalit-fon/",
+      "permanent": true
+    },
+    {
+      "source": "/ru/sdelat-belyy-fon-foto/",
+      "destination": "https://helpmyimg.com/ru/izmenit-fon/",
+      "permanent": true
+    },
+    {
+      "source": "/ru/sdelat-belyy-fon-foto",
+      "destination": "https://helpmyimg.com/ru/izmenit-fon/",
+      "permanent": true
+    },
+    {
+      "source": "/ru/konvertirovat-webp-v-jpg/",
+      "destination": "https://helpmyimg.com/ru/konvertirovat-izobrazhenie/",
+      "permanent": true
+    },
+    {
+      "source": "/ru/konvertirovat-webp-v-jpg",
+      "destination": "https://helpmyimg.com/ru/konvertirovat-izobrazhenie/",
+      "permanent": true
+    },
+    {
+      "source": "/ru/paketnyy-vodyanoy-znak/",
+      "destination": "https://helpmyimg.com/ru/vodyanoy-znak/",
+      "permanent": true
+    },
+    {
+      "source": "/ru/paketnyy-vodyanoy-znak",
+      "destination": "https://helpmyimg.com/ru/vodyanoy-znak/",
+      "permanent": true
+    },
+    {
+      "source": "/ru/razmyt-nomer-avto/",
+      "destination": "https://helpmyimg.com/ru/razmyt-litso/",
+      "permanent": true
+    },
+    {
+      "source": "/ru/razmyt-nomer-avto",
+      "destination": "https://helpmyimg.com/ru/razmyt-litso/",
+      "permanent": true
+    },
+    {
+      "source": "/sv/komprimera-bild-100kb/",
+      "destination": "https://helpmyimg.com/sv/komprimera-bild/",
+      "permanent": true
+    },
+    {
+      "source": "/sv/komprimera-bild-100kb",
+      "destination": "https://helpmyimg.com/sv/komprimera-bild/",
+      "permanent": true
+    },
+    {
+      "source": "/sv/komprimera-bild-50kb/",
+      "destination": "https://helpmyimg.com/sv/komprimera-bild/",
+      "permanent": true
+    },
+    {
+      "source": "/sv/komprimera-bild-50kb",
+      "destination": "https://helpmyimg.com/sv/komprimera-bild/",
+      "permanent": true
+    },
+    {
+      "source": "/sv/komprimera-bilden-till-200kb/",
+      "destination": "https://helpmyimg.com/sv/komprimera-bild/",
+      "permanent": true
+    },
+    {
+      "source": "/sv/komprimera-bilden-till-200kb",
+      "destination": "https://helpmyimg.com/sv/komprimera-bild/",
+      "permanent": true
+    },
+    {
+      "source": "/sv/andra-storlek-for-instagram/",
+      "destination": "https://helpmyimg.com/sv/andra-storlek/",
+      "permanent": true
+    },
+    {
+      "source": "/sv/andra-storlek-for-instagram",
+      "destination": "https://helpmyimg.com/sv/andra-storlek/",
+      "permanent": true
+    },
+    {
+      "source": "/sv/andra-bild-till-passfoto/",
+      "destination": "https://helpmyimg.com/sv/andra-storlek/",
+      "permanent": true
+    },
+    {
+      "source": "/sv/andra-bild-till-passfoto",
+      "destination": "https://helpmyimg.com/sv/andra-storlek/",
+      "permanent": true
+    },
+    {
+      "source": "/sv/ta-bort-bakgrund-fran-logotyp/",
+      "destination": "https://helpmyimg.com/sv/ta-bort-bakgrund/",
+      "permanent": true
+    },
+    {
+      "source": "/sv/ta-bort-bakgrund-fran-logotyp",
+      "destination": "https://helpmyimg.com/sv/ta-bort-bakgrund/",
+      "permanent": true
+    },
+    {
+      "source": "/sv/ta-bort-person-fran-foto/",
+      "destination": "https://helpmyimg.com/sv/ta-bort-bakgrund/",
+      "permanent": true
+    },
+    {
+      "source": "/sv/ta-bort-person-fran-foto",
+      "destination": "https://helpmyimg.com/sv/ta-bort-bakgrund/",
+      "permanent": true
+    },
+    {
+      "source": "/sv/andra-bakgrund-till-vit/",
+      "destination": "https://helpmyimg.com/sv/andra-bakgrund/",
+      "permanent": true
+    },
+    {
+      "source": "/sv/andra-bakgrund-till-vit",
+      "destination": "https://helpmyimg.com/sv/andra-bakgrund/",
+      "permanent": true
+    },
+    {
+      "source": "/sv/konvertera-webp-till-jpg/",
+      "destination": "https://helpmyimg.com/sv/konvertera-bild/",
+      "permanent": true
+    },
+    {
+      "source": "/sv/konvertera-webp-till-jpg",
+      "destination": "https://helpmyimg.com/sv/konvertera-bild/",
+      "permanent": true
+    },
+    {
+      "source": "/sv/batch-vattenstampel-bilder/",
+      "destination": "https://helpmyimg.com/sv/vattenstampel/",
+      "permanent": true
+    },
+    {
+      "source": "/sv/batch-vattenstampel-bilder",
+      "destination": "https://helpmyimg.com/sv/vattenstampel/",
+      "permanent": true
+    },
+    {
+      "source": "/sv/suddig-registreringsskylt/",
+      "destination": "https://helpmyimg.com/sv/oskarpt-ansikte/",
+      "permanent": true
+    },
+    {
+      "source": "/sv/suddig-registreringsskylt",
+      "destination": "https://helpmyimg.com/sv/oskarpt-ansikte/",
+      "permanent": true
+    },
+    {
+      "source": "/th/bip-ad-rup-phap-100kb/",
+      "destination": "https://helpmyimg.com/th/bip-ad-rup-phap/",
+      "permanent": true
+    },
+    {
+      "source": "/th/bip-ad-rup-phap-100kb",
+      "destination": "https://helpmyimg.com/th/bip-ad-rup-phap/",
+      "permanent": true
+    },
+    {
+      "source": "/th/bip-ad-rup-phap-50kb/",
+      "destination": "https://helpmyimg.com/th/bip-ad-rup-phap/",
+      "permanent": true
+    },
+    {
+      "source": "/th/bip-ad-rup-phap-50kb",
+      "destination": "https://helpmyimg.com/th/bip-ad-rup-phap/",
+      "permanent": true
+    },
+    {
+      "source": "/th/bip-ad-rup-phap-200kb/",
+      "destination": "https://helpmyimg.com/th/bip-ad-rup-phap/",
+      "permanent": true
+    },
+    {
+      "source": "/th/bip-ad-rup-phap-200kb",
+      "destination": "https://helpmyimg.com/th/bip-ad-rup-phap/",
+      "permanent": true
+    },
+    {
+      "source": "/th/plian-kha-nad-ig/",
+      "destination": "https://helpmyimg.com/th/plian-kha-nad-rup/",
+      "permanent": true
+    },
+    {
+      "source": "/th/plian-kha-nad-ig",
+      "destination": "https://helpmyimg.com/th/plian-kha-nad-rup/",
+      "permanent": true
+    },
+    {
+      "source": "/th/plian-kha-nad-passport/",
+      "destination": "https://helpmyimg.com/th/plian-kha-nad-rup/",
+      "permanent": true
+    },
+    {
+      "source": "/th/plian-kha-nad-passport",
+      "destination": "https://helpmyimg.com/th/plian-kha-nad-rup/",
+      "permanent": true
+    },
+    {
+      "source": "/th/lop-phun-lang-logo/",
+      "destination": "https://helpmyimg.com/th/lop-phun-lang/",
+      "permanent": true
+    },
+    {
+      "source": "/th/lop-phun-lang-logo",
+      "destination": "https://helpmyimg.com/th/lop-phun-lang/",
+      "permanent": true
+    },
+    {
+      "source": "/th/lop-khon-oak-jak-rup/",
+      "destination": "https://helpmyimg.com/th/lop-phun-lang/",
+      "permanent": true
+    },
+    {
+      "source": "/th/lop-khon-oak-jak-rup",
+      "destination": "https://helpmyimg.com/th/lop-phun-lang/",
+      "permanent": true
+    },
+    {
+      "source": "/th/plian-phun-lang-si-khao/",
+      "destination": "https://helpmyimg.com/th/plian-phun-lang/",
+      "permanent": true
+    },
+    {
+      "source": "/th/plian-phun-lang-si-khao",
+      "destination": "https://helpmyimg.com/th/plian-phun-lang/",
+      "permanent": true
+    },
+    {
+      "source": "/th/plaeng-webp-pen-jpg/",
+      "destination": "https://helpmyimg.com/th/plaeng-rup-phap/",
+      "permanent": true
+    },
+    {
+      "source": "/th/plaeng-webp-pen-jpg",
+      "destination": "https://helpmyimg.com/th/plaeng-rup-phap/",
+      "permanent": true
+    },
+    {
+      "source": "/th/lai-nam-lai-rup/",
+      "destination": "https://helpmyimg.com/th/lai-nam/",
+      "permanent": true
+    },
+    {
+      "source": "/th/lai-nam-lai-rup",
+      "destination": "https://helpmyimg.com/th/lai-nam/",
+      "permanent": true
+    },
+    {
+      "source": "/th/blae-paai-thabian/",
+      "destination": "https://helpmyimg.com/th/blae-na/",
+      "permanent": true
+    },
+    {
+      "source": "/th/blae-paai-thabian",
+      "destination": "https://helpmyimg.com/th/blae-na/",
+      "permanent": true
+    },
+    {
+      "source": "/tl/i-compress-larawan-100kb/",
+      "destination": "https://helpmyimg.com/tl/i-compress-larawan/",
+      "permanent": true
+    },
+    {
+      "source": "/tl/i-compress-larawan-100kb",
+      "destination": "https://helpmyimg.com/tl/i-compress-larawan/",
+      "permanent": true
+    },
+    {
+      "source": "/tl/i-compress-larawan-50kb/",
+      "destination": "https://helpmyimg.com/tl/i-compress-larawan/",
+      "permanent": true
+    },
+    {
+      "source": "/tl/i-compress-larawan-50kb",
+      "destination": "https://helpmyimg.com/tl/i-compress-larawan/",
+      "permanent": true
+    },
+    {
+      "source": "/tl/i-compress-larawan-200kb/",
+      "destination": "https://helpmyimg.com/tl/i-compress-larawan/",
+      "permanent": true
+    },
+    {
+      "source": "/tl/i-compress-larawan-200kb",
+      "destination": "https://helpmyimg.com/tl/i-compress-larawan/",
+      "permanent": true
+    },
+    {
+      "source": "/tl/baguhin-sukat-instagram/",
+      "destination": "https://helpmyimg.com/tl/baguhin-sukat/",
+      "permanent": true
+    },
+    {
+      "source": "/tl/baguhin-sukat-instagram",
+      "destination": "https://helpmyimg.com/tl/baguhin-sukat/",
+      "permanent": true
+    },
+    {
+      "source": "/tl/sukat-ng-larawan-para-sa-passport/",
+      "destination": "https://helpmyimg.com/tl/baguhin-sukat/",
+      "permanent": true
+    },
+    {
+      "source": "/tl/sukat-ng-larawan-para-sa-passport",
+      "destination": "https://helpmyimg.com/tl/baguhin-sukat/",
+      "permanent": true
+    },
+    {
+      "source": "/tl/alisin-background-ng-logo/",
+      "destination": "https://helpmyimg.com/tl/alisin-background/",
+      "permanent": true
+    },
+    {
+      "source": "/tl/alisin-background-ng-logo",
+      "destination": "https://helpmyimg.com/tl/alisin-background/",
+      "permanent": true
+    },
+    {
+      "source": "/tl/alisin-tao-sa-larawan/",
+      "destination": "https://helpmyimg.com/tl/alisin-background/",
+      "permanent": true
+    },
+    {
+      "source": "/tl/alisin-tao-sa-larawan",
+      "destination": "https://helpmyimg.com/tl/alisin-background/",
+      "permanent": true
+    },
+    {
+      "source": "/tl/gawing-puti-ang-background/",
+      "destination": "https://helpmyimg.com/tl/palitan-background/",
+      "permanent": true
+    },
+    {
+      "source": "/tl/gawing-puti-ang-background",
+      "destination": "https://helpmyimg.com/tl/palitan-background/",
+      "permanent": true
+    },
+    {
+      "source": "/tl/i-convert-webp-sa-jpg/",
+      "destination": "https://helpmyimg.com/tl/i-convert-larawan/",
+      "permanent": true
+    },
+    {
+      "source": "/tl/i-convert-webp-sa-jpg",
+      "destination": "https://helpmyimg.com/tl/i-convert-larawan/",
+      "permanent": true
+    },
+    {
+      "source": "/tl/maramihang-watermark-sa-larawan/",
+      "destination": "https://helpmyimg.com/tl/watermark/",
+      "permanent": true
+    },
+    {
+      "source": "/tl/maramihang-watermark-sa-larawan",
+      "destination": "https://helpmyimg.com/tl/watermark/",
+      "permanent": true
+    },
+    {
+      "source": "/tl/palabuin-ang-plaka/",
+      "destination": "https://helpmyimg.com/tl/palabuin-ang-mukha/",
+      "permanent": true
+    },
+    {
+      "source": "/tl/palabuin-ang-plaka",
+      "destination": "https://helpmyimg.com/tl/palabuin-ang-mukha/",
+      "permanent": true
+    },
+    {
+      "source": "/tr/resim-sikistir-100kb/",
+      "destination": "https://helpmyimg.com/tr/resim-sikistir/",
+      "permanent": true
+    },
+    {
+      "source": "/tr/resim-sikistir-100kb",
+      "destination": "https://helpmyimg.com/tr/resim-sikistir/",
+      "permanent": true
+    },
+    {
+      "source": "/tr/resim-sikistir-50kb/",
+      "destination": "https://helpmyimg.com/tr/resim-sikistir/",
+      "permanent": true
+    },
+    {
+      "source": "/tr/resim-sikistir-50kb",
+      "destination": "https://helpmyimg.com/tr/resim-sikistir/",
+      "permanent": true
+    },
+    {
+      "source": "/tr/resim-sikistir-200kb/",
+      "destination": "https://helpmyimg.com/tr/resim-sikistir/",
+      "permanent": true
+    },
+    {
+      "source": "/tr/resim-sikistir-200kb",
+      "destination": "https://helpmyimg.com/tr/resim-sikistir/",
+      "permanent": true
+    },
+    {
+      "source": "/tr/instagram-icin-boyutlandir/",
+      "destination": "https://helpmyimg.com/tr/boyutlandir/",
+      "permanent": true
+    },
+    {
+      "source": "/tr/instagram-icin-boyutlandir",
+      "destination": "https://helpmyimg.com/tr/boyutlandir/",
+      "permanent": true
+    },
+    {
+      "source": "/tr/pasaport-fotografi-boyutlandir/",
+      "destination": "https://helpmyimg.com/tr/boyutlandir/",
+      "permanent": true
+    },
+    {
+      "source": "/tr/pasaport-fotografi-boyutlandir",
+      "destination": "https://helpmyimg.com/tr/boyutlandir/",
+      "permanent": true
+    },
+    {
+      "source": "/tr/logodan-arka-plan-kaldir/",
+      "destination": "https://helpmyimg.com/tr/arka-plan-kaldir/",
+      "permanent": true
+    },
+    {
+      "source": "/tr/logodan-arka-plan-kaldir",
+      "destination": "https://helpmyimg.com/tr/arka-plan-kaldir/",
+      "permanent": true
+    },
+    {
+      "source": "/tr/fotograftan-kisi-sil/",
+      "destination": "https://helpmyimg.com/tr/arka-plan-kaldir/",
+      "permanent": true
+    },
+    {
+      "source": "/tr/fotograftan-kisi-sil",
+      "destination": "https://helpmyimg.com/tr/arka-plan-kaldir/",
+      "permanent": true
+    },
+    {
+      "source": "/tr/foto-arka-plani-beyaz-yap/",
+      "destination": "https://helpmyimg.com/tr/arka-plan-degistir/",
+      "permanent": true
+    },
+    {
+      "source": "/tr/foto-arka-plani-beyaz-yap",
+      "destination": "https://helpmyimg.com/tr/arka-plan-degistir/",
+      "permanent": true
+    },
+    {
+      "source": "/tr/webp-jpg-cevir/",
+      "destination": "https://helpmyimg.com/tr/resim-donustur/",
+      "permanent": true
+    },
+    {
+      "source": "/tr/webp-jpg-cevir",
+      "destination": "https://helpmyimg.com/tr/resim-donustur/",
+      "permanent": true
+    },
+    {
+      "source": "/tr/toplu-filigran-ekle/",
+      "destination": "https://helpmyimg.com/tr/filigran/",
+      "permanent": true
+    },
+    {
+      "source": "/tr/toplu-filigran-ekle",
+      "destination": "https://helpmyimg.com/tr/filigran/",
+      "permanent": true
+    },
+    {
+      "source": "/tr/plaka-bulaniklastir/",
+      "destination": "https://helpmyimg.com/tr/yuz-bulaniklastirma/",
+      "permanent": true
+    },
+    {
+      "source": "/tr/plaka-bulaniklastir",
+      "destination": "https://helpmyimg.com/tr/yuz-bulaniklastirma/",
+      "permanent": true
+    },
+    {
+      "source": "/uk/stysnuty-do-100kb/",
+      "destination": "https://helpmyimg.com/uk/stysnuty-zobrazhennya/",
+      "permanent": true
+    },
+    {
+      "source": "/uk/stysnuty-do-100kb",
+      "destination": "https://helpmyimg.com/uk/stysnuty-zobrazhennya/",
+      "permanent": true
+    },
+    {
+      "source": "/uk/stysnuty-do-50kb/",
+      "destination": "https://helpmyimg.com/uk/stysnuty-zobrazhennya/",
+      "permanent": true
+    },
+    {
+      "source": "/uk/stysnuty-do-50kb",
+      "destination": "https://helpmyimg.com/uk/stysnuty-zobrazhennya/",
+      "permanent": true
+    },
+    {
+      "source": "/uk/stysnuty-do-200kb/",
+      "destination": "https://helpmyimg.com/uk/stysnuty-zobrazhennya/",
+      "permanent": true
+    },
+    {
+      "source": "/uk/stysnuty-do-200kb",
+      "destination": "https://helpmyimg.com/uk/stysnuty-zobrazhennya/",
+      "permanent": true
+    },
+    {
+      "source": "/uk/zminyty-rozmir-instagram/",
+      "destination": "https://helpmyimg.com/uk/zminyty-rozmir/",
+      "permanent": true
+    },
+    {
+      "source": "/uk/zminyty-rozmir-instagram",
+      "destination": "https://helpmyimg.com/uk/zminyty-rozmir/",
+      "permanent": true
+    },
+    {
+      "source": "/uk/rozmir-foto-na-pasport/",
+      "destination": "https://helpmyimg.com/uk/zminyty-rozmir/",
+      "permanent": true
+    },
+    {
+      "source": "/uk/rozmir-foto-na-pasport",
+      "destination": "https://helpmyimg.com/uk/zminyty-rozmir/",
+      "permanent": true
+    },
+    {
+      "source": "/uk/vydalyty-tlo-z-lohotypu/",
+      "destination": "https://helpmyimg.com/uk/vydalyty-tlo/",
+      "permanent": true
+    },
+    {
+      "source": "/uk/vydalyty-tlo-z-lohotypu",
+      "destination": "https://helpmyimg.com/uk/vydalyty-tlo/",
+      "permanent": true
+    },
+    {
+      "source": "/uk/vydalyty-lyudynu-z-foto/",
+      "destination": "https://helpmyimg.com/uk/vydalyty-tlo/",
+      "permanent": true
+    },
+    {
+      "source": "/uk/vydalyty-lyudynu-z-foto",
+      "destination": "https://helpmyimg.com/uk/vydalyty-tlo/",
+      "permanent": true
+    },
+    {
+      "source": "/uk/zminyty-tlo-na-bile/",
+      "destination": "https://helpmyimg.com/uk/zminyty-tlo/",
+      "permanent": true
+    },
+    {
+      "source": "/uk/zminyty-tlo-na-bile",
+      "destination": "https://helpmyimg.com/uk/zminyty-tlo/",
+      "permanent": true
+    },
+    {
+      "source": "/uk/konvertuvaty-webp-u-jpg/",
+      "destination": "https://helpmyimg.com/uk/konvertuvaty-zobrazhennya/",
+      "permanent": true
+    },
+    {
+      "source": "/uk/konvertuvaty-webp-u-jpg",
+      "destination": "https://helpmyimg.com/uk/konvertuvaty-zobrazhennya/",
+      "permanent": true
+    },
+    {
+      "source": "/uk/paketnyy-vodyanyy-znak/",
+      "destination": "https://helpmyimg.com/uk/vodyanyy-znak/",
+      "permanent": true
+    },
+    {
+      "source": "/uk/paketnyy-vodyanyy-znak",
+      "destination": "https://helpmyimg.com/uk/vodyanyy-znak/",
+      "permanent": true
+    },
+    {
+      "source": "/uk/rozmyty-nomer-avto/",
+      "destination": "https://helpmyimg.com/uk/rozmyty-oblychchya/",
+      "permanent": true
+    },
+    {
+      "source": "/uk/rozmyty-nomer-avto",
+      "destination": "https://helpmyimg.com/uk/rozmyty-oblychchya/",
+      "permanent": true
+    },
+    {
+      "source": "/vi/nen-anh-100kb/",
+      "destination": "https://helpmyimg.com/vi/nen-anh/",
+      "permanent": true
+    },
+    {
+      "source": "/vi/nen-anh-100kb",
+      "destination": "https://helpmyimg.com/vi/nen-anh/",
+      "permanent": true
+    },
+    {
+      "source": "/vi/nen-anh-50kb/",
+      "destination": "https://helpmyimg.com/vi/nen-anh/",
+      "permanent": true
+    },
+    {
+      "source": "/vi/nen-anh-50kb",
+      "destination": "https://helpmyimg.com/vi/nen-anh/",
+      "permanent": true
+    },
+    {
+      "source": "/vi/nen-anh-200kb/",
+      "destination": "https://helpmyimg.com/vi/nen-anh/",
+      "permanent": true
+    },
+    {
+      "source": "/vi/nen-anh-200kb",
+      "destination": "https://helpmyimg.com/vi/nen-anh/",
+      "permanent": true
+    },
+    {
+      "source": "/vi/doi-kich-thuoc-instagram/",
+      "destination": "https://helpmyimg.com/vi/doi-kich-thuoc/",
+      "permanent": true
+    },
+    {
+      "source": "/vi/doi-kich-thuoc-instagram",
+      "destination": "https://helpmyimg.com/vi/doi-kich-thuoc/",
+      "permanent": true
+    },
+    {
+      "source": "/vi/doi-kich-thuoc-anh-ho-chieu/",
+      "destination": "https://helpmyimg.com/vi/doi-kich-thuoc/",
+      "permanent": true
+    },
+    {
+      "source": "/vi/doi-kich-thuoc-anh-ho-chieu",
+      "destination": "https://helpmyimg.com/vi/doi-kich-thuoc/",
+      "permanent": true
+    },
+    {
+      "source": "/vi/xoa-nen-khoi-logo/",
+      "destination": "https://helpmyimg.com/vi/xoa-nen/",
+      "permanent": true
+    },
+    {
+      "source": "/vi/xoa-nen-khoi-logo",
+      "destination": "https://helpmyimg.com/vi/xoa-nen/",
+      "permanent": true
+    },
+    {
+      "source": "/vi/xoa-nguoi-khoi-anh/",
+      "destination": "https://helpmyimg.com/vi/xoa-nen/",
+      "permanent": true
+    },
+    {
+      "source": "/vi/xoa-nguoi-khoi-anh",
+      "destination": "https://helpmyimg.com/vi/xoa-nen/",
+      "permanent": true
+    },
+    {
+      "source": "/vi/doi-nen-anh-mau-trang/",
+      "destination": "https://helpmyimg.com/vi/doi-nen/",
+      "permanent": true
+    },
+    {
+      "source": "/vi/doi-nen-anh-mau-trang",
+      "destination": "https://helpmyimg.com/vi/doi-nen/",
+      "permanent": true
+    },
+    {
+      "source": "/vi/chuyen-webp-sang-jpg/",
+      "destination": "https://helpmyimg.com/vi/chuyen-doi-anh/",
+      "permanent": true
+    },
+    {
+      "source": "/vi/chuyen-webp-sang-jpg",
+      "destination": "https://helpmyimg.com/vi/chuyen-doi-anh/",
+      "permanent": true
+    },
+    {
+      "source": "/vi/dong-dau-anh-hang-loat/",
+      "destination": "https://helpmyimg.com/vi/dong-dau-anh/",
+      "permanent": true
+    },
+    {
+      "source": "/vi/dong-dau-anh-hang-loat",
+      "destination": "https://helpmyimg.com/vi/dong-dau-anh/",
+      "permanent": true
+    },
+    {
+      "source": "/vi/lam-mo-bien-so-xe/",
+      "destination": "https://helpmyimg.com/vi/lam-mo-khuon-mat/",
+      "permanent": true
+    },
+    {
+      "source": "/vi/lam-mo-bien-so-xe",
+      "destination": "https://helpmyimg.com/vi/lam-mo-khuon-mat/",
+      "permanent": true
+    },
+    {
+      "source": "/zh/yasuo-tupian-100kb/",
+      "destination": "https://helpmyimg.com/zh/yasuo-tupian/",
+      "permanent": true
+    },
+    {
+      "source": "/zh/yasuo-tupian-100kb",
+      "destination": "https://helpmyimg.com/zh/yasuo-tupian/",
+      "permanent": true
+    },
+    {
+      "source": "/zh/yasuo-tupian-50kb/",
+      "destination": "https://helpmyimg.com/zh/yasuo-tupian/",
+      "permanent": true
+    },
+    {
+      "source": "/zh/yasuo-tupian-50kb",
+      "destination": "https://helpmyimg.com/zh/yasuo-tupian/",
+      "permanent": true
+    },
+    {
+      "source": "/zh/yasuo-tupian-200kb/",
+      "destination": "https://helpmyimg.com/zh/yasuo-tupian/",
+      "permanent": true
+    },
+    {
+      "source": "/zh/yasuo-tupian-200kb",
+      "destination": "https://helpmyimg.com/zh/yasuo-tupian/",
+      "permanent": true
+    },
+    {
+      "source": "/zh/tiaozheng-ins-chicun/",
+      "destination": "https://helpmyimg.com/zh/tiaozheng-daxiao/",
+      "permanent": true
+    },
+    {
+      "source": "/zh/tiaozheng-ins-chicun",
+      "destination": "https://helpmyimg.com/zh/tiaozheng-daxiao/",
+      "permanent": true
+    },
+    {
+      "source": "/zh/huzhao-zhaopian-chicun/",
+      "destination": "https://helpmyimg.com/zh/tiaozheng-daxiao/",
+      "permanent": true
+    },
+    {
+      "source": "/zh/huzhao-zhaopian-chicun",
+      "destination": "https://helpmyimg.com/zh/tiaozheng-daxiao/",
+      "permanent": true
+    },
+    {
+      "source": "/zh/quchu-logo-beijing/",
+      "destination": "https://helpmyimg.com/zh/quchu-beijing/",
+      "permanent": true
+    },
+    {
+      "source": "/zh/quchu-logo-beijing",
+      "destination": "https://helpmyimg.com/zh/quchu-beijing/",
+      "permanent": true
+    },
+    {
+      "source": "/zh/yichu-zhaopian-renwu/",
+      "destination": "https://helpmyimg.com/zh/quchu-beijing/",
+      "permanent": true
+    },
+    {
+      "source": "/zh/yichu-zhaopian-renwu",
+      "destination": "https://helpmyimg.com/zh/quchu-beijing/",
+      "permanent": true
+    },
+    {
+      "source": "/zh/genghuan-baise-beijing/",
+      "destination": "https://helpmyimg.com/zh/genghuan-beijing/",
+      "permanent": true
+    },
+    {
+      "source": "/zh/genghuan-baise-beijing",
+      "destination": "https://helpmyimg.com/zh/genghuan-beijing/",
+      "permanent": true
+    },
+    {
+      "source": "/zh/webp-zhuan-jpg/",
+      "destination": "https://helpmyimg.com/zh/zhuanhuan-tupian/",
+      "permanent": true
+    },
+    {
+      "source": "/zh/webp-zhuan-jpg",
+      "destination": "https://helpmyimg.com/zh/zhuanhuan-tupian/",
+      "permanent": true
+    },
+    {
+      "source": "/zh/piliang-shuiyin-tupian/",
+      "destination": "https://helpmyimg.com/zh/shuiyin/",
+      "permanent": true
+    },
+    {
+      "source": "/zh/piliang-shuiyin-tupian",
+      "destination": "https://helpmyimg.com/zh/shuiyin/",
+      "permanent": true
+    },
+    {
+      "source": "/zh/mohu-chepai/",
+      "destination": "https://helpmyimg.com/zh/mohu-renlian/",
+      "permanent": true
+    },
+    {
+      "source": "/zh/mohu-chepai",
+      "destination": "https://helpmyimg.com/zh/mohu-renlian/",
       "permanent": true
     },
     {

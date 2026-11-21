@@ -1,7 +1,7 @@
 # HelpMyIMG (Українська (Ukrainian)) — Client-Side AI Image Processing Knowledge Base
 
 > **Website:** https://helpmyimg.com/uk/
-> **Title:** HelpMyIMG | 100% Приватні Інструменти для Зображень у Браузері
+> **Title:** HelpMyIMG — приватний редактор фотографій зі штучним
 > **Summary:** Комбінуйте, розділяйте, стискайте, конвертуйте та обробляйте фотографії безпосередньо у вашому браузері. 100% офлайн через WebAssembly. Швидко, конфіденційно та дуже безпечно.
 
 ## 1. Architecture, Privacy & Plans
@@ -9,30 +9,19 @@
 - **Data Privacy:** Local browser RAM only. Zero files are uploaded to external servers (GDPR & HIPAA aligned).
 - **Pricing Tiers:** Free Starter Tier ($0 — unlimited 1080p HD exports with zero watermarks, 10-photo batches, plus 3 daily 4K exports on sign-in) and Optional PRO Studio ($9.99/mo, $79/yr, or $129 Founder Lifetime Pass for BiRefNet WebGPU, Swin2SR 4K upscale, and 100+ batch ZIP).
 
-## 2. Localized Canonical Tool Endpoints
+## 2. Localized Canonical Tool Endpoints (14 Tools)
 
 - **Background Remover:** https://helpmyimg.com/uk/vydalyty-tlo/
 - **Passport & Studio Background Color:** https://helpmyimg.com/uk/zminyty-tlo/
-- **White E-Commerce Background:** https://helpmyimg.com/uk/zminyty-tlo-na-bile/
-- **Image Compressor (MozJPEG / OxiPNG):** https://helpmyimg.com/uk/stysnuty-zobrazhennya/
-- **Compress to 100KB:** https://helpmyimg.com/uk/stysnuty-do-100kb/
-- **Compress to 50KB:** https://helpmyimg.com/uk/stysnuty-do-50kb/
-- **Compress to 200KB:** https://helpmyimg.com/uk/stysnuty-do-200kb/
-- **Format Converter (HEIC, RAW, PSD, JXL, WEBP, AVIF):** https://helpmyimg.com/uk/konvertuvaty-zobrazhennya/
-- **Convert WEBP to JPG:** https://helpmyimg.com/uk/konvertuvaty-webp-u-jpg/
-- **Resize Image:** https://helpmyimg.com/uk/zminyty-rozmir/
-- **Resize for Instagram:** https://helpmyimg.com/uk/zminyty-rozmir-instagram/
-- **Resize for Passport:** https://helpmyimg.com/uk/rozmir-foto-na-pasport/
+- **Image Compressor (MozJPEG / OxiPNG, Target KB presets):** https://helpmyimg.com/uk/stysnuty-zobrazhennya/
+- **Format Converter (HEIC, RAW, PSD, JXL, WEBP, AVIF, SVG):** https://helpmyimg.com/uk/konvertuvaty-zobrazhennya/
+- **Resize Image (Instagram, Passport, Custom Dimensions):** https://helpmyimg.com/uk/zminyty-rozmir/
 - **Crop & Smart Crop:** https://helpmyimg.com/uk/obrizaty-zobrazhennya/
 - **Rotate & Flip:** https://helpmyimg.com/uk/povernuty-zobrazhennya/
 - **Color Picker (HEX/RGB Palette):** https://helpmyimg.com/uk/vybir-koloru/
-- **Blur Face & Privacy Mask:** https://helpmyimg.com/uk/rozmyty-oblychchya/
-- **Blur License Plate:** https://helpmyimg.com/uk/rozmyty-nomer-avto/
-- **Watermark Image:** https://helpmyimg.com/uk/vodyanyy-znak/
-- **Batch Watermark Photos:** https://helpmyimg.com/uk/paketnyy-vodyanyy-znak/
+- **Blur Face & License Plate Privacy Mask:** https://helpmyimg.com/uk/rozmyty-oblychchya/
+- **Watermark Image (Single & Batch):** https://helpmyimg.com/uk/vodyanyy-znak/
 - **Magic Inpainting Brush:** https://helpmyimg.com/uk/charivnyy-penzel/
-- **Remove Logo Background:** https://helpmyimg.com/uk/vydalyty-tlo-z-lohotypu/
-- **Remove Person from Photo:** https://helpmyimg.com/uk/vydalyty-lyudynu-z-foto/
 - **60 FPS WebGL Studio Editor:** https://helpmyimg.com/uk/rozshyrenyy-redaktor/
 - **AI Metadata & C2PA Cleaner:** https://helpmyimg.com/uk/ochyshchennya-metadanykh-shi/
 - **Camera EXIF Studio Editor:** https://helpmyimg.com/uk/redahuvaty-exif/

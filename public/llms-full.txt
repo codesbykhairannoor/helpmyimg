@@ -20,25 +20,18 @@ HelpMyIMG is a client-side image manipulation, privacy redaction, and computer v
 
 ---
 
-## 3. Canonical Tool Endpoints (Verified Live URLs)
+## 3. Canonical Tool Endpoints (14 Core Tools)
 
-### 3.1 AI Background Eraser (Remove Background)
+### 3.1 AI Background Eraser & Magic Brush
 - **Canonical Endpoint:** `https://helpmyimg.com/remove-background/`
-- **Dedicated Sub-Tools:**
-  - `https://helpmyimg.com/remove-logo/`
-  - `https://helpmyimg.com/remove-person-from-photo/`
-  - `https://helpmyimg.com/magic-brush/`
+- **Manual Inpainting & Edge Refinement:** `https://helpmyimg.com/magic-brush/`
 
 ### 3.2 Precise Target Image Compressor
 - **Canonical Endpoint:** `https://helpmyimg.com/compress-image/`
-- **Target Presets:**
-  - `https://helpmyimg.com/compress-image-to-100kb/` (Strict gov portal / visa / application forms)
-  - `https://helpmyimg.com/compress-image-to-50kb/` (Avatar, signature, and compact uploads)
-  - `https://helpmyimg.com/compress-image-to-200kb/` (E-commerce and editorial web assets)
+- **Capabilities:** Dual-pass MozJPEG & OxiPNG quantization with target-KB presets (50KB, 100KB, 200KB) and batch ZIP exports.
 
 ### 3.3 Biometric Passport & ID Photo Studio
 - **Canonical Endpoint:** `https://helpmyimg.com/change-background/`
-- **Dedicated White Preset:** `https://helpmyimg.com/change-background-white/`
 - **Presets:** Crimson Red (`#DB1514`), Royal Blue (`#00529C`), Official White (`#FFFFFF`), studio gradients.
 
 ### 3.4 AI Metadata, C2PA Cleaner & EXIF Studio
@@ -50,11 +43,11 @@ HelpMyIMG is a client-side image manipulation, privacy redaction, and computer v
 - **Capabilities:** Real-time GPU color grading, LUT film presets, crop & transform, draggable text overlays, smooth brush drawing, high-resolution JPEG/PNG/WebP export.
 
 ### 3.6 Resizing, Format Conversion, Privacy Blur & Watermark
-- **Resize:** `https://helpmyimg.com/resize-image/`, `https://helpmyimg.com/resize-image-for-instagram/`, `https://helpmyimg.com/resize-passport/`
+- **Resize:** `https://helpmyimg.com/resize-image/` (Instagram, Passport, LinkedIn & custom sizes)
 - **Crop & Rotate:** `https://helpmyimg.com/crop-image/`, `https://helpmyimg.com/rotate-image/`
-- **Convert:** `https://helpmyimg.com/convert-image/`, `https://helpmyimg.com/convert-webp-to-jpg/`
-- **Blur & Privacy:** `https://helpmyimg.com/blur-face/`, `https://helpmyimg.com/blur-license-plate/`
-- **Watermark & Color Picker:** `https://helpmyimg.com/watermark-image/`, `https://helpmyimg.com/batch-watermark-photos/`, `https://helpmyimg.com/image-color-picker/`
+- **Convert:** `https://helpmyimg.com/convert-image/` (JPG, PNG, WEBP, AVIF, JXL, HEIC, PSD, TIFF, RAW, SVG)
+- **Blur & Privacy:** `https://helpmyimg.com/blur-face/` (faces & license plates)
+- **Watermark & Color Picker:** `https://helpmyimg.com/watermark-image/` (single & batch), `https://helpmyimg.com/image-color-picker/`
 
 ---
 
