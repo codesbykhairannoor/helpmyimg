@@ -1,11 +1,8 @@
-name: Daily Google Indexing Push
+name: Manual Google Indexing Push (Daily Cron Disabled)
 
 on:
-  schedule:
-    # Runs every day at 02:00 UTC (09:00 WIB)
-    - cron: '0 2 * * *'
   workflow_dispatch:
-    # Allows manual trigger anytime from GitHub Actions tab
+    # Manual trigger only from GitHub Actions tab
 
 jobs:
   google-index:
