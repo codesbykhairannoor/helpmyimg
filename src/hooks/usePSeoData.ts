@@ -1,5 +1,4 @@
-// src/hooks/usePSeoData.ts
-// Hook untuk membaca file JSON statis hasil kompilasi 30 bahasa
+import { useState, useEffect } from 'react';
 
 export interface PSeoSectionData {
   type: string;
@@ -19,19 +18,37 @@ export interface PSeoJsonData {
   buttonText: string;
 }
 
-// Vite eager loading untuk zero-latency routing
-const pseoModules = import.meta.glob('../locales/pseo/**/*.json', { eager: true }) as Record<string, any>;
+const pseoModules = import.meta.glob('../locales/pseo/**/*.json') as Record<string, () => Promise<any>>;
 
 export const usePSeoData = (keywordSlug: string | undefined, lang: string) => {
-  if (!keywordSlug) return { data: null };
+  const [data, setData] = useState<PSeoJsonData | null>(null);
 
-  const exactPath = `../locales/pseo/${keywordSlug}/${lang}.json`;
-  const fallbackPath = `../locales/pseo/${keywordSlug}/en.json`;
-  
-  let module = pseoModules[exactPath];
-  if (!module) {
-    module = pseoModules[fallbackPath];
-  }
+  useEffect(() => {
+    if (!keywordSlug) {
+      setData(null);
+      return;
+    }
+    const exactPath = `../locales/pseo/${keywordSlug}/${lang}.json`;
+    const fallbackPath = `../locales/pseo/${keywordSlug}/en.json`;
+    const loader = pseoModules[exactPath] || pseoModules[fallbackPath];
+    if (!loader) {
+      setData(null);
+      return;
+    }
+    let cancelled = false;
+    loader()
+      .then((mod) => {
+        if (!cancelled) {
+          setData((mod?.default ?? mod) as PSeoJsonData);
+        }
+      })
+      .catch(() => {
+        if (!cancelled) setData(null);
+      });
+    return () => {
+      cancelled = true;
+    };
+  }, [keywordSlug, lang]);
 
-  return { data: module ? (module.default ?? module) as PSeoJsonData : null };
+  return { data };
 };

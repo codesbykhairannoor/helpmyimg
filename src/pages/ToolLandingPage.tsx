@@ -1,25 +1,24 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, Suspense, lazy } from 'react';
 import { useRouter } from '../context/RouterContext';
-import { getPSeoConfigBySlug, PSEO_KEYWORD_MATRIX, type PSeoKeywordConfig } from '../data/pseoKeywords';
 import { SeoHead } from '../components/seo/SeoHead';
 import { Hero } from '../components/Hero';
 import { LandingSections } from '../components/landing/LandingSections';
-import { HomeSections } from '../components/landing/HomeSections';
 import { ToolFaqSection } from '../components/landing/ToolFaqSection';
 import { ToolGrid } from '../components/ToolGrid';
 import { useTranslation } from '../context/LanguageContext';
 import { type Language } from '../i18n/translations';
-import { ToolWorkspace } from '../components/workspace/ToolWorkspace';
 import { usePSeoData } from '../hooks/usePSeoData';
-import { DynamicPSeoSections } from '../components/seo/DynamicPSeoSections';
 import { getLocalizedSlug } from '../utils/urlMapper';
+
+const ToolWorkspace = lazy(() => import('../components/workspace/ToolWorkspace').then(m => ({ default: m.ToolWorkspace })));
+const HomeSections = lazy(() => import('../components/landing/HomeSections').then(m => ({ default: m.HomeSections })));
+const DynamicPSeoSections = lazy(() => import('../components/seo/DynamicPSeoSections').then(m => ({ default: m.DynamicPSeoSections })));
 
 export const ToolLandingPage: React.FC = () => {
   const { setLang, lang: currentLang, t } = useTranslation();
   const { route, hasActiveFiles, setHasActiveFiles } = useRouter();
-  let { lang, tool, keywordSlug } = route;
+  const { lang, tool, keywordSlug } = route;
 
-  // Sync language dari URL ke context
   useEffect(() => {
     if (lang && lang !== currentLang) {
       setLang(lang as Language);
@@ -28,184 +27,124 @@ export const ToolLandingPage: React.FC = () => {
 
   const { data: dynamicJsonData } = usePSeoData(keywordSlug || undefined, lang as string);
 
-  // The route.tool is already parsed as the internal tool by RouterContext
   const internalTool = tool || 'remove';
 
   const isPseoTool = ['compress100kb', 'compress50kb', 'compress200kb', 'resizeig', 'resizepassport', 'removelogo', 'colorwhite', 'removeperson', 'convertwebp', 'watermarkbulk', 'blurplate'].includes(internalTool);
 
+  const defaultTitle = isPseoTool
+    ? t(`seo.title.${internalTool}`, { defaultValue: t(`landing.default.title.${internalTool}`, { defaultValue: 'HelpMyIMG' }) })
+    : (!tool
+      ? t('home.tab.title', { defaultValue: 'HelpMyIMG | 100% Private Image Tools in Your Browser' })
+      : t(`landing.default.title.${internalTool}`, { defaultValue: t('landing.default.title.remove') }));
 
-  // Cari konfigurasi SEO dari matriks
-  let config: PSeoKeywordConfig | undefined = keywordSlug ? getPSeoConfigBySlug(keywordSlug) : undefined;
-  if (!config && isPseoTool) {
-    config = getPSeoConfigBySlug(keywordSlug || '') || PSEO_KEYWORD_MATRIX.find(c => c.tool === internalTool && c.lang === lang);
-  }
+  const defaultH1 = isPseoTool
+    ? t(`seo.h1.${internalTool}`, { defaultValue: t(`landing.default.title.${internalTool}`, { defaultValue: defaultTitle }) })
+    : (!tool
+      ? t('landing.default.title.home', { defaultValue: 'Every AI tool you need to edit images in bulk' })
+      : t(`landing.default.title.${internalTool}`, { defaultValue: t('landing.default.title.remove') }));
 
-  const defaultTitle = isPseoTool ? t(`seo.title.${internalTool}`, { defaultValue: config?.title || "HelpMyIMG" }) : (!tool 
-    ? t('home.tab.title', { defaultValue: "HelpMyIMG | 100% Private Image Tools in Your Browser" })
-    : internalTool === 'color' 
-    ? t('landing.default.title.color') 
-    : internalTool === 'watermark'
-    ? t('landing.default.title.watermark')
-    : internalTool === 'compress'
-    ? t('landing.default.title.compress')
-    : internalTool === 'convert'
-    ? t('landing.default.title.convert')
-    : internalTool === 'resize'
-    ? t('landing.default.title.resize')
-    : internalTool === 'crop'
-    ? t('landing.default.title.crop')
-    : internalTool === 'rotate'
-    ? t('landing.default.title.rotate')
-    : internalTool === 'picker'
-    ? t('landing.default.title.picker')
-    : internalTool === 'blurface'
-    ? t('landing.default.title.blurface')
-    : internalTool === 'design'
-    ? t('landing.default.title.design')
-    : internalTool === 'brush'
-    ? t('brush.title')
-    : internalTool === 'metadata'
-    ? t('landing.default.title.metadata')
-    : internalTool === 'editexif'
-    ? t('landing.default.title.editexif')
-    : t('landing.default.title.remove'));
-
-  const defaultH1 = isPseoTool && config ? t(`seo.h1.${internalTool}`, { defaultValue: config.h1 }) : (!tool
-    ? t('landing.default.title.home', { defaultValue: "Every AI tool you need to edit images in bulk" })
-    : internalTool === 'color' 
-    ? t('landing.default.title.color') 
-    : internalTool === 'watermark'
-    ? t('landing.default.title.watermark')
-    : internalTool === 'compress'
-    ? t('landing.default.title.compress')
-    : internalTool === 'convert'
-    ? t('landing.default.title.convert')
-    : internalTool === 'resize'
-    ? t('landing.default.title.resize')
-    : internalTool === 'crop'
-    ? t('landing.default.title.crop')
-    : internalTool === 'rotate'
-    ? t('landing.default.title.rotate')
-    : internalTool === 'picker'
-    ? t('landing.default.title.picker')
-    : internalTool === 'blurface'
-    ? t('landing.default.title.blurface')
-    : internalTool === 'design'
-    ? t('landing.default.title.design')
-    : internalTool === 'brush'
-    ? t('brush.title')
-    : internalTool === 'metadata'
-    ? t('landing.default.title.metadata')
-    : internalTool === 'editexif'
-    ? t('landing.default.title.editexif')
-    : t('landing.default.title.remove'));
-
-  const defaultDesc = isPseoTool && config ? t(`seo.desc.${internalTool}`, { defaultValue: config.description || '' }) : (!tool
-    ? t('landing.default.desc.home', { defaultValue: "Your local AI photo editor: bulk background removal, resize, compress, and edit photos directly in your browser." })
-    : internalTool === 'color' 
-    ? t('landing.default.desc.color') 
-    : internalTool === 'watermark'
-    ? t('landing.default.desc.watermark')
-    : internalTool === 'compress'
-    ? t('landing.default.desc.compress')
-    : internalTool === 'convert'
-    ? t('landing.default.desc.convert')
-    : internalTool === 'resize'
-    ? t('landing.default.desc.resize')
-    : internalTool === 'crop'
-    ? t('landing.default.desc.crop')
-    : internalTool === 'rotate'
-    ? t('landing.default.desc.rotate')
-    : internalTool === 'picker'
-    ? t('landing.default.desc.picker')
-    : internalTool === 'blurface'
-    ? t('landing.default.desc.blurface')
-    : internalTool === 'design'
-    ? t('landing.default.desc.design')
-    : internalTool === 'brush'
-    ? t('brush.desc')
-    : internalTool === 'metadata'
-    ? t('landing.default.desc.metadata')
-    : internalTool === 'editexif'
-    ? t('landing.default.desc.editexif')
-    : t('landing.default.desc.remove'));
+  const defaultDesc = isPseoTool
+    ? t(`seo.desc.${internalTool}`, { defaultValue: t(`landing.default.desc.${internalTool}`, { defaultValue: t('landing.default.desc.home') }) })
+    : (!tool
+      ? t('hero.subtitle.short', { defaultValue: 'Free local AI photo editor. Remove backgrounds, compress, resize, and convert images directly in your browser.' })
+      : t(`landing.default.desc.${internalTool}`, { defaultValue: t('landing.default.desc.remove') }));
 
   useEffect(() => {
     setHasActiveFiles(false);
   }, [tool, setHasActiveFiles]);
 
-  const toolMapName = internalTool;
-  const displayConfig = {
-    title: defaultTitle,
-    description: defaultDesc,
-    h1: defaultH1,
-    tool: internalTool
-  };
+  // Build route-matched FAQs for JSON-LD schema
+  const pageFaqs: { question: string; answer: string }[] = [];
+  if (!tool) {
+    for (let i = 1; i <= 6; i++) {
+      const q = t(`landing.faq${i}.q`, { defaultValue: '' }) || t(`faq${i}.q`, { defaultValue: '' });
+      const a = t(`landing.faq${i}.a`, { defaultValue: '' }) || t(`faq${i}.a`, { defaultValue: '' });
+      if (q && a && q !== `landing.faq${i}.q` && q !== `faq${i}.q`) {
+        pageFaqs.push({ question: q, answer: a });
+      }
+    }
+  } else {
+    for (let i = 1; i <= 4; i++) {
+      const q = t(`landing.${internalTool}.faq${i}.q`, { defaultValue: '' });
+      const a = t(`landing.${internalTool}.faq${i}.a`, { defaultValue: '' });
+      if (q && a && q !== `landing.${internalTool}.faq${i}.q`) {
+        pageFaqs.push({ question: q, answer: a });
+      }
+    }
+  }
 
   return (
     <div className="min-h-screen bg-dark-900 text-slate-900 dark:text-slate-100 transition-colors duration-300">
       <SeoHead
         key={`${lang}-${tool || 'home'}`}
-        title={dynamicJsonData ? dynamicJsonData.title : displayConfig.title}
-        description={dynamicJsonData ? dynamicJsonData.description : displayConfig.description}
+        title={dynamicJsonData ? dynamicJsonData.title : defaultTitle}
+        description={dynamicJsonData ? dynamicJsonData.description : defaultDesc}
         canonicalPath={lang === 'en' ? (!tool ? '/' : `/${getLocalizedSlug(internalTool as any, 'en')}/`) : (!tool ? `/${lang}/` : `/${lang}/${getLocalizedSlug(internalTool as any, lang as any)}/`)}
         lang={lang}
-        internalTool={internalTool}
+        internalTool={tool ? internalTool : undefined}
+        faqs={pageFaqs}
       />
 
       {/* Hero Section - Hidden in Workspace/Edit Mode to maximize vertical screen space */}
       {!hasActiveFiles && (
-        <Hero 
-          title={dynamicJsonData ? dynamicJsonData.h1 : (!tool ? undefined : displayConfig.h1)} 
-          description={dynamicJsonData ? dynamicJsonData.description : (!tool ? undefined : displayConfig.description)} 
+        <Hero
+          title={dynamicJsonData ? dynamicJsonData.h1 : (!tool ? undefined : defaultH1)}
+          description={dynamicJsonData ? dynamicJsonData.description : (!tool ? undefined : defaultDesc)}
         />
       )}
 
-      {/* CORE TOOL WORKSPACE ATAU HOMEPAGE GRID */}
+      {/* CORE TOOL WORKSPACE OR HOMEPAGE GRID */}
       <div className={hasActiveFiles ? "pt-2 md:pt-4 relative z-10" : "-mt-4 relative z-10"}>
         {!tool ? (
           <ToolGrid />
         ) : (
-          <ToolWorkspace 
-            key={`${internalTool}-${keywordSlug || ''}`}
-            initialTab={displayConfig.tool as any} 
-            onActiveChange={setHasActiveFiles}
-          />
+          <Suspense fallback={
+            <div className="w-full max-w-4xl mx-auto px-4 py-12 flex items-center justify-center">
+              <div className="w-8 h-8 border-2 border-cyan-500 border-t-transparent rounded-full animate-spin" />
+            </div>
+          }>
+            <ToolWorkspace
+              key={`${internalTool}-${keywordSlug || ''}`}
+              initialTab={internalTool as any}
+              onActiveChange={setHasActiveFiles}
+            />
+          </Suspense>
         )}
       </div>
 
       {/* SECTIONS & FAQ: Hidden in Workspace/Edit Mode for clean distraction-free workspace */}
       {!hasActiveFiles && (
         <div className="mt-32 sm:mt-40">
-          {!tool ? (
-            <HomeSections />
-          ) : dynamicJsonData ? (
-            <DynamicPSeoSections data={dynamicJsonData} />
-          ) : (
-            <>
-              <LandingSections tool={displayConfig.tool as any} />
-              
-              <ToolFaqSection 
-                toolMapName={toolMapName} 
-                variant={
-                  toolMapName === 'remove' ? 'grid' :
-                  toolMapName === 'compress' ? 'cards' :
-                  toolMapName === 'color' ? 'accordion' :
-                  toolMapName === 'resize' ? 'split' :
-                  toolMapName === 'crop' ? 'cards' :
-                  toolMapName === 'rotate' ? 'accordion' :
-                  toolMapName === 'watermark' ? 'split' :
-                  toolMapName === 'design' ? 'grid' :
-                  toolMapName === 'picker' ? 'cards' :
-                  toolMapName === 'brush' ? 'accordion' :
-                  toolMapName === 'blurface' ? 'accordion' :
-                  toolMapName === 'metadata' ? 'cards' :
-                  toolMapName === 'editexif' ? 'accordion' :
-                  toolMapName === 'convert' ? 'split' : 'grid'
-                } 
-              />
-            </>
-          )}
+          <Suspense fallback={null}>
+            {!tool ? (
+              <HomeSections />
+            ) : dynamicJsonData ? (
+              <DynamicPSeoSections data={dynamicJsonData} />
+            ) : (
+              <>
+                <LandingSections tool={internalTool as any} />
+                <ToolFaqSection
+                  toolMapName={internalTool}
+                  variant={
+                    internalTool === 'remove' ? 'grid' :
+                    internalTool === 'compress' ? 'cards' :
+                    internalTool === 'color' ? 'accordion' :
+                    internalTool === 'resize' ? 'split' :
+                    internalTool === 'crop' ? 'cards' :
+                    internalTool === 'rotate' ? 'accordion' :
+                    internalTool === 'watermark' ? 'split' :
+                    internalTool === 'design' ? 'grid' :
+                    internalTool === 'picker' ? 'cards' :
+                    internalTool === 'brush' ? 'accordion' :
+                    internalTool === 'blurface' ? 'accordion' :
+                    internalTool === 'metadata' ? 'cards' :
+                    internalTool === 'editexif' ? 'accordion' :
+                    internalTool === 'convert' ? 'split' : 'grid'
+                  }
+                />
+              </>
+            )}
+          </Suspense>
         </div>
       )}
     </div>

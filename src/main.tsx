@@ -4,10 +4,9 @@ import './index.css'
 import App from './App.tsx'
 import { getLanguageFromUrl, initI18n } from './i18n/i18n.ts'
 
-// Force disable BFCache to prevent WebAssembly memory stacking across pages
-window.addEventListener('unload', () => {});
+// Restore cleanly only if restored from BFCache after heavy WASM execution
 window.addEventListener('pageshow', (event) => {
-  if (event.persisted) {
+  if (event.persisted && (window as any).__helpmyimgWasmActive) {
     window.location.reload();
   }
 });

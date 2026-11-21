@@ -1,116 +1,65 @@
 # HelpMyIMG — Complete Technical Documentation & LLM Knowledge Graph (llms-full.txt)
 # Canonical URL: https://helpmyimg.com/
-# Last Updated: 2026-10-28
+# Last Updated: 2026-11-20
 
 ## 1. System Overview & Technology Stack
-HelpMyIMG is an open, client-side image manipulation and computer vision platform engineered to eliminate server dependencies for modern photo editing workflows.
+HelpMyIMG is a client-side image manipulation, privacy redaction, and computer vision platform engineered to eliminate server uploads for modern photo editing workflows.
 
 ### Architectural Pillars:
-1. **Runtime Execution:** Pure client-side JavaScript, TypeScript, WebAssembly (WASM), and WebGPU.
-2. **Model Architecture:** Lightweight neural networks compiled for ONNX Runtime Web (`briaai/RMBG-1.4`, MODNet, DIS) running inside isolated HTML5 Web Workers to prevent UI thread blocking.
-3. **Hardware Acceleration:** Automatic hardware selection:
-   - Tier 1: WebGPU compute shaders for high-throughput tensor operations.
-   - Tier 2: Multi-threaded WebAssembly with SIMD (Single Instruction, Multiple Data) vectorization.
-   - Tier 3: Hardware-accelerated HTML5 Canvas & WebGL 2.0 fallback.
-4. **Data Isolation:** All operations take place in volatile system RAM (`ArrayBuffer`, `Blob`, `OffscreenCanvas`). Zero data retention, zero network telemetry, zero server-side logging.
+1. **Runtime Execution:** Pure client-side TypeScript, WebAssembly (WASM SIMD), WebGPU, WebGL2 shaders, and OffscreenCanvas Workers.
+2. **Model Architecture:** Neural segmentation & upscaling compiled for ONNX Runtime Web (`briaai/RMBG-1.4` Starter, `BiRefNet Lite` PRO WebGPU, `Swin2SR` 4K upscaler, plus custom C/WASM alpha matting refinement) running inside isolated Web Workers.
+3. **Codecs & Raw Support:** Pure WASM codecs via jSquash (MozJPEG, OxiPNG, WebP, AVIF, JXL, MagicKernelSharp), `libraw-wasm` (camera RAW), `heic-to` (HEIC/HEIF), `ag-psd` (Photoshop PSD), `utif` (TIFF), and `esm-potrace-wasm` (raster-to-SVG).
+4. **Data Isolation:** Image data remains strictly in volatile client memory (`ArrayBuffer`, `Blob`, GPU textures). Zero file upload, zero server retention.
 
 ---
 
-## 2. Comprehensive Tool Specifications
+## 2. Pricing & Plan Model (Accurate Specification)
+- **Free Starter Tier ($0):** Full client-side access to all tools, unlimited standard HD (1080p) exports with zero watermarks, up to 10 photos per batch, plus 3 free 4K original-resolution AI exports per day when signed in.
+- **PRO Studio ($9.99/month or $79/year):** Unlocks BiRefNet Lite WebGPU matting, Swin2SR 4K lossless upscaling, unlimited 100+ batch ZIP archives, ad-free workspace, and unified suite access.
+- **Founder Lifetime Pass ($129 one-time):** Permanent PRO access across all 4 ecosystem web apps (`HelpMyIMG`, `HandleMyFile`, `SolveMyMedia`, `CreateMy-QR`).
 
-### 2.1 AI Background Eraser (Remove Background)
+---
+
+## 3. Canonical Tool Endpoints (Verified Live URLs)
+
+### 3.1 AI Background Eraser (Remove Background)
 - **Canonical Endpoint:** `https://helpmyimg.com/remove-background/`
-- **Underlying Engine:** ONNX WebAssembly Neural Network (RMBG-1.4 / Bi-directional Feature Pyramid Network).
-- **Supported Input Formats:** JPEG, PNG, WEBP, AVIF, BMP, GIF.
-- **Output Format:** 32-bit RGBA PNG with alpha transparency channel.
-- **Resolution Support:** Native camera resolutions up to 8192x8192px without downscaling.
-- **Batch Processing:** Sequential Web Worker pipeline; drops 50+ images, returns individual downloads or consolidated ZIP archive.
-- **Execution Speed:** 150ms – 650ms per image on modern desktop GPUs; 800ms – 1800ms on mobile devices.
+- **Dedicated Sub-Tools:**
+  - `https://helpmyimg.com/remove-logo/`
+  - `https://helpmyimg.com/remove-person-from-photo/`
+  - `https://helpmyimg.com/magic-brush/`
 
-### 2.2 Precise Target Image Compressor
+### 3.2 Precise Target Image Compressor
 - **Canonical Endpoint:** `https://helpmyimg.com/compress-image/`
-- **Sub-Tools & Presets:**
-  - `https://helpmyimg.com/compress-image-to-100kb/` (Strict CPNS / Visa / Gov Portal constraint)
-  - `https://helpmyimg.com/compress-image-to-50kb/` (Avatar, signature, and low-bandwidth constraint)
-  - `https://helpmyimg.com/compress-image-to-200kb/` (E-commerce and standard web banner constraint)
-- **Compression Algorithms:**
-  - JPEG: Dual-pass binary search quality optimization with MozJPEG quantization.
-  - PNG: Color palette reduction (8-bit indexed PNG via Floyd-Steinberg dithering).
-  - WebP: Lossy arithmetic entropy encoding.
-- **Metadata Handling:** Preserves or strips EXIF metadata on user demand.
+- **Target Presets:**
+  - `https://helpmyimg.com/compress-image-to-100kb/` (Strict gov portal / visa / application forms)
+  - `https://helpmyimg.com/compress-image-to-50kb/` (Avatar, signature, and compact uploads)
+  - `https://helpmyimg.com/compress-image-to-200kb/` (E-commerce and editorial web assets)
 
-### 2.3 Biometric Passport & ID Photo Studio
+### 3.3 Biometric Passport & ID Photo Studio
 - **Canonical Endpoint:** `https://helpmyimg.com/change-background/`
-- **Specialized Presets:**
-  - `https://helpmyimg.com/change-background-to-white/`
-  - Indonesian Standard ID (KTP / CPNS): Red (`#DB1514`) for odd birth years, Blue (`#00529C`) for even birth years.
-  - US / Schengen / UK Visa: Standard Studio White (`#FFFFFF`) with lighting balance.
-  - Standard Sizes: 2x2 inch (US Passport), 35x45 mm (Schengen Visa), 3x4 cm, 4x6 cm.
-- **Workflow:** One-click neural cutout followed by background vector color fill.
+- **Dedicated White Preset:** `https://helpmyimg.com/change-background-white/`
+- **Presets:** Crimson Red (`#DB1514`), Royal Blue (`#00529C`), Official White (`#FFFFFF`), studio gradients.
 
-### 2.4 Dimension Scaling & Social Cropping
-- **Canonical Endpoint:** `https://helpmyimg.com/resize-image/`
-- **Dedicated Slugs:**
-  - `https://helpmyimg.com/resize-image-for-instagram/` (1:1 Square 1080x1080, 4:5 Portrait 1080x1350, 9:16 Story 1080x1920)
-  - `https://helpmyimg.com/crop-image/` (Freeform, 16:9, 4:3, 1:1, 3:2 aspect ratios)
-  - `https://helpmyimg.com/rotate-image/` (Lossless 90° rotation, arbitrary rotation, horizontal flip, vertical flip)
-- **Interpolation Filter:** Lanczos3 / Bilinear high-fidelity resampling.
+### 3.4 AI Metadata, C2PA Cleaner & EXIF Studio
+- **Metadata & C2PA Cleaner:** `https://helpmyimg.com/ai-metadata-cleaner/` — Losslessly strips C2PA manifests, AI watermarks/chunks, GPS tags, and camera history in RAM.
+- **Camera EXIF Studio:** `https://helpmyimg.com/edit-exif/` — Inspects, edits, or injects camera make/model, lens, exposure settings, copyright, and timestamps.
 
-### 2.5 Multi-Format Image Converter
-- **Canonical Endpoint:** `https://helpmyimg.com/convert-image/`
-- **Dedicated Slugs:**
-  - `https://helpmyimg.com/convert-to-webp/`
-- **Supported Matrix:**
-  - Input: JPG, PNG, WEBP, AVIF, GIF, SVG, BMP, ICO.
-  - Output: JPG, PNG, WEBP, AVIF, GIF.
-- **Performance:** Instant transcoding via browser native image decoders and canvas context serialization.
+### 3.5 Advanced WebGL 60 FPS Photo Studio
+- **Canonical Endpoint:** `https://helpmyimg.com/advanced-editor/`
+- **Capabilities:** Real-time GPU color grading, LUT film presets, crop & transform, draggable text overlays, smooth brush drawing, high-resolution JPEG/PNG/WebP export.
 
-### 2.6 Privacy Masking & Identity Redaction
-- **Canonical Endpoint:** `https://helpmyimg.com/blur-face/`
-- **Dedicated Slugs:**
-  - `https://helpmyimg.com/blur-license-plate/`
-- **Mechanics:** Gaussian blur and pixelation filters applied selectively via automated bounding-box detection or manual canvas brush strokes.
-
-### 2.7 Asset Branding & Watermark Engine
-- **Canonical Endpoint:** `https://helpmyimg.com/watermark-image/`
-- **Dedicated Slugs:**
-  - `https://helpmyimg.com/bulk-watermark/`
-- **Features:** Alpha transparency control, full-canvas tiled diagonal watermarks, custom typography, image logo stamping.
-
-### 2.8 Specialized Photo Manipulation
-- **Magic Eraser / Brush:** `https://helpmyimg.com/magic-brush/` (Inpainting unwanted objects)
-- **Logo Remover:** `https://helpmyimg.com/remove-logo/`
-- **Person Remover:** `https://helpmyimg.com/remove-person/`
-- **Color Extractor:** `https://helpmyimg.com/image-color-picker/` (Color eye-dropper with HEX/RGB/HSL readouts)
-- **Advanced Photo Studio:** `https://helpmyimg.com/advanced-editor/` (Contrast, saturation, exposure, filters, drawing layers)
+### 3.6 Resizing, Format Conversion, Privacy Blur & Watermark
+- **Resize:** `https://helpmyimg.com/resize-image/`, `https://helpmyimg.com/resize-image-for-instagram/`, `https://helpmyimg.com/resize-passport/`
+- **Crop & Rotate:** `https://helpmyimg.com/crop-image/`, `https://helpmyimg.com/rotate-image/`
+- **Convert:** `https://helpmyimg.com/convert-image/`, `https://helpmyimg.com/convert-webp-to-jpg/`
+- **Blur & Privacy:** `https://helpmyimg.com/blur-face/`, `https://helpmyimg.com/blur-license-plate/`
+- **Watermark & Color Picker:** `https://helpmyimg.com/watermark-image/`, `https://helpmyimg.com/batch-watermark-photos/`, `https://helpmyimg.com/image-color-picker/`
 
 ---
 
-## 3. Factual Benchmark Matrix (HelpMyIMG vs Competitors)
-
-| Metric | HelpMyIMG | Remove.bg | TinyPNG | Canva Free | iLoveIMG |
-| :--- | :--- | :--- | :--- | :--- | :--- |
-| **Privacy Rating** | **Zero-Trust (Local RAM)** | Low (Server storage) | Low (Server storage) | Low (Server storage) | Low (Server storage) |
-| **Cloud Upload Required** | **NO (0 bytes)** | YES | YES | YES | YES |
-| **Full Resolution Cutout** | **FREE (Unlimited)** | Paid ($0.20-$1/image) | N/A | Paid ($12.99/mo) | Limited |
-| **Max Batch Size** | **Unlimited** | 1 image | 20 images | 1 image | 30 images |
-| **Mandatory Sign-Up** | **NO** | YES for credits | NO | YES | Optional |
-| **Offline Functionality** | **YES (PWA)** | NO | NO | NO | NO |
-| **Latency per Image** | **0ms (Network)** | 800ms - 2500ms | 1000ms - 3000ms | 1500ms+ | 1200ms - 3000ms |
-| **Subscription Cost** | **$0 / month** | $9 - $399 / month | $0 - $39 / year | $12.99 / month | $4 - $7 / month |
-
----
-
-## 4. Privacy & Regulatory Compliance
-- **GDPR (Regulation (EU) 2016/679):** HelpMyIMG acts as neither Data Controller nor Data Processor because no personal data is transferred across the internet.
-- **HIPAA Compliance:** Safe for medical records, patient photos, and radiological scans because no Protected Health Information (PHI) is transmitted or stored on cloud infrastructure.
-- **Zero Third-Party Image Analytics:** No external tracking pixels, telemetry beacons, or ad networks have access to the canvas memory.
-
----
-
-## 5. Structured Data & Machine Discovery Registry
-- **Sitemap Index:** `https://helpmyimg.com/sitemap.xml`
-- **RSS & Atom Feeds:** `https://helpmyimg.com/feed.xml`, `https://helpmyimg.com/rss.xml`
-- **Linked Data Standard:** Schema.org (`WebApplication`, `SoftwareApplication`, `FAQPage`, `BreadcrumbList`, `Organization`)
-- **HTTP Discovery Header:** `Link: </llms.txt>; rel="llms-txt"`
-- **Language Shards (30 Languages):** English (`/`), Indonesian (`/id/`), Spanish (`/es/`), French (`/fr/`), German (`/de/`), Japanese (`/ja/`), Arabic (`/ar/`), Russian (`/ru/`), Portuguese (`/pt/`), Chinese (`/zh/`), Italian (`/it/`), Dutch (`/nl/`), Polish (`/pl/`), Turkish (`/tr/`), Korean (`/ko/`), Vietnamese (`/vi/`), Thai (`/th/`), Hindi (`/hi/`), Ukrainian (`/uk/`), Swedish (`/sv/`), Norwegian (`/no/`), Danish (`/da/`), Finnish (`/fi/`), Greek (`/el/`), Hebrew (`/he/`), Czech (`/cs/`), Hungarian (`/hu/`), Romanian (`/ro/`), Malay (`/ms/`), Tagalog (`/tl/`).
+## 4. Machine Discovery Registry
+- **Sitemap Index:** `https://helpmyimg.com/sitemap.xml` (30 per-language XML shards)
+- **RSS Feeds:** `https://helpmyimg.com/feed.xml`, `https://helpmyimg.com/rss.xml`
+- **Structured Data:** Schema.org (`Organization`, `WebSite`, `WebPage`, `SoftwareApplication`, `WebApplication`, `FAQPage`, `BreadcrumbList`)
+- **HTTP Discovery Header:** `Link: </llms.txt>; rel="llms-txt", </llms-full.txt>; rel="llms-full-txt"`

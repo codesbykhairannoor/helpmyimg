@@ -122,7 +122,7 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     ]
   },
   {
-    "slug": "free-transparent-background-remover-ecommerce",
+    "slug": "remove-background",
     "tool": "remove",
     "lang": "en",
     "title": "Free Transparent Background Remover for E-Commerce & Shopify",
@@ -146,7 +146,7 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     ]
   },
   {
-    "slug": "dslr-bokeh-portrait-background-blur-maker",
+    "slug": "remove-background",
     "tool": "remove",
     "lang": "en",
     "title": "DSLR Bokeh Portrait Background Blur Maker Online",
@@ -166,7 +166,7 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     ]
   },
   {
-    "slug": "biometric-passport-photo-background-color-changer",
+    "slug": "change-background",
     "tool": "color",
     "lang": "en",
     "title": "Biometric Passport Photo Background Color Changer Online",
@@ -812,7 +812,7 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     ]
   },
   {
-    "slug": "compress-jpeg-to-200kb",
+    "slug": "compress-image",
     "tool": "compress",
     "lang": "en",
     "title": "Compress JPEG to 200KB Free (Passport & Visa)",
@@ -834,7 +834,7 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     ]
   },
   {
-    "slug": "convert-webp-to-jpg-mac",
+    "slug": "convert-image",
     "tool": "convert",
     "lang": "en",
     "title": "Convert WEBP to JPG Free on Mac/Windows",
@@ -905,19 +905,19 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     "lang": "ar",
     "title": "تحويل WEBP to JPG مجاني",
     "h1": "Instantly تحويل WEBP Images to JPG Format",
-    "description": "Transform modern WEBP image formats downloaded from the web into universally compatible JPG or PNG formats in 0 seconds.",
+    "description": "قم بتحويل تنسيقات صور WEBP الحديثة التي تم تنزيلها من الويب إلى تنسيقات JPG أو PNG المتوافقة عالميًا في 0 ثانية.",
     "citationFirst": "Why cant I open WEBP images on older software? HelpMyIMG fixes this by converting WEBP files directly in your browser to standard JPG or PNG format, allowing instant compatibility.",
-    "quantitativeProof": "Processes conversions 500x faster than cloud-based alternatives (0ms vs 5000ms server roundtrips).",
+    "quantitativeProof": "يعالج التحويلات بشكل أسرع 500 مرة من البدائل المستندة إلى السحابة (0 مللي ثانية مقابل 5000 مللي ثانية ذهابًا وإيابًا للخادم).",
     "beforeImageLabel": "Incompatible WEBP",
     "afterImageLabel": "Standard JPG",
     "faqs": [
       {
         "question": "Can I تحويل multiple files?",
-        "answer": "Our batch processing handles up to 10 images concurrently."
+        "answer": "تتعامل معالجة الدفعات لدينا مع ما يصل إلى 10 صور في وقت واحد."
       },
       {
-        "question": "Is my data secure?",
-        "answer": "Absolutely. We do not use cloud storage."
+        "question": "هل بياناتي آمنة؟",
+        "answer": "قطعاً. نحن لا نستخدم التخزين السحابي."
       }
     ]
   },
@@ -939,72 +939,6 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
       },
       {
         "question": "Is it completely مجاني?",
-        "answer": "Yes, HelpMyIMG will never charge for resizing features."
-      }
-    ]
-  },
-  {
-    "slug": "compress-image-200kb-free-bg",
-    "tool": "compress",
-    "lang": "bg",
-    "title": "Компресиране Изображение to 200KB Безплатно",
-    "h1": "Компресиране Изображение to 200KB Without Losing Quality",
-    "description": "Компресиране your Изображение file size instantly to under 200KB. 100% Безплатно and private.",
-    "citationFirst": "How to Компресиране an Изображение to 200KB? HelpMyIMG offers a zero-latency client-side WebGPU compressor. It leverages standard HTML5 Canvas compression algorithms to scale down massive camera photos to under 200KB instantly.",
-    "quantitativeProof": "Maintains 99% visual fidelity while reducing overall file payload by over 90%.",
-    "beforeImageLabel": "Original Изображение",
-    "afterImageLabel": "Compressed Изображение",
-    "faqs": [
-      {
-        "question": "Will my Изображение lose details?",
-        "answer": "We balance the compression ratio specifically for text and facial features."
-      },
-      {
-        "question": "Is my data secure?",
-        "answer": "Yes, it runs entirely in your web browser."
-      }
-    ]
-  },
-  {
-    "slug": "convert-webp-to-jpg-bg",
-    "tool": "convert",
-    "lang": "bg",
-    "title": "Конвертиране WEBP to JPG Безплатно",
-    "h1": "Instantly Конвертиране WEBP Images to JPG Format",
-    "description": "Transform modern WEBP image formats downloaded from the web into universally compatible JPG or PNG formats in 0 seconds.",
-    "citationFirst": "Why cant I open WEBP images on older software? HelpMyIMG fixes this by converting WEBP files directly in your browser to standard JPG or PNG format, allowing instant compatibility.",
-    "quantitativeProof": "Processes conversions 500x faster than cloud-based alternatives (0ms vs 5000ms server roundtrips).",
-    "beforeImageLabel": "Incompatible WEBP",
-    "afterImageLabel": "Standard JPG",
-    "faqs": [
-      {
-        "question": "Can I Конвертиране multiple files?",
-        "answer": "Our batch processing handles up to 10 images concurrently."
-      },
-      {
-        "question": "Is my data secure?",
-        "answer": "Absolutely. We do not use cloud storage."
-      }
-    ]
-  },
-  {
-    "slug": "resize-image-4x6-bg",
-    "tool": "resize",
-    "lang": "bg",
-    "title": "Преоразмеряване Изображение to 4x6 Безплатно",
-    "h1": "Преоразмеряване Photos to Exact Dimensions",
-    "description": "Adjust the width and height of your photos to meet official requirements. 100% private and no installation required.",
-    "citationFirst": "How to Преоразмеряване an Изображение? HelpMyIMG is a browser-based resizing tool that allows precise pixel adjustments. It ensures accurate proportions without facial distortion.",
-    "quantitativeProof": "Avoids 100% of official photo rejections due to incorrect pixel proportions.",
-    "beforeImageLabel": "Random Изображение",
-    "afterImageLabel": "Official Dimensions",
-    "faqs": [
-      {
-        "question": "Will the Изображение look stretched?",
-        "answer": "Use the lock aspect ratio button to prevent the photo from stretching."
-      },
-      {
-        "question": "Is it completely Безплатно?",
         "answer": "Yes, HelpMyIMG will never charge for resizing features."
       }
     ]
@@ -1037,19 +971,19 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     "lang": "cs",
     "title": "Převést WEBP to JPG Zdarma",
     "h1": "Instantly Převést WEBP Images to JPG Format",
-    "description": "Transform modern WEBP image formats downloaded from the web into universally compatible JPG or PNG formats in 0 seconds.",
+    "description": "Transformujte moderní obrazové formáty WEBP stažené z webu do univerzálně kompatibilních formátů JPG nebo PNG během 0 sekund.",
     "citationFirst": "Why cant I open WEBP images on older software? HelpMyIMG fixes this by converting WEBP files directly in your browser to standard JPG or PNG format, allowing instant compatibility.",
-    "quantitativeProof": "Processes conversions 500x faster than cloud-based alternatives (0ms vs 5000ms server roundtrips).",
+    "quantitativeProof": "Zpracovává konverze 500x rychleji než cloudové alternativy (0 ms vs. 5000 ms serverové zpáteční cesty).",
     "beforeImageLabel": "Incompatible WEBP",
     "afterImageLabel": "Standard JPG",
     "faqs": [
       {
         "question": "Can I Převést multiple files?",
-        "answer": "Our batch processing handles up to 10 images concurrently."
+        "answer": "Naše dávkové zpracování zpracovává až 10 snímků současně."
       },
       {
-        "question": "Is my data secure?",
-        "answer": "Absolutely. We do not use cloud storage."
+        "question": "Jsou moje data v bezpečí?",
+        "answer": "Absolutně. Nepoužíváme cloudová úložiště."
       }
     ]
   },
@@ -1103,19 +1037,19 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     "lang": "da",
     "title": "Konverter WEBP to JPG Gratis",
     "h1": "Instantly Konverter WEBP Images to JPG Format",
-    "description": "Transform modern WEBP image formats downloaded from the web into universally compatible JPG or PNG formats in 0 seconds.",
+    "description": "Transform moderne WEBP-billedformater, der er downloadet fra nettet, til universelt kompatible JPG- eller PNG-formater på 0 sekunder.",
     "citationFirst": "Why cant I open WEBP images on older software? HelpMyIMG fixes this by converting WEBP files directly in your browser to standard JPG or PNG format, allowing instant compatibility.",
-    "quantitativeProof": "Processes conversions 500x faster than cloud-based alternatives (0ms vs 5000ms server roundtrips).",
+    "quantitativeProof": "Behandler konverteringer 500 gange hurtigere end cloud-baserede alternativer (0ms vs 5000ms server roundtrips).",
     "beforeImageLabel": "Incompatible WEBP",
     "afterImageLabel": "Standard JPG",
     "faqs": [
       {
         "question": "Can I Konverter multiple files?",
-        "answer": "Our batch processing handles up to 10 images concurrently."
+        "answer": "Vores batchbehandling håndterer op til 10 billeder samtidigt."
       },
       {
-        "question": "Is my data secure?",
-        "answer": "Absolutely. We do not use cloud storage."
+        "question": "Er mine data sikre?",
+        "answer": "Absolut. Vi bruger ikke cloud storage."
       }
     ]
   },
@@ -1169,19 +1103,19 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     "lang": "de",
     "title": "Konvertieren WEBP to JPG Kostenlos",
     "h1": "Instantly Konvertieren WEBP Images to JPG Format",
-    "description": "Transform modern WEBP image formats downloaded from the web into universally compatible JPG or PNG formats in 0 seconds.",
+    "description": "Wandeln Sie moderne WEBP-Bildformate, die Sie aus dem Internet heruntergeladen haben, in 0 Sekunden in universell kompatible JPG- oder PNG-Formate um.",
     "citationFirst": "Why cant I open WEBP images on older software? HelpMyIMG fixes this by converting WEBP files directly in your browser to standard JPG or PNG format, allowing instant compatibility.",
-    "quantitativeProof": "Processes conversions 500x faster than cloud-based alternatives (0ms vs 5000ms server roundtrips).",
+    "quantitativeProof": "Verarbeitet Konvertierungen 500-mal schneller als cloudbasierte Alternativen (0 ms gegenüber 5000 ms Server-Roundtrips).",
     "beforeImageLabel": "Incompatible WEBP",
     "afterImageLabel": "Standard JPG",
     "faqs": [
       {
         "question": "Can I Konvertieren multiple files?",
-        "answer": "Our batch processing handles up to 10 images concurrently."
+        "answer": "Unsere Stapelverarbeitung verarbeitet bis zu 10 Bilder gleichzeitig."
       },
       {
-        "question": "Is my data secure?",
-        "answer": "Absolutely. We do not use cloud storage."
+        "question": "Sind meine Daten sicher?",
+        "answer": "Absolut. Wir verwenden keinen Cloud-Speicher."
       }
     ]
   },
@@ -1235,19 +1169,19 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     "lang": "el",
     "title": "Μετατροπή WEBP to JPG Δωρεάν",
     "h1": "Instantly Μετατροπή WEBP Images to JPG Format",
-    "description": "Transform modern WEBP image formats downloaded from the web into universally compatible JPG or PNG formats in 0 seconds.",
+    "description": "Μετατρέψτε τις σύγχρονες μορφές εικόνας WEBP που έχουν ληφθεί από τον Ιστό σε μορφές παγκοσμίως συμβατές JPG ή PNG σε 0 δευτερόλεπτα.",
     "citationFirst": "Why cant I open WEBP images on older software? HelpMyIMG fixes this by converting WEBP files directly in your browser to standard JPG or PNG format, allowing instant compatibility.",
-    "quantitativeProof": "Processes conversions 500x faster than cloud-based alternatives (0ms vs 5000ms server roundtrips).",
+    "quantitativeProof": "Επεξεργάζεται τις μετατροπές 500 φορές γρηγορότερα από τις εναλλακτικές που βασίζονται σε σύννεφο (0ms έναντι 5000ms διακομιστών μετ' επιστροφής).",
     "beforeImageLabel": "Incompatible WEBP",
     "afterImageLabel": "Standard JPG",
     "faqs": [
       {
         "question": "Can I Μετατροπή multiple files?",
-        "answer": "Our batch processing handles up to 10 images concurrently."
+        "answer": "Η ομαδική μας επεξεργασία χειρίζεται έως και 10 εικόνες ταυτόχρονα."
       },
       {
-        "question": "Is my data secure?",
-        "answer": "Absolutely. We do not use cloud storage."
+        "question": "Είναι ασφαλή τα δεδομένα μου;",
+        "answer": "Απολύτως. Δεν χρησιμοποιούμε αποθήκευση cloud."
       }
     ]
   },
@@ -1301,19 +1235,19 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     "lang": "fi",
     "title": "Muunna WEBP to JPG Ilmainen",
     "h1": "Instantly Muunna WEBP Images to JPG Format",
-    "description": "Transform modern WEBP image formats downloaded from the web into universally compatible JPG or PNG formats in 0 seconds.",
+    "description": "Muunna verkosta ladatut nykyaikaiset WEBP-kuvamuodot yleisesti yhteensopiviin JPG- tai PNG-muotoihin 0 sekunnissa.",
     "citationFirst": "Why cant I open WEBP images on older software? HelpMyIMG fixes this by converting WEBP files directly in your browser to standard JPG or PNG format, allowing instant compatibility.",
-    "quantitativeProof": "Processes conversions 500x faster than cloud-based alternatives (0ms vs 5000ms server roundtrips).",
+    "quantitativeProof": "Käsittelee konversiot 500 kertaa nopeammin kuin pilvipohjaiset vaihtoehdot (0 ms vs 5 000 ms palvelimen edestakaiset).",
     "beforeImageLabel": "Incompatible WEBP",
     "afterImageLabel": "Standard JPG",
     "faqs": [
       {
         "question": "Can I Muunna multiple files?",
-        "answer": "Our batch processing handles up to 10 images concurrently."
+        "answer": "Eräkäsittelymme käsittelee jopa 10 kuvaa samanaikaisesti."
       },
       {
-        "question": "Is my data secure?",
-        "answer": "Absolutely. We do not use cloud storage."
+        "question": "Ovatko tietoni turvassa?",
+        "answer": "Täysin. Emme käytä pilvitallennustilaa."
       }
     ]
   },
@@ -1367,19 +1301,19 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     "lang": "fr",
     "title": "Convertir WEBP to JPG Gratuit",
     "h1": "Instantly Convertir WEBP Images to JPG Format",
-    "description": "Transform modern WEBP image formats downloaded from the web into universally compatible JPG or PNG formats in 0 seconds.",
+    "description": "Transformez les formats d'image WEBP modernes téléchargés sur le Web en formats JPG ou PNG universellement compatibles en 0 seconde.",
     "citationFirst": "Why cant I open WEBP images on older software? HelpMyIMG fixes this by converting WEBP files directly in your browser to standard JPG or PNG format, allowing instant compatibility.",
-    "quantitativeProof": "Processes conversions 500x faster than cloud-based alternatives (0ms vs 5000ms server roundtrips).",
+    "quantitativeProof": "Traite les conversions 500 fois plus rapidement que les alternatives basées sur le cloud (allers-retours du serveur de 0 ms contre 5 000 ms).",
     "beforeImageLabel": "Incompatible WEBP",
     "afterImageLabel": "Standard JPG",
     "faqs": [
       {
         "question": "Can I Convertir multiple files?",
-        "answer": "Our batch processing handles up to 10 images concurrently."
+        "answer": "Notre traitement par lots gère jusqu'à 10 images simultanément."
       },
       {
-        "question": "Is my data secure?",
-        "answer": "Absolutely. We do not use cloud storage."
+        "question": "Mes données sont-elles sécurisées ?",
+        "answer": "Absolument. Nous n'utilisons pas de stockage cloud."
       }
     ]
   },
@@ -1433,19 +1367,19 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     "lang": "he",
     "title": "המרה WEBP to JPG חינם",
     "h1": "Instantly המרה WEBP Images to JPG Format",
-    "description": "Transform modern WEBP image formats downloaded from the web into universally compatible JPG or PNG formats in 0 seconds.",
+    "description": "הפוך פורמטים מודרניים של תמונות WEBP שהורדו מהאינטרנט לפורמטים תואמים אוניברסליים של JPG או PNG תוך 0 שניות.",
     "citationFirst": "Why cant I open WEBP images on older software? HelpMyIMG fixes this by converting WEBP files directly in your browser to standard JPG or PNG format, allowing instant compatibility.",
-    "quantitativeProof": "Processes conversions 500x faster than cloud-based alternatives (0ms vs 5000ms server roundtrips).",
+    "quantitativeProof": "מעבד המרות פי 500 מהר יותר מחלופות מבוססות ענן (0ms לעומת 5000ms שרת הלוך ושוב).",
     "beforeImageLabel": "Incompatible WEBP",
     "afterImageLabel": "Standard JPG",
     "faqs": [
       {
         "question": "Can I המרה multiple files?",
-        "answer": "Our batch processing handles up to 10 images concurrently."
+        "answer": "עיבוד האצווה שלנו מטפל בעד 10 תמונות בו-זמנית."
       },
       {
-        "question": "Is my data secure?",
-        "answer": "Absolutely. We do not use cloud storage."
+        "question": "האם הנתונים שלי מאובטחים?",
+        "answer": "בְּהֶחלֵט. אנחנו לא משתמשים באחסון בענן."
       }
     ]
   },
@@ -1499,19 +1433,19 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     "lang": "hi",
     "title": "बदलें WEBP to JPG मुफ़्त",
     "h1": "Instantly बदलें WEBP Images to JPG Format",
-    "description": "Transform modern WEBP image formats downloaded from the web into universally compatible JPG or PNG formats in 0 seconds.",
+    "description": "वेब से डाउनलोड किए गए आधुनिक WEBP छवि प्रारूपों को 0 सेकंड में सार्वभौमिक रूप से संगत JPG या PNG प्रारूपों में बदलें।",
     "citationFirst": "Why cant I open WEBP images on older software? HelpMyIMG fixes this by converting WEBP files directly in your browser to standard JPG or PNG format, allowing instant compatibility.",
-    "quantitativeProof": "Processes conversions 500x faster than cloud-based alternatives (0ms vs 5000ms server roundtrips).",
+    "quantitativeProof": "क्लाउड-आधारित विकल्पों (0ms बनाम 5000ms सर्वर राउंडट्रिप्स) की तुलना में रूपांतरणों को 500 गुना तेजी से संसाधित करता है।",
     "beforeImageLabel": "Incompatible WEBP",
     "afterImageLabel": "Standard JPG",
     "faqs": [
       {
         "question": "Can I बदलें multiple files?",
-        "answer": "Our batch processing handles up to 10 images concurrently."
+        "answer": "हमारा बैच प्रोसेसिंग एक साथ 10 छवियों तक को संभालता है।"
       },
       {
-        "question": "Is my data secure?",
-        "answer": "Absolutely. We do not use cloud storage."
+        "question": "क्या मेरा डेटा सुरक्षित है?",
+        "answer": "बिल्कुल। हम क्लाउड स्टोरेज का उपयोग नहीं करते."
       }
     ]
   },
@@ -1565,19 +1499,19 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     "lang": "hu",
     "title": "Konvertálás WEBP to JPG Ingyenes",
     "h1": "Instantly Konvertálás WEBP Images to JPG Format",
-    "description": "Transform modern WEBP image formats downloaded from the web into universally compatible JPG or PNG formats in 0 seconds.",
+    "description": "A webről letöltött modern WEBP képformátumokat 0 másodperc alatt univerzálisan kompatibilis JPG vagy PNG formátumokká alakíthatja.",
     "citationFirst": "Why cant I open WEBP images on older software? HelpMyIMG fixes this by converting WEBP files directly in your browser to standard JPG or PNG format, allowing instant compatibility.",
-    "quantitativeProof": "Processes conversions 500x faster than cloud-based alternatives (0ms vs 5000ms server roundtrips).",
+    "quantitativeProof": "A konverziókat 500-szor gyorsabban dolgozza fel, mint a felhőalapú alternatívák (0 ms vs 5000 ms szerver körút).",
     "beforeImageLabel": "Incompatible WEBP",
     "afterImageLabel": "Standard JPG",
     "faqs": [
       {
         "question": "Can I Konvertálás multiple files?",
-        "answer": "Our batch processing handles up to 10 images concurrently."
+        "answer": "Kötegelt feldolgozásunk akár 10 képet is kezel egyidejűleg."
       },
       {
-        "question": "Is my data secure?",
-        "answer": "Absolutely. We do not use cloud storage."
+        "question": "Biztonságban vannak az adataim?",
+        "answer": "Teljesen. Nem használunk felhőalapú tárolást."
       }
     ]
   },
@@ -1631,19 +1565,19 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     "lang": "it",
     "title": "Converti WEBP to JPG Gratis",
     "h1": "Instantly Converti WEBP Images to JPG Format",
-    "description": "Transform modern WEBP image formats downloaded from the web into universally compatible JPG or PNG formats in 0 seconds.",
+    "description": "Trasforma i moderni formati di immagine WEBP scaricati dal Web in formati JPG o PNG universalmente compatibili in 0 secondi.",
     "citationFirst": "Why cant I open WEBP images on older software? HelpMyIMG fixes this by converting WEBP files directly in your browser to standard JPG or PNG format, allowing instant compatibility.",
-    "quantitativeProof": "Processes conversions 500x faster than cloud-based alternatives (0ms vs 5000ms server roundtrips).",
+    "quantitativeProof": "Elabora le conversioni 500 volte più velocemente rispetto alle alternative basate su cloud (0 ms contro 5000 ms di andata e ritorno sul server).",
     "beforeImageLabel": "Incompatible WEBP",
     "afterImageLabel": "Standard JPG",
     "faqs": [
       {
         "question": "Can I Converti multiple files?",
-        "answer": "Our batch processing handles up to 10 images concurrently."
+        "answer": "La nostra elaborazione batch gestisce fino a 10 immagini contemporaneamente."
       },
       {
-        "question": "Is my data secure?",
-        "answer": "Absolutely. We do not use cloud storage."
+        "question": "I miei dati sono sicuri?",
+        "answer": "Assolutamente. Non utilizziamo l'archiviazione nel cloud."
       }
     ]
   },
@@ -1697,19 +1631,19 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     "lang": "ja",
     "title": "変換 WEBP to JPG 無料",
     "h1": "Instantly 変換 WEBP Images to JPG Format",
-    "description": "Transform modern WEBP image formats downloaded from the web into universally compatible JPG or PNG formats in 0 seconds.",
+    "description": "Web からダウンロードした最新の WEBP 画像形式を、汎用互換性のある JPG または PNG 形式に 0 秒で変換します。",
     "citationFirst": "Why cant I open WEBP images on older software? HelpMyIMG fixes this by converting WEBP files directly in your browser to standard JPG or PNG format, allowing instant compatibility.",
-    "quantitativeProof": "Processes conversions 500x faster than cloud-based alternatives (0ms vs 5000ms server roundtrips).",
+    "quantitativeProof": "クラウドベースの代替手段と比べて 500 倍高速に変換を処理します (0 ミリ秒対 5000 ミリ秒のサーバー往復)。",
     "beforeImageLabel": "Incompatible WEBP",
     "afterImageLabel": "Standard JPG",
     "faqs": [
       {
         "question": "Can I 変換 multiple files?",
-        "answer": "Our batch processing handles up to 10 images concurrently."
+        "answer": "当社のバッチ処理では、最大 10 枚の画像を同時に処理します。"
       },
       {
-        "question": "Is my data secure?",
-        "answer": "Absolutely. We do not use cloud storage."
+        "question": "私のデータは安全ですか?",
+        "answer": "絶対に。 クラウドストレージは使用しません。"
       }
     ]
   },
@@ -1763,19 +1697,19 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     "lang": "ko",
     "title": "변환 WEBP to JPG 무료",
     "h1": "Instantly 변환 WEBP Images to JPG Format",
-    "description": "Transform modern WEBP image formats downloaded from the web into universally compatible JPG or PNG formats in 0 seconds.",
+    "description": "웹에서 다운로드한 최신 WEBP 이미지 형식을 0초 만에 보편적으로 호환되는 JPG 또는 PNG 형식으로 변환합니다.",
     "citationFirst": "Why cant I open WEBP images on older software? HelpMyIMG fixes this by converting WEBP files directly in your browser to standard JPG or PNG format, allowing instant compatibility.",
-    "quantitativeProof": "Processes conversions 500x faster than cloud-based alternatives (0ms vs 5000ms server roundtrips).",
+    "quantitativeProof": "클라우드 기반 대안보다 500배 빠르게 변환을 처리합니다(0ms 대 5000ms 서버 왕복).",
     "beforeImageLabel": "Incompatible WEBP",
     "afterImageLabel": "Standard JPG",
     "faqs": [
       {
         "question": "Can I 변환 multiple files?",
-        "answer": "Our batch processing handles up to 10 images concurrently."
+        "answer": "일괄 처리는 최대 10개의 이미지를 동시에 처리합니다."
       },
       {
-        "question": "Is my data secure?",
-        "answer": "Absolutely. We do not use cloud storage."
+        "question": "내 데이터는 안전합니까?",
+        "answer": "전적으로. 우리는 클라우드 스토리지를 사용하지 않습니다."
       }
     ]
   },
@@ -1829,19 +1763,19 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     "lang": "ms",
     "title": "Tukar Format WEBP to JPG Percuma",
     "h1": "Instantly Tukar Format WEBP Images to JPG Format",
-    "description": "Transform modern WEBP image formats downloaded from the web into universally compatible JPG or PNG formats in 0 seconds.",
+    "description": "Ubah format imej WEBP moden yang dimuat turun daripada web kepada format JPG atau PNG yang serasi secara universal dalam 0 saat.",
     "citationFirst": "Why cant I open WEBP images on older software? HelpMyIMG fixes this by converting WEBP files directly in your browser to standard JPG or PNG format, allowing instant compatibility.",
-    "quantitativeProof": "Processes conversions 500x faster than cloud-based alternatives (0ms vs 5000ms server roundtrips).",
+    "quantitativeProof": "Memproses penukaran 500x lebih pantas daripada alternatif berasaskan awan (0ms vs 5000ms ulang-alik pelayan).",
     "beforeImageLabel": "Incompatible WEBP",
     "afterImageLabel": "Standard JPG",
     "faqs": [
       {
         "question": "Can I Tukar Format multiple files?",
-        "answer": "Our batch processing handles up to 10 images concurrently."
+        "answer": "Pemprosesan kelompok kami mengendalikan sehingga 10 imej secara serentak."
       },
       {
-        "question": "Is my data secure?",
-        "answer": "Absolutely. We do not use cloud storage."
+        "question": "Adakah data saya selamat?",
+        "answer": "betul-betul. Kami tidak menggunakan storan awan."
       }
     ]
   },
@@ -1895,19 +1829,19 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     "lang": "nl",
     "title": "Converteren WEBP to JPG Gratis",
     "h1": "Instantly Converteren WEBP Images to JPG Format",
-    "description": "Transform modern WEBP image formats downloaded from the web into universally compatible JPG or PNG formats in 0 seconds.",
+    "description": "Transformeer moderne WEBP-afbeeldingsformaten die u van internet hebt gedownload in universeel compatibele JPG- of PNG-formaten in 0 seconden.",
     "citationFirst": "Why cant I open WEBP images on older software? HelpMyIMG fixes this by converting WEBP files directly in your browser to standard JPG or PNG format, allowing instant compatibility.",
-    "quantitativeProof": "Processes conversions 500x faster than cloud-based alternatives (0ms vs 5000ms server roundtrips).",
+    "quantitativeProof": "Verwerkt conversies 500x sneller dan cloudgebaseerde alternatieven (0 ms versus 5000 ms serverretouren).",
     "beforeImageLabel": "Incompatible WEBP",
     "afterImageLabel": "Standard JPG",
     "faqs": [
       {
         "question": "Can I Converteren multiple files?",
-        "answer": "Our batch processing handles up to 10 images concurrently."
+        "answer": "Onze batchverwerking verwerkt maximaal 10 afbeeldingen tegelijk."
       },
       {
-        "question": "Is my data secure?",
-        "answer": "Absolutely. We do not use cloud storage."
+        "question": "Zijn mijn gegevens veilig?",
+        "answer": "Absoluut. Wij maken geen gebruik van cloudopslag."
       }
     ]
   },
@@ -1961,19 +1895,19 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     "lang": "no",
     "title": "Konverter WEBP to JPG Gratis",
     "h1": "Instantly Konverter WEBP Images to JPG Format",
-    "description": "Transform modern WEBP image formats downloaded from the web into universally compatible JPG or PNG formats in 0 seconds.",
+    "description": "Transform moderne WEBP-bildeformater lastet ned fra nettet til universelt kompatible JPG- eller PNG-formater på 0 sekunder.",
     "citationFirst": "Why cant I open WEBP images on older software? HelpMyIMG fixes this by converting WEBP files directly in your browser to standard JPG or PNG format, allowing instant compatibility.",
-    "quantitativeProof": "Processes conversions 500x faster than cloud-based alternatives (0ms vs 5000ms server roundtrips).",
+    "quantitativeProof": "Behandler konverteringer 500 ganger raskere enn skybaserte alternativer (0ms vs 5000ms server rundturer).",
     "beforeImageLabel": "Incompatible WEBP",
     "afterImageLabel": "Standard JPG",
     "faqs": [
       {
         "question": "Can I Konverter multiple files?",
-        "answer": "Our batch processing handles up to 10 images concurrently."
+        "answer": "Batchbehandlingen vår håndterer opptil 10 bilder samtidig."
       },
       {
-        "question": "Is my data secure?",
-        "answer": "Absolutely. We do not use cloud storage."
+        "question": "Er dataene mine sikre?",
+        "answer": "Absolutt. Vi bruker ikke skylagring."
       }
     ]
   },
@@ -2027,19 +1961,19 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     "lang": "pl",
     "title": "Konwertuj WEBP to JPG Za darmo",
     "h1": "Instantly Konwertuj WEBP Images to JPG Format",
-    "description": "Transform modern WEBP image formats downloaded from the web into universally compatible JPG or PNG formats in 0 seconds.",
+    "description": "Przekształć nowoczesne formaty obrazów WEBP pobrane z Internetu w uniwersalnie kompatybilne formaty JPG lub PNG w ciągu 0 sekund.",
     "citationFirst": "Why cant I open WEBP images on older software? HelpMyIMG fixes this by converting WEBP files directly in your browser to standard JPG or PNG format, allowing instant compatibility.",
-    "quantitativeProof": "Processes conversions 500x faster than cloud-based alternatives (0ms vs 5000ms server roundtrips).",
+    "quantitativeProof": "Przetwarza konwersje 500 razy szybciej niż alternatywy oparte na chmurze (przebieg serwera w obie strony 0 ms w porównaniu z 5000 ms).",
     "beforeImageLabel": "Incompatible WEBP",
     "afterImageLabel": "Standard JPG",
     "faqs": [
       {
         "question": "Can I Konwertuj multiple files?",
-        "answer": "Our batch processing handles up to 10 images concurrently."
+        "answer": "Nasze przetwarzanie wsadowe obsługuje do 10 obrazów jednocześnie."
       },
       {
-        "question": "Is my data secure?",
-        "answer": "Absolutely. We do not use cloud storage."
+        "question": "Czy moje dane są bezpieczne?",
+        "answer": "Absolutnie. Nie korzystamy z przechowywania w chmurze."
       }
     ]
   },
@@ -2093,19 +2027,19 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     "lang": "pt",
     "title": "Converter WEBP to JPG Grátis",
     "h1": "Instantly Converter WEBP Images to JPG Format",
-    "description": "Transform modern WEBP image formats downloaded from the web into universally compatible JPG or PNG formats in 0 seconds.",
+    "description": "Transforme formatos de imagem WEBP modernos baixados da web em formatos JPG ou PNG universalmente compatíveis em 0 segundos.",
     "citationFirst": "Why cant I open WEBP images on older software? HelpMyIMG fixes this by converting WEBP files directly in your browser to standard JPG or PNG format, allowing instant compatibility.",
-    "quantitativeProof": "Processes conversions 500x faster than cloud-based alternatives (0ms vs 5000ms server roundtrips).",
+    "quantitativeProof": "Processa conversões 500 vezes mais rápido do que alternativas baseadas em nuvem (viagens de ida e volta do servidor de 0 ms vs. 5.000 ms).",
     "beforeImageLabel": "Incompatible WEBP",
     "afterImageLabel": "Standard JPG",
     "faqs": [
       {
         "question": "Can I Converter multiple files?",
-        "answer": "Our batch processing handles up to 10 images concurrently."
+        "answer": "Nosso processamento em lote lida com até 10 imagens simultaneamente."
       },
       {
-        "question": "Is my data secure?",
-        "answer": "Absolutely. We do not use cloud storage."
+        "question": "Meus dados estão seguros?",
+        "answer": "Absolutamente. Não usamos armazenamento em nuvem."
       }
     ]
   },
@@ -2159,19 +2093,19 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     "lang": "ro",
     "title": "Convertire WEBP to JPG Gratuit",
     "h1": "Instantly Convertire WEBP Images to JPG Format",
-    "description": "Transform modern WEBP image formats downloaded from the web into universally compatible JPG or PNG formats in 0 seconds.",
+    "description": "Transformați formatele moderne de imagini WEBP descărcate de pe web în formate JPG sau PNG compatibile universal în 0 secunde.",
     "citationFirst": "Why cant I open WEBP images on older software? HelpMyIMG fixes this by converting WEBP files directly in your browser to standard JPG or PNG format, allowing instant compatibility.",
-    "quantitativeProof": "Processes conversions 500x faster than cloud-based alternatives (0ms vs 5000ms server roundtrips).",
+    "quantitativeProof": "Procesează conversiile de 500 de ori mai rapid decât alternativele bazate pe cloud (0 ms vs 5000 ms dus-întors pe server).",
     "beforeImageLabel": "Incompatible WEBP",
     "afterImageLabel": "Standard JPG",
     "faqs": [
       {
         "question": "Can I Convertire multiple files?",
-        "answer": "Our batch processing handles up to 10 images concurrently."
+        "answer": "Procesarea noastră în loturi gestionează până la 10 imagini simultan."
       },
       {
-        "question": "Is my data secure?",
-        "answer": "Absolutely. We do not use cloud storage."
+        "question": "Sunt datele mele securizate?",
+        "answer": "Absolut. Nu folosim stocare în cloud."
       }
     ]
   },
@@ -2225,19 +2159,19 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     "lang": "ru",
     "title": "Конвертировать WEBP to JPG Бесплатно",
     "h1": "Instantly Конвертировать WEBP Images to JPG Format",
-    "description": "Transform modern WEBP image formats downloaded from the web into universally compatible JPG or PNG formats in 0 seconds.",
+    "description": "Преобразуйте современные форматы изображений WEBP, загруженные из Интернета, в универсально совместимые форматы JPG или PNG за 0 секунд.",
     "citationFirst": "Why cant I open WEBP images on older software? HelpMyIMG fixes this by converting WEBP files directly in your browser to standard JPG or PNG format, allowing instant compatibility.",
-    "quantitativeProof": "Processes conversions 500x faster than cloud-based alternatives (0ms vs 5000ms server roundtrips).",
+    "quantitativeProof": "Обрабатывает конверсии в 500 раз быстрее, чем облачные альтернативы (0 мс против 5 000 мс между серверами).",
     "beforeImageLabel": "Incompatible WEBP",
     "afterImageLabel": "Standard JPG",
     "faqs": [
       {
         "question": "Can I Конвертировать multiple files?",
-        "answer": "Our batch processing handles up to 10 images concurrently."
+        "answer": "Наша пакетная обработка обрабатывает до 10 изображений одновременно."
       },
       {
-        "question": "Is my data secure?",
-        "answer": "Absolutely. We do not use cloud storage."
+        "question": "Мои данные в безопасности?",
+        "answer": "Абсолютно. Мы не используем облачное хранилище."
       }
     ]
   },
@@ -2291,19 +2225,19 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     "lang": "sv",
     "title": "Konvertera WEBP to JPG Gratis",
     "h1": "Instantly Konvertera WEBP Images to JPG Format",
-    "description": "Transform modern WEBP image formats downloaded from the web into universally compatible JPG or PNG formats in 0 seconds.",
+    "description": "Förvandla moderna WEBP-bildformat som laddats ner från webben till universellt kompatibla JPG- eller PNG-format på 0 sekunder.",
     "citationFirst": "Why cant I open WEBP images on older software? HelpMyIMG fixes this by converting WEBP files directly in your browser to standard JPG or PNG format, allowing instant compatibility.",
-    "quantitativeProof": "Processes conversions 500x faster than cloud-based alternatives (0ms vs 5000ms server roundtrips).",
+    "quantitativeProof": "Bearbetar konverteringar 500 gånger snabbare än molnbaserade alternativ (0ms vs 5000ms server roundtrips).",
     "beforeImageLabel": "Incompatible WEBP",
     "afterImageLabel": "Standard JPG",
     "faqs": [
       {
         "question": "Can I Konvertera multiple files?",
-        "answer": "Our batch processing handles up to 10 images concurrently."
+        "answer": "Vår batchbehandling hanterar upp till 10 bilder samtidigt."
       },
       {
-        "question": "Is my data secure?",
-        "answer": "Absolutely. We do not use cloud storage."
+        "question": "Är min data säker?",
+        "answer": "Absolut. Vi använder inte molnlagring."
       }
     ]
   },
@@ -2357,19 +2291,19 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     "lang": "th",
     "title": "แปลง WEBP to JPG ฟรี",
     "h1": "Instantly แปลง WEBP Images to JPG Format",
-    "description": "Transform modern WEBP image formats downloaded from the web into universally compatible JPG or PNG formats in 0 seconds.",
+    "description": "แปลงรูปแบบภาพ WEBP สมัยใหม่ที่ดาวน์โหลดจากเว็บเป็นรูปแบบ JPG หรือ PNG ที่เข้ากันได้ในระดับสากลใน 0 วินาที",
     "citationFirst": "Why cant I open WEBP images on older software? HelpMyIMG fixes this by converting WEBP files directly in your browser to standard JPG or PNG format, allowing instant compatibility.",
-    "quantitativeProof": "Processes conversions 500x faster than cloud-based alternatives (0ms vs 5000ms server roundtrips).",
+    "quantitativeProof": "ประมวลผลการแปลงเร็วกว่าทางเลือกอื่นบนคลาวด์ 500 เท่า (เซิร์ฟเวอร์ไปกลับ 0 มิลลิวินาที เทียบกับ 5,000 มิลลิวินาที)",
     "beforeImageLabel": "Incompatible WEBP",
     "afterImageLabel": "Standard JPG",
     "faqs": [
       {
         "question": "Can I แปลง multiple files?",
-        "answer": "Our batch processing handles up to 10 images concurrently."
+        "answer": "การประมวลผลเป็นชุดของเรารองรับภาพได้สูงสุด 10 ภาพพร้อมกัน"
       },
       {
-        "question": "Is my data secure?",
-        "answer": "Absolutely. We do not use cloud storage."
+        "question": "ข้อมูลของฉันปลอดภัยหรือไม่?",
+        "answer": "อย่างแน่นอน. เราไม่ได้ใช้ที่เก็บข้อมูลบนคลาวด์"
       }
     ]
   },
@@ -2423,19 +2357,19 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     "lang": "tl",
     "title": "I-convert WEBP to JPG Libre",
     "h1": "Instantly I-convert WEBP Images to JPG Format",
-    "description": "Transform modern WEBP image formats downloaded from the web into universally compatible JPG or PNG formats in 0 seconds.",
+    "description": "I-transform ang mga modernong WEBP image format na na-download mula sa web tungo sa mga universally compatible na JPG o PNG na format sa loob ng 0 segundo.",
     "citationFirst": "Why cant I open WEBP images on older software? HelpMyIMG fixes this by converting WEBP files directly in your browser to standard JPG or PNG format, allowing instant compatibility.",
-    "quantitativeProof": "Processes conversions 500x faster than cloud-based alternatives (0ms vs 5000ms server roundtrips).",
+    "quantitativeProof": "Pinoproseso ang mga conversion nang 500x na mas mabilis kaysa sa cloud-based na mga alternatibo (0ms vs 5000ms server roundtrips).",
     "beforeImageLabel": "Incompatible WEBP",
     "afterImageLabel": "Standard JPG",
     "faqs": [
       {
         "question": "Can I I-convert multiple files?",
-        "answer": "Our batch processing handles up to 10 images concurrently."
+        "answer": "Ang aming batch processing ay humahawak ng hanggang 10 mga larawan nang sabay-sabay."
       },
       {
-        "question": "Is my data secure?",
-        "answer": "Absolutely. We do not use cloud storage."
+        "question": "Secure ba ang data ko?",
+        "answer": "Talagang. Hindi kami gumagamit ng cloud storage."
       }
     ]
   },
@@ -2489,19 +2423,19 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     "lang": "tr",
     "title": "Dönüştür WEBP to JPG Ücretsiz",
     "h1": "Instantly Dönüştür WEBP Images to JPG Format",
-    "description": "Transform modern WEBP image formats downloaded from the web into universally compatible JPG or PNG formats in 0 seconds.",
+    "description": "Web'den indirilen modern WEBP görüntü formatlarını 0 saniyede evrensel olarak uyumlu JPG veya PNG formatlarına dönüştürün.",
     "citationFirst": "Why cant I open WEBP images on older software? HelpMyIMG fixes this by converting WEBP files directly in your browser to standard JPG or PNG format, allowing instant compatibility.",
-    "quantitativeProof": "Processes conversions 500x faster than cloud-based alternatives (0ms vs 5000ms server roundtrips).",
+    "quantitativeProof": "Dönüşümleri bulut tabanlı alternatiflere göre 500 kat daha hızlı işler (0 ms vs 5000 ms sunucu gidiş-dönüşleri).",
     "beforeImageLabel": "Incompatible WEBP",
     "afterImageLabel": "Standard JPG",
     "faqs": [
       {
         "question": "Can I Dönüştür multiple files?",
-        "answer": "Our batch processing handles up to 10 images concurrently."
+        "answer": "Toplu işlememiz aynı anda 10'a kadar görüntüyü işler."
       },
       {
-        "question": "Is my data secure?",
-        "answer": "Absolutely. We do not use cloud storage."
+        "question": "Verilerim güvende mi?",
+        "answer": "Kesinlikle. Bulut depolama kullanmıyoruz."
       }
     ]
   },
@@ -2555,19 +2489,19 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     "lang": "uk",
     "title": "Конвертувати WEBP to JPG Безкоштовно",
     "h1": "Instantly Конвертувати WEBP Images to JPG Format",
-    "description": "Transform modern WEBP image formats downloaded from the web into universally compatible JPG or PNG formats in 0 seconds.",
+    "description": "Перетворюйте сучасні формати зображень WEBP, завантажені з Інтернету, на універсально сумісні формати JPG або PNG за 0 секунд.",
     "citationFirst": "Why cant I open WEBP images on older software? HelpMyIMG fixes this by converting WEBP files directly in your browser to standard JPG or PNG format, allowing instant compatibility.",
-    "quantitativeProof": "Processes conversions 500x faster than cloud-based alternatives (0ms vs 5000ms server roundtrips).",
+    "quantitativeProof": "Обробляє перетворення в 500 разів швидше, ніж хмарні альтернативи (0 мс проти 5000 мс обхід серверів).",
     "beforeImageLabel": "Incompatible WEBP",
     "afterImageLabel": "Standard JPG",
     "faqs": [
       {
         "question": "Can I Конвертувати multiple files?",
-        "answer": "Our batch processing handles up to 10 images concurrently."
+        "answer": "Наша пакетна обробка обробляє до 10 зображень одночасно."
       },
       {
-        "question": "Is my data secure?",
-        "answer": "Absolutely. We do not use cloud storage."
+        "question": "Чи мої дані захищені?",
+        "answer": "Абсолютно. Ми не використовуємо хмарне сховище."
       }
     ]
   },
@@ -2621,19 +2555,19 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     "lang": "vi",
     "title": "Chuyển đổi WEBP to JPG Miễn phí",
     "h1": "Instantly Chuyển đổi WEBP Images to JPG Format",
-    "description": "Transform modern WEBP image formats downloaded from the web into universally compatible JPG or PNG formats in 0 seconds.",
+    "description": "Chuyển đổi các định dạng hình ảnh WEBP hiện đại được tải xuống từ web thành các định dạng JPG hoặc PNG tương thích phổ biến trong 0 giây.",
     "citationFirst": "Why cant I open WEBP images on older software? HelpMyIMG fixes this by converting WEBP files directly in your browser to standard JPG or PNG format, allowing instant compatibility.",
-    "quantitativeProof": "Processes conversions 500x faster than cloud-based alternatives (0ms vs 5000ms server roundtrips).",
+    "quantitativeProof": "Xử lý chuyển đổi nhanh hơn 500 lần so với các lựa chọn thay thế dựa trên đám mây (chuyến đi khứ hồi của máy chủ 0ms so với 5000ms).",
     "beforeImageLabel": "Incompatible WEBP",
     "afterImageLabel": "Standard JPG",
     "faqs": [
       {
         "question": "Can I Chuyển đổi multiple files?",
-        "answer": "Our batch processing handles up to 10 images concurrently."
+        "answer": "Quá trình xử lý hàng loạt của chúng tôi xử lý đồng thời tối đa 10 hình ảnh."
       },
       {
-        "question": "Is my data secure?",
-        "answer": "Absolutely. We do not use cloud storage."
+        "question": "Dữ liệu của tôi có an toàn không?",
+        "answer": "Tuyệt đối. Chúng tôi không sử dụng lưu trữ đám mây."
       }
     ]
   },
@@ -2687,19 +2621,19 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     "lang": "zh",
     "title": "转换 WEBP to JPG 免费",
     "h1": "Instantly 转换 WEBP Images to JPG Format",
-    "description": "Transform modern WEBP image formats downloaded from the web into universally compatible JPG or PNG formats in 0 seconds.",
+    "description": "在 0 秒内将从网络下载的现代 WEBP 图像格式转换为普遍兼容的 JPG 或 PNG 格式。",
     "citationFirst": "Why cant I open WEBP images on older software? HelpMyIMG fixes this by converting WEBP files directly in your browser to standard JPG or PNG format, allowing instant compatibility.",
-    "quantitativeProof": "Processes conversions 500x faster than cloud-based alternatives (0ms vs 5000ms server roundtrips).",
+    "quantitativeProof": "处理转换速度比基于云的替代方案快 500 倍（0 毫秒 vs 5000 毫秒服务器往返）。",
     "beforeImageLabel": "Incompatible WEBP",
     "afterImageLabel": "Standard JPG",
     "faqs": [
       {
         "question": "Can I 转换 multiple files?",
-        "answer": "Our batch processing handles up to 10 images concurrently."
+        "answer": "我们的批处理最多可同时处理 10 张图像。"
       },
       {
-        "question": "Is my data secure?",
-        "answer": "Absolutely. We do not use cloud storage."
+        "question": "我的数据安全吗？",
+        "answer": "绝对地。 我们不使用云存储。"
       }
     ]
   },
@@ -2766,7 +2700,7 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     ]
   },
   {
-    "slug": "compress-image-to-100kb",
+    "slug": "compress-image",
     "tool": "compress",
     "lang": "en",
     "title": "Compress Image to 100KB Online Free (Batch 20-50 Photos)",
@@ -2784,7 +2718,7 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     ]
   },
   {
-    "slug": "convert-30-photos-to-webp",
+    "slug": "convert-image",
     "tool": "convert",
     "lang": "en",
     "title": "Convert 30 Photos to WEBP Online Free (Batch Processing & ZIP)",
@@ -2831,25 +2765,25 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     "slug": "kompres-foto-100kb",
     "tool": "compress100kb",
     "lang": "id",
-    "title": "Compress Image to 100KB Online Free - Fast & Private",
-    "h1": "Compress Any Image to 100KB Instantly",
-    "description": "Easily compress your JPG, PNG, and WEBP images to exactly 100KB or less without losing quality. 100% private, processed in your browser.",
-    "citationFirst": "Struggling with upload limits on government portals, job sites, or university forms? Our advanced client-side compressor reduces your image size precisely under 100KB while keeping text and faces crystal clear.",
-    "quantitativeProof": "Join 2M+ users who bypass 100KB form limits without pixelation.",
-    "beforeImageLabel": "Original 5MB",
-    "afterImageLabel": "Result 98KB",
+    "title": "Kompres Gambar ke 100KB Online Gratis - Cepat & Pribadi",
+    "h1": "Kompres Gambar Apa Pun menjadi 100KB Secara Instan",
+    "description": "Kompres gambar JPG, PNG, dan WEBP Anda dengan mudah hingga tepat 100 KB atau kurang tanpa kehilangan kualitas. 100% pribadi, diproses di browser Anda.",
+    "citationFirst": "Berjuang dengan batasan unggahan di portal pemerintah, lokasi kerja, atau formulir universitas? Kompresor sisi klien kami yang canggih mengurangi ukuran gambar Anda tepat di bawah 100KB sekaligus menjaga teks dan wajah tetap jernih.",
+    "quantitativeProof": "Bergabunglah dengan 2 juta+ pengguna yang melampaui batas formulir 100 KB tanpa pikselasi.",
+    "beforeImageLabel": "Asli 5MB",
+    "afterImageLabel": "Hasil 98KB",
     "faqs": [
       {
-        "question": "How can I compress an image to exactly 100KB?",
-        "answer": "Our tool automatically adjusts the quality slider and strips unnecessary metadata to push the file size below 100KB while preserving visual fidelity."
+        "question": "Bagaimana cara mengompres gambar hingga tepat 100KB?",
+        "answer": "Alat kami secara otomatis menyesuaikan penggeser kualitas dan menghapus metadata yang tidak perlu untuk mendorong ukuran file di bawah 100KB sambil menjaga fidelitas visual."
       },
       {
-        "question": "Is it safe to compress my passport photo here?",
-        "answer": "Yes, it is 100% safe. Your images are never transmitted over the internet. Processing happens locally in your device's memory."
+        "question": "Apakah aman untuk mengompres foto paspor saya di sini?",
+        "answer": "Ya, ini 100% aman. Gambar Anda tidak pernah dikirimkan melalui internet. Pemrosesan terjadi secara lokal di memori perangkat Anda."
       },
       {
-        "question": "Will my image lose quality and become blurry?",
-        "answer": "We use advanced algorithmic downsizing and smart compression. While file size drops drastically, we prioritize keeping critical details like text and faces highly readable."
+        "question": "Apakah gambar saya akan kehilangan kualitas dan menjadi buram?",
+        "answer": "Kami menggunakan perampingan algoritmik tingkat lanjut dan kompresi cerdas. Meskipun ukuran file turun drastis, kami memprioritaskan menjaga detail penting seperti teks dan wajah tetap mudah dibaca."
       }
     ]
   },
@@ -3012,7 +2946,7 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
   {
     "slug": "yasuo-tupian-100kb",
     "tool": "compress100kb",
-    "lang": "zh-CN",
+    "lang": "zh",
     "title": "免费在线将图像压缩至 100KB - 快速且私密",
     "h1": "立即将任何图像压缩至 100KB",
     "description": "轻松将 JPG、PNG 和 WEBP 图像压缩至 100KB 或更小，而不会降低质量。 100% 私密，在您的浏览器中处理。",
@@ -3250,22 +3184,22 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     "title": "บีบอัดรูปภาพเป็น 100KB ออนไลน์ฟรี - รวดเร็วและเป็นส่วนตัว",
     "h1": "บีบอัดรูปภาพให้เหลือ 100KB ในพริบตา",
     "description": "บีบอัดรูปภาพ JPG, PNG และ WEBP ของคุณให้มีขนาด 100KB หรือน้อยกว่าได้อย่างง่ายดายโดยไม่สูญเสียคุณภาพ ปลอดภัย 100% ประมวลผลในเบราว์เซอร์ของคุณ",
-    "citationFirst": "Struggling with upload limits on government portals, job sites, or university forms? Our advanced client-side compressor reduces your image size precisely under 100KB while keeping text and faces crystal clear.",
-    "quantitativeProof": "Join 2M+ users who bypass 100KB form limits without pixelation.",
+    "citationFirst": "กำลังดิ้นรนกับการจำกัดการอัพโหลดบนพอร์ทัลของรัฐบาล ไซต์งาน หรือแบบฟอร์มของมหาวิทยาลัยใช่ไหม โปรแกรมบีบอัดฝั่งไคลเอ็นต์ขั้นสูงของเราจะลดขนาดภาพของคุณลงอย่างแม่นยำไม่เกิน 100KB ในขณะที่ยังคงรักษาข้อความและใบหน้าให้คมชัด",
+    "quantitativeProof": "เข้าร่วมกับผู้ใช้กว่า 2 ล้านคนที่ข้ามขีดจำกัดแบบฟอร์ม 100KB โดยไม่มีพิกเซล",
     "beforeImageLabel": "ต้นฉบับ 5MB",
     "afterImageLabel": "ผลลัพธ์ 98KB",
     "faqs": [
       {
-        "question": "How can I compress an image to exactly 100KB?",
-        "answer": "Our tool automatically adjusts the quality slider and strips unnecessary metadata to push the file size below 100KB while preserving visual fidelity."
+        "question": "ฉันจะบีบอัดรูปภาพให้มีขนาด 100KB ได้อย่างไร",
+        "answer": "เครื่องมือของเราจะปรับตัวเลื่อนคุณภาพโดยอัตโนมัติและตัดข้อมูลเมตาที่ไม่จำเป็นออกเพื่อดันขนาดไฟล์ให้ต่ำกว่า 100KB ในขณะที่ยังคงรักษาความคมชัดของภาพ"
       },
       {
-        "question": "Is it safe to compress my passport photo here?",
-        "answer": "Yes, it is 100% safe. Your images are never transmitted over the internet. Processing happens locally in your device's memory."
+        "question": "บีบอัดรูปถ่ายหนังสือเดินทางของฉันที่นี่ปลอดภัยหรือไม่",
+        "answer": "ใช่มันปลอดภัย 100% ภาพของคุณจะไม่ถูกส่งผ่านทางอินเทอร์เน็ต การประมวลผลเกิดขึ้นภายในหน่วยความจำของอุปกรณ์ของคุณ"
       },
       {
-        "question": "Will my image lose quality and become blurry?",
-        "answer": "We use advanced algorithmic downsizing and smart compression. While file size drops drastically, we prioritize keeping critical details like text and faces highly readable."
+        "question": "รูปภาพของฉันจะสูญเสียคุณภาพและเบลอหรือไม่?",
+        "answer": "เราใช้การลดขนาดอัลกอริทึมขั้นสูงและการบีบอัดอัจฉริยะ แม้ว่าขนาดไฟล์จะลดลงอย่างมาก แต่เราให้ความสำคัญกับการรักษารายละเอียดที่สำคัญ เช่น ข้อความและใบหน้าให้อ่านได้ง่าย"
       }
     ]
   },
@@ -3504,28 +3438,28 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     ]
   },
   {
-    "slug": "kompresia-na-100kb",
+    "slug": "i-compress-larawan-100kb",
     "tool": "compress100kb",
-    "lang": "sk",
-    "title": "Komprimujte obrázok na 100 kB online zadarmo – rýchlo a súkromne",
-    "h1": "Okamžite skomprimujte akýkoľvek obrázok na 100 kB",
-    "description": "Jednoducho komprimujte svoje obrázky JPG, PNG a WEBP na presne 100 kB alebo menej bez straty kvality. 100% súkromné, spracované vo vašom prehliadači.",
-    "citationFirst": "Bojujete s limitmi nahrávania na vládnych portáloch, pracovných stránkach alebo univerzitných formulároch? Náš pokročilý kompresor na strane klienta zmenšuje veľkosť obrázka presne pod 100 kB, pričom text a tváre zachováva krištáľovo čisté.",
-    "quantitativeProof": "Pripojte sa k viac ako 2 miliónom používateľov, ktorí obchádzajú 100 kB limity formulárov bez pixelovania.",
-    "beforeImageLabel": "Pôvodná veľkosť 5 MB",
-    "afterImageLabel": "Výsledok 98 kB",
+    "lang": "tl",
+    "title": "I-compress ang Imahe sa 100KB Online na Libre - Mabilis at Pribado",
+    "h1": "I-compress ang Anumang Larawan sa 100KB Agad",
+    "description": "Madaling i-compress ang iyong JPG, PNG, at WEBP na mga larawan sa eksaktong 100KB o mas mababa nang hindi nawawala ang kalidad. 100% pribado, naproseso sa iyong browser.",
+    "citationFirst": "Nahihirapan sa mga limitasyon sa pag-upload sa mga portal ng gobyerno, mga site ng trabaho, o mga form sa unibersidad? Ang aming advanced na client-side compressor ay binabawasan ang laki ng iyong larawan nang eksakto sa ilalim ng 100KB habang pinananatiling malinaw ang text at mga mukha.",
+    "quantitativeProof": "Sumali sa 2M+ user na lumalampas sa 100KB na mga limitasyon sa form nang walang pixelation.",
+    "beforeImageLabel": "Orihinal na 5MB",
+    "afterImageLabel": "Resulta 98KB",
     "faqs": [
       {
-        "question": "Ako môžem komprimovať obrázok presne na 100 kB?",
-        "answer": "Náš nástroj automaticky upraví posúvač kvality a odstráni nepotrebné metadáta, aby sa veľkosť súboru posunula pod 100 kB pri zachovaní vizuálnej vernosti."
+        "question": "Paano ko mai-compress ang isang imahe sa eksaktong 100KB?",
+        "answer": "Awtomatikong inaayos ng aming tool ang slider ng kalidad at tinatanggal ang hindi kinakailangang metadata upang itulak ang laki ng file sa ibaba 100KB habang pinapanatili ang visual fidelity."
       },
       {
-        "question": "Je bezpečné tu komprimovať fotografiu z pasu?",
-        "answer": "Áno, je to 100% bezpečné. Vaše obrázky sa nikdy neprenášajú cez internet. Spracovanie prebieha lokálne v pamäti vášho zariadenia."
+        "question": "Ligtas bang i-compress ang litrato ng aking pasaporte dito?",
+        "answer": "Oo, ito ay 100% ligtas. Ang iyong mga larawan ay hindi kailanman ipinapadala sa internet. Nangyayari ang pagproseso nang lokal sa memorya ng iyong device."
       },
       {
-        "question": "Stratí môj obrázok kvalitu a bude rozmazaný?",
-        "answer": "Používame pokročilé algoritmické zmenšovanie a inteligentnú kompresiu. Aj keď veľkosť súboru drasticky klesá, uprednostňujeme, aby boli dôležité detaily, ako je text a tváre, dobre čitateľné."
+        "question": "Mawawalan ba ng kalidad ang aking imahe at magiging malabo?",
+        "answer": "Gumagamit kami ng advanced algorithmic downsizing at smart compression. Bagama't bumababa nang husto ang laki ng file, inuuna namin ang pagpapanatili ng mga kritikal na detalye tulad ng text at mga mukha na lubos na nababasa."
       }
     ]
   },
@@ -3611,25 +3545,25 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     "slug": "kompres-foto-50kb",
     "tool": "compress50kb",
     "lang": "id",
-    "title": "Compress Image to 50KB - Smart WebGPU Compression",
-    "h1": "Shrink Photos to 50KB with AI Precision",
-    "description": "Hit the strictest 50KB limits for government and visa portals effortlessly. Compress images heavily without destroying the visual quality.",
-    "citationFirst": "When a portal demands a file under 50KB, traditional compressors often turn your photo into a blurry mess. We leverage WebGPU to selectively preserve edge fidelity, guaranteeing strict 50KB compliance without sacrificing readability.",
-    "quantitativeProof": "Compressing images to 50KB is 3x faster with local processing.",
+    "title": "Kompres Gambar hingga 50KB - Kompresi WebGPU Cerdas",
+    "h1": "Kecilkan Foto hingga 50KB dengan AI Precision",
+    "description": "Capai batas paling ketat 50 KB untuk portal pemerintah dan visa dengan mudah. Kompres gambar secara maksimal tanpa merusak kualitas visual.",
+    "citationFirst": "Saat portal meminta file di bawah 50KB, kompresor tradisional sering kali mengubah foto Anda menjadi buram. Kami memanfaatkan WebGPU untuk menjaga fidelitas edge secara selektif, menjamin kepatuhan ketat 50 KB tanpa mengorbankan keterbacaan.",
+    "quantitativeProof": "Mengompresi gambar hingga 50KB 3x lebih cepat dengan pemrosesan lokal.",
     "beforeImageLabel": "File 2.5MB",
     "afterImageLabel": "Optimized 48KB",
     "faqs": [
       {
-        "question": "Why is 50KB so hard to achieve with good quality?",
-        "answer": "50KB leaves very little room for image data. Most tools just lower resolution bluntly. We optimize color quantization and metadata stripping to save space for actual pixels."
+        "question": "Mengapa 50KB sangat sulit dicapai dengan kualitas yang baik?",
+        "answer": "50KB menyisakan sedikit ruang untuk data gambar. Kebanyakan alat hanya menurunkan resolusi secara terus terang. Kami mengoptimalkan kuantisasi warna dan penghapusan metadata untuk menghemat ruang bagi piksel sebenarnya."
       },
       {
-        "question": "Which formats can be compressed to 50KB?",
-        "answer": "You can upload JPG, JPEG, PNG, or WEBP. We generally output as a highly compressed WebP or JPG depending on which yields a better 50KB result."
+        "question": "Format mana yang dapat dikompresi hingga 50KB?",
+        "answer": "Anda dapat mengunggah JPG, JPEG, PNG, atau WEBP. Kami biasanya menghasilkan output sebagai WebP atau JPG yang sangat terkompresi, bergantung pada mana yang menghasilkan hasil 50 KB yang lebih baik."
       },
       {
-        "question": "Can I do this entirely offline?",
-        "answer": "Yes! Once this page loads, you can turn off your internet. The 50KB compression algorithm runs 100% in your browser."
+        "question": "Bisakah saya melakukan ini sepenuhnya secara offline?",
+        "answer": "Ya! Setelah halaman ini dimuat, Anda dapat mematikan internet Anda. Algoritme kompresi 50KB berjalan 100% di browser Anda."
       }
     ]
   },
@@ -3792,7 +3726,7 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
   {
     "slug": "yasuo-tupian-50kb",
     "tool": "compress50kb",
-    "lang": "zh-CN",
+    "lang": "zh",
     "title": "将图像压缩至 50KB - 智能 WebGPU 压缩",
     "h1": "利用 AI Precision 将照片缩小至 50KB",
     "description": "轻松达到政府和签证门户最严格的 50KB 限制。 大量压缩图像而不破坏视觉质量。",
@@ -4030,22 +3964,22 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     "title": "บีบอัดรูปภาพเป็น 50KB - การบีบอัด WebGPU อัจฉริยะ",
     "h1": "บีบอัดรูปภาพให้เหลือ 50KB ในพริบตา",
     "description": "ลดขนาดรูปภาพของคุณให้เหลือต่ำกว่า 50KB อย่างปลอดภัยสำหรับการอัปโหลดเว็บ รูปแบบการประมวลผลขั้นสูงเพื่อรักษาความคมชัด",
-    "citationFirst": "When a portal demands a file under 50KB, traditional compressors often turn your photo into a blurry mess. We leverage WebGPU to selectively preserve edge fidelity, guaranteeing strict 50KB compliance without sacrificing readability.",
-    "quantitativeProof": "Compressing images to 50KB is 3x faster with local processing.",
+    "citationFirst": "เมื่อพอร์ทัลต้องการไฟล์ที่มีขนาดต่ำกว่า 50KB โปรแกรมบีบอัดแบบเดิมมักจะเปลี่ยนรูปภาพของคุณให้พร่ามัว เราใช้ประโยชน์จาก WebGPU เพื่อเลือกรักษาความเที่ยงตรงของ Edge โดยรับประกันการปฏิบัติตามข้อกำหนด 50KB ที่เข้มงวดโดยไม่ทำให้ความสามารถในการอ่านลดลง",
+    "quantitativeProof": "การบีบอัดรูปภาพเป็น 50KB เร็วขึ้น 3 เท่าด้วยการประมวลผลในเครื่อง",
     "beforeImageLabel": "ต้นฉบับ 3MB",
     "afterImageLabel": "ผลลัพธ์ 48KB",
     "faqs": [
       {
-        "question": "Why is 50KB so hard to achieve with good quality?",
-        "answer": "50KB leaves very little room for image data. Most tools just lower resolution bluntly. We optimize color quantization and metadata stripping to save space for actual pixels."
+        "question": "เหตุใดการบรรลุขนาด 50KB ด้วยคุณภาพที่ดีจึงเป็นเรื่องยาก",
+        "answer": "50KB เหลือพื้นที่สำหรับข้อมูลรูปภาพน้อยมาก เครื่องมือส่วนใหญ่ลดความละเอียดลงอย่างตรงไปตรงมา เราปรับปริมาณสีและการแยกเมตาดาต้าให้เหมาะสมเพื่อประหยัดพื้นที่สำหรับพิกเซลจริง"
       },
       {
-        "question": "Which formats can be compressed to 50KB?",
-        "answer": "You can upload JPG, JPEG, PNG, or WEBP. We generally output as a highly compressed WebP or JPG depending on which yields a better 50KB result."
+        "question": "รูปแบบใดที่สามารถบีบอัดได้ถึง 50KB",
+        "answer": "คุณสามารถอัปโหลด JPG, JPEG, PNG หรือ WEBP โดยทั่วไปเราจะส่งออกเป็น WebP หรือ JPG ที่มีการบีบอัดสูง ขึ้นอยู่กับว่าไฟล์ใดให้ผลลัพธ์ขนาด 50KB ที่ดีกว่า"
       },
       {
-        "question": "Can I do this entirely offline?",
-        "answer": "Yes! Once this page loads, you can turn off your internet. The 50KB compression algorithm runs 100% in your browser."
+        "question": "ฉันสามารถทำสิ่งนี้แบบออฟไลน์ทั้งหมดได้หรือไม่?",
+        "answer": "ใช่! เมื่อหน้านี้โหลดแล้ว คุณสามารถปิดอินเทอร์เน็ตได้ อัลกอริธึมการบีบอัด 50KB ทำงานได้ 100% ในเบราว์เซอร์ของคุณ"
       }
     ]
   },
@@ -4284,28 +4218,28 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     ]
   },
   {
-    "slug": "kompresia-na-50kb",
+    "slug": "i-compress-larawan-50kb",
     "tool": "compress50kb",
-    "lang": "sk",
-    "title": "Komprimujte obrázok na 50 kB – inteligentná kompresia WebGPU",
-    "h1": "Zmenšenie fotografií na 50 kB s AI Precision",
-    "description": "Bez námahy dosiahnite najprísnejšie limity 50 kB pre vládne a vízové ​​portály. Silne komprimujte obrázky bez poškodenia vizuálnej kvality.",
-    "citationFirst": "Keď portál požaduje súbor s veľkosťou menšou ako 50 kB, tradičné kompresory často zmenia vašu fotografiu na rozmazaný neporiadok. WebGPU využívame na selektívne zachovanie vernosti okrajov, pričom zaručujeme prísnu zhodu s veľkosťou 50 kB bez obetovania čitateľnosti.",
-    "quantitativeProof": "Kompresia obrázkov na 50 kB je pri lokálnom spracovaní 3x rýchlejšia.",
-    "beforeImageLabel": "Súbor 2,5 MB",
-    "afterImageLabel": "Optimalizované 48 kB",
+    "lang": "tl",
+    "title": "I-compress ang Imahe sa 50KB - Smart WebGPU Compression",
+    "h1": "Paliitin ang Mga Larawan sa 50KB gamit ang AI Precision",
+    "description": "Pindutin ang pinakamahigpit na 50KB na limitasyon para sa mga portal ng gobyerno at visa nang walang kahirap-hirap. I-compress nang husto ang mga larawan nang hindi sinisira ang visual na kalidad.",
+    "citationFirst": "Kapag ang isang portal ay humihingi ng isang file na wala pang 50KB, kadalasang ginagawa ng mga tradisyonal na compressor ang iyong larawan sa isang malabong gulo. Ginagamit namin ang WebGPU upang piliing mapanatili ang katapatan sa gilid, na ginagarantiyahan ang mahigpit na pagsunod sa 50KB nang hindi sinasakripisyo ang pagiging madaling mabasa.",
+    "quantitativeProof": "Ang pag-compress ng mga larawan sa 50KB ay 3x na mas mabilis sa lokal na pagproseso.",
+    "beforeImageLabel": "File 2.5MB",
+    "afterImageLabel": "Na-optimize na 48KB",
     "faqs": [
       {
-        "question": "Prečo je také ťažké dosiahnuť 50 kB s dobrou kvalitou?",
-        "answer": "50 kB ponecháva veľmi málo miesta pre obrazové dáta. Väčšina nástrojov jednoducho zníži rozlíšenie. Optimalizujeme kvantizáciu farieb a odstraňovanie metadát, aby sme ušetrili priestor pre skutočné pixely."
+        "question": "Bakit napakahirap makamit ang 50KB na may magandang kalidad?",
+        "answer": "Ang 50KB ay nag-iiwan ng napakaliit na puwang para sa data ng larawan. Karamihan sa mga tool ay tahasang mas mababa ang resolution. Ino-optimize namin ang color quantization at metadata stripping para makatipid ng espasyo para sa mga aktwal na pixel."
       },
       {
-        "question": "Ktoré formáty je možné skomprimovať na 50 kB?",
-        "answer": "Môžete nahrať JPG, JPEG, PNG alebo WEBP. Vo všeobecnosti vystupujeme ako vysoko komprimovaný WebP alebo JPG v závislosti od toho, čo prináša lepší výsledok s veľkosťou 50 kB."
+        "question": "Aling mga format ang maaaring i-compress sa 50KB?",
+        "answer": "Maaari kang mag-upload ng JPG, JPEG, PNG, o WEBP. Karaniwan kaming naglalabas bilang isang napaka-compress na WebP o JPG depende sa kung alin ang nagbubunga ng mas magandang 50KB na resulta."
       },
       {
-        "question": "Môžem to urobiť úplne offline?",
-        "answer": "Áno! Po načítaní tejto stránky môžete vypnúť internet. Algoritmus kompresie 50 kB beží vo vašom prehliadači na 100 %."
+        "question": "Magagawa ko ba itong ganap na offline?",
+        "answer": "Oo! Kapag nag-load ang page na ito, maaari mong i-off ang iyong internet. Ang 50KB compression algorithm ay tumatakbo nang 100% sa iyong browser."
       }
     ]
   },
@@ -4391,25 +4325,25 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     "slug": "ubah-ukuran-instagram",
     "tool": "resizeig",
     "lang": "id",
-    "title": "Resize Image for Instagram Online - No Cropping Required",
-    "h1": "Perfect Instagram Sizes in 1 Click",
-    "description": "Instantly resize your photos for Instagram Posts, Stories, and Reels. Add beautiful blur borders to prevent awkward cropping.",
-    "citationFirst": "Don't let Instagram ruin your landscape photos with forced crops. Our tool automatically pads your image into the perfect 1:1, 4:5, or 9:16 aspect ratios using stunning blurred backgrounds.",
-    "quantitativeProof": "99% of top influencers use blur-padded borders for non-square photos.",
-    "beforeImageLabel": "Original Landscape",
+    "title": "Ubah Ukuran Gambar untuk Instagram Online - Tidak Perlu Pemotongan",
+    "h1": "Ukuran Instagram Sempurna dalam 1 Klik",
+    "description": "Ubah ukuran foto Anda secara instan untuk Postingan, Cerita, dan Reel Instagram. Tambahkan batas buram yang indah untuk mencegah pemotongan yang canggung.",
+    "citationFirst": "Jangan biarkan Instagram merusak foto lanskap Anda dengan pemotongan paksa. Alat kami secara otomatis memasukkan gambar Anda ke dalam rasio aspek 1:1, 4:5, atau 9:16 yang sempurna menggunakan latar belakang buram yang menakjubkan.",
+    "quantitativeProof": "99% influencer top menggunakan batas buram untuk foto non-persegi.",
+    "beforeImageLabel": "Pemandangan Asli",
     "afterImageLabel": "Ready for Insta 4:5",
     "faqs": [
       {
-        "question": "What is the best aspect ratio for Instagram?",
-        "answer": "For posts, 4:5 (Portrait) is recommended as it occupies the most screen real estate. For Stories and Reels, use 9:16."
+        "question": "Berapa rasio aspek terbaik untuk Instagram?",
+        "answer": "Untuk postingan, disarankan menggunakan rasio 4:5 (Potret) karena menempati sebagian besar ruang layar. Untuk Cerita dan Reel, gunakan 9:16."
       },
       {
-        "question": "How do you prevent my photo from being cropped?",
-        "answer": "Instead of cropping, we scale your photo to fit the canvas and fill the remaining empty space with a beautiful, seamless blurred version of your image."
+        "question": "Bagaimana cara mencegah foto saya terpotong?",
+        "answer": "Daripada memotong, kami mengatur skala foto Anda agar sesuai dengan kanvas dan mengisi ruang kosong yang tersisa dengan versi gambar Anda yang indah dan buram."
       },
       {
-        "question": "Do you compress the image before uploading to IG?",
-        "answer": "We export at the highest quality possible so Instagram's own aggressive compression algorithm has the best source data to work with."
+        "question": "Apakah Anda mengompres gambar sebelum diunggah ke IG?",
+        "answer": "Kami mengekspor dengan kualitas setinggi mungkin sehingga algoritme kompresi agresif Instagram memiliki sumber data terbaik untuk digunakan."
       }
     ]
   },
@@ -4572,7 +4506,7 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
   {
     "slug": "tiaozheng-ins-chicun",
     "tool": "resizeig",
-    "lang": "zh-CN",
+    "lang": "zh",
     "title": "在线调整 Instagram 图像大小 - 无需裁剪",
     "h1": "一键完美 Instagram 尺寸",
     "description": "立即调整 Instagram 帖子、故事和卷轴的照片大小。 添加漂亮的模糊边框以防止尴尬的裁剪。",
@@ -4810,22 +4744,22 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     "title": "ปรับขนาดรูปภาพสำหรับ Instagram ออนไลน์ - ไม่จำเป็นต้องครอบตัด",
     "h1": "ปรับขนาดรูปภาพสำหรับ Instagram ทันที",
     "description": "ปรับรูปภาพของคุณให้เข้ากับอัตราส่วนของ Instagram (1:1, 4:5, 16:9) ได้อย่างสมบูรณ์แบบโดยไม่ต้องตัดส่วนสำคัญ",
-    "citationFirst": "Don't let Instagram ruin your landscape photos with forced crops. Our tool automatically pads your image into the perfect 1:1, 4:5, or 9:16 aspect ratios using stunning blurred backgrounds.",
-    "quantitativeProof": "99% of top influencers use blur-padded borders for non-square photos.",
+    "citationFirst": "อย่าปล่อยให้ Instagram ทำลายภาพทิวทัศน์ของคุณด้วยการครอบตัดภาพ เครื่องมือของเราจะแพดรูปภาพของคุณให้มีอัตราส่วนภาพ 1:1, 4:5 หรือ 9:16 ที่สมบูรณ์แบบโดยอัตโนมัติ โดยใช้พื้นหลังเบลอที่น่าทึ่ง",
+    "quantitativeProof": "99% ของผู้มีอิทธิพลอันดับต้น ๆ ใช้ขอบเบลอสำหรับภาพถ่ายที่ไม่ใช่สี่เหลี่ยมจัตุรัส",
     "beforeImageLabel": "ขนาดไม่พอดี",
     "afterImageLabel": "ขนาด 4:5 สมบูรณ์แบบ",
     "faqs": [
       {
-        "question": "What is the best aspect ratio for Instagram?",
-        "answer": "For posts, 4:5 (Portrait) is recommended as it occupies the most screen real estate. For Stories and Reels, use 9:16."
+        "question": "อัตราส่วนภาพที่ดีที่สุดสำหรับ Instagram คืออะไร?",
+        "answer": "สำหรับโพสต์ แนะนำให้ใช้อัตราส่วน 4:5 (แนวตั้ง) เนื่องจากจะใช้พื้นที่หน้าจอมากที่สุด For Stories and Reels, use 9:16."
       },
       {
         "question": "How do you prevent my photo from being cropped?",
         "answer": "Instead of cropping, we scale your photo to fit the canvas and fill the remaining empty space with a beautiful, seamless blurred version of your image."
       },
       {
-        "question": "Do you compress the image before uploading to IG?",
-        "answer": "We export at the highest quality possible so Instagram's own aggressive compression algorithm has the best source data to work with."
+        "question": "บีบอัดภาพก่อนอัพลง IG มั้ย?",
+        "answer": "เราส่งออกด้วยคุณภาพสูงสุดเท่าที่จะเป็นไปได้ ดังนั้นอัลกอริธึมการบีบอัดเชิงรุกของ Instagram จึงมีแหล่งข้อมูลที่ดีที่สุดที่จะใช้งานได้"
       }
     ]
   },
@@ -5064,28 +4998,28 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     ]
   },
   {
-    "slug": "zmena-velkosti-instagram",
+    "slug": "baguhin-sukat-instagram",
     "tool": "resizeig",
-    "lang": "sk",
-    "title": "Zmena veľkosti obrázka pre Instagram online – nevyžaduje sa žiadne orezanie",
-    "h1": "Perfektné veľkosti Instagramu na 1 kliknutie",
-    "description": "Okamžite zmeňte veľkosť svojich fotografií pre príspevky, príbehy a kotúče na Instagrame. Pridajte krásne rozmazané okraje, aby ste zabránili nepríjemnému orezaniu.",
-    "citationFirst": "Nedovoľte, aby Instagram zničil vaše fotografie krajiny núteným orezaním. Náš nástroj automaticky upraví váš obrázok do perfektných pomerov strán 1:1, 4:5 alebo 9:16 pomocou úžasného rozmazaného pozadia.",
-    "quantitativeProof": "99 % najlepších influencerov používa okraje s rozmazaným okrajom pre neštvorcové fotografie.",
-    "beforeImageLabel": "Pôvodná krajina",
-    "afterImageLabel": "Pripravený na Insta 4:5",
+    "lang": "tl",
+    "title": "Baguhin ang laki ng Larawan para sa Instagram Online - Hindi Kinakailangan ang Pag-crop",
+    "h1": "Mga Perpektong Sukat ng Instagram sa 1 Pag-click",
+    "description": "Agad na i-resize ang iyong mga larawan para sa Instagram Posts, Stories, at Reels. Magdagdag ng magagandang blur border para maiwasan ang awkward cropping.",
+    "citationFirst": "Huwag hayaang sirain ng Instagram ang iyong mga landscape na larawan gamit ang sapilitang pananim. Awtomatikong dinadala ng aming tool ang iyong larawan sa perpektong 1:1, 4:5, o 9:16 na mga aspect ratio gamit ang mga nakamamanghang blur na background.",
+    "quantitativeProof": "99% ng mga nangungunang influencer ay gumagamit ng blur-padded na mga hangganan para sa mga hindi parisukat na larawan.",
+    "beforeImageLabel": "Orihinal na Landscape",
+    "afterImageLabel": "Handa na para sa Insta 4:5",
     "faqs": [
       {
-        "question": "Aký je najlepší pomer strán pre Instagram?",
-        "answer": "Pre príspevky sa odporúča 4:5 (na výšku), pretože zaberá najväčšiu plochu obrazovky. Pre príbehy a kotúče použite 9:16."
+        "question": "Ano ang pinakamahusay na aspect ratio para sa Instagram?",
+        "answer": "Para sa mga post, inirerekomenda ang 4:5 (Portrait) dahil sinasakop nito ang pinakamaraming screen na real estate. Para sa Mga Kuwento at Reels, gamitin ang 9:16."
       },
       {
-        "question": "Ako zabránite orezaniu mojej fotografie?",
-        "answer": "Namiesto orezania upravíme veľkosť vašej fotografie tak, aby sa zmestila na plátno, a zvyšný prázdny priestor vyplníme nádhernou, bezproblémovou rozmazanou verziou vášho obrázka."
+        "question": "Paano mo mapipigilan ang aking larawan na ma-crop?",
+        "answer": "Sa halip na i-crop, i-scale namin ang iyong larawan upang magkasya sa canvas at punan ang natitirang bakanteng espasyo ng maganda at walang putol na blur na bersyon ng iyong larawan."
       },
       {
-        "question": "Komprimujete obrázok pred nahraním na IG?",
-        "answer": "Exportujeme v najvyššej možnej kvalite, takže vlastný agresívny kompresný algoritmus Instagramu má najlepšie zdrojové údaje na prácu."
+        "question": "Ini-compress mo ba ang larawan bago i-upload sa IG?",
+        "answer": "Nag-e-export kami sa pinakamataas na kalidad na posible upang ang sariling agresibong compression algorithm ng Instagram ay may pinakamahusay na mapagkukunan ng data upang magamit."
       }
     ]
   },
@@ -5142,7 +5076,7 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     ]
   },
   {
-    "slug": "remove-background-from-logo",
+    "slug": "remove-logo",
     "tool": "removelogo",
     "lang": "en",
     "title": "Remove Background from Logo Free - Transparent PNG Maker",
@@ -5262,7 +5196,7 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     ]
   },
   {
-    "slug": "supprimer-larrireplan-du-logo",
+    "slug": "supprimer-fond-logo",
     "tool": "removelogo",
     "lang": "fr",
     "title": "Supprimer l'arrière-plan du logo gratuitement - Créateur PNG transparent",
@@ -5342,10 +5276,10 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     ]
   },
   {
-    "slug": "remove-background-from-logo",
+    "slug": "rogo-haikei-sakuzyo",
     "tool": "removelogo",
     "lang": "ja",
-    "title": "ロゴから背景を削除無料 - 透明PNGメーカー",
+    "title": "ロゴの背景を無料で切り抜き・透過 - 透過PNG作成",
     "h1": "あらゆるロゴを瞬時に透明化",
     "description": "無地の背景からロゴを完璧に抽出します。 ウェブサイト、ビデオ、プレゼンテーション用の透明な PNG ロゴを 1 クリックで作成します。",
     "citationFirst": "ロゴの周りの醜い白いボックスにうんざりしていませんか? 当社の専門 AI は、グラフィック デザインとタイポグラフィーに特化してトレーニングされており、複雑なテキストであっても完璧なエッジ精度でロゴを切り抜きます。",
@@ -5422,7 +5356,7 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     ]
   },
   {
-    "slug": "remove-background-from-logo",
+    "slug": "udalit-fon-logotipa",
     "tool": "removelogo",
     "lang": "ru",
     "title": "Удалить фон из логотипа бесплатно — Создатель PNG с прозрачным фоном",
@@ -5462,9 +5396,9 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     ]
   },
   {
-    "slug": "remove-background-from-logo",
+    "slug": "quchu-logo-beijing",
     "tool": "removelogo",
-    "lang": "zh-CN",
+    "lang": "zh",
     "title": "从徽标中删除背景 免费 - 透明 PNG 制作工具",
     "h1": "立即使任何徽标透明",
     "description": "完美地从纯色背景中提取您的徽标。 一键为您的网站、视频和演示文稿创建透明 PNG 徽标。",
@@ -5502,7 +5436,7 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     ]
   },
   {
-    "slug": "remove-background-from-logo",
+    "slug": "izalat-khalfia-shiar",
     "tool": "removelogo",
     "lang": "ar",
     "title": "إزالة الخلفية من الشعار مجانًا - صانع PNG الشفاف",
@@ -5542,7 +5476,7 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     ]
   },
   {
-    "slug": "remove-background-from-logo",
+    "slug": "logo-ka-background-hataye",
     "tool": "removelogo",
     "lang": "hi",
     "title": "लोगो से पृष्ठभूमि हटाएँ मुफ़्त - पारदर्शी पीएनजी निर्माता",
@@ -5622,11 +5556,11 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     ]
   },
   {
-    "slug": "remove-background-from-logo",
+    "slug": "rogo-baegyeong-jegeo",
     "tool": "removelogo",
     "lang": "ko",
-    "title": "로고에서 배경을 무료로 제거하세요 - Transparent PNG Maker",
-    "h1": "모든 로고를 즉시 투명하게 만드세요",
+    "title": "로고 배경 제거 및 누끼 따기 무료 - 투명 PNG 만들기",
+    "h1": "로고 배경 투명화 및 깔끔한 누끼 따기",
     "description": "단색 배경에서 로고를 완벽하게 추출하세요. 한 번의 클릭으로 웹 사이트, 비디오 및 프리젠테이션을 위한 투명한 PNG 로고를 만드세요.",
     "citationFirst": "로고 주변의 보기 흉한 흰색 상자에 지치셨나요? 당사의 전문 AI는 그래픽 디자인과 타이포그래피에 대해 특별히 훈련되어 복잡한 텍스트에서도 완벽한 가장자리 정밀도로 로고를 잘라냅니다.",
     "quantitativeProof": "50,000개 이상의 기업이 브랜드 자산을 정리하는 데 신뢰를 받고 있습니다.",
@@ -5702,7 +5636,7 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     ]
   },
   {
-    "slug": "logodan-arka-plan-kaldr",
+    "slug": "logodan-arka-plan-kaldir",
     "tool": "removelogo",
     "lang": "tr",
     "title": "Logodan Arka Planı Kaldırma Ücretsiz - Şeffaf PNG Oluşturucu",
@@ -5742,7 +5676,7 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     ]
   },
   {
-    "slug": "usu-to-z-logo",
+    "slug": "usun-tlo-z-logo",
     "tool": "removelogo",
     "lang": "pl",
     "title": "Usuń tło z logo za darmo - przezroczysty kreator PNG",
@@ -5782,7 +5716,7 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     ]
   },
   {
-    "slug": "xa-nn-khi-logo",
+    "slug": "xoa-nen-khoi-logo",
     "tool": "removelogo",
     "lang": "vi",
     "title": "Xóa nền khỏi Logo miễn phí - Transparent PNG Maker",
@@ -5822,7 +5756,7 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     ]
   },
   {
-    "slug": "remove-background-from-logo",
+    "slug": "lop-phun-lang-logo",
     "tool": "removelogo",
     "lang": "th",
     "title": "ลบพื้นหลังออกจากโลโก้ฟรี - เครื่องมือสร้าง PNG โปร่งใส",
@@ -5862,7 +5796,7 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     ]
   },
   {
-    "slug": "ta-bort-bakgrund-frn-logotypen",
+    "slug": "ta-bort-bakgrund-fran-logotyp",
     "tool": "removelogo",
     "lang": "sv",
     "title": "Ta bort bakgrund från logotyp gratis - Transparent PNG Maker",
@@ -5902,7 +5836,7 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     ]
   },
   {
-    "slug": "odstranit-pozad-z-loga",
+    "slug": "odstranit-pozadi-z-loga",
     "tool": "removelogo",
     "lang": "cs",
     "title": "Odebrat pozadí z loga zdarma - Transparentní PNG Maker",
@@ -5982,7 +5916,7 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     ]
   },
   {
-    "slug": "remove-background-from-logo",
+    "slug": "afairesi-fontou-apo-logo",
     "tool": "removelogo",
     "lang": "el",
     "title": "Κατάργηση φόντου από το Logo Free - Transparent PNG Maker",
@@ -6062,7 +5996,7 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     ]
   },
   {
-    "slug": "remove-background-from-logo",
+    "slug": "hasarat-reka-me-logo",
     "tool": "removelogo",
     "lang": "he",
     "title": "הסר רקע מהלוגו חינם - יוצר PNG שקוף",
@@ -6102,7 +6036,7 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     ]
   },
   {
-    "slug": "tvoltsa-el-a-htteret-a-logrl",
+    "slug": "hatter-eltavolitas-logobol",
     "tool": "removelogo",
     "lang": "hu",
     "title": "Háttér eltávolítása a Logo Free - Transparent PNG Maker programból",
@@ -6182,7 +6116,7 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     ]
   },
   {
-    "slug": "eliminai-fundalul-din-logo",
+    "slug": "eliminare-fundal-logo",
     "tool": "removelogo",
     "lang": "ro",
     "title": "Eliminați fundalul din Logo Free - Transparent PNG Maker",
@@ -6222,47 +6156,47 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     ]
   },
   {
-    "slug": "odstrni-pozadie-z-loga",
+    "slug": "alisin-background-ng-logo",
     "tool": "removelogo",
-    "lang": "sk",
-    "title": "Odstrániť pozadie z loga zadarmo - Transparent PNG Maker",
-    "h1": "Urobte akékoľvek logo okamžite transparentné",
-    "description": "Dokonale extrahujte svoje logo z pevných pozadí. Vytvorte transparentné logá PNG pre svoje webové stránky, videá a prezentácie jediným kliknutím.",
-    "citationFirst": "Už vás nebavia škaredé biele polia okolo vášho loga? Naša špecializovaná umelá inteligencia je špeciálne vyškolená v oblasti grafického dizajnu a typografie, aby vystrihla logá s dokonalou presnosťou okrajov, a to aj v prípade zložitého textu.",
-    "quantitativeProof": "Dôveruje viac ako 50 000 firmám, aby vyčistili svoje značkové aktíva.",
-    "beforeImageLabel": "Logo s bielym BG",
-    "afterImageLabel": "Priehľadné logo PNG",
-    "extraSectionTitle": "Prečo potrebujete transparentné logo",
-    "extraSectionDesc": "Logo s pevným pozadím vyzerá neprofesionálne, keď je umiestnené na farebných webových stránkach alebo videách.",
+    "lang": "tl",
+    "title": "Alisin ang Background mula sa Logo na Libre - Transparent PNG Maker",
+    "h1": "Gawing Transparent Agad ang Anumang Logo",
+    "description": "I-extract ang iyong logo mula sa mga solid na background nang perpekto. Lumikha ng mga transparent na logo ng PNG para sa iyong website, mga video, at mga presentasyon sa 1 click.",
+    "citationFirst": "Pagod na sa pangit na puting mga kahon sa paligid ng iyong logo? Ang aming dalubhasang AI ay partikular na sinanay sa graphic na disenyo at typography upang gupitin ang mga logo na may perpektong katumpakan sa gilid, kahit na sa masalimuot na teksto.",
+    "quantitativeProof": "Pinagkakatiwalaan ng 50,000+ na negosyo para linisin ang kanilang mga asset sa pagba-brand.",
+    "beforeImageLabel": "Logo na may White BG",
+    "afterImageLabel": "Transparent PNG Logo",
+    "extraSectionTitle": "Bakit Kailangan Mo ng Transparent na Logo",
+    "extraSectionDesc": "Ang isang logo na may solidong background ay mukhang hindi propesyonal kapag inilagay sa mga may kulay na website o video.",
     "extraSectionItems": [
-      "Vodoznakové videá a fotografie",
-      "Profesionálne hlavičky webových stránok",
-      "Firemné prezentácie a prezentácie"
+      "Mga Video at Larawan ng Watermarking",
+      "Mga Propesyonal na Header ng Website",
+      "Mga Pitch Deck at Presentasyon ng Kumpanya"
     ],
-    "extraSection2Title": "Sprievodca priehľadnými logami krok za krokom",
-    "extraSection2Desc": "Už nepotrebujete Photoshop. Postupujte podľa týchto rýchlych krokov.",
+    "extraSection2Title": "Hakbang-hakbang na Gabay sa Mga Transparent na Logo",
+    "extraSection2Desc": "Hindi mo na kailangan ng Photoshop. Sundin lamang ang mga mabilisang hakbang na ito.",
     "extraSection2Items": [
-      "Nahrajte svoje logo JPG/PNG s pevným pozadím.",
-      "Naša AI automaticky rozpozná značku loga a typografiu.",
-      "Stiahnite si priehľadný PNG okamžite."
+      "I-upload ang iyong JPG/PNG logo na may solidong background.",
+      "Awtomatikong nade-detect ng aming AI ang marka ng logo at typography.",
+      "I-download kaagad ang transparent na PNG."
     ],
     "faqs": [
       {
-        "question": "Dokáže zvládnuť zložitý text loga?",
-        "answer": "Áno, náš algoritmus vyniká pri zachovaní ostrých hrán okolo typografie a zložitých značiek."
+        "question": "Magagawa ba nito ang kumplikadong teksto ng logo?",
+        "answer": "Oo, mahusay ang aming algorithm sa pagpapanatili ng matatalim na gilid sa paligid ng typography at masalimuot na marka ng brand."
       },
       {
-        "question": "V akom formáte bude moje logo uložené?",
-        "answer": "Vaše priehľadné logo bude exportované ako vysokokvalitný súbor PNG, ktorý podporuje alfa kanály (transparentnosť)."
+        "question": "Sa anong format ise-save ang aking logo?",
+        "answer": "Ie-export ang iyong transparent na logo bilang isang de-kalidad na PNG file, na sumusuporta sa mga alpha channel (transparency)."
       },
       {
-        "question": "Je to zadarmo na komerčné použitie?",
-        "answer": "Absolútne. Všetky práva na vaše spracované obrázky si ponechávate a vaše logá neuchovávame."
+        "question": "Libre ba ito para sa komersyal na paggamit?",
+        "answer": "Talagang. Pinapanatili mo ang lahat ng karapatan sa iyong mga naprosesong larawan, at hindi namin iniimbak ang iyong mga logo."
       }
     ]
   },
   {
-    "slug": "remove-background-from-logo",
+    "slug": "vydalyty-tlo-z-lohotypu",
     "tool": "removelogo",
     "lang": "uk",
     "title": "Безкоштовно видалити фон з логотипа - Прозорий PNG Maker",
@@ -6342,7 +6276,7 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     ]
   },
   {
-    "slug": "change-photo-background-to-white",
+    "slug": "change-background-white",
     "tool": "colorwhite",
     "lang": "en",
     "title": "Change Photo Background to White - Amazon & E-commerce Ready",
@@ -6502,7 +6436,7 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     ]
   },
   {
-    "slug": "ndern-sie-den-fotohintergrund-in-wei",
+    "slug": "fotohintergrund-in-weiss-aendern",
     "tool": "colorwhite",
     "lang": "de",
     "title": "Ändern Sie den Fotohintergrund in Weiß – bereit für Amazon und E-Commerce",
@@ -6542,7 +6476,7 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     ]
   },
   {
-    "slug": "change-photo-background-to-white",
+    "slug": "haikei-shiro-henko",
     "tool": "colorwhite",
     "lang": "ja",
     "title": "写真の背景を白に変更 - Amazon & Eコマース対応",
@@ -6622,7 +6556,7 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     ]
   },
   {
-    "slug": "change-photo-background-to-white",
+    "slug": "sdelat-belyy-fon-foto",
     "tool": "colorwhite",
     "lang": "ru",
     "title": "Изменение фона фотографии на белый — поддержка Amazon и электронной коммерции",
@@ -6662,9 +6596,9 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     ]
   },
   {
-    "slug": "change-photo-background-to-white",
+    "slug": "genghuan-baise-beijing",
     "tool": "colorwhite",
-    "lang": "zh-CN",
+    "lang": "zh",
     "title": "将照片背景更改为白色 - 亚马逊和电子商​​​​务就绪",
     "h1": "几秒钟内的纯白色背景",
     "description": "自动删除杂乱的背景并将其替换为纯#FFFFFF白色。 非常适合亚马逊、Shopee 和产品摄影。",
@@ -6702,7 +6636,7 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     ]
   },
   {
-    "slug": "change-photo-background-to-white",
+    "slug": "taghyir-khalfia-abyad",
     "tool": "colorwhite",
     "lang": "ar",
     "title": "تغيير خلفية الصورة إلى اللون الأبيض - جاهز لأمازون والتجارة الإلكترونية",
@@ -6742,7 +6676,7 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     ]
   },
   {
-    "slug": "change-photo-background-to-white",
+    "slug": "photo-background-safed-kare",
     "tool": "colorwhite",
     "lang": "hi",
     "title": "फोटो पृष्ठभूमि को सफेद में बदलें - अमेज़ॅन और ई-कॉमर्स तैयार",
@@ -6822,7 +6756,7 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     ]
   },
   {
-    "slug": "change-photo-background-to-white",
+    "slug": "sajin-baegyeong-hayan-saek",
     "tool": "colorwhite",
     "lang": "ko",
     "title": "사진 배경을 흰색으로 변경 - Amazon 및 전자상거래 지원",
@@ -6902,7 +6836,7 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     ]
   },
   {
-    "slug": "fotoraf-arka-plann-beyaza-evir",
+    "slug": "foto-arka-plani-beyaz-yap",
     "tool": "colorwhite",
     "lang": "tr",
     "title": "Fotoğraf Arka Planını Beyaz Olarak Değiştirin - Amazon ve E-ticarete Hazır",
@@ -6942,7 +6876,7 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     ]
   },
   {
-    "slug": "zmie-to-zdjcia-na-biae",
+    "slug": "zmien-tlo-zdjecia-na-biale",
     "tool": "colorwhite",
     "lang": "pl",
     "title": "Zmień tło zdjęcia na białe — gotowe do korzystania z Amazon i handlu elektronicznego",
@@ -6982,7 +6916,7 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     ]
   },
   {
-    "slug": "i-nn-nh-sang-mu-trng",
+    "slug": "doi-nen-anh-mau-trang",
     "tool": "colorwhite",
     "lang": "vi",
     "title": "Thay đổi nền ảnh thành màu trắng - Sẵn sàng cho Amazon và thương mại điện tử",
@@ -7022,7 +6956,7 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     ]
   },
   {
-    "slug": "change-photo-background-to-white",
+    "slug": "plian-phun-lang-si-khao",
     "tool": "colorwhite",
     "lang": "th",
     "title": "เปลี่ยนพื้นหลังรูปภาพเป็นสีขาว - พร้อมสำหรับ Amazon และ E-commerce",
@@ -7062,7 +6996,7 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     ]
   },
   {
-    "slug": "ndra-fotobakgrunden-till-vit",
+    "slug": "andra-bakgrund-till-vit",
     "tool": "colorwhite",
     "lang": "sv",
     "title": "Ändra fotobakgrund till vit - redo för Amazon och e-handel",
@@ -7102,7 +7036,7 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     ]
   },
   {
-    "slug": "zmnit-pozad-fotografie-na-bl",
+    "slug": "zmenit-pozadi-na-bile",
     "tool": "colorwhite",
     "lang": "cs",
     "title": "Změnit fotografické pozadí na bílé – připraveno pro Amazon a elektronický obchod",
@@ -7142,7 +7076,7 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     ]
   },
   {
-    "slug": "ndre-fotobaggrund-til-hvid",
+    "slug": "skift-baggrund-til-hvid",
     "tool": "colorwhite",
     "lang": "da",
     "title": "Skift fotobaggrund til hvid - klar til Amazon og e-handel",
@@ -7182,7 +7116,7 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     ]
   },
   {
-    "slug": "change-photo-background-to-white",
+    "slug": "allagi-fontou-se-lefko",
     "tool": "colorwhite",
     "lang": "el",
     "title": "Αλλάξτε το φόντο φωτογραφιών σε λευκό - Έτοιμος για το Amazon και το ηλεκτρονικό εμπόριο",
@@ -7262,7 +7196,7 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     ]
   },
   {
-    "slug": "change-photo-background-to-white",
+    "slug": "shinui-reka-le-lavan",
     "tool": "colorwhite",
     "lang": "he",
     "title": "שנה רקע תמונה ללבן - מוכן לאמזון ולמסחר אלקטרוני",
@@ -7302,7 +7236,7 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     ]
   },
   {
-    "slug": "mdostsa-a-fnykp-httert-fehrre",
+    "slug": "foto-hatter-feherre-modositasa",
     "tool": "colorwhite",
     "lang": "hu",
     "title": "A fénykép hátterének módosítása fehérre – Amazon és e-kereskedelem készen áll",
@@ -7382,7 +7316,7 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     ]
   },
   {
-    "slug": "schimba-fundalul-fotografiei-n-alb",
+    "slug": "schimbare-fundal-in-alb",
     "tool": "colorwhite",
     "lang": "ro",
     "title": "Schimbați fundalul fotografiei în alb - gata pentru Amazon și comerț electronic",
@@ -7422,47 +7356,47 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     ]
   },
   {
-    "slug": "zmeni-pozadie-fotografie-na-biele",
+    "slug": "gawing-puti-ang-background",
     "tool": "colorwhite",
-    "lang": "sk",
-    "title": "Zmeniť pozadie fotografie na biele – pripravené na Amazon a elektronický obchod",
-    "h1": "Čisto biele pozadie za pár sekúnd",
-    "description": "Automaticky odstráňte chaotické pozadie a nahraďte ho čistou bielou #FFFFFF. Ideálne pre Amazon, Shopee a produktovú fotografiu.",
-    "citationFirst": "Platformy elektronického obchodu ako Amazon a eBay striktne vyžadujú čisto biele pozadie pre zoznamy produktov. Náš nástroj automatizuje výrez a okamžite aplikuje presný hexadecimálny kód #FFFFFF.",
-    "quantitativeProof": "Predajcovia, ktorí používajú biele pozadie, zaznamenali 45 % nárast miery konverzie.",
-    "beforeImageLabel": "Foto obývačky",
-    "afterImageLabel": "Čistá biela #FFFFFF",
-    "extraSectionTitle": "Zvýšte svoj predaj v elektronickom obchode",
-    "extraSectionDesc": "Konzistentné fotografie produktov bez rozptyľovania budujú dôveru a podporujú predaj.",
+    "lang": "tl",
+    "title": "Baguhin ang Background ng Larawan sa Puti - Handa ang Amazon at E-commerce",
+    "h1": "Purong White Background sa Ilang Segundo",
+    "description": "Awtomatikong alisin ang mga magulo na background at palitan ang mga ito ng purong #FFFFFF na puti. Perpekto para sa Amazon, Shopee, at photography ng produkto.",
+    "citationFirst": "Ang mga platform ng e-commerce tulad ng Amazon at eBay ay mahigpit na nangangailangan ng mga purong puting background para sa mga listahan ng produkto. Awtomatiko ng aming tool ang cutout at inilalapat kaagad ang eksaktong #FFFFFF hex code.",
+    "quantitativeProof": "Ang mga nagbebenta na gumagamit ng mga puting background ay nakakakita ng 45% na pagtaas sa mga rate ng conversion.",
+    "beforeImageLabel": "Larawan sa Sala",
+    "afterImageLabel": "Purong Puti #FFFFFF",
+    "extraSectionTitle": "Palakasin ang Iyong Benta sa E-Commerce",
+    "extraSectionDesc": "Ang mga pare-pareho, walang distraction na larawan ng produkto ay bumubuo ng tiwala at humihimok ng mga benta.",
     "extraSectionItems": [
-      "Súlad s Amazon a Shopify",
-      "Profesionálna konzistentnosť katalógu",
-      "Vyššia miera prekliknutia v nákupných reklamách"
+      "Pagsunod sa Amazon at Shopify",
+      "Propesyonal na Pagkakatugma ng Catalog",
+      "Mas mataas na CTR sa Mga Shopping Ad"
     ],
-    "extraSection2Title": "Prečo na čistom #FFFFFF záleží",
-    "extraSection2Desc": "Trhoviská odmietajú nevyhovujúce obrázky. Zaručujeme:",
+    "extraSection2Title": "Bakit Mahalaga ang Purong #FFFFFF",
+    "extraSection2Desc": "Tinatanggihan ng mga marketplace ang mga hindi sumusunod na larawan. Narito ang aming ginagarantiya:",
     "extraSection2Items": [
-      "Žiadne sivé okraje alebo sivobiele odtiene.",
-      "Dokonale zachované prirodzené tiene.",
-      "Nulová pixelácia na okrajoch produktu."
+      "Walang kulay abong mga hangganan o puting kulay.",
+      "Perpektong napanatili ang mga natural na anino.",
+      "Zero pixelation sa mga gilid ng produkto."
     ],
     "faqs": [
       {
-        "question": "Je pozadie čisto biele alebo len svetlosivé?",
-        "answer": "Je presne biely (Hex kód #FFFFFF), ktorý spĺňa prísne požiadavky veľkých online trhovísk."
+        "question": "Purong puti ba ang background o light grey lang?",
+        "answer": "Ito ay eksaktong purong puti (Hex code #FFFFFF), na nakakatugon sa mga mahigpit na kinakailangan ng mga pangunahing online marketplace."
       },
       {
-        "question": "Funguje to dobre s tieňmi?",
-        "answer": "Áno! Zatiaľ čo pozadie nahrádzame bielym, AI inteligentne zachováva alebo rekonštruuje prirodzené tiene produktu."
+        "question": "Gumagana ba ito nang maayos sa mga anino?",
+        "answer": "Oo! Habang pinapalitan namin ang background ng puti, ang AI ay matalinong nagpapanatili o nagre-reconstruct ng mga natural na anino ng produkto."
       },
       {
-        "question": "Môžem robiť dávkové spracovanie?",
-        "answer": "Áno, naraz môžete vložiť až 10 fotografií a naša miestna umelá inteligencia ich všetky spracuje na biele pozadie."
+        "question": "Maaari ba akong gumawa ng batch processing?",
+        "answer": "Oo, maaari kang mag-drop ng hanggang 10 larawan nang sabay-sabay at ipoproseso ng aming lokal na AI ang lahat ng ito sa mga puting background."
       }
     ]
   },
   {
-    "slug": "change-photo-background-to-white",
+    "slug": "zminyty-tlo-na-bile",
     "tool": "colorwhite",
     "lang": "uk",
     "title": "Змініть фон фотографії на білий - готовий до Amazon і електронної комерції",
@@ -7585,8 +7519,8 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     "slug": "kompres-gambar-menjadi-200kb",
     "tool": "compress200kb",
     "lang": "id",
-    "title": "Kompres Gambar hingga 200KB - Peredam Kualitas Tinggi",
-    "h1": "Kecilkan Foto hingga 200KB Tanpa Kehilangan Detail",
+    "title": "Kompres Gambar Jadi 200KB Online - Kualitas Tinggi & Privat",
+    "h1": "Kompres Foto & Gambar ke 200KB Secara Instan",
     "description": "Kompres gambar berukuran 10MB hingga 200KB. Ideal untuk aplikasi online, forum, dan halaman web yang memuat cepat.",
     "citationFirst": "200KB adalah titik terbaik antara ukuran file kecil dan fidelitas visual yang tinggi. Berbeda dengan batas 50KB, 200KB memungkinkan Anda mempertahankan tekstur tajam dan detail resolusi tinggi sambil tetap menghemat bandwidth besar.",
     "quantitativeProof": "Gambar 200KB dimuat 8x lebih cepat pada koneksi 3G dibandingkan foto standar 2MB.",
@@ -7662,7 +7596,7 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     ]
   },
   {
-    "slug": "compresser-limage-200-ko",
+    "slug": "compresser-image-200ko",
     "tool": "compress200kb",
     "lang": "fr",
     "title": "Compresser l'image à 200 Ko - Réducteur de haute qualité",
@@ -7702,7 +7636,7 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     ]
   },
   {
-    "slug": "bild-auf-200-kb-komprimieren",
+    "slug": "bild-auf-200kb-komprimieren",
     "tool": "compress200kb",
     "lang": "de",
     "title": "Bild auf 200 KB komprimieren – Hochwertige Reduzierung",
@@ -7742,7 +7676,7 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     ]
   },
   {
-    "slug": "200kb",
+    "slug": "gazo-asshuku-200kb",
     "tool": "compress200kb",
     "lang": "ja",
     "title": "画像を 200KB に圧縮 - 高品質リデューサー",
@@ -7822,7 +7756,7 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     ]
   },
   {
-    "slug": "200",
+    "slug": "szhat-izobrazhenie-200kb",
     "tool": "compress200kb",
     "lang": "ru",
     "title": "Сжать изображение до 200 КБ — Высококачественный редуктор",
@@ -7862,9 +7796,9 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     ]
   },
   {
-    "slug": "200kb",
+    "slug": "yasuo-tupian-200kb",
     "tool": "compress200kb",
-    "lang": "zh-CN",
+    "lang": "zh",
     "title": "将图像压缩至 200KB - 高质量减速器",
     "h1": "将照片缩小至 200KB，而不丢失细节",
     "description": "将 10MB 的大图像压缩至 200KB。 非常适合在线应用程序、论坛和快速加载网页。",
@@ -7902,7 +7836,7 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     ]
   },
   {
-    "slug": "200",
+    "slug": "daght-sura-200kb",
     "tool": "compress200kb",
     "lang": "ar",
     "title": "ضغط الصورة إلى 200 كيلو بايت - مخفض الجودة العالية",
@@ -7942,7 +7876,7 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     ]
   },
   {
-    "slug": "200kb",
+    "slug": "image-compress-200kb",
     "tool": "compress200kb",
     "lang": "hi",
     "title": "छवि को 200KB तक संपीड़ित करें - उच्च गुणवत्ता वाला रेड्यूसर",
@@ -7982,7 +7916,7 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     ]
   },
   {
-    "slug": "comprimere-limmagine-a-200kb",
+    "slug": "comprimi-immagine-a-200kb",
     "tool": "compress200kb",
     "lang": "it",
     "title": "Comprimi immagine a 200 KB: riduttore di alta qualità",
@@ -8022,7 +7956,7 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     ]
   },
   {
-    "slug": "200kb",
+    "slug": "imiji-abchuk-200kb",
     "tool": "compress200kb",
     "lang": "ko",
     "title": "이미지를 200KB로 압축 - 고품질 감속기",
@@ -8062,7 +7996,7 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     ]
   },
   {
-    "slug": "comprimeer-de-afbeelding-tot-200-kb",
+    "slug": "afbeelding-comprimeren-200kb",
     "tool": "compress200kb",
     "lang": "nl",
     "title": "Comprimeer afbeelding tot 200 KB - Reducer van hoge kwaliteit",
@@ -8102,7 +8036,7 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     ]
   },
   {
-    "slug": "grnty-200kbye-sktr",
+    "slug": "resim-sikistir-200kb",
     "tool": "compress200kb",
     "lang": "tr",
     "title": "Görüntüyü 200 KB'a Sıkıştır - Yüksek Kaliteli Düşürücü",
@@ -8182,7 +8116,7 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     ]
   },
   {
-    "slug": "nn-nh-xung-200kb",
+    "slug": "nen-anh-200kb",
     "tool": "compress200kb",
     "lang": "vi",
     "title": "Nén hình ảnh xuống 200KB - Giảm chất lượng cao",
@@ -8222,7 +8156,7 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     ]
   },
   {
-    "slug": "200kb",
+    "slug": "bip-ad-rup-phap-200kb",
     "tool": "compress200kb",
     "lang": "th",
     "title": "บีบอัดรูปภาพเป็น 200KB - ตัวลดคุณภาพสูง",
@@ -8302,7 +8236,7 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     ]
   },
   {
-    "slug": "komprimovat-obrzek-na-200-kb",
+    "slug": "komprese-obrazku-na-200kb",
     "tool": "compress200kb",
     "lang": "cs",
     "title": "Komprimujte obrázek na 200 kB – vysoce kvalitní redukce",
@@ -8382,7 +8316,7 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     ]
   },
   {
-    "slug": "200-kb",
+    "slug": "sympiesi-eikonas-200kb",
     "tool": "compress200kb",
     "lang": "el",
     "title": "Συμπίεση εικόνας σε 200KB - Reducer υψηλής ποιότητας",
@@ -8462,7 +8396,7 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     ]
   },
   {
-    "slug": "200kb",
+    "slug": "dchisat-tmuna-200kb",
     "tool": "compress200kb",
     "lang": "he",
     "title": "דחוס תמונה ל-200KB - מפחית באיכות גבוהה",
@@ -8502,7 +8436,7 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     ]
   },
   {
-    "slug": "tmrtse-a-kpet-200-kbra",
+    "slug": "kep-tomorites-200kb",
     "tool": "compress200kb",
     "lang": "hu",
     "title": "Kép tömörítése 200 KB-ra – Kiváló minőségű reduktor",
@@ -8582,7 +8516,7 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     ]
   },
   {
-    "slug": "comprimai-imaginea-la-200-kb",
+    "slug": "comprimare-imagine-la-200kb",
     "tool": "compress200kb",
     "lang": "ro",
     "title": "Comprimați imaginea la 200KB - Reductor de înaltă calitate",
@@ -8622,47 +8556,47 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     ]
   },
   {
-    "slug": "komprimova-obrzok-na-200-kb",
+    "slug": "i-compress-larawan-200kb",
     "tool": "compress200kb",
-    "lang": "sk",
-    "title": "Komprimujte obrázok na 200 kB – vysokokvalitná redukcia",
-    "h1": "Zmenšiť fotografie na 200 kB bez straty detailov",
-    "description": "Komprimujte ťažké obrázky s veľkosťou 10 MB až na 200 kB. Ideálne pre online aplikácie, fóra a rýchlo sa načítavajúce webové stránky.",
-    "citationFirst": "200 kB je ideálnym miestom medzi malými veľkosťami súborov a vysokou vizuálnou vernosťou. Na rozdiel od limitov 50 kB vám 200 kB umožňuje zachovať ostré textúry a detaily vo vysokom rozlíšení a zároveň šetriť obrovskú šírku pásma.",
-    "quantitativeProof": "Obrázok s veľkosťou 200 kB sa načíta 8x rýchlejšie pri pripojeniach 3G ako štandardná fotografia s veľkosťou 2 MB.",
-    "beforeImageLabel": "Surová fotografia 8 MB",
-    "afterImageLabel": "Optimalizované 195 kB",
-    "extraSectionTitle": "200 kB vs 50 kB: Čo potrebujete?",
-    "extraSectionDesc": "Pochopenie cieľov kompresie vám pomôže vyvážiť kvalitu a pravidlá.",
+    "lang": "tl",
+    "title": "I-compress ang Imahe sa 200KB - Mataas na Kalidad na Reducer",
+    "h1": "Paliitin ang Mga Larawan sa 200KB Nang Hindi Nawawala ang Detalye",
+    "description": "I-compress ang mabibigat na 10MB na mga imahe pababa sa 200KB. Tamang-tama para sa mga online na application, forum, at mabilis na paglo-load ng mga web page.",
+    "citationFirst": "Ang 200KB ay ang sweet spot sa pagitan ng maliliit na laki ng file at mataas na visual fidelity. Hindi tulad ng mga limitasyong 50KB, binibigyang-daan ka ng 200KB na mapanatili ang mga malulutong na texture at mga detalyeng may mataas na resolution habang nagse-save pa rin ng napakalaking bandwidth.",
+    "quantitativeProof": "Ang isang 200KB na imahe ay naglo-load ng 8x na mas mabilis sa 3G na mga koneksyon kaysa sa isang karaniwang 2MB na larawan.",
+    "beforeImageLabel": "Raw na Larawan 8MB",
+    "afterImageLabel": "Na-optimize na 195KB",
+    "extraSectionTitle": "200KB vs 50KB: Alin ang kailangan mo?",
+    "extraSectionDesc": "Ang pag-unawa sa mga target ng compression ay nakakatulong sa iyong balansehin ang kalidad at mga panuntunan.",
     "extraSectionItems": [
-      "200 kB: Najlepšie pre blogy, portfóliá a fóra (zachováva veľké detaily).",
-      "100 kB: Štandardný limit pre všeobecné formuláre žiadostí.",
-      "50 kB: Prísny limit pre vládne preukazy totožnosti a podpisy."
+      "200KB: Pinakamahusay para sa Mga Blog, Portfolio, at Forum (Pinapanatili ang mahusay na detalye).",
+      "100KB: Karaniwang limitasyon para sa pangkalahatang mga form ng aplikasyon.",
+      "50KB: Mahigpit na limitasyon para sa mga ID at lagda ng gobyerno."
     ],
-    "extraSection2Title": "Ako si zachovávame kvalitu na 200 kB",
-    "extraSection2Desc": "Náš inteligentný kompresor inteligentne vyvažuje prenosovú rýchlosť a rozmery.",
+    "extraSection2Title": "Paano Namin Panatilihin ang Kalidad sa 200KB",
+    "extraSection2Desc": "Ang aming matalinong compressor ay nagbabalanse ng bitrate at mga sukat nang matalino.",
     "extraSection2Items": [
-      "WebGPU zrýchlené spracovanie pre vyššie rýchlosti.",
-      "Inteligentné podvzorkovanie chroma na zníženie veľkosti, nie ostrosti.",
-      "Automatické odstránenie metadát EXIF."
+      "Pinabilis ng WebGPU ang pagproseso para sa mas mabilis na bilis.",
+      "Smart chroma subsampling para bawasan ang laki, hindi sharpness.",
+      "Awtomatikong pag-alis ng metadata ng EXIF."
     ],
     "faqs": [
       {
-        "question": "Ako sa 200KB kompresia líši od ostatných?",
-        "answer": "Keďže 200 kB poskytuje algoritmu viac priestoru na dýchanie, zachovávame 4x viac farebných údajov a ostrejšie hrany v porovnaní s naším nástrojom s veľkosťou 50 kB."
+        "question": "Paano naiiba ang 200KB compression sa iba?",
+        "answer": "Dahil ang 200KB ay nagbibigay sa algorithm ng mas maraming breathing room, pinapanatili namin ang 4x na mas maraming data ng kulay at mas matalas na mga gilid kumpara sa aming 50KB na tool."
       },
       {
-        "question": "Zmenší sa rozmery môjho obrázka?",
-        "answer": "Iba v prípade potreby. Ako prvé uprednostňujeme zníženie bitovej rýchlosti JPEG/WEBP. Ak ide o masívny obraz v rozlíšení 4K, dynamicky ho zmenšujeme, aby sa zmestil na plochu 200 kB."
+        "question": "Liliit ba ang mga sukat ng aking larawan?",
+        "answer": "Kung kinakailangan lamang. Inuna naming ibaba ang JPEG/WEBP bitrate. Kung ito ay isang napakalaking 4K na imahe, dynamic namin itong binabawasan upang umangkop sa 200KB footprint."
       },
       {
-        "question": "Je moje súkromie chránené?",
-        "answer": "Áno, 100%. Kompresia prebieha priamo vo vašom webovom prehliadači cez WebAssembly. Na naše servery sa nič neodovzdáva."
+        "question": "Pinoprotektahan ba ang aking privacy?",
+        "answer": "Oo, 100%. Ang compression ay nangyayari mismo sa iyong web browser sa pamamagitan ng WebAssembly. Walang na-upload sa aming mga server."
       }
     ]
   },
   {
-    "slug": "200",
+    "slug": "stysnuty-do-200kb",
     "tool": "compress200kb",
     "lang": "uk",
     "title": "Стиснути зображення до 200 КБ - високоякісне скорочення",
@@ -8742,7 +8676,7 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     ]
   },
   {
-    "slug": "resize-photo-to-passport-size",
+    "slug": "resize-passport",
     "tool": "resizepassport",
     "lang": "en",
     "title": "Resize Photo to Passport Size - Visa & ID Maker",
@@ -8822,7 +8756,7 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     ]
   },
   {
-    "slug": "cambiar-el-tamao-de-la-foto-al-tamao-pasaporte",
+    "slug": "tamano-foto-pasaporte",
     "tool": "resizepassport",
     "lang": "es",
     "title": "Cambiar el tamaño de la foto al tamaño de pasaporte - Visa & ID Maker",
@@ -8902,7 +8836,7 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     ]
   },
   {
-    "slug": "ndern-sie-die-gre-des-fotos-auf-passgre",
+    "slug": "foto-auf-passbildgroesse-aendern",
     "tool": "resizepassport",
     "lang": "de",
     "title": "Ändern Sie die Größe des Fotos auf die Passgröße – Visa & ID Maker",
@@ -8942,7 +8876,7 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     ]
   },
   {
-    "slug": "resize-photo-to-passport-size",
+    "slug": "pasupoto-shashin-saizu",
     "tool": "resizepassport",
     "lang": "ja",
     "title": "写真のサイズをパスポートサイズに変更 - ビザとIDメーカー",
@@ -9022,7 +8956,7 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     ]
   },
   {
-    "slug": "resize-photo-to-passport-size",
+    "slug": "razmer-foto-na-pasport",
     "tool": "resizepassport",
     "lang": "ru",
     "title": "Изменение размера фотографии до размера паспорта - Visa & ID Maker",
@@ -9062,9 +8996,9 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     ]
   },
   {
-    "slug": "resize-photo-to-passport-size",
+    "slug": "huzhao-zhaopian-chicun",
     "tool": "resizepassport",
-    "lang": "zh-CN",
+    "lang": "zh",
     "title": "将照片调整为护照尺寸 - 签证和身份证制作工具",
     "h1": "立即制作护照尺寸的照片",
     "description": "将您的照片裁剪并调整为签证、身份证和官方文件的标准 2x2 英寸或 35x45 毫米护照尺寸。",
@@ -9102,7 +9036,7 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     ]
   },
   {
-    "slug": "resize-photo-to-passport-size",
+    "slug": "taghyir-hajm-jawaz-safar",
     "tool": "resizepassport",
     "lang": "ar",
     "title": "تغيير حجم الصورة إلى حجم جواز السفر - صانع التأشيرات والهويات",
@@ -9142,7 +9076,7 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     ]
   },
   {
-    "slug": "resize-photo-to-passport-size",
+    "slug": "passport-size-photo-resize",
     "tool": "resizepassport",
     "lang": "hi",
     "title": "फोटो का आकार पासपोर्ट आकार में बदलें - वीज़ा और आईडी निर्माता",
@@ -9222,7 +9156,7 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     ]
   },
   {
-    "slug": "resize-photo-to-passport-size",
+    "slug": "yeogwon-sajin-keugi",
     "tool": "resizepassport",
     "lang": "ko",
     "title": "여권 크기에 맞게 사진 크기 조정 - Visa & ID Maker",
@@ -9302,7 +9236,7 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     ]
   },
   {
-    "slug": "fotoraf-pasaport-boyutuna-gre-yeniden-boyutlandr",
+    "slug": "pasaport-fotografi-boyutlandir",
     "tool": "resizepassport",
     "lang": "tr",
     "title": "Fotoğrafı Pasaport Boyutuna Yeniden Boyutlandır - Vize ve Kimlik Oluşturucu",
@@ -9342,7 +9276,7 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     ]
   },
   {
-    "slug": "zmie-rozmiar-zdjcia-na-rozmiar-paszportowy",
+    "slug": "zmien-rozmiar-zdjecia-do-paszportu",
     "tool": "resizepassport",
     "lang": "pl",
     "title": "Zmień rozmiar zdjęcia na rozmiar paszportu - narzędzie do tworzenia wiz i dokumentów tożsamości",
@@ -9382,7 +9316,7 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     ]
   },
   {
-    "slug": "thay-i-kch-thc-nh-thnh-kch-thc-h-chiu",
+    "slug": "doi-kich-thuoc-anh-ho-chieu",
     "tool": "resizepassport",
     "lang": "vi",
     "title": "Thay đổi kích thước ảnh thành kích thước hộ chiếu - Visa & ID Maker",
@@ -9422,7 +9356,7 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     ]
   },
   {
-    "slug": "resize-photo-to-passport-size",
+    "slug": "plian-kha-nad-passport",
     "tool": "resizepassport",
     "lang": "th",
     "title": "ปรับขนาดภาพถ่ายเป็นขนาดหนังสือเดินทาง - Visa & ID Maker",
@@ -9462,7 +9396,7 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     ]
   },
   {
-    "slug": "ndra-storlek-p-foto-till-passstorlek",
+    "slug": "andra-bild-till-passfoto",
     "tool": "resizepassport",
     "lang": "sv",
     "title": "Ändra storlek på foto till passstorlek - Visa & ID Maker",
@@ -9502,7 +9436,7 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     ]
   },
   {
-    "slug": "zmnit-velikost-fotografie-na-velikost-pasu",
+    "slug": "velikost-fotografie-na-pas",
     "tool": "resizepassport",
     "lang": "cs",
     "title": "Změna velikosti fotografie na velikost pasu – Visa & ID Maker",
@@ -9542,7 +9476,7 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     ]
   },
   {
-    "slug": "ndre-strrelsen-p-billedet-til-passtrrelsen",
+    "slug": "tilpas-billede-til-pas",
     "tool": "resizepassport",
     "lang": "da",
     "title": "Ændr størrelsen på billedet til passtørrelsen - Visa & ID Maker",
@@ -9582,7 +9516,7 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     ]
   },
   {
-    "slug": "resize-photo-to-passport-size",
+    "slug": "megethos-fotografias-diavatiriou",
     "tool": "resizepassport",
     "lang": "el",
     "title": "Αλλαγή μεγέθους φωτογραφίας σε μέγεθος διαβατηρίου - Visa & ID Maker",
@@ -9662,7 +9596,7 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     ]
   },
   {
-    "slug": "resize-photo-to-passport-size",
+    "slug": "shinui-godel-tmuna-darkon",
     "tool": "resizepassport",
     "lang": "he",
     "title": "שנה את גודל התמונה לגודל דרכון - יצרן ויזה ותעודות זהות",
@@ -9702,7 +9636,7 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     ]
   },
   {
-    "slug": "a-fnykp-tmretezse-az-tlevl-mretre",
+    "slug": "utlevelfoto-atmeretezes",
     "tool": "resizepassport",
     "lang": "hu",
     "title": "Fénykép átméretezése útlevélméretre – Visa & ID Maker",
@@ -9742,7 +9676,7 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     ]
   },
   {
-    "slug": "endre-strrelsen-p-bildet-til-passstrrelsen",
+    "slug": "endre-bilde-til-pass",
     "tool": "resizepassport",
     "lang": "no",
     "title": "Endre størrelse på bilde til passstørrelse - Visum- og ID-maker",
@@ -9782,7 +9716,7 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     ]
   },
   {
-    "slug": "redimensionai-fotografia-la-dimensiunea-paaportului",
+    "slug": "redimensionare-poza-pasaport",
     "tool": "resizepassport",
     "lang": "ro",
     "title": "Redimensionați fotografia la dimensiunea pașaportului - Visa & ID Maker",
@@ -9822,47 +9756,47 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     ]
   },
   {
-    "slug": "resize-photo-to-passport-size",
+    "slug": "sukat-ng-larawan-para-sa-passport",
     "tool": "resizepassport",
-    "lang": "sk",
-    "title": "Zmena veľkosti fotografie na veľkosť pasu – Visa & ID Maker",
-    "h1": "Okamžite vytvorte fotografie veľkosti pasu",
-    "description": "Orezajte a zmeňte veľkosť fotografie na štandardné pasové veľkosti 2 x 2 palce alebo 35 x 45 mm na víza, preukazy totožnosti a úradné dokumenty.",
-    "citationFirst": "Odmietnutie pre nesprávne rozmery fotografie je frustrujúce. Náš nástroj presne oreže vašu fotografiu podľa medzinárodných pasových štandardov (napríklad 2 x 2 palce pre USA alebo 35 x 45 mm pre Spojené kráľovstvo/EÚ) s dokonalým umiestnením hlavy.",
-    "quantitativeProof": "Zaručený súlad s pasovými špecifikáciami viac ako 50 krajín.",
-    "beforeImageLabel": "Selfie obrázok",
-    "afterImageLabel": "Formát pása 2x2",
-    "extraSectionTitle": "Globálne štandardy veľkosti pasov",
-    "extraSectionDesc": "Rôzne krajiny majú rôzne pravidlá rozmerov. Náš nástroj vám ich pomôže ľahko splniť.",
+    "lang": "tl",
+    "title": "Baguhin ang laki ng Larawan sa Sukat ng Pasaporte - Visa at ID Maker",
+    "h1": "Gumawa kaagad ng Mga Larawan na Laki ng Pasaporte",
+    "description": "I-crop at i-resize ang iyong larawan sa karaniwang 2x2 inch o 35x45mm na laki ng pasaporte para sa mga visa, ID, at opisyal na dokumento.",
+    "citationFirst": "Nakakadismaya ang pagtanggi dahil sa maling sukat ng larawan. Tumpak na tina-crop ng aming tool ang iyong larawan sa mga pamantayan ng internasyonal na pasaporte (tulad ng 2x2 pulgada para sa US o 35x45mm para sa UK/EU) na may perpektong pagpoposisyon ng ulo.",
+    "quantitativeProof": "Garantisadong pagsunod sa higit sa 50+ detalye ng pasaporte ng bansa.",
+    "beforeImageLabel": "Larawan ng Selfie",
+    "afterImageLabel": "2x2 na Format ng Pasaporte",
+    "extraSectionTitle": "Pandaigdigang Mga Pamantayan sa Sukat ng Pasaporte",
+    "extraSectionDesc": "Ang iba't ibang mga bansa ay may iba't ibang mga panuntunan sa dimensyon. Tinutulungan ka ng aming tool na madaling makilala ang mga ito.",
     "extraSectionItems": [
-      "USA a India: 2 x 2 palce (51 x 51 mm)",
+      "United States at India: 2 x 2 pulgada (51 x 51 mm)",
       "UK, Europe, Australia, Schengen: 35 x 45 mm",
-      "Japonské víza: 35 x 45 mm alebo 2 x 2 palce v závislosti od typu"
+      "Mga Visa sa Japan: 35 x 45 mm o 2 x 2 pulgada depende sa uri"
     ],
-    "extraSection2Title": "Checklist for a Perfect Passport Photo",
-    "extraSection2Desc": "Zabezpečte, aby vaša fotografia nebola odmietnutá dodržiavaním týchto prísnych pokynov:",
+    "extraSection2Title": "Checklist para sa isang Perpektong Larawan ng Pasaporte",
+    "extraSection2Desc": "Tiyaking hindi tatanggihan ang iyong larawan sa pamamagitan ng pagsunod sa mga mahigpit na alituntuning ito:",
     "extraSection2Items": [
-      "Udržujte neutrálny výraz tváre s oboma očami otvorenými.",
-      "Ensure uniform lighting without harsh shadows.",
-      "Nenoste okuliare, klobúky ani pokrývky hlavy (pokiaľ nie sú náboženské)."
+      "Panatilihin ang isang neutral na ekspresyon ng mukha na nakabukas ang parehong mga mata.",
+      "Tiyakin ang pare-parehong pag-iilaw nang walang malupit na anino.",
+      "Huwag magsuot ng salamin, sombrero, o panakip sa ulo (maliban kung relihiyoso)."
     ],
     "faqs": [
       {
-        "question": "Rozpozná tento nástroj automaticky moju tvár?",
-        "answer": "Áno, môžete manuálne upraviť pole orezania, aby ste zaistili, že vaša hlava bude spĺňať 70 – 80 % pokrytie snímky požadované vo väčšine krajín."
+        "question": "Awtomatikong nade-detect ba ng tool na ito ang aking mukha?",
+        "answer": "Oo, maaari mong manual na ayusin ang crop box upang matiyak na natutugunan ng iyong ulo ang 70-80% na saklaw ng frame na kinakailangan ng karamihan sa mga bansa."
       },
       {
-        "question": "Môže zmeniť moje pozadie na biele alebo modré?",
-        "answer": "Absolútne! Keďže ide o súpravu typu všetko v jednom, môžete použiť nástroj „Zmeniť pozadie“ hneď po zmene veľkosti, aby ste získali dokonalé biele alebo modré pozadie."
+        "question": "Maaari ba nitong baguhin ang aking background sa puti o asul?",
+        "answer": "Ganap! Dahil ito ay isang all-in-one na suite, maaari mong gamitin ang tool na 'Baguhin ang Background' pagkatapos mag-resize upang makakuha ng perpektong puti o asul na backdrop."
       },
       {
-        "question": "Aké rozlíšenie to exportuje?",
-        "answer": "Exportujeme vo vysokom rozlíšení 300 DPI, ktoré je potrebné pre tlač pasových fotografií v lekárňach alebo tlačiarňach."
+        "question": "Anong resolusyon ang ini-export nito?",
+        "answer": "Nag-e-export kami sa isang mataas na 300 DPI na resolusyon, na kinakailangan para sa pag-print ng mga larawan ng pasaporte sa mga parmasya o mga tindahan ng pag-print."
       }
     ]
   },
   {
-    "slug": "resize-photo-to-passport-size",
+    "slug": "rozmir-foto-na-pasport",
     "tool": "resizepassport",
     "lang": "uk",
     "title": "Змініть розмір фотографії до розміру паспорта - Visa & ID Maker",
@@ -10142,7 +10076,7 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     ]
   },
   {
-    "slug": "remove-person-from-photo",
+    "slug": "jinbutsu-sakuzyo",
     "tool": "removeperson",
     "lang": "ja",
     "title": "写真から人物を削除 - 無料の Photobomb Eraser",
@@ -10222,7 +10156,7 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     ]
   },
   {
-    "slug": "remove-person-from-photo",
+    "slug": "udalit-cheloveka-s-foto",
     "tool": "removeperson",
     "lang": "ru",
     "title": "Удалить человека с фотографии — бесплатный ластик для фотобомбы",
@@ -10262,9 +10196,9 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     ]
   },
   {
-    "slug": "remove-person-from-photo",
+    "slug": "yichu-zhaopian-renwu",
     "tool": "removeperson",
-    "lang": "zh-CN",
+    "lang": "zh",
     "title": "从照片中删除人物 - 免费照片炸弹橡皮擦",
     "h1": "立即删除人物和照片轰炸者",
     "description": "使用人工智能从您的照片中删除前任、陌生人和照片轰炸者。 背景神奇地无缝重建。",
@@ -10302,7 +10236,7 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     ]
   },
   {
-    "slug": "remove-person-from-photo",
+    "slug": "izalat-shakhs-min-sura",
     "tool": "removeperson",
     "lang": "ar",
     "title": "إزالة شخص من الصورة - ممحاة Photobomb المجانية",
@@ -10342,7 +10276,7 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     ]
   },
   {
-    "slug": "remove-person-from-photo",
+    "slug": "photo-se-vyakti-hataye",
     "tool": "removeperson",
     "lang": "hi",
     "title": "फोटो से व्यक्ति को हटाएं - निःशुल्क फोटोबॉम्ब इरेज़र",
@@ -10422,11 +10356,11 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     ]
   },
   {
-    "slug": "remove-person-from-photo",
+    "slug": "sajin-saram-jegeo",
     "tool": "removeperson",
     "lang": "ko",
-    "title": "사진에서 사람 제거 - 무료 Photobomb Eraser",
-    "h1": "인물 및 사진 폭탄 테러범을 즉시 삭제하세요",
+    "title": "사진에서 사람 지우기 무료 - 행인·불청객 깔끔 삭제",
+    "h1": "AI로 사진 속 불필요한 사람 지우기",
     "description": "AI를 사용하여 사진에서 전 애인, 낯선 사람, 사진 폭탄 테러범을 제거하세요. 배경은 마법처럼 완벽하게 재구성됩니다.",
     "citationFirst": "기존 복제 스탬프 도구와 달리 AI 인페인팅 모델은 배경(예: 벽돌 벽, 해변 또는 잔디)의 맥락을 이해하고 사람 뒤에 있는 것을 완벽하게 재구성합니다.",
     "quantitativeProof": "이미지당 수동 Photoshop 작업 시간을 30분 이상 절약하세요.",
@@ -10502,7 +10436,7 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     ]
   },
   {
-    "slug": "kiiyi-fotoraftan-kaldr",
+    "slug": "fotograftan-kisi-sil",
     "tool": "removeperson",
     "lang": "tr",
     "title": "Fotoğraftan Kişiyi Kaldır - Ücretsiz Fotoğraf Bombası Silgisi",
@@ -10542,7 +10476,7 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     ]
   },
   {
-    "slug": "usu-osob-ze-zdjcia",
+    "slug": "usun-osobe-ze-zdjecia",
     "tool": "removeperson",
     "lang": "pl",
     "title": "Usuń osobę ze zdjęcia — bezpłatna gumka do fotobomb",
@@ -10582,7 +10516,7 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     ]
   },
   {
-    "slug": "xa-ngi-khi-nh",
+    "slug": "xoa-nguoi-khoi-anh",
     "tool": "removeperson",
     "lang": "vi",
     "title": "Xóa người khỏi ảnh - Công cụ xóa Photobomb miễn phí",
@@ -10622,7 +10556,7 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     ]
   },
   {
-    "slug": "remove-person-from-photo",
+    "slug": "lop-khon-oak-jak-rup",
     "tool": "removeperson",
     "lang": "th",
     "title": "ลบบุคคลออกจากภาพถ่าย - ยางลบ Photobomb ฟรี",
@@ -10662,7 +10596,7 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     ]
   },
   {
-    "slug": "ta-bort-personen-frn-fotot",
+    "slug": "ta-bort-person-fran-foto",
     "tool": "removeperson",
     "lang": "sv",
     "title": "Ta bort person från foto - Gratis Photobomb Eraser",
@@ -10702,7 +10636,7 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     ]
   },
   {
-    "slug": "odstranit-osobu-z-fotografie",
+    "slug": "odstranit-osobu-z-fotky",
     "tool": "removeperson",
     "lang": "cs",
     "title": "Odebrat osobu z fotografie - bezplatná guma Photobomb",
@@ -10782,7 +10716,7 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     ]
   },
   {
-    "slug": "remove-person-from-photo",
+    "slug": "afairesi-atomou-apo-fotografia",
     "tool": "removeperson",
     "lang": "el",
     "title": "Κατάργηση ατόμου από τη φωτογραφία - Δωρεάν γόμα Photobomb",
@@ -10822,7 +10756,7 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     ]
   },
   {
-    "slug": "poista-henkil-valokuvasta",
+    "slug": "poista-henkilo-valokuvasta",
     "tool": "removeperson",
     "lang": "fi",
     "title": "Poista henkilö valokuvasta - ilmainen Photobomb Eraser",
@@ -10862,7 +10796,7 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     ]
   },
   {
-    "slug": "remove-person-from-photo",
+    "slug": "hasarat-adam-me-tmuna",
     "tool": "removeperson",
     "lang": "he",
     "title": "הסר אדם מתמונה - מחק Photobomb בחינם",
@@ -10902,7 +10836,7 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     ]
   },
   {
-    "slug": "szemly-eltvoltsa-a-fnykprl",
+    "slug": "szemely-eltavolitasa-fotorol",
     "tool": "removeperson",
     "lang": "hu",
     "title": "Személy eltávolítása a fényképről - Ingyenes Photobomb Eraser",
@@ -10982,7 +10916,7 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     ]
   },
   {
-    "slug": "eliminai-persoana-din-fotografie",
+    "slug": "eliminare-persoana-din-poza",
     "tool": "removeperson",
     "lang": "ro",
     "title": "Eliminați persoana din fotografie - Photobomb Eraser gratuit",
@@ -11022,47 +10956,47 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     ]
   },
   {
-    "slug": "odstrni-osobu-z-fotografie",
+    "slug": "alisin-tao-sa-larawan",
     "tool": "removeperson",
-    "lang": "sk",
-    "title": "Odstrániť osobu z fotografie - bezplatná guma na fotobomby",
-    "h1": "Okamžite vymažte ľudí a fotobomberov",
-    "description": "Odstráňte bývalých, cudzích ľudí a fotobomberov zo svojich obrázkov pomocou AI. Pozadie je magicky zrekonštruované hladko.",
-    "citationFirst": "Na rozdiel od tradičných nástrojov na klonovanie pečiatok náš model umelej inteligencie chápe kontext pozadia (ako tehlové múry, pláže alebo trávu) a bezchybne rekonštruuje, čo bolo za osobou.",
-    "quantitativeProof": "Ušetrite viac ako 30 minút manuálnej práce vo Photoshope na jeden obrázok.",
-    "beforeImageLabel": "S Photobomberom",
-    "afterImageLabel": "Osoba bola odstránená",
-    "extraSectionTitle": "Prečo je umelá inteligencia lepšia",
-    "extraSectionDesc": "Staré nástroje len rozmazávajú pixely. AI skutočne kreslí chýbajúce detaily.",
+    "lang": "tl",
+    "title": "Alisin ang Tao sa Larawan - Libreng Pambura ng Photobomb",
+    "h1": "Burahin Agad ang mga Tao at Photobomber",
+    "description": "Alisin ang mga ex, estranghero, at photobomber sa iyong mga larawan gamit ang AI. Ang background ay magically muling itinayo nang walang putol.",
+    "citationFirst": "Hindi tulad ng mga tradisyunal na tool ng clone stamp, nauunawaan ng aming AI inpainting model ang konteksto ng background (tulad ng mga brick wall, beach, o damo) at walang kamali-mali na muling itinatayo kung ano ang nasa likod ng tao.",
+    "quantitativeProof": "Makatipid ng 30+ minuto ng manu-manong gawain sa Photoshop bawat larawan.",
+    "beforeImageLabel": "Gamit ang Photobomber",
+    "afterImageLabel": "Inalis ang Tao",
+    "extraSectionTitle": "Bakit Mas Mahusay ang AI Inpainting",
+    "extraSectionDesc": "Ang mga lumang tool ay pumuputik lang ng mga pixel. Ang AI ay talagang kumukuha ng mga nawawalang detalye.",
     "extraSectionItems": [
-      "Kontextová rekonštrukcia",
-      "Žiadne rozmazané šmuhy",
-      "Pracuje na komplexných textúrach"
+      "Context-Aware Reconstruction",
+      "Walang Malabong Smudge",
+      "Gumagana sa Complex Textures"
     ],
-    "extraSection2Title": "Ideálne pre každú situáciu",
-    "extraSection2Desc": "Koho dnes potrebujete odstrániť?",
+    "extraSection2Title": "Perpekto para sa Bawat Sitwasyon",
+    "extraSection2Desc": "Sino ang kailangan mong alisin ngayon?",
     "extraSection2Items": [
-      "Vymazať bývalých partnerov zo spomienok",
-      "Odstrániť turistov z orientačných bodov",
-      "Upratať fotografie nehnuteľností"
+      "Burahin ang Ex-Partners sa Memories",
+      "Alisin ang mga Turista sa Mga Landmark",
+      "Linisin ang Mga Larawan ng Real Estate"
     ],
     "faqs": [
       {
-        "question": "Zanechá to rozmazané miesto, kde bola osoba?",
-        "answer": "Nie, naša generatívna AI inteligentne vypĺňa medzeru analýzou okolitých textúr, aby to vyzeralo, že tam nikdy neboli."
+        "question": "Mag-iiwan ba ito ng malabong lugar kung nasaan ang tao?",
+        "answer": "Hindi, matalinong pinupuno ng aming generative AI ang puwang sa pamamagitan ng pagsusuri sa mga nakapaligid na texture para magmukhang wala sila roon."
       },
       {
-        "question": "Môžem odstrániť viacero ľudí naraz?",
-        "answer": "Áno, pred stlačením 'Odstrániť' môžete prejsť po ľubovoľnom počte ľudí."
+        "question": "Maaari ba akong mag-alis ng maraming tao nang sabay-sabay?",
+        "answer": "Oo, maaari kang magsipilyo sa maraming tao hangga't gusto mo bago pindutin ang 'Alisin'."
       },
       {
-        "question": "Je moja fotografia nahraná do cloudu?",
-        "answer": "Uprednostňujeme vaše súkromie. Ťažké zdvíhanie sa vykonáva lokálne alebo okamžite vyradené z našich dočasných spracovateľských uzlov."
+        "question": "Na-upload ba ang aking larawan sa cloud?",
+        "answer": "Priyoridad namin ang iyong privacy. Ang mabigat na pag-aangat ay ginagawa nang lokal o agad na itinatapon mula sa aming pansamantalang pagpoproseso ng mga node."
       }
     ]
   },
   {
-    "slug": "remove-person-from-photo",
+    "slug": "vydalyty-lyudynu-z-foto",
     "tool": "removeperson",
     "lang": "uk",
     "title": "Видалити людину з фотографії - безкоштовний Photobomb Eraser",
@@ -11302,7 +11236,7 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     ]
   },
   {
-    "slug": "konvertieren-sie-webp-in-jpg",
+    "slug": "webp-in-jpg-konvertieren",
     "tool": "convertwebp",
     "lang": "de",
     "title": "Konvertieren Sie WEBP kostenlos in JPG – Bildkonverter",
@@ -11342,7 +11276,7 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     ]
   },
   {
-    "slug": "webpjpg",
+    "slug": "webp-jpg-henkan",
     "tool": "convertwebp",
     "lang": "ja",
     "title": "WEBP を JPG に無料で変換 - 画像コンバーター",
@@ -11422,7 +11356,7 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     ]
   },
   {
-    "slug": "jpg",
+    "slug": "konvertirovat-webp-v-jpg",
     "tool": "convertwebp",
     "lang": "ru",
     "title": "Конвертировать WEBP в JPG бесплатно — конвертер изображений",
@@ -11462,9 +11396,9 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     ]
   },
   {
-    "slug": "webp-jpg",
+    "slug": "webp-zhuan-jpg",
     "tool": "convertwebp",
-    "lang": "zh-CN",
+    "lang": "zh",
     "title": "免费将 WEBP 转换为 JPG - 图像转换器",
     "h1": "最快的 WEBP 到 JPG 转换器",
     "description": "批量将 WEBP 图像转换为通用兼容的 JPG 格式。 拖放、无限制、100% 免费。",
@@ -11502,7 +11436,7 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     ]
   },
   {
-    "slug": "jpg",
+    "slug": "tahwil-webp-ila-jpg",
     "tool": "convertwebp",
     "lang": "ar",
     "title": "تحويل WEBP إلى JPG مجانًا - محول الصور",
@@ -11542,7 +11476,7 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     ]
   },
   {
-    "slug": "convert-webp-to-jpg",
+    "slug": "webp-ko-jpg-mein-badle",
     "tool": "convertwebp",
     "lang": "hi",
     "title": "WEBP को JPG में निःशुल्क कनवर्ट करें - छवि कनवर्टर",
@@ -11622,7 +11556,7 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     ]
   },
   {
-    "slug": "webp-jpg",
+    "slug": "webp-jpg-byeonhwan",
     "tool": "convertwebp",
     "lang": "ko",
     "title": "무료로 WEBP를 JPG로 변환 - 이미지 변환기",
@@ -11702,7 +11636,7 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     ]
   },
   {
-    "slug": "webpyi-jpgye-dntr",
+    "slug": "webp-jpg-cevir",
     "tool": "convertwebp",
     "lang": "tr",
     "title": "WEBP'yi JPG'ye Ücretsiz Dönüştür - Görüntü Dönüştürücü",
@@ -11782,7 +11716,7 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     ]
   },
   {
-    "slug": "chuyn-webp-sang-jpg",
+    "slug": "chuyen-webp-sang-jpg",
     "tool": "convertwebp",
     "lang": "vi",
     "title": "Chuyển đổi WEBP sang JPG miễn phí - Chuyển đổi hình ảnh",
@@ -11822,7 +11756,7 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     ]
   },
   {
-    "slug": "webp-jpg",
+    "slug": "plaeng-webp-pen-jpg",
     "tool": "convertwebp",
     "lang": "th",
     "title": "แปลง WEBP เป็น JPG ฟรี - โปรแกรมแปลงรูปภาพ",
@@ -11902,7 +11836,7 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     ]
   },
   {
-    "slug": "pevst-webp-do-jpg",
+    "slug": "prevod-webp-do-jpg",
     "tool": "convertwebp",
     "lang": "cs",
     "title": "Převést WEBP na JPG zdarma - Image Converter",
@@ -11959,7 +11893,7 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
       "JPG: Bedst til udskrivning og deling (universel kompatibilitet)",
       "JPG: Påkrævet af nogle regerings- og eksamensportaler"
     ],
-    "extraSection2Title": "Why Use Our Converter?",
+    "extraSection2Title": "Hvorfor bruge vores konverter?",
     "extraSection2Desc": "Vi ændrer ikke bare udvidelsen, vi omkoder korrekt.",
     "extraSection2Items": [
       "Bevarer originale farveprofiler",
@@ -11982,7 +11916,7 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     ]
   },
   {
-    "slug": "webp-jpg",
+    "slug": "metatropi-webp-se-jpg",
     "tool": "convertwebp",
     "lang": "el",
     "title": "Μετατροπή WEBP σε JPG Δωρεάν - Μετατροπέας εικόνων",
@@ -12022,7 +11956,7 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     ]
   },
   {
-    "slug": "muuntaa-webp-jpgksi",
+    "slug": "muunna-webp-jpg-muotoon",
     "tool": "convertwebp",
     "lang": "fi",
     "title": "Muunna WEBP JPG:ksi ilmaiseksi - Image Converter",
@@ -12062,7 +11996,7 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     ]
   },
   {
-    "slug": "webp-jpg",
+    "slug": "hamarat-webp-le-jpg",
     "tool": "convertwebp",
     "lang": "he",
     "title": "המר WEBP ל-JPG חינם - ממיר תמונות",
@@ -12102,7 +12036,7 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     ]
   },
   {
-    "slug": "konvertlja-a-webpt-jpgbe",
+    "slug": "webp-konvertalas-jpg-be",
     "tool": "convertwebp",
     "lang": "hu",
     "title": "A WEBP konvertálása JPG formátumba ingyenes - Képkonverter",
@@ -12182,7 +12116,7 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     ]
   },
   {
-    "slug": "converti-webp-n-jpg",
+    "slug": "conversie-webp-in-jpg",
     "tool": "convertwebp",
     "lang": "ro",
     "title": "Convertiți gratuit WEBP în JPG - Image Converter",
@@ -12222,47 +12156,47 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     ]
   },
   {
-    "slug": "previes-webp-na-jpg",
+    "slug": "i-convert-webp-sa-jpg",
     "tool": "convertwebp",
-    "lang": "sk",
-    "title": "Prevod WEBP na JPG zadarmo - Image Converter",
-    "h1": "Najrýchlejší prevodník WEBP na JPG",
-    "description": "Dávkový prevod obrázkov WEBP do univerzálne kompatibilného formátu JPG. Drag and drop, bez obmedzení a 100% zadarmo.",
-    "citationFirst": "WEBP je skvelý pre rýchlosť webu, ale veľa starších softvérov, starších smartfónov a e-mailových klientov ho stále nepodporuje. Prevod do JPG zaisťuje 100% kompatibilitu všade.",
-    "quantitativeProof": "Preveďte až 50 obrázkov za menej ako 3 sekundy pomocou nášho lokálneho nástroja WebAssembly.",
-    "beforeImageLabel": "Formát WEBP",
-    "afterImageLabel": "Formát JPG",
-    "extraSectionTitle": "WEBP vs JPG: Kedy použiť ktorý?",
-    "extraSectionDesc": "Pochopte technické rozdiely medzi týmito dvoma formátmi.",
+    "lang": "tl",
+    "title": "I-convert ang WEBP sa JPG Free - Image Converter",
+    "h1": "Pinakamabilis na WEBP sa JPG Converter",
+    "description": "Batch na nag-convert ng mga larawan sa WEBP sa pangkalahatang compatible na JPG na format. I-drag at i-drop, mabilis na pagpoproseso sa panig ng kliyente, at libre upang makapagsimula.",
+    "citationFirst": "Mahusay ang WEBP para sa bilis ng web, ngunit hindi pa rin ito sinusuportahan ng maraming legacy na software, mas lumang mga smartphone, at email client. Tinitiyak ng pag-convert sa JPG ang 100% compatibility sa lahat ng dako.",
+    "quantitativeProof": "Mag-convert ng hanggang 50 larawan sa ilalim ng 3 segundo gamit ang aming WebAssembly local engine.",
+    "beforeImageLabel": "Format ng WEBP",
+    "afterImageLabel": "Format ng JPG",
+    "extraSectionTitle": "WEBP vs JPG: Kailan gagamitin ang alin?",
+    "extraSectionDesc": "Unawain ang mga teknikal na pagkakaiba sa pagitan ng dalawang format na ito.",
     "extraSectionItems": [
-      "WEBP: Najlepšie pre webový dizajn a SEO (menšia veľkosť)",
-      "JPG: Najlepšie na tlač a zdieľanie (univerzálna kompatibilita)",
-      "JPG: Vyžaduje sa na niektorých vládnych a skúšobných portáloch"
+      "WEBP: Pinakamahusay para sa Web Design at SEO (Mas Maliit na Sukat)",
+      "JPG: Pinakamahusay para sa Pagpi-print at Pagbabahagi (Universal Compatibility)",
+      "JPG: Kinakailangan ng ilang Portal ng Pamahalaan at Pagsusulit"
     ],
-    "extraSection2Title": "Prečo používať náš konvertor?",
-    "extraSection2Desc": "Nezmeníme len príponu, ale správne prekódujeme.",
+    "extraSection2Title": "Bakit Gamitin ang Aming Converter?",
+    "extraSection2Desc": "Hindi lang namin binabago ang extension, nag-re-encode kami ng maayos.",
     "extraSection2Items": [
-      "Zachováva pôvodné farebné profily",
-      "Zachováva metadáta EXIF",
-      "Nulové nahrávania na server (miestne spracovanie)"
+      "Pinapanatili ang orihinal na mga profile ng kulay",
+      "Pinapanatili ang EXIF ​​metadata",
+      "Zero upload ng server (Lokal na Pagproseso)"
     ],
     "faqs": [
       {
-        "question": "Znižuje konverzia WEBP na JPG kvalitu?",
-        "answer": "Náš konvertor má predvolenú kvalitu 92 %, čo dokonale vyvažuje zachovanie vizuálnej vernosti pri zachovaní malej veľkosti súborov."
+        "question": "Nakakabawas ba ng kalidad ang pag-convert ng WEBP sa JPG?",
+        "answer": "Nagde-default ang aming converter sa 92% na kalidad, na perpektong nagbabalanse sa pagpapanatili ng visual fidelity habang pinananatiling maliit ang mga laki ng file."
       },
       {
-        "question": "Existuje obmedzenie veľkosti súboru?",
-        "answer": "Žiadne limity! Keďže všetka konverzia prebieha priamo vo vašom webovom prehliadači prostredníctvom JavaScriptu, môžete konvertovať veľké súbory bez toho, aby ste čokoľvek nahrávali."
+        "question": "Mayroon bang limitasyon sa laki ng file?",
+        "answer": "Walang limitasyon! Dahil ang lahat ng conversion ay direktang nangyayari sa loob ng iyong web browser sa pamamagitan ng JavaScript, maaari kang mag-convert ng malalaking file nang hindi nag-a-upload ng anuman."
       },
       {
-        "question": "Môžem prejsť späť na WEBP?",
-        "answer": "Áno, náš univerzálny konvertorový nástroj vám umožňuje meniť formáty ľubovoľným smerom, ktorý potrebujete."
+        "question": "Maaari ba akong mag-convert pabalik sa WEBP?",
+        "answer": "Oo, pinapayagan ka ng aming universal converter tool na magpalit ng mga format sa anumang direksyon na kailangan mo."
       }
     ]
   },
   {
-    "slug": "webp-jpg",
+    "slug": "konvertuvaty-webp-u-jpg",
     "tool": "convertwebp",
     "lang": "uk",
     "title": "Безкоштовно конвертуйте WEBP у JPG - конвертер зображень",
@@ -12385,8 +12319,8 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     "slug": "kumpulan-foto-tanda-air",
     "tool": "watermarkbulk",
     "lang": "id",
-    "title": "Foto Tanda Air Batch - Penambah Logo Massal",
-    "h1": "Tandai Air Ratusan Foto Sekaligus",
+    "title": "Watermark Banyak Foto Sekaligus - Tambah Logo Massal",
+    "h1": "Tambah Watermark & Logo ke Ratusan Foto Sekaligus",
     "description": "Tambahkan logo atau tanda air teks Anda ke beberapa gambar secara bersamaan. Lindungi portofolio fotografi Anda dalam hitungan detik.",
     "citationFirst": "Melindungi kekayaan intelektual Anda tidak memerlukan waktu berjam-jam. Dengan mesin pemrosesan batch kami, Anda dapat memposisikan logo Anda satu kali, mengatur opacity, dan menerapkannya ke seluruh folder gambar secara instan.",
     "quantitativeProof": "Memberi tanda air pada 100 foto hanya membutuhkan 1,2 detik di browser.",
@@ -12502,7 +12436,7 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     ]
   },
   {
-    "slug": "batchwasserzeichenfotos",
+    "slug": "batch-wasserzeichen-fotos",
     "tool": "watermarkbulk",
     "lang": "de",
     "title": "Stapel-Wasserzeichenfotos – Bulk-Logo-Adder",
@@ -12542,7 +12476,7 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     ]
   },
   {
-    "slug": "batch-watermark-photos",
+    "slug": "ikkatsu-sukashi-gazo",
     "tool": "watermarkbulk",
     "lang": "ja",
     "title": "ウォーターマーク写真のバッチ - 一括ロゴ追加",
@@ -12582,7 +12516,7 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     ]
   },
   {
-    "slug": "fotos-de-marca-dgua-em-lote",
+    "slug": "marca-dagua-em-lote",
     "tool": "watermarkbulk",
     "lang": "pt",
     "title": "Fotos de marca d'água em lote - Adicionador de logotipo em massa",
@@ -12622,7 +12556,7 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     ]
   },
   {
-    "slug": "batch-watermark-photos",
+    "slug": "paketnyy-vodyanoy-znak",
     "tool": "watermarkbulk",
     "lang": "ru",
     "title": "Пакетная обработка фотографий водяных знаков — Массовое добавление логотипов",
@@ -12662,9 +12596,9 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     ]
   },
   {
-    "slug": "batch-watermark-photos",
+    "slug": "piliang-shuiyin-tupian",
     "tool": "watermarkbulk",
-    "lang": "zh-CN",
+    "lang": "zh",
     "title": "批量水印照片 - 批量徽标添加器",
     "h1": "一次为数百张照片添加水印",
     "description": "同时将您的徽标或文本水印添加到多个图像。 在几秒钟内保护您的摄影作品集。",
@@ -12702,7 +12636,7 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     ]
   },
   {
-    "slug": "batch-watermark-photos",
+    "slug": "alama-maiya-mutaadida",
     "tool": "watermarkbulk",
     "lang": "ar",
     "title": "صور العلامة المائية المجمعة - أداة إضافة الشعار المجمعة",
@@ -12742,7 +12676,7 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     ]
   },
   {
-    "slug": "batch-watermark-photos",
+    "slug": "bulk-watermark-photo",
     "tool": "watermarkbulk",
     "lang": "hi",
     "title": "बैच वॉटरमार्क तस्वीरें - थोक लोगो योजक",
@@ -12822,7 +12756,7 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     ]
   },
   {
-    "slug": "batch-watermark-photos",
+    "slug": "ilgwal-woteomakeu",
     "tool": "watermarkbulk",
     "lang": "ko",
     "title": "일괄 워터마크 사진 - 대량 로고 추가기",
@@ -12862,7 +12796,7 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     ]
   },
   {
-    "slug": "batch-watermerkfotos",
+    "slug": "batch-watermerk-fotos",
     "tool": "watermarkbulk",
     "lang": "nl",
     "title": "Batchwatermerkfoto's - Bulklogo-adder",
@@ -12902,7 +12836,7 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     ]
   },
   {
-    "slug": "toplu-filigran-fotoraflar",
+    "slug": "toplu-filigran-ekle",
     "tool": "watermarkbulk",
     "lang": "tr",
     "title": "Toplu Filigran Fotoğrafları - Toplu Logo Ekleyici",
@@ -12982,7 +12916,7 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     ]
   },
   {
-    "slug": "hnh-nh-hnh-m-hng-lot",
+    "slug": "dong-dau-anh-hang-loat",
     "tool": "watermarkbulk",
     "lang": "vi",
     "title": "Hình ảnh hình mờ hàng loạt - Trình thêm logo hàng loạt",
@@ -13022,7 +12956,7 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     ]
   },
   {
-    "slug": "batch-watermark-photos",
+    "slug": "lai-nam-lai-rup",
     "tool": "watermarkbulk",
     "lang": "th",
     "title": "Batch Watermark Photos - ตัวเพิ่มโลโก้จำนวนมาก",
@@ -13062,7 +12996,7 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     ]
   },
   {
-    "slug": "batch-vattenstmpel-bilder",
+    "slug": "batch-vattenstampel-bilder",
     "tool": "watermarkbulk",
     "lang": "sv",
     "title": "Batch Watermark Photos - Bulk Logo Adder",
@@ -13102,7 +13036,7 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     ]
   },
   {
-    "slug": "dvkov-fotografie-vodoznaku",
+    "slug": "hromadny-vodoznak-fotek",
     "tool": "watermarkbulk",
     "lang": "cs",
     "title": "Batch Watermark Photos - Bulk Logo Adder",
@@ -13142,7 +13076,7 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     ]
   },
   {
-    "slug": "batch-vandmrkebilleder",
+    "slug": "batch-vandmaerke-billeder",
     "tool": "watermarkbulk",
     "lang": "da",
     "title": "Batch Watermark Photos - Bulk Logo Adder",
@@ -13182,7 +13116,7 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     ]
   },
   {
-    "slug": "batch-watermark-photos",
+    "slug": "maziko-ydatografima-fotografion",
     "tool": "watermarkbulk",
     "lang": "el",
     "title": "Μαζικές φωτογραφίες υδατογραφήματος - Μαζική προσθήκη λογότυπων",
@@ -13222,7 +13156,7 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     ]
   },
   {
-    "slug": "ern-vesileimakuvia",
+    "slug": "era-vesileimaa-kuvat",
     "tool": "watermarkbulk",
     "lang": "fi",
     "title": "Erävesileimakuvat - Bulk Logo Adder",
@@ -13262,7 +13196,7 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     ]
   },
   {
-    "slug": "batch-watermark-photos",
+    "slug": "siman-maim-bekavutzot",
     "tool": "watermarkbulk",
     "lang": "he",
     "title": "תמונות סימן מים אצווה - Adder לוגו בתפזורת",
@@ -13302,7 +13236,7 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     ]
   },
   {
-    "slug": "ktegelt-vzjel-fotk",
+    "slug": "tomeges-vizjel-fotok",
     "tool": "watermarkbulk",
     "lang": "hu",
     "title": "Batch Watermark Photos - Tömeges Logo Adder",
@@ -13382,7 +13316,7 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     ]
   },
   {
-    "slug": "fotografii-cu-filigran-n-lot",
+    "slug": "filigran-in-lot-fotografii",
     "tool": "watermarkbulk",
     "lang": "ro",
     "title": "Fotografii cu filigran în lot - Adăugător de logo în vrac",
@@ -13422,47 +13356,47 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     ]
   },
   {
-    "slug": "dvkov-fotografie-vodoznaku",
+    "slug": "maramihang-watermark-sa-larawan",
     "tool": "watermarkbulk",
-    "lang": "sk",
+    "lang": "tl",
     "title": "Batch Watermark Photos - Bulk Logo Adder",
-    "h1": "Vodoznak Stovky fotografií naraz",
-    "description": "Pridajte svoje logo alebo textový vodoznak na viacero obrázkov súčasne. Chráňte svoje portfólio fotografií za pár sekúnd.",
-    "citationFirst": "Ochrana vášho duševného vlastníctva by nemala trvať hodiny. Pomocou nášho nástroja na dávkové spracovanie môžete umiestniť svoje logo raz, nastaviť nepriehľadnosť a okamžite ho použiť na celý priečinok obrázkov.",
-    "quantitativeProof": "Vodoznak 100 fotografií trvá v prehliadači iba 1,2 sekundy.",
-    "beforeImageLabel": "Nechránené portfólio",
-    "afterImageLabel": "Značkové a chránené",
-    "extraSectionTitle": "Profesionálne nástroje pracovného toku",
-    "extraSectionDesc": "Vytvorené pre fotografov a digitálnych tvorcov.",
+    "h1": "Watermark Daan-daang Larawan nang sabay-sabay",
+    "description": "Idagdag ang iyong logo o text watermark sa maraming larawan nang sabay-sabay. Protektahan ang iyong portfolio ng litrato sa ilang segundo.",
+    "citationFirst": "Ang pagprotekta sa iyong intelektwal na ari-arian ay hindi dapat tumagal ng ilang oras. Gamit ang aming batch processing engine, maaari mong iposisyon ang iyong logo nang isang beses, itakda ang opacity, at ilapat ito kaagad sa isang buong folder ng mga larawan.",
+    "quantitativeProof": "Ang pag-watermark ng 100 mga larawan ay tumatagal lamang ng 1.2 segundo sa browser.",
+    "beforeImageLabel": "Hindi protektadong Portfolio",
+    "afterImageLabel": "Branded at Protektado",
+    "extraSectionTitle": "Mga Propesyonal na Tool sa Daloy ng Trabaho",
+    "extraSectionDesc": "Ginawa para sa mga photographer at digital creator.",
     "extraSectionItems": [
-      "Inteligentné automatické škálovanie pre rôzne rozlíšenia",
-      "Vlastné režimy nepriehľadnosti a miešania",
-      "Kachľový vzor vodoznaku pre maximálnu bezpečnosť"
+      "Smart Auto-Scaling para sa Iba't ibang Resolution",
+      "Custom na Opacity at Blending Mode",
+      "Tiled Watermark Pattern para sa Pinakamataas na Seguridad"
     ],
-    "extraSection2Title": "Prečo musíte chrániť svoje obrázky",
-    "extraSection2Desc": "Krádeže obrázkov sa na internete množia. Nebuď obeťou.",
+    "extraSection2Title": "Bakit Dapat Mong Protektahan ang Iyong Mga Larawan",
+    "extraSection2Desc": "Talamak ang pagnanakaw ng imahe online. Huwag maging biktima.",
     "extraSection2Items": [
-      "Zabraňuje modelom AI zoškrabať vašu prácu",
-      "Zabraňuje neoprávnenému komerčnému použitiu",
-      "Pri zdieľaní vytvára rozpoznanie značky"
+      "Pinipigilan ang mga Modelo ng AI na i-scrap ang iyong trabaho",
+      "Pinipigilan ang hindi awtorisadong paggamit ng komersyal",
+      "Bumubuo ng pagkilala sa brand kapag ibinahagi"
     ],
     "faqs": [
       {
-        "question": "Môžem použiť svoje vlastné logo ako vodoznak?",
-        "answer": "Absolútne. Priamo v nástroji môžete nahrať ľubovoľný PNG s priehľadnosťou alebo vytvoriť jednoduchý textový vodoznak."
+        "question": "Maaari ko bang gamitin ang aking sariling custom na logo bilang isang watermark?",
+        "answer": "Talagang. Maaari kang mag-upload ng anumang PNG na may transparency o lumikha ng isang simpleng watermark ng teksto nang direkta sa tool."
       },
       {
-        "question": "Zostane veľkosť vodoznaku konzistentná pri rôznych veľkostiach obrázkov?",
-        "answer": "Áno, naša funkcia automatickej zmeny mierky zaisťuje, že váš vodoznak zaberá rovnaké relatívne percento snímky bez ohľadu na to, či je fotografia 1080p alebo 4K."
+        "question": "Mananatiling pare-pareho ba ang laki ng watermark sa iba't ibang laki ng larawan?",
+        "answer": "Oo, tinitiyak ng aming tampok na auto-scaling na nasasakop ng iyong watermark ang parehong kamag-anak na porsyento ng frame, hindi alintana kung ang larawan ay 1080p o 4K."
       },
       {
-        "question": "Uchovávate kópie mojich fotografií s vodotlačou?",
-        "answer": "Nikdy. Celý dávkový proces prebieha na strane klienta v pamäti vášho zariadenia."
+        "question": "Nag-iingat ka ba ng mga kopya ng aking na-watermark na mga larawan?",
+        "answer": "Hindi kailanman. Ang buong proseso ng batch ay nangyayari sa panig ng kliyente sa memorya ng iyong device."
       }
     ]
   },
   {
-    "slug": "batch-watermark-photos",
+    "slug": "paketnyy-vodyanyy-znak",
     "tool": "watermarkbulk",
     "lang": "uk",
     "title": "Пакетні фотографії з водяними знаками - масовий додавач логотипів",
@@ -13622,7 +13556,7 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     ]
   },
   {
-    "slug": "matrcula-borrosa",
+    "slug": "difuminar-matricula",
     "tool": "blurplate",
     "lang": "es",
     "title": "Desenfoque de matrícula en línea - Censor automático de privacidad",
@@ -13742,11 +13676,11 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     ]
   },
   {
-    "slug": "blur-license-plate",
+    "slug": "nanbapureto-bokashi",
     "tool": "blurplate",
     "lang": "ja",
-    "title": "オンラインでナンバープレートをぼかす - 自動車プライバシーセンサー",
-    "h1": "車のナンバープレートを素早く検閲する",
+    "title": "ナンバープレートをオンラインでぼかす - 自動プライバシー保護",
+    "h1": "車のナンバープレートを瞬時に自動ぼかし",
     "description": "車を販売したりソーシャルメディアに投稿したりする前に、ナンバープレートを非表示にしてぼかします。 ワンクリックでプライバシーを保護します。",
     "citationFirst": "ナンバー プレートをオンラインに公開したままにしておくと、個人の登録住所が公開され、個人情報の盗難や車両の複製のリスクが高まります。 それを曖昧にすることは、オンラインで車を販売する際の第一のルールです。",
     "quantitativeProof": "自動車市場の 75% 以上が、公開前にプレートを隠すことを推奨しています。",
@@ -13822,7 +13756,7 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     ]
   },
   {
-    "slug": "blur-license-plate",
+    "slug": "razmyt-nomer-avto",
     "tool": "blurplate",
     "lang": "ru",
     "title": "Размытие номерного знака онлайн - автоматический цензор конфиденциальности",
@@ -13862,9 +13796,9 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     ]
   },
   {
-    "slug": "blur-license-plate",
+    "slug": "mohu-chepai",
     "tool": "blurplate",
-    "lang": "zh-CN",
+    "lang": "zh",
     "title": "在线模糊车牌 - 汽车隐私审查",
     "h1": "快速检查车牌",
     "description": "在出售汽车或在社交媒体上发布信息之前隐藏和模糊车牌。 只需单击一下即可保护您的隐私。",
@@ -13902,7 +13836,7 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     ]
   },
   {
-    "slug": "blur-license-plate",
+    "slug": "tamwih-lawhat-sayara",
     "tool": "blurplate",
     "lang": "ar",
     "title": "طمس لوحة الترخيص على الإنترنت - رقيب الخصوصية التلقائي",
@@ -13942,7 +13876,7 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     ]
   },
   {
-    "slug": "blur-license-plate",
+    "slug": "number-plate-blur-kare",
     "tool": "blurplate",
     "lang": "hi",
     "title": "ब्लर लाइसेंस प्लेट ऑनलाइन - ऑटो गोपनीयता सेंसर",
@@ -14022,7 +13956,7 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     ]
   },
   {
-    "slug": "blur-license-plate",
+    "slug": "beonhopan-beulleo",
     "tool": "blurplate",
     "lang": "ko",
     "title": "온라인으로 번호판 흐리게 처리 - 자동 개인정보 보호 센서",
@@ -14102,7 +14036,7 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     ]
   },
   {
-    "slug": "plaka-bulankl",
+    "slug": "plaka-bulaniklastir",
     "tool": "blurplate",
     "lang": "tr",
     "title": "Plakayı Çevrimiçi Bulanıklaştır - Otomatik Gizlilik Sansürü",
@@ -14182,7 +14116,7 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     ]
   },
   {
-    "slug": "bin-s-xe-m",
+    "slug": "lam-mo-bien-so-xe",
     "tool": "blurplate",
     "lang": "vi",
     "title": "Làm mờ biển số xe trực tuyến - Tự động kiểm duyệt quyền riêng tư",
@@ -14222,7 +14156,7 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     ]
   },
   {
-    "slug": "blur-license-plate",
+    "slug": "blae-paai-thabian",
     "tool": "blurplate",
     "lang": "th",
     "title": "Blur License Plate Online - เซ็นเซอร์ความเป็นส่วนตัวอัตโนมัติ",
@@ -14302,7 +14236,7 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     ]
   },
   {
-    "slug": "rozmazn-spz",
+    "slug": "rozmazani-spz",
     "tool": "blurplate",
     "lang": "cs",
     "title": "Rozmazání SPZ online – cenzor ochrany osobních údajů",
@@ -14342,7 +14276,7 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     ]
   },
   {
-    "slug": "slre-nummerplade",
+    "slug": "sloer-nummerplade",
     "tool": "blurplate",
     "lang": "da",
     "title": "Sløring af nummerplade online - Auto Privacy Censor",
@@ -14382,7 +14316,7 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     ]
   },
   {
-    "slug": "blur-license-plate",
+    "slug": "tholoma-pinakidas",
     "tool": "blurplate",
     "lang": "el",
     "title": "Blur License Plate Online - Auto Privacy Censor",
@@ -14422,7 +14356,7 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     ]
   },
   {
-    "slug": "hmrt-rekisterikilpi",
+    "slug": "sumenna-rekisterikilpi",
     "tool": "blurplate",
     "lang": "fi",
     "title": "Sumenna rekisterikilpi verkossa - Auto Privacy Sensori",
@@ -14462,7 +14396,7 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     ]
   },
   {
-    "slug": "blur-license-plate",
+    "slug": "tistush-luchit-rishui",
     "tool": "blurplate",
     "lang": "he",
     "title": "טשטוש לוחית רישוי מקוון - צנזור פרטיות אוטומטי",
@@ -14502,7 +14436,7 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     ]
   },
   {
-    "slug": "elmosdott-rendszm",
+    "slug": "rendszam-elmosasa",
     "tool": "blurplate",
     "lang": "hu",
     "title": "Elmosódott rendszámtábla online – Auto Privacy Censor",
@@ -14582,7 +14516,7 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     ]
   },
   {
-    "slug": "estomparea-plcuei-de-nmatriculare",
+    "slug": "estompare-numar-inmatriculare",
     "tool": "blurplate",
     "lang": "ro",
     "title": "Blur License Plate Online - Auto Privacy Censor",
@@ -14622,47 +14556,47 @@ export const PSEO_KEYWORD_MATRIX: PSeoKeywordConfig[] = [
     ]
   },
   {
-    "slug": "rozmazanie-pz",
+    "slug": "palabuin-ang-plaka",
     "tool": "blurplate",
-    "lang": "sk",
-    "title": "Rozmazanie poznávacej značky online – cenzor ochrany osobných údajov",
-    "h1": "Rýchlo cenzurujte poznávacie značky áut",
-    "description": "Pred predajom auta alebo zverejnením na sociálnych sieťach skryte a rozmažte poznávacie značky. Chráňte svoje súkromie jediným kliknutím.",
-    "citationFirst": "Ak necháte svoju poznávaciu značku viditeľnú online, odhalíte svoju osobnú registračnú adresu a zvýšite riziko krádeže identity alebo klonovania vozidla. Rozmazávanie je pravidlom číslo 1 pri predaji auta online.",
-    "quantitativeProof": "Viac ako 75 % automobilových trhovísk odporúča pred zverejnením štítky zakryť.",
-    "beforeImageLabel": "Odkrytý tanier",
-    "afterImageLabel": "Rozmazané súkromie",
-    "extraSectionTitle": "Prečo záleží na 100% offline spracovaní",
-    "extraSectionDesc": "Neposielajte svoje citlivé fotografie na náhodné servery.",
+    "lang": "tl",
+    "title": "Blur License Plate Online - Auto Privacy Censor",
+    "h1": "I-censor ang mga License Plate ng Sasakyan Mabilis",
+    "description": "Itago at i-blur ang mga plaka bago ibenta ang iyong sasakyan o i-post sa social media. Protektahan ang iyong privacy sa isang pag-click.",
+    "citationFirst": "Ang pag-iwan sa iyong plaka ng lisensya na nakikita online ay naglalantad sa iyong personal na address sa pagpaparehistro at nagpapataas ng panganib ng pagnanakaw ng pagkakakilanlan o pag-clone ng sasakyan. Ang pag-blur nito ay ang #1 na panuntunan ng pagbebenta ng kotse online.",
+    "quantitativeProof": "Higit sa 75% ng mga marketplace ng kotse ang nagrerekomenda ng pagtatakip ng mga plate bago i-publish.",
+    "beforeImageLabel": "Nakalantad na Plato",
+    "afterImageLabel": "Malabong Privacy",
+    "extraSectionTitle": "Bakit Mahalaga ang 100% Offline na Pagproseso",
+    "extraSectionDesc": "Huwag ipadala ang iyong mga sensitibong larawan sa mga random na server.",
     "extraSectionItems": [
-      "Súkromie na vojenskej úrovni (nulové nahrávanie)",
-      "Rýchlosť okamžitého spracovania",
-      "Žiadne uchovávanie údajov"
+      "Pagkapribado sa antas ng militar (Zero na Pag-upload)",
+      "Mabilis na Pagproseso ng Bilis",
+      "Walang Pagpapanatili ng Data"
     ],
-    "extraSection2Title": "Dostupné typy cenzorov",
-    "extraSection2Desc": "Vyberte, ako chcete skryť svoje informácie.",
+    "extraSection2Title": "Mga Uri ng Censor na Magagamit",
+    "extraSection2Desc": "Piliin kung paano mo gustong itago ang iyong impormasyon.",
     "extraSection2Items": [
-      "Gaussovské rozostrenie (hladké a profesionálne)",
-      "Pixelácia / Mozaika (klasický cenzor)",
-      "Pevná čierna skrinka (maximálna bezpečnosť)"
+      "Gaussian Blur (Smooth at Propesyonal)",
+      "Pixelation / Mosaic (Classic Censor)",
+      "Solid Black Box (Pinakataas na Seguridad)"
     ],
     "faqs": [
       {
-        "question": "Môže rozmazanie zvrátiť alebo rozmazať niekto iný?",
-        "answer": "Nie. Keď použijete Gaussovo rozostrenie alebo pixeláciu a stiahnete obrázok, pôvodné pixely sa zničia. Je to matematicky nemožné zvrátiť."
+        "question": "Maaari bang baligtarin o i-un-blur ng ibang tao ang blur?",
+        "answer": "Hindi. Kapag naglapat ka ng Gaussian blur o Pixelation at na-download ang larawan, masisira ang mga orihinal na pixel. Ito ay mathematically imposibleng baligtarin."
       },
       {
-        "question": "Môžem rozmazať viacero áut na tej istej fotografii?",
-        "answer": "Áno, môžete nakresliť viacero políčok rozostrenia cez rôzne poznávacie značky alebo dokonca tváre na pozadí."
+        "question": "Maaari ko bang i-blur ang maraming kotse sa parehong larawan?",
+        "answer": "Oo, maaari kang gumuhit ng maraming blur box sa iba't ibang mga plaka ng lisensya o kahit na mga mukha sa background."
       },
       {
-        "question": "Funguje to na mobile?",
-        "answer": "Áno, naše dotykové rozhranie vám umožňuje sťahovať a približovať a rozmazávať platne priamo z prehliadača smartfónu."
+        "question": "Gumagana ba ito sa mobile?",
+        "answer": "Oo, binibigyang-daan ka ng aming touch-friendly na interface na mag-pinch at mag-zoom para i-blur ang mga plate mula mismo sa iyong smartphone browser."
       }
     ]
   },
   {
-    "slug": "blur-license-plate",
+    "slug": "rozmyty-nomer-avto",
     "tool": "blurplate",
     "lang": "uk",
     "title": "Розмивання номерного знака в Інтернеті - автоматичний цензор конфіденційності",

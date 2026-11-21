@@ -35,7 +35,7 @@ export const SeoHead: React.FC<SeoHeadProps> = ({
   const rawPath = canonicalPath.startsWith('/') ? canonicalPath : '/' + canonicalPath;
   const cleanPath = rawPath === '/' ? '/' : (rawPath.endsWith('/') ? rawPath : `${rawPath}/`);
   const fullUrl = `${DOMAIN}${cleanPath}`;
-  
+
   let defaultUrl = `${DOMAIN}/`;
   if (infoPage) {
     defaultUrl = `${DOMAIN}/${getLocalizedInfoSlug(infoPage, 'en')}/`;
@@ -43,38 +43,76 @@ export const SeoHead: React.FC<SeoHeadProps> = ({
     defaultUrl = `${DOMAIN}/${getLocalizedSlug(internalTool as InternalTool, 'en')}/${keywordSlug ? `${keywordSlug}/` : ''}`;
   }
 
-  const schemas: Record<string, unknown>[] = [
+  const graph: Record<string, unknown>[] = [
     {
-      "@context": "https://schema.org",
-      "@type": "SoftwareApplication",
+      "@type": "Organization",
+      "@id": `${DOMAIN}/#organization`,
+      "name": "HelpMyIMG",
+      "url": DOMAIN,
+      "logo": {
+        "@type": "ImageObject",
+        "url": `${DOMAIN}/logo.webp`,
+        "width": 180,
+        "height": 60
+      },
+      "sameAs": [
+        "https://handlemyfile.com",
+        "https://solvemymedia.com",
+        "https://createmy-qr.com",
+        "https://discord.gg/NcWY6bcVdN"
+      ],
+      "description": description
+    },
+    {
+      "@type": "WebSite",
+      "@id": `${DOMAIN}/#website`,
+      "url": DOMAIN,
+      "name": "HelpMyIMG",
+      "inLanguage": lang,
+      "publisher": { "@id": `${DOMAIN}/#organization` }
+    },
+    {
+      "@type": "WebPage",
+      "@id": `${fullUrl}#webpage`,
+      "url": fullUrl,
       "name": title,
-      "operatingSystem": "Web Browser (Windows, macOS, Android, iOS)",
-      "applicationCategory": "UtilitiesApplication",
+      "description": description,
+      "isPartOf": { "@id": `${DOMAIN}/#website` },
+      "publisher": { "@id": `${DOMAIN}/#organization` },
+      "inLanguage": lang
+    },
+    {
+      "@type": ["WebApplication", "SoftwareApplication"],
+      "name": title,
+      "url": fullUrl,
+      "applicationCategory": "MultimediaApplication",
+      "applicationSubCategory": "Photo Editing",
+      "operatingSystem": "Web Browser (Windows, macOS, Linux, Android, iOS)",
+      "browserRequirements": "Requires WebAssembly support. Chrome 89+, Safari 15+, Firefox 79+",
+      "inLanguage": lang,
+      "isPartOf": { "@id": `${DOMAIN}/#website` },
+      "description": description,
       "offers": {
         "@type": "Offer",
         "price": "0",
-        "priceCurrency": "USD"
-      },
-      "description": description,
-      "aggregateRating": {
-        "@type": "AggregateRating",
-        "ratingValue": "4.98",
-        "ratingCount": "142850"
+        "priceCurrency": "USD",
+        "availability": "https://schema.org/InStock",
+        "description": "Free Starter Tier (1080p unlimited, zero watermarks, 3 daily 4K exports on login) & optional PRO / Founder Pass"
       },
       "featureList": [
         "100% Client-Side WebGPU & WebAssembly AI Processing",
-        "Zero Server Upload - Absolute Data Privacy",
-        "Unlimited File Size - No Server Restrictions",
-        "Free Batch Processing up to 30 photos simultaneously",
-        "Official Biometric Passport Colors & Formats",
-        "Faster and safer than cloud alternatives like iloveimg or remove.bg"
-      ]
+        "Zero Server Upload - Local Browser RAM Execution",
+        "Batch AI Background Removal, Compression & Format Conversion",
+        "Official Biometric Passport & ID Photo Presets",
+        "C2PA / AI Metadata Cleaner & Lossless EXIF Studio",
+        "HEIC, RAW, PSD, JXL, AVIF, WebP Client-Side Decoder"
+      ],
+      "screenshot": `${DOMAIN}/images.png`
     }
   ];
 
   if (faqs && faqs.length > 0) {
-    schemas.push({
-      "@context": "https://schema.org",
+    graph.push({
       "@type": "FAQPage",
       "mainEntity": faqs.map((f) => ({
         "@type": "Question",
@@ -88,33 +126,33 @@ export const SeoHead: React.FC<SeoHeadProps> = ({
   }
 
   if (citationFirst || quantitativeProof) {
-    schemas.push({
-      "@context": "https://schema.org",
+    graph.push({
       "@type": "Article",
       "headline": title,
       "description": citationFirst || description,
+      "inLanguage": lang,
       "author": {
         "@type": "Organization",
-        "name": "HelpMyIMG AI Engineering Team"
+        "name": "HelpMyIMG Engineering"
       },
       "publisher": {
-        "@type": "Organization",
-        "name": "HelpMyIMG",
-        "logo": {
-          "@type": "ImageObject",
-          "url": `${DOMAIN}/logobaru.png`
-        }
+        "@id": `${DOMAIN}/#organization`
       },
       "mainEntityOfPage": fullUrl
     });
   }
 
+  const schemaGraph = {
+    "@context": "https://schema.org",
+    "@graph": graph
+  };
+
   return (
-    <Helmet>
+    <Helmet htmlAttributes={{ lang }}>
       {/* Primary Meta Tags */}
       <title>{title}</title>
       <meta name="description" content={description} />
-      
+
       {/* Canonical Link */}
       <link rel="canonical" href={fullUrl} />
 
@@ -124,8 +162,10 @@ export const SeoHead: React.FC<SeoHeadProps> = ({
       <meta property="og:url" content={fullUrl} />
       <meta property="og:type" content="website" />
       <meta property="og:image" content={`${DOMAIN}/images.png`} />
+      <meta property="og:image:secure_url" content={`${DOMAIN}/images.png`} />
       <meta property="og:image:width" content="1200" />
       <meta property="og:image:height" content="630" />
+      <meta property="og:image:alt" content={title} />
       <meta property="og:site_name" content="HelpMyIMG" />
       <meta property="og:locale" content={lang} />
 
@@ -154,13 +194,13 @@ export const SeoHead: React.FC<SeoHeadProps> = ({
           />
         );
       })}
-      
+
       {/* x-default for Global Crawlers */}
       <link rel="alternate" hrefLang="x-default" href={defaultUrl} />
 
-      {/* Dynamic JSON-LD Structured Data */}
+      {/* Unified Dynamic JSON-LD Structured Data */}
       <script type="application/ld+json">
-        {JSON.stringify(schemas)}
+        {JSON.stringify(schemaGraph)}
       </script>
     </Helmet>
   );

@@ -13,12 +13,15 @@ export function getLanguageFromUrl(): Language {
   return 'en';
 }
 
+declare const __BUILD_VERSION__: string | undefined;
+const LOCALE_CACHE_VERSION = typeof __BUILD_VERSION__ !== 'undefined' ? __BUILD_VERSION__ : '20261120';
+
 export async function fetchTranslation(lang: Language): Promise<Record<string, any>> {
   if (lang === 'en') {
     return enTranslations;
   }
   try {
-    const response = await fetch(`/locales/${lang}/translation.json?v=${Date.now()}`, { cache: 'no-cache' });
+    const response = await fetch(`/locales/${lang}/translation.json?v=${LOCALE_CACHE_VERSION}`);
     if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
     return await response.json();
   } catch (error) {

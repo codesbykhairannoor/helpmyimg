@@ -24,7 +24,7 @@ export const Footer: React.FC = () => {
   };
 
   return (
-    <footer className="w-full border-t border-dark-600/60 bg-dark-900/90 backdrop-blur-xl py-12 mt-20 text-slate-600 dark:text-slate-300">
+    <footer className="w-full border-t border-slate-200 dark:border-dark-600/60 bg-white dark:bg-dark-900/90 backdrop-blur-xl py-12 mt-20 text-slate-600 dark:text-slate-300">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10">
 
@@ -38,8 +38,8 @@ export const Footer: React.FC = () => {
                 HelpMy<span className="text-transparent bg-clip-text bg-gradient-to-r from-neon-cyan to-neon-emerald">IMG</span>
               </span>
             </div>
-            <p className="text-[13px] text-slate-400 leading-relaxed font-body font-medium max-w-sm">
-              Free & 100% Private, Zero-Cloud AI Image Editing. All machine learning models run securely inside your browser using WebAssembly.
+            <p className="text-[13px] text-slate-500 dark:text-slate-400 leading-relaxed font-body font-medium max-w-sm">
+              {t('hero.subtitle.short', { defaultValue: 'Free & 100% Private, Zero-Cloud AI Image Editing. All machine learning models run securely inside your browser using WebAssembly.' })}
             </p>
           </div>
 
@@ -77,6 +77,11 @@ export const Footer: React.FC = () => {
                   {t('nav.crop', { defaultValue: 'Crop & Smart Crop' })}
                 </a>
               </li>
+              <li>
+                <a href={getToolLink('editexif')} onClick={(e) => { e.preventDefault(); navigatePath(getToolLink('editexif')); }} className="hover:text-cyan-600 dark:hover:text-white transition-colors">
+                  {t('nav.editexif', { defaultValue: 'Edit EXIF & Camera Studio' })}
+                </a>
+              </li>
             </ul>
           </div>
 
@@ -112,6 +117,11 @@ export const Footer: React.FC = () => {
               <li>
                 <a href={getToolLink('design')} onClick={(e) => { e.preventDefault(); navigatePath(getToolLink('design')); }} className="hover:text-cyan-600 dark:hover:text-white transition-colors">
                   {t('nav.design', { defaultValue: 'Design Editor' })}
+                </a>
+              </li>
+              <li>
+                <a href={getToolLink('metadata')} onClick={(e) => { e.preventDefault(); navigatePath(getToolLink('metadata')); }} className="hover:text-cyan-600 dark:hover:text-white transition-colors">
+                  {t('nav.metadata', { defaultValue: 'AI Metadata & C2PA Cleaner' })}
                 </a>
               </li>
             </ul>

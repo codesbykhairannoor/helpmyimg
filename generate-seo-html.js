@@ -22,7 +22,7 @@ if (!fs.existsSync(distDir)) {
 let LANGS = ['en'];
 try {
   LANGS = fs.readdirSync(localesDir).filter(dir => {
-    return fs.statSync(path.join(localesDir, dir)).isDirectory();
+    return dir !== 'bg' && fs.statSync(path.join(localesDir, dir)).isDirectory();
   });
 } catch (error) {
   console.warn('Warning: Could not read public/locales. Using default languages.');
@@ -42,7 +42,6 @@ try {
 }
 
 const getLocalizedSlug = (tool, lang) => {
-  if (tool === 'brush') return 'magic-brush';
   if (slugMap[lang] && slugMap[lang][tool]) return slugMap[lang][tool];
   const fallbacks = {
     remove: 'remove-background',
@@ -56,6 +55,18 @@ const getLocalizedSlug = (tool, lang) => {
     picker: 'image-color-picker',
     blurface: 'blur-face',
     design: 'advanced-editor',
+    brush: 'magic-brush',
+    compress100kb: 'compress-image-to-100kb',
+    compress50kb: 'compress-image-to-50kb',
+    compress200kb: 'compress-image-to-200kb',
+    resizeig: 'resize-instagram',
+    resizepassport: 'resize-passport',
+    removelogo: 'remove-logo',
+    colorwhite: 'change-background-white',
+    removeperson: 'remove-person-from-photo',
+    convertwebp: 'convert-to-webp',
+    watermarkbulk: 'bulk-watermark',
+    blurplate: 'blur-license-plate',
     metadata: 'ai-metadata-cleaner',
     editexif: 'edit-exif'
   };
@@ -802,13 +813,28 @@ const SECTION_I18N = {
   }
 };
 
-// Title Sanitizer: Enforce max 60 chars while preventing ultra-short CJK titles
+// Title Sanitizer: Enforce max 60 chars cleanly on word boundaries without double-branding
 function sanitizeTitle(title, lang = 'en') {
   if (!title) return 'HelpMyIMG - Free Local AI Image Editor';
-  let clean = title.trim();
+  const raw = title.replace(/[\r\n\t]+/g, ' ').replace(/\s{2,}/g, ' ').trim();
+  const trimWordBoundary = (str, maxLen) => {
+    if (str.length <= maxLen) return str;
+    if (['zh', 'ja', 'ko', 'th'].includes(lang)) {
+      return str.substring(0, maxLen).replace(/[,、， -]+$/, '').trim();
+    }
+    const slice = str.substring(0, maxLen);
+    const lastSpace = Math.max(slice.lastIndexOf(' '), slice.lastIndexOf('—'), slice.lastIndexOf('-'), slice.lastIndexOf(','));
+    if (lastSpace > Math.floor(maxLen * 0.55)) {
+      return slice.substring(0, lastSpace).replace(/[, —–-]+$/, '').trim();
+    }
+    return slice.replace(/[, —–-]+$/, '').trim();
+  };
 
-  // Strip robotic keyword-stuffing slogans and suffixes
-  clean = clean
+  if (/HelpMyIMG/i.test(raw)) {
+    return trimWordBoundary(raw, 60);
+  }
+
+  let clean = raw
     .replace(/\s*[-|–—]\s*(Kein Upload|Carga cero|Zero Upload|Zero Server Upload|100% Client-Side|100% DSGVO-Konform|Offline).*$/i, '')
     .replace(/\s*[-|–—]\s*(Bildgröße lokal komprimieren|comprime el tamaño de la imagen localmente|elimine el fondo de la imagen localmente).*$/i, '')
     .replace(/\s*[-|–—]\s*HelpMyIMG.*$/i, '')
@@ -823,10 +849,7 @@ function sanitizeTitle(title, lang = 'en') {
 
   const suffix = ' - HelpMyIMG';
   const maxCleanLen = 60 - suffix.length; // 48 chars
-
-  if (clean.length > maxCleanLen) {
-    clean = clean.substring(0, maxCleanLen).replace(/[, -]+$/, '').trim();
-  }
+  clean = trimWordBoundary(clean, maxCleanLen);
 
   return `${clean}${suffix}`;
 }
@@ -881,17 +904,17 @@ const indexHtmlContent = fs.readFileSync(path.join(distDir, 'index.html'), 'utf8
 
 // Strip hardcoded meta tags, hreflangs, and existing SEO tags to ensure a fresh clean injection
 let baseHtmlContent = indexHtmlContent
-  .replace(/<link rel="alternate" hreflang="[^"]+" href="[^"]+" \/>\n?\s*/g, '')
+  .replace(/<link[^>]*rel="alternate"[^>]*hreflang="[^"]+"[^>]*>\n?\s*/gi, '')
   .replace(/<!-- Static Hreflang Tags for 30 Languages -->\n?\s*/g, '')
   .replace(/<!-- Dynamic Localized Hreflang Tags for 30 Languages -->\n?\s*/g, '')
   .replace(/<!-- Open Graph \/ Facebook Meta Tags -->\n?\s*/gi, '')
-  .replace(/<meta property="og:[^"]+" content="[^"]*" \/>\n?\s*/gi, '')
+  .replace(/<meta\s+property="og:[^"]+"[\s\S]*?\/>\n?\s*/gi, '')
   .replace(/<!-- Twitter \(X\) Meta Tags -->\n?\s*/gi, '')
-  .replace(/<meta name="twitter:[^"]+" content="[^"]*" \/>\n?\s*/gi, '')
-  .replace(/<link rel="canonical" href="[^"]*" \/>\n?\s*/gi, '')
-  .replace(/<title>[\s\S]*?<\/title>\n?\s*/gi, '')
-  .replace(/<meta name="description"[^>]*>\n?\s*/gi, '')
-  .replace(/<script type="application\/ld\+json">[\s\S]*?<\/script>\n?\s*/gi, '')
+  .replace(/<meta\s+name="twitter:[^"]+"[\s\S]*?\/>\n?\s*/gi, '')
+  .replace(/<link[^>]*rel="canonical"[^>]*>\n?\s*/gi, '')
+  .replace(/<title[^>]*>[\s\S]*?<\/title>\n?\s*/gi, '')
+  .replace(/<meta[^>]*name="description"[^>]*>\n?\s*/gi, '')
+  .replace(/<script[^>]*type="application\/ld\+json"[^>]*>[\s\S]*?<\/script>\n?\s*/gi, '')
   .replace(/<body>[\s\S]*?<\/body>/i, '<body>\n    <div id="root"></div>\n  </body>');
 
 
@@ -965,7 +988,7 @@ function generateSemanticHtml(lang, urlPath, title, desc, tool, infoPage, transl
             <span class="uppercase font-mono text-[13px]">${lang}</span>
             <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-slate-400"><path d="m6 9 6 6 6-6"/></svg>
           </div>
-          <a href="${lang === 'en' ? '/pricing/' : `/${lang}/pricing/`}" class="flex items-center gap-1.5 sm:gap-2 bg-cyan-500/10 hover:bg-cyan-500/20 text-cyan-700 dark:text-[#05DAED] border border-cyan-500/30 px-2.5 sm:px-3 h-8 sm:h-[38px] rounded-xl text-[12.5px] sm:text-[14px] font-semibold transition-all">
+          <a href="${lang === 'en' ? `/${getLocalizedInfoSlug('pricing', 'en')}/` : `/${lang}/${getLocalizedInfoSlug('pricing', lang)}/`}" class="flex items-center gap-1.5 sm:gap-2 bg-cyan-500/10 hover:bg-cyan-500/20 text-cyan-700 dark:text-[#05DAED] border border-cyan-500/30 px-2.5 sm:px-3 h-8 sm:h-[38px] rounded-xl text-[12.5px] sm:text-[14px] font-semibold transition-all">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"/><polyline points="10 17 15 12 10 7"/><line x1="15" x2="3" y1="12" y2="12"/></svg>
             <span>${translations['nav.signIn'] || (lang === 'id' ? 'Masuk' : 'Sign In')}</span>
           </a>
@@ -1021,9 +1044,9 @@ function generateSemanticHtml(lang, urlPath, title, desc, tool, infoPage, transl
           <div class="space-y-3.5 text-[13px] font-body">
             <h3 class="font-bold text-slate-900 dark:text-white text-sm tracking-wide">${translations['languages.title'] || 'Global Languages'}</h3>
             <p class="text-xs text-slate-400 leading-relaxed">
-              HelpMyIMG is natively localized in 30 languages with zero external telemetry.
+              ${translations['languages.localizedDesc'] || 'HelpMyIMG is natively localized in 30 languages with zero external telemetry.'}
             </p>
-            <a href="${lang === 'en' ? '/languages/' : `/${lang}/languages/`}" class="text-xs text-[#05DAED] hover:underline">${translations['languages.badge'] || 'View All 30 Languages →'}</a>
+            <a href="${lang === 'en' ? `/${getLocalizedInfoSlug('languages', 'en')}/` : `/${lang}/${getLocalizedInfoSlug('languages', lang)}/`}" class="text-xs text-[#05DAED] hover:underline">${translations['languages.badge'] || 'View All 30 Languages →'}</a>
           </div>
         </div>
         <div class="border-t border-slate-800/80 pt-8 mt-10 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
@@ -1281,15 +1304,33 @@ function generateSemanticHtml(lang, urlPath, title, desc, tool, infoPage, transl
             </div>
           </section>
 
-          <section class="p-8 md:p-10 rounded-3xl bg-slate-900/80 border border-slate-700/80 flex flex-col gap-6 max-w-2xl mx-auto w-full text-center">
-            <span class="text-sm uppercase font-mono tracking-widest text-[#05DAED] font-bold">${translations['pricing.tierName'] || 'Enterprise Tier'}</span>
-            <div class="flex items-baseline justify-center gap-2">
-              <span class="text-5xl font-extrabold text-white">$0</span>
-              <span class="text-slate-400 font-medium">${translations['pricing.period'] || '/ forever'}</span>
+          <section class="grid grid-cols-1 md:grid-cols-3 gap-6 w-full">
+            <div class="p-6 md:p-8 rounded-3xl bg-slate-900/80 border border-slate-700/80 flex flex-col gap-4 text-center">
+              <span class="text-xs uppercase font-mono tracking-widest text-[#05DAED] font-bold">${translations['pricing.tier.free.name'] || 'Free Starter Tier'}</span>
+              <div class="flex items-baseline justify-center gap-2">
+                <span class="text-4xl font-extrabold text-white">$0</span>
+                <span class="text-slate-400 text-sm font-medium">1080p HD</span>
+              </div>
+              <ul class="space-y-2 text-left text-xs text-slate-300 mt-2">
+                ${featuresListHtml}
+              </ul>
             </div>
-            <ul class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-left text-sm text-slate-200 mt-4">
-              ${featuresListHtml}
-            </ul>
+            <div class="p-6 md:p-8 rounded-3xl bg-slate-900/80 border border-[#05DAED]/50 flex flex-col gap-4 text-center">
+              <span class="text-xs uppercase font-mono tracking-widest text-[#12DA91] font-bold">${translations['pricing.tier.pro.name'] || 'Studio PRO'}</span>
+              <div class="flex items-baseline justify-center gap-2">
+                <span class="text-4xl font-extrabold text-white">$9.99</span>
+                <span class="text-slate-400 text-sm font-medium">/ mo ($79/yr)</span>
+              </div>
+              <p class="text-xs text-slate-300 leading-relaxed">${translations['pricing.tier.pro.desc'] || 'Unlimited uncompressed 4K exports, bulk ZIP batch export (100+ files), and priority WebGPU multi-core speed.'}</p>
+            </div>
+            <div class="p-6 md:p-8 rounded-3xl bg-slate-900/80 border border-indigo-500/40 flex flex-col gap-4 text-center">
+              <span class="text-xs uppercase font-mono tracking-widest text-indigo-400 font-bold">${translations['pricing.tier.founder.name'] || 'Founder Lifetime Pass'}</span>
+              <div class="flex items-baseline justify-center gap-2">
+                <span class="text-4xl font-extrabold text-white">$129</span>
+                <span class="text-slate-400 text-sm font-medium">${translations['pricing.oneTime'] || 'one-time'}</span>
+              </div>
+              <p class="text-xs text-slate-300 leading-relaxed">${translations['pricing.tier.founder.desc'] || 'One-time payment for lifetime Studio PRO access, all future local WASM neural models, and cross-device sync.'}</p>
+            </div>
           </section>
 
           <section class="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -1297,14 +1338,14 @@ function generateSemanticHtml(lang, urlPath, title, desc, tool, infoPage, transl
               <h2 class="text-xl font-bold text-white font-heading">${translations['pricing.s3.title'] || 'Cost Comparison'}</h2>
               <p class="text-sm text-slate-300 leading-relaxed">${translations['pricing.s3.c1.name'] || 'Cloud Services'}: $30 - $120 / month</p>
               <p class="text-sm text-slate-300 leading-relaxed">${translations['pricing.s3.c2.name'] || 'Traditional Software'}: $240 / year</p>
-              <p class="text-sm text-[#12DA91] font-bold leading-relaxed">${translations['pricing.s3.c3.name'] || 'HelpMyIMG'}: Free Starter & $9.99/mo PRO</p>
+              <p class="text-sm text-[#12DA91] font-bold leading-relaxed">${translations['pricing.s3.c3.name'] || 'HelpMyIMG'}: Free Starter ($0) & Studio PRO ($9.99/mo)</p>
             </div>
             <div class="p-6 rounded-2xl bg-slate-900/50 border border-slate-800 flex flex-col gap-2">
-              <h2 class="text-xl font-bold text-white font-heading">${translations['pricing.s4.title'] || 'Why Is It Free?'}</h2>
+              <h2 class="text-xl font-bold text-white font-heading">${translations['pricing.s4.title'] || 'Why Is It So Affordable?'}</h2>
               <p class="text-sm text-slate-300 leading-relaxed">${translations['pricing.s4.desc1'] || ''}</p>
               <p class="text-sm text-slate-300 leading-relaxed">${translations['pricing.s4.desc2'] || ''}</p>
               <div class="mt-2 p-3 rounded-lg bg-dark-800 border border-dark-600 text-xs text-slate-300">
-                <strong class="text-white">${translations['pricing.s4.boxTitle'] || 'Zero Cloud Computing Bills'}:</strong> ${translations['pricing.s4.boxDesc'] || 'Because processing happens on your device, we have zero server GPU costs.'}
+                <strong class="text-white">${translations['pricing.s4.boxTitle'] || 'Zero Cloud GPU Computing Bills'}:</strong> ${translations['pricing.s4.boxDesc'] || 'Because AI inference happens on your device, we eliminate massive cloud GPU costs and keep core tools free.'}
               </div>
             </div>
           </section>
@@ -1831,16 +1872,44 @@ function generateSemanticHtml(lang, urlPath, title, desc, tool, infoPage, transl
   // CASE C: TOOL PAGES (/${lang}/${slug}/)
   // =========================================================================
   const baseTool = TOOL_BASE_MAP[tool] || 'remove';
+  const currentToolSlug = getLocalizedSlug(tool, lang);
+  const matrixItem =
+    matrixData.find(m => m.tool === tool && (m.lang === lang || m.lang === (lang === 'zh-CN' ? 'zh' : lang)) && m.slug === currentToolSlug) ||
+    matrixData.find(m => m.tool === tool && (m.lang === lang || m.lang === (lang === 'zh-CN' ? 'zh' : lang))) ||
+    null;
+  const isPseoVariant = tool !== baseTool;
 
-  // 1. Tool Specific H1 & Hero matching Hero.tsx
-  const heroBadge = translations[`landing.${baseTool}.redesign.heroBadge`] || translations[`tab.${baseTool}`] || 'AI TOOL';
-  const rawHeroTitle = translations[`landing.${baseTool}.redesign.heroTitle`] || translations[`landing.default.title.${tool}`] || h1;
-  const heroDesc = translations[`landing.${baseTool}.redesign.heroDesc`] || translations[`landing.default.desc.${tool}`] || overviewText;
+  // 1. Tool Specific H1 & Hero matching Hero.tsx (with unique matrix copy for pSEO subpages)
+  const heroBadge = (isPseoVariant && translations[`tab.${tool}`]) || translations[`landing.${baseTool}.redesign.heroBadge`] || translations[`tab.${baseTool}`] || 'AI TOOL';
+  const rawHeroTitle = isPseoVariant
+    ? (matrixItem?.h1 || translations[`landing.default.title.${tool}`] || translations[`seo.title.${tool}`] || h1)
+    : (translations[`landing.${baseTool}.redesign.heroTitle`] || matrixItem?.h1 || translations[`landing.default.title.${tool}`] || h1);
+  const heroDesc = isPseoVariant
+    ? (matrixItem?.description || translations[`landing.default.desc.${tool}`] || translations[`seo.desc.${tool}`] || overviewText)
+    : (translations[`landing.${baseTool}.redesign.heroDesc`] || matrixItem?.description || translations[`landing.default.desc.${tool}`] || overviewText);
 
   const cleanHeroTitle = rawHeroTitle.split(' - ')[0].trim();
   const words = cleanHeroTitle.split(' ');
   const solidPart = words.slice(0, 1).join(' ');
   const gradientPart = words.slice(1).join(' ');
+
+  let pseoGeoInsightsHtml = '';
+  if (matrixItem && (matrixItem.citationFirst || matrixItem.quantitativeProof)) {
+    const compareBlock = (matrixItem.beforeImageLabel || matrixItem.afterImageLabel)
+      ? `<div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+          ${matrixItem.beforeImageLabel ? `<div class="p-4 rounded-xl bg-dark-900/60 border border-dark-600/60 text-xs text-slate-300"><strong class="text-slate-400 uppercase block mb-1">Before</strong>${matrixItem.beforeImageLabel}</div>` : ''}
+          ${matrixItem.afterImageLabel ? `<div class="p-4 rounded-xl bg-dark-900/60 border border-[#05DAED]/30 text-xs text-slate-200"><strong class="text-[#05DAED] uppercase block mb-1">After</strong>${matrixItem.afterImageLabel}</div>` : ''}
+        </div>`
+      : '';
+    pseoGeoInsightsHtml = `
+      <section class="p-6 md:p-8 rounded-3xl bg-dark-800/50 border border-[#05DAED]/25 flex flex-col gap-4">
+        <div class="text-xs font-mono font-bold uppercase tracking-wider text-[#05DAED]">${heroBadge}</div>
+        ${matrixItem.citationFirst ? `<p class="text-sm md:text-base text-slate-200 leading-relaxed">${matrixItem.citationFirst}</p>` : ''}
+        ${matrixItem.quantitativeProof ? `<div class="p-4 rounded-2xl bg-[#12DA91]/10 border border-[#12DA91]/25 text-xs md:text-sm text-[#12DA91] font-medium leading-relaxed">${matrixItem.quantitativeProof}</div>` : ''}
+        ${compareBlock}
+      </section>
+    `;
+  }
 
   // Dropzone matching WorkspaceDropzone.tsx
   const dropzoneTitleClean = (translations['dropzone.title'] || sec.dropzoneTitle).replace(/^[⚡✨🔄\s]+/u, '');
@@ -1904,7 +1973,6 @@ function generateSemanticHtml(lang, urlPath, title, desc, tool, infoPage, transl
   // 5. Frequently Asked Questions (FAQ)
   const faqTitle = translations[`landing.${baseTool}.faqTitle`] || translations['landing.faqTitle'] || sec.faq;
   let faqListHtml = '';
-  const matrixItem = matrixData.find(m => m.tool === tool && (m.lang === lang || m.lang === (lang === 'zh-CN' ? 'zh' : lang)));
 
   if (matrixItem && matrixItem.faqs && matrixItem.faqs.length > 0) {
     for (const item of matrixItem.faqs) {
@@ -1972,6 +2040,7 @@ function generateSemanticHtml(lang, urlPath, title, desc, tool, infoPage, transl
         </div>
 
         <div class="mt-20 max-w-5xl mx-auto px-4 w-full flex flex-col gap-16">
+          ${pseoGeoInsightsHtml}
           <!-- Key Features Section -->
           <section class="flex flex-col gap-6">
             <div class="flex flex-col gap-2">
@@ -2065,7 +2134,7 @@ const generateHtml = (lang, urlPath, rawTitle, rawDesc, tool = null, translation
   html = html.replace(/<html[^>]*>/i, `<html lang="${lang}">`);
 
   // 2. Generate and inject dynamic hreflangs for THIS specific route
-  let dynamicHreflangs = `<!-- Dynamic Localized Hreflang Tags for 30 Languages -->\n`;
+  let dynamicHreflangs = `    <!-- Dynamic Localized Hreflang Tags for 30 Languages -->\n`;
   for (const l of LANGS) {
     let targetPath = l === 'en' ? `/` : `/${l}/`;
     if (tool) {
@@ -2073,7 +2142,7 @@ const generateHtml = (lang, urlPath, rawTitle, rawDesc, tool = null, translation
     } else if (infoPage) {
       targetPath = l === 'en' ? `/${getLocalizedInfoSlug(infoPage, 'en')}/` : `/${l}/${getLocalizedInfoSlug(infoPage, l)}/`;
     }
-    dynamicHreflangs += `    <link rel="alternate" hreflang="${l}" href="${DOMAIN}${targetPath}" />\n`;
+    dynamicHreflangs += `    <link data-rh="true" rel="alternate" hreflang="${l}" href="${DOMAIN}${targetPath}" />\n`;
   }
 
   let xDefaultPath = `/`;
@@ -2082,30 +2151,36 @@ const generateHtml = (lang, urlPath, rawTitle, rawDesc, tool = null, translation
   } else if (infoPage) {
     xDefaultPath = `/${getLocalizedInfoSlug(infoPage, 'en')}/`;
   }
-  dynamicHreflangs += `    <link rel="alternate" hreflang="x-default" href="${DOMAIN}${xDefaultPath}" />\n`;
+  dynamicHreflangs += `    <link data-rh="true" rel="alternate" hreflang="x-default" href="${DOMAIN}${xDefaultPath}" />\n`;
 
-  // 3. Complete Open Graph & Twitter Meta Tags
-  const metaTags = `    <title>${seoTitle}</title>
-    <meta name="description" content="${seoDesc}" />
-    <link rel="canonical" href="${canonicalUrl}" />
+  const escapeAttr = (str) => String(str || '').replace(/&/g, '&amp;').replace(/"/g, '&quot;');
+  const safeTitle = escapeAttr(seoTitle);
+  const safeDesc = escapeAttr(seoDesc);
+
+  // 3. Complete Open Graph & Twitter Meta Tags (marked data-rh="true" so Helmet replaces cleanly with 0 duplicates)
+  const metaTags = `    <title data-rh="true">${seoTitle}</title>
+    <meta data-rh="true" name="description" content="${safeDesc}" />
+    <link data-rh="true" rel="canonical" href="${canonicalUrl}" />
     
     <!-- Open Graph / Facebook Meta Tags -->
-    <meta property="og:title" content="${seoTitle}" />
-    <meta property="og:description" content="${seoDesc}" />
-    <meta property="og:url" content="${canonicalUrl}" />
-    <meta property="og:type" content="website" />
-    <meta property="og:image" content="${DOMAIN}/images.png" />
-    <meta property="og:image:width" content="1200" />
-    <meta property="og:image:height" content="630" />
-    <meta property="og:site_name" content="HelpMyIMG" />
-    <meta property="og:locale" content="${lang}" />
+    <meta data-rh="true" property="og:title" content="${safeTitle}" />
+    <meta data-rh="true" property="og:description" content="${safeDesc}" />
+    <meta data-rh="true" property="og:url" content="${canonicalUrl}" />
+    <meta data-rh="true" property="og:type" content="website" />
+    <meta data-rh="true" property="og:image" content="${DOMAIN}/images.png" />
+    <meta data-rh="true" property="og:image:secure_url" content="${DOMAIN}/images.png" />
+    <meta data-rh="true" property="og:image:width" content="1200" />
+    <meta data-rh="true" property="og:image:height" content="630" />
+    <meta data-rh="true" property="og:image:alt" content="${safeTitle}" />
+    <meta data-rh="true" property="og:site_name" content="HelpMyIMG" />
+    <meta data-rh="true" property="og:locale" content="${lang}" />
 
     <!-- Twitter (X) Meta Tags -->
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="${seoTitle}" />
-    <meta name="twitter:description" content="${seoDesc}" />
-    <meta name="twitter:image" content="${DOMAIN}/images.png" />
-    <meta name="twitter:site" content="@HelpMyIMG" />
+    <meta data-rh="true" name="twitter:card" content="summary_large_image" />
+    <meta data-rh="true" name="twitter:title" content="${safeTitle}" />
+    <meta data-rh="true" name="twitter:description" content="${safeDesc}" />
+    <meta data-rh="true" name="twitter:image" content="${DOMAIN}/images.png" />
+    <meta data-rh="true" name="twitter:site" content="@HelpMyIMG" />
 `;
 
   // 4. Inject JSON-LD Structured Data
@@ -2124,15 +2199,21 @@ const generateHtml = (lang, urlPath, rawTitle, rawDesc, tool = null, translation
           "width": 180,
           "height": 60
         },
-        "sameAs": ["https://twitter.com/HelpMyIMG"],
-        "description": "Free, privacy-first AI image suite running 100% locally via WebAssembly. No server uploads required."
+        "sameAs": [
+          "https://handlemyfile.com",
+          "https://solvemymedia.com",
+          "https://createmy-qr.com",
+          "https://discord.gg/NcWY6bcVdN"
+        ],
+        "description": translations['seo.jsonld.orgDesc'] || "Privacy-first AI image editing suite running 100% locally via WebAssembly & WebGPU. Free starter tier with zero server uploads."
       },
-      // WebSite — enables SiteLinksSearchBox in SERP
+      // WebSite — identity & language context
       {
         "@type": "WebSite",
         "@id": `${DOMAIN}/#website`,
         "url": DOMAIN,
         "name": "HelpMyIMG",
+        "inLanguage": lang,
         "publisher": { "@id": `${DOMAIN}/#organization` }
       },
       // WebPage — contextualizes this specific page
@@ -2144,8 +2225,7 @@ const generateHtml = (lang, urlPath, rawTitle, rawDesc, tool = null, translation
         "description": seoDesc,
         "isPartOf": { "@id": `${DOMAIN}/#website` },
         "publisher": { "@id": `${DOMAIN}/#organization` },
-        "inLanguage": lang,
-        "dateModified": new Date().toISOString()
+        "inLanguage": lang
       },
       // SoftwareApplication — primary tool rich result schema
       {
@@ -2163,29 +2243,22 @@ const generateHtml = (lang, urlPath, rawTitle, rawDesc, tool = null, translation
           "@type": "Offer",
           "price": "0",
           "priceCurrency": "USD",
-          "availability": "https://schema.org/InStock"
+          "availability": "https://schema.org/InStock",
+          "description": "Free Starter Tier (unlimited 1080p HD + 3 daily 4K exports on sign-in); optional Studio PRO plans available."
         },
-        "featureList": "Remove Background, Compress Image, Convert Format, Resize Image, Crop Image, Rotate Image, Watermark, Blur Face, Color Picker, Advanced Editor",
-        "screenshot": `${DOMAIN}/images.png`,
-        "aggregateRating": {
-          "@type": "AggregateRating",
-          "ratingValue": "4.8",
-          "ratingCount": "2847",
-          "bestRating": "5",
-          "worstRating": "1"
-        }
+        "screenshot": `${DOMAIN}/images.png`
       }
     ]
   };
 
   // BreadcrumbList — Google sitelinks & hierarchy signal
   if (tool) {
-    const toolLabel = (translations[`tab.${tool}`] || translations[`seo.jsonld.name.${tool}`] || tool).replace(/^[^\w\s]+\s*/, '');
+    const toolLabel = (translations[`tab.${tool}`] || translations[`seo.jsonld.name.${tool}`] || tool).replace(/^[^\p{L}\p{N}]+\s*/u, '');
     jsonLd["@graph"].push({
       "@type": "BreadcrumbList",
       "itemListElement": [
         { "@type": "ListItem", "position": 1, "name": "HelpMyIMG", "item": DOMAIN },
-        { "@type": "ListItem", "position": 2, "name": "Tools", "item": `${DOMAIN}${lang === 'en' ? '/' : `/${lang}/`}` },
+        { "@type": "ListItem", "position": 2, "name": translations['seo.jsonld.breadcrumb.tools'] || "Tools", "item": `${DOMAIN}${lang === 'en' ? '/' : `/${lang}/`}` },
         { "@type": "ListItem", "position": 3, "name": toolLabel, "item": canonicalUrl }
       ]
     });
@@ -2212,7 +2285,10 @@ const generateHtml = (lang, urlPath, rawTitle, rawDesc, tool = null, translation
   const baseTool = tool ? (TOOL_BASE_MAP[tool] || 'remove') : null;
 
   if (tool) {
-    const matrixItem = matrixData.find(m => m.tool === tool && (m.lang === lang || m.lang === (lang === 'zh-CN' ? 'zh' : lang)));
+    const slugForTool = getLocalizedSlug(tool, lang);
+    const matrixItem =
+      matrixData.find(m => m.tool === tool && (m.lang === lang || m.lang === (lang === 'zh-CN' ? 'zh' : lang)) && m.slug === slugForTool) ||
+      matrixData.find(m => m.tool === tool && (m.lang === lang || m.lang === (lang === 'zh-CN' ? 'zh' : lang)));
     if (matrixItem && matrixItem.faqs && matrixItem.faqs.length > 0) {
       for (const faq of matrixItem.faqs) {
         faqEntities.push({
@@ -2232,6 +2308,30 @@ const generateHtml = (lang, urlPath, rawTitle, rawDesc, tool = null, translation
             "acceptedAnswer": { "@type": "Answer", "text": a }
           });
         }
+      }
+    }
+  } else if (infoPage === 'faq') {
+    for (let i = 1; i <= 16; i++) {
+      const q = translations[`faq.q${i}`];
+      const a = translations[`faq.a${i}`];
+      if (q && a) {
+        faqEntities.push({
+          "@type": "Question",
+          "name": q,
+          "acceptedAnswer": { "@type": "Answer", "text": a }
+        });
+      }
+    }
+  } else if (infoPage === 'pricing' || infoPage === 'compare' || infoPage === 'security') {
+    for (let i = 1; i <= 4; i++) {
+      const q = translations[`${infoPage}.faq${i}.q`];
+      const a = translations[`${infoPage}.faq${i}.a`];
+      if (q && a) {
+        faqEntities.push({
+          "@type": "Question",
+          "name": q,
+          "acceptedAnswer": { "@type": "Answer", "text": a }
+        });
       }
     }
   } else if (!infoPage) {
@@ -2255,7 +2355,7 @@ const generateHtml = (lang, urlPath, rawTitle, rawDesc, tool = null, translation
     });
   }
 
-  const jsonLdScript = `    <script type="application/ld+json">\n${JSON.stringify(jsonLd)}\n    </script>\n`;
+  const jsonLdScript = `    <script data-rh="true" type="application/ld+json">\n${JSON.stringify(jsonLd)}\n    </script>\n`;
 
   html = html.replace(/(<\/head>)/i, `${metaTags}${dynamicHreflangs}${jsonLdScript}  $1`);
 
@@ -2299,8 +2399,17 @@ for (const lang of LANGS) {
   // 2. Generate Tool Pages
   for (const tool of TOOLS) {
     const slug = getLocalizedSlug(tool, lang);
-    let toolTitle = translations[`landing.default.title.${tool}`] || translations[`seo.title.${tool}`] || translations[`seo.jsonld.name.${tool}`] || translations[`tab.${tool}`] || translations[`tool.${tool}`] || translations['hero.title'] || tool;
-    let toolDesc = translations[`landing.default.desc.${tool}`] || translations[`seo.jsonld.desc.${tool}`] || homeDesc;
+    const isVariantTool = tool !== (TOOL_BASE_MAP[tool] || 'remove');
+    const toolMatrixItem =
+      matrixData.find(m => m.tool === tool && (m.lang === lang || m.lang === (lang === 'zh-CN' ? 'zh' : lang)) && m.slug === slug) ||
+      matrixData.find(m => m.tool === tool && (m.lang === lang || m.lang === (lang === 'zh-CN' ? 'zh' : lang))) ||
+      null;
+    let toolTitle = isVariantTool
+      ? (translations[`seo.title.${tool}`] || toolMatrixItem?.title || translations[`landing.default.title.${tool}`] || translations[`tab.${tool}`] || tool)
+      : (translations[`landing.default.title.${tool}`] || translations[`seo.title.${tool}`] || translations[`seo.jsonld.name.${tool}`] || translations[`tab.${tool}`] || translations[`tool.${tool}`] || translations['hero.title'] || tool);
+    let toolDesc = isVariantTool
+      ? (translations[`seo.desc.${tool}`] || toolMatrixItem?.description || translations[`landing.default.desc.${tool}`] || homeDesc)
+      : (translations[`landing.default.desc.${tool}`] || translations[`seo.desc.${tool}`] || toolMatrixItem?.description || translations[`seo.jsonld.desc.${tool}`] || homeDesc);
 
     if (lang === 'en') {
       // English tools are at root: https://helpmyimg.com/${slug}/

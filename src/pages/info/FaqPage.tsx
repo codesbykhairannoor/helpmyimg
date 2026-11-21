@@ -36,6 +36,13 @@ export const FaqPage: React.FC = () => {
   const solidPart = titleWords.slice(splitIndex).join(' ');
 
   const localizedSlug = getLocalizedInfoSlug('faq', lang);
+  const faqSchemaItems = Object.values(faqCategories)
+    .flat()
+    .map((num) => ({
+      question: t(`faq.q${num}`),
+      answer: t(`faq.a${num}`),
+    }))
+    .filter((item) => item.question && item.answer);
 
   return (
     <>
@@ -45,6 +52,7 @@ export const FaqPage: React.FC = () => {
         canonicalPath={lang === 'en' ? `/${localizedSlug}/` : `/${lang}/${localizedSlug}/`}
         lang={lang}
         infoPage="faq"
+        faqs={faqSchemaItems}
       />
 
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 md:pt-12 pb-16">

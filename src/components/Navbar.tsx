@@ -232,10 +232,10 @@ export const Navbar: React.FC = () => {
           {/* Kiri: Brand Logo - Proportional and fits nicely on mobile */}
           <div className="flex items-center justify-start flex-shrink-0">
             <a
-              href={lang === 'en' ? '/' : `/${lang}`}
+              href={lang === 'en' ? '/' : `/${lang}/`}
               onClick={(e) => {
                 e.preventDefault();
-                navigatePath(lang === 'en' ? '/' : `/${lang}`);
+                navigatePath(lang === 'en' ? '/' : `/${lang}/`);
               }}
               className="flex items-center gap-2 sm:gap-2.5 group"
             >
@@ -409,7 +409,7 @@ export const Navbar: React.FC = () => {
                           .map((l) => (
                             <a
                               key={l.code}
-                              href={l.code === 'en' ? '/' : `/${l.code}`}
+                              href={l.code === 'en' ? '/' : `/${l.code}/`}
                               onClick={(e) => {
                                 e.preventDefault();
                                 handleLangChange(l.code);
@@ -548,10 +548,10 @@ export const Navbar: React.FC = () => {
                         <div className="pt-2 px-2">
                           {!isPro && (
                             <a
-                              href={lang === 'en' ? '/pricing/' : `/${lang}/pricing/`}
+                              href={lang === 'en' ? `/${getLocalizedInfoSlug('pricing', 'en')}/` : `/${lang}/${getLocalizedInfoSlug('pricing', lang)}/`}
                               onClick={(e) => {
                                 e.preventDefault();
-                                navigatePath(lang === 'en' ? '/pricing/' : `/${lang}/pricing/`);
+                                navigatePath(lang === 'en' ? `/${getLocalizedInfoSlug('pricing', 'en')}/` : `/${lang}/${getLocalizedInfoSlug('pricing', lang)}/`);
                                 setUserMenuOpen(false);
                               }}
                               className="w-full flex items-center gap-2.5 px-3 py-2 text-xs font-bold rounded-xl text-amber-600 dark:text-amber-400 hover:bg-amber-50 dark:hover:bg-amber-950/30 transition-colors mb-1"
@@ -790,11 +790,11 @@ export const Navbar: React.FC = () => {
                           <div className="flex flex-col gap-2">
                             {/* Paket Harga */}
                             <a
-                              href={lang === 'en' ? '/pricing/' : `/${lang}/pricing/`}
+                              href={lang === 'en' ? `/${getLocalizedInfoSlug('pricing', 'en')}/` : `/${lang}/${getLocalizedInfoSlug('pricing', lang)}/`}
                               onClick={(e) => {
                                 e.preventDefault();
                                 setIsSuiteOpen(false);
-                                navigatePath(lang === 'en' ? '/pricing/' : `/${lang}/pricing/`);
+                                navigatePath(lang === 'en' ? `/${getLocalizedInfoSlug('pricing', 'en')}/` : `/${lang}/${getLocalizedInfoSlug('pricing', lang)}/`);
                               }}
                               className="flex items-center gap-2.5 p-2.5 rounded-xl bg-white dark:bg-dark-800 hover:bg-slate-100 dark:hover:bg-dark-750 border border-slate-200 dark:border-dark-700/70 hover:border-cyan-500/40 transition-all duration-150 group"
                             >
@@ -813,11 +813,11 @@ export const Navbar: React.FC = () => {
 
                             {/* Privasi Zero-Server */}
                             <a
-                              href={lang === 'en' ? '/privacy/' : `/${lang}/privacy/`}
+                              href={lang === 'en' ? `/${getLocalizedInfoSlug('privacy', 'en')}/` : `/${lang}/${getLocalizedInfoSlug('privacy', lang)}/`}
                               onClick={(e) => {
                                 e.preventDefault();
                                 setIsSuiteOpen(false);
-                                navigatePath(lang === 'en' ? '/privacy/' : `/${lang}/privacy/`);
+                                navigatePath(lang === 'en' ? `/${getLocalizedInfoSlug('privacy', 'en')}/` : `/${lang}/${getLocalizedInfoSlug('privacy', lang)}/`);
                               }}
                               className="flex items-center gap-2.5 p-2.5 rounded-xl bg-white dark:bg-dark-800 hover:bg-slate-100 dark:hover:bg-dark-750 border border-slate-200 dark:border-dark-700/70 hover:border-emerald-500/40 transition-all duration-150 group"
                             >
@@ -836,11 +836,11 @@ export const Navbar: React.FC = () => {
 
                             {/* Tentang HelpMyIMG */}
                             <a
-                              href={lang === 'en' ? '/about/' : `/${lang}/about/`}
+                              href={lang === 'en' ? `/${getLocalizedInfoSlug('about', 'en')}/` : `/${lang}/${getLocalizedInfoSlug('about', lang)}/`}
                               onClick={(e) => {
                                 e.preventDefault();
                                 setIsSuiteOpen(false);
-                                navigatePath(lang === 'en' ? '/about/' : `/${lang}/about/`);
+                                navigatePath(lang === 'en' ? `/${getLocalizedInfoSlug('about', 'en')}/` : `/${lang}/${getLocalizedInfoSlug('about', lang)}/`);
                               }}
                               className="flex items-center gap-2.5 p-2.5 rounded-xl bg-white dark:bg-dark-800 hover:bg-slate-100 dark:hover:bg-dark-750 border border-slate-200 dark:border-dark-700/70 hover:border-purple-500/40 transition-all duration-150 group"
                             >
@@ -859,11 +859,11 @@ export const Navbar: React.FC = () => {
 
                             {/* Syarat & Transparansi */}
                             <a
-                              href={lang === 'en' ? '/terms/' : `/${lang}/terms/`}
+                              href={lang === 'en' ? `/${getLocalizedInfoSlug('terms', 'en')}/` : `/${lang}/${getLocalizedInfoSlug('terms', lang)}/`}
                               onClick={(e) => {
                                 e.preventDefault();
                                 setIsSuiteOpen(false);
-                                navigatePath(lang === 'en' ? '/terms/' : `/${lang}/terms/`);
+                                navigatePath(lang === 'en' ? `/${getLocalizedInfoSlug('terms', 'en')}/` : `/${lang}/${getLocalizedInfoSlug('terms', lang)}/`);
                               }}
                               className="flex items-center gap-2.5 p-2.5 rounded-xl bg-white dark:bg-dark-800 hover:bg-slate-100 dark:hover:bg-dark-750 border border-slate-200 dark:border-dark-700/70 hover:border-slate-500/40 transition-all duration-150 group"
                             >
@@ -915,14 +915,14 @@ export const Navbar: React.FC = () => {
                           </a>
                         </div>
 
-                        {/* Klaim Promo Founder Pass (Directs to /pricing/ - Hidden if already Pro) */}
+                        {/* Klaim Promo Founder Pass (Directs to localized pricing - Hidden if already Pro) */}
                         {!isPro && (
                           <a
-                            href={lang === 'en' ? '/pricing/' : `/${lang}/pricing/`}
+                            href={lang === 'en' ? `/${getLocalizedInfoSlug('pricing', 'en')}/` : `/${lang}/${getLocalizedInfoSlug('pricing', lang)}/`}
                             onClick={(e) => {
                               e.preventDefault();
                               setIsSuiteOpen(false);
-                              navigatePath(lang === 'en' ? '/pricing/' : `/${lang}/pricing/`);
+                              navigatePath(lang === 'en' ? `/${getLocalizedInfoSlug('pricing', 'en')}/` : `/${lang}/${getLocalizedInfoSlug('pricing', lang)}/`);
                             }}
                             className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-lg bg-gradient-to-r from-amber-500/10 via-orange-500/10 to-amber-500/15 hover:from-amber-500/20 hover:to-orange-500/25 border border-amber-500/35 hover:border-amber-500/60 text-amber-700 dark:text-amber-400 text-[14px] font-bold cursor-pointer transition-all duration-150 shadow-xs group"
                             title={lang === 'id' ? 'Klaim Penawaran Founder Pass' : 'Claim Founder Pass Deal'}
@@ -978,7 +978,7 @@ export const Navbar: React.FC = () => {
                           .map(l => (
                             <a
                               key={l.code}
-                              href={l.code === 'en' ? '/' : `/${l.code}`}
+                              href={l.code === 'en' ? '/' : `/${l.code}/`}
                               onClick={(e) => {
                                 e.preventDefault();
                                 handleLangChange(l.code);
@@ -1301,7 +1301,7 @@ export const Navbar: React.FC = () => {
                           .map(l => (
                             <a
                               key={l.code}
-                              href={l.code === 'en' ? '/' : `/${l.code}`}
+                              href={l.code === 'en' ? '/' : `/${l.code}/`}
                               onClick={(e) => {
                                 e.preventDefault();
                                 handleLangChange(l.code);
@@ -1354,10 +1354,10 @@ export const Navbar: React.FC = () => {
                 {/* 3. Promo Offer Card directing to Pricing (Hidden if already Pro) */}
                 {!isPro && (
                   <a
-                    href={lang === 'en' ? '/pricing/' : `/${lang}/pricing/`}
+                    href={lang === 'en' ? `/${getLocalizedInfoSlug('pricing', 'en')}/` : `/${lang}/${getLocalizedInfoSlug('pricing', lang)}/`}
                     onClick={(e) => {
                       e.preventDefault();
-                      navigatePath(lang === 'en' ? '/pricing/' : `/${lang}/pricing/`);
+                      navigatePath(lang === 'en' ? `/${getLocalizedInfoSlug('pricing', 'en')}/` : `/${lang}/${getLocalizedInfoSlug('pricing', lang)}/`);
                       setMobileMenuOpen(false);
                       document.body.style.overflow = '';
                     }}
